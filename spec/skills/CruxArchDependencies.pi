@@ -63,7 +63,13 @@ export skill CruxArchDependencies extends CruxArchBase:
         complexity, and the new risks or tradeoffs. If a proposed
         improvement requires a substantive architectural redesign,
         recommend crux-arch-explore. If the primary issue is only Piton
-        specification organization, consider crux-spec-refactor. Apply
+        specification organization, consider crux-spec-refactor. When
+        the question becomes the consequences of one specific proposed
+        specification change, that change-specific impact reasoning
+        belongs to crux-spec-impact. Recommend it, or delegate to it
+        when installed, rather than duplicating its workflow here, and
+        keep this skill focused on the health of the dependency
+        structure itself. Apply
         dependency-related specification changes only when authorized or
         approved, preserving established contracts and validating the
         resulting specification graph.

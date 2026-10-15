@@ -79,8 +79,16 @@ export skill CruxSpecReview extends PitonSkillBase:
         contradictions from difficult but compatible engineering
         tradeoffs. Look for statements supporting multiple meaningful
         interpretations, prioritizing only ambiguities that could
-        produce materially different implementations. Look for
-        important behavior that is not adequately specified, considering
+        produce materially different implementations. Note important
+        behavior that is not adequately specified at the level a
+        quality review needs, without building a systematic coverage
+        model here. Comprehensive capability, behavior, scenario, and
+        acceptance-criteria coverage analysis belongs to
+        crux-spec-coverage. When such systematic coverage is warranted,
+        recommend it, or delegate to it when it is installed and its use
+        is authorized, rather than maintaining a second implementation
+        of coverage assessment in this skill. Within that boundary,
+        consider missing behavior across
         inputs and outputs, state transitions, invariants, failure and
         error behavior, boundary conditions, interface contracts,
         lifecycle, persistence, concurrency, recovery, observability,

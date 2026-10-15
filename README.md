@@ -7,8 +7,31 @@ A Piton package that provides skills for working with Piton.
 | `crux-project-bootstrap` | Guides a user from a vague project idea to an initial, structured Piton specification through a short, adaptive interview, then lets them accept it or keep refining it in further rounds. |
 | `crux-spec-deep-dive` | Takes one selected part of an existing specification — a feature, capability, or subsystem — and develops it into a detailed, precise, implementable specification through a focused, adaptive interview, without expanding its scope. |
 | `crux-spec-review` | Critically examines a whole project or a selected part of it for contradictions, ambiguities, missing requirements, and weak assumptions, and produces a prioritized, evidence-backed review with the highest-value unanswered questions. It never modifies specifications. |
-| `crux-spec-refactor` | Automatically scans existing specifications for duplication, layout and modularity problems, and other refactoring opportunities, presents a numbered proposal list for the user to select from and add to, and applies only approved transformations, verifying against a semantic baseline that effective requirements and public exports are preserved exactly. |
-| `crux-spec-develop` | Transforms an idea, feature request, technical question, or high-level requirement into a well-researched, appropriately detailed specification, balancing research, decomposition, and focused clarification, delegating to the other crux skills where they fit, and integrating only authorized changes. |
+| `crux-spec-refactor` | Automatically scans existing specifications for duplication, layout and modularity problems, unnecessary complexity, and other refactoring and simplification opportunities, presents a numbered proposal list for the user to select from and add to, and applies only approved transformations, verifying against a semantic baseline that effective requirements and public exports are preserved exactly. |
+| `crux-spec-develop` | Transforms an idea, feature request, technical question, or high-level requirement into a well-researched, appropriately detailed specification, including structured feature proposals that remain proposals until accepted, balancing research, decomposition, and focused clarification, delegating to the other crux skills where they fit, and integrating only authorized changes. |
+| `crux-impl-reconcile` | Compares a project's Piton specifications with its actual implementation, classifies divergences (missing, contradictory, partial, undocumented, outdated, ambiguous, unverified, structural), and recommends for each whether to change the implementation, change the specification, or investigate further. Diagnostic by default, and the home of drift detection. |
+| `crux-spec-coverage` | Systematically evaluates whether specifications cover their claimed capabilities, behaviors, scenarios, boundaries, failure conditions, and acceptance criteria, and prioritizes the gaps without inventing a completeness score. Read-only by default. |
+| `crux-spec-impact` | Analyzes the direct and downstream consequences of a proposed specification change across requirements, interfaces, dependencies, and contracts before it is applied, separating confirmed impact from possible impact. Read-only by default. |
+
+## Analysis skill boundaries
+
+| Skill | Question it answers |
+| --- | --- |
+| `crux-spec-review` | What is unclear, contradictory, or problematic in these specifications? |
+| `crux-spec-coverage` | What behaviors and scenarios have we failed to specify? |
+| `crux-spec-impact` | What happens to our specifications if we change this? |
+| `crux-arch-dependencies` | Is the architecture's dependency structure healthy? |
+
+Consolidation between these skills is by optional delegation, never by
+mandatory dependency. `crux-spec-review` notes missing behavior at
+review level and defers systematic coverage modelling to
+`crux-spec-coverage`. `crux-arch-dependencies` keeps dependency-health
+analysis and defers the consequences of one specific proposed change
+to `crux-spec-impact`. `crux-spec-develop` may use coverage to find
+missing behaviors and impact to assess significant proposed changes.
+`crux-spec-refactor` may use impact when evaluating a transformation's
+consequences, while keeping its own semantic-equivalence verification.
+Every skill remains fully usable when none of the others is installed.
 | `crux-arch-explore` | Generates, researches, and compares genuinely distinct architectural approaches for a system or subsystem and recommends a direction when evidence supports one. |
 | `crux-arch-interfaces` | Defines subsystem boundaries, responsibility ownership, input and output contracts, invariants, and failure semantics. |
 | `crux-arch-dependencies` | Analyzes coupling, dependency types, cycles, layering, and bottlenecks, and explains how changes propagate. |

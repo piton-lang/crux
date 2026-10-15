@@ -219,6 +219,62 @@ export skill CruxSpecDevelop extends PitonSkillBase:
         A well-defined unresolved question can be more valuable than a
         speculative answer.
 
+    featureProposals:
+        This skill also owns structured feature proposals for
+        established projects. Do not create or suggest a separate
+        proposal skill for this. A user may ask to propose adding a
+        capability, ask what it would take to introduce something,
+        explore adding a technology, or propose a new format or
+        subsystem. Distinguish the intention without requiring the user
+        to select a mode. An exploratory question, such as whether a
+        feature could be added, is investigated for feasibility and
+        implications without modifying specifications. A request to
+        propose a feature develops a structured proposal that remains a
+        proposal until the user accepts it. A request to add the feature
+        to the specifications authorizes integration within its scope.
+
+        To develop a proposal, reuse the research, decomposition,
+        architectural comparison, question-budget clarification, and
+        integration capabilities already defined in this skill, rather
+        than building a second parallel workflow. Establish what
+        capability is proposed, why it is useful, which problem it
+        solves, who or what will consume it, how it relates to project
+        goals, and what a useful initial version is. Examine project fit
+        by determining whether it aligns with project goals, conflicts
+        with existing non-goals, depends on other capabilities, duplicates
+        a need existing functionality already addresses, belongs in the
+        current scope, or introduces major architectural consequences.
+        Research only as much as the feature technical uncertainty
+        requires. Decompose the proposal into its purpose, capabilities,
+        behavioral requirements, interfaces, constraints, important
+        invariants, failure semantics, dependencies, acceptance criteria,
+        explicit exclusions, and unresolved decisions, and never fabricate
+        requirements to make it appear complete. Evaluate consequences
+        for existing specifications and architecture, using
+        crux-spec-impact when installed for substantial impact analysis
+        and consulting crux-arch-explore, crux-arch-tradeoffs, or
+        crux-arch-risks when appropriate, without requiring any of them.
+
+        Present a concise, decision-oriented proposal explaining what the
+        feature adds, why it belongs in this project, what it requires,
+        what existing specifications would change, its major technical
+        uncertainties, its important tradeoffs, its proposed initial
+        scope, and the recommended next action. Offer the user the
+        choices to accept, revise, defer, or reject it. These are
+        conceptual states, not a mandatory workflow. If the user changes
+        the proposed feature, update the one proposal rather than
+        creating conflicting versions. If it is rejected, leave the
+        normative specifications unchanged. If it is deferred, preserve
+        the proposal only through project-supported conventions or
+        explicit user direction, and never pollute the active
+        specification with unapproved requirements. When a proposal is
+        accepted, integrate it under the authority and integration rules
+        of this skill, reusing existing requirements and contracts,
+        avoiding duplicate capabilities, preserving unrelated decisions,
+        validating the specification graph, and summarizing the accepted
+        changes. Never generate application implementation code for a
+        proposal.
+
     delegation:
         Discover and use other installed skills when they would materially
         improve the work. Inspect available skill definitions and their
@@ -233,7 +289,13 @@ export skill CruxSpecDevelop extends PitonSkillBase:
         ever being a mandatory dependency. crux-spec-refactor fits where
         integrating a capability would benefit from reorganizing existing
         specifications, and it remains a separate, explicitly authorized
-        operation. Other installed skills may be discovered dynamically
+        operation. crux-spec-coverage fits identifying which behaviors
+        and scenarios are missing when a specification is expanded here,
+        and crux-spec-impact fits assessing the consequences of a
+        significant proposed change before it is integrated. Use them for
+        those analyses when installed rather than duplicating their
+        detailed workflows, while never requiring either. Other installed
+        skills may be discovered dynamically
         and used when their declared capabilities genuinely match.
 
         Delegate only after understanding the task, only when a skill

@@ -131,3 +131,11 @@ afterwards.
   change is presented separately for approval, and no partial or
   dependent transformation is applied on top of the failure. Existing
   unrelated user modifications in the working tree are untouched.
+
+## F6. Simplification proposals through the refactor workflow
+
+- Seed a project with a three-level inheritance chain whose middle levels add no requirements, a single-use wrapper anchor that only forwards, and one genuinely complex anchor whose detail is necessary domain content.
+- Invoke: "Find abstractions we don't actually need."
+- Expect: the automatic numbered proposal list includes collapsing the empty inheritance levels and removing the wrapper, each evaluated for comprehension, duplication, indirection, and compatibility risk; the legitimately complex anchor is explicitly left alone; semantically distinct concepts are not merged for tidiness; nothing changes before input and approval; any applied item is verified against the captured effective-requirements baseline, and the report states what was simplified and which abstractions were eliminated.
+
+- F6: passed live. On 'Find abstractions we don't actually need', the agent identified the two empty inheritance levels and the trivial forwarding wrapper as the only needless abstractions, evaluated them for comprehension, indirection, and compatibility risk, explicitly left the legitimately complex degenerate-intersection anchor unchanged, proposed rather than applied, and changed no file (hash verified).

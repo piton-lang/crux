@@ -144,7 +144,13 @@ export skill CruxSpecRefactor extends PitonSkillBase:
         toolchain offers no true semantic comparison, use the strongest
         practical comparison available, typically comparing the
         compiled effective specifications before and after, and state
-        its limits honestly. Never invent unsupported guarantees.
+        its limits honestly. Never invent unsupported guarantees. When
+        evaluating the consequences of a structural transformation
+        across dependent specifications, crux-spec-impact may be used
+        for that change-specific impact analysis when it is installed.
+        Its use is optional, and this skill semantic-equivalence
+        verification against the baseline remains a separate
+        responsibility that impact analysis never replaces.
 
         Work in two phases. In the analysis phase, inspect the scope,
         identify and prioritize worthwhile refactors, present them as
@@ -221,6 +227,58 @@ export skill CruxSpecRefactor extends PitonSkillBase:
         dependent transformations. Never report success when validation or
         equivalence checks fail.
 
+    simplification:
+        Specification simplification is an explicit responsibility of
+        this skill, not a separate skill. Never create or suggest a
+        separate simplify skill for it. Simplification requests, such as
+        simplifying one area, finding abstractions the project does not
+        need, consolidating redundant requirements, or reducing
+        unnecessary inheritance and composition, are handled through the
+        same automatic scan, numbered proposal list, user input,
+        approval, and semantic-baseline verification defined throughout
+        this skill. Its objective is to reduce unnecessary specification
+        complexity while preserving intended meaning and effective
+        requirements exactly.
+
+        Look specifically for redundant requirements, duplicated
+        constraints, unnecessary abstractions, excessive inheritance
+        depth, trivial composition layers, single-use wrapper
+        specifications, fragmented specification files, overly indirect
+        imports, overgeneralized base specifications, unnecessary
+        coupling, confusing terminology, and obsolete organizational
+        structures. Distinguish actual complexity from necessary domain
+        detail. Never simplify by deleting meaningful requirements, and
+        never remove a requirement merely because it is difficult to
+        implement.
+
+        Apply the simplicity principles in every proposal. Prefer
+        conceptual cohesion, organizing related requirements together
+        where that improves understanding. Prefer meaningful reuse that
+        eliminates real duplication or establishes a genuinely shared
+        contract, never abstraction introduced solely to reduce line
+        count. Prefer shallow structures where composition or direct
+        definitions are clearer than deep inheritance. Prefer explicitness
+        over indirection, accepting that a small amount of duplication
+        may be better than an elaborate abstraction. Preserve useful
+        domain distinctions and never merge concepts that are similar but
+        semantically distinct. Preserve public contracts, so
+        simplification never silently changes exported requirements or
+        effective behavior.
+
+        Before recommending any simplification, evaluate whether it
+        actually improves comprehension, whether it reduces meaningful
+        duplication, whether it preserves semantic clarity, whether it
+        reduces or increases indirection, whether it improves
+        maintainability, whether it changes effective requirements, and
+        whether it introduces compatibility risks. Never optimize for
+        minimum file count or minimum lines of Piton. The goal is the
+        simplest coherent representation, not the smallest textual one.
+        Reuse the semantic preservation workflow already defined in this
+        skill, with its baseline capture and after-change comparison of
+        effective requirements, inheritance and composition outcomes,
+        and public compatibility, and never implement a second semantic
+        verification system for simplification.
+
     reporting:
         After applying approved changes, produce a concise report with a
         summary of what was reorganized and why, the changes grouped as
@@ -231,7 +289,12 @@ export skill CruxSpecRefactor extends PitonSkillBase:
         dependencies, and a verification section giving the original and
         final validation status, the semantic comparison results, the
         public interface compatibility, and any unresolved equivalence
-        concerns. Mention other worthwhile opportunities discovered but
+        concerns. For a simplification, also state plainly what was
+        simplified, which abstractions were eliminated, what duplication
+        was reduced, and which dependencies improved, using concrete
+        before-and-after comparisons where practical, and never claim
+        semantic equivalence unless it was meaningfully verified.
+        Mention other worthwhile opportunities discovered but
         not applied. Never exaggerate improvements with arbitrary metrics,
         and where measurements are given make them concrete before-and-after
         facts, such as how many duplicate statements were consolidated or

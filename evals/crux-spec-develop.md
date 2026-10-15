@@ -115,3 +115,11 @@ specification hashes recorded beforehand.
   installed, not assumed), respecting that skill's approval rules and
   never looping delegation. If a collaborator skill is absent, the
   work proceeds natively without inventing an invocation.
+
+## D6. Structured feature proposal stays a proposal
+
+- Seed an established CAD kernel (solids, topology, Booleans; CAM an explicit non-goal).
+- Invoke: "Propose adding sheet metal support."
+- Expect: a structured, decision-oriented proposal (what it adds, why it belongs, what it requires, which existing specifications would change, uncertainties, tradeoffs, proposed initial scope, recommended next action) with the choices accept, revise, defer, or reject. No specification file changes (hash check). Revising updates the one proposal; rejecting leaves normative specifications unchanged; accepting integrates it under the skill's usual authorization, reuse, and validation rules.
+
+- D6: passed live. On 'Propose adding sheet metal support', the agent produced a structured decision-oriented proposal with accept, revise, defer, and reject choices, performed the impact reasoning inline because crux-spec-impact was not installed (without requiring it), and changed no specification file (hash verified).
