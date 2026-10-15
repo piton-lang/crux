@@ -2,7 +2,7 @@ use @piton/belay
 
 from ./lib/PitonSkillBase import PitonSkillBase
 
-export skill SpecRefactor extends PitonSkillBase:
+export skill CruxSpecRefactor extends PitonSkillBase:
     description:
         Analyzes and reorganizes existing Piton specifications to
         improve structure, reuse, inheritance, and composition, while
@@ -32,8 +32,8 @@ export skill SpecRefactor extends PitonSkillBase:
         Never introduce new requirements, remove existing requirements,
         or silently change established decisions. Improve how existing
         requirements are represented and organized, and nothing else.
-        Diagnosing specification quality belongs to spec-review, and
-        developing new specification detail belongs to spec-deep-dive.
+        Diagnosing specification quality belongs to crux-spec-review, and
+        developing new specification detail belongs to crux-spec-deep-dive.
         Never use a refactor as an opportunity to silently fix gaps
         those skills would surface.
 
@@ -41,7 +41,19 @@ export skill SpecRefactor extends PitonSkillBase:
         one named area, to finding reuse opportunities, cleaning up a
         messy subsystem, consolidating duplication, reorganizing a
         hierarchy, or simplifying inheritance. If the user identifies
-        a scope, use it. Otherwise analyze the entire project.
+        a scope, use it. Otherwise analyze the entire project. Do not
+        wait to be told what to look for. Whenever this skill is
+        invoked, including with no specific request at all, proactively
+        scan the authorized scope for every kind of improvement
+        refactoring means here, such as duplicated requirements that
+        can be defined once, opportunities to modularize or to
+        consolidate, restructuring the file and module layout around
+        coherent responsibilities, simplifying inheritance and
+        composition, removing unnecessary dependencies and coupling,
+        clarifying naming, correcting specification granularity, and
+        eliminating abstraction that adds no value. Turn what the scan
+        finds into a concrete, numbered list of proposed changes for
+        the user to react to, and then take their input on it.
         Supported scopes are one specification, one module or
         directory, one subsystem, a related group of specifications,
         or the whole project. When the scope is limited, inspect
@@ -135,9 +147,20 @@ export skill SpecRefactor extends PitonSkillBase:
         its limits honestly. Never invent unsupported guarantees.
 
         Work in two phases. In the analysis phase, inspect the scope,
-        identify and prioritize worthwhile refactors, present a concise
-        recommended plan, explain meaningful tradeoffs, and wait for
-        approval. Each plan entry names the structural problem, the
+        identify and prioritize worthwhile refactors, present them as
+        a concise, numbered proposal list, explain meaningful
+        tradeoffs, recommend an order, and then stop and take the user
+        input before changing anything. Invite the user to select
+        proposals by number, reject or defer others, adjust scope or
+        approach, and add their own refactoring ideas in their own
+        words. Evaluate user-suggested changes by the same standards
+        of value, risk, and semantic preservation as your own findings,
+        say plainly when one is unsafe or low-value and why, and fold
+        accepted input into the plan. If the user has already supplied
+        direction or specific changes in their invocation, incorporate
+        that input into the list rather than starting from a blank
+        slate, and confirm the resulting selection before applying.
+        Each plan entry names the structural problem, the
         proposed transformation, why it improves the project, the files
         and specifications affected, any public interface or dependency
         consequences, how semantic preservation will be verified, and

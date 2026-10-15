@@ -2,7 +2,7 @@ use @piton/belay
 
 from ./lib/PitonSkillBase import PitonSkillBase
 
-export skill SpecDeepDive extends PitonSkillBase:
+export skill CruxSpecDeepDive extends PitonSkillBase:
     description:
         Develops one selected part of an existing Piton specification
         into a more detailed, precise, and implementable specification

@@ -1,4 +1,4 @@
-# spec-review: evaluation scenarios
+# crux-spec-review: evaluation scenarios
 
 Run each scenario in a fresh agent session with the built skill
 installed, against a scratch Piton project prepared as stated. A
@@ -31,7 +31,7 @@ tolerance decision is noted as a known open question, not as an
 overlooked defect. Output has Overall Assessment, Prioritized
 Findings (each with priority, type, evidence, impact, confidence),
 a Top 5 question list the user is not asked to answer inline, and one
-Recommended Next Action (typically spec-deep-dive on the affected
+Recommended Next Action (typically crux-spec-deep-dive on the affected
 specification, recommended but not invoked). No file changes.
 
 ## R2. Healthy, well-specified project
@@ -103,7 +103,7 @@ specification hashes recorded before and after.
 ## R5. Maturity sensitivity and repeat run
 
 Run on a freshly bootstrapped initial specification, then refine one
-finding away with spec-deep-dive in a separate session, then review
+finding away with crux-spec-deep-dive in a separate session, then review
 again.
 
 Expect: the first review prioritises scope, core capabilities, major

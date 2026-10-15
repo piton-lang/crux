@@ -1,4 +1,4 @@
-# spec-deep-dive: conversational evaluation scenarios
+# crux-spec-deep-dive: conversational evaluation scenarios
 
 Run each scenario in a fresh agent session with the built skill
 installed, against a scratch Piton project that already has a

@@ -2,7 +2,7 @@ use @piton/belay
 
 from ./lib/PitonSkillBase import PitonSkillBase
 
-export skill ProjectBootstrap extends PitonSkillBase:
+export skill CruxProjectBootstrap extends PitonSkillBase:
     description:
         Guides a user from a vague project idea to an initial, structured
         Piton specification through a short, adaptive interview.

@@ -4,10 +4,11 @@ A Piton package that provides skills for working with Piton.
 
 | Skill | What it does |
 | --- | --- |
-| `project-bootstrap` | Guides a user from a vague project idea to an initial, structured Piton specification through a short, adaptive interview, then lets them accept it or keep refining it in further rounds. |
-| `spec-deep-dive` | Takes one selected part of an existing specification — a feature, capability, or subsystem — and develops it into a detailed, precise, implementable specification through a focused, adaptive interview, without expanding its scope. |
-| `spec-review` | Critically examines a whole project or a selected part of it for contradictions, ambiguities, missing requirements, and weak assumptions, and produces a prioritized, evidence-backed review with the highest-value unanswered questions. It never modifies specifications. |
-| `spec-refactor` | Analyzes the structure of existing specifications, proposes ranked refactoring opportunities, and applies only approved transformations, verifying against a semantic baseline that effective requirements and public exports are preserved exactly. |
+| `crux-project-bootstrap` | Guides a user from a vague project idea to an initial, structured Piton specification through a short, adaptive interview, then lets them accept it or keep refining it in further rounds. |
+| `crux-spec-deep-dive` | Takes one selected part of an existing specification — a feature, capability, or subsystem — and develops it into a detailed, precise, implementable specification through a focused, adaptive interview, without expanding its scope. |
+| `crux-spec-review` | Critically examines a whole project or a selected part of it for contradictions, ambiguities, missing requirements, and weak assumptions, and produces a prioritized, evidence-backed review with the highest-value unanswered questions. It never modifies specifications. |
+| `crux-spec-refactor` | Automatically scans existing specifications for duplication, layout and modularity problems, and other refactoring opportunities, presents a numbered proposal list for the user to select from and add to, and applies only approved transformations, verifying against a semantic baseline that effective requirements and public exports are preserved exactly. |
+| `crux-spec-develop` | Transforms an idea, feature request, technical question, or high-level requirement into a well-researched, appropriately detailed specification, balancing research, decomposition, and focused clarification, delegating to the other crux skills where they fit, and integrating only authorized changes. |
 
 It is
 installed with the Piton package manager and compiled by the consuming

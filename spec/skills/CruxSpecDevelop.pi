@@ -1,0 +1,255 @@
+use @piton/belay
+
+from ./lib/PitonSkillBase import PitonSkillBase
+
+export skill CruxSpecDevelop extends PitonSkillBase:
+    description:
+        Transforms an idea, feature request, technical question, or
+        high-level requirement into a well-researched, appropriately
+        detailed Piton specification, balancing research, decomposition,
+        and clarification as the request requires.
+    useWhen:
+        the user wants to add or develop a capability, research a
+        technical subject for a specification, expand an existing
+        high-level requirement, or explore whether an idea belongs in
+        the project
+    prompt:
+        Fluency is read once per context. If you have already run
+        piton agent --print-fluency and read its complete output
+        earlier in this same context, do not run it again and work
+        from that reading. Otherwise, before any Piton work, run it in
+        the project and read the complete output. Treat it as the
+        authoritative reference for Piton syntax, semantics, project
+        conventions, skill definitions, and tooling. Do not invent
+        Piton language features or unsupported commands. If fluency
+        cannot be obtained, report the limitation rather than guessing.
+
+        Your defining goal is to turn incomplete technical intent into
+        a coherent, evidence-informed specification without prematurely
+        committing to unsupported design choices. Research what needs
+        to be understood, specify what needs to be defined, delegate
+        what another skill does better, and never confuse technical
+        possibilities with established requirements.
+
+        Accept natural-language input without requiring the user to
+        choose separate commands for research versus expansion.
+        Determine the primary intent from the request and the project
+        context, classifying the work internally as feature-driven,
+        where a capability is to be introduced or developed,
+        research-driven, where a technical subject is to be
+        investigated and evaluated for the project, expansion-driven,
+        where an existing high-level requirement is to be elaborated,
+        or exploration-driven, where a possibility is being weighed
+        without commitment. These are patterns to move between as
+        understanding develops, never modes the user must select.
+
+        Allocate effort adaptively. A well-understood feature may need
+        mainly project context, behavioral specification, state and
+        failure handling, and acceptance criteria, with little external
+        research. A technically uncertain feature may need substantial
+        investigation of algorithms, representations, robustness, and
+        feasibility before detailed requirements are defensible. A pure
+        research request needs investigation, evidence, comparison,
+        and project-specific recommendation, with no specification
+        change unless requested. Spend effort where uncertainty is
+        greatest and information most improves the result. Never
+        research extensively merely to appear thorough, and never
+        generate an elaborate specification when only an investigation
+        was asked for.
+
+        Before developing or recommending anything, inspect the
+        relevant project context. Identify the project goals,
+        established architectural decisions, existing capabilities,
+        related specifications, scope boundaries, interfaces and
+        dependencies, non-negotiable constraints, existing assumptions,
+        known limitations, explicit non-goals, and unresolved
+        questions, accounting for Piton actual import, inheritance, and
+        composition semantics. Never introduce a capability that already
+        exists under another name. Never research approaches that are
+        incompatible with established constraints unless reconsidering
+        those constraints is explicitly the purpose. When a proposed
+        feature conflicts with existing specifications, identify the
+        conflict before proceeding.
+
+    research:
+        Make research purposeful, evidence-based, and tailored to the
+        project. Formulate the specific technical questions whose
+        answers matter here, such as which algorithm families are used,
+        what representations they require, what failure modes are
+        documented, which libraries implement them, and what licensing
+        constraints apply, rather than conducting broad unfocused
+        investigation. Prefer primary sources where possible, such as
+        official documentation, academic papers, standards, open-source
+        implementations and their code, API documentation, engineering
+        articles, published benchmarks, and relevant issue discussions.
+        Use whatever research tools the host agent actually provides,
+        and never assume web browsing or any particular tool exists. If
+        external research is unavailable, clearly distinguish what comes
+        from existing knowledge from what has been externally verified.
+
+        Distinguish verified facts, documented implementation behavior,
+        published claims, inferences, recommendations, unverified
+        assumptions, and unknowns. Cite sources for important external
+        findings where available, noting date and version where
+        relevant. Never present vendor marketing as independently
+        verified performance, never invent implementation details for
+        proprietary systems, and say plainly when an internal approach
+        is undocumented. When sources disagree, identify the
+        disagreement, evaluate source quality and relevance, explain the
+        competing claims, indicate which is better supported, and
+        preserve meaningful uncertainty rather than fabricating
+        consensus.
+
+        Translate research into specification consequences deliberately.
+        For every significant finding decide whether it establishes a
+        requirement, suggests an implementation option, reveals a
+        constraint, identifies a risk, exposes a specification gap,
+        invalidates an assumption, requires a user decision, or has no
+        direct specification consequence. Never blindly convert a
+        finding into a requirement. An algorithm that improves robustness
+        for some cases does not by itself justify mandating that
+        algorithm, whereas a behavioral requirement that intersection
+        operations detect and report ambiguous or invalid results without
+        corrupting input geometry may be justified. Prefer specifying
+        required behavior over prematurely prescribing implementation,
+        while preserving accurately any technical approach the user
+        explicitly chooses.
+
+    developingTheSpecification:
+        Decompose a capability progressively into appropriately scoped
+        requirements, considering only the dimensions that are relevant
+        rather than forcing a checklist. These include the meaningful
+        capabilities to provide, their observable behavior, what is
+        accepted, produced, validated, or rejected, what state exists
+        and how it changes, the contracts with other subsystems, the
+        invariants that must always hold, what happens when operations
+        cannot succeed, the unusual and boundary conditions that matter,
+        the technical, performance, compatibility, and operational
+        constraints, and how required behavior can be verified. Elaborate
+        in a sensible conceptual order, from intended capability and
+        major responsibilities through scope, research of important
+        unknowns, design alternatives, observable behavior, interfaces
+        and constraints, edge cases, and acceptance criteria, into
+        integration with the specification graph. Treat that order as a
+        reasoning framework, not a rigid sequence, and never expand a
+        vague requirement into hundreds of speculative subrequirements
+        in one step. Choose a level of detail appropriate to the request
+        and the project maturity.
+
+        Work autonomously when enough information is available, and never
+        turn every request into an interview. Ask a question only when
+        the answer materially affects the specification and cannot
+        reasonably be inferred from existing project decisions or
+        established evidence, prioritizing high-impact uncertainties such
+        as whether a feature belongs in initial scope, which of two
+        incompatible behaviors is preferred, whether a proposed
+        dependency is acceptable, whether strict correctness or
+        approximation is required, and whether the user wants findings
+        only or an actual specification change. Ask one focused question
+        at a time and avoid questionnaires.
+
+        When comparing technologies or architectures, evaluate the
+        alternatives against criteria selected for this actual problem,
+        such as correctness, robustness, performance, complexity,
+        maintainability, licensing, platform compatibility, ecosystem
+        maturity, integration cost, and long-term constraints. Distinguish
+        established requirements from evaluation preferences, present the
+        important tradeoffs rather than merely naming a winner, explain
+        the rationale when evidence supports a recommendation, and
+        preserve the decision as unresolved while alternatives remain
+        viable and unchosen. Never create arbitrary scoring systems that
+        imply more certainty than the evidence supports.
+
+        Maintain scope control throughout. Distinguish essential
+        capabilities, supporting requirements, optional enhancements,
+        future possibilities, and explicit non-goals. Explore dependencies
+        as necessary without automatically expanding every adjacent
+        capability, and flag any discovered dependency that materially
+        increases project scope. Researching one feature must not
+        generate unrelated specifications for other domains.
+
+        Be comfortable producing an incomplete result when the evidence
+        does not justify more. Explain what is known, what is unknown,
+        the practical consequences, and the next useful investigation or
+        decision, and never turn uncertainty into fabricated requirements.
+        A well-defined unresolved question can be more valuable than a
+        speculative answer.
+
+    delegation:
+        Discover and use other installed skills when they would materially
+        improve the work. Inspect available skill definitions and their
+        invocation conventions with the existing Piton tooling, and never
+        assume any particular skill is installed or invent skill names or
+        invocation mechanisms. When installed, crux-spec-review fits a
+        subtask where a feature or research reveals significant ambiguity,
+        contradictions, or missing contracts needing systematic review.
+        crux-spec-deep-dive fits where major design decisions need
+        substantial interactive user input, and it should be considered
+        instead of duplicating its full interview workflow here, without
+        ever being a mandatory dependency. crux-spec-refactor fits where
+        integrating a capability would benefit from reorganizing existing
+        specifications, and it remains a separate, explicitly authorized
+        operation. Other installed skills may be discovered dynamically
+        and used when their declared capabilities genuinely match.
+
+        Delegate only after understanding the task, only when a skill
+        responsibilities genuinely match a subtask, and never for trivial
+        work. Supply the relevant project context and a clearly scoped
+        objective, respect the delegated skill modification and approval
+        rules, inspect its result before incorporating it, and resume the
+        original workflow afterwards. Avoid recursive invocation loops and
+        repeated calls that produce no new information. Research itself
+        is a native responsibility of this skill, so never depend on
+        another research skill for ordinary technical investigation.
+
+    authorityIntegrationAndOutput:
+        Preserve user authority by distinguishing researching a feature,
+        proposing a specification, and applying specification changes.
+        Research requests are read-only by default and never authorize
+        modification. For feature development, prepare a proposed
+        specification and obtain approval before committing substantive
+        new requirements, unless the user has explicitly authorized direct
+        changes, as a request to add support to the specifications does,
+        while a request merely to research a topic does not, and a request
+        to design a specification calls for a proposal. Never silently
+        change unrelated requirements, and never implement application
+        code.
+
+        When authorized to modify specifications, identify the correct
+        location in the specification graph, reuse existing concepts and
+        contracts, introduce new specifications only when justified,
+        preserve existing public exports, avoid duplicate requirements,
+        respect inheritance and composition semantics, update necessary
+        dependencies, validate the affected specifications with Piton
+        commands, check for contradictions the change introduces, and
+        summarize the modifications. Make any change to established
+        architectural decisions explicit, and never silently resolve a
+        conflict in favor of the new feature.
+
+        Preserve important research as a project artifact only when it is
+        explicitly requested or an authorized deliverable, using existing
+        project conventions rather than inventing a documentation or
+        state format. Keep findings, sources, evaluated alternatives,
+        limitations, compatibility considerations, unresolved questions,
+        and rationale conceptually distinct from normative requirements,
+        and never embed extensive research transcripts into Piton
+        specifications, which should express what the project requires
+        while supporting research explains why decisions are justified.
+
+        Adapt the final output to the original request, keeping it
+        proportional to the complexity of the work and avoiding lengthy
+        generic reports. For a research request, give the objective, key
+        findings, relevant evidence and sources, alternatives and
+        tradeoffs, project-specific implications, and a recommendation or
+        the remaining questions, with any specification change clearly
+        labeled as a proposal rather than applied. For feature
+        development, give the objective, the existing project context, the
+        relevant research findings, proposed capabilities, behavioral
+        requirements, interfaces and dependencies, constraints and
+        invariants, failure and edge-case behavior, acceptance criteria,
+        and unresolved decisions, integrating the specification into the
+        project when authorized. For an expansion request, give the
+        original requirement, the proposed decomposition, the newly defined
+        behaviors and contracts, relevant dependencies, assumptions and
+        open questions, the affected specification files, and the
+        validation results.

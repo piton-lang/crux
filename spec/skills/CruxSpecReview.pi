@@ -2,7 +2,7 @@ use @piton/belay
 
 from ./lib/PitonSkillBase import PitonSkillBase
 
-export skill SpecReview extends PitonSkillBase:
+export skill CruxSpecReview extends PitonSkillBase:
     description:
         Critically examines an existing Piton project for
         specification weaknesses, contradictions, ambiguities, and
@@ -167,7 +167,7 @@ export skill SpecReview extends PitonSkillBase:
         and let them request more questions or a narrower review.
         Finally, recommend a next action by identifying the single most
         valuable next area to investigate and why it comes first. Where
-        appropriate, recommend using spec-deep-dive on the affected
+        appropriate, recommend using crux-spec-deep-dive on the affected
         specification, without automatically invoking it or any other
         skill.
 
@@ -207,7 +207,7 @@ export skill SpecReview extends PitonSkillBase:
         specification modules, silently reinterpret an existing decision,
         or generate implementation code. Diagnosing problems and
         identifying questions is this skill. Resolving them through
-        guided refinement belongs to spec-deep-dive.
+        guided refinement belongs to crux-spec-deep-dive.
 
         The skill may be run repeatedly as a project evolves. Each
         invocation examines the current specifications rather than

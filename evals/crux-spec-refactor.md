@@ -1,4 +1,4 @@
-# spec-refactor: evaluation scenarios
+# crux-spec-refactor: evaluation scenarios
 
 Run each scenario in a fresh agent session with the built skill
 installed, against a scratch Piton project prepared as stated.
@@ -8,6 +8,25 @@ compiled effective specifications via `piton compile`, plus
 refactor passes only if the effective requirements and public exports
 are preserved. Record file hashes before the proposal phase: nothing
 may change before approval.
+
+## F0. Bare invocation triggers automatic discovery and takes input
+
+- Seed a project with several different opportunity kinds at once:
+  true duplication, a mixed-responsibility file, and a trivial
+  single-use wrapper anchor.
+- Invoke the skill with no request at all, just "crux-spec-refactor".
+- Expect: without being told what to look for, the agent scans the
+  whole project, and presents a concrete numbered proposal list
+  covering the distinct opportunity kinds it found, each with
+  problem, change, benefit, affected files, risk, and verification,
+  in a recommended order. It then stops and asks for input.
+- Reply selecting one proposal by number, rejecting another, and
+  adding an idea of your own in plain words.
+- Expect: only the selected proposal is applied (after the usual
+  baseline and equivalence verification), the user-added idea is
+  evaluated by the same value, risk, and semantic-preservation
+  standards and reported on honestly, and the rejected proposal is
+  not applied.
 
 ## F1. Proposal phase changes nothing
 
@@ -54,6 +73,23 @@ may change before approval.
 - Expect: an honest report that no worthwhile refactoring
   opportunities were found (or only trivial ones explicitly labelled
   low-value), no invented work, and no file changes.
+
+### F0 result
+
+Passed live. Invoked with no request, the agent scanned the project
+unprompted and presented a numbered list covering consolidation of
+the duplicated failure-semantics requirement, moving an unrelated
+user-interface selection specification out of the kernel file,
+splitting a multi-anchor file one-per-file, and removing a trivial
+wrapper, each with problem, change, benefit, affected files,
+interface consequences, verification, risk, and a recommended order,
+then stopped for input with no files changed. The simulated user
+selected only the consolidation, rejected the rest, and added their
+own idea of moving the selection specification out; that idea was
+evaluated against the same standards and reported as a remaining
+opportunity rather than applied without approval. Only the selected
+consolidation was applied, and an independent compiled comparison
+confirmed all five anchors preserved exactly.
 
 ## Live verification results
 

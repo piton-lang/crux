@@ -1,4 +1,4 @@
-# project-bootstrap: conversational evaluation scenarios
+# crux-project-bootstrap: conversational evaluation scenarios
 
 Run each scenario in a fresh agent session with the built skill
 installed, in a scratch Piton project. A scenario passes only if the
