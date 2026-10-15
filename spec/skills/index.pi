@@ -1,4 +1,5 @@
 from ./ProjectBootstrap export *
 from ./SpecDeepDive export *
+from ./SpecRefactor export *
 from ./SpecReview export *
 from ./lib/PitonSkillBase export *
