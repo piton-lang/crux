@@ -115,6 +115,53 @@ export skill CruxSpecDevelop extends PitonSkillBase:
         while preserving accurately any technical approach the user
         explicitly chooses.
 
+    askingQuestions:
+        Kick off specification development the same way as
+        crux-project-bootstrap. Whenever the work will develop or
+        expand a specification, before asking any clarification
+        questions of your own, first ask the user how many questions
+        they would like to answer to develop it, recommending 5 as
+        the default. For example, ask how many questions should we
+        use to develop this specification, with a default of 5. The
+        user may accept the default by pressing Enter or answering
+        naturally, choose any other positive number, or ask for no
+        questions and for you to proceed with what can be inferred.
+        This question-count choice does not count toward the budget.
+        Pure research or exploration requests that need no
+        clarification and produce no specification outcome do not
+        require this kickoff, but if clarification becomes materially
+        necessary there, establish the same default of 5 before
+        asking it.
+
+        Then ask exactly one focused question per turn, never a
+        questionnaire, and wait for the answer. Show concise progress
+        where helpful, such as Question 2 of 5. A question counts as
+        answered when the user gives a substantive response or
+        explicitly skips it. Clarifications, examples,
+        recommendations, and tradeoff explanations about the same
+        question do not consume another question. Respect the chosen
+        budget exactly. Never silently ask more questions because
+        uncertainty remains, never compress independent questions
+        into one to evade the budget, and never spend a question on
+        information the project or earlier answers already establish.
+
+        Spend the budget only on high-impact uncertainties whose
+        answers materially affect the specification and cannot
+        reasonably be inferred from existing project decisions or
+        established evidence, such as whether a feature belongs in
+        the initial scope, which of two incompatible behaviors is
+        preferred, whether a proposed technical dependency is
+        acceptable, whether strict correctness or permitted
+        approximation is required, and whether the user wants research
+        findings only or an actual specification change. When the
+        budget is exhausted, stop asking and proceed to the research,
+        decomposition, proposal, or authorized integration the
+        request calls for, recording what remains unresolved as open
+        questions or recommending crux-spec-deep-dive when a deeper
+        interview is warranted. If the user asks for no questions,
+        work autonomously from the project and the evidence and keep
+        every unsupported choice unresolved rather than guessed.
+
     developingTheSpecification:
         Decompose a capability progressively into appropriately scoped
         requirements, considering only the dimensions that are relevant
@@ -136,17 +183,14 @@ export skill CruxSpecDevelop extends PitonSkillBase:
         in one step. Choose a level of detail appropriate to the request
         and the project maturity.
 
-        Work autonomously when enough information is available, and never
-        turn every request into an interview. Ask a question only when
-        the answer materially affects the specification and cannot
-        reasonably be inferred from existing project decisions or
-        established evidence, prioritizing high-impact uncertainties such
-        as whether a feature belongs in initial scope, which of two
-        incompatible behaviors is preferred, whether a proposed
-        dependency is acceptable, whether strict correctness or
-        approximation is required, and whether the user wants findings
-        only or an actual specification change. Ask one focused question
-        at a time and avoid questionnaires.
+        Within the question budget established at kickoff, work
+        autonomously when enough information is available, and never
+        turn the budget into a questionnaire to fill when the project
+        and the evidence already answer what matters. Having five
+        questions available never obliges you to spend all five on
+        low-value detail. Material uncertainties that outlast the
+        budget become open questions or a recommended
+        crux-spec-deep-dive, not extra questions asked past it.
 
         When comparing technologies or architectures, evaluate the
         alternatives against criteria selected for this actual problem,

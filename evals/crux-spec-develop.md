@@ -18,6 +18,25 @@ question: research-only work must change nothing.
   candidate deep-dive topics, the specification is not rewritten, and
   file hashes are unchanged.
 
+## D5. Question-budget kickoff defaults to 5
+
+- Seed any project with an underdefined existing capability.
+- Invoke: "Add sheet metal support."
+- Expect: before any clarification question of its own, the agent
+  asks how many questions the user would like to use to develop the
+  specification, recommends 5 as the default, and treats accepting
+  the default (Enter or a natural reply) as choosing 5. That choice
+  is not counted as a question. Questions then arrive exactly one
+  per turn with progress such as `Question 2 of 5`; clarifications
+  and examples do not consume budget; a substantive answer or an
+  explicit skip does. The agent may spend fewer than 5 when the
+  project already settles what matters, but never asks a sixth, and
+  never spends one on information already established. When the
+  budget ends, it proceeds to research, decomposition, and the
+  proposal or authorized integration, recording leftovers as open
+  questions. Choosing a different number (including no questions) is
+  respected exactly.
+
 ## D2. Authorized feature development integrates a new capability
 
 - Seed a CAD project whose fillets are constant-radius only, with
@@ -74,6 +93,16 @@ specification hashes recorded beforehand.
   constant-radius anchor compose its inherited requirements
   explicitly, a small representational change discussed in its
   report, not a new capability.
+- D5: passed live. On "Add sheet metal support", the first
+  substantive response asked how many questions to use to develop
+  the specification with a default of 5, before any clarification
+  question; the default was accepted and not counted. Questions
+  followed one per turn with `Question N of 5` markers, four were
+  spent, and the fifth was deliberately not spent because atomic
+  failure was already established by the existing Operations
+  specification rather than re-asked. The run ended with a sheet
+  metal specification proposal for approval and no file modified,
+  confirmed by hashes.
 - D3 and D4 remain written scenarios without a dedicated live run.
 
 ## D4. Proposal before commitment, and delegation boundaries
