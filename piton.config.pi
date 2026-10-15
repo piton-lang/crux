@@ -1,0 +1,28 @@
+use @piton/belay
+use @piton/config
+use @piton/packaging
+
+from @piton/belay import ClaudeCodeAdapter, CodexAdapter, OpenCodeAdapter
+
+export piton-config PitonSkillsProject:
+    root: ./spec
+    entry: ./spec/index.pi
+
+    frameworks:
+        - {BelayConfiguration}
+
+    packages:
+        - {PitonSkills}
+
+belay-config BelayConfiguration:
+    codeRoot: .
+    crossDiscovery: separate
+
+    adapters:
+        - {ClaudeCodeAdapter}
+        - {CodexAdapter}
+        - {OpenCodeAdapter}
+
+piton-package PitonSkills:
+    name: piton-skills
+    root: ./spec

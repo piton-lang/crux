@@ -1,0 +1,7 @@
+/dist/
+/.piton/
+/tethers/
+.claude/
+.codex/
+.agents/
+.opencode/
