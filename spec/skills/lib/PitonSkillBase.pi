@@ -37,6 +37,7 @@ export abstract anchor PitonSkillBase extends Skill as skill:
         it did not confirm.
 
     groundRules:
+        - Read Piton fluency once per context. Do not re-read it for each skill or task in the same context.
         - Read the relevant source and compiled reference before changing anything.
         - Keep changes in the Piton source, scoped to what the task asks for.
         - Prefer the conventions already used by neighbouring files over new ones.

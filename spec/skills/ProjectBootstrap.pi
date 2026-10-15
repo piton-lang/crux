@@ -10,8 +10,11 @@ export skill ProjectBootstrap extends PitonSkillBase:
         the user wants to start a new project or specification from an
         idea, however vague, and no adequate specification exists yet
     prompt:
-        Before any Piton work, run piton agent --print-fluency in the
-        project and read the complete output. Treat it as the
+        Fluency is read once per context. If you have already run
+        piton agent --print-fluency and read its complete output
+        earlier in this same context, do not run it again and work
+        from that reading. Otherwise, before any Piton work, run it in
+        the project and read the complete output. Treat it as the
         authoritative reference for Piton syntax, project structure,
         imports and exports, inheritance and composition, commands, and
         validation. Do not invent Piton syntax or conventions. If that
@@ -112,9 +115,10 @@ export skill ProjectBootstrap extends PitonSkillBase:
         When the initial specification is generated, briefly summarize
         what was established, identify the most significant remaining
         unknowns, explain where the specification was written, and then
-        ask whether it is good enough for now or whether the user would
-        like to keep going. Offer exactly those two clear options. Do
-        not move on to implementation planning or any other workflow
+        ask exactly this. Is this good enough for now, or would you
+        like to keep going? Offer the two clear options, Good enough
+        and Keep going. Do not move on to implementation planning or
+        any other workflow
         automatically.
 
         If the user chooses to keep going, ask how many additional

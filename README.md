@@ -5,6 +5,8 @@ A Piton package that provides skills for working with Piton.
 | Skill | What it does |
 | --- | --- |
 | `project-bootstrap` | Guides a user from a vague project idea to an initial, structured Piton specification through a short, adaptive interview, then lets them accept it or keep refining it in further rounds. |
+| `spec-deep-dive` | Takes one selected part of an existing specification — a feature, capability, or subsystem — and develops it into a detailed, precise, implementable specification through a focused, adaptive interview, without expanding its scope. |
+| `spec-review` | Critically examines a whole project or a selected part of it for contradictions, ambiguities, missing requirements, and weak assumptions, and produces a prioritized, evidence-backed review with the highest-value unanswered questions. It never modifies specifications. |
 
 It is
 installed with the Piton package manager and compiled by the consuming
