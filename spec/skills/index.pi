@@ -1,4 +1,4 @@
-// Skills index for piton-skills.
+// Skills index for crux.
 // Re-export every skill in this directory, one line per skill file:
 from ./CruxArchDependencies export *
 from ./CruxArchExplore export *

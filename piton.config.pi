@@ -4,7 +4,7 @@ use @piton/packaging
 
 from @piton/belay import ClaudeCodeAdapter, CodexAdapter, OpenCodeAdapter
 
-export piton-config PitonSkillsProject:
+export piton-config CruxProject:
     root: ./spec
     entry: ./spec/index.pi
 
@@ -12,7 +12,7 @@ export piton-config PitonSkillsProject:
         - {BelayConfiguration}
 
     packages:
-        - {PitonSkills}
+        - {Crux}
 
 belay-config BelayConfiguration:
     codeRoot: .
@@ -23,6 +23,6 @@ belay-config BelayConfiguration:
         - {CodexAdapter}
         - {OpenCodeAdapter}
 
-piton-package PitonSkills:
-    name: piton-skills
+piton-package Crux:
+    name: crux
     root: ./spec

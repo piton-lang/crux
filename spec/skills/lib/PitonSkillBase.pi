@@ -1,6 +1,6 @@
 from @piton/belay import Skill
 
-// Base for every piton-skills skill. It is abstract, so it never
+// Base for every crux skill. It is abstract, so it never
 // compiles or is emitted on its own. Concrete skills declare with the
 // skill keyword and extend this anchor, giving their own description,
 // useWhen and prompt. Shared guidance lives in named properties rather

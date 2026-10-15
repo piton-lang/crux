@@ -1,4 +1,4 @@
-# piton-skills
+# crux
 
 A Piton package that provides skills for working with Piton.
 
@@ -79,7 +79,7 @@ From the consuming project (where its `piton.config.pi` lives):
 piton tether <git-url-of-this-repository>
 ```
 
-This installs the package's `spec/` tree into `tethers/piton-skills/`
+This installs the package's `spec/` tree into `tethers/crux/`
 and records it in `.piton/tether.lock`. To choose only this package
 when the repository offers several, list it under the URL in the
 consuming project's `dependencies`:
@@ -87,7 +87,7 @@ consuming project's `dependencies`:
 ```piton
 dependencies:
     - <git-url-of-this-repository>
-        packages: [piton-skills]
+        packages: [crux]
 ```
 
 ## Use
@@ -96,14 +96,14 @@ Import the skills you want from the package entry and re-export them
 from your project's entry file, so your build emits them:
 
 ```piton
-from piton-skills import MySkill
+from crux import MySkill
 export MySkill
 ```
 
 or take everything the package exports:
 
 ```piton
-from piton-skills export *
+from crux export *
 ```
 
 Then run `piton build` in the consuming project. Each skill is emitted
@@ -113,7 +113,7 @@ by the consuming project's adapters into that tool's skill directory.
 
 | Path | Purpose |
 | --- | --- |
-| `piton.config.pi` | Project config: source root, entry, Belay preview build, and the `piton-skills` package declaration. Not installed. |
+| `piton.config.pi` | Project config: source root, entry, Belay preview build, and the `crux` package declaration. Not installed. |
 | `spec/index.pi` | Package entry. Everything a consumer can import is re-exported here. |
 | `spec/skills/index.pi` | Skills index. Every skill file is re-exported here. |
 | `spec/skills/*.pi` | One skill per file, named after the skill anchor. |
@@ -121,7 +121,7 @@ by the consuming project's adapters into that tool's skill directory.
 | `evals/` | Conversational evaluation scenarios for the skills, run in a live agent session. Static checks do not substitute for them. |
 
 Only the tree under the package `root` (`spec/`) is installed into
-`tethers/piton-skills/`. The adapters in `piton.config.pi` only drive
+`tethers/crux/`. The adapters in `piton.config.pi` only drive
 this repository's own preview build; they are not part of the package.
 
 ## Develop
