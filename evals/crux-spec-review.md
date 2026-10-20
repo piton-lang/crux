@@ -102,7 +102,7 @@ specification hashes recorded before and after.
 
 ## R5. Maturity sensitivity and repeat run
 
-Run on a freshly bootstrapped initial specification, then refine one
+Run on a fresh initial specification from crux-spec-develop, then refine one
 finding away with crux-spec-deep-dive in a separate session, then review
 again.
 

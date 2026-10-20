@@ -6,7 +6,6 @@ from ./CruxArchInterfaces export *
 from ./CruxArchRisks export *
 from ./CruxArchTradeoffs export *
 from ./CruxImplReconcile export *
-from ./CruxProjectBootstrap export *
 from ./CruxSpecCoverage export *
 from ./CruxSpecDeepDive export *
 from ./CruxSpecDevelop export *

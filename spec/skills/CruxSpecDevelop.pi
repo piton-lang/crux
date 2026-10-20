@@ -4,15 +4,16 @@ from ./lib/PitonSkillBase import PitonSkillBase
 
 export skill CruxSpecDevelop extends PitonSkillBase:
     description:
-        Transforms an idea, feature request, technical question, or
-        high-level requirement into a well-researched, appropriately
-        detailed Piton specification, balancing research, decomposition,
-        and clarification as the request requires.
+        Transforms a project idea, however vague, a feature request, a
+        technical question, or a high-level requirement into a
+        well-researched, appropriately detailed Piton specification,
+        balancing research, decomposition, and a short adaptive
+        interview as the request requires.
     useWhen:
-        the user wants to add or develop a capability, research a
-        technical subject for a specification, expand an existing
-        high-level requirement, or explore whether an idea belongs in
-        the project
+        the user wants to start a new project or specification from an
+        idea, add or develop a capability, research a technical subject
+        for a specification, expand an existing high-level requirement,
+        or explore whether an idea belongs in the project
     prompt:
         Fluency is read once per context. If you have already run
         piton agent --print-fluency and read its complete output
@@ -34,8 +35,10 @@ export skill CruxSpecDevelop extends PitonSkillBase:
         Accept natural-language input without requiring the user to
         choose separate commands for research versus expansion.
         Determine the primary intent from the request and the project
-        context, classifying the work internally as feature-driven,
-        where a capability is to be introduced or developed,
+        context, classifying the work internally as project-driven,
+        where no adequate specification exists yet and an initial one
+        is to be built from an idea, feature-driven, where a capability
+        is to be introduced or developed,
         research-driven, where a technical subject is to be
         investigated and evaluated for the project, expansion-driven,
         where an existing high-level requirement is to be elaborated,
@@ -116,9 +119,8 @@ export skill CruxSpecDevelop extends PitonSkillBase:
         explicitly chooses.
 
     askingQuestions:
-        Kick off specification development the same way as
-        crux-project-bootstrap. Whenever the work will develop or
-        expand a specification, before asking any clarification
+        Whenever the work will start, develop, or expand a
+        specification, before asking any clarification
         questions of your own, first ask the user how many questions
         they would like to answer to develop it, recommending 5 as
         the default. For example, ask how many questions should we
@@ -131,7 +133,10 @@ export skill CruxSpecDevelop extends PitonSkillBase:
         clarification and produce no specification outcome do not
         require this kickoff, but if clarification becomes materially
         necessary there, establish the same default of 5 before
-        asking it.
+        asking it. If the user has already described what they want,
+        use that description and never ask them to repeat it. If a
+        new project has not been described, the first question
+        establishes what they want to build.
 
         Then ask exactly one focused question per turn, never a
         questionnaire, and wait for the answer. Show concise progress
@@ -161,6 +166,100 @@ export skill CruxSpecDevelop extends PitonSkillBase:
         interview is warranted. If the user asks for no questions,
         work autonomously from the project and the evidence and keep
         every unsupported choice unresolved rather than guessed.
+
+        Choose each next question from everything learned so far, never
+        from a hardcoded sequence, weighing how much the answer could
+        change the specification, how many later decisions depend on it,
+        and how damaging a wrong assumption would be. Prefer
+        foundational questions over implementation details.
+
+        Support natural conversation throughout. The user may answer
+        normally, ask for examples, request a recommendation, say they
+        do not know, skip a question, correct an earlier answer, offer
+        information beyond the question asked, ask for fewer or more
+        questions, or stop early. An answer the user does not know
+        stays unresolved rather than becoming an assumption. If the
+        user stops early, offer to produce the best result possible
+        from what has been collected. Never pressure the user to answer
+        questions they cannot meaningfully answer.
+
+        If the user revises an earlier decision, find the requirements
+        it affects, update the specification to match the newest
+        explicit decision, remove or revise contradictory statements,
+        preserve unrelated requirements, and note significant
+        consequences that may need clarification later. Never silently
+        keep obsolete requirements.
+
+    newProjects:
+        When no adequate specification exists yet, the goal is a useful
+        initial specification, not an exhaustive specification of an
+        entire system. A user may start with a single sentence such as
+        wanting to build a CAD kernel, and after a small number of
+        carefully chosen questions should have a coherent initial Piton
+        specification capturing the purpose, scope, major capabilities,
+        and important constraints of the project. A request to start a
+        project authorizes writing that initial specification.
+
+        Spend the interview on what matters at this stage. For a
+        geometry kernel, whether it targets mechanical CAD or artistic
+        modeling matters more than a particular memory allocator. Areas
+        worth exploring, when relevant, include the identity and
+        intended users of the project, the problem it solves, its core
+        capabilities and what distinguishes it, what is inside and
+        explicitly outside its scope, its important dependencies and
+        integrations, its non-negotiable constraints and tradeoffs, and
+        what would make an initial version successful. These are areas
+        of investigation, not required questions or stages, and a short
+        interview will not cover all of them. Research only where an
+        answer depends on technical facts the user cannot be expected to
+        supply. When the final question is answered, stop interviewing
+        and write the specification.
+
+        Synthesize the identity and purpose of the project, its
+        intended users or consumers, its primary capabilities, its scope
+        and boundaries, its confirmed constraints and priorities, its
+        initial success criteria, and its significant unresolved
+        decisions, as far as the conversation justifies. Distinguish
+        confirmed decisions from suggestions, preserve major unanswered
+        questions as open questions, do not design the implementation
+        in detail, and do not fabricate completeness. In an existing but
+        thin Piton project, inspect what is there first and incorporate
+        new information without silently overriding established
+        decisions. In a new or empty project, create the minimal
+        appropriate Piton project structure, avoid unnecessary files and
+        speculative modules, and prefer a small, coherent specification
+        over a large collection of poorly defined components. Validate
+        the result and fix anything validation reports before presenting
+        it as complete.
+
+        Then briefly summarize what was established, identify the most
+        significant remaining unknowns, explain where the specification
+        was written, and ask whether it is good enough for now or the
+        user would like to keep going, offering the two clear options
+        Good enough and Keep going. Do not move on to implementation
+        planning or any other workflow automatically. If the user keeps
+        going, ask how many additional questions they want, defaulting
+        to 5, and start a new round that preserves all existing
+        knowledge, reads the specification for its important gaps,
+        never repeats an answered question, and updates the same
+        specification rather than generating a competing one. Validate,
+        summarize the changes, and offer the same two options again.
+        This cycle may repeat as often as the user wishes.
+
+        Persist enough structured state, in the project and following
+        Piton conventions, for an interrupted interview to be resumed.
+        Record the current question budget and progress, the confirmed
+        information and decisions, the outstanding questions, the
+        current interview focus, and whether a specification has been
+        generated, without storing conversation transcripts. Keep this
+        state in the draft specification itself where that fits, for
+        example as open questions and round progress recorded alongside
+        it, and remove or finalize it when the user accepts the
+        specification. When resuming, inspect the project and this
+        state before asking anything, never start from scratch or repeat
+        established questions, and distinguish an unfinished round from
+        a completed round awaiting the choice between Good enough and
+        Keep going.
 
     developingTheSpecification:
         Decompose a capability progressively into appropriately scoped
