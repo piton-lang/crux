@@ -171,8 +171,12 @@ export skill CruxSpecReview extends PitonSkillBase:
         references, why it matters, and a confidence level. Then give
         the highest-value questions as a ranked list, defaulting to
         the top 5, each with a brief explanation of why it matters.
-        Never ask the user to answer these questions during the review,
-        and let them request more questions or a narrower review.
+        When the user gives a list of items to review, such as several
+        specifications, features, or areas, the number of questions,
+        whether the default or one the user requests, applies per item,
+        so give a ranked list for each named item. Never ask the user
+        to answer these questions during the review, and let them
+        request more questions or a narrower review.
         Finally, recommend a next action by identifying the single most
         valuable next area to investigate and why it comes first. Where
         appropriate, recommend using crux-spec-deep-dive on the affected

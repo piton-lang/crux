@@ -129,6 +129,14 @@ export skill CruxSpecDevelop extends PitonSkillBase:
         naturally, choose any other positive number, or ask for no
         questions and for you to proceed with what can be inferred.
         This question-count choice does not count toward the budget.
+        When the request gives a list of items to address, such as
+        several features, capabilities, or requirements, the chosen
+        number is the budget per item, not for the whole request, so
+        ask how many questions per item and make clear that 5 for
+        three items means 15 questions in total. Keep each item's
+        budget separate, never move unspent questions from one item to
+        another, and show progress per item, such as Question 2 of 5
+        for the named item.
         Pure research or exploration requests that need no
         clarification and produce no specification outcome do not
         require this kickoff, but if clarification becomes materially
@@ -239,7 +247,7 @@ export skill CruxSpecDevelop extends PitonSkillBase:
         Good enough and Keep going. Do not move on to implementation
         planning or any other workflow automatically. If the user keeps
         going, ask how many additional questions they want, defaulting
-        to 5, and start a new round that preserves all existing
+        to 5, per item when the work covers a list of items, and start a new round that preserves all existing
         knowledge, reads the specification for its important gaps,
         never repeats an answered question, and updates the same
         specification rather than generating a competing one. Validate,

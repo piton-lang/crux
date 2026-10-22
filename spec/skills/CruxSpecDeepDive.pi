@@ -60,8 +60,14 @@ export skill CruxSpecDeepDive extends PitonSkillBase:
 
         Then ask how many questions the user would like to answer,
         defaulting to 5 and accepting any positive number. This choice
-        does not count toward the budget either. After it is
-        established, begin the interview.
+        does not count toward the budget either. When the user gives a
+        list of targets or items to address, the chosen number is the
+        budget per item, not for the whole list, so ask how many
+        questions per item and make clear that 5 for three items means
+        15 questions in total. Keep each item's budget separate, never
+        move unspent questions from one item to another, and show
+        progress per item. After it is established, begin the
+        interview.
 
     askingQuestions:
         Ask exactly one substantive interview question per turn. Never
@@ -177,7 +183,8 @@ export skill CruxSpecDeepDive extends PitonSkillBase:
         to a different subsystem or start implementation.
 
         If the user keeps going, ask how many additional questions they
-        want, defaulting to 5. Before beginning, reread the updated
+        want, defaulting to 5, per item when the deep dive covers a
+        list of items. Before beginning, reread the updated
         specification, review the previous decisions, identify the most
         important remaining uncertainties, and adjust priorities.
         Continue one question at a time, never repeating answered
