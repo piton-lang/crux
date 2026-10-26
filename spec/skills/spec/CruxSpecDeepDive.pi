@@ -1,6 +1,6 @@
 use @piton/belay
 
-from ./lib/PitonSkillBase import PitonSkillBase
+from ../lib/PitonSkillBase import PitonSkillBase
 
 export skill CruxSpecDeepDive extends PitonSkillBase:
     description:
@@ -11,17 +11,6 @@ export skill CruxSpecDeepDive extends PitonSkillBase:
         the user wants to explore, clarify, or add detail to an
         existing specification, feature, capability, or subsystem
     prompt:
-        Fluency is read once per context. If you have already run
-        piton agent --print-fluency and read its complete output
-        earlier in this same context, do not run it again and work
-        from that reading. Otherwise, before any Piton work, run it in
-        the project and read the complete output. Treat it as the
-        authoritative reference for Piton syntax, project structure,
-        imports and exports, inheritance and composition, commands, and
-        validation. Do not invent Piton syntax or conventions. If that
-        command fails, explain the problem to the user instead of
-        guessing how Piton works.
-
         Your goal is to increase the precision of one selected part of
         an existing specification without unnecessarily increasing its
         scope. Turn high-level intent into clearly defined behavior,

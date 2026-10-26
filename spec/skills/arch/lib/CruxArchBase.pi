@@ -1,6 +1,6 @@
 use @piton/belay
 
-from ./PitonSkillBase import PitonSkillBase
+from ../../lib/PitonSkillBase import PitonSkillBase
 
 // Shared base for the five crux architecture skills. It is abstract,
 // so it never compiles or is emitted on its own. Each architecture
@@ -53,24 +53,6 @@ export abstract anchor CruxArchBase extends PitonSkillBase:
         researched claims, never invent characteristics of undocumented
         proprietary systems, and never perform extensive research when
         existing project information is sufficient.
-
-    collaboration:
-        Other installed skills may be used when they materially improve
-        the work, and none of them is ever required. Discover whether a
-        target skill actually exists, using the skill definitions and
-        invocation conventions the project actually provides, and confirm
-        its declared responsibilities match the subtask before
-        delegating. Relevant collaborators can include the other
-        architecture skills and, when installed, crux-spec-develop,
-        crux-spec-review, crux-spec-deep-dive, and crux-spec-refactor.
-        Supply a narrow, explicit objective with the relevant context,
-        respect the delegated skill modification permissions and approval
-        rules, inspect its result before incorporating it, and then
-        resume the original task. Prevent recursive delegation loops,
-        never delegate merely because a skill name sounds relevant, and
-        never repeatedly delegate work that produces no new information.
-        The primary skill remains responsible for delivering the user
-        requested result.
 
     modificationPolicy:
         Distinguish analysis, proposals, and authorized changes. A

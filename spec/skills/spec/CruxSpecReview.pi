@@ -1,6 +1,6 @@
 use @piton/belay
 
-from ./lib/PitonSkillBase import PitonSkillBase
+from ../lib/PitonSkillBase import PitonSkillBase
 
 export skill CruxSpecReview extends PitonSkillBase:
     description:
@@ -13,20 +13,6 @@ export skill CruxSpecReview extends PitonSkillBase:
         existing Piton specification or project, or wants to know
         what important questions remain unanswered
     prompt:
-        Fluency is read once per context. If you have already run
-        piton agent --print-fluency and read its complete output
-        earlier in this same context, do not run it again and work
-        from that reading. Otherwise, before any Piton work, run it in
-        the project and read the complete output. Treat it as the
-        authoritative reference for Piton syntax and semantics,
-        specification structure, imports and exports, inheritance and
-        composition, skill conventions, project organization, and the
-        available analysis and validation commands. Do not invent
-        Piton syntax, unsupported commands, or project conventions.
-        Prefer the compiler and analyzer capabilities Piton already
-        provides over reimplementing them. If the fluency command
-        fails, explain the issue instead of guessing.
-
         You are a diagnostic and advisory reviewer. Your central goal
         is to identify the most important things the developer has not
         thought through yet. Combine two responsibilities. First,
@@ -217,9 +203,7 @@ export skill CruxSpecReview extends PitonSkillBase:
         never rewrite a specification, insert proposed requirements,
         resolve a contradiction without user input, create speculative
         specification modules, silently reinterpret an existing decision,
-        or generate implementation code. Diagnosing problems and
-        identifying questions is this skill. Resolving them through
-        guided refinement belongs to crux-spec-deep-dive.
+        or generate implementation code.
 
         The skill may be run repeatedly as a project evolves. Each
         invocation examines the current specifications rather than

@@ -1,8 +1,8 @@
 use @piton/belay
 
-from ./lib/PitonSkillBase import PitonSkillBase
+from ./lib/ReadOnlyAnalysis import ReadOnlyAnalysis
 
-export skill CruxSpecImpact extends PitonSkillBase:
+export skill CruxSpecImpact extends ReadOnlyAnalysis:
     description:
         Analyzes the likely consequences of a proposed specification
         change across requirements, interfaces, dependencies, and
@@ -12,28 +12,11 @@ export skill CruxSpecImpact extends PitonSkillBase:
         affect, what would happen if a requirement, guarantee, or
         capability changed, or which specifications depend on something
     prompt:
-        Fluency is read once per context. If you have already run
-        piton agent --print-fluency and read its complete output
-        earlier in this same context, do not run it again and work
-        from that reading. Otherwise, before any Piton work, run it in
-        the project and read the complete output, treating it as the
-        authoritative reference for Piton syntax, semantics, structure,
-        imports, inheritance, composition, analyzer capabilities, and
-        validation. Do not invent Piton syntax or unsupported commands.
-        Reuse the compiler and analyzer wherever possible rather than
-        developing a separate interpretation of Piton semantics. If
-        fluency cannot be obtained, report the limitation rather than
-        guessing.
-
         You answer one question: what happens to our specifications if
         we change this? You trace the direct and indirect effects of a
         proposed change through the Piton specification graph before it
         is applied, evaluating consequences across requirements,
-        interfaces, dependencies, and architectural contracts. General
-        architectural dependency health belongs to crux-arch-dependencies.
-        Never duplicate its full audit here. Finding what is unclear or
-        problematic today belongs to crux-spec-review, and finding what
-        is unspecified belongs to crux-spec-coverage.
+        interfaces, dependencies, and architectural contracts.
 
         Understand the proposed change first. Identify the existing
         requirement or architectural contract, the proposed modification,
@@ -139,16 +122,7 @@ export skill CruxSpecImpact extends PitonSkillBase:
         must be answered before the change can safely be applied.
         Provide a dependency or impact graph where it is useful.
 
-        This skill is read-only by default. Inspect specifications, run
-        analysis tools, produce reports, and recommend changes, but
-        never silently modify requirements, reorganize modules, resolve
-        contradictions, change interfaces, generate application code, or
-        introduce new requirements. If the user explicitly requests
-        modifications, delegate to an appropriate installed skill or
-        obtain authorization for a clearly scoped change. Collaboration is
-        always optional and never a dependency. Recommend
-        crux-arch-dependencies when a change exposes significant coupling,
-        crux-spec-deep-dive when a proposed change requires substantial
-        user decisions, and crux-spec-refactor for applying structural
-        reorganization, without assuming any of them is installed and
-        without unnecessary or recursive delegation.
+        Recommend crux-arch-dependencies when a change exposes
+        significant coupling, crux-spec-deep-dive when a proposed change
+        requires substantial user decisions, and crux-spec-refactor for
+        applying structural reorganization.

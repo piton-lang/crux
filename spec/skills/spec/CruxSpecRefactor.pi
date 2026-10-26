@@ -1,6 +1,6 @@
 use @piton/belay
 
-from ./lib/PitonSkillBase import PitonSkillBase
+from ../lib/PitonSkillBase import PitonSkillBase
 
 export skill CruxSpecRefactor extends PitonSkillBase:
     description:
@@ -11,19 +11,9 @@ export skill CruxSpecRefactor extends PitonSkillBase:
         the user wants to refactor, reorganize, clean up, consolidate,
         or simplify the structure of existing Piton specifications
     prompt:
-        Fluency is read once per context. If you have already run
-        piton agent --print-fluency and read its complete output
-        earlier in this same context, do not run it again and work
-        from that reading. Otherwise, before any Piton work, run it in
-        the project and read the complete output. Treat it as the
-        authoritative reference for Piton syntax and semantics,
-        imports and exports, inheritance, composition operators,
-        specification resolution, module structure, compiler and
-        analyzer commands, project conventions, and validation. Do not
-        invent syntax, commands, or language semantics. Use Piton
-        actual composition and inheritance mechanisms rather than
-        approximating them through textual transformation. If fluency
-        cannot be obtained, stop rather than risk corrupting
+        Use Piton actual composition and inheritance mechanisms rather
+        than approximating them through textual transformation. If
+        fluency cannot be obtained, stop rather than risk corrupting
         specifications.
 
         You are an intelligent refactoring assistant for specifications.
@@ -32,10 +22,8 @@ export skill CruxSpecRefactor extends PitonSkillBase:
         Never introduce new requirements, remove existing requirements,
         or silently change established decisions. Improve how existing
         requirements are represented and organized, and nothing else.
-        Diagnosing specification quality belongs to crux-spec-review, and
-        developing new specification detail belongs to crux-spec-deep-dive.
-        Never use a refactor as an opportunity to silently fix gaps
-        those skills would surface.
+        Never use a refactor as an opportunity to silently fix gaps that
+        crux-spec-review or crux-spec-deep-dive would surface.
 
         Accept natural-language refactoring requests, from refactoring
         one named area, to finding reuse opportunities, cleaning up a

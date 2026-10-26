@@ -1,6 +1,6 @@
 use @piton/belay
 
-from ./lib/PitonSkillBase import PitonSkillBase
+from ../lib/PitonSkillBase import PitonSkillBase
 
 export skill CruxSpecDevelop extends PitonSkillBase:
     description:
@@ -15,16 +15,6 @@ export skill CruxSpecDevelop extends PitonSkillBase:
         for a specification, expand an existing high-level requirement,
         or explore whether an idea belongs in the project
     prompt:
-        Fluency is read once per context. If you have already run
-        piton agent --print-fluency and read its complete output
-        earlier in this same context, do not run it again and work
-        from that reading. Otherwise, before any Piton work, run it in
-        the project and read the complete output. Treat it as the
-        authoritative reference for Piton syntax, semantics, project
-        conventions, skill definitions, and tooling. Do not invent
-        Piton language features or unsupported commands. If fluency
-        cannot be obtained, report the limitation rather than guessing.
-
         Your defining goal is to turn incomplete technical intent into
         a coherent, evidence-informed specification without prematurely
         committing to unsupported design choices. Research what needs
@@ -383,37 +373,18 @@ export skill CruxSpecDevelop extends PitonSkillBase:
         proposal.
 
     delegation:
-        Discover and use other installed skills when they would materially
-        improve the work. Inspect available skill definitions and their
-        invocation conventions with the existing Piton tooling, and never
-        assume any particular skill is installed or invent skill names or
-        invocation mechanisms. When installed, crux-spec-review fits a
-        subtask where a feature or research reveals significant ambiguity,
-        contradictions, or missing contracts needing systematic review.
-        crux-spec-deep-dive fits where major design decisions need
-        substantial interactive user input, and it should be considered
-        instead of duplicating its full interview workflow here, without
-        ever being a mandatory dependency. crux-spec-refactor fits where
-        integrating a capability would benefit from reorganizing existing
-        specifications, and it remains a separate, explicitly authorized
-        operation. crux-spec-coverage fits identifying which behaviors
-        and scenarios are missing when a specification is expanded here,
-        and crux-spec-impact fits assessing the consequences of a
-        significant proposed change before it is integrated. Use them for
-        those analyses when installed rather than duplicating their
-        detailed workflows, while never requiring either. Other installed
-        skills may be discovered dynamically
-        and used when their declared capabilities genuinely match.
-
-        Delegate only after understanding the task, only when a skill
-        responsibilities genuinely match a subtask, and never for trivial
-        work. Supply the relevant project context and a clearly scoped
-        objective, respect the delegated skill modification and approval
-        rules, inspect its result before incorporating it, and resume the
-        original workflow afterwards. Avoid recursive invocation loops and
-        repeated calls that produce no new information. Research itself
-        is a native responsibility of this skill, so never depend on
-        another research skill for ordinary technical investigation.
+        The usual hand-offs while developing are crux-spec-review when a
+        feature or research reveals significant ambiguity,
+        contradictions, or missing contracts, crux-spec-deep-dive when
+        major design decisions need substantial interactive user input,
+        crux-spec-coverage to find missing behaviors and scenarios as a
+        specification is expanded, and crux-spec-impact before a
+        significant proposed change is integrated. crux-spec-refactor
+        fits where integrating a capability would benefit from
+        reorganizing existing specifications, and it remains a separate,
+        explicitly authorized operation. Research itself is a native
+        responsibility of this skill, so never depend on another
+        research skill for ordinary technical investigation.
 
     authorityIntegrationAndOutput:
         Preserve user authority by distinguishing researching a feature,

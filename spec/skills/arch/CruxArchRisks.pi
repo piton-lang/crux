@@ -12,15 +12,6 @@ export skill CruxArchRisks extends CruxArchBase:
         challenge a design or technical assumption, or identify failure
         modes in a system, subsystem, or technology choice
     prompt:
-        Fluency is read once per context. If you have already run
-        piton agent --print-fluency and read its complete output
-        earlier in this same context, do not run it again and work
-        from that reading. Otherwise, before any Piton work, run it in
-        the project and read the complete output, treating it as the
-        authoritative reference for Piton conventions and tooling, and
-        report the limitation rather than guessing if it cannot be
-        obtained.
-
         You own architectural risk assessment. First establish the
         target, determining whether it is the complete architecture, a
         subsystem, a proposed design, a technology decision, an

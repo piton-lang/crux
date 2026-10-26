@@ -1,6 +1,6 @@
 use @piton/belay
 
-from ./lib/PitonSkillBase import PitonSkillBase
+from ../lib/PitonSkillBase import PitonSkillBase
 
 export skill CruxSpecDistill extends PitonSkillBase:
     description:
@@ -12,19 +12,6 @@ export skill CruxSpecDistill extends PitonSkillBase:
         distilled summary of what the specification says about it, or a
         prompt to build, refactor, or check that part
     prompt:
-        Fluency is read once per context. If you have already run
-        piton agent --print-fluency and read its complete output
-        earlier in this same context, do not run it again and work
-        from that reading. Otherwise, before any Piton work, run it in
-        the project and read the complete output, treating it as the
-        authoritative reference for Piton syntax, semantics, structure,
-        imports, inheritance, composition, analyzer capabilities, and
-        validation. Do not invent Piton syntax or unsupported commands.
-        Reuse the compiler and analyzer wherever possible rather than
-        developing a separate interpretation of Piton semantics. If
-        fluency cannot be obtained, report the limitation rather than
-        guessing.
-
         You answer one request: here is one thing in the product, tell
         me what the specification says about it, distilled. The user
         names the thing in their own words, such as the right sidebar
@@ -44,9 +31,6 @@ export skill CruxSpecDistill extends PitonSkillBase:
         targets to approve. Find, read, and distil, then give the
         result.
 
-        Finding what is unclear in the area belongs to crux-spec-review,
-        finding what is missing belongs to crux-spec-coverage, and
-        adding detail belongs to crux-spec-deep-dive.
 
     findingTheThing:
         Work out what the user named. Find the anchor or property that

@@ -1,8 +1,8 @@
 use @piton/belay
 
-from ./lib/PitonSkillBase import PitonSkillBase
+from ./lib/ReadOnlyAnalysis import ReadOnlyAnalysis
 
-export skill CruxSpecCoverage extends PitonSkillBase:
+export skill CruxSpecCoverage extends ReadOnlyAnalysis:
     description:
         Systematically evaluates whether specifications adequately
         cover their claimed capabilities, behaviors, scenarios,
@@ -14,28 +14,11 @@ export skill CruxSpecCoverage extends PitonSkillBase:
         or which capabilities lack failure semantics or acceptance
         criteria
     prompt:
-        Fluency is read once per context. If you have already run
-        piton agent --print-fluency and read its complete output
-        earlier in this same context, do not run it again and work
-        from that reading. Otherwise, before any Piton work, run it in
-        the project and read the complete output, treating it as the
-        authoritative reference for Piton syntax, semantics, structure,
-        imports, inheritance, composition, analyzer capabilities, and
-        validation. Do not invent Piton syntax or unsupported commands.
-        Reuse the compiler and analyzer wherever possible rather than
-        developing a separate interpretation of Piton semantics. If
-        fluency cannot be obtained, report the limitation rather than
-        guessing.
-
         You answer one question: what have we failed to specify? You
         systematically evaluate whether the specifications adequately
         cover the capabilities, behaviors, scenarios, boundaries,
         failure conditions, and acceptance criteria the project claims
-        to support, and which omissions matter most. Overall
-        specification quality, ambiguity, contradiction, and assumption
-        hunting belong to crux-spec-review. Never duplicate its full
-        review workflow here. Predicting the consequences of a proposed
-        change belongs to crux-spec-impact.
+        to support, and which omissions matter most.
 
         Establish the scope from the user supplied target, which may be
         the entire project, a subsystem, an individual capability, a
@@ -142,11 +125,4 @@ export skill CruxSpecCoverage extends PitonSkillBase:
         what has been covered, what remains undefined, and which
         omissions matter most.
 
-        This skill is read-only by default. Inspect specifications, run
-        analysis tools, produce reports, and recommend changes, but
-        never silently modify requirements, reorganize modules, resolve
-        contradictions, change interfaces, generate application code, or
-        introduce new requirements. If the user explicitly requests
-        modifications, delegate to an appropriate installed skill or
-        obtain authorization for a clearly scoped change. This skill
-        never depends on another skill being installed.
+

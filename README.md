@@ -48,7 +48,7 @@ priorities (`crux-arch-tradeoffs`), and what could make this design
 fail (`crux-arch-risks`). Each is a separate skill that works on its
 own; none requires another.
 
-They share one abstract base, `spec/skills/lib/CruxArchBase.pi`, itself
+They share one abstract base, `spec/skills/arch/lib/CruxArchBase.pi`, itself
 built on `PitonSkillBase`. The architecture base carries the common
 conventions once (distinguishing requirements, decisions, proposals,
 alternatives, assumptions, findings, risks, and open questions;
@@ -114,9 +114,13 @@ by the consuming project's adapters into that tool's skill directory.
 | --- | --- |
 | `piton.config.pi` | Project config: source root, entry, Belay preview build, and the `crux` package declaration. Not installed. |
 | `spec/index.pi` | Package entry. Everything a consumer can import is re-exported here. |
-| `spec/skills/index.pi` | Skills index. Every skill file is re-exported here. |
-| `spec/skills/*.pi` | One skill per file, named after the skill anchor. |
+| `spec/skills/index.pi` | Skills index. Re-exports each skill family's index. |
+| `spec/skills/spec/` | Specification skills (`crux-spec-*`), one per file, named after the skill anchor, with `index.pi` re-exporting them. `lib/ReadOnlyAnalysis.pi` is the read-only base shared by coverage and impact. |
+| `spec/skills/arch/` | Architecture skills (`crux-arch-*`), laid out the same way, with their shared base in `lib/CruxArchBase.pi`. Not exported yet. |
+| `spec/skills/impl/` | Implementation skills (`crux-impl-*`). Not exported yet. |
 | `spec/skills/lib/PitonSkillBase.pi` | Abstract base every skill extends. It is never compiled or emitted on its own; its shared properties are inherited by each concrete skill and serialized as sections after that skill's own prompt. |
+| `spec/skills/lib/Fluency.pi` | Abstract base holding the instruction for reading Piton fluency, inherited through `PitonSkillBase`. |
+| `spec/skills/lib/CruxSkills.pi` | The map of which skill owns which question. Emitted as one reference document that every skill links to. |
 | `evals/` | Conversational evaluation scenarios for the skills, run in a live agent session. Static checks do not substitute for them. |
 
 Only the tree under the package `root` (`spec/`) is installed into

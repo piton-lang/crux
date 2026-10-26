@@ -1,6 +1,6 @@
 use @piton/belay
 
-from ./lib/PitonSkillBase import PitonSkillBase
+from ../lib/PitonSkillBase import PitonSkillBase
 
 export skill CruxImplReconcile extends PitonSkillBase:
     description:
@@ -13,16 +13,7 @@ export skill CruxImplReconcile extends PitonSkillBase:
         detect specification-to-implementation drift, check compliance,
         or reconcile intended and actual behavior
     prompt:
-        Fluency is read once per context. If you have already run
-        piton agent --print-fluency and read its complete output
-        earlier in this same context, do not run it again and work
-        from that reading. Otherwise, before any Piton work, run it in
-        the project and read the complete output, treating it as the
-        authoritative reference for Piton syntax, semantics, structure,
-        imports, inheritance, composition, analyzer capabilities, and
-        validation. Do not infer compliance from raw source-text
-        similarity, and if fluency cannot be obtained, report the
-        limitation rather than guessing.
+        Do not infer compliance from raw source-text similarity.
 
         Your central question is where the specification and the
         implementation disagree, and what should be done about it. This
@@ -136,12 +127,10 @@ export skill CruxImplReconcile extends PitonSkillBase:
         modifications, apply the smallest coherent change, run the
         appropriate validation, verify specification compliance, and
         report the remaining discrepancies. Respect the distinction
-        between specification changes and implementation changes.
-        Delegate a specialized subtask to an appropriate installed skill
-        only optionally, such as crux-spec-review for contradictory
-        requirements, crux-spec-deep-dive for needed user decisions, or
-        crux-spec-develop for revising a specification, and never require
-        another skill.
+        between specification changes and implementation changes. Useful
+        hand-offs are crux-spec-review for contradictory requirements,
+        crux-spec-deep-dive for needed user decisions, and
+        crux-spec-develop for revising a specification.
 
         Present an overall alignment summary without unsupported
         completeness percentages, the confirmed discrepancies with

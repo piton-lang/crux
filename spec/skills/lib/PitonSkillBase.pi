@@ -1,5 +1,8 @@
 from @piton/belay import Skill
 
+from ./CruxSkills import CruxSkills
+from ./Fluency import Fluency
+
 // Base for every crux skill. It is abstract, so it never
 // compiles or is emitted on its own. Concrete skills declare with the
 // skill keyword and extend this anchor, giving their own description,
@@ -7,8 +10,10 @@ from @piton/belay import Skill
 // than prompt: the skill keyword puts Skill last in the chain, so its
 // inherited null prompt default would override a prompt set here,
 // while named properties inherit cleanly and are serialized as
-// sections after each concrete skill's own prompt.
-export abstract anchor PitonSkillBase extends Skill as skill:
+// sections after each concrete skill's own prompt. Fluency carries
+// the instruction for reading Piton fluency. Collaboration links to
+// CruxSkills, the map of which skill owns which question.
+export abstract anchor PitonSkillBase extends Fluency, Skill as skill:
     // Loosely adapted from https://github.com/ayghri/i-have-adhd (MIT).
     plainLanguage:
         This is not optional. Write every reply in very simple language.
@@ -67,11 +72,13 @@ export abstract anchor PitonSkillBase extends Skill as skill:
         Compiled reference documents are useful for orientation, but the
         Piton source is the truth when the two disagree.
 
-        Treat the .pi files as the only source of truth. Never hand-edit
-        generated output, including generated guidance files, generated
-        skill, command and agent files, renderer output, and anything
-        tracked in .piton/manifest.json. Make every lasting change in
-        the .pi source and rebuild so the generated files follow.
+        Read the relevant source and compiled reference before changing
+        anything. Treat the .pi files as the only source of truth. Never
+        hand-edit generated output, including generated guidance files,
+        generated skill, command and agent files, renderer output, and
+        anything tracked in .piton/manifest.json. Make every lasting
+        change in the .pi source and rebuild so the generated files
+        follow.
 
         Follow references lazily. A reference is a link to follow when
         the work touches what it describes, not content to load up
@@ -80,15 +87,34 @@ export abstract anchor PitonSkillBase extends Skill as skill:
         property depends on.
 
         Work in a verified loop. Make the smallest change that covers
-        the task, then run piton format and piton check, fix anything
+        the task, keep it scoped to what the task asks for, and prefer
+        the conventions already used by neighbouring files over new
+        ones. Then run piton format and piton check, fix anything
         they report in the source, run piton build, and inspect the
-        diff of the generated files before reporting the result. Say
-        plainly what the compiler reported rather than claiming success
-        it did not confirm.
+        diff of the generated files before reporting the result. Report
+        compiler errors and warnings exactly as they are, with their
+        files, and never claim success the compiler did not confirm.
 
-    groundRules:
-        - Read Piton fluency once per context. Do not re-read it for each skill or task in the same context.
-        - Read the relevant source and compiled reference before changing anything.
-        - Keep changes in the Piton source, scoped to what the task asks for.
-        - Prefer the conventions already used by neighbouring files over new ones.
-        - Report compiler errors and warnings exactly as they are, with their files.
+    collaboration:
+        Each crux skill owns one question, listed in @{CruxSkills}.
+        Read that list when the work seems to turn into another
+        skill's question. Then say so and recommend that skill rather
+        than running its full workflow here.
+
+        Other installed skills may be used when they materially improve
+        the work, and none of them is ever required. Every skill stays
+        fully usable when none of the others is installed. Discover
+        whether a target skill actually exists, using the skill
+        definitions and invocation conventions the project actually
+        provides, and never invent skill names or invocation
+        mechanisms. Delegate only after understanding the task, only
+        when the skill's declared responsibilities match the subtask,
+        and never for trivial work. Supply a narrow, explicit objective
+        with the relevant context, respect the delegated skill's
+        modification permissions and approval rules, inspect its result
+        before incorporating it, and then resume the original task.
+        Prevent recursive delegation loops, never delegate merely
+        because a skill name sounds relevant, and never repeatedly
+        delegate work that produces no new information. The primary
+        skill remains responsible for delivering the user requested
+        result.
