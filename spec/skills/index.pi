@@ -11,6 +11,7 @@
 from ./CruxSpecCoverage export *
 from ./CruxSpecDeepDive export *
 from ./CruxSpecDevelop export *
+from ./CruxSpecDistill export *
 from ./CruxSpecImpact export *
 from ./CruxSpecRefactor export *
 from ./CruxSpecReview export *
