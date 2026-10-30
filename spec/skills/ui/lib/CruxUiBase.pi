@@ -1,0 +1,115 @@
+use @piton/belay
+
+from ../../lib/PitonSkillBase import PitonSkillBase
+
+// Shared base for the crux UI prototyping skills. It is abstract, so
+// it never compiles or is emitted on its own. It holds the rules for
+// saved mockups, numbered variations and the gallery page, so every
+// crux-ui skill writes and reads mockups the same way. Shared
+// guidance lives in named properties, which inherit cleanly and are
+// serialized as sections after each concrete skill's own prompt.
+export abstract anchor CruxUiBase extends PitonSkillBase:
+    mockupFiles:
+        Mockups are saved project files, not throwaway output. Save
+        them next to the specification file they belong to, in a folder
+        named after that file with a .mockups suffix. For
+        spec/surface/Card.pi the folder is spec/surface/Card.mockups.
+        Each round gets its own subfolder, round-1, round-2 and so on.
+        Inside a round, each variation is one file named by its number,
+        1.html, 2.html, 3.html, and the round's gallery is index.html.
+        The folder also has a top-level index.html that lists every
+        round, links to each round's gallery, and marks the variation
+        picked in each round. Never overwrite or renumber an earlier
+        round. A new round is always a new folder.
+
+        Piton reads only .pi files, so the mockups never affect piton
+        check or piton build. If the project tethers its source root as
+        a package, the mockups travel with it, which is intended.
+
+    referencingMockups:
+        The specification must point at its mockups. Give the anchor
+        that describes the UI a mockups property. In it, name the
+        mockups folder index and the picked variation of the latest
+        round, as paths relative to the project root, where
+        piton.config.pi lives, such as
+        spec/surface/Card.mockups/round-2/3.html. Add one plain
+        sentence per pick saying what it settled. Use project-root
+        paths because a Markdown link written in prose is plain text
+        that Piton never rewrites, so a relative link would break in
+        the compiled reference tree. Keep the property in step with
+        each new pick. Run piton format, piton check and piton build
+        after editing it.
+
+        A mockup illustrates the specification. It never replaces it.
+        Every behaviour a pick settles, such as layout order, what
+        shows when a list is empty, or what a control does, is also
+        written as plain requirements in the anchor. Someone who never
+        opens the mockup must still be able to build the UI from the
+        specification.
+
+    variations:
+        Number variations 1, 2, 3 and so on, in the order they appear
+        in the gallery. Use the same number in the file name, in the
+        gallery card, and in everything you say about it, so the user
+        can pick one by number alone.
+
+        Make the variations genuinely different. Vary what matters for
+        the open question of the round, such as layout, information
+        order, density, navigation, or how an interaction works. Never
+        make variations that differ only in colour or font size. Give
+        each one a short name and one sentence on the idea behind it.
+
+        Build each variation from the project, not from generic
+        placeholders. Follow the design rules the specification already
+        has, such as palette, spacing, type, icons, tone, accessibility
+        and language rules. Use realistic content shaped like the
+        project's real data, never lorem ipsum. Show the states the
+        specification cares about, such as empty, loading, error, long
+        text, a second language, or a narrow screen, when they matter
+        for the round.
+
+        Each variation file is a single self-contained HTML page with
+        inline CSS. Use JavaScript only to show an interaction that
+        cannot be seen without it. Load nothing from the network, so
+        the files open offline and look the same years later. A mockup
+        is a picture of the UI, not the implementation, so never write
+        it into the application code and never copy it there.
+
+    gallery:
+        Each round has one gallery page, index.html in the round
+        folder, that shows every variation of the round at once. It is
+        also a single self-contained HTML page that loads nothing from
+        the network. It shows the round number and the question the
+        round explores. Then it shows one card per variation with the
+        number large and clear, the short name, the one-sentence idea,
+        and a live preview of the variation file in an iframe.
+
+        The gallery lets the user dive into any variation. Clicking a
+        card, or pressing its number key, opens a large view of that
+        variation inside the gallery. The large view has a width
+        switch for wide, tablet and 375px phone sizes, previous and
+        next controls, a link that opens the variation file on its
+        own, and Escape to return to the grid. In a later round, the
+        gallery also links back to the variation it grew from.
+
+        After writing a round, show the gallery. Give the user its path
+        relative to the working directory, and open it with whatever
+        preview the host actually provides, such as a browser tool or
+        the system's file opener. Never assume a particular tool
+        exists. If iframes do not load from the file system in the
+        user's browser, suggest serving the mockups folder with a
+        simple local static server and give the exact command.
+
+    picking:
+        The user picks a variation by telling you its number, such as
+        2, or I like 2. They may also combine, such as 2 with the
+        header from 3, ask for changes to one, ask to dive deeper into
+        one, reject all of them, or ask for a different number of
+        variations. Treat a combination or a change as the starting
+        point for the next round, not as a pick of an existing file.
+        Never pick for the user, and never treat silence as a pick.
+
+        Once a pick is made, record it. Mark it in the top-level
+        mockups index, update the mockups property in the
+        specification, and write what the pick settled as plain
+        requirements in the anchor.

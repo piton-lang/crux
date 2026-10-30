@@ -11,6 +11,7 @@ A Piton package that provides skills for working with Piton.
 | `crux-impl-reconcile` | Compares a project's Piton specifications with its actual implementation, classifies divergences (missing, contradictory, partial, undocumented, outdated, ambiguous, unverified, structural), and recommends for each whether to change the implementation, change the specification, or investigate further. Diagnostic by default, and the home of drift detection. |
 | `crux-spec-coverage` | Systematically evaluates whether specifications cover their claimed capabilities, behaviors, scenarios, boundaries, failure conditions, and acceptance criteria, and prioritizes the gaps without inventing a completeness score. Read-only by default. |
 | `crux-spec-impact` | Analyzes the direct and downstream consequences of a proposed specification change across requirements, interfaces, dependencies, and contracts before it is applied, separating confirmed impact from possible impact. Read-only by default. |
+| `crux-ui-develop` | Interviews the user about which part of the UI to work on and how it should work, then runs mockup rounds: it asks how many variations to make, saves them numbered 1, 2, 3 next to the spec file in a `<Spec>.mockups/round-N/` folder with one gallery page to compare and dive into them, and records the picked number and what it settled in the specification, which references the mockup files. |
 
 ## Analysis skill boundaries
 

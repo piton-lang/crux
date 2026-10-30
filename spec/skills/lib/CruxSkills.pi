@@ -13,6 +13,7 @@ export anchor CruxSkills:
         - crux-spec-refactor: reorganizing the specifications while preserving their meaning exactly.
         - crux-spec-distill: everything the specification says about one named thing, as one prompt.
         - crux-impl-reconcile: where the specification and the implementation disagree.
+        - crux-ui-develop: which part of the UI to work on, how it should work, and which mockup variation to keep.
         - crux-arch-explore: what architectures could solve this problem.
         - crux-arch-interfaces: how components divide responsibility and what crosses each boundary.
         - crux-arch-dependencies: whether the dependency structure is healthy.
