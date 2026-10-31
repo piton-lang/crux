@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 81 · Wine label · Brightwork</title>
+<style>
+:root {
+  --cellar: #efe6d2;
+  --label: #fbf6ea;
+  --burgundy: #6d1424;
+  --claret: #8b2b3b;
+  --gilt: #a88443;
+  --ink: #2a1a17;
+  --muted: #5d4a43;
+  --hair: #cdbf9f;
+  --ok: #2c5934;
+  --risk: #7c5000;
+  --bad: #a01d1d;
+  --serif: Didot, "Bodoni 72", "Bodoni MT", "Big Caslon", "Hoefler Text", Garamond, Georgia, serif;
+  --text: "Hoefler Text", Garamond, "EB Garamond", Baskerville, "Times New Roman", Georgia, serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--cellar); color: var(--ink); font: 16px/1.5 var(--text); }
+a { color: var(--burgundy); }
+:focus-visible, .is-focus { outline: 2px solid var(--burgundy); outline-offset: 3px; box-shadow: 0 0 0 6px rgba(109,20,36,.15); }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+.sc { font: 600 12px/1.3 var(--serif); letter-spacing: .24em; text-transform: uppercase; }
+
+/* engraved frame: border + gap + hairline */
+.engraved { background: var(--label); border: 1px solid var(--burgundy); outline: 1px solid var(--burgundy); outline-offset: -6px; box-shadow: inset 0 0 0 8px var(--label), inset 0 0 0 9px var(--gilt), 0 2px 0 rgba(42,26,23,.08), 0 12px 24px rgba(42,26,23,.10); }
+
+/* header */
+.util { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 12px 0; border-bottom: 1px solid var(--hair); }
+.util .r { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.search { display: flex; align-items: baseline; gap: 8px; border-bottom: 1px solid var(--burgundy); }
+.search input { border: 0; background: transparent; font: italic 16px var(--text); color: var(--ink); padding: 4px 0; width: 210px; }
+.search input:focus { outline: none; }
+.search:focus-within { outline: 2px solid var(--burgundy); outline-offset: 4px; }
+.btn { font: 600 12px/1 var(--serif); letter-spacing: .2em; text-transform: uppercase; padding: 11px 18px; background: var(--burgundy); color: var(--label); border: 1px solid var(--burgundy); outline: 1px solid var(--label); outline-offset: -4px; cursor: pointer; border-radius: 0; }
+.btn-2 { background: transparent; color: var(--burgundy); outline-color: var(--burgundy); }
+.btn.is-focus { outline: 1px solid var(--label); outline-offset: -4px; box-shadow: 0 0 0 3px var(--label), 0 0 0 5px var(--burgundy); }
+.btn-2.is-focus { outline-color: var(--burgundy); }
+.notes { color: var(--burgundy); text-decoration: none; }
+.master { font: italic 15px var(--text); }
+.master span { font-style: normal; color: var(--muted); }
+.crest { text-align: center; padding: 22px 0 10px; }
+.crest svg { display: block; margin: 0 auto 6px; }
+.house { margin: 0; font: 400 46px/1 var(--serif); letter-spacing: .3em; text-transform: uppercase; padding-left: .3em; }
+.house-sub { display: block; margin-top: 6px; color: var(--muted); }
+.vine { display: flex; justify-content: center; flex-wrap: wrap; list-style: none; margin: 14px 0 0; padding: 10px 0; border-top: 1px solid var(--burgundy); border-bottom: 1px solid var(--burgundy); gap: 0; }
+.vine li { display: flex; align-items: center; }
+.vine li + li::before { content: "❖"; color: var(--gilt); font-size: 10px; margin: 0 6px; }
+.vine a { padding: 4px 10px; text-decoration: none; color: var(--ink); font: 600 12px var(--serif); letter-spacing: .22em; text-transform: uppercase; }
+.vine a[aria-current="page"] { color: var(--burgundy); border-bottom: 1px solid var(--burgundy); }
+
+/* greeting cartouche */
+.cart { margin: 30px auto 26px; max-width: 760px; text-align: center; padding: 30px 40px; border-radius: 50% / 38%; }
+.cart.engraved { outline: none; box-shadow: inset 0 0 0 6px var(--label), inset 0 0 0 7px var(--gilt), 0 12px 24px rgba(42,26,23,.10); }
+.cart h1 { margin: 6px 0 2px; font: italic 400 40px/1.1 var(--serif); }
+.cart .date { color: var(--muted); }
+.cart .alert { margin: 10px 0 0; font: 600 13px var(--serif); letter-spacing: .2em; text-transform: uppercase; color: var(--burgundy); }
+
+/* collars */
+.collars { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 18px; list-style: none; margin: 0 0 34px; padding: 0; }
+.collars li { text-align: center; padding: 18px 10px 16px; border-radius: 999px / 60px; }
+.collars li.engraved { outline: none; box-shadow: inset 0 0 0 5px var(--label), inset 0 0 0 6px var(--gilt), 0 8px 16px rgba(42,26,23,.08); }
+.collars b { display: block; font: 400 44px/1 var(--serif); font-variant-numeric: lining-nums; }
+.collars span { color: var(--muted); }
+.collars li.warn b { color: var(--burgundy); }
+
+.sec-t { text-align: center; margin: 0 0 18px; }
+.sec-t h2 { margin: 0; font: 400 28px var(--serif); letter-spacing: .14em; text-transform: uppercase; }
+.sec-t span { font-style: italic; color: var(--muted); }
+.sec-t::after { content: ""; display: block; width: 120px; height: 7px; margin: 8px auto 0; border-top: 1px solid var(--burgundy); border-bottom: 1px solid var(--burgundy); }
+
+.labels { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 26px; list-style: none; margin: 0 0 40px; padding: 0; }
+.label { background: var(--label); border: 1px solid var(--burgundy); padding: 7px; box-shadow: 0 12px 24px rgba(42,26,23,.10); }
+.lab-in { border: 3px double var(--burgundy); padding: 18px 16px 18px; text-align: center; height: 100%; display: flex; flex-direction: column; align-items: center; gap: 4px; background: radial-gradient(ellipse at 50% 0, rgba(168,132,67,.10), transparent 70%); }
+.cuvee { font: 600 11px var(--serif); letter-spacing: .26em; text-transform: uppercase; color: var(--muted); }
+.sprig { width: 80px; height: 16px; }
+.label h3 { margin: 2px 0 0; font: 400 26px/1.1 var(--serif); }
+.label h3 a { color: var(--ink); text-decoration: none; }
+.label h3 a:hover { text-decoration: underline; text-decoration-thickness: 1px; }
+.vintage { font: italic 15px var(--text); color: var(--burgundy); }
+.abv { display: flex; align-items: baseline; gap: 6px; margin-top: 6px; }
+.abv b { font: 400 44px/1 var(--serif); font-variant-numeric: lining-nums; }
+.abv b small { font-size: 20px; }
+.abv span { font: italic 15px var(--text); color: var(--muted); }
+.meter { width: 70%; height: 9px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); position: relative; display: block; margin: 4px 0; }
+.meter i { position: absolute; left: 0; top: 2px; bottom: 2px; background: var(--burgundy); }
+.small { margin: 0; font-size: 14px; color: var(--muted); }
+.seal { margin-top: 8px; display: inline-flex; align-items: center; gap: 8px; font: 600 11px var(--serif); letter-spacing: .2em; text-transform: uppercase; }
+.seal svg { width: 26px; height: 26px; flex: none; }
+.seal.ok { color: var(--ok); } .seal.risk { color: var(--risk); } .seal.bad { color: var(--bad); }
+
+.lower { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 26px; margin-bottom: 48px; align-items: start; }
+.panel { padding: 26px 26px 22px; }
+.panel h2 { margin: 0; text-align: center; font: 400 22px var(--serif); letter-spacing: .16em; text-transform: uppercase; }
+.panel .under { display: block; text-align: center; font-style: italic; color: var(--muted); margin-bottom: 10px; }
+.panel svg { width: 100%; height: auto; display: block; }
+.panel figcaption { text-align: center; font-style: italic; color: var(--muted); font-size: 14px; margin-top: 6px; }
+.book { list-style: none; margin: 0; padding: 0; }
+.book li { display: grid; grid-template-columns: 82px 1fr; gap: 10px; padding: 8px 0; border-bottom: 1px dotted var(--hair); font-size: 15px; line-height: 1.4; }
+.book li:last-child { border-bottom: 0; }
+.book time { font: italic 14px var(--text); color: var(--burgundy); text-align: right; }
+
+/* sheet */
+.sheet { padding: 34px 34px 30px; margin-bottom: 56px; }
+.sheet h2.t { margin: 4px 0 6px; text-align: center; font: 400 34px var(--serif); letter-spacing: .08em; }
+.sheet h3 { margin: 28px 0 12px; text-align: center; font: 600 12px var(--serif); letter-spacing: .26em; text-transform: uppercase; color: var(--burgundy); }
+.idea { margin: 0 auto; max-width: 44em; text-align: center; font: italic 18px/1.45 var(--text); }
+.sw { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; list-style: none; margin: 0; padding: 0; }
+.sw li { border: 1px solid var(--burgundy); padding: 4px; background: var(--label); font-size: 13px; text-align: center; }
+.sw i { display: block; height: 46px; border: 1px solid var(--hair); }
+.sw b { display: block; font: 600 11px var(--serif); letter-spacing: .18em; text-transform: uppercase; margin: 6px 0 2px; }
+.tr { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; padding: 8px 0; border-bottom: 1px dotted var(--hair); }
+.tr code { font: 12px ui-monospace, Menlo, Consolas, monospace; color: var(--muted); }
+.facts { display: grid; grid-template-columns: 130px 1fr; gap: 8px 18px; margin: 0; }
+.facts dt { font: 600 11px/1.9 var(--serif); letter-spacing: .2em; text-transform: uppercase; color: var(--burgundy); text-align: right; }
+.facts dd { margin: 0; }
+.ctls { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 22px; }
+.ctls .sc { display: block; color: var(--muted); margin-bottom: 8px; font-size: 11px; }
+.field input { width: 100%; font: 17px var(--text); padding: 8px 2px; border: 0; border-bottom: 1px solid var(--burgundy); background: transparent; color: var(--ink); border-radius: 0; }
+.field input.is-focus { border-bottom-width: 2px; }
+.row { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 8px 10px; border: 1px solid var(--hair); background: var(--label); font: 400 18px var(--serif); }
+
+@media (max-width: 980px) {
+  .labels { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .lower { grid-template-columns: minmax(0,1fr); }
+  .collars { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 640px) {
+  .wrap { padding: 0 16px; }
+  .search { flex: 1 1 100%; }
+  .search input { width: 100%; }
+  .house { font-size: 30px; letter-spacing: .18em; padding-left: .18em; }
+  .vine a { padding: 4px 4px; letter-spacing: .14em; }
+  .vine li + li::before { margin: 0 2px; }
+  .cart { padding: 26px 22px; border-radius: 40px; }
+  .cart h1 { font-size: 30px; }
+  .collars { gap: 12px; }
+  .collars b { font-size: 34px; }
+  .labels { grid-template-columns: minmax(0,1fr); }
+  .panel, .sheet { padding: 22px 16px; }
+  .facts { grid-template-columns: 1fr; gap: 0; }
+  .facts dt { text-align: left; }
+  .facts dd { margin-bottom: 10px; }
+  .book li { grid-template-columns: 1fr; gap: 0; }
+  .book time { text-align: left; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="sprig" viewBox="0 0 80 16"><path d="M2 8h76" stroke="#a88443" stroke-width="1"/><g fill="none" stroke="#6d1424" stroke-width="1"><path d="M28 8c-4-5-9-5-12-4 3 1 7 4 12 4zM28 8c-4 5-9 5-12 4 3-1 7-4 12-4zM52 8c4-5 9-5 12-4-3 1-7 4-12 4zM52 8c4 5 9 5 12 4-3-1-7-4-12-4z"/></g><path d="M40 3l5 5-5 5-5-5z" fill="#6d1424"/></symbol>
+  <symbol id="seal-ok" viewBox="0 0 26 26"><circle cx="13" cy="13" r="12" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="13" cy="13" r="9.5" fill="currentColor"/><path d="M8.5 13.5l3 3 6-7" fill="none" stroke="#fbf6ea" stroke-width="2"/></symbol>
+  <symbol id="seal-risk" viewBox="0 0 26 26"><path d="M13 .8L25.2 13 13 25.2.8 13z" fill="none" stroke="currentColor" stroke-width="1"/><path d="M13 4l9 9-9 9-9-9z" fill="currentColor"/><path d="M13 8.5v5.5M13 16v1.8" stroke="#fbf6ea" stroke-width="2"/></symbol>
+  <symbol id="seal-bad" viewBox="0 0 26 26"><rect x="1" y="1" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1"/><rect x="4" y="4" width="18" height="18" fill="currentColor"/><path d="M9 9l8 8M17 9l-8 8" stroke="#fbf6ea" stroke-width="2"/></symbol>
+</svg>
+
+<header class="wrap">
+  <div class="util">
+    <label class="search"><span class="sc" style="font-size:11px">Seek</span><input type="search" aria-label="Search projects and tasks" placeholder="a project or task"></label>
+    <div class="r">
+      <a class="sc notes" href="#" aria-label="Notifications, 3 unread">Notes · iii</a>
+      <span class="master"><span class="sc" style="font-size:10px">Cellar master</span> Mara Okafor</span>
+      <button class="btn" type="button">New project</button>
+    </div>
+  </div>
+  <div class="crest">
+    <svg width="64" height="74" viewBox="0 0 64 74" aria-hidden="true">
+      <path d="M32 4l24 8v22c0 18-12 30-24 36C20 64 8 52 8 34V12z" fill="#fbf6ea" stroke="#6d1424" stroke-width="2"/>
+      <path d="M32 9l19 6.5v18.5c0 15-10 25-19 30-9-5-19-15-19-30V15.5z" fill="none" stroke="#a88443" stroke-width="1"/>
+      <text x="32" y="45" text-anchor="middle" font-family="Didot, Bodoni MT, Georgia, serif" font-size="26" fill="#6d1424">B</text>
+      <path d="M20 22h24" stroke="#6d1424" stroke-width="1"/><circle cx="32" cy="22" r="2.5" fill="#6d1424"/>
+    </svg>
+    <p class="house">Brightwork</p>
+    <span class="house-sub sc" style="font-size:11px">Project estate · the team cellar</span>
+  </div>
+  <nav aria-label="Main">
+    <ul class="vine">
+      <li><a href="#" aria-current="page">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Tasks</a></li>
+      <li><a href="#">Team</a></li>
+      <li><a href="#">Reports</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="cart engraved" aria-label="Greeting">
+    <span class="sc" style="color:var(--muted)">Saturday 31 October 2026</span>
+    <h1>Good morning, Mara</h1>
+    <p class="alert">◆ Four tasks are overdue ◆</p>
+  </section>
+
+  <ul class="collars" aria-label="Summary">
+    <li class="engraved"><b>6</b><span>active projects</span></li>
+    <li class="engraved"><b>23</b><span>tasks due this week</span></li>
+    <li class="engraved warn"><b>4</b><span>overdue tasks</span></li>
+    <li class="engraved"><b>186</b><span>hours logged this week</span></li>
+  </ul>
+
+  <div class="sec-t"><h2>The cellar</h2><span>six projects, each with its own label</span></div>
+  <ul class="labels">
+        <li class="label">
+          <div class="lab-in">
+            <span class="cuvee">Cuvée Design</span>
+            <svg class="sprig" viewBox="0 0 80 16" aria-hidden="true"><use href="#sprig"/></svg>
+            <h3><a href="#">Website redesign</a></h3>
+            <span class="vintage">Vintage 2026 · No. 01</span>
+            <div class="abv"><b>72<small>%</small></b><span>complete</span></div>
+            <span class="meter" role="img" aria-label="72 percent complete"><i style="width:72%"></i></span>
+            <p class="small">18 of 25 tasks · bottled by 14 November</p>
+            <span class="seal ok"><svg aria-hidden="true"><use href="#seal-ok"/></svg>On track</span>
+          </div>
+        </li>
+        <li class="label">
+          <div class="lab-in">
+            <span class="cuvee">Cuvée Engineering</span>
+            <svg class="sprig" viewBox="0 0 80 16" aria-hidden="true"><use href="#sprig"/></svg>
+            <h3><a href="#">Mobile app 2.0</a></h3>
+            <span class="vintage">Vintage 2026 · No. 02</span>
+            <div class="abv"><b>45<small>%</small></b><span>complete</span></div>
+            <span class="meter" role="img" aria-label="45 percent complete"><i style="width:45%"></i></span>
+            <p class="small">27 of 60 tasks · bottled by 2 December</p>
+            <span class="seal risk"><svg aria-hidden="true"><use href="#seal-risk"/></svg>At risk</span>
+          </div>
+        </li>
+        <li class="label">
+          <div class="lab-in">
+            <span class="cuvee">Cuvée Research</span>
+            <svg class="sprig" viewBox="0 0 80 16" aria-hidden="true"><use href="#sprig"/></svg>
+            <h3><a href="#">Q4 customer survey</a></h3>
+            <span class="vintage">Vintage 2026 · No. 03</span>
+            <div class="abv"><b>90<small>%</small></b><span>complete</span></div>
+            <span class="meter" role="img" aria-label="90 percent complete"><i style="width:90%"></i></span>
+            <p class="small">9 of 10 tasks · bottled by 7 November</p>
+            <span class="seal ok"><svg aria-hidden="true"><use href="#seal-ok"/></svg>On track</span>
+          </div>
+        </li>
+        <li class="label">
+          <div class="lab-in">
+            <span class="cuvee">Cuvée Engineering</span>
+            <svg class="sprig" viewBox="0 0 80 16" aria-hidden="true"><use href="#sprig"/></svg>
+            <h3><a href="#">Billing migration</a></h3>
+            <span class="vintage">Vintage 2026 · No. 04</span>
+            <div class="abv"><b>30<small>%</small></b><span>complete</span></div>
+            <span class="meter" role="img" aria-label="30 percent complete"><i style="width:30%"></i></span>
+            <p class="small">12 of 40 tasks · bottled by 20 November</p>
+            <span class="seal bad"><svg aria-hidden="true"><use href="#seal-bad"/></svg>Behind</span>
+          </div>
+        </li>
+        <li class="label">
+          <div class="lab-in">
+            <span class="cuvee">Cuvée Marketing</span>
+            <svg class="sprig" viewBox="0 0 80 16" aria-hidden="true"><use href="#sprig"/></svg>
+            <h3><a href="#">Spring catalogue</a></h3>
+            <span class="vintage">Vintage 2026 · No. 05</span>
+            <div class="abv"><b>15<small>%</small></b><span>complete</span></div>
+            <span class="meter" role="img" aria-label="15 percent complete"><i style="width:15%"></i></span>
+            <p class="small">3 of 20 tasks · bottled by 15 January</p>
+            <span class="seal ok"><svg aria-hidden="true"><use href="#seal-ok"/></svg>On track</span>
+          </div>
+        </li>
+        <li class="label">
+          <div class="lab-in">
+            <span class="cuvee">Cuvée Marketing</span>
+            <svg class="sprig" viewBox="0 0 80 16" aria-hidden="true"><use href="#sprig"/></svg>
+            <h3><a href="#">Onboarding emails</a></h3>
+            <span class="vintage">Vintage 2026 · No. 06</span>
+            <div class="abv"><b>60<small>%</small></b><span>complete</span></div>
+            <span class="meter" role="img" aria-label="60 percent complete"><i style="width:60%"></i></span>
+            <p class="small">9 of 15 tasks · bottled by 21 November</p>
+            <span class="seal ok"><svg aria-hidden="true"><use href="#seal-ok"/></svg>On track</span>
+          </div>
+        </li>
+  </ul>
+
+  <div class="lower">
+    <figure class="panel engraved" style="margin:0">
+      <h2>Harvest record</h2>
+      <span class="under">Tasks completed per day, 18 to 31 October</span>
+      <svg viewBox="0 0 450 200" role="img" aria-label="Tasks completed per day, Sunday 18 to Saturday 31 October: 3, 12, 9, 14, 11, 8, 2, then 4, 15, 13, 17, 12, 10, 2. Last week 59, this week 73.">
+        <defs><pattern id="engr" width="3" height="3" patternUnits="userSpaceOnUse"><rect width="3" height="3" fill="#fbf6ea"/><line x1="0" y1="0" x2="3" y2="0" stroke="#6d1424" stroke-width="1"/></pattern></defs>
+        <g stroke="#cdbf9f" stroke-dasharray="1 3"><line x1="24" y1="130" x2="446" y2="130"/><line x1="24" y1="90" x2="446" y2="90"/><line x1="24" y1="50" x2="446" y2="50"/></g>
+        <g font-family="Didot, Bodoni MT, Georgia, serif" font-size="11" fill="#5d4a43" text-anchor="end"><text x="18" y="134">5</text><text x="18" y="94">10</text><text x="18" y="54">15</text></g>
+        <g fill="url(#engr)" stroke="#6d1424"><rect x="30" y="146" width="16" height="24"/><rect x="60" y="74" width="16" height="96"/><rect x="90" y="98" width="16" height="72"/><rect x="120" y="58" width="16" height="112"/><rect x="150" y="82" width="16" height="88"/><rect x="180" y="106" width="16" height="64"/><rect x="210" y="154" width="16" height="16"/></g>
+        <g fill="#6d1424"><rect x="240" y="138" width="16" height="32"/><rect x="270" y="50" width="16" height="120"/><rect x="300" y="66" width="16" height="104"/><rect x="330" y="34" width="16" height="136"/><rect x="360" y="74" width="16" height="96"/><rect x="390" y="90" width="16" height="80"/><rect x="420" y="154" width="16" height="16"/></g>
+        <line x1="24" y1="170.5" x2="446" y2="170.5" stroke="#2a1a17"/>
+        <g font-family="Didot, Bodoni MT, Georgia, serif" font-size="11" fill="#2a1a17" text-anchor="middle"><text x="38" y="141">3</text><text x="68" y="69">12</text><text x="98" y="93">9</text><text x="128" y="53">14</text><text x="158" y="77">11</text><text x="188" y="101">8</text><text x="218" y="149">2</text><text x="248" y="133">4</text><text x="278" y="45">15</text><text x="308" y="61">13</text><text x="338" y="29">17</text><text x="368" y="69">12</text><text x="398" y="85">10</text><text x="428" y="149">2</text></g>
+        <g font-family="Hoefler Text, Garamond, Georgia, serif" font-style="italic" font-size="13" fill="#5d4a43" text-anchor="middle"><text x="128" y="190">first week · 59</text><text x="338" y="190" fill="#6d1424">second week · 73</text></g>
+      </svg>
+      <figcaption>Engraved bars for the week before, solid claret for this week.</figcaption>
+    </figure>
+
+    <section class="panel engraved" aria-labelledby="book-h">
+      <h2 id="book-h">The cellar book</h2>
+      <span class="under">entries from the team</span>
+      <ol class="book">
+        <li><time>12 min ago</time><span>Jonas Weber completed <i>Export invoices as CSV</i> in Billing migration</span></li>
+        <li><time>40 min ago</time><span>Priya Nair commented on <i>Hero image options</i> in Website redesign</span></li>
+        <li><time>1 h ago</time><span>Sam Ortiz moved <i>Push notifications</i> to Review in Mobile app 2.0</span></li>
+        <li><time>2 h ago</time><span>Lena Fischer added 3 tasks to Spring catalogue</span></li>
+        <li><time>3 h ago</time><span>Tomás Ruiz logged 6 h on Mobile app 2.0</span></li>
+        <li><time>yesterday</time><span>Aiko Tanaka uploaded <i>survey-results-v2.pdf</i> to Q4 customer survey</span></li>
+      </ol>
+    </section>
+  </div>
+
+  <section class="sheet engraved" aria-labelledby="sheet-h">
+    <p class="sc" style="text-align:center;color:var(--muted);margin:0">Style sheet</p>
+    <h2 class="t" id="sheet-h">Style 81 · Wine label</h2>
+    <p class="idea">The dashboard is an estate’s cellar: an engraved crest heads the page, each project is a cream wine label with its cuvée, vintage and percent complete set like strength, and status is a small seal.</p>
+
+    <h3>Palette</h3>
+    <ul class="sw">
+      <li><i style="background:#efe6d2"></i><b>Cellar</b>#efe6d2 · page</li>
+      <li><i style="background:#fbf6ea"></i><b>Label</b>#fbf6ea · labels, panels</li>
+      <li><i style="background:#6d1424"></i><b>Burgundy</b>#6d1424 · frames, accents, primary</li>
+      <li><i style="background:#8b2b3b"></i><b>Claret</b>#8b2b3b · hover and second accent</li>
+      <li><i style="background:#a88443"></i><b>Gilt</b>#a88443 · inner hairlines, never text</li>
+      <li><i style="background:#2a1a17"></i><b>Ink</b>#2a1a17 · text</li>
+      <li><i style="background:#5d4a43"></i><b>Sepia</b>#5d4a43 · captions</li>
+      <li><i style="background:#cdbf9f"></i><b>Hairline</b>#cdbf9f · dotted rules</li>
+      <li><i style="background:#2c5934"></i><b>Bottle green</b>#2c5934 · On track seal</li>
+      <li><i style="background:#7c5000"></i><b>Amber</b>#7c5000 · At risk seal</li>
+      <li><i style="background:#a01d1d"></i><b>Red</b>#a01d1d · Behind seal</li>
+    </ul>
+
+    <h3>Type</h3>
+    <div class="tr"><code>house Didot, "Bodoni 72", "Bodoni MT", Georgia · 46 caps +0.3em</code><span style="font:400 30px var(--serif);letter-spacing:.3em">BRIGHTWORK</span></div>
+    <div class="tr"><code>greeting 40 italic Didone</code><span style="font:italic 32px var(--serif)">Good morning, Mara</span></div>
+    <div class="tr"><code>label name 26, strength figure 44</code><span style="font:400 26px var(--serif)">Billing migration · 30%</span></div>
+    <div class="tr"><code>small caps 11 to 12 / 600 +0.24em</code><span class="sc">Cuvée Engineering</span></div>
+    <div class="tr"><code>text "Hoefler Text", Garamond · 16, italics for vintage</code><span><i style="color:var(--burgundy)">Vintage 2026 · No. 04</i></span></div>
+
+    <h3>Spacing, corners and depth</h3>
+    <dl class="facts">
+      <dt>Spacing</dt><dd>8px unit, generous. 26px between labels, 26 to 34px inside panels.</dd>
+      <dt>Density</dt><dd>Low. Centred, symmetrical, lots of cream.</dd>
+      <dt>Corners</dt><dd>Square labels; the greeting is an oval cartouche and the summary sits on rounded neck collars.</dd>
+      <dt>Borders</dt><dd>Engraved stacks of an outer burgundy line, a cream gap and an inner gilt or double line.</dd>
+      <dt>Shadows</dt><dd>A soft 12px shadow as if labels sit on bottles.</dd>
+      <dt>Icons</dt><dd>Engraved sprigs, a shield crest and ❖ dividers. Seals pair the word with a round seal for On track, a lozenge for At risk and a square seal for Behind.</dd>
+      <dt>Tone</dt><dd>Courtly and calm: The cellar, Cuvée Design, bottled by 14 November, The cellar book.</dd>
+    </dl>
+
+    <h3>Controls · normal and focus</h3>
+    <div class="ctls">
+      <div><span class="sc">Primary</span><button class="btn" type="button">Uncork</button> <button class="btn is-focus" type="button">Focused</button></div>
+      <div><span class="sc">Secondary</span><button class="btn btn-2" type="button">Rest</button> <button class="btn btn-2 is-focus" type="button">Focused</button></div>
+      <label class="field"><span class="sc">Project name</span><input value="Website redesign"></label>
+      <label class="field"><span class="sc">Project name, focused</span><input class="is-focus" value="Mobile app 2.0"></label>
+      <div><span class="sc">List row</span><div class="row">Billing migration <span class="seal bad" style="margin:0"><svg aria-hidden="true"><use href="#seal-bad"/></svg>Behind</span></div></div>
+      <div><span class="sc">List row, focused</span><div class="row is-focus">Mobile app 2.0 <span class="seal risk" style="margin:0"><svg aria-hidden="true"><use href="#seal-risk"/></svg>At risk</span></div></div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

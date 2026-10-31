@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 263 · Dark pastel · Brightwork</title>
+<style>
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.ab-wrap { position: relative; width: 100%; max-width: 760px; margin: 0 auto; }
+.ab-label { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; margin-bottom: 6px; }
+.ab { position: relative; aspect-ratio: 1440 / 820; background: #ffffff; color: #17181c; container-type: inline-size; }
+.ab-in { position: absolute; inset: 0; padding: 6.67cqw; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto auto 1fr; column-gap: 4cqw; align-content: start; }
+.ab-h { grid-column: 1; margin: 0; font: 700 4.4cqw/1.08 system-ui, "Segoe UI", Roboto, Arial, sans-serif; letter-spacing: -0.02em; color: #17181c; }
+.ab-s { grid-column: 1; margin: 1.6cqw 0 0; font: 400 1.6cqw/1.45 system-ui, "Segoe UI", Roboto, Arial, sans-serif; color: #4a4d55; }
+.ab-gap { grid-column: 1; position: relative; height: 2.22cqw; }
+.ab-gap::before { content: ""; position: absolute; left: 1cqw; top: 0; bottom: 0; border-left: 1px solid currentColor; }
+.ab-gap-l { position: absolute; left: 2cqw; top: 50%; transform: translateY(-50%); font: 700 10px/1 system-ui, sans-serif; padding: 1px 4px; }
+.ab-btn { grid-column: 1; justify-self: start; font: 600 1.5cqw/1 system-ui, sans-serif; padding: 1.2cqw 2cqw; background: #1b1d22; color: #ffffff; border-radius: 0.5cqw; }
+.ab-shot { grid-column: 2; grid-row: 1 / 6; align-self: stretch; border: 1px dashed #8a8f99; background: #f1f2f4; display: grid; place-content: center; justify-items: center; gap: 0.8cqw; color: #50545c; font: 500 1.4cqw/1.2 system-ui, sans-serif; }
+.ab-shot svg { width: 4cqw; height: 4cqw; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.hd { position: absolute; width: 8px; height: 8px; margin: -4px; }
+.hd-nw { left: 0; top: 0; } .hd-n { left: 50%; top: 0; } .hd-ne { left: 100%; top: 0; } .hd-e { left: 100%; top: 50%; }
+.hd-se { left: 100%; top: 100%; } .hd-s { left: 50%; top: 100%; } .hd-sw { left: 0; top: 100%; } .hd-w { left: 0; top: 50%; }
+.pin { position: absolute; left: 12%; top: 62%; display: flex; align-items: flex-start; gap: 6px; }
+.pin-card { display: grid; gap: 2px; font-size: 12px; line-height: 1.35; padding: 8px 10px; max-width: 200px; }
+.pin-av { flex: none; width: 28px; height: 28px; display: grid; place-items: center; font: 700 11px/1 system-ui, sans-serif; }
+@media (max-width: 640px) { .pin { left: 6%; top: 70%; } .pin-card { max-width: 160px; font-size: 11px; } }
+
+
+.sheet { padding: 48px max(32px, calc((100% - 1116px) / 2)) 64px; }
+.sheet h2 { margin: 0 0 8px; }
+.sheet h3 { margin: 40px 0 16px; }
+.sheet .idea { margin: 0; max-width: 70ch; }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.sw { display: flex; gap: 12px; align-items: flex-start; }
+.sw i { flex: none; width: 44px; height: 44px; }
+.sw div { display: grid; gap: 2px; font-size: 13px; line-height: 1.35; min-width: 0; }
+.type-row { display: grid; grid-template-columns: 200px 1fr; gap: 16px; align-items: baseline; padding: 10px 0; }
+.type-row > span { min-width: 0; overflow-wrap: anywhere; }
+.facts { display: grid; grid-template-columns: 140px 1fr; gap: 10px 20px; margin: 0; }
+.facts dt { font-weight: 700; } .facts dd { margin: 0; }
+.controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+.ctl { display: grid; gap: 10px; align-content: start; }
+.ctl-pair { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+.ctl-rows { display: grid; gap: 8px; }
+@media (max-width: 640px) {
+  .sheet { padding: 32px 16px 48px; }
+  .type-row { grid-template-columns: 1fr; gap: 4px; }
+  .facts { grid-template-columns: 1fr; gap: 2px; } .facts dd { margin-bottom: 10px; }
+}
+
+
+:root { color-scheme: dark;
+  --ground: #232428; --card: #2c2d33; --card2: #34353c; --sink: #1d1e22; --line: #3d3e46;
+  --ink: #f1f0f5; --muted: #b8b7c4; --dark: #232428;
+  --mint: #9fe3c6; --lilac: #c9b6f2; --peach: #f6c3a3; --sky: #a9d4f5; --butter: #f3e3a0; --guide: #7048c8;
+  --font: "Avenir Next", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif; --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 15px/1.5 var(--font); }
+svg.i { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+button, input { font: inherit; color: inherit; }
+:focus-visible, .is-focus { outline: 3px solid var(--mint); outline-offset: 2px; }
+.app { display: grid; grid-template-columns: minmax(0, 1fr) 392px; grid-template-areas: "top top" "canvas insp" "layers insp"; grid-template-rows: auto auto 1fr; gap: 16px; padding: 16px 20px 24px; }
+.card { background: var(--card); border-radius: 20px; }
+.top { grid-area: top; display: flex; align-items: center; gap: 14px; padding: 10px 12px; flex-wrap: wrap; }
+.dot { width: 38px; height: 38px; border-radius: 14px; background: var(--lilac); color: var(--dark); display: grid; place-items: center; font-weight: 800; flex: none; }
+.file { display: grid; line-height: 1.25; min-width: 0; }
+.file small { color: var(--muted); font-size: 13px; }
+.file b { font-size: 16px; font-weight: 700; }
+.seg { display: flex; gap: 2px; padding: 4px; border-radius: 16px; background: var(--sink); margin: 0 auto; }
+.tool { height: 38px; padding: 0 12px; border-radius: 12px; border: 0; background: none; color: var(--muted); display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 13px; font-weight: 600; }
+.tool span { display: none; }
+.tool[aria-pressed="true"] { background: var(--mint); color: var(--dark); }
+.tool[aria-pressed="true"] span { display: inline; }
+.zoom { height: 38px; padding: 0 12px; border-radius: 12px; border: 0; background: var(--card2); color: var(--ink); font-weight: 700; font-size: 13px; cursor: pointer; margin-left: 4px; }
+.people { display: flex; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.av { width: 34px; height: 34px; border-radius: 12px; display: grid; place-items: center; font-size: 12px; font-weight: 800; color: var(--dark); }
+.av-pn { background: var(--peach); } .av-mo { background: var(--sky); } .av-at { background: var(--butter); }
+.btn-primary, .btn-secondary { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 18px; border-radius: 14px; font-weight: 700; font-size: 14px; cursor: pointer; border: 0; }
+.btn-primary { background: var(--lilac); color: var(--dark); }
+.btn-secondary { background: var(--card2); color: var(--ink); }
+.canvas { grid-area: canvas; padding: 28px 28px 20px; min-width: 0; overflow: clip; background-color: var(--sink); background-image: radial-gradient(circle, #34353c 1.2px, transparent 1.6px); background-size: 20px 20px; border-radius: 20px; }
+.canvas figure { margin: 0; }
+.ab-label span:first-child { background: var(--lilac); color: var(--dark); padding: 1px 10px; border-radius: 999px; font-weight: 700; }
+.ab-size { color: var(--muted); font-family: var(--mono); }
+.ab { border-radius: 6px; outline: 2px solid var(--lilac); outline-offset: 2px; }
+.hd { background: #fff; border: 2px solid #7048c8; border-radius: 50%; width: 11px; height: 11px; margin: -5.5px; }
+.ab-gap { color: var(--guide); } .ab-gap-l { background: var(--guide); color: #fff; border-radius: 999px; padding: 1px 6px; }
+.pin-av { border-radius: 50% 50% 50% 8px; background: var(--peach); color: var(--dark); }
+.pin-card { background: var(--card2); color: var(--ink); border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+.status { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.status span { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px 5px 8px; border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--dark); }
+.status svg.i { width: 16px; height: 16px; }
+.st-saved { background: var(--mint); } .st-people { background: var(--peach); } .st-ver { background: var(--sky); }
+/* layers tree */
+.layers { grid-area: layers; padding: 18px 20px 20px; align-self: start; }
+.layers h2, .insp h2 { margin: 0 0 12px; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.layers h2 small, .insp h2 small { color: var(--muted); font-size: 13px; font-weight: 500; }
+.tree { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; }
+.tree li:first-child { grid-column: 1 / -1; }
+.tree button { width: 100%; display: flex; align-items: center; gap: 10px; text-align: left; border: 0; background: none; padding: 7px 10px 7px 7px; border-radius: 14px; cursor: pointer; }
+.tree li:not(:first-child) button { padding-left: 20px; position: relative; }
+.tree li:not(:first-child) button::before { content: ""; position: absolute; left: 8px; top: 50%; width: 8px; height: 2px; background: var(--line); border-radius: 2px; }
+.badge { display: inline-flex; align-items: center; gap: 4px; height: 26px; padding: 0 8px 0 6px; border-radius: 9px; font-size: 12px; font-weight: 700; color: var(--dark); flex: none; }
+.badge svg.i { width: 15px; height: 15px; }
+.b-frame { background: var(--lilac); } .b-text { background: var(--mint); } .b-comp { background: var(--peach); } .b-image { background: var(--sky); }
+.nm { display: grid; min-width: 0; flex: 1; }
+.nm b { font-weight: 650; font-size: 14px; } .nm small { color: var(--muted); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tree [aria-current="true"] { background: var(--card2); box-shadow: inset 0 0 0 2px var(--lilac); }
+.state { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 700; padding: 3px 10px 3px 6px; border-radius: 999px; background: var(--butter); color: var(--dark); white-space: nowrap; }
+.state svg.i { width: 14px; height: 14px; }
+.collapsed .state { background: var(--card2); color: var(--muted); box-shadow: inset 0 0 0 1.5px var(--line); }
+/* inspector cards */
+.insp { grid-area: insp; align-self: start; padding: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.insp h2 { grid-column: 1 / -1; margin: 0; }
+.pc { background: var(--card2); border-radius: 16px; padding: 12px; min-width: 0; }
+.pc.wide { grid-column: 1 / -1; }
+.pc h3 { margin: 0 0 10px; display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: 13px; font-weight: 700; }
+.tag { display: inline-flex; align-items: center; gap: 4px; padding: 2px 10px 2px 6px; border-radius: 999px; color: var(--dark); font-size: 12px; font-weight: 700; }
+.tag svg.i { width: 14px; height: 14px; }
+.t-lilac { background: var(--lilac); } .t-mint { background: var(--mint); } .t-peach { background: var(--peach); } .t-sky { background: var(--sky); } .t-butter { background: var(--butter); }
+.pc h3 > span:last-child:not(.tag) { color: var(--muted); font-weight: 600; font-size: 12px; display: inline-flex; gap: 4px; align-items: center; }
+.ff { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.ff.one { grid-template-columns: 1fr; }
+.fi { display: flex; align-items: center; gap: 6px; height: 36px; padding: 0 10px; border-radius: 12px; background: var(--sink); min-width: 0; }
+.fi span { font-size: 12px; font-weight: 700; color: var(--muted); }
+.fi input { width: 100%; min-width: 0; background: none; border: 0; padding: 6px 0; font: 600 14px/1 var(--font); font-variant-numeric: tabular-nums; border-radius: 4px; }
+.fi i { width: 18px; height: 18px; border-radius: 6px; background: #fff; flex: none; }
+.pc .btn-secondary { margin-top: 10px; width: 100%; justify-content: center; background: var(--sink); }
+@media (max-width: 1100px) { .app { grid-template-columns: minmax(0,1fr) 340px; } .tool[aria-pressed="true"] span { display: none; } .people { display: none; } }
+@media (max-width: 860px) {
+  .app { grid-template-columns: minmax(0, 1fr); grid-template-areas: "top" "canvas" "layers" "insp"; grid-template-rows: none; padding: 12px 12px 24px; gap: 12px; }
+  .people { display: flex; }
+  .file { flex-basis: calc(100% - 52px); }
+  .seg { position: fixed; left: 50%; transform: translateX(-50%); bottom: 10px; z-index: 5; margin: 0; box-shadow: 0 10px 30px rgba(0,0,0,.55), 0 0 0 1px var(--line); background: var(--card); }
+  .tool { padding: 0 10px; } .zoom { padding: 0 9px; }
+  .canvas { padding: 24px 14px 16px; }
+  .tree { grid-template-columns: 1fr; }
+  .layers { padding: 16px 12px; } .insp { padding: 16px 12px; }
+  .sheet { padding-bottom: 96px; }
+}
+@media (max-width: 400px) { .tool { padding: 0 9px; } .insp { grid-template-columns: 1fr; } }
+/* sheet */
+.sheet { background: var(--card); border-radius: 28px 28px 0 0; }
+.sheet h2 { font-size: 30px; font-weight: 800; }
+.sheet h3 { font-size: 16px; font-weight: 700; color: var(--lilac); }
+.sheet .idea { font-size: 17px; color: var(--ink); }
+.sw i { border-radius: 14px; }
+.sw code, .type-row code { font: 12px/1.4 var(--mono); color: var(--mint); }
+.sw span { color: var(--muted); }
+.type-row { border-bottom: 1px solid var(--line); }
+.facts dt { color: var(--peach); }
+.ctl-label { font-size: 13px; font-weight: 700; color: var(--muted); }
+.field { display: grid; gap: 6px; font-size: 12px; font-weight: 700; color: var(--muted); }
+.field input { width: 120px; height: 36px; padding: 0 10px; border-radius: 12px; border: 0; background: var(--sink); color: var(--ink); font-weight: 600; }
+.lrow { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 10px 8px 14px; border-radius: 14px; background: var(--card2); box-shadow: inset 0 0 0 2px var(--lilac); font-weight: 650; }
+.lrow.is-focus { box-shadow: inset 0 0 0 2px var(--lilac); }
+.lrow-kind { display: inline-flex; align-items: center; gap: 4px; height: 26px; padding: 0 8px 0 6px; border-radius: 9px; font-size: 12px; font-weight: 700; color: var(--dark); background: var(--lilac); }
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<symbol id="i-move" viewBox="0 0 24 24"><path d="M5 3l13 8-6 1.5L9 19z"/></symbol>
+<symbol id="i-frame" viewBox="0 0 24 24"><path d="M8 3v18M16 3v18M3 8h18M3 16h18"/></symbol>
+<symbol id="i-rect" viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="1"/></symbol>
+<symbol id="i-text" viewBox="0 0 24 24"><path d="M5 6V4h14v2M12 4v16M9 20h6"/></symbol>
+<symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 3l6 9-6 9-6-9z"/><circle cx="12" cy="12" r="1.6"/><path d="M12 3v7.4"/></symbol>
+<symbol id="i-hand" viewBox="0 0 24 24"><path d="M8 13V6a1.5 1.5 0 0 1 3 0v5M11 11V4.5a1.5 1.5 0 0 1 3 0V11M14 11V6a1.5 1.5 0 0 1 3 0v7c0 4-2.5 7-6 7-2.5 0-4-1.2-5.5-3.5L4 14a1.4 1.4 0 0 1 2.3-1.6L8 14"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24"><circle cx="17" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="17" cy="19" r="2.5"/><path d="M8.3 10.8l6.4-4.4M8.3 13.2l6.4 4.4"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></symbol>
+<symbol id="i-l-frame" viewBox="0 0 24 24"><path d="M8 4v16M16 4v16M4 8h16M4 16h16"/></symbol>
+<symbol id="i-l-text" viewBox="0 0 24 24"><path d="M6 7V5h12v2M12 5v14M9.5 19h5"/></symbol>
+<symbol id="i-l-comp" viewBox="0 0 24 24"><path d="M12 3l4 4-4 4-4-4zM12 13l4 4-4 4-4-4zM7 8l4 4-4 4-4-4zM17 8l4 4-4 4-4-4z"/></symbol>
+<symbol id="i-l-image" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="1.5"/><circle cx="9" cy="10" r="1.6"/><path d="M4 17l5-5 4 4 2.5-2.5L20 18"/></symbol>
+<symbol id="i-chev-r" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+<symbol id="i-chev-d" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+<symbol id="i-sel" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M8.5 12.2l2.4 2.4 4.6-5"/></symbol>
+<symbol id="i-saved" viewBox="0 0 24 24"><path d="M7 18a4.5 4.5 0 0 1-.6-9 6 6 0 0 1 11.5 1.6A3.8 3.8 0 0 1 17.5 18z"/><path d="M9.5 13.2l2 2 3.5-3.8"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><circle cx="17" cy="9.5" r="2.4"/><path d="M15.5 14.4c2.4-.4 4.4 1.2 5 4.6"/></symbol>
+<symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.5V4.5h8l9 9-8 8z"/><circle cx="8" cy="9" r="1.4"/></symbol>
+<symbol id="i-comment" viewBox="0 0 24 24"><path d="M4 5h16v11H10l-4 4v-4H4z"/></symbol>
+<symbol id="i-export" viewBox="0 0 24 24"><path d="M12 15V3M7.5 7.5L12 3l4.5 4.5M5 13v7h14v-7"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v16M6 14l6 6 6-6"/></symbol>
+<symbol id="i-gap" viewBox="0 0 24 24"><path d="M4 4h16M4 20h16M12 8v8M9.5 10.5L12 8l2.5 2.5M9.5 13.5L12 16l2.5-2.5"/></symbol>
+<symbol id="i-pad" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="1"/><rect x="8" y="8" width="8" height="8"/></symbol>
+<symbol id="i-radius" viewBox="0 0 24 24"><path d="M4 20V10a6 6 0 0 1 6-6h10"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol>
+<symbol id="i-zoom" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M8 10.5h5"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 4l9 5-9 5-9-5z"/><path d="M3 14l9 5 9-5"/></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></symbol>
+</svg>
+<div class="app">
+  <header class="top card"><span class="dot" aria-hidden="true">B</span><div class="file"><small>Canvas · Website redesign</small><b>Home v3</b></div>
+    <div class="seg" role="toolbar" aria-label="Tools"><button class="tool" type="button" aria-label="Move tool, V" aria-pressed="true" title="Move"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-move"/></svg><span aria-hidden="true">Move</span></button><button class="tool" type="button" aria-label="Frame tool, F" aria-pressed="false" title="Frame"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-frame"/></svg><span aria-hidden="true">Frame</span></button><button class="tool" type="button" aria-label="Rectangle tool, R" aria-pressed="false" title="Rectangle"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-rect"/></svg><span aria-hidden="true">Rectangle</span></button><button class="tool" type="button" aria-label="Text tool, T" aria-pressed="false" title="Text"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-text"/></svg><span aria-hidden="true">Text</span></button><button class="tool" type="button" aria-label="Pen tool, P" aria-pressed="false" title="Pen"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pen"/></svg><span aria-hidden="true">Pen</span></button><button class="tool" type="button" aria-label="Hand tool, H" aria-pressed="false" title="Hand"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-hand"/></svg><span aria-hidden="true">Hand</span></button><button class="zoom" type="button" aria-label="Zoom 66 percent">66%</button></div>
+    <ul class="people" aria-label="In this file"><li><span class="av av-pn" role="img" aria-label="Priya Nair" title="Priya Nair">PN</span></li><li><span class="av av-mo" role="img" aria-label="Mara Okafor" title="Mara Okafor">MO</span></li><li><span class="av av-at" role="img" aria-label="Aiko Tanaka" title="Aiko Tanaka">AT</span></li></ul><button class="btn-secondary" type="button"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>Present</button><button class="btn-primary" type="button"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-share"/></svg>Share</button></header>
+  <main class="canvas" aria-label="Canvas"><figure role="img" aria-label="Canvas at 66 percent. The Hero frame, 1440 by 820, is selected with handles on all sides. It shows the headline Every project, on one calm page, a subline, a Start a project button and a product screenshot placeholder. A pink guide marks the 32 px gap above the button. A comment pin from Priya Nair says Try the button in brand green?"><div class="ab-wrap ">
+  <div class="ab-label"><span>Hero</span><span class="ab-size">1440 × 820</span></div>
+  <div class="ab" aria-hidden="true">
+    <div class="ab-in">
+      <p class="ab-h">Every project, on one calm page</p>
+      <p class="ab-s">Plan the work, share the files and see what moved today.</p>
+      <div class="ab-gap"><span class="ab-gap-l">32</span></div>
+      <span class="ab-btn">Start a project</span>
+      <div class="ab-shot"><svg viewBox="0 0 24 24"><use href="#i-l-image"/></svg><span>Product screenshot</span></div>
+    </div>
+    <i class="hd hd-nw"></i><i class="hd hd-n"></i><i class="hd hd-ne"></i><i class="hd hd-e"></i><i class="hd hd-se"></i><i class="hd hd-s"></i><i class="hd hd-sw"></i><i class="hd hd-w"></i>
+  </div>
+  <div class="pin"><span class="pin-av">PN</span><div class="pin-card"><b>Priya Nair</b><span>Try the button in brand green?</span></div></div>
+</div></figure>
+    <footer class="status" aria-label="File status"><span class="st-saved"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-saved"/></svg>Saved 2 minutes ago</span><span class="st-people"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-users"/></svg>3 people editing</span><span class="st-ver"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>Version 41</span></footer></main>
+  <section class="layers card" aria-labelledby="lh"><h2 id="lh">Layers <small>Home v3 · 7 layers</small></h2><ul class="tree"><li class="selected"><button type="button" aria-current="true"><span class="badge b-frame"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-l-frame"/></svg>Frame</span><span class="nm"><b>Hero</b></span><span class="state"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-sel"/></svg>Selected</span></button></li><li class=""><button type="button"><span class="badge b-text"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-l-text"/></svg>Text</span><span class="nm"><b>Headline text</b><small>Every project, on one calm page</small></span></button></li><li class=""><button type="button"><span class="badge b-text"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-l-text"/></svg>Text</span><span class="nm"><b>Subline text</b></span></button></li><li class=""><button type="button"><span class="badge b-comp"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-l-comp"/></svg>Instance</span><span class="nm"><b>Primary button</b><small>Component instance</small></span></button></li><li class=""><button type="button"><span class="badge b-image"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-l-image"/></svg>Image</span><span class="nm"><b>Product screenshot</b></span></button></li><li class=""><button type="button"><span class="badge b-frame"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-l-frame"/></svg>Frame</span><span class="nm"><b>Logo strip</b></span></button></li><li class="collapsed"><button type="button"><span class="badge b-frame"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-l-frame"/></svg>Frame</span><span class="nm"><b>Features</b></span><span class="state"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev-r"/></svg>Collapsed</span></button></li></ul></section>
+  <aside class="insp card" aria-labelledby="ih"><h2 id="ih"><span>Hero</span><small>Frame, selected</small></h2>
+    <div class="pc wide"><h3><span class="tag t-lilac"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-l-frame"/></svg>Position and size</span></h3><div class="ff"><label class="fi"><span>X</span><input value="0" aria-label="X position"></label><label class="fi"><span>Y</span><input value="0" aria-label="Y position"></label><label class="fi"><span>W</span><input value="1440" aria-label="Width"></label><label class="fi"><span>H</span><input value="820" aria-label="Height"></label></div></div>
+    <div class="pc"><h3><span class="tag t-butter"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-eye"/></svg>Fill</span></h3><div class="ff one"><label class="fi"><i></i><input value="#FFFFFF" aria-label="Fill colour"></label></div></div>
+    <div class="pc"><h3><span class="tag t-sky"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-radius"/></svg>Radius</span></h3><div class="ff one"><label class="fi"><span>R</span><input value="0" aria-label="Corner radius"></label></div></div>
+    <div class="pc wide"><h3><span class="tag t-mint"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-gap"/></svg>Auto layout</span><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-down"/></svg>Vertical</span></h3><div class="ff"><label class="fi"><span>Gap</span><input value="32" aria-label="Gap"></label><label class="fi"><span>Padding</span><input value="96" aria-label="Padding"></label></div></div>
+    <div class="pc wide"><h3><span class="tag t-peach"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-export"/></svg>Export</span></h3><div class="ff"><label class="fi"><span>Format</span><input value="PNG" aria-label="Export format"></label><label class="fi"><span>Scale</span><input value="2x" aria-label="Export scale"></label></div><button class="btn-secondary" type="button"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-export"/></svg>Export Hero</button></div>
+  </aside>
+</div>
+<section class="sheet" aria-labelledby="sheet-h">
+  <h2 id="sheet-h">Style 263 · Dark pastel</h2>
+  <p class="idea">A soft charcoal workspace of rounded cards where each kind of thing has its own pastel, mint for text, lilac for frames, peach for components and sky for images, so the layer tree and the inspector read by colour and by label at once.</p>
+  <h3>Palette</h3>
+  <ul class="swatches">
+<li class="sw"><i style="background:#232428"></i><div><b>Charcoal</b><code>#232428</code><span>page, and text on every pastel</span></div></li>
+<li class="sw"><i style="background:#2c2d33"></i><div><b>Card</b><code>#2c2d33</code><span>top bar, layer and inspector cards, this sheet</span></div></li>
+<li class="sw"><i style="background:#34353c"></i><div><b>Card raised</b><code>#34353c</code><span>property cards, selected layer, Present</span></div></li>
+<li class="sw"><i style="background:#1d1e22"></i><div><b>Sink</b><code>#1d1e22</code><span>canvas well, fields, tool track</span></div></li>
+<li class="sw"><i style="background:#3d3e46"></i><div><b>Line</b><code>#3d3e46</code><span>tree ticks and quiet rings</span></div></li>
+<li class="sw"><i style="background:#f1f0f5"></i><div><b>Ink</b><code>#f1f0f5</code><span>text on dark</span></div></li>
+<li class="sw"><i style="background:#b8b7c4"></i><div><b>Muted</b><code>#b8b7c4</code><span>meta and field keys</span></div></li>
+<li class="sw"><i style="background:#9fe3c6"></i><div><b>Mint</b><code>#9fe3c6</code><span>text layers, the active tool, Saved, focus</span></div></li>
+<li class="sw"><i style="background:#c9b6f2"></i><div><b>Lilac</b><code>#c9b6f2</code><span>frames, Share, the selected ring, frame outline</span></div></li>
+<li class="sw"><i style="background:#f6c3a3"></i><div><b>Peach</b><code>#f6c3a3</code><span>components, people editing, comment pin</span></div></li>
+<li class="sw"><i style="background:#a9d4f5"></i><div><b>Sky</b><code>#a9d4f5</code><span>images, version, radius card</span></div></li>
+<li class="sw"><i style="background:#f3e3a0"></i><div><b>Butter</b><code>#f3e3a0</code><span>the Selected pill and fill card</span></div></li>
+<li class="sw"><i style="background:#7048c8"></i><div><b>Guide</b><code>#7048c8</code><span>the 32 px guide and handle rims</span></div></li>
+  </ul>
+  <h3>Type · Avenir Next, Segoe UI, system-ui; ui-monospace for codes</h3>
+<div class="type-row"><code>30 / 800</code><span style="font-size:30px;font-weight:800">Website redesign</span></div>
+<div class="type-row"><code>18 / 700</code><span style="font-size:18px;font-weight:700">Layers</span></div>
+<div class="type-row"><code>16 / 700</code><span style="font-size:16px;font-weight:700">Home v3</span></div>
+<div class="type-row"><code>14 / 600 tabular values</code><span style="font-size:14px;font-weight:600;font-variant-numeric:tabular-nums">1440 · 820 · 32 · 96</span></div>
+<div class="type-row"><code>12 / 700 badge</code><span style="font-size:12px;font-weight:700;background:var(--mint);color:var(--dark);padding:2px 8px;border-radius:9px">Text</span></div>
+<div class="type-row"><code>12 / 400 muted</code><span style="font-size:12px;color:var(--muted)">Every project, on one calm page</span></div>
+  <h3>Spacing, density and depth</h3>
+  <dl class="facts">
+<dt>Spacing</dt><dd>8px unit. 16px between cards, 18 to 20px card padding, 12px between property cards.</dd>
+<dt>Density</dt><dd>Comfortable. A two column layer tree and a two column grid of small property cards.</dd>
+<dt>Corners</dt><dd>Round and soft. 20px cards, 16px property cards, 12 to 14px fields, buttons and rows, full pills for status.</dd>
+<dt>Borders</dt><dd>None. Cards separate by tone. Selection is a 2px inner lilac ring.</dd>
+<dt>Shadows</dt><dd>Only on floating things, the comment card and the mobile tool track, 0 8px 24px black at 35 percent.</dd>
+<dt>Icons</dt><dd>18px rounded line icons at 2px stroke inside pastel badges with the kind word. Selected is a circled check, Collapsed a right chevron.</dd>
+<dt>Focus</dt><dd>3px mint outline offset 2px.</dd>
+<dt>Tone</dt><dd>Warm and plain. Kind words on badges such as Frame, Text, Instance, and status pills such as Saved 2 minutes ago.</dd>
+  </dl>
+  <h3>Controls · normal and focus</h3>
+  <div class="controls">
+<div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-primary" type="button"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-share"/></svg>Share</button><button class="btn-primary is-focus" type="button"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-share"/></svg>Share</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-secondary" type="button"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>Present</button><button class="btn-secondary is-focus" type="button"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>Present</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="field"><span>Gap</span><input value="32"></label><label class="field"><span>Gap, focused</span><input class="is-focus" value="32"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-rows"><div class="lrow"><span class="lrow-name">Hero</span><span class="lrow-kind"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-l-frame"/></svg>Frame</span></div><div class="lrow is-focus"><span class="lrow-name">Hero</span><span class="lrow-kind"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-l-frame"/></svg>Frame</span></div></div></div>
+  </div>
+</section>
+</body>
+</html>

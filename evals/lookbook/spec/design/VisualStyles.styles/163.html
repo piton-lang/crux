@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 163 · Calculator LCD · Brightwork</title>
+<style>
+:root {
+  --desk: #f1efe9;
+  --body: #e6e1d3;
+  --bodyLo: #c9c3b2;
+  --bezel: #3a3833;
+  --lcd: #cdd3c0;
+  --seg: #1f231c;
+  --ghost: #bcc3ad;
+  --solar: #3b2e33;
+  --key: #f4f2ec;
+  --keyEdge: #a9a493;
+  --keyDark: #4a4843;
+  --orange: #e8823a;
+  --ink: #26241f;
+  --tape: #fdfcf7;
+  --red: #a3241c;
+  --muted: #55524a;
+  --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: "OCR A Std", "OCR A Extended", "Courier New", Courier, monospace;
+}
+* { box-sizing: border-box; }
+html { background: var(--desk); }
+body { margin: 0; color: var(--ink); background: var(--desk); font: 14px/1.45 var(--sans); }
+a { color: var(--ink); }
+:focus-visible, .is-focus { outline: 3px solid var(--ink) !important; outline-offset: 2px; box-shadow: 0 0 0 6px var(--orange) !important; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 32px 24px; }
+.desk { display: grid; grid-template-columns: minmax(0, 520px) minmax(0, 1fr); gap: 40px; align-items: start; }
+svg.d { height: 1em; width: auto; display: inline-block; vertical-align: -0.08em; overflow: visible; }
+
+/* calculator body */
+.calc { background: linear-gradient(175deg, #efebdf, var(--body) 40%, #ddd7c6); border-radius: 18px 18px 26px 26px; padding: 18px 20px 24px; border: 1px solid var(--bodyLo); box-shadow: inset 0 2px 0 #fff, inset 0 -4px 0 rgba(0,0,0,0.08), 0 14px 28px rgba(0,0,0,0.14); }
+.calctop { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; }
+.model { font: bold 15px var(--sans); letter-spacing: 0.14em; text-transform: uppercase; }
+.model small { display: block; font: 10px var(--sans); letter-spacing: 0.24em; color: var(--muted); }
+.solar { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; width: 150px; height: 30px; padding: 3px; background: #2a2024; border-radius: 3px; }
+.solar i { background: linear-gradient(135deg, #5a454c, var(--solar) 60%); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06); }
+.lcdbox { background: var(--bezel); border-radius: 8px; padding: 10px; }
+.lcd { background: var(--lcd); border-radius: 3px; padding: 8px 12px 10px; box-shadow: inset 2px 3px 0 #b5bba6; color: var(--seg); }
+.ann { display: flex; gap: 12px; flex-wrap: wrap; font: bold 11px var(--sans); letter-spacing: 0.06em; }
+.ann .off { color: #8f977f; color: var(--ghost); }
+.ann .err { background: var(--seg); color: var(--lcd); padding: 0 4px; }
+.lcd h1 { margin: 6px 0 0; font: 15px var(--mono); }
+.lcd .dt { margin: 0; font: 13px var(--mono); }
+.main { display: flex; align-items: flex-end; justify-content: flex-end; gap: 10px; font-size: 72px; line-height: 1; margin-top: 6px; }
+.main .unit { font: bold 13px var(--sans); text-align: right; line-height: 1.2; padding-bottom: 6px; }
+.lcd .say { margin: 6px 0 0; display: flex; align-items: center; gap: 6px; font: bold 13px var(--mono); }
+
+.readouts { list-style: none; margin: 14px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.readouts li { background: var(--bezel); border-radius: 6px; padding: 5px; }
+.readouts .w { background: var(--lcd); border-radius: 2px; padding: 4px 6px; text-align: right; font-size: 30px; line-height: 1; box-shadow: inset 1px 2px 0 #b5bba6; color: var(--seg); }
+.readouts .l { display: block; margin-top: 5px; font: bold 10px/1.2 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: #ece8dc; text-align: center; }
+
+.find { margin: 14px 0 0; display: flex; align-items: center; gap: 8px; }
+.find label { font: bold 11px var(--sans); letter-spacing: 0.1em; text-transform: uppercase; }
+.find input { flex: 1; min-width: 0; font: 15px var(--mono); padding: 7px 10px; background: var(--lcd); color: var(--seg); border: 3px solid var(--bezel); border-radius: 4px; }
+.user { margin: 8px 0 0; font: 11px var(--sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.user b { color: var(--ink); }
+
+/* keypad */
+.keys { margin-top: 16px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; list-style: none; padding: 0; }
+.keys li { display: contents; }
+.key { display: grid; place-items: center; min-height: 48px; padding: 6px 4px; border-radius: 8px 8px 12px 12px; background: linear-gradient(var(--key), #e3dfd4); border: 1px solid var(--keyEdge); box-shadow: 0 4px 0 var(--keyEdge), inset 0 1px 0 #fff; font: bold 13px var(--sans); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); text-decoration: none; cursor: pointer; text-align: center; line-height: 1.1; }
+.key small { display: block; font-weight: normal; font-size: 10px; letter-spacing: 0.04em; color: var(--muted); }
+.key.dark { background: linear-gradient(#5a5852, var(--keyDark)); color: #f4f2ec; border-color: #2c2b27; box-shadow: 0 4px 0 #2c2b27; }
+.key.dark small { color: #d6d3ca; }
+.key.cur { background: linear-gradient(#5a5852, var(--keyDark)); color: #f4f2ec; border-color: #2c2b27; box-shadow: 0 1px 0 #2c2b27; transform: translateY(3px); }
+.key.cur small { color: #d6d3ca; }
+.key.eq { background: linear-gradient(#f39a57, var(--orange)); border-color: #a9561b; box-shadow: 0 4px 0 #a9561b; color: #2a1606; grid-column: span 2; font-size: 15px; }
+.key .badge { display: inline-block; background: var(--red); color: #fff; border-radius: 9px; padding: 0 6px; font-size: 11px; margin-left: 4px; }
+
+/* the paper tape */
+.tapehead { display: flex; align-items: center; gap: 10px; font: bold 11px var(--sans); letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+.tapehead::after { content: ""; flex: 1; height: 1px; background: var(--keyEdge); }
+.tape { background: var(--tape); max-width: 560px; padding: 22px 22px 30px; font: 14px/1.6 var(--mono); color: var(--ink); box-shadow: 0 2px 6px rgba(0,0,0,0.1); position: relative; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), 95% 100%, 90% calc(100% - 8px), 85% 100%, 80% calc(100% - 8px), 75% 100%, 70% calc(100% - 8px), 65% 100%, 60% calc(100% - 8px), 55% 100%, 50% calc(100% - 8px), 45% 100%, 40% calc(100% - 8px), 35% 100%, 30% calc(100% - 8px), 25% 100%, 20% calc(100% - 8px), 15% 100%, 10% calc(100% - 8px), 5% 100%, 0 calc(100% - 8px)); background-image: linear-gradient(90deg, rgba(0,0,0,0.03) 0 1px, transparent 1px calc(100% - 1px), rgba(0,0,0,0.03) calc(100% - 1px)); }
+.tape h2 { margin: 18px 0 4px; font: bold 14px var(--mono); letter-spacing: 0.1em; text-transform: uppercase; border-top: 1px dashed var(--ink); padding-top: 10px; }
+.tape h2:first-child { margin-top: 0; border-top: 0; padding-top: 0; }
+.tl { list-style: none; margin: 0; padding: 0; }
+.tl li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0 12px; padding: 4px 0; border-bottom: 1px dotted #c9c5b8; }
+.tl .r { text-align: right; white-space: nowrap; }
+.tl .sub { grid-column: 1 / -1; font-size: 12.5px; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 10px; }
+.st { display: inline-flex; align-items: center; gap: 5px; font-weight: bold; }
+.st.late { color: var(--red); }
+.total { display: flex; justify-content: space-between; border-top: 2px solid var(--ink); margin-top: 6px; padding-top: 4px; font-weight: bold; }
+.acts { list-style: none; margin: 0; padding: 0; font-size: 13px; }
+.acts li { padding: 4px 0; border-bottom: 1px dotted #c9c5b8; display: grid; grid-template-columns: 7ch minmax(0, 1fr); gap: 10px; }
+.acts .t { color: var(--muted); }
+
+.barlcd { max-width: 560px; margin-top: 16px; background: var(--bezel); border-radius: 8px; padding: 10px; }
+.barlcd .lcd { padding: 8px 10px; }
+.barlcd svg { width: 100%; height: auto; display: block; }
+.barlcd .cap { margin: 6px 0 0; font: bold 11px var(--sans); letter-spacing: 0.06em; color: #ece8dc; text-transform: uppercase; }
+
+/* style sheet: the instruction leaflet */
+.ss { margin-top: 56px; background: #fff; border: 1px solid var(--bodyLo); border-radius: 6px; padding: 28px; }
+.ss h2 { margin: 0; font: bold 26px var(--sans); letter-spacing: 0.04em; }
+.ss h2 .d { font-size: 30px; }
+.ss .idea { font-size: 16px; max-width: 760px; }
+.ss h3 { margin: 28px 0 10px; font: bold 12px var(--sans); letter-spacing: 0.22em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+.ss h3::after { content: ""; flex: 1; height: 1px; background: var(--keyEdge); }
+.sw { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
+.sw li { font-size: 12.5px; }
+.sw .c { height: 44px; border-radius: 8px 8px 12px 12px; border: 1px solid var(--keyEdge); box-shadow: 0 3px 0 var(--keyEdge); margin-bottom: 8px; }
+.sw b { display: block; font-size: 13px; }
+.types p { margin: 0 0 10px; padding-bottom: 8px; border-bottom: 1px dotted var(--keyEdge); }
+.types small { display: block; font: 12px var(--sans); color: var(--muted); }
+.sys { margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px 24px; }
+.sys dt { font: bold 12px var(--sans); letter-spacing: 0.14em; text-transform: uppercase; }
+.sys dd { margin: 2px 0 0; font-size: 14px; }
+.ctrls { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 20px; }
+.ctrls figure { margin: 0; display: grid; gap: 14px; justify-items: stretch; background: var(--body); border-radius: 12px; padding: 14px; }
+.ctrls figcaption { font: bold 11px var(--sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.ctrls .key.eq { grid-column: auto; }
+.field { display: grid; gap: 4px; font: bold 11px var(--sans); letter-spacing: 0.1em; text-transform: uppercase; }
+.field input { font: 15px var(--mono); padding: 7px 10px; background: var(--lcd); color: var(--seg); border: 3px solid var(--bezel); border-radius: 4px; width: 100%; letter-spacing: 0; text-transform: none; }
+.row { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 10px; background: var(--tape); font: 14px var(--mono); border-bottom: 1px dotted #c9c5b8; }
+
+@media (max-width: 960px) {
+  .desk { grid-template-columns: 1fr; }
+  .calc { max-width: 520px; margin: 0 auto; width: 100%; }
+  .tape { max-width: none; }
+}
+@media (max-width: 480px) {
+  .wrap { padding: 16px; }
+  .calc { padding: 14px 12px 18px; }
+  .solar { width: 110px; height: 24px; }
+  .main { font-size: 56px; }
+  .readouts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .keys { gap: 8px; }
+  .key { font-size: 12px; min-height: 46px; }
+  .tape { padding: 18px 14px 28px; }
+  .ss { padding: 18px; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+
+    <symbol id="ok" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="7" cy="7" r="2.6" fill="currentColor"/></symbol>
+    <symbol id="risk" viewBox="0 0 14 14"><path d="M7 1l6.5 12H.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M7 5v4M7 10.4v1.4" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="minus" viewBox="0 0 14 14"><rect x="1" y="1" width="12" height="12" fill="currentColor"/><path d="M3.5 7h7" stroke="#fdfcf7" stroke-width="2.2"/></symbol>
+    <symbol id="err" viewBox="0 0 14 14"><rect x="0.5" y="0.5" width="13" height="13" fill="currentColor"/><path d="M9.5 3.5h-5v7h5M4.5 7h4" fill="none" stroke="#cdd3c0" stroke-width="1.8"/></symbol>
+  </defs>
+</svg>
+<div class="wrap">
+<div class="desk">
+<div class="calc">
+  <div class="calctop">
+    <a class="model" href="#" aria-label="Brightwork home">Brightwork<small>BW-14 project calculator</small></a>
+    <span class="solar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+  </div>
+  <div class="lcdbox">
+    <div class="lcd">
+      <div class="ann" aria-hidden="true"><span>M</span><span class="off">MEM</span><span>WK</span><span class="off">GT</span><span class="err">E</span><span class="off">%</span></div>
+      <h1>Good morning, Mara</h1>
+      <p class="dt">SAT 31 OCT 2026</p>
+      <div class="main"><span class="sr">4</span><svg class="d" viewBox="0 0 12 22" aria-hidden="true"><g transform="translate(0 0) skewX(-6)"><g fill="#bcc3ad"><polygon points="2.2,0.5 9.8,0.5 8.3,2.2 3.7,2.2"/><polygon points="10.5,1.2 10.5,10.2 8.8,9.2 8.8,2.7"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/><polygon points="2.2,21.5 9.8,21.5 8.3,19.8 3.7,19.8"/><polygon points="1.5,11.8 1.5,20.8 3.2,19.3 3.2,12.8"/><polygon points="1.5,1.2 1.5,10.2 3.2,9.2 3.2,2.7"/><polygon points="2.3,11 3.7,10.1 8.3,10.1 9.7,11 8.3,11.9 3.7,11.9"/></g><g fill="currentColor"><polygon points="1.5,1.2 1.5,10.2 3.2,9.2 3.2,2.7"/><polygon points="2.3,11 3.7,10.1 8.3,10.1 9.7,11 8.3,11.9 3.7,11.9"/><polygon points="10.5,1.2 10.5,10.2 8.8,9.2 8.8,2.7"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/></g></g></svg><span class="unit" aria-hidden="true">TASKS<br>OVERDUE</span></div>
+      <p class="say"><svg width="14" height="14" aria-hidden="true"><use href="#err"/></svg>4 tasks are overdue</p>
+    </div>
+  </div>
+  <ul class="readouts" aria-label="This week">
+    <li><div class="w"><span class="sr">6</span><svg class="d" viewBox="0 0 12 22" aria-hidden="true"><g transform="translate(0 0) skewX(-6)"><g fill="#bcc3ad"><polygon points="2.2,0.5 9.8,0.5 8.3,2.2 3.7,2.2"/><polygon points="10.5,1.2 10.5,10.2 8.8,9.2 8.8,2.7"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/><polygon points="2.2,21.5 9.8,21.5 8.3,19.8 3.7,19.8"/><polygon points="1.5,11.8 1.5,20.8 3.2,19.3 3.2,12.8"/><polygon points="1.5,1.2 1.5,10.2 3.2,9.2 3.2,2.7"/><polygon points="2.3,11 3.7,10.1 8.3,10.1 9.7,11 8.3,11.9 3.7,11.9"/></g><g fill="currentColor"><polygon points="2.2,0.5 9.8,0.5 8.3,2.2 3.7,2.2"/><polygon points="1.5,1.2 1.5,10.2 3.2,9.2 3.2,2.7"/><polygon points="2.3,11 3.7,10.1 8.3,10.1 9.7,11 8.3,11.9 3.7,11.9"/><polygon points="1.5,11.8 1.5,20.8 3.2,19.3 3.2,12.8"/><polygon points="2.2,21.5 9.8,21.5 8.3,19.8 3.7,19.8"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/></g></g></svg></div><span class="l">Active projects</span></li>
+    <li><div class="w"><span class="sr">23</span><svg class="d" viewBox="0 0 26 22" aria-hidden="true"><g transform="translate(0 0) skewX(-6)"><g fill="#bcc3ad"><polygon points="2.2,0.5 9.8,0.5 8.3,2.2 3.7,2.2"/><polygon points="10.5,1.2 10.5,10.2 8.8,9.2 8.8,2.7"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/><polygon points="2.2,21.5 9.8,21.5 8.3,19.8 3.7,19.8"/><polygon points="1.5,11.8 1.5,20.8 3.2,19.3 3.2,12.8"/><polygon points="1.5,1.2 1.5,10.2 3.2,9.2 3.2,2.7"/><polygon points="2.3,11 3.7,10.1 8.3,10.1 9.7,11 8.3,11.9 3.7,11.9"/></g><g fill="currentColor"><polygon points="2.2,0.5 9.8,0.5 8.3,2.2 3.7,2.2"/><polygon points="10.5,1.2 10.5,10.2 8.8,9.2 8.8,2.7"/><polygon points="2.3,11 3.7,10.1 8.3,10.1 9.7,11 8.3,11.9 3.7,11.9"/><polygon points="1.5,11.8 1.5,20.8 3.2,19.3 3.2,12.8"/><polygon points="2.2,21.5 9.8,21.5 8.3,19.8 3.7,19.8"/></g></g><g transform="translate(14 0) skewX(-6)"><g fill="#bcc3ad"><polygon points="2.2,0.5 9.8,0.5 8.3,2.2 3.7,2.2"/><polygon points="10.5,1.2 10.5,10.2 8.8,9.2 8.8,2.7"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/><polygon points="2.2,21.5 9.8,21.5 8.3,19.8 3.7,19.8"/><polygon points="1.5,11.8 1.5,20.8 3.2,19.3 3.2,12.8"/><polygon points="1.5,1.2 1.5,10.2 3.2,9.2 3.2,2.7"/><polygon points="2.3,11 3.7,10.1 8.3,10.1 9.7,11 8.3,11.9 3.7,11.9"/></g><g fill="currentColor"><polygon points="2.2,0.5 9.8,0.5 8.3,2.2 3.7,2.2"/><polygon points="10.5,1.2 10.5,10.2 8.8,9.2 8.8,2.7"/><polygon points="2.3,11 3.7,10.1 8.3,10.1 9.7,11 8.3,11.9 3.7,11.9"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/><polygon points="2.2,21.5 9.8,21.5 8.3,19.8 3.7,19.8"/></g></g></svg></div><span class="l">Tasks due this week</span></li>
+    <li><div class="w"><span class="sr">4</span><svg class="d" viewBox="0 0 12 22" aria-hidden="true"><g transform="translate(0 0) skewX(-6)"><g fill="#bcc3ad"><polygon points="2.2,0.5 9.8,0.5 8.3,2.2 3.7,2.2"/><polygon points="10.5,1.2 10.5,10.2 8.8,9.2 8.8,2.7"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/><polygon points="2.2,21.5 9.8,21.5 8.3,19.8 3.7,19.8"/><polygon points="1.5,11.8 1.5,20.8 3.2,19.3 3.2,12.8"/><polygon points="1.5,1.2 1.5,10.2 3.2,9.2 3.2,2.7"/><polygon points="2.3,11 3.7,10.1 8.3,10.1 9.7,11 8.3,11.9 3.7,11.9"/></g><g fill="currentColor"><polygon points="1.5,1.2 1.5,10.2 3.2,9.2 3.2,2.7"/><polygon points="2.3,11 3.7,10.1 8.3,10.1 9.7,11 8.3,11.9 3.7,11.9"/><polygon points="10.5,1.2 10.5,10.2 8.8,9.2 8.8,2.7"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/></g></g></svg></div><span class="l">Overdue tasks</span></li>
+    <li><div class="w"><span class="sr">186</span><svg class="d" viewBox="0 0 40 22" aria-hidden="true"><g transform="translate(0 0) skewX(-6)"><g fill="#bcc3ad"><polygon points="2.2,0.5 9.8,0.5 8.3,2.2 3.7,2.2"/><polygon points="10.5,1.2 10.5,10.2 8.8,9.2 8.8,2.7"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/><polygon points="2.2,21.5 9.8,21.5 8.3,19.8 3.7,19.8"/><polygon points="1.5,11.8 1.5,20.8 3.2,19.3 3.2,12.8"/><polygon points="1.5,1.2 1.5,10.2 3.2,9.2 3.2,2.7"/><polygon points="2.3,11 3.7,10.1 8.3,10.1 9.7,11 8.3,11.9 3.7,11.9"/></g><g fill="currentColor"><polygon points="10.5,1.2 10.5,10.2 8.8,9.2 8.8,2.7"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/></g></g><g transform="translate(14 0) skewX(-6)"><g fill="#bcc3ad"><polygon points="2.2,0.5 9.8,0.5 8.3,2.2 3.7,2.2"/><polygon points="10.5,1.2 10.5,10.2 8.8,9.2 8.8,2.7"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/><polygon points="2.2,21.5 9.8,21.5 8.3,19.8 3.7,19.8"/><polygon points="1.5,11.8 1.5,20.8 3.2,19.3 3.2,12.8"/><polygon points="1.5,1.2 1.5,10.2 3.2,9.2 3.2,2.7"/><polygon points="2.3,11 3.7,10.1 8.3,10.1 9.7,11 8.3,11.9 3.7,11.9"/></g><g fill="currentColor"><polygon points="2.2,0.5 9.8,0.5 8.3,2.2 3.7,2.2"/><polygon points="10.5,1.2 10.5,10.2 8.8,9.2 8.8,2.7"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/><polygon points="2.2,21.5 9.8,21.5 8.3,19.8 3.7,19.8"/><polygon points="1.5,11.8 1.5,20.8 3.2,19.3 3.2,12.8"/><polygon points="1.5,1.2 1.5,10.2 3.2,9.2 3.2,2.7"/><polygon points="2.3,11 3.7,10.1 8.3,10.1 9.7,11 8.3,11.9 3.7,11.9"/></g></g><g transform="translate(28 0) skewX(-6)"><g fill="#bcc3ad"><polygon points="2.2,0.5 9.8,0.5 8.3,2.2 3.7,2.2"/><polygon points="10.5,1.2 10.5,10.2 8.8,9.2 8.8,2.7"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/><polygon points="2.2,21.5 9.8,21.5 8.3,19.8 3.7,19.8"/><polygon points="1.5,11.8 1.5,20.8 3.2,19.3 3.2,12.8"/><polygon points="1.5,1.2 1.5,10.2 3.2,9.2 3.2,2.7"/><polygon points="2.3,11 3.7,10.1 8.3,10.1 9.7,11 8.3,11.9 3.7,11.9"/></g><g fill="currentColor"><polygon points="2.2,0.5 9.8,0.5 8.3,2.2 3.7,2.2"/><polygon points="1.5,1.2 1.5,10.2 3.2,9.2 3.2,2.7"/><polygon points="2.3,11 3.7,10.1 8.3,10.1 9.7,11 8.3,11.9 3.7,11.9"/><polygon points="1.5,11.8 1.5,20.8 3.2,19.3 3.2,12.8"/><polygon points="2.2,21.5 9.8,21.5 8.3,19.8 3.7,19.8"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/></g></g></svg></div><span class="l">Hours logged this week</span></li>
+  </ul>
+  <form class="find" role="search"><label for="q">Find</label><input id="q" type="search" placeholder="projects and tasks"></form>
+  <p class="user">User <b>Mara Okafor</b></p>
+  <nav aria-label="Main">
+    <ul class="keys">
+      <li><a class="key cur" href="#" aria-current="page">Home<small>HM</small></a></li>
+      <li><a class="key" href="#">Projects<small>PRJ</small></a></li>
+      <li><a class="key" href="#">Tasks<small>TSK</small></a></li>
+      <li><a class="key" href="#">Team<small>TM</small></a></li>
+      <li><a class="key" href="#">Reports<small>RPT</small></a></li>
+      <li><a class="key" href="#">Settings<small>SET</small></a></li>
+      <li><button class="key dark" type="button" aria-label="Notifications, 4 unread">Alerts<small>4 new</small></button></li>
+      <li><button class="key dark" type="button">Clear<small>C</small></button></li>
+      <li><button class="key eq" type="button">= New project</button></li>
+      <li><button class="key dark" type="button" style="grid-column: span 2">Print tape<small>PT</small></button></li>
+    </ul>
+  </nav>
+</div>
+
+<main>
+  <p class="tapehead" aria-hidden="true">Printed tape</p>
+  <div class="tape">
+    <section aria-labelledby="pj">
+      <h2 id="pj">Projects · 6</h2>
+      <ul class="tl">
+        <li><span>Website redesign</span><span class="r">72 %</span><span class="sub"><span>Design · 18 / 25 · due 14 Nov</span><span class="st"><svg width="13" height="13" aria-hidden="true"><use href="#ok"/></svg>On track</span></span></li>
+        <li><span>Mobile app 2.0</span><span class="r">45 %</span><span class="sub"><span>Engineering · 27 / 60 · due 2 Dec</span><span class="st"><svg width="13" height="13" aria-hidden="true"><use href="#risk"/></svg>At risk</span></span></li>
+        <li><span>Q4 customer survey</span><span class="r">90 %</span><span class="sub"><span>Research · 9 / 10 · due 7 Nov</span><span class="st"><svg width="13" height="13" aria-hidden="true"><use href="#ok"/></svg>On track</span></span></li>
+        <li><span>Billing migration</span><span class="r st late">30 %</span><span class="sub"><span>Engineering · 12 / 40 · due 20 Nov</span><span class="st late"><svg width="13" height="13" aria-hidden="true"><use href="#minus"/></svg>Behind</span></span></li>
+        <li><span>Spring catalogue</span><span class="r">15 %</span><span class="sub"><span>Marketing · 3 / 20 · due 15 Jan</span><span class="st"><svg width="13" height="13" aria-hidden="true"><use href="#ok"/></svg>On track</span></span></li>
+        <li><span>Onboarding emails</span><span class="r">60 %</span><span class="sub"><span>Marketing · 9 / 15 · due 21 Nov</span><span class="st"><svg width="13" height="13" aria-hidden="true"><use href="#ok"/></svg>On track</span></span></li>
+      </ul>
+      <p class="total"><span>Tasks done</span><span>78 / 170</span></p>
+    </section>
+    <section aria-labelledby="act">
+      <h2 id="act">Activity</h2>
+      <ol class="acts">
+        <li><span class="t">12 min</span><span>Jonas Weber completed “Export invoices as CSV” in Billing migration<span class="sr">, 12 min ago</span></span></li>
+        <li><span class="t">40 min</span><span>Priya Nair commented on “Hero image options” in Website redesign<span class="sr">, 40 min ago</span></span></li>
+        <li><span class="t">1 h</span><span>Sam Ortiz moved “Push notifications” to Review in Mobile app 2.0<span class="sr">, 1 h ago</span></span></li>
+        <li><span class="t">2 h</span><span>Lena Fischer added 3 tasks to Spring catalogue<span class="sr">, 2 h ago</span></span></li>
+        <li><span class="t">3 h</span><span>Tomás Ruiz logged 6 h on Mobile app 2.0<span class="sr">, 3 h ago</span></span></li>
+        <li><span class="t">yest.</span><span>Aiko Tanaka uploaded survey-results-v2.pdf to Q4 customer survey<span class="sr">, yesterday</span></span></li>
+      </ol>
+    </section>
+  </div>
+
+  <section class="barlcd" aria-labelledby="ch">
+    <div class="lcd">
+      <h2 id="ch" class="sr">Tasks completed per day</h2>
+      <svg viewBox="0 0 300 120" role="img" aria-label="Tasks completed per day, Sunday 18 to Saturday 31 October: 3, 12, 9, 14, 11, 8, 2, then 4, 15, 13, 17, 12, 10, 2. Last week 59, this week 73.">
+        <rect x="4" y="100" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="4" y="94" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="4" y="88" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="4" y="82" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="4" y="76" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="4" y="70" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="4" y="64" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="4" y="58" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="4" y="52" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="4" y="46" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="4" y="40" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="4" y="34" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="4" y="28" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="4" y="22" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="4" y="16" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="4" y="10" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="4" y="4" width="14" height="4.5" fill="#bcc3ad"/>
+        <text x="11" y="117" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-weight="bold" font-size="10" fill="#1f231c">S</text>
+        <rect x="24" y="100" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="24" y="94" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="24" y="88" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="24" y="82" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="24" y="76" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="24" y="70" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="24" y="64" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="24" y="58" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="24" y="52" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="24" y="46" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="24" y="40" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="24" y="34" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="24" y="28" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="24" y="22" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="24" y="16" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="24" y="10" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="24" y="4" width="14" height="4.5" fill="#bcc3ad"/>
+        <text x="31" y="117" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-weight="bold" font-size="10" fill="#1f231c">M</text>
+        <rect x="44" y="100" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="44" y="94" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="44" y="88" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="44" y="82" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="44" y="76" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="44" y="70" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="44" y="64" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="44" y="58" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="44" y="52" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="44" y="46" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="44" y="40" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="44" y="34" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="44" y="28" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="44" y="22" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="44" y="16" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="44" y="10" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="44" y="4" width="14" height="4.5" fill="#bcc3ad"/>
+        <text x="51" y="117" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-weight="bold" font-size="10" fill="#1f231c">T</text>
+        <rect x="64" y="100" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="64" y="94" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="64" y="88" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="64" y="82" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="64" y="76" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="64" y="70" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="64" y="64" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="64" y="58" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="64" y="52" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="64" y="46" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="64" y="40" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="64" y="34" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="64" y="28" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="64" y="22" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="64" y="16" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="64" y="10" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="64" y="4" width="14" height="4.5" fill="#bcc3ad"/>
+        <text x="71" y="117" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-weight="bold" font-size="10" fill="#1f231c">W</text>
+        <rect x="84" y="100" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="84" y="94" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="84" y="88" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="84" y="82" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="84" y="76" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="84" y="70" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="84" y="64" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="84" y="58" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="84" y="52" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="84" y="46" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="84" y="40" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="84" y="34" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="84" y="28" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="84" y="22" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="84" y="16" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="84" y="10" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="84" y="4" width="14" height="4.5" fill="#bcc3ad"/>
+        <text x="91" y="117" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-weight="bold" font-size="10" fill="#1f231c">T</text>
+        <rect x="104" y="100" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="104" y="94" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="104" y="88" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="104" y="82" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="104" y="76" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="104" y="70" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="104" y="64" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="104" y="58" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="104" y="52" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="104" y="46" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="104" y="40" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="104" y="34" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="104" y="28" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="104" y="22" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="104" y="16" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="104" y="10" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="104" y="4" width="14" height="4.5" fill="#bcc3ad"/>
+        <text x="111" y="117" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-weight="bold" font-size="10" fill="#1f231c">F</text>
+        <rect x="124" y="100" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="124" y="94" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="124" y="88" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="124" y="82" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="124" y="76" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="124" y="70" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="124" y="64" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="124" y="58" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="124" y="52" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="124" y="46" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="124" y="40" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="124" y="34" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="124" y="28" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="124" y="22" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="124" y="16" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="124" y="10" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="124" y="4" width="14" height="4.5" fill="#bcc3ad"/>
+        <text x="131" y="117" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-weight="bold" font-size="10" fill="#1f231c">S</text>
+        <rect x="156" y="100" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="156" y="94" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="156" y="88" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="156" y="82" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="156" y="76" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="156" y="70" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="156" y="64" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="156" y="58" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="156" y="52" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="156" y="46" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="156" y="40" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="156" y="34" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="156" y="28" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="156" y="22" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="156" y="16" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="156" y="10" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="156" y="4" width="14" height="4.5" fill="#bcc3ad"/>
+        <text x="163" y="117" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-weight="bold" font-size="10" fill="#1f231c">S</text>
+        <rect x="176" y="100" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="176" y="94" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="176" y="88" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="176" y="82" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="176" y="76" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="176" y="70" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="176" y="64" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="176" y="58" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="176" y="52" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="176" y="46" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="176" y="40" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="176" y="34" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="176" y="28" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="176" y="22" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="176" y="16" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="176" y="10" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="176" y="4" width="14" height="4.5" fill="#bcc3ad"/>
+        <text x="183" y="117" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-weight="bold" font-size="10" fill="#1f231c">M</text>
+        <rect x="196" y="100" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="196" y="94" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="196" y="88" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="196" y="82" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="196" y="76" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="196" y="70" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="196" y="64" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="196" y="58" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="196" y="52" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="196" y="46" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="196" y="40" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="196" y="34" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="196" y="28" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="196" y="22" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="196" y="16" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="196" y="10" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="196" y="4" width="14" height="4.5" fill="#bcc3ad"/>
+        <text x="203" y="117" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-weight="bold" font-size="10" fill="#1f231c">T</text>
+        <rect x="216" y="100" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="216" y="94" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="216" y="88" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="216" y="82" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="216" y="76" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="216" y="70" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="216" y="64" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="216" y="58" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="216" y="52" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="216" y="46" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="216" y="40" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="216" y="34" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="216" y="28" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="216" y="22" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="216" y="16" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="216" y="10" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="216" y="4" width="14" height="4.5" fill="#1f231c"/>
+        <text x="223" y="117" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-weight="bold" font-size="10" fill="#1f231c">W</text>
+        <rect x="236" y="100" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="236" y="94" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="236" y="88" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="236" y="82" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="236" y="76" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="236" y="70" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="236" y="64" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="236" y="58" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="236" y="52" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="236" y="46" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="236" y="40" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="236" y="34" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="236" y="28" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="236" y="22" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="236" y="16" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="236" y="10" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="236" y="4" width="14" height="4.5" fill="#bcc3ad"/>
+        <text x="243" y="117" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-weight="bold" font-size="10" fill="#1f231c">T</text>
+        <rect x="256" y="100" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="256" y="94" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="256" y="88" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="256" y="82" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="256" y="76" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="256" y="70" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="256" y="64" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="256" y="58" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="256" y="52" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="256" y="46" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="256" y="40" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="256" y="34" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="256" y="28" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="256" y="22" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="256" y="16" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="256" y="10" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="256" y="4" width="14" height="4.5" fill="#bcc3ad"/>
+        <text x="263" y="117" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-weight="bold" font-size="10" fill="#1f231c">F</text>
+        <rect x="276" y="100" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="276" y="94" width="14" height="4.5" fill="#1f231c"/>
+        <rect x="276" y="88" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="276" y="82" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="276" y="76" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="276" y="70" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="276" y="64" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="276" y="58" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="276" y="52" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="276" y="46" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="276" y="40" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="276" y="34" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="276" y="28" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="276" y="22" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="276" y="16" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="276" y="10" width="14" height="4.5" fill="#bcc3ad"/>
+        <rect x="276" y="4" width="14" height="4.5" fill="#bcc3ad"/>
+        <text x="283" y="117" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-weight="bold" font-size="10" fill="#1f231c">S</text>
+      </svg>
+    </div>
+    <p class="cap">Tasks done per day · 18–31 Oct · Σ last week 59 · Σ this week 73 · ghost segments unlit</p>
+  </section>
+</main>
+</div>
+
+<section class="ss" aria-labelledby="ssh">
+  <h2 id="ssh">Style 163 · Calculator LCD</h2>
+  <p class="idea">A beige solar desk calculator with a printing tape, where the weekly numbers glow in seven-segment digits over ghost segments, the nav is a pad of chunky keys with an orange equals key for New project, and the projects print out on curling paper tape.</p>
+  <h3>Palette</h3>
+  <ul class="sw">
+    <li><div class="c" style="background:#f1efe9"></div><b>Desk</b>#f1efe9 · the page</li>
+    <li><div class="c" style="background:#e6e1d3"></div><b>Body</b>#e6e1d3 · calculator plastic; edge #c9c3b2</li>
+    <li><div class="c" style="background:#cdd3c0"></div><b>LCD</b>#cdd3c0 · displays and the search field</li>
+    <li><div class="c" style="background:#1f231c"></div><b>Segment</b>#1f231c · lit digits and LCD text</li>
+    <li><div class="c" style="background:#bcc3ad"></div><b>Ghost</b>#bcc3ad · unlit segments, never meaning</li>
+    <li><div class="c" style="background:#3a3833"></div><b>Bezel</b>#3a3833 · display frames, labels on it in #ece8dc</li>
+    <li><div class="c" style="background:#3b2e33"></div><b>Solar</b>#3b2e33 · the solar cell strip</li>
+    <li><div class="c" style="background:#f4f2ec"></div><b>Key</b>#f4f2ec · light keys; edge #a9a493</li>
+    <li><div class="c" style="background:#4a4843"></div><b>Dark key</b>#4a4843 · function keys and the current page key</li>
+    <li><div class="c" style="background:#e8823a"></div><b>Orange</b>#e8823a · the equals key, focus halo, with dark text</li>
+    <li><div class="c" style="background:#fdfcf7"></div><b>Tape</b>#fdfcf7 · printed paper tape and list rows</li>
+    <li><div class="c" style="background:#a3241c"></div><b>Red ink</b>#a3241c · Behind and alert count, like negative numbers</li>
+    <li><div class="c" style="background:#26241f"></div><b>Ink</b>#26241f · tape text and key legends; muted #55524a</li>
+  </ul>
+  <h3>Type</h3>
+  <div class="types">
+    <p style="font-size:56px;line-height:1;color:#1f231c"><svg class="d" viewBox="0 0 40 22" aria-hidden="true"><g transform="translate(0 0) skewX(-6)"><g fill="#bcc3ad"><polygon points="2.2,0.5 9.8,0.5 8.3,2.2 3.7,2.2"/><polygon points="10.5,1.2 10.5,10.2 8.8,9.2 8.8,2.7"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/><polygon points="2.2,21.5 9.8,21.5 8.3,19.8 3.7,19.8"/><polygon points="1.5,11.8 1.5,20.8 3.2,19.3 3.2,12.8"/><polygon points="1.5,1.2 1.5,10.2 3.2,9.2 3.2,2.7"/><polygon points="2.3,11 3.7,10.1 8.3,10.1 9.7,11 8.3,11.9 3.7,11.9"/></g><g fill="currentColor"><polygon points="10.5,1.2 10.5,10.2 8.8,9.2 8.8,2.7"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/></g></g><g transform="translate(14 0) skewX(-6)"><g fill="#bcc3ad"><polygon points="2.2,0.5 9.8,0.5 8.3,2.2 3.7,2.2"/><polygon points="10.5,1.2 10.5,10.2 8.8,9.2 8.8,2.7"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/><polygon points="2.2,21.5 9.8,21.5 8.3,19.8 3.7,19.8"/><polygon points="1.5,11.8 1.5,20.8 3.2,19.3 3.2,12.8"/><polygon points="1.5,1.2 1.5,10.2 3.2,9.2 3.2,2.7"/><polygon points="2.3,11 3.7,10.1 8.3,10.1 9.7,11 8.3,11.9 3.7,11.9"/></g><g fill="currentColor"><polygon points="2.2,0.5 9.8,0.5 8.3,2.2 3.7,2.2"/><polygon points="10.5,1.2 10.5,10.2 8.8,9.2 8.8,2.7"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/><polygon points="2.2,21.5 9.8,21.5 8.3,19.8 3.7,19.8"/><polygon points="1.5,11.8 1.5,20.8 3.2,19.3 3.2,12.8"/><polygon points="1.5,1.2 1.5,10.2 3.2,9.2 3.2,2.7"/><polygon points="2.3,11 3.7,10.1 8.3,10.1 9.7,11 8.3,11.9 3.7,11.9"/></g></g><g transform="translate(28 0) skewX(-6)"><g fill="#bcc3ad"><polygon points="2.2,0.5 9.8,0.5 8.3,2.2 3.7,2.2"/><polygon points="10.5,1.2 10.5,10.2 8.8,9.2 8.8,2.7"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/><polygon points="2.2,21.5 9.8,21.5 8.3,19.8 3.7,19.8"/><polygon points="1.5,11.8 1.5,20.8 3.2,19.3 3.2,12.8"/><polygon points="1.5,1.2 1.5,10.2 3.2,9.2 3.2,2.7"/><polygon points="2.3,11 3.7,10.1 8.3,10.1 9.7,11 8.3,11.9 3.7,11.9"/></g><g fill="currentColor"><polygon points="2.2,0.5 9.8,0.5 8.3,2.2 3.7,2.2"/><polygon points="1.5,1.2 1.5,10.2 3.2,9.2 3.2,2.7"/><polygon points="2.3,11 3.7,10.1 8.3,10.1 9.7,11 8.3,11.9 3.7,11.9"/><polygon points="1.5,11.8 1.5,20.8 3.2,19.3 3.2,12.8"/><polygon points="2.2,21.5 9.8,21.5 8.3,19.8 3.7,19.8"/><polygon points="10.5,11.8 10.5,20.8 8.8,19.3 8.8,12.8"/></g></g></svg><small>Seven-segment digits · inline SVG polygons, slanted segment ends, unlit segments drawn in ghost · 72px main display, 30px readouts</small></p>
+    <p style="font:15px var(--mono)">Good morning, Mara<small>LCD and tape text · OCR A Std, OCR A Extended, Courier New, Courier, monospace · 13 to 15px</small></p>
+    <p style="font:bold 13px var(--sans);letter-spacing:.06em;text-transform:uppercase">Projects<small>Key legends and labels · Helvetica Neue, Helvetica, Arial, sans-serif · bold 13px caps, 10 to 11px sub legends and annunciators</small></p>
+  </div>
+  <h3>System</h3>
+  <dl class="sys">
+    <div><dt>Spacing</dt><dd>8 to 10px between keys, 14px between calculator zones, 40px between calculator and tape.</dd></div>
+    <div><dt>Density</dt><dd>Compact device on the left, a long airy tape on the right.</dd></div>
+    <div><dt>Corners</dt><dd>Keys 8px top and 12px bottom. Body 18 to 26px. LCD 3px. Tape has a zigzag torn foot.</dd></div>
+    <div><dt>Borders</dt><dd>Keys have a 1px edge. Displays sit in a dark bezel. Tape rows are dotted, totals get a 2px rule.</dd></div>
+    <div><dt>Shadows</dt><dd>Keys stand on a 4px solid under-edge. The current key is pressed down to 1px.</dd></div>
+    <div><dt>Icons</dt><dd>Ringed dot for On track, outline triangle with bang for At risk, minus box in red ink for Behind, an E error box for overdue.</dd></div>
+    <div><dt>Tone</dt><dd>Machine labels and arithmetic. Print tape, Clear, = New project, Σ last week 59.</dd></div>
+  </dl>
+  <h3>Controls</h3>
+  <div class="ctrls">
+    <figure><figcaption>Primary button</figcaption><button class="key eq" type="button">= New project</button><button class="key eq is-focus" type="button">= New project</button></figure>
+    <figure><figcaption>Secondary button</figcaption><button class="key" type="button">Cancel<small>C</small></button><button class="key is-focus" type="button">Cancel<small>C</small></button></figure>
+    <figure><figcaption>Text field</figcaption><label class="field">Project name<input type="text" value="Spring catalogue"></label><label class="field">Project name<input class="is-focus" type="text" value="Spring catalogue"></label></figure>
+    <figure><figcaption>List row</figcaption><div class="row">Billing migration <span class="st late"><svg width="12" height="12" aria-hidden="true"><use href="#minus"/></svg>Behind</span></div><div class="row is-focus">Billing migration <span class="st late"><svg width="12" height="12" aria-hidden="true"><use href="#minus"/></svg>Behind</span></div></figure>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Style 290 · Amber terminal · Brightwork</title>
+<style>
+
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{margin:0}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.ic{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:var(--sw,1.75);vertical-align:-.18em}
+ul,ol{list-style:none;margin:0;padding:0}
+h1,h2,h3,h4,p{margin:0}
+button{font:inherit;color:inherit}
+table{border-collapse:collapse}
+code{font-family:inherit}
+
+
+:root{--black:#0c0700;--amber:#ffb000;--dim:#d39300;--rule:#8a5c00;--sw:2;--mono:'Fixedsys','Terminus','DejaVu Sans Mono','Lucida Console',ui-monospace,Consolas,monospace}
+body{background:var(--black);color:var(--amber);font:14px/1.5 var(--mono);text-shadow:0 0 5px rgba(255,176,0,.45)}
+.ic{stroke-linecap:square;stroke-linejoin:miter;width:1em;height:1em}
+a{color:var(--amber)}
+:focus-visible,.is-focus{outline:2px solid var(--amber)!important;outline-offset:2px;background:var(--amber)!important;color:var(--black)!important;text-shadow:none!important}
+.bar{background:var(--amber);color:var(--black);text-shadow:none;display:flex;flex-wrap:wrap;gap:2px 24px;padding:2px 12px;font-weight:700}
+.bar a{color:var(--black)}
+.bar .r{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+.bar button{background:transparent;border:0;padding:0;font:inherit;color:var(--black);cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.screen{display:grid;grid-template-columns:240px minmax(0,1fr) 300px;gap:8px;padding:16px 8px 8px}
+.pane{border:3px double var(--amber);padding:16px 12px 12px;position:relative;min-width:0;margin-top:8px}
+.pt{position:absolute;top:-12px;left:12px;background:var(--amber);color:var(--black);text-shadow:none;padding:0 8px;font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;line-height:20px}
+.span2{grid-column:span 2}
+.tabs ul{display:grid}
+.tabs a{display:flex;gap:8px;align-items:center;padding:2px 8px;text-decoration:none}
+.tabs a::before{content:" ";width:1ch;display:inline-block}
+.tabs a[aria-current]{background:var(--amber);color:var(--black);text-shadow:none;font-weight:700}
+.tabs a[aria-current]::before{content:"►"}
+.tabs .ct{margin-left:auto}
+.sep{border:0;border-top:1px solid var(--rule);margin:10px 0}
+.dim{color:var(--dim)}
+h1{font-size:18px;font-weight:700;line-height:1.4}
+.inv{background:var(--amber);color:var(--black);text-shadow:none;font-weight:700;padding:0 6px;display:inline-flex;align-items:center;gap:6px}
+.kv{display:grid;grid-template-columns:130px minmax(0,1fr);margin:8px 0 0;border-top:1px solid var(--rule)}
+.kv dt,.kv dd{padding:3px 0;border-bottom:1px solid var(--rule);margin:0}
+.kv dt{color:var(--dim);text-transform:uppercase;font-size:13px}
+.kv dd{overflow-wrap:anywhere}
+.st{display:inline-flex;align-items:center;gap:6px}
+.chk li{display:flex;justify-content:space-between;gap:8px;padding:1px 6px}
+.chk li span:first-child{display:flex;gap:8px;align-items:center}
+.chk li.f{background:var(--amber);color:var(--black);text-shadow:none;font-weight:700}
+.files li{padding:4px 0;border-bottom:1px solid var(--rule)}
+.files a{display:block;overflow-wrap:anywhere}
+.files .n{color:var(--dim)}
+.dscroll{overflow-x:auto}
+.diff{width:100%;min-width:600px}
+.diff td{padding:0 8px;white-space:pre}
+.diff .ln{width:40px;text-align:right;color:var(--dim);border-right:1px solid var(--rule)}
+.diff .sg{width:16px;font-weight:700}
+.diff .hunk td{color:var(--dim);border-bottom:1px solid var(--rule);padding:2px 8px}
+.diff .add td.cd,.diff .add td.sg{font-weight:700}
+.diff .del td{color:var(--dim)}
+.diff .cmt td{white-space:normal;padding:6px 8px 6px 76px}
+.cm{border:3px double var(--amber);padding:6px 10px;max-width:500px}
+.cm b{background:var(--amber);color:var(--black);text-shadow:none;padding:0 4px}
+.keys{display:flex;flex-wrap:wrap;gap:4px 16px;padding:6px 12px;border-top:3px double var(--amber);margin-top:8px}
+.keys span{display:inline-flex;gap:6px;align-items:center}
+.keys kbd{font:700 13px var(--mono);background:var(--amber);color:var(--black);text-shadow:none;padding:0 4px}
+.keys .off{color:var(--dim)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 14px var(--mono);padding:3px 12px;cursor:pointer;border-radius:0;border:3px double var(--amber);text-transform:uppercase}
+.btn.primary{background:var(--amber);color:var(--black);text-shadow:none}
+.btn.secondary{background:var(--black);color:var(--amber)}
+.btn.primary.is-focus{outline-color:var(--amber);box-shadow:0 0 0 4px var(--black),0 0 0 6px var(--amber)}
+.btn[disabled]{background:var(--black);color:var(--dim);border-color:var(--rule);cursor:not-allowed;width:100%}
+.tf{font:14px var(--mono);background:var(--black);color:var(--amber);border:0;border-bottom:1px solid var(--amber);border-radius:0;padding:3px 6px;width:240px;max-width:100%;text-shadow:inherit}
+.tf::placeholder{color:var(--dim)}
+.srow{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:16px;padding:2px 8px;color:var(--amber);text-decoration:none}
+.srow b{font-weight:400;overflow-wrap:anywhere}
+.srow .del{color:var(--dim)}
+.srow.is-focus .del,.srow:focus-visible .del{color:var(--black)}
+@media (max-width:1000px){.screen{grid-template-columns:minmax(0,1fr)}.span2{grid-column:auto}.bar .r{margin-left:0}}
+@media (max-width:640px){.kv{grid-template-columns:minmax(0,1fr)}.kv dt{border-bottom:0;padding-bottom:0}}
+
+.sheet{--sh-bg:#0c0700;--sh-ink:#ffb000;--sh-head:#ffb000;--sh-muted:#d39300;--sh-card:#0c0700;--sh-box:3px double #ffb000;--sh-row:1px solid #8a5c00;--sh-rule:3px double #ffb000;--sh-chipline:#ffb000;--sh-r:0;--sh-top:3px double #ffb000;--sh-font:'Fixedsys','Terminus','DejaVu Sans Mono','Lucida Console',ui-monospace,Consolas,monospace;--sh-mono:'Fixedsys','Terminus','DejaVu Sans Mono','Lucida Console',ui-monospace,Consolas,monospace;--sh-h2:700 20px/1.4 'Fixedsys','Terminus','DejaVu Sans Mono','Lucida Console',ui-monospace,Consolas,monospace;--sh-h3:700 14px 'Fixedsys','Terminus','DejaVu Sans Mono','Lucida Console',ui-monospace,Consolas,monospace}
+
+.sheet{background:var(--sh-bg);color:var(--sh-ink);padding:48px 24px 72px;border-top:var(--sh-top);font-family:var(--sh-font)}
+.sheet-in{max-width:1120px;margin:0 auto}
+.sheet h2{font:var(--sh-h2);margin:0 0 10px;color:var(--sh-head)}
+.sheet h3{font:var(--sh-h3);margin:36px 0 14px;padding-bottom:8px;border-bottom:var(--sh-rule);color:var(--sh-head)}
+.sheet .idea{font-size:17px;line-height:1.55;max-width:70ch;color:var(--sh-ink)}
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.sw{display:flex;gap:12px;align-items:center;border:var(--sh-box);border-radius:var(--sh-r);padding:10px;background:var(--sh-card)}
+.chip{width:48px;height:48px;flex:none;border-radius:var(--sh-r);border:1px solid var(--sh-chipline)}
+.swt{display:flex;flex-direction:column;font-size:14px;line-height:1.4;min-width:0}
+.swt b{color:var(--sh-head)}
+.swt code{font-family:var(--sh-mono);font-size:13px}
+.swt span{color:var(--sh-muted)}
+.types li{display:flex;justify-content:space-between;gap:8px 16px;align-items:baseline;flex-wrap:wrap;padding:12px 0;border-bottom:var(--sh-row)}
+.tys{color:var(--sh-head);overflow-wrap:anywhere;min-width:0}
+.tym{font-size:13px;color:var(--sh-muted);font-family:var(--sh-mono)}
+.facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:0 32px;margin:0}
+.fact{padding:12px 0;border-bottom:var(--sh-row)}
+.fact dt{font-weight:700;color:var(--sh-head)}
+.fact dd{margin:4px 0 0;line-height:1.5;color:var(--sh-ink)}
+.controls{display:grid;gap:22px}
+.ctl{display:grid;grid-template-columns:170px minmax(0,1fr);gap:16px;align-items:center}
+.ctl-l{font-weight:700;color:var(--sh-head)}
+.ctl-r{display:flex;gap:20px;flex-wrap:wrap;align-items:center;min-width:0}
+.ctl-r.rows{display:grid;gap:12px;max-width:520px}
+.note{margin-top:24px;font-size:14px;color:var(--sh-muted);max-width:70ch}
+@media (max-width:760px){.sheet{padding:32px 16px 56px}.ctl{grid-template-columns:minmax(0,1fr);gap:8px}}
+
+</style>
+</head>
+<body>
+<header class="bar"><span>BRIGHTWORK CODE</span><span><a href="#">fernhill</a>/brightwork-mobile</span><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="9.5" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> PRIVATE</span>
+<span class="r"><button type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.5 12S6 6 12 6s9.5 6 9.5 6S18 18 12 18 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.6"/></svg>Watch 12</button><button type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.6l2.6 5.3 5.8.9-4.2 4.1 1 5.8L12 17l-5.2 2.7 1-5.8-4.2-4.1 5.8-.9z"/></svg>Star 48</button><button type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="5" r="2.2"/><circle cx="18" cy="5" r="2.2"/><circle cx="12" cy="19" r="2.2"/><path d="M6 7.2V8a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3v-.8M12 11v5.8"/></svg>Fork 3</button></span></header>
+<main class="screen">
+<section class="pane" aria-labelledby="p1"><h2 class="pt" id="p1">Repository</h2><nav class="tabs" aria-label="Repository"><ul><li><a href="#"><span class="tl">Code</span></a></li><li><a href="#"><span class="tl">Issues</span> <span class="ct">27</span></a></li><li><a href="#" aria-current="page"><span class="tl">Pull requests</span> <span class="ct">5</span></a></li><li><a href="#"><span class="tl">Actions</span></a></li><li><a href="#"><span class="tl">Wiki</span></a></li><li><a href="#"><span class="tl">Settings</span></a></li></ul></nav>
+<hr class="sep"><p class="dim">fernhill/brightwork-mobile</p></section>
+<section class="pane" aria-labelledby="p2"><h2 class="pt" id="p2">Pull request 214</h2>
+<h1>Add push notification preferences #214</h1>
+<p style="margin-top:6px"><span class="inv"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="18" r="2.2"/><path d="M6 8.2v7.6M18 15.8V9a3 3 0 0 0-3-3h-4M13 3.8L10.8 6 13 8.2"/></svg>OPEN</span> Sam Ortiz wants to merge 6 commits into main from feature/push-prefs</p>
+<dl class="kv"><dt>Reviewers</dt><dd><span class="st"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg>Jonas Weber, approved</span><br><span class="st"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.8l9 16H3z"/><path d="M12 10v4.2M12 17.2v.3"/></svg>Tomás Ruiz, requested changes</span></dd>
+<dt>Labels</dt><dd>feature · mobile · needs QA</dd>
+<dt>Assignees</dt><dd>Sam Ortiz</dd>
+<dt>Milestone</dt><dd><a href="#">Mobile app 2.0</a></dd>
+<dt>Linked issue</dt><dd><a href="#">#198 Push notifications</a></dd>
+<dt>Merge</dt><dd><button type="button" class="btn primary" disabled aria-describedby="mn" style="width:auto"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="9.5" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Merge</button> <span id="mn" class="dim">locked until all checks pass</span></dd></dl></section>
+<section class="pane" aria-labelledby="p3"><h2 class="pt" id="p3">Checks 11/12</h2><p class="st" style="margin-bottom:6px"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9l6 6M15 9l-6 6"/></svg>11 of 12 passed, 1 failing, e2e-android</p><ul class="chk"><li><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg>lint</span><span>passed</span></li><li><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg>typecheck</span><span>passed</span></li><li><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg>unit-tests</span><span>passed</span></li><li><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg>build-ios</span><span>passed</span></li><li><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg>build-android</span><span>passed</span></li><li><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg>e2e-ios</span><span>passed</span></li><li class="f"><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9l6 6M15 9l-6 6"/></svg>e2e-android</span><span>FAILING</span></li><li><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg>bundle-size</span><span>passed</span></li><li><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg>license-scan</span><span>passed</span></li><li><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg>secrets-scan</span><span>passed</span></li><li><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg>storybook</span><span>passed</span></li><li><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg>a11y-audit</span><span>passed</span></li></ul></section>
+<section class="pane" aria-labelledby="p4"><h2 class="pt" id="p4">Files 3</h2><ul class="files"><li><a href="#">src/settings/NotificationPrefs.tsx</a><span class="n">+184 −12</span></li><li><a href="#">src/api/push.ts</a><span class="n">+46 −8</span></li><li><a href="#">src/settings/NotificationPrefs.test.tsx</a><span class="n">+92 −0</span></li></ul><p class="dim" style="margin-top:6px">+322 −20</p></section>
+<section class="pane span2" aria-labelledby="p5"><h2 class="pt" id="p5">Diff · NotificationPrefs.tsx</h2>
+<div class="dscroll" tabindex="0" role="region" aria-label="Diff, scrolls sideways"><table class="diff"><caption class="vh">Diff of src/settings/NotificationPrefs.tsx, 6 lines added and 2 removed</caption><tr class="hunk"><td colspan="4"><code>@@ -40,6 +40,10 @@ export function NotificationPrefs</code></td></tr><tr class="ctx"><td class="ln">40</td><td class="ln">40</td><td class="sg"></td><td class="cd"><code>  const [prefs, setPrefs] = usePushPrefs(user.id);</code></td></tr><tr class="del"><td class="ln">41</td><td class="ln"></td><td class="sg"><span aria-hidden="true">−</span><span class="vh">removed</span></td><td class="cd"><code>  const quiet = prefs.quietHours;</code></td></tr><tr class="del"><td class="ln">42</td><td class="ln"></td><td class="sg"><span aria-hidden="true">−</span><span class="vh">removed</span></td><td class="cd"><code>  const save = () =&gt; api.save(prefs);</code></td></tr><tr class="add"><td class="ln"></td><td class="ln">41</td><td class="sg"><span aria-hidden="true">+</span><span class="vh">added</span></td><td class="cd"><code>  const quiet = prefs.quietHours ?? DEFAULT_QUIET;</code></td></tr><tr class="add"><td class="ln"></td><td class="ln">42</td><td class="sg"><span aria-hidden="true">+</span><span class="vh">added</span></td><td class="cd"><code>  const save = async () =&gt; {</code></td></tr><tr class="add"><td class="ln"></td><td class="ln">43</td><td class="sg"><span aria-hidden="true">+</span><span class="vh">added</span></td><td class="cd"><code>    await savePushPrefs(user.id, prefs);</code></td></tr><tr class="add"><td class="ln"></td><td class="ln">44</td><td class="sg"><span aria-hidden="true">+</span><span class="vh">added</span></td><td class="cd"><code>  };</code></td></tr><tr class="ctx"><td class="ln">43</td><td class="ln">45</td><td class="sg"></td><td class="cd"><code> </code></td></tr><tr class="ctx"><td class="ln">44</td><td class="ln">46</td><td class="sg"></td><td class="cd"><code>  return (</code></td></tr><tr class="ctx"><td class="ln">45</td><td class="ln">47</td><td class="sg"></td><td class="cd"><code>    &lt;Section title=&quot;Notifications&quot;&gt;</code></td></tr><tr class="add"><td class="ln"></td><td class="ln">48</td><td class="sg"><span aria-hidden="true">+</span><span class="vh">added</span></td><td class="cd"><code>      &lt;QuietHours start={quiet.start} end={quiet.end} /&gt;</code></td></tr><tr class="cmt"><td colspan="4"><div class="cm"><p><b>Tomás Ruiz</b></p><p>Quiet hours should respect the device time zone.</p></div></td></tr><tr class="add"><td class="ln"></td><td class="ln">49</td><td class="sg"><span aria-hidden="true">+</span><span class="vh">added</span></td><td class="cd"><code>      &lt;Toggle label=&quot;Mentions&quot; value={prefs.mentions} /&gt;</code></td></tr></table></div></section>
+</main>
+<nav class="keys" aria-label="Function keys"><span><kbd>F1</kbd>Help</span><span><kbd>F2</kbd>Files</span><span><kbd>F3</kbd>Diff</span><span><kbd>F4</kbd>Comment</span><span><kbd>F5</kbd>Refresh</span><span class="off"><kbd>F8</kbd><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="9.5" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Merge, locked</span><span><kbd>F10</kbd>Quit</span></nav>
+<section class="sheet" aria-labelledby="sheet-h"><div class="sheet-in">
+<h2 id="sheet-h">Style 290 · Amber terminal</h2>
+<p class="idea">A full-screen amber text-mode application of double-ruled panes with titles set into their borders, an inverse selection bar, a top status line and a bottom function key bar, glowing warmly on black.</p>
+<h3>Palette</h3><ul class="swatches"><li class="sw"><span class="chip" style="background:#0c0700"></span><span class="swt"><b>black</b> <code>#0c0700</code><span>the page, pane interiors and the style sheet</span></span></li><li class="sw"><span class="chip" style="background:#ffb000"></span><span class="swt"><b>amber</b> <code>#ffb000</code><span>main text, double rules, the inverse bar and focus</span></span></li><li class="sw"><span class="chip" style="background:#d39300"></span><span class="swt"><b>dim</b> <code>#d39300</code><span>labels, line numbers, removed lines and the key bar captions</span></span></li><li class="sw"><span class="chip" style="background:#8a5c00"></span><span class="swt"><b>rule</b> <code>#8a5c00</code><span>single inner dividers, never text</span></span></li><li class="sw"><span class="chip" style="background:#0c0700"></span><span class="swt"><b>inverseInk</b> <code>#0c0700</code><span>text on the amber inverse bar, pane titles and buttons</span></span></li></ul>
+<h3>Type scale</h3><ul class="types"><li><span class="tys" style="font:700 14px 'Fixedsys','Terminus','DejaVu Sans Mono','Lucida Console',ui-monospace,Consolas,monospace;letter-spacing:.08em">PULL REQUEST 214</span><span class="tym">14px 700 caps · Fixedsys, Terminus, DejaVu Sans Mono, Lucida Console · pane titles in inverse</span></li><li><span class="tys" style="font:700 18px/1.4 'Fixedsys','Terminus','DejaVu Sans Mono','Lucida Console',ui-monospace,Consolas,monospace">Add push notification preferences</span><span class="tym">18px 700 · the title</span></li><li><span class="tys" style="font:400 14px/1.5 'Fixedsys','Terminus','DejaVu Sans Mono','Lucida Console',ui-monospace,Consolas,monospace">Sam Ortiz wants to merge 6 commits</span><span class="tym">14px 400 · pane text</span></li><li><span class="tys" style="font:700 13px 'Fixedsys','Terminus','DejaVu Sans Mono','Lucida Console',ui-monospace,Consolas,monospace">F8 Merge</span><span class="tym">13px 700 · function key bar</span></li></ul>
+<h3>Spacing, density and surfaces</h3><dl class="facts"><div class="fact"><dt>Spacing</dt><dd>A character grid. 8px horizontal and 4px vertical cell padding, 12px inside panes, 8px between panes.</dd></div><div class="fact"><dt>Density</dt><dd>Dense. A full screen of text, every pane visible at once on a laptop.</dd></div><div class="fact"><dt>Corners</dt><dd>Square everywhere.</dd></div><div class="fact"><dt>Borders</dt><dd>3px double amber borders around panes, 1px rule dividers inside them, titles cut into the top border.</dd></div><div class="fact"><dt>Shadows</dt><dd>No box shadows. Text has a 5px amber glow at 45 percent.</dd></div><div class="fact"><dt>Icons</dt><dd>Line icons at 2px stroke in amber at 1em with square caps, always with the word. Check circle for passed and approved, crossed square for failing, triangle with a bang for requested changes, padlock for the blocked merge.</dd></div><div class="fact"><dt>Focus</dt><dd>The inverse selection bar, amber fill with black text, plus a 2px amber outline offset 2px.</dd></div><div class="fact"><dt>Tone</dt><dd>Utility program voice, short caps titles and terse captions, such as CHECKS 11/12 and F8 Merge locked.</dd></div></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls"><div class="ctl"><span class="ctl-l">Primary button</span><div class="ctl-r"><button type="button" class="btn primary">Approve</button><button type="button" class="btn primary is-focus">Approve</button></div></div>
+<div class="ctl"><span class="ctl-l">Secondary button</span><div class="ctl-r"><button type="button" class="btn secondary">View file</button><button type="button" class="btn secondary is-focus">View file</button></div></div>
+<div class="ctl"><span class="ctl-l">Text field</span><div class="ctl-r"><label><span class="vh">Filter files, normal</span><input type="text" class="tf" placeholder="Filter files"></label><label><span class="vh">Filter files, focus</span><input type="text" class="tf is-focus" value="push"></label></div></div>
+<div class="ctl"><span class="ctl-l">List row</span><div class="ctl-r rows"><a href="#" class="srow"><b>src/api/push.ts</b><span class="add">+46</span><span class="del">−8</span></a><a href="#" class="srow is-focus"><b>src/api/push.ts</b><span class="add">+46</span><span class="del">−8</span></a></div></div></div>
+<p class="note">The second sample in each pair shows the focus state, drawn statically with the class is-focus. It matches the real :focus-visible rule.</p>
+</div></section>
+</body>
+</html>

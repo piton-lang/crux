@@ -1,0 +1,12 @@
+export anchor LandingPage:
+    description:
+        The public marketing home page for Brightwork, seen before sign-up.
+
+    sections:
+        - A top bar with the brand, links to Features, Pricing, Customers and Sign in, and a Start free button
+        - A hero with the headline "Every project, on one calm page", the line "Brightwork shows small teams what is on track, what is due and who is doing what.", a Start free button, a Watch the 2 minute tour link, and the note "Free for teams up to 5. No card needed."
+        - A logo strip with the words "Used by 4,000 small teams", naming Fernhill Studio, Northpass, Kettle & Co, Orbit Labs and Lumen Bakery
+        - Three features, Projects at a glance, Tasks that finish, and Reports without spreadsheets, each with one sentence
+        - A quote from Priya Nair, Design lead at Fernhill Studio, "We dropped three tools and our Monday meeting."
+        - A closing band "Start your first project in 2 minutes" with a Start free button
+        - A footer with Product, Company and Help links and © 2026 Brightwork

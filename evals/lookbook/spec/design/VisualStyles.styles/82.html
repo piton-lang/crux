@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 82 · Coffee menu board · Brightwork</title>
+<style>
+:root {
+  --wall: #efe7da;
+  --wood: #6a4528;
+  --woodDark: #4a2f1a;
+  --kraft: #d8bb8d;
+  --kraftLight: #e3caa1;
+  --chip: #f7eedc;
+  --espresso: #2a180b;
+  --roast: #4f3320;
+  --crema: #c98b3c;
+  --ok: #1e5a2a;
+  --risk: #7a4a00;
+  --bad: #9e1f17;
+  --slab: Rockwell, "Rockwell Nova", "Roboto Slab", "Courier New", Georgia, serif;
+  --marker: "Marker Felt", "Ink Free", "Chalkboard SE", "Comic Sans MS", cursive;
+  --sans: "Gill Sans", "Gill Sans MT", "Trebuchet MS", "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--wall); color: var(--espresso); font: 16px/1.45 var(--sans); }
+a { color: var(--espresso); }
+:focus-visible, .is-focus { outline: 3px solid var(--espresso); outline-offset: 2px; box-shadow: 0 0 0 6px var(--chip); }
+.page { max-width: 1240px; margin: 0 auto; padding: 24px; }
+.marker { font-family: var(--marker); }
+
+/* the board */
+.board { background: radial-gradient(ellipse at 20% 10%, rgba(255,255,255,.18), transparent 50%), repeating-linear-gradient(97deg, rgba(90,60,30,.04) 0 2px, transparent 2px 7px), var(--kraft); border: 16px solid var(--wood); border-radius: 6px; box-shadow: inset 0 0 0 2px var(--woodDark), inset 0 0 0 6px var(--kraft), inset 0 0 0 7px var(--roast), 0 10px 24px rgba(42,24,11,.25); padding: 26px 30px 30px; }
+
+/* top */
+.top { display: flex; align-items: center; gap: 14px 24px; flex-wrap: wrap; }
+.logo { font: 700 30px/1 var(--slab); letter-spacing: .12em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+.logo small { display: block; font: 18px/1 var(--marker); letter-spacing: 0; text-transform: none; color: var(--roast); margin-top: 4px; }
+.tools { margin-left: auto; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.search { display: flex; align-items: center; gap: 6px; background: var(--chip); border: 2px solid var(--espresso); border-radius: 999px; padding: 0 14px; }
+.search input { border: 0; background: transparent; font: 15px var(--sans); color: var(--espresso); padding: 8px 0; width: 210px; }
+.search input:focus { outline: none; }
+.search:focus-within { outline: 3px solid var(--espresso); outline-offset: 2px; }
+.btn { font: 700 14px var(--slab); letter-spacing: .08em; text-transform: uppercase; padding: 10px 16px; border: 2px solid var(--espresso); background: var(--espresso); color: var(--chip); border-radius: 999px; cursor: pointer; }
+.btn-2 { background: var(--chip); color: var(--espresso); }
+.bell { position: relative; display: inline-grid; place-items: center; width: 42px; height: 42px; border: 2px solid var(--espresso); border-radius: 50%; background: var(--chip); }
+.bell b { position: absolute; top: -6px; right: -6px; width: 20px; height: 20px; border-radius: 50%; background: var(--bad); color: #fff; font: 700 12px var(--sans); display: grid; place-items: center; }
+.barista { font: 700 15px var(--sans); }
+.barista small { display: block; font: 15px var(--marker); font-weight: 400; color: var(--roast); }
+.menu-nav { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 0; margin: 18px 0 0; padding: 8px 0; border-top: 2px solid var(--espresso); border-bottom: 2px solid var(--espresso); }
+.menu-nav li { display: flex; align-items: center; }
+.menu-nav li + li::before { content: ""; width: 9px; height: 13px; border-radius: 50%; background: var(--roast); margin: 0 10px; box-shadow: inset 2px 0 0 -1px var(--kraft); }
+.menu-nav a { font: 700 15px var(--slab); letter-spacing: .1em; text-transform: uppercase; text-decoration: none; padding: 4px 6px; }
+.menu-nav a[aria-current="page"] { background: var(--espresso); color: var(--chip); border-radius: 4px; }
+
+/* hello */
+.hello { text-align: center; padding: 22px 0 6px; }
+.hello h1 { margin: 0; font: 400 52px/1.05 var(--marker); }
+.hello .date { margin: 4px 0 12px; font: 700 14px var(--slab); letter-spacing: .14em; text-transform: uppercase; color: var(--roast); }
+.ribbon { display: inline-flex; align-items: center; gap: 10px; background: var(--bad); color: #fff; padding: 9px 26px; font: 700 18px var(--slab); letter-spacing: .04em; position: relative; clip-path: polygon(0 0, 100% 0, 96% 50%, 100% 100%, 0 100%, 4% 50%); }
+.ribbon span { font: 20px var(--marker); }
+
+/* sizes */
+.sizes { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; list-style: none; margin: 22px 0; padding: 0; align-items: end; }
+.sizes li { display: flex; align-items: flex-end; gap: 10px; justify-content: center; padding: 10px 6px; border-bottom: 2px dashed var(--roast); }
+.sizes svg { flex: none; }
+.sizes b { display: block; font: 700 46px/1 var(--slab); }
+.sizes span { display: block; font: 14px/1.2 var(--sans); }
+.sizes em { display: block; font: 15px var(--marker); font-style: normal; color: var(--roast); }
+
+/* menu */
+.menu { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 34px; margin-top: 10px; }
+.col-h { text-align: center; margin: 6px 0 12px; }
+.col-h h2 { margin: 0; font: 700 26px var(--slab); letter-spacing: .14em; text-transform: uppercase; }
+.col-h span { font: 18px var(--marker); color: var(--roast); }
+.col-h::after { content: "~ ~ ~"; display: block; font: 700 14px var(--slab); letter-spacing: .3em; color: var(--roast); }
+.items { list-style: none; margin: 0; padding: 0; }
+.item { padding: 10px 0 12px; }
+.item-line { display: flex; align-items: baseline; gap: 8px; }
+.item-line a { font: 700 21px var(--slab); text-decoration: none; white-space: nowrap; }
+.item-line a:hover { text-decoration: underline; }
+.dots { flex: 1; border-bottom: 3px dotted var(--roast); transform: translateY(-5px); min-width: 20px; }
+.price { font: 700 30px/1 var(--slab); font-variant-numeric: lining-nums; }
+.price sup { font-size: 14px; margin-left: 1px; }
+.desc { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin-top: 3px; font: italic 15px var(--sans); color: var(--roast); }
+.desc .cups { font-style: normal; letter-spacing: 1px; color: var(--espresso); }
+.tag { display: inline-flex; align-items: center; gap: 6px; background: var(--chip); border: 1.5px solid currentColor; border-radius: 4px; padding: 1px 8px; font: 700 12px var(--sans); font-style: normal; letter-spacing: .06em; text-transform: uppercase; }
+.tag svg { width: 12px; height: 12px; flex: none; }
+.tag.ok { color: var(--ok); } .tag.risk { color: var(--risk); } .tag.bad { color: var(--bad); }
+
+.slip { position: relative; background: var(--chip); padding: 18px 18px 14px; box-shadow: 0 3px 8px rgba(42,24,11,.2); transform: rotate(.8deg); margin-top: 8px; }
+.slip::before { content: ""; position: absolute; top: -10px; left: 50%; width: 90px; height: 22px; margin-left: -45px; background: rgba(239,231,218,.8); border: 1px solid rgba(79,51,32,.2); transform: rotate(-3deg); }
+.slip h2 { margin: 0 0 6px; font: 400 26px var(--marker); text-align: center; }
+.counter { list-style: none; margin: 0; padding: 0; }
+.counter li { padding: 7px 0; border-bottom: 1px dashed #c7b08a; font-size: 14px; line-height: 1.35; }
+.counter li:last-child { border-bottom: 0; }
+.counter time { display: inline-block; font: 700 11px var(--slab); letter-spacing: .08em; text-transform: uppercase; background: var(--espresso); color: var(--chip); padding: 1px 6px; border-radius: 3px; margin-right: 6px; }
+
+.poured { margin-top: 26px; border-top: 2px solid var(--espresso); padding-top: 4px; }
+.poured svg { width: 100%; height: auto; display: block; }
+.poured p { margin: 4px 0 0; text-align: center; font: 18px var(--marker); color: var(--roast); }
+
+/* sheet */
+.sheet { margin-top: 30px; background: var(--chip); border: 2px solid var(--espresso); border-radius: 6px; padding: 26px; box-shadow: 0 10px 24px rgba(42,24,11,.15); }
+.sheet h2.t { margin: 0; font: 700 30px var(--slab); letter-spacing: .06em; text-transform: uppercase; }
+.sheet h3 { margin: 26px 0 10px; font: 700 14px var(--slab); letter-spacing: .14em; text-transform: uppercase; border-bottom: 2px dotted var(--roast); padding-bottom: 4px; }
+.idea { margin: 6px 0 0; font: 21px/1.35 var(--marker); max-width: 48em; }
+.sw { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; list-style: none; margin: 0; padding: 0; }
+.sw li { border: 2px solid var(--espresso); border-radius: 6px; overflow: hidden; background: #fff; font-size: 13px; line-height: 1.35; }
+.sw i { display: block; height: 44px; border-bottom: 2px solid var(--espresso); }
+.sw div { padding: 6px 8px; }
+.sw b { display: block; font: 700 14px var(--slab); }
+.tr { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; padding: 7px 0; border-bottom: 1px dashed #c7b08a; }
+.tr code { font: 12px ui-monospace, Menlo, Consolas, monospace; color: var(--roast); min-width: 240px; }
+.facts { display: grid; grid-template-columns: 120px 1fr; gap: 8px 16px; margin: 0; }
+.facts dt { font: 700 13px/1.6 var(--slab); text-transform: uppercase; letter-spacing: .06em; }
+.facts dd { margin: 0; }
+.ctls { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+.lab { display: block; font: 700 12px var(--slab); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 6px; color: var(--roast); }
+.field input { width: 100%; font: 16px var(--sans); padding: 9px 14px; border: 2px solid var(--espresso); border-radius: 999px; background: #fff; color: var(--espresso); }
+.row { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 12px; background: var(--kraft); border-radius: 6px; font: 700 17px var(--slab); }
+
+@media (max-width: 980px) {
+  .menu { grid-template-columns: minmax(0,1fr); }
+  .sizes { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 680px) {
+  .page { padding: 10px; }
+  .board { border-width: 10px; padding: 18px 14px 22px; }
+  .tools { margin-left: 0; width: 100%; }
+  .search { flex: 1 1 100%; }
+  .search input { width: 100%; }
+  .menu-nav li + li::before { margin: 0 5px; }
+  .menu-nav a { font-size: 13px; letter-spacing: .06em; }
+  .hello h1 { font-size: 38px; }
+  .ribbon { padding: 8px 20px; font-size: 15px; }
+  .sizes b { font-size: 34px; }
+  .sizes svg { width: 30px; }
+  .item-line a { font-size: 17px; white-space: normal; }
+  .price { font-size: 24px; }
+  .sheet { padding: 18px 14px; }
+  .facts { grid-template-columns: 1fr; gap: 0; }
+  .facts dd { margin-bottom: 8px; }
+  .tr code { min-width: 0; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="bean" viewBox="0 0 12 12"><ellipse cx="6" cy="6" rx="4" ry="5.5" fill="currentColor"/><path d="M6 1c-2 3 2 7 0 10" fill="none" stroke="#f7eedc" stroke-width="1.2"/></symbol>
+  <symbol id="tri" viewBox="0 0 12 12"><path d="M6 .5l5.5 11H.5z" fill="currentColor"/></symbol>
+  <symbol id="sq" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" fill="currentColor"/></symbol>
+</svg>
+<div class="page">
+<div class="board">
+  <header>
+    <div class="top">
+      <div class="logo"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M7 15h22v10a9 9 0 0 1-9 9h-4a9 9 0 0 1-9-9z" fill="#f7eedc" stroke="#2a180b" stroke-width="2.4"/><path d="M29 18h3a4 4 0 0 1 0 8h-3" fill="none" stroke="#2a180b" stroke-width="2.4"/><path d="M14 4c-2 3 2 5 0 8M21 4c-2 3 2 5 0 8" fill="none" stroke="#4f3320" stroke-width="2"/></svg><div>Brightwork<small>today’s project menu</small></div></div>
+      <div class="tools">
+        <label class="search"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="#2a180b" stroke-width="2"/><path d="M11 11l4 4" stroke="#2a180b" stroke-width="2"/></svg><input type="search" aria-label="Search projects and tasks" placeholder="Search projects and tasks"></label>
+        <button class="btn" type="button">New project</button>
+        <a class="bell" href="#" aria-label="Notifications, 3 unread"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 14V9a5 5 0 0 1 10 0v5l2 2H3zM8 18h4" fill="none" stroke="#2a180b" stroke-width="1.8"/></svg><b aria-hidden="true">3</b></a>
+        <span class="barista"><small>on shift</small>Mara Okafor</span>
+      </div>
+    </div>
+    <nav aria-label="Main">
+      <ul class="menu-nav">
+        <li><a href="#" aria-current="page">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Tasks</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hello" aria-label="Greeting">
+      <h1>Good morning, Mara</h1>
+      <p class="date">Saturday 31 October 2026</p>
+      <div class="ribbon" role="note"><span>Today’s special:</span> 4 tasks are overdue</div>
+    </section>
+
+    <ul class="sizes" aria-label="Summary">
+      <li><svg width="26" height="30" viewBox="0 0 26 30" aria-hidden="true"><path d="M3 10h16v10a6 6 0 0 1-6 6H9a6 6 0 0 1-6-6z" fill="#f7eedc" stroke="#2a180b" stroke-width="2"/><path d="M19 13h2a3 3 0 0 1 0 6h-2" fill="none" stroke="#2a180b" stroke-width="2"/></svg><div><em>small</em><b>6</b><span>active projects</span></div></li>
+      <li><svg width="32" height="40" viewBox="0 0 32 40" aria-hidden="true"><path d="M3 10h22v18a8 8 0 0 1-8 8h-6a8 8 0 0 1-8-8z" fill="#f7eedc" stroke="#2a180b" stroke-width="2"/><path d="M25 14h2a4 4 0 0 1 0 8h-2" fill="none" stroke="#2a180b" stroke-width="2"/></svg><div><em>medium</em><b>23</b><span>tasks due this week</span></div></li>
+      <li><svg width="32" height="40" viewBox="0 0 32 40" aria-hidden="true"><path d="M3 10h22v18a8 8 0 0 1-8 8h-6a8 8 0 0 1-8-8z" fill="#9e1f17" stroke="#2a180b" stroke-width="2"/><path d="M25 14h2a4 4 0 0 1 0 8h-2" fill="none" stroke="#2a180b" stroke-width="2"/><path d="M14 16v8M14 27v2" stroke="#fff" stroke-width="2.4"/></svg><div><em>too hot</em><b style="color:var(--bad)">4</b><span>overdue tasks</span></div></li>
+      <li><svg width="38" height="50" viewBox="0 0 38 50" aria-hidden="true"><path d="M4 8h26l-3 36a4 4 0 0 1-4 4H11a4 4 0 0 1-4-4z" fill="#f7eedc" stroke="#2a180b" stroke-width="2"/><rect x="2" y="4" width="30" height="5" rx="2" fill="#4f3320"/><path d="M6 22h22" stroke="#c98b3c" stroke-width="6"/></svg><div><em>large</em><b>186<sup style="font-size:16px">h</sup></b><span>hours logged this week</span></div></li>
+    </ul>
+
+    <div class="menu">
+      <section aria-labelledby="m-h">
+        <div class="col-h"><h2 id="m-h">On the menu</h2><span>six projects, priced by percent done</span></div>
+        <ul class="items">
+          <li class="item"><div class="item-line"><a href="#">Website redesign</a><span class="dots"></span><span class="price">72<sup>%</sup></span></div><div class="desc">Design · 18 of 25 tasks · due 14 Nov <span class="tag ok"><svg aria-hidden="true"><use href="#bean"/></svg>On track</span></div></li>
+          <li class="item"><div class="item-line"><a href="#">Mobile app 2.0</a><span class="dots"></span><span class="price">45<sup>%</sup></span></div><div class="desc">Engineering · 27 of 60 tasks · due 2 Dec <span class="tag risk"><svg aria-hidden="true"><use href="#tri"/></svg>At risk</span></div></li>
+          <li class="item"><div class="item-line"><a href="#">Q4 customer survey</a><span class="dots"></span><span class="price">90<sup>%</sup></span></div><div class="desc">Research · 9 of 10 tasks · due 7 Nov <span class="tag ok"><svg aria-hidden="true"><use href="#bean"/></svg>On track</span></div></li>
+          <li class="item"><div class="item-line"><a href="#">Billing migration</a><span class="dots"></span><span class="price">30<sup>%</sup></span></div><div class="desc">Engineering · 12 of 40 tasks · due 20 Nov <span class="tag bad"><svg aria-hidden="true"><use href="#sq"/></svg>Behind</span></div></li>
+          <li class="item"><div class="item-line"><a href="#">Spring catalogue</a><span class="dots"></span><span class="price">15<sup>%</sup></span></div><div class="desc">Marketing · 3 of 20 tasks · due 15 Jan <span class="tag ok"><svg aria-hidden="true"><use href="#bean"/></svg>On track</span></div></li>
+          <li class="item"><div class="item-line"><a href="#">Onboarding emails</a><span class="dots"></span><span class="price">60<sup>%</sup></span></div><div class="desc">Marketing · 9 of 15 tasks · due 21 Nov <span class="tag ok"><svg aria-hidden="true"><use href="#bean"/></svg>On track</span></div></li>
+        </ul>
+
+        <section class="poured" aria-labelledby="c-h">
+          <div class="col-h"><h2 id="c-h">Cups poured</h2><span>tasks completed each day, 18 to 31 October</span></div>
+          <svg viewBox="0 0 480 220" role="img" aria-label="Tasks completed per day, Sunday 18 to Saturday 31 October: 3, 12, 9, 14, 11, 8, 2, then 4, 15, 13, 17, 12, 10, 2. Last week 59, this week 73.">
+            <g fill="#e3caa1" stroke="#2a180b" stroke-width="2"><rect x="28" y="153" width="22" height="27" rx="5"/><rect x="60" y="72" width="22" height="108" rx="5"/><rect x="92" y="99" width="22" height="81" rx="5"/><rect x="124" y="54" width="22" height="126" rx="5"/><rect x="156" y="81" width="22" height="99" rx="5"/><rect x="188" y="108" width="22" height="72" rx="5"/><rect x="220" y="162" width="22" height="18" rx="5"/></g>
+            <g fill="#4f3320" stroke="#2a180b" stroke-width="2"><rect x="252" y="144" width="22" height="36" rx="5"/><rect x="284" y="45" width="22" height="135" rx="5"/><rect x="316" y="63" width="22" height="117" rx="5"/><rect x="348" y="27" width="22" height="153" rx="5"/><rect x="380" y="72" width="22" height="108" rx="5"/><rect x="412" y="90" width="22" height="90" rx="5"/><rect x="444" y="162" width="22" height="18" rx="5"/></g>
+            <g fill="#c98b3c"><rect x="254" y="146" width="18" height="4"/><rect x="286" y="47" width="18" height="4"/><rect x="318" y="65" width="18" height="4"/><rect x="350" y="29" width="18" height="4"/><rect x="382" y="74" width="18" height="4"/><rect x="414" y="92" width="18" height="4"/><rect x="446" y="164" width="18" height="4"/></g>
+            <path d="M18 181.5h458" stroke="#2a180b" stroke-width="3"/>
+            <g font-family="Rockwell, Roboto Slab, Georgia, serif" font-size="14" font-weight="700" fill="#2a180b" text-anchor="middle"><text x="39" y="147">3</text><text x="71" y="66">12</text><text x="103" y="93">9</text><text x="135" y="48">14</text><text x="167" y="75">11</text><text x="199" y="102">8</text><text x="231" y="156">2</text><text x="263" y="138">4</text><text x="295" y="39">15</text><text x="327" y="57">13</text><text x="359" y="21">17</text><text x="391" y="66">12</text><text x="423" y="84">10</text><text x="455" y="156">2</text></g>
+            <g font-family="Gill Sans, Trebuchet MS, sans-serif" font-size="13" fill="#2a180b" text-anchor="middle"><text x="39" y="198">S</text><text x="71" y="198">M</text><text x="103" y="198">T</text><text x="135" y="198">W</text><text x="167" y="198">T</text><text x="199" y="198">F</text><text x="231" y="198">S</text><text x="263" y="198">S</text><text x="295" y="198">M</text><text x="327" y="198">T</text><text x="359" y="198">W</text><text x="391" y="198">T</text><text x="423" y="198">F</text><text x="455" y="198">S</text></g>
+            <g font-family="Rockwell, Roboto Slab, Georgia, serif" font-size="13" font-weight="700" fill="#2a180b" text-anchor="middle"><text x="135" y="216">LAST WEEK · 59</text><text x="359" y="216">THIS WEEK · 73</text></g>
+          </svg>
+          <p>Light roast last week, dark roast this week</p>
+        </section>
+      </section>
+
+      <aside>
+        <div class="col-h"><h2>From the counter</h2><span>what the team just did</span></div>
+        <section class="slip" aria-label="Team activity">
+          <h2>Fresh orders</h2>
+          <ol class="counter">
+            <li><time>12 min</time><b>Jonas Weber</b> completed “Export invoices as CSV” in Billing migration</li>
+            <li><time>40 min</time><b>Priya Nair</b> commented on “Hero image options” in Website redesign</li>
+            <li><time>1 h</time><b>Sam Ortiz</b> moved “Push notifications” to Review in Mobile app 2.0</li>
+            <li><time>2 h</time><b>Lena Fischer</b> added 3 tasks to Spring catalogue</li>
+            <li><time>3 h</time><b>Tomás Ruiz</b> logged 6 h on Mobile app 2.0</li>
+            <li><time>Yesterday</time><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to Q4 customer survey</li>
+          </ol>
+        </section>
+        <div class="col-h" style="margin-top:26px"><h2>Key</h2></div>
+        <p style="display:flex;flex-direction:column;gap:8px;align-items:flex-start;margin:0">
+          <span class="tag ok"><svg aria-hidden="true"><use href="#bean"/></svg>On track · bean</span>
+          <span class="tag risk"><svg aria-hidden="true"><use href="#tri"/></svg>At risk · triangle</span>
+          <span class="tag bad"><svg aria-hidden="true"><use href="#sq"/></svg>Behind · square</span>
+        </p>
+      </aside>
+    </div>
+  </main>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h">
+  <span class="lab">Style sheet</span>
+  <h2 class="t" id="sheet-h">Style 82 · Coffee menu board</h2>
+  <p class="idea">The dashboard is a café menu board on kraft paper in a wooden frame: projects are menu items priced in percent with dotted leaders, the summary comes in cup sizes, and the day’s special is the overdue count.</p>
+
+  <h3>Palette</h3>
+  <ul class="sw">
+    <li><i style="background:#efe7da"></i><div><b>Wall</b>#efe7da · page behind the board</div></li>
+    <li><i style="background:#6a4528"></i><div><b>Wood</b>#6a4528 · 16px frame, #4a2f1a edge</div></li>
+    <li><i style="background:#d8bb8d"></i><div><b>Kraft</b>#d8bb8d · board surface</div></li>
+    <li><i style="background:#e3caa1"></i><div><b>Light kraft</b>#e3caa1 · last week bars</div></li>
+    <li><i style="background:#f7eedc"></i><div><b>Milk</b>#f7eedc · slips, chips, fields</div></li>
+    <li><i style="background:#2a180b"></i><div><b>Espresso</b>#2a180b · text, outlines, primary</div></li>
+    <li><i style="background:#4f3320"></i><div><b>Roast</b>#4f3320 · script notes, leaders, this week bars</div></li>
+    <li><i style="background:#c98b3c"></i><div><b>Crema</b>#c98b3c · foam caps, decoration only</div></li>
+    <li><i style="background:#1e5a2a"></i><div><b>Green</b>#1e5a2a · On track on milk</div></li>
+    <li><i style="background:#7a4a00"></i><div><b>Caramel</b>#7a4a00 · At risk on milk</div></li>
+    <li><i style="background:#9e1f17"></i><div><b>Cherry</b>#9e1f17 · Behind, the special ribbon</div></li>
+  </ul>
+
+  <h3>Type</h3>
+  <div class="tr"><code>script "Marker Felt", "Ink Free", "Chalkboard SE" · 52</code><span class="marker" style="font-size:40px;line-height:1.1">Good morning, Mara</span></div>
+  <div class="tr"><code>slab Rockwell, "Roboto Slab" · 700 caps, headings 26</code><span style="font:700 26px var(--slab);letter-spacing:.14em">ON THE MENU</span></div>
+  <div class="tr"><code>item 21 slab, price 30 slab</code><span style="font:700 21px var(--slab)">Billing migration ··· <span style="font-size:30px">30<sup style="font-size:14px">%</sup></span></span></div>
+  <div class="tr"><code>descriptions "Gill Sans", "Trebuchet MS" · 15 italic</code><span style="font:italic 15px var(--sans);color:var(--roast)">Engineering · 12 of 40 tasks · due 20 Nov</span></div>
+
+  <h3>Spacing, corners and depth</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>8px unit. 10 to 12px between menu items, 34px between menu columns.</dd>
+    <dt>Density</dt><dd>Medium. One line per item plus a description line.</dd>
+    <dt>Corners</dt><dd>Pill buttons, fields and search; 4 to 6px on tags, swatches and the board.</dd>
+    <dt>Borders</dt><dd>A 16px wood frame with a dark inner line, 2px espresso rules round the nav, dotted price leaders.</dd>
+    <dt>Shadows</dt><dd>One soft shadow under the board and under the taped order slip.</dd>
+    <dt>Icons</dt><dd>Cups in four sizes, a bean between nav items. Tags pair the word with a bean for On track, a triangle for At risk and a square for Behind.</dd>
+    <dt>Tone</dt><dd>Friendly barista: Today’s special, On the menu, Cups poured, From the counter, Fresh orders.</dd>
+  </dl>
+
+  <h3>Controls · normal and focus</h3>
+  <div class="ctls">
+    <div><span class="lab">Primary</span><button class="btn" type="button">Place order</button> <button class="btn is-focus" type="button">Focused</button></div>
+    <div><span class="lab">Secondary</span><button class="btn btn-2" type="button">Not now</button> <button class="btn btn-2 is-focus" type="button">Focused</button></div>
+    <label class="field"><span class="lab">Project name</span><input value="Website redesign"></label>
+    <label class="field"><span class="lab">Project name, focused</span><input class="is-focus" value="Mobile app 2.0"></label>
+    <div><span class="lab">List row</span><div class="row">Billing migration <span class="tag bad"><svg aria-hidden="true"><use href="#sq"/></svg>Behind</span></div></div>
+    <div><span class="lab">List row, focused</span><div class="row is-focus">Mobile app 2.0 <span class="tag risk"><svg aria-hidden="true"><use href="#tri"/></svg>At risk</span></div></div>
+  </div>
+</section>
+</div>
+</body>
+</html>

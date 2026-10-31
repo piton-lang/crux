@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 106 · Cross-stitch · Brightwork</title>
+<style>
+:root {
+  --aida: #f7f3e8;
+  --hole: #e4dccb;
+  --navy: #1d2d50;
+  --back: #23395f;
+  --red: #a3263a;
+  --green: #2e6b3a;
+  --gold: #8a5a00;
+  --grey: #4d4a44;
+  --wood: #c99a5b;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --serif: "Baskerville", "Baskerville Old Face", "Hoefler Text", Georgia, serif;
+  --x-navy: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M1 1L7 7M7 1L1 7' stroke='%231d2d50' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --x-red: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M1 1L7 7M7 1L1 7' stroke='%23a3263a' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --x-green: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M1 1L7 7M7 1L1 7' stroke='%232e6b3a' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --x-gold: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M1 1L7 7M7 1L1 7' stroke='%23a06d12' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --x-border: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='16'%3E%3Cg stroke-width='1.8' stroke-linecap='round'%3E%3Cpath d='M1 1L7 7M7 1L1 7M9 9L15 15M15 9L9 15' stroke='%23a3263a'/%3E%3Cpath d='M17 1L23 7M23 1L17 7M25 9L31 15M31 9L25 15' stroke='%232e6b3a'/%3E%3Cpath d='M9 1L15 7M15 1L9 7M17 9L23 15M23 9L17 15' stroke='%231d2d50'/%3E%3C/g%3E%3C/svg%3E");
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; color: var(--navy); font: 16px/24px var(--serif);
+  background-color: var(--aida);
+  background-image:
+    radial-gradient(circle at 0 0, var(--hole) 0 1.2px, transparent 1.6px),
+    linear-gradient(rgba(77,74,68,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(77,74,68,.06) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+a { color: var(--navy); }
+a:focus-visible, button:focus-visible, input:focus-visible, .is-focus { outline: 2px dashed var(--red); outline-offset: 4px; box-shadow: 0 0 0 8px var(--aida), 0 0 0 10px var(--navy); }
+.wrap { max-width: 1232px; margin: 0 auto; padding: 0 24px; }
+.caps { font: 700 13px/16px var(--mono); letter-spacing: .16em; text-transform: uppercase; }
+/* Running backstitch rule */
+.back { height: 2px; background: repeating-linear-gradient(90deg, var(--back) 0 6px, transparent 6px 8px); }
+
+/* Header band */
+.band { padding: 24px 0 16px; }
+.band-top { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 12px; font: 700 24px/1 var(--mono); letter-spacing: .08em; text-decoration: none; }
+.brand svg { width: 40px; height: 40px; }
+.search { flex: 1 1 240px; display: flex; align-items: center; gap: 8px; border: 2px solid var(--navy); background: #fffdf8; padding: 0 12px; min-height: 40px; }
+.search svg { width: 16px; height: 16px; flex: none; }
+.search input { border: 0; background: transparent; font: 15px var(--mono); color: var(--navy); width: 100%; padding: 8px 0; }
+.search input::placeholder { color: var(--grey); }
+.search:focus-within { outline: 2px dashed var(--red); outline-offset: 4px; }
+.search input:focus-visible { outline: 0; box-shadow: none; }
+.btn { font: 700 14px/16px var(--mono); letter-spacing: .1em; text-transform: uppercase; padding: 12px 16px; border: 2px solid var(--navy); cursor: pointer; background: var(--navy); color: var(--aida); }
+.btn.alt { background: #fffdf8; color: var(--navy); }
+.bell { position: relative; width: 40px; height: 40px; border: 2px solid var(--navy); background: #fffdf8; color: var(--navy); cursor: pointer; }
+.bell svg { width: 20px; height: 20px; }
+.bell b { position: absolute; top: -10px; right: -10px; background: var(--red); color: #fff; font: 700 11px/18px var(--mono); width: 18px; height: 18px; }
+.me { display: flex; align-items: center; gap: 8px; font: 14px var(--mono); }
+.me i { width: 40px; height: 40px; border: 2px solid var(--green); display: grid; place-items: center; font: 700 14px var(--mono); font-style: normal; color: var(--green); background: #fffdf8; }
+.nav { list-style: none; margin: 16px 0 8px; padding: 0; display: flex; flex-wrap: wrap; gap: 0 24px; }
+.nav a { display: inline-block; padding: 4px 0; text-decoration: none; font: 700 14px/24px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+.nav a[aria-current="page"] { color: var(--red); padding-left: 16px; background: var(--x-red) 0 50% / 8px 8px no-repeat; border-bottom: 2px dashed var(--red); }
+
+/* The sampler frame: a stitched border all round */
+.sampler { position: relative; padding: 40px; margin: 16px 0 48px; }
+.frame { position: absolute; inset: 0; pointer-events: none; background:
+  var(--x-border) top left / 32px 16px repeat-x,
+  var(--x-border) bottom left / 32px 16px repeat-x; }
+.frame::before, .frame::after { content: ""; position: absolute; top: 16px; bottom: 16px; width: 16px; background: var(--x-border) 0 0 / 32px 16px repeat-y; }
+.frame::before { left: 0; } .frame::after { right: 0; }
+
+.top { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 40px; align-items: center; }
+/* Embroidery hoop holding the greeting */
+.hoop { width: 320px; height: 320px; border-radius: 50%; border: 14px solid var(--wood); box-shadow: inset 0 0 0 3px #a87a3f, 0 0 0 3px #a87a3f; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 32px; background: #fbf8f0; background-image: linear-gradient(rgba(77,74,68,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(77,74,68,.07) 1px, transparent 1px); background-size: 8px 8px; position: relative; }
+.hoop::before { content: ""; position: absolute; top: -26px; left: 50%; width: 28px; height: 20px; margin-left: -14px; background: #a87a3f; border-radius: 4px; }
+.hoop h1 { margin: 8px 0 0; font: 700 32px/40px var(--serif); }
+.hoop .date { font: 14px/24px var(--mono); color: var(--grey); margin: 0; }
+.hoop .urgent { margin: 16px 0 0; display: flex; align-items: center; gap: 8px; font: 700 14px/16px var(--mono); color: var(--red); }
+.urgent svg { width: 16px; height: 16px; flex: none; }
+
+.counts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; border: 2px solid var(--navy); background: #fffdf8; }
+.count { padding: 24px; border-right: 2px dashed var(--back); border-bottom: 2px dashed var(--back); }
+.count:nth-child(2n) { border-right: 0; }
+.count:nth-child(n+3) { border-bottom: 0; }
+.count .num { display: block; font: 800 64px/64px var(--mono); letter-spacing: -.02em; color: transparent; background: var(--x-navy) 0 0 / 4px 4px, var(--navy); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: var(--navy); }
+.count.red .num { -webkit-text-fill-color: var(--red); }
+.count .lab { display: block; margin-top: 8px; }
+
+h2 { margin: 0 0 16px; font: 700 14px/16px var(--mono); letter-spacing: .2em; text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
+h2::before, h2::after { content: ""; width: 24px; height: 8px; background: var(--x-green) 0 0 / 8px 8px repeat-x; flex: none; }
+h2::after { flex: 1; background-image: repeating-linear-gradient(90deg, var(--back) 0 6px, transparent 6px 8px); height: 2px; }
+
+.rows { margin-top: 48px; }
+.plist { list-style: none; margin: 0; padding: 0; }
+.prow { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr) 56px 112px; gap: 8px 24px; align-items: center; padding: 12px 0; border-bottom: 2px dashed rgba(35,57,95,.3); }
+.prow h3 { margin: 0; font: 700 17px/24px var(--serif); }
+.prow h3 a { text-decoration: none; }
+.prow h3 a:hover { text-decoration: underline; }
+.prow .meta { font: 12px/16px var(--mono); color: var(--grey); }
+/* X-stitch progress on a hand-drawn chart grid: 25 cells */
+.xbar { height: 16px; border: 2px solid var(--navy); background: #fffdf8; background-image: linear-gradient(90deg, rgba(35,57,95,.2) 1px, transparent 1px); background-size: 8px 8px; position: relative; }
+.xbar span { position: absolute; left: 0; top: 0; bottom: 0; width: var(--p); background: var(--xp, var(--x-navy)) 0 0 / 8px 8px; }
+.pct { font: 700 16px var(--mono); text-align: right; }
+.st { display: inline-flex; align-items: center; gap: 8px; font: 700 12px/16px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.st svg { width: 16px; height: 16px; flex: none; shape-rendering: crispEdges; }
+.ok { color: var(--green); } .risk { color: var(--gold); } .bad { color: var(--red); }
+
+.lower { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; margin-top: 48px; }
+/* Chart: each column is stitched one cross per task */
+.chart { padding: 16px; border: 2px solid var(--navy); background: #fffdf8; }
+.xcols { display: flex; align-items: flex-end; gap: 8px; height: 184px; }
+.xcols div { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; font: 700 11px/16px var(--mono); }
+.xcols i { display: block; width: 8px; height: calc(var(--v) * 8px); background: var(--xc) 0 0 / 8px 8px; }
+.w1 i { --xc: var(--x-gold); } .w2 i { --xc: var(--x-navy); }
+.dlabels { display: flex; gap: 8px; border-top: 2px solid var(--navy); padding-top: 4px; }
+.dlabels span { flex: 1; text-align: center; font: 11px/16px var(--mono); color: var(--grey); }
+.legend { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 8px; font: 13px/16px var(--mono); }
+.legend span { padding-left: 16px; background: var(--k) 0 4px / 8px 8px no-repeat; }
+.feed { list-style: none; margin: 0; padding: 0; }
+.feed li { padding: 8px 0 8px 24px; background: var(--x-red) 0 16px / 8px 8px no-repeat; border-bottom: 2px dashed rgba(35,57,95,.3); }
+.feed li:nth-child(2n) { background-image: var(--x-green); }
+.feed time { display: block; font: 12px/16px var(--mono); color: var(--grey); }
+
+/* Style sheet */
+.sheet { border: 2px solid var(--navy); background: #fffdf8; padding: 40px; margin-bottom: 64px; }
+.sheet h2.title { font: 700 32px/40px var(--serif); letter-spacing: 0; text-transform: none; }
+.sheet h2.title::before, .sheet h2.title::after { display: none; }
+.idea { font-size: 18px; line-height: 28px; font-style: italic; margin: 0 0 8px; }
+.sheet h3 { font: 700 13px/16px var(--mono); letter-spacing: .2em; text-transform: uppercase; color: var(--red); margin: 40px 0 16px; padding-left: 16px; background: var(--x-red) 0 4px / 8px 8px no-repeat; }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(176px, 1fr)); gap: 16px; }
+.sw { display: grid; grid-template-columns: 48px 1fr; gap: 0 12px; font: 13px/16px var(--mono); }
+.sw i { grid-row: span 3; width: 48px; height: 56px; border: 2px solid var(--navy); }
+.sw b { font: 700 14px/20px var(--serif); }
+.sw small { color: var(--grey); font-size: 12px; }
+.trow { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 16px; padding: 8px 0; border-bottom: 2px dashed rgba(35,57,95,.25); }
+.trow code { flex: 0 0 248px; font: 12px/16px var(--mono); color: var(--grey); }
+.facts { display: grid; grid-template-columns: 128px 1fr; gap: 8px 24px; margin: 0; }
+.facts dt { font: 700 13px/24px var(--mono); text-transform: uppercase; letter-spacing: .1em; }
+.facts dd { margin: 0; }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(248px, 1fr)); gap: 32px; }
+.controls h4 { margin: 0 0 16px; font: 12px/16px var(--mono); color: var(--grey); text-transform: uppercase; letter-spacing: .1em; }
+.pair { display: flex; gap: 24px; flex-wrap: wrap; }
+.field { display: block; font: 700 13px/16px var(--mono); }
+.field input { display: block; width: 100%; margin-top: 8px; font: 16px var(--serif); padding: 8px 12px; border: 2px solid var(--navy); background: #fff; color: var(--navy); }
+.field input.is-focus { outline: 2px dashed var(--red); outline-offset: 4px; box-shadow: none; }
+.lrow { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 12px; border: 2px solid rgba(35,57,95,.3); background: #fff; margin-bottom: 24px; }
+
+@media (max-width: 1000px) {
+  .top { grid-template-columns: 1fr; justify-items: center; }
+  .counts { width: 100%; }
+  .lower { grid-template-columns: 1fr; }
+  .prow { grid-template-columns: minmax(0, 1fr) 56px; }
+  .prow .xbar { grid-column: 1 / -1; grid-row: 2; }
+  .prow .st { grid-column: 1; grid-row: 3; }
+  .prow .pct { grid-row: 1; grid-column: 2; }
+}
+@media (max-width: 640px) {
+  .wrap { padding: 0 16px; }
+  .search { order: 5; flex-basis: 100%; }
+  .me span { display: none; }
+  .nav { gap: 0 16px; }
+  .sampler { padding: 32px 24px; }
+  .hoop { width: 280px; height: 280px; padding: 24px; border-width: 12px; }
+  .hoop h1 { font-size: 26px; line-height: 32px; }
+  .count { padding: 16px; }
+  .count .num { font-size: 44px; line-height: 48px; }
+  .count .lab { font-size: 14px; line-height: 20px; }
+  .chart { padding: 8px; }
+  .xcols, .dlabels { gap: 2px; }
+  .xcols div { font-size: 10px; }
+  .dlabels span { font-size: 9px; }
+  .sheet { padding: 24px 16px; }
+  .trow code { flex-basis: 100%; }
+  .facts { grid-template-columns: 1fr; gap: 0; }
+  .facts dd { margin-bottom: 12px; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- pixel motifs on a 8 x 8 stitch grid -->
+  <symbol id="m-ok" viewBox="0 0 8 8"><path d="M6 1h1v1h-1zM5 2h1v1h-1zM5 3h1v1h-1zM4 4h1v1h-1zM1 4h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM3 6h1v1h-1zM6 2h1v1h-1z" fill="currentColor"/></symbol>
+  <symbol id="m-risk" viewBox="0 0 8 8"><path d="M3 1h2v1h-2zM3 2h2v1h-2zM2 3h4v1h-4zM2 4h4v1h-4zM1 5h6v1h-6zM0 6h8v1h-8z" fill="currentColor"/></symbol>
+  <symbol id="m-bad" viewBox="0 0 8 8"><path d="M1 1h6v6h-6zM2 2v4h4v-4z" fill="currentColor" fill-rule="evenodd"/><path d="M3 3h2v2h-2z" fill="currentColor"/></symbol>
+  <symbol id="m-over" viewBox="0 0 8 8"><path d="M1 1h1v1h-1zM2 2h1v1h-1zM3 3h2v2h-2zM5 5h1v1h-1zM6 6h1v1h-1zM6 1h1v1h-1zM5 2h1v1h-1zM2 5h1v1h-1zM1 6h1v1h-1z" fill="currentColor"/></symbol>
+</svg>
+
+<header class="band wrap">
+  <div class="band-top">
+    <a class="brand" href="#" aria-label="Brightwork home"><svg viewBox="0 0 40 40" aria-hidden="true"><g stroke-width="2" stroke-linecap="round"><path d="M4 4l6 6M10 4l-6 6M28 4l6 6M34 4l-6 6M4 28l6 6M10 28l-6 6M28 28l6 6M34 28l-6 6" stroke="#a3263a"/><path d="M16 10l8 8M24 10l-8 8M16 22l8 8M24 22l-8 8M10 16l8 8M18 16l-8 8M22 16l8 8M30 16l-8 8" stroke="#1d2d50"/></g></svg>Brightwork</a>
+    <label class="search"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2h7v1h-7zM1 3h1v6h-1zM9 3h1v6h-1zM2 9h7v1h-7zM10 10h2v2h-2zM12 12h2v2h-2z" fill="currentColor"/></svg><input type="search" placeholder="Search projects and tasks" aria-label="Search projects and tasks"></label>
+    <button class="btn">+ New project</button>
+    <button class="bell" aria-label="Notifications, 3 unread"><svg viewBox="0 0 10 10" aria-hidden="true" shape-rendering="crispEdges"><path d="M4 1h2v1h-2zM3 2h4v4h-4zM2 6h6v1h-6zM4 8h2v1h-2z" fill="currentColor"/></svg><b aria-hidden="true">3</b></button>
+    <div class="me"><i aria-hidden="true">MO</i><span>Mara Okafor</span></div>
+  </div>
+  <nav aria-label="Main">
+    <ul class="nav">
+      <li><a href="#" aria-current="page">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Tasks</a></li>
+      <li><a href="#">Team</a></li>
+      <li><a href="#">Reports</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </nav>
+  <div class="back"></div>
+</header>
+
+<main class="wrap">
+  <div class="sampler">
+    <div class="frame" aria-hidden="true"></div>
+    <div class="top">
+      <section class="hoop" aria-labelledby="hi">
+        <p class="caps" style="margin:0;color:var(--green)">Welcome back</p>
+        <h1 id="hi">Hello, Mara</h1>
+        <p class="date">Saturday 31 October 2026</p>
+        <p class="urgent"><svg aria-hidden="true"><use href="#m-over"/></svg>4 tasks are overdue</p>
+      </section>
+      <section class="counts" aria-label="This week in numbers">
+        <div class="count"><span class="num">6</span><span class="lab">Active projects</span></div>
+        <div class="count"><span class="num">23</span><span class="lab">Tasks due this week</span></div>
+        <div class="count red"><span class="num">4</span><span class="lab">Overdue tasks</span></div>
+        <div class="count"><span class="num">186</span><span class="lab">Hours logged this week</span></div>
+      </section>
+    </div>
+
+    <section class="rows" aria-labelledby="ph">
+      <h2 id="ph">Projects</h2>
+      <ul class="plist">
+        <li class="prow"><div><h3><a href="#">Website redesign</a></h3><div class="meta">Design · 18 of 25 · due 14 Nov</div></div><div class="xbar" aria-hidden="true"><span style="--p:72%;--xp:var(--x-green)"></span></div><span class="pct">72%</span><span class="st ok"><svg aria-hidden="true"><use href="#m-ok"/></svg>On track</span></li>
+        <li class="prow"><div><h3><a href="#">Mobile app 2.0</a></h3><div class="meta">Engineering · 27 of 60 · due 2 Dec</div></div><div class="xbar" aria-hidden="true"><span style="--p:45%;--xp:var(--x-gold)"></span></div><span class="pct">45%</span><span class="st risk"><svg aria-hidden="true"><use href="#m-risk"/></svg>At risk</span></li>
+        <li class="prow"><div><h3><a href="#">Q4 customer survey</a></h3><div class="meta">Research · 9 of 10 · due 7 Nov</div></div><div class="xbar" aria-hidden="true"><span style="--p:90%;--xp:var(--x-green)"></span></div><span class="pct">90%</span><span class="st ok"><svg aria-hidden="true"><use href="#m-ok"/></svg>On track</span></li>
+        <li class="prow"><div><h3><a href="#">Billing migration</a></h3><div class="meta">Engineering · 12 of 40 · due 20 Nov</div></div><div class="xbar" aria-hidden="true"><span style="--p:30%;--xp:var(--x-red)"></span></div><span class="pct">30%</span><span class="st bad"><svg aria-hidden="true"><use href="#m-bad"/></svg>Behind</span></li>
+        <li class="prow"><div><h3><a href="#">Spring catalogue</a></h3><div class="meta">Marketing · 3 of 20 · due 15 Jan</div></div><div class="xbar" aria-hidden="true"><span style="--p:15%;--xp:var(--x-green)"></span></div><span class="pct">15%</span><span class="st ok"><svg aria-hidden="true"><use href="#m-ok"/></svg>On track</span></li>
+        <li class="prow"><div><h3><a href="#">Onboarding emails</a></h3><div class="meta">Marketing · 9 of 15 · due 21 Nov</div></div><div class="xbar" aria-hidden="true"><span style="--p:60%;--xp:var(--x-green)"></span></div><span class="pct">60%</span><span class="st ok"><svg aria-hidden="true"><use href="#m-ok"/></svg>On track</span></li>
+      </ul>
+    </section>
+
+    <div class="lower">
+      <section aria-labelledby="ch">
+        <h2 id="ch">Tasks done · 14 days</h2>
+        <div class="chart">
+          <div role="img" aria-label="Tasks completed per day from Sunday 18 October to Saturday 31 October: 3, 12, 9, 14, 11, 8, 2, then 4, 15, 13, 17, 12, 10, 2. Last week 59, this week 73.">
+            <div class="xcols" aria-hidden="true">
+              <div class="w1">3<i style="--v:3"></i></div><div class="w1">12<i style="--v:12"></i></div><div class="w1">9<i style="--v:9"></i></div><div class="w1">14<i style="--v:14"></i></div><div class="w1">11<i style="--v:11"></i></div><div class="w1">8<i style="--v:8"></i></div><div class="w1">2<i style="--v:2"></i></div>
+              <div class="w2">4<i style="--v:4"></i></div><div class="w2">15<i style="--v:15"></i></div><div class="w2">13<i style="--v:13"></i></div><div class="w2">17<i style="--v:17"></i></div><div class="w2">12<i style="--v:12"></i></div><div class="w2">10<i style="--v:10"></i></div><div class="w2">2<i style="--v:2"></i></div>
+            </div>
+            <div class="dlabels" aria-hidden="true"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+          </div>
+          <div class="legend"><span style="--k:var(--x-gold)">Last week 59</span><span style="--k:var(--x-navy)">This week 73</span><span>1 cross = 1 task</span></div>
+        </div>
+      </section>
+      <section aria-labelledby="ah">
+        <h2 id="ah">Latest stitches</h2>
+        <ul class="feed">
+          <li>Jonas Weber completed "Export invoices as CSV" in Billing migration<time>12 min ago</time></li>
+          <li>Priya Nair commented on "Hero image options" in Website redesign<time>40 min ago</time></li>
+          <li>Sam Ortiz moved "Push notifications" to Review in Mobile app 2.0<time>1 h ago</time></li>
+          <li>Lena Fischer added 3 tasks to Spring catalogue<time>2 h ago</time></li>
+          <li>Tomás Ruiz logged 6 h on Mobile app 2.0<time>3 h ago</time></li>
+          <li>Aiko Tanaka uploaded survey-results-v2.pdf to Q4 customer survey<time>yesterday</time></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <section class="sheet" aria-labelledby="sh">
+    <h2 class="title" id="sh">Style 106 · Cross-stitch</h2>
+    <p class="idea">The dashboard is an embroidered sampler on aida cloth, where every bar and border is counted out one cross stitch at a time on an 8px grid.</p>
+
+    <h3>Palette</h3>
+    <ul class="swatches">
+      <li class="sw"><i style="background:#f7f3e8"></i><b>Aida</b><span>#f7f3e8</span><small>The cloth, with #e4dccb holes</small></li>
+      <li class="sw"><i style="background:#fffdf8"></i><b>Fine linen</b><span>#fffdf8</span><small>Count panel, chart, fields</small></li>
+      <li class="sw"><i style="background:#1d2d50"></i><b>Navy floss</b><span>#1d2d50</span><small>Text, this week, primary button</small></li>
+      <li class="sw"><i style="background:#23395f"></i><b>Backstitch</b><span>#23395f</span><small>Dashed rules and outlines</small></li>
+      <li class="sw"><i style="background:#a3263a"></i><b>Red floss</b><span>#a3263a</span><small>Current nav, overdue, Behind, focus</small></li>
+      <li class="sw"><i style="background:#2e6b3a"></i><b>Green floss</b><span>#2e6b3a</span><small>On track and heading motifs</small></li>
+      <li class="sw"><i style="background:#8a5a00"></i><b>Gold floss</b><span>#8a5a00</span><small>At risk text, #a06d12 crosses for last week</small></li>
+      <li class="sw"><i style="background:#c99a5b"></i><b>Hoop wood</b><span>#c99a5b</span><small>The greeting hoop, decoration only</small></li>
+      <li class="sw"><i style="background:#4d4a44"></i><b>Grey floss</b><span>#4d4a44</span><small>Meta, dates and times</small></li>
+    </ul>
+
+    <h3>Type</h3>
+    <div class="trow"><code>Count 64/64 mono 800</code><span style="font:800 64px/64px var(--mono)">186</span></div>
+    <div class="trow"><code>Greeting 32/40 serif bold</code><span style="font:700 32px/40px var(--serif)">Hello, Mara</span></div>
+    <div class="trow"><code>Section 14/16 mono caps .2em</code><span class="caps">Projects</span></div>
+    <div class="trow"><code>Project 17/24 serif bold</code><span style="font:700 17px/24px var(--serif)">Billing migration</span></div>
+    <div class="trow"><code>Body 16/24 serif</code><span>Tomás Ruiz logged 6 h on Mobile app 2.0</span></div>
+    <div class="trow"><code>Meta 12/16 mono</code><span style="font:12px/16px var(--mono);color:var(--grey)">Engineering · 12 of 40 · due 20 Nov</span></div>
+    <p style="font:12px/16px var(--mono);color:var(--grey)">Mono stack: ui-monospace, SF Mono, Menlo, Consolas, Liberation Mono. Serif stack: Baskerville, Baskerville Old Face, Hoefler Text, Georgia.</p>
+
+    <h3>System</h3>
+    <dl class="facts">
+      <dt>Spacing</dt><dd>An 8px stitch unit. Every size and gap is a whole number of stitches, 8, 16, 24 and 40px.</dd>
+      <dt>Density</dt><dd>Medium. Projects are single stitched rows, numbers sit in a 2 by 2 panel.</dd>
+      <dt>Corners</dt><dd>Square everywhere except the round greeting hoop.</dd>
+      <dt>Borders</dt><dd>2px solid navy for panels and 2px dashed backstitch for rules. A cross-stitched border in red, navy and green frames the sampler.</dd>
+      <dt>Shadows</dt><dd>None. The cloth is flat.</dd>
+      <dt>Icons</dt><dd>Pixel motifs on an 8 by 8 grid. A stitched tick for On track, a solid triangle for At risk, a hollow square with a centre for Behind, an X for overdue.</dd>
+      <dt>Tone</dt><dd>Quiet needlework words, such as Latest stitches and 1 cross = 1 task.</dd>
+    </dl>
+
+    <h3>Controls</h3>
+    <div class="controls">
+      <div><h4>Primary button</h4><div class="pair"><button class="btn">New project</button><button class="btn is-focus">Focused</button></div></div>
+      <div><h4>Secondary button</h4><div class="pair"><button class="btn alt">Cancel</button><button class="btn alt is-focus">Focused</button></div></div>
+      <div><h4>Text field</h4><label class="field">Project name<input type="text" value="Spring catalogue"></label><label class="field" style="margin-top:24px">Focused<input class="is-focus" type="text" value="Spring cat"></label></div>
+      <div><h4>List row</h4><div class="lrow"><span>Q4 customer survey</span><span class="st ok"><svg aria-hidden="true"><use href="#m-ok"/></svg>On track</span></div><div class="lrow is-focus"><span>Billing migration</span><span class="st bad"><svg aria-hidden="true"><use href="#m-bad"/></svg>Behind</span></div></div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 74 · Cockpit avionics · Brightwork</title>
+<style>
+:root {
+  --deck: #dfe2dc;
+  --bezel: #eef0eb;
+  --face: #fafbf7;
+  --ink: #15191c;
+  --dim: #4b534f;
+  --screw: #9ea49d;
+  --rim: #b9beb6;
+  --magenta: #a1166f;
+  --green: #1b6a3a;
+  --amber: #f0b13a;
+  --amberInk: #7d4a00;
+  --red: #b11f1a;
+  --sky: #cfe2f1;
+  --ground: #e8d6b8;
+  --cap: "Arial Narrow", "Roboto Condensed", "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--deck); color: var(--ink); font: 15px/1.45 var(--cap); }
+a { color: var(--ink); }
+:focus-visible, .is-focus { outline: 2px solid var(--magenta); outline-offset: 2px; box-shadow: 0 0 0 5px rgba(161,22,111,.18); }
+.cap { font: 700 11px/1.3 var(--cap); letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+/* bezel = raised instrument housing with four screws */
+.bezel { position: relative; background: var(--bezel); border: 1px solid var(--rim); border-radius: 14px; padding: 20px 20px 18px; box-shadow: inset 0 1px 0 #fff, 0 2px 0 #c7cbc3, 0 4px 10px rgba(30,36,32,.12); }
+.bezel::before, .bezel::after, .bezel > .scr::before, .bezel > .scr::after { content: ""; position: absolute; width: 8px; height: 8px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff 0 15%, var(--screw) 40%); border: 1px solid #868c85; }
+.bezel::before { top: 6px; left: 6px; } .bezel::after { top: 6px; right: 6px; }
+.bezel > .scr::before { bottom: 6px; left: 6px; } .bezel > .scr::after { bottom: 6px; right: 6px; }
+.bezel h2 { margin: 0 0 12px; font: 700 12px/1 var(--cap); letter-spacing: .2em; text-transform: uppercase; text-align: center; color: var(--ink); }
+.bezel h2::before, .bezel h2::after { content: "—"; color: var(--rim); margin: 0 8px; }
+.display { background: var(--face); border: 1px solid #a9aea6; border-radius: 6px; box-shadow: inset 0 2px 5px rgba(20,25,28,.14); }
+
+/* glareshield */
+.glare { background: #cfd3cc; border-bottom: 3px solid #b3b8b0; padding: 12px 0; }
+.glare-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 10px; font: 700 20px/1 var(--cap); letter-spacing: .18em; text-transform: uppercase; }
+.brand small { display: block; font: 700 10px/1 var(--mono); letter-spacing: .1em; color: var(--dim); margin-top: 3px; }
+.keys { display: flex; gap: 6px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+.keys a { display: block; min-width: 76px; text-align: center; padding: 6px 10px 7px; background: var(--bezel); border: 1px solid #9ea39b; border-radius: 4px; text-decoration: none; font: 700 11px/1 var(--cap); letter-spacing: .14em; text-transform: uppercase; box-shadow: 0 2px 0 #9ea39b; }
+.keys a::before { content: ""; display: block; height: 3px; margin: 0 auto 5px; width: 26px; border-radius: 2px; background: #c3c7bf; }
+.keys a[aria-current="page"] { background: #fff; }
+.keys a[aria-current="page"]::before { background: var(--green); }
+.tools { margin-left: auto; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.scratch { display: flex; align-items: center; gap: 8px; background: var(--face); border: 1px solid #9ea39b; border-radius: 4px; padding: 0 10px; box-shadow: inset 0 2px 4px rgba(0,0,0,.12); }
+.scratch span { font: 700 10px var(--mono); color: var(--dim); }
+.scratch input { border: 0; background: transparent; font: 14px var(--mono); color: var(--ink); padding: 8px 0; width: 190px; }
+.scratch input:focus { outline: none; }
+.scratch:focus-within { outline: 2px solid var(--magenta); outline-offset: 2px; }
+.btn { font: 700 12px/1 var(--cap); letter-spacing: .14em; text-transform: uppercase; padding: 10px 14px; border-radius: 4px; cursor: pointer; border: 1px solid var(--ink); background: var(--ink); color: #fff; box-shadow: 0 2px 0 #000; }
+.btn-2 { background: var(--bezel); color: var(--ink); border-color: #868c85; box-shadow: 0 2px 0 #868c85; }
+.mc { display: inline-flex; align-items: center; gap: 6px; background: var(--amber); color: #1a1100; border: 1px solid #8a5d0c; border-radius: 4px; padding: 6px 10px; font: 700 11px/1.1 var(--cap); letter-spacing: .1em; text-transform: uppercase; text-decoration: none; text-align: center; box-shadow: 0 2px 0 #8a5d0c; }
+.pilot { font: 700 11px/1.2 var(--cap); letter-spacing: .1em; text-transform: uppercase; text-align: right; }
+.pilot b { display: block; font: 700 14px var(--mono); letter-spacing: 0; text-transform: none; }
+
+/* message line */
+.msg { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; padding: 14px 18px; margin: 20px 0; }
+.msg h1 { margin: 0; font: 700 26px/1.1 var(--cap); letter-spacing: .02em; }
+.msg .date { font: 700 14px var(--mono); color: var(--dim); }
+.caution { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; background: var(--amber); color: #1a1100; padding: 7px 12px; border-radius: 3px; font: 700 13px/1 var(--cap); letter-spacing: .14em; text-transform: uppercase; }
+
+/* gauges */
+.panel { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)) minmax(0,1.25fr); gap: 16px; }
+.gauge { text-align: center; padding: 18px 12px 14px; }
+.gauge svg { width: 100%; max-width: 168px; display: block; margin: 0 auto; }
+.readout { display: inline-block; margin-top: -6px; font: 700 22px/1 var(--mono); padding: 4px 10px; background: var(--face); border: 1px solid #8f948d; border-radius: 3px; min-width: 70px; }
+.readout small { font-size: 12px; color: var(--dim); }
+.gauge .cap { display: block; margin-top: 8px; color: var(--ink); }
+.adi { padding: 18px 14px 14px; text-align: center; }
+.adi svg { width: 100%; max-width: 200px; display: block; margin: 0 auto; }
+.adi p { margin: 6px 0 0; font: 700 12px/1.3 var(--mono); }
+
+.lower { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 16px; margin: 16px 0 40px; align-items: start; }
+.stack { display: grid; gap: 16px; }
+
+/* project tapes */
+.tapes { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 10px; list-style: none; margin: 0; padding: 14px 10px; }
+.tape { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; }
+.tube { position: relative; width: 34px; height: 150px; border: 1px solid var(--ink); border-radius: 3px; background: repeating-linear-gradient(to top, transparent 0 14px, #c9cdc5 14px 15px); }
+.tube i { position: absolute; left: 3px; right: 3px; bottom: 3px; height: calc((100% - 6px) * var(--p)); background: var(--ink); border-radius: 1px; }
+.tube.risk i { background: repeating-linear-gradient(45deg, var(--ink) 0 4px, #59605b 4px 8px); }
+.tube.behind i { background: repeating-linear-gradient(0deg, var(--ink) 0 3px, #8d938c 3px 5px); }
+.tube::after { content: ""; position: absolute; right: -9px; bottom: calc(3px + (100% - 6px) * var(--p) - 5px); border: 5px solid transparent; border-right: 7px solid var(--magenta); }
+.pct { font: 700 20px/1 var(--mono); }
+.pname { font: 700 13px/1.15 var(--cap); min-height: 2.3em; }
+.pmeta { font: 12px/1.3 var(--mono); color: var(--dim); }
+.ann { display: inline-flex; align-items: center; gap: 5px; font: 700 10px/1 var(--cap); letter-spacing: .1em; text-transform: uppercase; padding: 5px 6px; border-radius: 2px; white-space: nowrap; }
+.ann svg { width: 10px; height: 10px; flex: none; }
+.ann.ok { color: var(--green); border: 1.5px solid var(--green); background: #fff; }
+.ann.risk { color: #1a1100; background: var(--amber); border: 1.5px solid #8a5d0c; }
+.ann.bad { color: #fff; background: var(--red); border: 1.5px solid #7d1411; }
+
+/* chart and log */
+.chart { padding: 10px; }
+.chart svg { width: 100%; height: auto; display: block; }
+.chart-key { display: flex; gap: 16px; justify-content: center; margin-top: 6px; font: 12px var(--mono); color: var(--dim); flex-wrap: wrap; }
+.log { list-style: none; margin: 0; padding: 4px 12px; font: 13px/1.4 var(--mono); }
+.log li { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 8px 0; border-bottom: 1px dashed #b8bdb5; }
+.log li:last-child { border-bottom: 0; }
+.log time { font-weight: 700; color: var(--magenta); white-space: nowrap; }
+.log b { font-weight: 700; }
+
+/* sheet */
+.sheet { margin-bottom: 48px; }
+.sheet .bezel { padding: 28px; }
+.sheet h2.title { font: 700 26px/1.1 var(--cap); letter-spacing: .04em; text-transform: none; text-align: left; margin: 4px 0 6px; }
+.sheet h2.title::before, .sheet h2.title::after { content: none; }
+.sheet h3 { font: 700 12px/1 var(--cap); letter-spacing: .2em; text-transform: uppercase; margin: 30px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--rim); }
+.idea { font-size: 17px; margin: 0; max-width: 60em; }
+.sw { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; list-style: none; margin: 0; padding: 0; }
+.sw li { border: 1px solid #a9aea6; border-radius: 6px; overflow: hidden; background: var(--face); font: 12px/1.35 var(--mono); }
+.sw i { display: block; height: 44px; border-bottom: 1px solid #a9aea6; }
+.sw div { padding: 7px 9px; }
+.sw b { display: block; font: 700 13px var(--cap); letter-spacing: .06em; }
+.tr { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: baseline; padding: 8px 0; border-bottom: 1px dashed #b8bdb5; }
+.tr code { font: 12px var(--mono); color: var(--dim); min-width: 220px; }
+.facts { display: grid; grid-template-columns: 140px 1fr; gap: 8px 16px; margin: 0; }
+.facts dt { font: 700 11px/1.6 var(--cap); letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
+.facts dd { margin: 0; }
+.ctls { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+.ctls .cap { display: block; margin-bottom: 8px; }
+.field input { width: 100%; font: 14px var(--mono); padding: 9px 10px; background: var(--face); border: 1px solid #8f948d; border-radius: 4px; color: var(--ink); box-shadow: inset 0 2px 4px rgba(0,0,0,.1); }
+.row { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 9px 10px; background: var(--face); border: 1px solid #a9aea6; border-radius: 4px; font: 700 13px var(--cap); }
+
+@media (max-width: 1060px) {
+  .panel { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .adi { grid-column: 1 / -1; }
+  .lower { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .wrap { padding: 0 16px; }
+  .tools { margin-left: 0; width: 100%; }
+  .scratch { flex: 1 1 100%; }
+  .scratch input { width: 100%; }
+  .pilot { text-align: left; }
+  .keys a { min-width: 0; padding: 6px 8px 7px; }
+  .caution { margin-left: 0; }
+  .msg h1 { font-size: 22px; }
+  .tapes { grid-template-columns: repeat(3, minmax(0,1fr)); row-gap: 22px; }
+  .facts { grid-template-columns: 1fr; gap: 2px; }
+  .facts dd { margin-bottom: 8px; }
+  .sheet .bezel { padding: 22px 16px; }
+  .tr code { min-width: 0; }
+}
+@media (max-width: 380px) {
+  .panel { gap: 10px; }
+  .gauge { padding: 16px 6px 12px; }
+  .readout { font-size: 18px; min-width: 0; }
+}
+</style>
+</head>
+<body>
+<header class="glare">
+  <div class="wrap glare-row">
+    <div class="brand">
+      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="13" fill="#fafbf7" stroke="#15191c" stroke-width="2"/><path d="M5 15h7l3-3 3 3h7" fill="none" stroke="#a1166f" stroke-width="2.5"/><circle cx="15" cy="15" r="1.8" fill="#15191c"/></svg>
+      <div>Brightwork<small>FLIGHT DECK · HOME</small></div>
+    </div>
+    <nav aria-label="Main">
+      <ul class="keys">
+        <li><a href="#" aria-current="page">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Tasks</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </nav>
+    <div class="tools">
+      <label class="scratch"><span aria-hidden="true">SCRATCHPAD</span><input type="search" aria-label="Search projects and tasks" placeholder="Search projects, tasks"></label>
+      <button class="btn" type="button">+ New project</button>
+      <a class="mc" href="#" aria-label="Notifications, 3 unread"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1l5 10H1z" fill="none" stroke="#1a1100" stroke-width="1.6"/></svg>Notices 3</a>
+      <div class="pilot">Pilot in command<b>Mara Okafor</b></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="bezel msg" aria-label="Greeting"><span class="scr"></span>
+    <h1>Good morning, Mara</h1>
+    <span class="date">SAT 31 OCT 2026</span>
+    <span class="caution"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1.5l6 11H1z" fill="none" stroke="#1a1100" stroke-width="1.8"/><path d="M7 5.5v3.5M7 10.4v1" stroke="#1a1100" stroke-width="1.8"/></svg>Caution · 4 tasks overdue</span>
+  </section>
+
+  <section class="panel" aria-label="Summary instruments">
+    <div class="bezel gauge"><span class="scr"></span>
+      <svg viewBox="0 0 100 92" aria-hidden="true">
+        <circle cx="50" cy="50" r="46" fill="#fafbf7" stroke="#15191c" stroke-width="1.5"/>
+        <path d="M21.72 78.28A40 40 0 1 1 78.28 78.28" fill="none" stroke="#15191c" stroke-width="5" stroke-dasharray="1.4 17.45"/>
+        <path d="M21.72 78.28A40 40 0 1 1 78.28 78.28" fill="none" stroke="#1b6a3a" stroke-width="2.5" stroke-dasharray="113.1 999" transform="translate(0 0)" opacity=".85"/>
+        <text x="21" y="70" font-size="7" font-family="ui-monospace,Menlo,monospace" fill="#15191c">0</text><text x="46" y="20" font-size="7" font-family="ui-monospace,Menlo,monospace" fill="#15191c">5</text><text x="72" y="70" font-size="7" font-family="ui-monospace,Menlo,monospace" fill="#15191c">10</text>
+        <g transform="rotate(27 50 50)"><path d="M50 50L48 46 50 16 52 46z" fill="#15191c"/></g><circle cx="50" cy="50" r="4" fill="#15191c"/>
+      </svg>
+      <span class="readout">6</span>
+      <span class="cap">Active projects</span>
+    </div>
+    <div class="bezel gauge"><span class="scr"></span>
+      <svg viewBox="0 0 100 92" aria-hidden="true">
+        <circle cx="50" cy="50" r="46" fill="#fafbf7" stroke="#15191c" stroke-width="1.5"/>
+        <path d="M21.72 78.28A40 40 0 1 1 78.28 78.28" fill="none" stroke="#15191c" stroke-width="5" stroke-dasharray="1.4 17.45"/>
+        <path d="M21.72 78.28A40 40 0 1 1 78.28 78.28" fill="none" stroke="#1b6a3a" stroke-width="2.5" stroke-dasharray="108.4 999" opacity=".85"/>
+        <text x="21" y="70" font-size="7" font-family="ui-monospace,Menlo,monospace" fill="#15191c">0</text><text x="45" y="20" font-size="7" font-family="ui-monospace,Menlo,monospace" fill="#15191c">20</text><text x="72" y="70" font-size="7" font-family="ui-monospace,Menlo,monospace" fill="#15191c">40</text>
+        <g transform="rotate(20.25 50 50)"><path d="M50 50L48 46 50 16 52 46z" fill="#15191c"/></g><circle cx="50" cy="50" r="4" fill="#15191c"/>
+      </svg>
+      <span class="readout">23</span>
+      <span class="cap">Tasks due this week</span>
+    </div>
+    <div class="bezel gauge"><span class="scr"></span>
+      <svg viewBox="0 0 100 92" aria-hidden="true">
+        <circle cx="50" cy="50" r="46" fill="#fafbf7" stroke="#15191c" stroke-width="1.5"/>
+        <path d="M21.72 78.28A40 40 0 1 1 78.28 78.28" fill="none" stroke="#15191c" stroke-width="5" stroke-dasharray="1.4 17.45"/>
+        <path d="M21.72 78.28A40 40 0 1 1 78.28 78.28" fill="none" stroke="#f0b13a" stroke-width="6" stroke-dasharray="0 37.7 150.8 999"/>
+        <text x="21" y="70" font-size="7" font-family="ui-monospace,Menlo,monospace" fill="#15191c">0</text><text x="46" y="20" font-size="7" font-family="ui-monospace,Menlo,monospace" fill="#15191c">5</text><text x="72" y="70" font-size="7" font-family="ui-monospace,Menlo,monospace" fill="#15191c">10</text>
+        <g transform="rotate(-27 50 50)"><path d="M50 50L48 46 50 16 52 46z" fill="#15191c"/></g><circle cx="50" cy="50" r="4" fill="#15191c"/>
+      </svg>
+      <span class="readout" style="background:#f0b13a;border-color:#8a5d0c">4</span>
+      <span class="cap">Overdue tasks · caution band from 2</span>
+    </div>
+    <div class="bezel gauge"><span class="scr"></span>
+      <svg viewBox="0 0 100 92" aria-hidden="true">
+        <circle cx="50" cy="50" r="46" fill="#fafbf7" stroke="#15191c" stroke-width="1.5"/>
+        <path d="M21.72 78.28A40 40 0 1 1 78.28 78.28" fill="none" stroke="#15191c" stroke-width="5" stroke-dasharray="1.4 17.45"/>
+        <path d="M21.72 78.28A40 40 0 1 1 78.28 78.28" fill="none" stroke="#1b6a3a" stroke-width="2.5" stroke-dasharray="146.1 999" opacity=".85"/>
+        <text x="21" y="70" font-size="7" font-family="ui-monospace,Menlo,monospace" fill="#15191c">0</text><text x="43" y="20" font-size="7" font-family="ui-monospace,Menlo,monospace" fill="#15191c">120</text><text x="70" y="70" font-size="7" font-family="ui-monospace,Menlo,monospace" fill="#15191c">240</text>
+        <g transform="rotate(74.25 50 50)"><path d="M50 50L48 46 50 16 52 46z" fill="#15191c"/></g><circle cx="50" cy="50" r="4" fill="#15191c"/>
+      </svg>
+      <span class="readout">186<small> h</small></span>
+      <span class="cap">Hours logged this week</span>
+    </div>
+    <div class="bezel adi"><span class="scr"></span>
+      <svg viewBox="0 0 120 120" role="img" aria-label="Trend indicator: 73 tasks completed this week against 59 last week, nose up 24 percent.">
+        <defs><clipPath id="adiClip"><circle cx="60" cy="60" r="50"/></clipPath></defs>
+        <g clip-path="url(#adiClip)">
+          <g transform="rotate(-6 60 60) translate(0 12)">
+            <rect x="-20" y="-60" width="160" height="120" fill="#cfe2f1"/>
+            <rect x="-20" y="60" width="160" height="90" fill="#e8d6b8"/>
+            <line x1="-20" y1="60" x2="140" y2="60" stroke="#15191c" stroke-width="1.5"/>
+            <g stroke="#15191c" stroke-width="1"><line x1="48" y1="44" x2="72" y2="44"/><line x1="52" y1="28" x2="68" y2="28"/><line x1="48" y1="12" x2="72" y2="12"/><line x1="52" y1="76" x2="68" y2="76"/></g>
+            <g font-size="7" font-family="ui-monospace,Menlo,monospace" fill="#15191c"><text x="36" y="46">10</text><text x="36" y="14">20</text></g>
+          </g>
+        </g>
+        <circle cx="60" cy="60" r="50" fill="none" stroke="#15191c" stroke-width="2"/>
+        <path d="M30 62h18l4 6 4-6M90 62H72l-4 6-4-6" fill="none" stroke="#a1166f" stroke-width="3" stroke-linejoin="round"/>
+        <circle cx="60" cy="62" r="2.5" fill="#a1166f"/>
+        <path d="M60 6l-4 7h8z" fill="#15191c"/>
+      </svg>
+      <p>TREND · NOSE UP +24%<br>THIS WK 73 · LAST WK 59</p>
+    </div>
+  </section>
+
+  <div class="lower">
+    <section class="bezel" aria-labelledby="sys-h"><span class="scr"></span>
+      <h2 id="sys-h">Project systems</h2>
+      <ul class="tapes display">
+        <li class="tape"><span class="pct">72%</span><span class="tube" style="--p:.72" role="img" aria-label="72 percent complete"><i></i></span><a class="pname" href="#">Website redesign</a><span class="pmeta">DESIGN<br>18/25 · 14 NOV</span>
+          <span class="ann ok"><svg viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="4" fill="none" stroke="#1b6a3a" stroke-width="2"/></svg>On track</span></li>
+        <li class="tape"><span class="pct">45%</span><span class="tube risk" style="--p:.45" role="img" aria-label="45 percent complete"><i></i></span><a class="pname" href="#">Mobile app 2.0</a><span class="pmeta">ENGINEERING<br>27/60 · 2 DEC</span>
+          <span class="ann risk"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M5 .8l4.4 8.4H.6z" fill="#1a1100"/></svg>At risk</span></li>
+        <li class="tape"><span class="pct">90%</span><span class="tube" style="--p:.9" role="img" aria-label="90 percent complete"><i></i></span><a class="pname" href="#">Q4 customer survey</a><span class="pmeta">RESEARCH<br>9/10 · 7 NOV</span>
+          <span class="ann ok"><svg viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="4" fill="none" stroke="#1b6a3a" stroke-width="2"/></svg>On track</span></li>
+        <li class="tape"><span class="pct">30%</span><span class="tube behind" style="--p:.3" role="img" aria-label="30 percent complete"><i></i></span><a class="pname" href="#">Billing migration</a><span class="pmeta">ENGINEERING<br>12/40 · 20 NOV</span>
+          <span class="ann bad"><svg viewBox="0 0 10 10" aria-hidden="true"><rect x="1" y="1" width="8" height="8" fill="#fff"/></svg>Behind</span></li>
+        <li class="tape"><span class="pct">15%</span><span class="tube" style="--p:.15" role="img" aria-label="15 percent complete"><i></i></span><a class="pname" href="#">Spring catalogue</a><span class="pmeta">MARKETING<br>3/20 · 15 JAN</span>
+          <span class="ann ok"><svg viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="4" fill="none" stroke="#1b6a3a" stroke-width="2"/></svg>On track</span></li>
+        <li class="tape"><span class="pct">60%</span><span class="tube" style="--p:.6" role="img" aria-label="60 percent complete"><i></i></span><a class="pname" href="#">Onboarding emails</a><span class="pmeta">MARKETING<br>9/15 · 21 NOV</span>
+          <span class="ann ok"><svg viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="4" fill="none" stroke="#1b6a3a" stroke-width="2"/></svg>On track</span></li>
+      </ul>
+    </section>
+
+    <div class="stack">
+      <section class="bezel" aria-labelledby="climb-h"><span class="scr"></span>
+        <h2 id="climb-h">Climb log · 14 days</h2>
+        <div class="display chart">
+          <svg viewBox="0 0 540 200" role="img" aria-label="Tasks completed per day, Sunday 18 to Saturday 31 October: 3, 12, 9, 14, 11, 8, 2, then 4, 15, 13, 17, 12, 10, 2. Last week 59, this week 73.">
+            <g stroke="#c9cdc5" stroke-width="1"><line x1="34" y1="130" x2="536" y2="130"/><line x1="34" y1="90" x2="536" y2="90"/><line x1="34" y1="50" x2="536" y2="50"/></g>
+            <g font-size="11" font-family="ui-monospace,Menlo,monospace" fill="#4b534f" text-anchor="end"><text x="28" y="134">5</text><text x="28" y="94">10</text><text x="28" y="54">15</text></g>
+            <g fill="#fafbf7" stroke="#15191c" stroke-width="2"><rect x="45" y="146" width="20" height="24"/><rect x="81" y="74" width="20" height="96"/><rect x="117" y="98" width="20" height="72"/><rect x="153" y="58" width="20" height="112"/><rect x="189" y="82" width="20" height="88"/><rect x="225" y="106" width="20" height="64"/><rect x="261" y="154" width="20" height="16"/></g>
+            <g fill="#15191c"><rect x="297" y="138" width="20" height="32"/><rect x="333" y="50" width="20" height="120"/><rect x="369" y="66" width="20" height="104"/><rect x="405" y="34" width="20" height="136"/><rect x="441" y="74" width="20" height="96"/><rect x="477" y="90" width="20" height="80"/><rect x="513" y="154" width="20" height="16"/></g>
+            <line x1="34" y1="170.5" x2="536" y2="170.5" stroke="#15191c" stroke-width="1.5"/>
+            <line x1="289" y1="20" x2="289" y2="190" stroke="#a1166f" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <g font-size="11" font-family="ui-monospace,Menlo,monospace" fill="#15191c" text-anchor="middle"><text x="55" y="186">S</text><text x="91" y="186">M</text><text x="127" y="186">T</text><text x="163" y="186">W</text><text x="199" y="186">T</text><text x="235" y="186">F</text><text x="271" y="186">S</text><text x="307" y="186">S</text><text x="343" y="186">M</text><text x="379" y="186">T</text><text x="415" y="186">W</text><text x="451" y="186">T</text><text x="487" y="186">F</text><text x="523" y="186">S</text></g>
+            <g font-size="11" font-weight="700" font-family="ui-monospace,Menlo,monospace"><text x="160" y="22" text-anchor="middle" fill="#4b534f">LAST WK 59</text><text x="412" y="22" text-anchor="middle" fill="#15191c">THIS WK 73</text></g>
+          </svg>
+          <div class="chart-key"><span>□ outline = last week</span><span>■ solid = this week</span><span style="color:#a1166f">┆ week change</span></div>
+        </div>
+      </section>
+
+      <section class="bezel" aria-labelledby="dl-h"><span class="scr"></span>
+        <h2 id="dl-h">Datalink messages</h2>
+        <ol class="log display">
+          <li><span><b>Jonas Weber</b> completed “Export invoices as CSV” in Billing migration</span><time>12 MIN</time></li>
+          <li><span><b>Priya Nair</b> commented on “Hero image options” in Website redesign</span><time>40 MIN</time></li>
+          <li><span><b>Sam Ortiz</b> moved “Push notifications” to Review in Mobile app 2.0</span><time>1 H</time></li>
+          <li><span><b>Lena Fischer</b> added 3 tasks to Spring catalogue</span><time>2 H</time></li>
+          <li><span><b>Tomás Ruiz</b> logged 6 h on Mobile app 2.0</span><time>3 H</time></li>
+          <li><span><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to Q4 customer survey</span><time>YDAY</time></li>
+        </ol>
+      </section>
+    </div>
+  </div>
+
+  <section class="sheet" aria-labelledby="sheet-h">
+    <div class="bezel"><span class="scr"></span>
+      <span class="cap">Style sheet</span>
+      <h2 class="title" id="sheet-h">Style 74 · Cockpit avionics</h2>
+      <p class="idea">A light-mode flight deck: every number is an instrument in a screwed-down bezel, projects are vertical tape gauges, and trouble lights up as an amber caution caption.</p>
+
+      <h3>Palette</h3>
+      <ul class="sw">
+        <li><i style="background:#dfe2dc"></i><div><b>Deck</b>#dfe2dc · page behind the panels</div></li>
+        <li><i style="background:#eef0eb"></i><div><b>Bezel</b>#eef0eb · raised instrument housings, keys</div></li>
+        <li><i style="background:#fafbf7"></i><div><b>Face</b>#fafbf7 · dial faces, displays, fields</div></li>
+        <li><i style="background:#15191c"></i><div><b>Ink</b>#15191c · text, needles, tape fill, primary key</div></li>
+        <li><i style="background:#4b534f"></i><div><b>Dim</b>#4b534f · captions and meta</div></li>
+        <li><i style="background:#a1166f"></i><div><b>Selected magenta</b>#a1166f · bugs, times, focus</div></li>
+        <li><i style="background:#1b6a3a"></i><div><b>Green</b>#1b6a3a · On track caption, normal arcs</div></li>
+        <li><i style="background:#f0b13a"></i><div><b>Caution amber</b>#f0b13a · caution fills, black text on it</div></li>
+        <li><i style="background:#b11f1a"></i><div><b>Warning red</b>#b11f1a · Behind caption, white text</div></li>
+        <li><i style="background:#cfe2f1"></i><div><b>Sky</b>#cfe2f1 · attitude indicator upper half</div></li>
+        <li><i style="background:#e8d6b8"></i><div><b>Ground</b>#e8d6b8 · attitude indicator lower half</div></li>
+      </ul>
+
+      <h3>Type</h3>
+      <div class="tr"><code>captions "Arial Narrow", "Roboto Condensed", Arial · 700 caps +0.14em</code><span class="cap" style="color:var(--ink)">Tasks due this week</span></div>
+      <div class="tr"><code>readouts ui-monospace, Menlo, Consolas · 22 / 700</code><span class="readout">186<small> h</small></span></div>
+      <div class="tr"><code>greeting 26 / 700 condensed</code><span style="font:700 26px/1.1 var(--cap)">Good morning, Mara</span></div>
+      <div class="tr"><code>project name 13 / 700 condensed</code><span class="pname" style="min-height:0">Billing migration</span></div>
+      <div class="tr"><code>log 13 / 400 mono, times 700 magenta</code><span style="font:13px var(--mono)">Tomás Ruiz logged 6 h <b style="color:var(--magenta)">3 H</b></span></div>
+
+      <h3>Spacing, corners and depth</h3>
+      <dl class="facts">
+        <dt>Spacing</dt><dd>8px unit. 16px between bezels, 20px padding inside them, 10px between keys and tapes.</dd>
+        <dt>Density</dt><dd>Medium. Few large instruments, small captions, readouts carry the weight.</dd>
+        <dt>Corners</dt><dd>14px on bezels, 6px on displays, 4px on keys and fields, 2px on captions.</dd>
+        <dt>Borders</dt><dd>1px grey rim on bezels and displays, 1px ink on dials and tapes, dashed rows in logs.</dd>
+        <dt>Shadows</dt><dd>Raised bezels with a white top highlight and a 2px lip; displays and fields are inset.</dd>
+        <dt>Icons</dt><dd>Instrument drawings only: dials with needles, tape gauges with a magenta bug, an attitude ball. Status captions pair a word with an open circle, a solid triangle or a solid square.</dd>
+        <dt>Tone</dt><dd>Clipped checklist caps: Caution · 4 tasks overdue, Climb log, Datalink messages, 12 MIN.</dd>
+      </dl>
+
+      <h3>Controls · normal and focus</h3>
+      <div class="ctls">
+        <div><span class="cap">Primary key</span><button class="btn" type="button">Engage</button> <button class="btn is-focus" type="button">Focused</button></div>
+        <div><span class="cap">Secondary key</span><button class="btn btn-2" type="button">Standby</button> <button class="btn btn-2 is-focus" type="button">Focused</button></div>
+        <label class="field"><span class="cap">Project name</span><input value="Website redesign"></label>
+        <label class="field"><span class="cap">Project name, focused</span><input class="is-focus" value="Mobile app 2.0"></label>
+        <div><span class="cap">List row</span><div class="row"><span>Billing migration</span><span class="ann bad"><svg viewBox="0 0 10 10" aria-hidden="true"><rect x="1" y="1" width="8" height="8" fill="#fff"/></svg>Behind</span></div></div>
+        <div><span class="cap">List row, focused</span><div class="row is-focus"><span>Mobile app 2.0</span><span class="ann risk"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M5 .8l4.4 8.4H.6z" fill="#1a1100"/></svg>At risk</span></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

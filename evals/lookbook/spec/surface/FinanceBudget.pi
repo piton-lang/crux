@@ -1,0 +1,26 @@
+export anchor FinanceBudget:
+    description:
+        Brightwork Money, a made-up personal finance app, on the October
+        overview for Mara Okafor, amounts in euros.
+
+    balances:
+        - Everyday account, 2,184.60
+        - Savings, 11,420.00
+        - Credit card, minus 342.18, due 12 Nov
+
+    budget:
+        - Rent, 1,150 of 1,150
+        - Groceries, 386 of 450
+        - Eating out, 212 of 150, over budget by 62
+        - Transport, 74 of 120
+        - Subscriptions, 48 of 60
+
+    transactions:
+        - 31 Oct, Fernhill Studio salary, plus 3,850.00
+        - 30 Oct, Corner Market, minus 42.15
+        - 29 Oct, Night train tickets, minus 118.00
+        - 28 Oct, Lumen Bakery, minus 9.40
+        - 27 Oct, Music subscription, minus 10.99
+
+    goal:
+        Japan trip, 3,200 of 5,000 saved, target date 1 April 2027.

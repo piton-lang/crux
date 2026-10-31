@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 118 · Postage stamps · Brightwork</title>
+<style>
+:root{
+  --album:#f5f0e1; --quad:#e4dccb; --paper:#fffdf6; --ink:#22201c; --muted:#5b5348;
+  --carmine:#9e2b3a; --ultra:#2b3f8f; --bottle:#24604a; --sepia:#6b4523; --violet:#5d3b7a; --slate:#37505e;
+  --cancel:#3a3a44; --margin:#e9e1cc;
+  --caps:Copperplate,"Copperplate Gothic Light","Engravers MT","Felix Titling",Didot,Georgia,serif;
+  --serif:Baskerville,"Baskerville Old Face","Libre Baskerville","Hoefler Text",Georgia,serif;
+  --num:Didot,"Bodoni 72","Bodoni MT","Big Caslon",Georgia,serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--album);background-image:linear-gradient(var(--quad) 1px,transparent 1px),linear-gradient(90deg,var(--quad) 1px,transparent 1px);background-size:12px 12px;color:var(--ink);font:15px/1.5 var(--serif);padding:24px 16px 56px}
+a{color:inherit}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible,.is-focus{outline:3px solid var(--ultra);outline-offset:4px}
+.page{max-width:1220px;margin:0 auto;background:var(--album);border:1px solid var(--ink);outline:4px double var(--ink);outline-offset:6px;padding:24px 28px 32px}
+/* perforation */
+.perf{--bg:var(--paper);background:radial-gradient(circle,var(--album) 3.2px,transparent 3.8px) -5px -5px/10px 10px,var(--bg);padding:9px;display:block;filter:drop-shadow(0 1px 1px rgba(60,40,10,.25))}
+.face{background:var(--paper);border:2px solid var(--c,var(--ink));height:100%;position:relative}
+/* header */
+.head{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;border-bottom:1px solid var(--ink);padding-bottom:16px}
+.brand{font:700 26px/1 var(--caps);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;display:flex;gap:10px;align-items:center}
+.brand svg{width:34px;height:34px}
+.tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end;grid-column:3}
+.search{display:flex;align-items:center;gap:6px;background:var(--paper);border:1px solid var(--muted);padding:0 10px;height:40px;min-width:240px}
+.search input{border:0;background:transparent;font:15px var(--serif);color:var(--ink);width:100%;height:100%}
+.search input:focus{outline:none}
+.search:focus-within{outline:3px solid var(--ultra);outline-offset:4px}
+.btn{font:700 13px/1 var(--caps);letter-spacing:.1em;text-transform:uppercase;height:40px;padding:0 16px;background:var(--carmine);color:#fff;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:8px;box-shadow:inset 0 0 0 2px var(--carmine),inset 0 0 0 4px #fff;border-radius:2px}
+.btn.sec{background:var(--paper);color:var(--carmine);box-shadow:inset 0 0 0 2px var(--carmine)}
+.bell{width:40px;height:40px;border:1px solid var(--muted);background:var(--paper);display:grid;place-items:center;cursor:pointer;position:relative;color:var(--ink)}
+.bell svg{width:18px;height:18px}
+.bell b{position:absolute;top:-8px;right:-8px;font:700 11px/20px var(--serif);width:20px;border-radius:50%;background:var(--carmine);color:#fff}
+.user{font:italic 15px var(--serif)}
+/* nav as definitives */
+nav ul{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+nav a{display:block;text-decoration:none}
+nav .face{padding:6px 10px 6px;display:flex;align-items:center;gap:8px;font:700 13px var(--caps);letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
+nav svg{width:18px;height:18px}
+nav a[aria-current] .face{background:var(--c);color:#fff}
+nav .perf{padding:6px;background-size:8px 8px;background-position:-4px -4px}
+/* greeting */
+.greet{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;margin:28px 0 8px}
+.greet h1{font:400 36px/1.1 var(--num);margin:0}
+.greet p{margin:4px 0 0;color:var(--muted)}
+.urgent{color:var(--carmine)!important;font-weight:700;display:flex;gap:8px;align-items:center}
+.postmark{width:150px;height:150px;position:relative;color:var(--cancel)}
+.postmark svg{width:100%;height:100%}
+/* summary */
+.denoms{list-style:none;padding:0;margin:20px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.denoms .face{padding:12px 14px 12px;display:grid;grid-template-columns:1fr auto;gap:6px;align-items:start;min-height:120px}
+.denoms b{font:400 56px/0.9 var(--num);color:var(--c)}
+.denoms .cap{grid-column:1/-1;font:700 12px/1.3 var(--caps);letter-spacing:.08em;text-transform:uppercase;align-self:end}
+.denoms svg{width:34px;height:34px;color:var(--c)}
+.sect{font:700 15px var(--caps);letter-spacing:.14em;text-transform:uppercase;margin:36px 0 12px;display:flex;align-items:center;gap:12px}
+.sect::before,.sect::after{content:"";flex:1;border-top:1px solid var(--ink)}
+/* souvenir sheet */
+.sheetm{background:var(--margin);border:1px solid #c9bea3;padding:20px 22px 22px;position:relative}
+.selvage{font:italic 13px var(--serif);color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 12px}
+.pane{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.pane .perf{--bg:var(--paper);background:radial-gradient(circle,var(--margin) 3.2px,transparent 3.8px) -5px -5px/10px 10px,var(--paper)}
+.pane .face{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto 1fr auto auto;gap:4px 12px;padding:12px;min-height:190px;border-width:3px}
+.country{grid-column:1/-1;display:flex;justify-content:space-between;font:700 11px var(--caps);letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
+.vig{width:84px;height:84px;background:repeating-linear-gradient(0deg,color-mix(in srgb,var(--c) 14%,transparent) 0 1px,transparent 1px 3px);border:1px solid var(--c);display:grid;place-items:center;color:var(--c)}
+.vig svg{width:52px;height:52px}
+.den{font:400 52px/0.9 var(--num);color:var(--c);align-self:start;text-align:right}
+.den small{font-size:22px}
+.pname{grid-column:1/-1;font:700 17px/1.2 var(--serif);margin:4px 0 0}
+.pmeta{grid-column:1/-1;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.over{grid-column:1/-1;display:flex;align-items:center;gap:6px;font:700 12px/1 var(--caps);letter-spacing:.1em;text-transform:uppercase;padding:6px 8px;margin:4px -12px -12px;color:#fff;background:var(--ink)}
+.over svg{width:14px;height:14px;flex:none}
+.over.risk{background:#fff;color:var(--ink);border-top:2px dashed var(--ink)}
+.over.late{background:var(--carmine)}
+.sheet-pm{position:absolute;right:30px;top:-30px;width:120px;height:120px;color:var(--cancel);pointer-events:none}
+/* lower */
+.lower{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px}
+.coil{display:grid;grid-template-columns:repeat(14,minmax(0,1fr));gap:6px;align-items:end;height:230px;border-bottom:2px solid var(--ink);padding:0 4px}
+.coil .c{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.coil em{font:700 12px var(--serif);font-style:normal}
+.coil i{display:block;width:100%;max-width:26px;height:calc(var(--v)*11px);background:repeating-linear-gradient(to top,var(--k,var(--slate)) 0 9px,transparent 9px 11px)}
+.coil .w2{--k:var(--carmine)}
+.coil .gap{margin-left:10px}
+.dd{display:grid;grid-template-columns:repeat(14,minmax(0,1fr));gap:6px;padding:4px 4px 0 14px;font:11px var(--serif);text-align:center;color:var(--muted)}
+.leg{display:flex;gap:20px;flex-wrap:wrap;margin:10px 0 0;font-size:14px}
+.leg span{display:inline-flex;gap:6px;align-items:center}
+.leg i{width:14px;height:9px;background:var(--k)}
+.reg{list-style:none;margin:0;padding:0}
+.reg li{display:grid;grid-template-columns:56px 1fr;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid #cfc5ad}
+.reg li:last-child{border-bottom:0}
+.pmk{width:52px;height:52px;border:2px solid var(--cancel);border-radius:50%;display:grid;place-items:center;text-align:center;font:700 10px/1.1 var(--caps);letter-spacing:.04em;text-transform:uppercase;color:var(--cancel);box-shadow:inset 0 0 0 3px var(--album),inset 0 0 0 4px var(--cancel)}
+/* style sheet */
+.style{max-width:1220px;margin:56px auto 0}
+.style>.perf{padding:12px}
+.style .face{padding:30px;border:2px solid var(--ink)}
+.style h2{font:400 34px var(--num);margin:0 0 6px}
+.style .idea{max-width:760px;font-size:17px;margin:0 0 6px}
+.style h3{font:700 14px var(--caps);letter-spacing:.14em;text-transform:uppercase;margin:30px 0 12px;border-bottom:1px solid var(--ink);padding-bottom:4px}
+.sw{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.sw li{display:flex;gap:10px;font-size:13px}
+.sw i{width:44px;height:52px;flex:none;border:3px solid #fff;outline:1px solid #b9ae95}
+.sw b{display:block;font:700 13px var(--serif)}
+.sw code{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--muted)}
+.ty div{display:flex;gap:16px;flex-wrap:wrap;align-items:baseline;border-bottom:1px solid #e3dccb;padding:6px 0}
+.ty code{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--muted);min-width:230px}
+.facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px 28px;margin:0}
+.facts dt{font:700 13px var(--caps);letter-spacing:.1em;text-transform:uppercase;color:var(--carmine)}
+.facts dd{margin:0 0 6px}
+.ctl{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.ctl>div{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.lab{font:700 12px var(--caps);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.field{display:grid;gap:4px;width:100%;font:700 13px var(--serif)}
+.field input{height:40px;border:1px solid var(--muted);background:#fff;font:15px var(--serif);padding:0 10px;color:var(--ink)}
+.row{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid #cfc5ad;background:#fff;font-weight:700}
+.row .over{margin:0;padding:5px 8px}
+@media (max-width:1000px){.pane{grid-template-columns:repeat(2,minmax(0,1fr))}.lower{grid-template-columns:minmax(0,1fr)}.head{grid-template-columns:1fr}.tools{grid-column:1;justify-content:flex-start}}
+@media (max-width:640px){
+  body{padding:14px 10px 40px}
+  .page{padding:16px 12px 20px;outline-offset:4px}
+  .search{min-width:0;flex:1 1 100%}
+  .greet{grid-template-columns:1fr}.postmark{width:110px;height:110px;justify-self:end;margin-top:-20px}
+  .greet h1{font-size:30px}
+  .denoms{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .denoms b{font-size:44px}.denoms svg{width:26px;height:26px}
+  .pane{grid-template-columns:minmax(0,1fr)}
+  .sheetm{padding:14px 10px}
+  .sheet-pm{width:90px;height:90px;top:-36px;right:10px}
+  .coil{gap:3px;height:210px}.coil i{height:calc(var(--v)*10px);background:repeating-linear-gradient(to top,var(--k,var(--slate)) 0 8px,transparent 8px 10px)}
+  .coil em{font-size:10px}.coil .gap{margin-left:6px}
+  .dd{gap:3px;font-size:9px;padding-left:10px}
+  .style .face{padding:20px 14px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="head">
+    <a class="brand" href="#" aria-label="Brightwork home"><svg viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="28" height="28"/><rect x="7" y="7" width="20" height="20"/><path d="M17 10l2 5h5l-4 3 1.5 5-4.5-3-4.5 3 1.5-5-4-3h5z" fill="currentColor" stroke="none"/></svg>Brightwork</a>
+    <div class="tools">
+      <label class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M15 15l6 6"/></svg><span class="sr">Search projects and tasks</span><input type="search" placeholder="Search projects and tasks"></label>
+      <button class="btn" type="button"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg>New project</button>
+      <button class="bell" type="button" aria-label="Notifications, 3 new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></svg><b aria-hidden="true">3</b></button>
+      <span class="user">Mara Okafor</span>
+    </div>
+  </header>
+  <nav aria-label="Main">
+    <ul>
+      <li><a href="#" aria-current="page"><span class="perf"><span class="face" style="--c:var(--carmine)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 4l9 7v9H3z"/><path d="M10 20v-6h4v6"/></svg>Home</span></span></a></li>
+      <li><a href="#"><span class="perf"><span class="face" style="--c:var(--ultra)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h7l2 2h9v11H3z"/></svg>Projects</span></span></a></li>
+      <li><a href="#"><span class="perf"><span class="face" style="--c:var(--bottle)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="16" height="16"/><path d="M8 12l3 3 5-6"/></svg>Tasks</span></span></a></li>
+      <li><a href="#"><span class="perf"><span class="face" style="--c:var(--violet)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="9" r="3.5"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c1-5 11-5 12 0M15 20c.5-3 5-4 6 0"/></svg>Team</span></span></a></li>
+      <li><a href="#"><span class="perf"><span class="face" style="--c:var(--sepia)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>Reports</span></span></a></li>
+      <li><a href="#"><span class="perf"><span class="face" style="--c:var(--slate)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>Settings</span></span></a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="greet" aria-labelledby="hi">
+      <div>
+        <h1 id="hi">Good morning, Mara</h1>
+        <p>Saturday 31 October 2026</p>
+        <p class="urgent"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>Overdue: 4 tasks are overdue.</p>
+      </div>
+      <div class="postmark" aria-hidden="true"><svg viewBox="0 0 150 150"><circle cx="75" cy="75" r="56" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="75" cy="75" r="44" fill="none" stroke="currentColor" stroke-width="1.2"/><path id="arc" d="M30 75a45 45 0 0 1 90 0" fill="none"/><text font-family="Georgia,serif" font-size="11" letter-spacing="3" fill="currentColor"><textPath href="#arc" startOffset="50%" text-anchor="middle">BRIGHTWORK</textPath></text><text x="75" y="80" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-weight="700" fill="currentColor">31 OCT</text><text x="75" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="12" fill="currentColor">2026</text><path d="M0 132q12-8 24 0t24 0 24 0 24 0 24 0 24 0M0 142q12-8 24 0t24 0 24 0 24 0 24 0 24 0" fill="none" stroke="currentColor" stroke-width="2" opacity=".6"/></svg></div>
+    </section>
+
+    <ul class="denoms" aria-label="Summary">
+      <li class="perf"><div class="face" style="--c:var(--ultra)"><b>6</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6h7l2 2h9v11H3z"/></svg><span class="cap">Active projects</span></div></li>
+      <li class="perf"><div class="face" style="--c:var(--bottle)"><b>23</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="16"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span class="cap">Tasks due this week</span></div></li>
+      <li class="perf"><div class="face" style="--c:var(--carmine)"><b>4</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg><span class="cap">Overdue tasks</span></div></li>
+      <li class="perf"><div class="face" style="--c:var(--sepia)"><b>186</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3h12M6 21h12M7 3c0 6 10 6 10 12v6M17 3c0 6-10 6-10 12v6"/></svg><span class="cap">Hours logged this week</span></div></li>
+    </ul>
+
+    <h2 class="sect" id="p-h">The project issue</h2>
+    <section class="sheetm" aria-labelledby="p-h">
+      <p class="selvage"><span>Six active projects · printed 31 October 2026</span><span>Denomination shows percent complete</span></p>
+      <ul class="pane">
+        <li class="perf"><div class="face" style="--c:var(--ultra)"><span class="country"><span>Brightwork</span><span>Design</span></span><span class="vig" aria-hidden="true"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2"><path d="M26 6l10 20-10 20-10-20z"/><circle cx="26" cy="26" r="3"/><path d="M26 29v17"/></svg></span><span class="den">72<small>%</small></span><h3 class="pname">Website redesign</h3><p class="pmeta" style="margin:0"><span>18 of 25 tasks</span><span>Due 14 Nov</span></p><span class="over"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="currentColor"/></svg>On track</span></div></li>
+        <li class="perf"><div class="face" style="--c:var(--slate)"><span class="country"><span>Brightwork</span><span>Engineering</span></span><span class="vig" aria-hidden="true"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2"><circle cx="26" cy="26" r="8"/><path d="M26 8v6M26 38v6M8 26h6M38 26h6M13 13l4 4M35 35l4 4M39 13l-4 4M17 35l-4 4"/></svg></span><span class="den">45<small>%</small></span><h3 class="pname">Mobile app 2.0</h3><p class="pmeta" style="margin:0"><span>27 of 60 tasks</span><span>Due 2 Dec</span></p><span class="over risk"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1 15 14H1z" fill="currentColor"/></svg>At risk</span></div></li>
+        <li class="perf"><div class="face" style="--c:var(--bottle)"><span class="country"><span>Brightwork</span><span>Research</span></span><span class="vig" aria-hidden="true"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="22" cy="22" r="12"/><path d="M31 31l13 13"/></svg></span><span class="den">90<small>%</small></span><h3 class="pname">Q4 customer survey</h3><p class="pmeta" style="margin:0"><span>9 of 10 tasks</span><span>Due 7 Nov</span></p><span class="over"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="currentColor"/></svg>On track</span></div></li>
+        <li class="perf"><div class="face" style="--c:var(--carmine)"><span class="country"><span>Brightwork</span><span>Engineering</span></span><span class="vig" aria-hidden="true"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="14" width="36" height="24" rx="2"/><path d="M8 21h36M14 31h10"/></svg></span><span class="den">30<small>%</small></span><h3 class="pname">Billing migration</h3><p class="pmeta" style="margin:0"><span>12 of 40 tasks</span><span>Due 20 Nov</span></p><span class="over late"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" fill="currentColor"/></svg>Behind</span></div></li>
+        <li class="perf"><div class="face" style="--c:var(--sepia)"><span class="country"><span>Brightwork</span><span>Marketing</span></span><span class="vig" aria-hidden="true"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2"><path d="M26 44V24M26 24c-8 0-12-8-10-14 6 0 10 6 10 14zM26 30c8 0 12-8 10-14-6 0-10 6-10 14z"/></svg></span><span class="den">15<small>%</small></span><h3 class="pname">Spring catalogue</h3><p class="pmeta" style="margin:0"><span>3 of 20 tasks</span><span>Due 15 Jan</span></p><span class="over"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="currentColor"/></svg>On track</span></div></li>
+        <li class="perf"><div class="face" style="--c:var(--violet)"><span class="country"><span>Brightwork</span><span>Marketing</span></span><span class="vig" aria-hidden="true"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="14" width="36" height="24"/><path d="M8 14l18 14 18-14"/></svg></span><span class="den">60<small>%</small></span><h3 class="pname">Onboarding emails</h3><p class="pmeta" style="margin:0"><span>9 of 15 tasks</span><span>Due 21 Nov</span></p><span class="over"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="currentColor"/></svg>On track</span></div></li>
+      </ul>
+    </section>
+
+    <div class="lower">
+      <section aria-labelledby="c-h">
+        <h2 class="sect" id="c-h">Tasks completed · coil of 14 days</h2>
+        <div class="coil" role="img" aria-label="Tasks completed per day over the last 14 days. Last week, Sunday 18 to Saturday 24 October: 3, 12, 9, 14, 11, 8, 2, total 59. This week, Sunday 25 to Saturday 31 October: 4, 15, 13, 17, 12, 10, 2, total 73.">
+          <div class="c" style="--v:3"><em>3</em><i></i></div><div class="c" style="--v:12"><em>12</em><i></i></div><div class="c" style="--v:9"><em>9</em><i></i></div><div class="c" style="--v:14"><em>14</em><i></i></div><div class="c" style="--v:11"><em>11</em><i></i></div><div class="c" style="--v:8"><em>8</em><i></i></div><div class="c" style="--v:2"><em>2</em><i></i></div>
+          <div class="c w2 gap" style="--v:4"><em>4</em><i></i></div><div class="c w2" style="--v:15"><em>15</em><i></i></div><div class="c w2" style="--v:13"><em>13</em><i></i></div><div class="c w2" style="--v:17"><em>17</em><i></i></div><div class="c w2" style="--v:12"><em>12</em><i></i></div><div class="c w2" style="--v:10"><em>10</em><i></i></div><div class="c w2" style="--v:2"><em>2</em><i></i></div>
+        </div>
+        <div class="dd" aria-hidden="true"><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span></div>
+        <p class="leg"><span><i style="--k:var(--slate)"></i>Last week, 18 to 24 Oct · 59</span><span><i style="--k:var(--carmine)"></i><b>This week, 25 to 31 Oct · 73</b></span><span style="color:var(--muted)">One block is one task</span></p>
+      </section>
+      <section aria-labelledby="a-h">
+        <h2 class="sect" id="a-h">Recent post</h2>
+        <ul class="reg">
+          <li><span class="pmk" aria-hidden="true">12<br>min</span><span><b>Jonas Weber</b> completed "Export invoices as CSV" in Billing migration <span class="sr">12 min ago</span></span></li>
+          <li><span class="pmk" aria-hidden="true">40<br>min</span><span><b>Priya Nair</b> commented on "Hero image options" in Website redesign <span class="sr">40 min ago</span></span></li>
+          <li><span class="pmk" aria-hidden="true">1 h</span><span><b>Sam Ortiz</b> moved "Push notifications" to Review in Mobile app 2.0 <span class="sr">1 h ago</span></span></li>
+          <li><span class="pmk" aria-hidden="true">2 h</span><span><b>Lena Fischer</b> added 3 tasks to Spring catalogue <span class="sr">2 h ago</span></span></li>
+          <li><span class="pmk" aria-hidden="true">3 h</span><span><b>Tomás Ruiz</b> logged 6 h on Mobile app 2.0 <span class="sr">3 h ago</span></span></li>
+          <li><span class="pmk" aria-hidden="true">Yest.</span><span><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to Q4 customer survey <span class="sr">yesterday</span></span></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+</div>
+
+<section class="style" aria-labelledby="sh">
+  <div class="perf"><div class="face">
+    <h2 id="sh">Style 118 · Postage stamps</h2>
+    <p class="idea">The dashboard is a page in a stamp album: numbers are denominations, projects are a perforated souvenir sheet with an overprinted status, and the chart is a coil of one-task stamps.</p>
+
+    <h3>Palette</h3>
+    <ul class="sw">
+      <li><i style="background:#f5f0e1"></i><div><b>Album</b><code>#f5f0e1</code> page and perforation holes</div></li>
+      <li><i style="background:#e4dccb"></i><div><b>Quadrille</b><code>#e4dccb</code> 12px album grid, decorative</div></li>
+      <li><i style="background:#fffdf6"></i><div><b>Gum paper</b><code>#fffdf6</code> stamp faces and fields</div></li>
+      <li><i style="background:#e9e1cc"></i><div><b>Sheet margin</b><code>#e9e1cc</code> souvenir sheet selvage</div></li>
+      <li><i style="background:#22201c"></i><div><b>Ink</b><code>#22201c</code> text, frames, On track overprint</div></li>
+      <li><i style="background:#5b5348"></i><div><b>Muted</b><code>#5b5348</code> captions and meta</div></li>
+      <li><i style="background:#9e2b3a"></i><div><b>Carmine</b><code>#9e2b3a</code> primary button, overdue, Behind, this week</div></li>
+      <li><i style="background:#2b3f8f"></i><div><b>Ultramarine</b><code>#2b3f8f</code> stamp colour and focus</div></li>
+      <li><i style="background:#24604a"></i><div><b>Bottle green</b><code>#24604a</code> stamp colour</div></li>
+      <li><i style="background:#6b4523"></i><div><b>Sepia</b><code>#6b4523</code> stamp colour</div></li>
+      <li><i style="background:#5d3b7a"></i><div><b>Violet</b><code>#5d3b7a</code> stamp colour</div></li>
+      <li><i style="background:#37505e"></i><div><b>Slate</b><code>#37505e</code> stamp colour, last week</div></li>
+      <li><i style="background:#3a3a44"></i><div><b>Cancel</b><code>#3a3a44</code> postmarks</div></li>
+    </ul>
+
+    <h3>Type</h3>
+    <div class="ty">
+      <div><code>Didone 52–56px · denominations</code><span style="font:400 56px/1 var(--num);color:var(--carmine)">72<small style="font-size:22px">%</small></span></div>
+      <div><code>Didone 36px · greeting</code><span style="font:400 36px var(--num)">Good morning, Mara</span></div>
+      <div><code>Engraved caps 11–15px 0.1–0.16em</code><span style="font:700 13px var(--caps);letter-spacing:.12em;text-transform:uppercase">The project issue</span></div>
+      <div><code>Baskerville 17px bold · stamp names</code><span style="font:700 17px var(--serif)">Billing migration</span></div>
+      <div><code>Baskerville 15px · body</code><span>Lena Fischer added 3 tasks to Spring catalogue</span></div>
+    </div>
+    <p style="font-size:13px;color:var(--muted)">Caps: Copperplate, "Copperplate Gothic Light", "Engravers MT", Didot, Georgia, serif. Numbers: Didot, "Bodoni 72", "Bodoni MT", Georgia, serif. Body: Baskerville, "Baskerville Old Face", Georgia, serif.</p>
+
+    <h3>Surface rules</h3>
+    <dl class="facts">
+      <div><dt>Spacing</dt><dd>8px unit. 9px perforated margin round every stamp, 16px between stamps, 36px before sections.</dd></div>
+      <div><dt>Density</dt><dd>Medium. Each project is one self-contained stamp, read at a glance.</dd></div>
+      <div><dt>Corners</dt><dd>Square. Edges are perforated: 10px pitch holes cut into the margin.</dd></div>
+      <div><dt>Borders</dt><dd>2–3px frame in the stamp colour inside the perforations. The album page has a thin rule and a double outer rule.</dd></div>
+      <div><dt>Shadows</dt><dd>A 1px drop shadow so stamps lift off the album.</dd></div>
+      <div><dt>Icons</dt><dd>Engraved line vignettes per team. Overprint bars: filled dot for On track, triangle on a dashed bar for At risk, square on carmine for Behind, clock for overdue.</dd></div>
+      <div><dt>Tone</dt><dd>Philatelic and calm, such as The project issue, Recent post and denomination.</dd></div>
+      <div><dt>Focus</dt><dd>3px ultramarine outline offset 4px.</dd></div>
+    </dl>
+
+    <h3>Controls · normal and focus</h3>
+    <div class="ctl">
+      <div><span class="lab">Primary</span><button class="btn" type="button">New project</button><button class="btn is-focus" type="button">New project</button></div>
+      <div><span class="lab">Secondary</span><button class="btn sec" type="button">Cancel</button><button class="btn sec is-focus" type="button">Cancel</button></div>
+      <div><label class="field">Project name<input value="Website redesign"></label><label class="field">Project name, focused<input class="is-focus" value="Mobile app 2.0"></label></div>
+      <div><span class="lab">List row</span><div class="row">Billing migration<span class="over late"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" fill="currentColor"/></svg>Behind</span></div><div class="row is-focus">Website redesign<span class="over"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="currentColor"/></svg>On track</span></div></div>
+    </div>
+  </div></div>
+</section>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Style 267 · Dark editorial · Brightwork</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+:root { --bg: #12100e; --ink: #efe7d8; --muted: #b5aa95; --rule: #3d362d; --verm: #f0805f; --paper: #1b1815; --track: #2f2a24;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, Cambria, serif; --sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --s-bg: #12100e; --s-ink: #efe7d8; --s-muted: #b5aa95; --s-line: #3d362d; --s-font: var(--sans); --s-h2: 400 40px/1.1 var(--serif); --s-chip: 0; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 var(--sans); }
+a { color: inherit; text-decoration: none; }
+.i { width: 16px; height: 16px; flex: none; }
+:focus-visible, .is-focus { outline: 2px solid var(--verm); outline-offset: 3px; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+.mast { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; padding: 22px 0 16px; border-bottom: 4px double var(--rule); }
+.brand { font: 400 26px/1 var(--serif); letter-spacing: .01em; }
+.brand em { font-style: italic; color: var(--verm); }
+.sect { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+.sect a { color: var(--muted); padding: 4px 0; }
+.sect a[aria-current] { color: var(--ink); border-bottom: 2px solid var(--verm); }
+.search { justify-self: end; display: flex; gap: 8px; align-items: center; color: var(--muted); border-bottom: 1px solid var(--muted); }
+.search input { background: none; border: 0; color: var(--ink); font: italic 16px var(--serif); padding: 6px 0; width: 170px; }
+.search input::placeholder { color: var(--muted); }
+.search input:focus-visible { outline: none; }
+.search:focus-within { outline: 2px solid var(--verm); outline-offset: 3px; }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: end; padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
+.kicker { display: flex; gap: 8px; align-items: center; list-style: none; margin: 0 0 12px; padding: 0; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--verm); font-weight: 600; }
+.kicker .i { width: 12px; height: 12px; }
+h1 { font: 400 80px/0.95 var(--serif); margin: 0 0 16px; letter-spacing: -.02em; }
+.dek { font: italic 20px/1.45 var(--serif); color: var(--muted); margin: 0; max-width: 46ch; }
+.tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: flex-end; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; font: 600 12px/1.2 var(--sans); letter-spacing: .12em; text-transform: uppercase; cursor: pointer; border-radius: 0; }
+.pri { background: var(--verm); color: #1a0d07; border: 1px solid var(--verm); }
+.sec { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+.viewsw { display: flex; gap: 14px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; width: 100%; justify-content: flex-end; margin-top: 4px; }
+.viewsw a { display: flex; gap: 6px; align-items: center; color: var(--muted); }
+.viewsw a[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--verm); text-decoration-thickness: 2px; text-underline-offset: 6px; }
+.spread { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 0; padding: 32px 0 64px; }
+.spread > * { min-width: 0; }
+.idx { padding-right: 40px; border-right: 1px solid var(--rule); }
+.label { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 0 0 12px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--rule); padding-bottom: 8px; }
+.idx ol { list-style: none; margin: 0; padding: 0; }
+.ent { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+.no { font: 400 34px/1 var(--serif); color: var(--muted); font-variant-numeric: oldstyle-nums; }
+.ent h3 { font: 400 23px/1.25 var(--serif); margin: 0; overflow-wrap: anywhere; }
+.ent .by { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+.ent .sz { font: italic 17px var(--serif); color: var(--muted); white-space: nowrap; }
+.ent.sel { background: linear-gradient(90deg, #241c16, transparent); }
+.ent.sel .no { color: var(--verm); }
+.ent.feat h3 { font-size: 30px; }
+.mk { display: inline-flex; gap: 6px; align-items: center; font: 600 11px var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--verm); margin-left: 10px; vertical-align: 3px; white-space: nowrap; }
+.mk.n { color: var(--ink); }
+.mk .i { width: 13px; height: 13px; }
+.rulebar { display: block; height: 3px; background: var(--track); margin-top: 10px; max-width: 280px; }
+.rulebar i { display: block; height: 100%; width: 62%; background: var(--ink); }
+.cover { padding-left: 40px; }
+.cv { background: var(--paper); border: 1px solid var(--rule); padding: 20px; margin-bottom: 20px; }
+.cv svg { width: 100%; height: auto; display: block; }
+.cover h2 { font: 400 32px/1.1 var(--serif); margin: 0 0 8px; overflow-wrap: anywhere; }
+.cover .sub { font: italic 17px/1.5 var(--serif); color: var(--muted); margin: 0 0 18px; }
+.cover dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; margin: 0 0 20px; border-top: 1px solid var(--rule); padding-top: 14px; }
+.cover dt { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding-top: 4px; }
+.cover dd { margin: 0; font: 18px var(--serif); }
+.cover .tools { justify-content: flex-start; }
+.nums { margin-top: 36px; border-top: 4px double var(--rule); padding-top: 16px; }
+.big { font: 400 64px/1 var(--serif); }
+.big small { font: italic 22px var(--serif); color: var(--muted); }
+.gauge { height: 3px; background: var(--track); margin: 12px 0 6px; }
+.gauge i { display: block; height: 100%; width: 64.2%; background: var(--verm); }
+.nums p { margin: 0; font-size: 13px; color: var(--muted); }
+.field { display: grid; gap: 4px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.field input { background: transparent; border: 0; border-bottom: 1px solid var(--muted); color: var(--ink); padding: 6px 0; font: 18px var(--serif); letter-spacing: 0; text-transform: none; max-width: 300px; }
+.samp .ent { grid-template-columns: 48px minmax(0,1fr) auto; padding: 10px 6px; border-top: 1px solid var(--rule); }
+.samp .no { font-size: 26px; }
+.samp h3 { font: 400 19px/1.25 var(--serif) !important; text-transform: none; letter-spacing: 0; color: var(--ink); margin: 0; }
+@media (max-width: 980px) { .spread { grid-template-columns: 1fr; } .idx { padding-right: 0; border-right: 0; } .cover { padding-left: 0; padding-top: 40px; display: grid; grid-template-columns: 240px 1fr; gap: 0 32px; } .cover .cv { grid-row: span 5; } }
+@media (max-width: 760px) {
+  .wrap { padding: 0 16px; }
+  .mast { grid-template-columns: 1fr; gap: 12px; }
+  .sect { flex-wrap: wrap; gap: 6px 16px; }
+  .search { justify-self: stretch; }
+  .search input { width: 100%; }
+  .hero { grid-template-columns: 1fr; padding-top: 32px; }
+  h1 { font-size: 52px; }
+  .tools, .viewsw { justify-content: flex-start; }
+  .ent { grid-template-columns: 40px minmax(0, 1fr); }
+  .ent .sz { grid-column: 2; }
+  .no { font-size: 26px; }
+  .ent.feat h3 { font-size: 24px; }
+  .cover { display: block; }
+}
+
+
+.sheet { background: var(--s-bg); color: var(--s-ink); border-top: 1px solid var(--s-line); padding: 56px 32px 72px; font-family: var(--s-font); }
+.sheet-in { max-width: 1120px; margin: 0 auto; }
+.sheet h2 { font: var(--s-h2); margin: 0 0 8px; color: var(--s-ink); }
+.sheet h3 { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--s-muted); margin: 40px 0 16px; font-weight: 600; font-family: var(--s-font); }
+.sheet .idea { font-size: 17px; line-height: 1.55; max-width: 64ch; color: var(--s-ink); margin: 0; }
+.sheet code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; font-size: 12.5px; color: var(--s-muted); }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px 24px; }
+.swatches li { display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: center; font-size: 13px; line-height: 1.4; color: var(--s-muted); }
+.swatches i { width: 44px; height: 44px; border-radius: var(--s-chip, 6px); border: 1px solid var(--s-line); display: block; }
+.swatches b { display: block; color: var(--s-ink); font-size: 14px; }
+.swatches code { color: var(--s-ink); }
+.tscale { display: grid; gap: 14px; }
+.trow { display: grid; grid-template-columns: 240px 1fr; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--s-line); padding-bottom: 12px; }
+.trow > span { min-width: 0; overflow-wrap: anywhere; color: var(--s-ink); }
+.facts { display: grid; grid-template-columns: 140px 1fr; gap: 10px 24px; margin: 0; font-size: 14.5px; line-height: 1.55; }
+.facts dt { color: var(--s-muted); font-weight: 600; }
+.facts dd { margin: 0; color: var(--s-ink); }
+.ctls { display: grid; grid-template-columns: 160px 1fr 1fr; gap: 20px 24px; align-items: center; }
+.ctls .h { font-size: 12px; color: var(--s-muted); text-transform: uppercase; letter-spacing: .08em; }
+.ctls .lab { color: var(--s-muted); font-size: 14px; }
+.ctls > div { min-width: 0; }
+@media (max-width: 760px) {
+  .sheet { padding: 40px 16px 56px; }
+  .trow { grid-template-columns: 1fr; gap: 4px; }
+  .facts { grid-template-columns: 1fr; gap: 2px; }
+  .facts dd { margin-bottom: 10px; }
+  .ctls { grid-template-columns: 1fr; gap: 10px; }
+  .ctls .h { display: none; }
+  .ctls .lab { margin-top: 14px; }
+}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol><symbol id="i-myfiles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 10h18"/></symbol><symbol id="i-pdf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M8.5 16.5h7M8.5 13h4"/></symbol><symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><circle cx="9" cy="9.5" r="1.6"/><path d="M4 17l5-5 4 4 2.5-2.5L20 18"/></symbol><symbol id="i-sheet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9.5h16M4 14.5h16M10 9.5V20"/></symbol><symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M8.5 12h7M8.5 15h7M8.5 18h4"/></symbol><symbol id="i-archive" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M11 4v1.5M11 7.5v1.5M11 11v1.5"/><rect x="9.5" y="14" width="3" height="4" rx="1"/></symbol><symbol id="i-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="2"/><path d="M10 9.5v5l4.5-2.5z"/></symbol><symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></symbol><symbol id="i-starfill" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M12 3.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></symbol><symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.2"/><path d="M3 19.5c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><circle cx="17" cy="9.5" r="2.4"/><path d="M16.5 14.2c2.6.3 4.5 2.3 4.5 5.3"/></symbol><symbol id="i-uploading" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 16.5v-9M8.5 11 12 7.5l3.5 3.5"/></symbol><symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></symbol><symbol id="i-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4.5M7.5 9 12 4.5 16.5 9M5 19.5h14"/></symbol><symbol id="i-newfolder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M12 10.5v5M9.5 13h5"/></symbol><symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6.5h11M9 12h11M9 17.5h11M4.5 6.5h.01M4.5 12h.01M4.5 17.5h.01"/></symbol><symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.2"/></symbol><symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol><symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7h15M10 11v6M14 11v6M6.5 7l1 13h9l1-13M9.5 7V4.5h5V7"/></symbol><symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.5" cy="12" r="2.5"/><circle cx="17.5" cy="6" r="2.5"/><circle cx="17.5" cy="18" r="2.5"/><path d="M8.7 10.8l6.6-3.6M8.7 13.2l6.6 3.6"/></symbol><symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5V15M7.5 10.5 12 15l4.5-4.5M5 19.5h14"/></symbol><symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol><symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></symbol><symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5l6 6 6-6"/></symbol><symbol id="i-more" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="18.5" cy="12" r="1.2"/></symbol><symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18.5a4.2 4.2 0 0 1-.6-8.4A6 6 0 0 1 17.8 9a4.8 4.8 0 0 1-.8 9.5z"/></symbol><symbol id="i-sortup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18.5v-13M7 10.5l5-5 5 5"/></symbol><symbol id="i-sort" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9.5l4-4 4 4M8 14.5l4 4 4-4"/></symbol><symbol id="i-disk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6.5" rx="7.5" ry="2.8"/><path d="M4.5 6.5v11c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-11M4.5 12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8"/></symbol><symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol><symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol></defs></svg>
+
+<div class="wrap">
+  <header class="mast">
+    <div class="brand">Brightwork <em>Drive</em></div>
+    <nav aria-label="Drive sections"><ul class="sect"><li><a href="#" aria-current="page">My files</a></li><li><a href="#">Shared with me</a></li><li><a href="#">Recent</a></li><li><a href="#">Starred</a></li><li><a href="#">Trash</a></li></ul></nav>
+    <label class="search"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search files</span><input type="search" placeholder="Search files"></label>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <ol class="kicker" aria-label="Breadcrumb"><li><a href="#">Fernhill Studio</a></li><li><svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></li><li aria-current="page">Website redesign</li></ol>
+        <h1>Website redesign</h1>
+        <p class="dek">Two folders and six files, last touched today at 08:12 by Priya Nair.</p>
+      </div>
+      <div class="tools">
+        <button class="btn pri" type="button"><svg class="i" aria-hidden="true"><use href="#i-upload"/></svg>Upload</button>
+        <button class="btn sec" type="button"><svg class="i" aria-hidden="true"><use href="#i-newfolder"/></svg>New folder</button>
+        <div class="viewsw" role="group" aria-label="View"><a href="#" role="button" aria-pressed="true"><svg class="i" aria-hidden="true"><use href="#i-list"/></svg>List</a><a href="#" role="button" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-grid"/></svg>Grid</a></div>
+      </div>
+    </section>
+    <div class="spread">
+      <section class="idx" aria-labelledby="idx-h">
+        <h2 class="label" id="idx-h"><span>The index</span><span>Size</span></h2>
+        <ol><li class="ent feat"><span class="no" aria-hidden="true">01</span><div><h3><a href="#">Brand assets</a></h3><div class="by">Folder · 28 Oct · Priya Nair</div></div><span class="sz">24 items</span></li><li class="ent feat"><span class="no" aria-hidden="true">02</span><div><h3><a href="#">Wireframes</a></h3><div class="by">Folder · 30 Oct · Aiko Tanaka</div></div><span class="sz">9 items</span></li><li class="ent sel"><span class="no" aria-hidden="true">03</span><div><h3><a href="#">brand-guide-v3.pdf</a><span class="sr">, selected</span><span class="mk"><svg class="i" aria-hidden="true"><use href="#i-starfill"/></svg>Starred</span></h3><div class="by">PDF · 27 Oct · Priya Nair</div></div><span class="sz">4.2 MB</span></li><li class="ent"><span class="no" aria-hidden="true">04</span><div><h3><a href="#">homepage-hero-B.png</a></h3><div class="by">PNG image · Today 08:12 · Priya Nair</div></div><span class="sz">2.8 MB</span></li><li class="ent"><span class="no" aria-hidden="true">05</span><div><h3><a href="#">content-audit.xlsx</a></h3><div class="by">Spreadsheet · 19 Sep · Mara Okafor</div></div><span class="sz">86 KB</span></li><li class="ent"><span class="no" aria-hidden="true">06</span><div><h3><a href="#">launch-plan.docx</a><span class="mk n"><svg class="i" aria-hidden="true"><use href="#i-users"/></svg>Shared with 4</span></h3><div class="by">Document · Yesterday · Mara Okafor</div></div><span class="sz">140 KB</span></li><li class="ent"><span class="no" aria-hidden="true">07</span><div><h3><a href="#">customer-interviews.zip</a></h3><div class="by">ZIP archive · 12 Oct · Aiko Tanaka</div></div><span class="sz">312 MB</span></li><li class="ent"><span class="no" aria-hidden="true">08</span><div><h3><a href="#">hero-motion.mp4</a><span class="mk n"><svg class="i" aria-hidden="true"><use href="#i-uploading"/></svg>Uploading 62%</span></h3><div class="by">Video · 29 Oct · Priya Nair</div><span class="rulebar" role="progressbar" aria-label="hero-motion.mp4 upload" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"><i></i></span></div><span class="sz">48.6 MB</span></li></ol>
+      </section>
+      <aside class="cover" aria-labelledby="cv-h">
+        <p class="label"><span>Selected · cover story</span></p>
+        <div class="cv"><svg viewBox="0 0 300 380" role="img" aria-label="Cover of brand-guide-v3.pdf, titled Brand guide, third edition"><rect width="300" height="380" fill="#12100e"/><rect x="18" y="18" width="264" height="344" fill="none" stroke="#3d362d"/><text x="36" y="70" font-family="Georgia, serif" font-size="13" letter-spacing="3" fill="#b5aa95">FERNHILL STUDIO</text><text x="34" y="200" font-family="Georgia, serif" font-size="64" fill="#efe7d8">Brand</text><text x="34" y="262" font-family="Georgia, serif" font-style="italic" font-size="64" fill="#f0805f">guide</text><line x1="36" y1="300" x2="150" y2="300" stroke="#efe7d8" stroke-width="2"/><text x="36" y="330" font-family="Georgia, serif" font-style="italic" font-size="16" fill="#b5aa95">Version 3</text></svg></div>
+        <h2 id="cv-h">brand-guide-v3.pdf</h2>
+        <p class="sub">The third version of the studio brand guide. <span class="mk" style="margin:0"><svg class="i" aria-hidden="true"><use href="#i-starfill"/></svg>Starred</span></p>
+        <dl><dt>Owner</dt><dd>Priya Nair</dd><dt>Size</dt><dd>4.2 MB</dd><dt>Version</dt><dd>3</dd><dt>Shared</dt><dd>Design team</dd></dl>
+        <div class="tools"><button class="btn pri" type="button"><svg class="i" aria-hidden="true"><use href="#i-share"/></svg>Share</button><button class="btn sec" type="button"><svg class="i" aria-hidden="true"><use href="#i-download"/></svg>Download</button><button class="btn sec" type="button"><svg class="i" aria-hidden="true"><use href="#i-link"/></svg>Get link</button></div>
+        <div class="nums">
+          <p class="label" style="border:0;padding:0"><span>By the numbers · storage</span></p>
+          <div class="big">64.2 <small>GB of 100 GB</small></div>
+          <div class="gauge" role="progressbar" aria-label="Storage used" aria-valuenow="64.2" aria-valuemin="0" aria-valuemax="100"><i></i></div>
+          <p>35.8 GB left on the shelf.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h"><div class="sheet-in">
+<h2 id="sheet-h">Style 267 · Dark editorial</h2>
+<p class="idea">The folder is laid out like a magazine spread at night, with a serif masthead, a numbered index of files and the selected file run as the cover story.</p>
+<h3>Palette</h3><ul class="swatches"><li><i style="background:#12100e"></i><div><b>Night</b><code>#12100e</code> · page, spread and style sheet</div></li><li><i style="background:#1b1815"></i><div><b>Paper</b><code>#1b1815</code> · the cover frame</div></li><li><i style="background:#efe7d8"></i><div><b>Cream</b><code>#efe7d8</code> · headlines, body and outline buttons</div></li><li><i style="background:#b5aa95"></i><div><b>Muted</b><code>#b5aa95</code> · numerals, bylines, dek and labels</div></li><li><i style="background:#3d362d"></i><div><b>Rule</b><code>#3d362d</code> · column rules, double masthead rules</div></li><li><i style="background:#2f2a24"></i><div><b>Track</b><code>#2f2a24</code> · storage and upload tracks</div></li><li><i style="background:#f0805f"></i><div><b>Vermilion</b><code>#f0805f</code> · kicker, primary button, Starred mark, selected numeral, storage fill, focus</div></li></ul>
+<h3>Type scale</h3><div class="tscale"><div class="trow"><code>80 / 400 / 0.95 serif</code><span style="font:400 80px/0.95 "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, Cambria, serif">Website</span></div><div class="trow"><code>32 / 400 serif cover title</code><span style="font:400 32px/1.1 "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, Cambria, serif">brand-guide-v3.pdf</span></div><div class="trow"><code>23 / 400 serif index entry</code><span style="font:400 23px/1.25 "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, Cambria, serif">customer-interviews.zip</span></div><div class="trow"><code>20 / italic serif dek</code><span style="font:italic 20px/1.45 "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, Cambria, serif;color:#b5aa95">Two folders and six files</span></div><div class="trow"><code>12 / 600 sans caps 0.14em</code><span style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#b5aa95">The index · Fernhill Studio</span></div></div>
+<h3>Spacing, density and surface</h3><dl class="facts"><dt>Spacing</dt><dd>8px unit. 40px gutters and a 40px column gap split by a rule, 16px between index entries, 48px above the headline.</dd><dt>Density</dt><dd>Spacious and rhythmic. Eight numbered entries, the two folders set larger as features.</dd><dt>Corners</dt><dd>Square throughout.</dd><dt>Borders</dt><dd>1px #3d362d rules between entries and columns, 4px double rules under the masthead and above the numbers box.</dd><dt>Shadows</dt><dd>None. The selected entry gets a warm left fade and a vermilion numeral.</dd><dt>Icons</dt><dd>16px line icons used sparingly in buttons and marks. Status marks are small caps with a filled star, two people or an up arrow ring.</dd><dt>Focus</dt><dd>2px vermilion outline, 3px offset.</dd><dt>Tone</dt><dd>Editorial headings with plain facts, such as The index, Selected · cover story and 35.8 GB left on the shelf.</dd></dl>
+<h3>Basic controls</h3><div class="ctls"><div class="h">Control</div><div class="h">Normal</div><div class="h">Focus</div><div class="lab">Primary button</div><div><button class="btn pri" type="button"><svg class="i" aria-hidden="true"><use href="#i-upload"/></svg>Upload</button></div><div><button class="btn pri is-focus" type="button"><svg class="i" aria-hidden="true"><use href="#i-upload"/></svg>Upload</button></div><div class="lab">Secondary button</div><div><button class="btn sec" type="button"><svg class="i" aria-hidden="true"><use href="#i-newfolder"/></svg>New folder</button></div><div><button class="btn sec is-focus" type="button"><svg class="i" aria-hidden="true"><use href="#i-newfolder"/></svg>New folder</button></div><div class="lab">Text field</div><div><label class="field">Folder name<input class="" value="Website redesign"></label></div><div><label class="field">Folder name<input class="is-focus" value="Website redesign"></label></div><div class="lab">List row</div><div><div class="samp"><div class="ent"><span class="no">03</span><div><h3>brand-guide-v3.pdf</h3><div class="by">PDF · 27 Oct · Priya Nair</div></div><span class="sz">4.2 MB</span></div></div></div><div><div class="samp"><div class="ent is-focus"><span class="no">03</span><div><h3>brand-guide-v3.pdf</h3><div class="by">PDF · 27 Oct · Priya Nair</div></div><span class="sz">4.2 MB</span></div></div></div></div>
+</div></section>
+</body>
+</html>

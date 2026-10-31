@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Style 295 · Ink and red · Brightwork</title>
+<style>
+:root{color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img,svg{max-width:100%}
+a{color:inherit}
+button,input{font:inherit;color:inherit}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+svg.i{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:-0.2em}
+.diffwrap{overflow-x:auto;max-width:100%;container-type:inline-size}
+.diff{border-collapse:collapse;width:100%;min-width:560px}
+.diff td{vertical-align:top}
+.diff .code{white-space:pre}
+.diff code{font:inherit}
+.diff .ln{text-align:right;user-select:none;width:1%;white-space:nowrap}
+.diff .mk{width:1%;user-select:none}
+.diff .cmt .code,.diff .cmt td{white-space:normal}
+.diff .hunk td{white-space:pre}
+.diff .cmt td>*{position:sticky;left:0;max-width:min(560px,calc(100cqw - var(--cmt-off,100px)))}
+.sheet{background:var(--sheet-bg,var(--bg));color:var(--ink);padding:56px 32px 72px;font-family:var(--f-body);font-size:15px;line-height:1.5}
+.sheet-in{max-width:1120px;margin:0 auto}
+.sheet h2{margin:0 0 8px;font:var(--sheet-h2)}
+.sheet .idea{color:var(--muted);max-width:70ch;margin:0 0 24px;font-size:16px}
+.sheet h3{font:var(--sheet-h3,600 13px/1.3 var(--f-body));text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:40px 0 14px}
+.swatches{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px 20px}
+.sw{display:flex;gap:12px;align-items:center;font-size:13px;line-height:1.35}
+.sw i{width:44px;height:44px;flex:none;border:1px solid var(--line);border-radius:var(--sw-r,2px)}
+.sw b{display:block;color:var(--ink);font-weight:650}
+.sw span{color:var(--muted)}
+.trow{display:grid;grid-template-columns:230px minmax(0,1fr);gap:16px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line)}
+.trow code{font:12px/1.4 var(--f-mono);color:var(--muted)}
+.facts{display:grid;grid-template-columns:150px minmax(0,1fr);gap:10px 24px;margin:0}
+.facts dt{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.08em;padding-top:2px}
+.facts dd{margin:0}
+.ctls{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px 32px}
+.ctl-l{display:block;font-size:12px;color:var(--muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:.08em}
+.ctls .pair{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+@media (max-width:640px){.sheet{padding:40px 16px 56px}.trow{grid-template-columns:1fr;gap:4px}.facts{grid-template-columns:1fr;gap:2px}.facts dd{margin-bottom:10px}.ctls{grid-template-columns:1fr}}
+
+
+:root{--bg:#0e0d0c;--panel:#171614;--ink:#ede7db;--muted:#aaa397;--line:#3b3833;--rule:#ede7db;--red:#ff5245;--redbg:#2a1311;
+--f-body:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;--f-head:"Didot","Bodoni 72","Iowan Old Style",Georgia,"Times New Roman",serif;--f-sans:"Franklin Gothic Medium","Arial Narrow","Helvetica Neue",Arial,sans-serif;--f-mono:ui-monospace,Menlo,Consolas,"Liberation Mono",monospace;
+--sheet-h2:700 40px/1.05 var(--f-head);--sheet-h3:600 12px/1.3 var(--f-sans)}
+body{background:var(--bg);color:var(--ink);font:17px/1.55 var(--f-body)}
+svg.i{stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter}
+a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+:focus-visible,.is-focus{outline:2px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 5px var(--red)}
+.paper{max-width:1240px;margin:0 auto;padding:24px 32px 48px}
+.kick{font:700 12px/1.3 var(--f-sans);letter-spacing:.16em;text-transform:uppercase}
+.kick.red{color:var(--red)}
+.mast{text-align:center;border-bottom:4px double var(--rule);padding-bottom:14px}
+.ear{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font:13px var(--f-sans);border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:12px}
+.mast .name{font:700 64px/1 var(--f-head);letter-spacing:-.01em;margin:8px 0 6px}
+.mast .name i{font-style:italic;font-weight:400}
+.dateline{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 18px;font:14px var(--f-sans);color:var(--muted);border-top:1px solid var(--rule);padding-top:8px;margin-top:10px}
+.dateline b{color:var(--ink);font-weight:600}
+.dateline button{background:none;border:0;padding:0 2px;cursor:pointer;color:var(--muted);display:inline-flex;gap:6px;align-items:center}
+.dateline button b{color:var(--ink)}
+.repo{font:italic 22px/1.3 var(--f-body);margin:0}
+.sections{display:flex;flex-wrap:wrap;justify-content:center;list-style:none;margin:0;padding:10px 0;border-bottom:1px solid var(--rule)}
+.sections li+li::before{content:"·";color:var(--muted);padding:0 12px}
+.sections a{text-decoration:none;font:600 14px var(--f-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sections a[aria-current]{color:var(--ink);border-bottom:3px solid var(--red);padding-bottom:3px}
+.lead{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:0 40px;padding-top:28px}
+.lead>*{min-width:0}
+h1.head{font:700 64px/1.02 var(--f-head);letter-spacing:-.015em;margin:8px 0 14px}
+.dek{font:italic 24px/1.35 var(--f-body);color:var(--ink);margin:0 0 12px;max-width:34ch}
+.dek code{font:inherit;font-style:normal;font-family:var(--f-mono);font-size:.8em}
+.byline{font:13px var(--f-sans);color:var(--muted);letter-spacing:.06em;text-transform:uppercase;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:8px 0;display:flex;flex-wrap:wrap;gap:6px 20px}
+.byline b{color:var(--ink)}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:0;margin-top:24px}
+.cols>*{min-width:0;padding:0 24px}
+.cols>*:first-child{padding-left:0;border-right:1px solid var(--line)}
+.cols>*:last-child{padding-right:0}
+h2.sec{font:700 13px var(--f-sans);letter-spacing:.16em;text-transform:uppercase;border-top:3px solid var(--rule);padding-top:8px;margin:0 0 12px}
+.figure{font:700 76px/0.95 var(--f-head);margin:4px 0 2px;font-variant-numeric:lining-nums}
+.figure small{font:italic 400 22px var(--f-body);color:var(--muted)}
+.cap{font:14px/1.45 var(--f-sans);color:var(--muted);margin:0 0 12px}
+.alert{display:flex;gap:10px;align-items:flex-start;border-left:4px solid var(--red);background:var(--redbg);padding:10px 12px;margin:12px 0 24px;font:15px/1.4 var(--f-sans)}
+.alert svg{color:var(--red);margin-top:2px}
+.alert b{color:#ff8a80}
+.verdicts{list-style:none;margin:0 0 24px;padding:0}
+.verdicts li{padding:12px 0;border-bottom:1px solid var(--line)}
+.verdicts .who{font:700 19px/1.2 var(--f-body)}
+.st{display:inline-flex;align-items:center;gap:6px;font:700 12px var(--f-sans);letter-spacing:.12em;text-transform:uppercase}
+.st.bad{color:var(--red)}
+.contents{list-style:none;margin:0;padding:0;font:15px var(--f-sans)}
+.contents li{display:flex;align-items:baseline;gap:8px;padding:6px 0}
+.contents .p{overflow-wrap:anywhere;font-family:var(--f-mono);font-size:13px}
+.contents .dots{flex:1;border-bottom:1px dotted var(--muted);min-width:16px;transform:translateY(-4px)}
+.contents .n{white-space:nowrap;font-variant-numeric:tabular-nums}
+.contents .n i{font-style:normal;color:var(--muted)}
+.excerpt{border:1px solid var(--line);background:var(--panel)}
+.excerpt .fn{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:8px 14px;border-bottom:1px solid var(--line);font:13px var(--f-mono)}
+.diff{font:13px/1.75 var(--f-mono)}
+.diff .hunk td{color:var(--muted);padding:6px 14px;border-bottom:1px solid var(--line);font-style:italic}
+.diff .ln{color:#8e887d;padding:0 10px}
+.diff .mk{padding:0 8px;font-weight:700}
+.diff .add{background:#1f1e1b}.diff .add .mk{color:var(--ink)}
+.diff .add code{border-bottom:1px solid #57524a}
+.diff .del{background:var(--redbg)}.diff .del .mk{color:var(--red)}
+.diff .del code{color:#d9cfc4;text-decoration:line-through;text-decoration-color:var(--red)}
+.pull{margin:14px 16px 18px 70px;border-top:3px solid var(--red);border-bottom:1px solid var(--line);padding:12px 0 12px;font-family:var(--f-body)}
+.pull q{display:block;font:italic 26px/1.25 var(--f-head);quotes:"\201C" "\201D"}
+.pull .src{font:600 12px var(--f-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:8px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.pull .src a{color:var(--ink)}
+.rail{border-left:1px solid var(--line);padding-left:24px}
+.box{border-top:4px solid var(--rule);padding-top:10px;margin-bottom:24px}
+.box dl{margin:0}
+.box dt{font:700 11px var(--f-sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:14px}
+.box dd{margin:2px 0 0;font-size:17px}
+.labels{display:flex;flex-wrap:wrap;gap:6px;font:13px var(--f-sans)}
+.labels span{border:1px solid var(--muted);padding:0 8px}
+.labels span.qa{border-color:var(--red);color:#ff8a80}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 18px;font:700 13px var(--f-sans);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border-radius:0}
+.btn-p{background:var(--red);color:#120605;border:2px solid var(--red)}
+.btn-s{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn.sm{padding:4px 10px;font-size:11px;border-width:1px}
+.btn[disabled]{width:100%;background:transparent;color:var(--muted);border:1px dashed var(--muted);cursor:not-allowed}
+.mergenote{font:14px/1.4 var(--f-sans);color:var(--muted);margin:8px 0 0}
+.fld input{display:block;width:100%;background:var(--panel);border:0;border-bottom:2px solid var(--ink);padding:8px 2px;font:17px var(--f-body);color:var(--ink);border-radius:0}
+.lrow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-top:1px solid var(--rule);border-bottom:1px solid var(--line);padding:10px 2px;font:17px var(--f-body)}
+.sheet{border-top:4px double var(--rule)}
+.sheet .sw i{border-radius:0}
+@media (max-width:1060px){.lead{grid-template-columns:minmax(0,1fr)}.rail{border-left:0;padding-left:0;border-top:4px double var(--rule);padding-top:20px;margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:0 24px}}
+@media (max-width:760px){.paper{padding:16px 16px 40px}.mast .name{font-size:40px}h1.head{font-size:40px}.dek{font-size:20px}.cols{grid-template-columns:minmax(0,1fr)}.cols>*{padding:0!important;border:0!important}.cols>*+*{margin-top:24px}.rail{grid-template-columns:minmax(0,1fr)}.pull{margin:12px 8px 14px 24px}.pull q{font-size:21px}.figure{font-size:60px}.ear span+span{display:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<symbol id="i-code" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></symbol>
+<symbol id="i-issue" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="1.5"/></symbol>
+<symbol id="i-pr" viewBox="0 0 24 24"><circle cx="6" cy="5" r="2.2"/><circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="19" r="2.2"/><path d="M6 7.2v9.6M18 16.8V9a3 3 0 0 0-3-3h-4M13 3.5L10.5 6 13 8.5"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5.5 3.5-5.5 3.5z"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4.5h6a2 2 0 0 1 2 2V20a2 2 0 0 0-2-2H4zM20 4.5h-6a2 2 0 0 0-2 2V20a2 2 0 0 1 2-2h6z"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="1.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.8z"/></symbol>
+<symbol id="i-fork" viewBox="0 0 24 24"><circle cx="6" cy="5" r="2.2"/><circle cx="18" cy="5" r="2.2"/><circle cx="12" cy="19" r="2.2"/><path d="M6 7.2V9a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V7.2M12 12v4.8"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></symbol>
+<symbol id="i-fail" viewBox="0 0 24 24"><path d="M8.3 3h7.4L21 8.3v7.4L15.7 21H8.3L3 15.7V8.3z"/><path d="M9 9l6 6M15 9l-6 6"/></symbol>
+<symbol id="i-approve" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.8 2.8L16.2 9.5"/></symbol>
+<symbol id="i-changes" viewBox="0 0 24 24"><path d="M12 3l10 18H2z"/><path d="M12 10v4.5M12 17.5v.4"/></symbol>
+<symbol id="i-open" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></symbol>
+<symbol id="i-file" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></symbol>
+<symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.4"/></symbol>
+<symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+<symbol id="i-merge" viewBox="0 0 24 24"><circle cx="6" cy="5" r="2.2"/><circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="12" r="2.2"/><path d="M6 7.2v9.6M6 7.2c0 3 3 4.8 9.8 4.8"/></symbol>
+<symbol id="i-comment" viewBox="0 0 24 24"><path d="M4 5h16v11H10l-5 4v-4H4z"/></symbol>
+<symbol id="i-commit" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><path d="M2 12h6.5M15.5 12H22"/></symbol>
+</svg>
+
+<div class="paper">
+<header class="mast">
+<div class="ear"><span>Brightwork suite</span><span>Code edition</span><span>Pull requests desk</span></div>
+<div class="name" aria-label="Brightwork Code">Brightwork <i>Code</i></div>
+<p class="repo">fernhill/brightwork-mobile</p>
+<div class="dateline">
+<span><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg> <b>Private</b> repository</span>
+<button type="button" aria-label="Watch, 12 watchers"><svg class="i" aria-hidden="true"><use href="#i-eye"/></svg>Watch <b>12</b></button>
+<button type="button" aria-label="Star, 48 stars"><svg class="i" aria-hidden="true"><use href="#i-star"/></svg>Star <b>48</b></button>
+<button type="button" aria-label="Fork, 3 forks"><svg class="i" aria-hidden="true"><use href="#i-fork"/></svg>Fork <b>3</b></button>
+</div>
+</header>
+<nav aria-label="Repository"><ul class="sections"><li><a href="#">Code</a></li><li><a href="#">Issues 27</a></li><li><a href="#" aria-current="page">Pull requests 5</a></li><li><a href="#">Actions</a></li><li><a href="#">Wiki</a></li><li><a href="#">Settings</a></li></ul></nav>
+<main class="lead">
+<article>
+<div class="kick red">Pull request 214 · <span style="white-space:nowrap"><svg class="i" aria-hidden="true"><use href="#i-open"/></svg> Open</span></div>
+<h1 class="head">Add push notification preferences</h1>
+<p class="dek">Sam Ortiz wants to merge 6 commits into <code>main</code> from <code>feature/push-prefs</code>.</p>
+<div class="byline"><span>By <b>Sam Ortiz</b></span><span>6 commits</span><span>3 files</span><span>+322 / −20</span></div>
+<div class="cols">
+<div>
+<section aria-labelledby="ck"><h2 class="sec" id="ck">The checks</h2>
+<div class="figure">11 <small>of 12 passed</small></div>
+<p class="cap"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg> Lint, types, unit tests, both builds and seven more came back clean.</p>
+<div class="alert" role="status"><svg class="i" aria-hidden="true"><use href="#i-fail"/></svg><div><b>1 failing.</b> e2e-android stopped the run, so the merge waits.</div></div>
+</section>
+<section aria-labelledby="rv"><h2 class="sec" id="rv">The review</h2>
+<ul class="verdicts">
+<li><div class="who">Jonas Weber</div><span class="st"><svg class="i" aria-hidden="true"><use href="#i-approve"/></svg>Approved</span></li>
+<li><div class="who">Tomás Ruiz</div><span class="st bad"><svg class="i" aria-hidden="true"><use href="#i-changes"/></svg>Requested changes</span></li>
+</ul></section>
+<section aria-labelledby="fc"><h2 class="sec" id="fc">In this change</h2><ul class="contents"><li><span class="p">src/settings/NotificationPrefs.tsx</span><span class="dots" aria-hidden="true"></span><span class="n">+184 <i>/</i> −12</span></li><li><span class="p">src/api/push.ts</span><span class="dots" aria-hidden="true"></span><span class="n">+46 <i>/</i> −8</span></li><li><span class="p">src/settings/NotificationPrefs.test.tsx</span><span class="dots" aria-hidden="true"></span><span class="n">+92 <i>/</i> −0</span></li></ul></section>
+</div>
+<section aria-labelledby="ex"><h2 class="sec" id="ex">The excerpt</h2>
+<div class="excerpt"><div class="fn"><span>src/settings/NotificationPrefs.tsx</span><span style="color:var(--muted)">+184 −12</span></div>
+<div class="diffwrap" role="region" aria-label="Diff of src/settings/NotificationPrefs.tsx, lines 18 to 28" tabindex="0"><table class="diff"><tr class="hunk"><td colspan="4">@@ -18,8 +18,11 @@ export function NotificationPrefs({ prefs, onChange }: Props) {</td></tr><tr class="ctx"><td class="ln">18</td><td class="ln">18</td><td class="mk" aria-hidden="true"> </td><td class="code"><code>  const [enabled, setEnabled] = useState(prefs.enabled);</code></td></tr><tr class="del"><td class="ln">19</td><td class="ln"></td><td class="mk" aria-hidden="true">−</td><td class="code"><span class="vh">removed </span><code>  const [quiet, setQuiet] = useState(false);</code></td></tr><tr class="del"><td class="ln">20</td><td class="ln"></td><td class="mk" aria-hidden="true">−</td><td class="code"><span class="vh">removed </span><code>  const start = prefs.quietStart ?? &quot;22:00&quot;;</code></td></tr><tr class="add"><td class="ln"></td><td class="ln">19</td><td class="mk" aria-hidden="true">+</td><td class="code"><span class="vh">added </span><code>  const [quiet, setQuiet] = useState(prefs.quietHours.on);</code></td></tr><tr class="add"><td class="ln"></td><td class="ln">20</td><td class="mk" aria-hidden="true">+</td><td class="code"><span class="vh">added </span><code>  const start = prefs.quietHours.start ?? &quot;22:00&quot;;</code></td></tr><tr class="add"><td class="ln"></td><td class="ln">21</td><td class="mk" aria-hidden="true">+</td><td class="code"><span class="vh">added </span><code>  const end = prefs.quietHours.end ?? &quot;07:00&quot;;</code></td></tr><tr class="add"><td class="ln"></td><td class="ln">22</td><td class="mk" aria-hidden="true">+</td><td class="code"><span class="vh">added </span><code>  const zone = &quot;UTC&quot;;</code></td></tr><tr class="cmt"><td colspan="4"><div class="pull"><q>Quiet hours should respect the device time zone.</q><div class="src"><span>Tomás Ruiz, on line 22</span><button class="btn btn-s sm" type="button">Reply</button><button class="btn btn-s sm" type="button">Resolve</button></div></div></td></tr><tr class="ctx"><td class="ln">21</td><td class="ln">23</td><td class="mk" aria-hidden="true"> </td><td class="code"><code>&nbsp;</code></td></tr><tr class="ctx"><td class="ln">22</td><td class="ln">24</td><td class="mk" aria-hidden="true"> </td><td class="code"><code>  return (</code></td></tr><tr class="ctx"><td class="ln">23</td><td class="ln">25</td><td class="mk" aria-hidden="true"> </td><td class="code"><code>    &lt;Section title=&quot;Quiet hours&quot;&gt;</code></td></tr><tr class="ctx"><td class="ln">24</td><td class="ln">26</td><td class="mk" aria-hidden="true"> </td><td class="code"><code>      &lt;Toggle checked={quiet} onChange={setQuiet} /&gt;</code></td></tr><tr class="add"><td class="ln"></td><td class="ln">27</td><td class="mk" aria-hidden="true">+</td><td class="code"><span class="vh">added </span><code>      &lt;TimeRange start={start} end={end} zone={zone} /&gt;</code></td></tr><tr class="ctx"><td class="ln">25</td><td class="ln">28</td><td class="mk" aria-hidden="true"> </td><td class="code"><code>    &lt;/Section&gt;</code></td></tr></table></div></div>
+</section>
+</div>
+</article>
+<aside class="rail" aria-label="Pull request details">
+<div class="box"><dl>
+<dt>Assignees</dt><dd>Sam Ortiz</dd>
+<dt>Labels</dt><dd class="labels"><span>feature</span><span>mobile</span><span class="qa">needs QA</span></dd>
+<dt>Milestone</dt><dd>Mobile app 2.0</dd>
+<dt>Linked issue</dt><dd><a href="#">#198 Push notifications</a></dd>
+</dl></div>
+<div class="box"><div class="kick" style="margin-bottom:10px">To press</div>
+<button class="btn" type="button" disabled><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg>Merge pull request</button>
+<p class="mergenote">Held until every check passes. One check is failing.</p></div>
+</aside>
+</main>
+</div>
+<section class="sheet" aria-labelledby="sheet-h"><div class="sheet-in">
+<h2 id="sheet-h">Style 295 · Ink and red</h2>
+<p class="idea">A pull request set like the front page of a serious evening paper: black ink ground, warm white serif type, hairline column rules and one sharp red reserved for what blocks the merge.</p>
+<h3>Palette</h3><ul class="swatches"><li class="sw"><i style="background:#0e0d0c"></i><div><b>Ink black</b><span>#0e0d0c · page and style sheet ground</span></div></li><li class="sw"><i style="background:#171614"></i><div><b>Press black</b><span>#171614 · excerpt box and fields</span></div></li><li class="sw"><i style="background:#ede7db"></i><div><b>Warm white</b><span>#ede7db · text, thick rules, secondary button</span></div></li><li class="sw"><i style="background:#aaa397"></i><div><b>Grey ink</b><span>#aaa397 · dek meta, captions, labels</span></div></li><li class="sw"><i style="background:#3b3833"></i><div><b>Hairline</b><span>#3b3833 · column rules and row lines</span></div></li><li class="sw"><i style="background:#ff5245"></i><div><b>Sharp red</b><span>#ff5245 · the one accent, failing, changes requested, primary button, current tab bar, focus ring</span></div></li><li class="sw"><i style="background:#2a1311"></i><div><b>Red wash</b><span>#2a1311 · failing alert and removed lines</span></div></li><li class="sw"><i style="background:#ff8a80"></i><div><b>Red text</b><span>#ff8a80 · red words set on the red wash</span></div></li></ul>
+<h3>Type · Didot, Bodoni 72, Iowan Old Style, Palatino, Georgia · Franklin Gothic, Arial Narrow · ui-monospace</h3><div class="trow"><code>Didot / Georgia 64 / 700</code><span style="font:700 44px/1.05 var(--f-head)">Add push notification preferences</span></div><div class="trow"><code>Book serif italic 24</code><span style="font:italic 24px/1.35 var(--f-body)">Sam Ortiz wants to merge 6 commits</span></div><div class="trow"><code>Book serif 17 / 1.55</code><span style="font-size:17px">Lint, types, unit tests and both builds came back clean.</span></div><div class="trow"><code>Gothic 13 caps +0.16em</code><span style="font:700 13px var(--f-sans);letter-spacing:.16em;text-transform:uppercase">The checks</span></div><div class="trow"><code>Figure 76 / 700</code><span style="font:700 60px/1 var(--f-head)">11</span></div><div class="trow"><code>Mono 13 / 1.75</code><span style="font:13px/1.75 var(--f-mono)">const zone = "UTC";</span></div>
+<h3>Spacing, density, corners and depth</h3><dl class="facts"><dt>Spacing</dt><dd>8px unit. 24px gutters between columns, 12px row padding, 28px between masthead and lead.</dd><dt>Density</dt><dd>Medium. Long reading lines and big headlines, but every fact is on the page.</dd><dt>Corners</dt><dd>None. Every edge is square.</dd><dt>Borders</dt><dd>Hairline column rules, a 3px or 4px warm white rule over every section, a double rule under the masthead.</dd><dt>Shadows</dt><dd>None.</dd><dt>Icons</dt><dd>Few, 2px butt-capped line icons. Tick for passed, octagon cross for failing, ringed tick for approved, triangle for changes requested.</dd><dt>Focus</dt><dd>2px warm white outline with a red 5px ring outside it.</dd><dt>Tone</dt><dd>Headline voice, such as The checks, The review, The excerpt and To press.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="ctls">
+<div><span class="ctl-l">Primary button</span><div class="pair"><button class="btn btn-p" type="button">Request review</button><button class="btn btn-p is-focus" type="button">Request review</button></div></div>
+<div><span class="ctl-l">Secondary button</span><div class="pair"><button class="btn btn-s" type="button">Re-run e2e-android</button><button class="btn btn-s is-focus" type="button">Re-run e2e-android</button></div></div>
+<div><label class="fld"><span class="ctl-l">Text field</span><input type="text" value="Quiet hours follow device time"></label></div>
+<div><label class="fld"><span class="ctl-l">Text field, focused</span><input class="is-focus" type="text" value="Quiet hours follow device time"></label></div>
+<div><span class="ctl-l">List row</span><div class="lrow" tabindex="0"><span>e2e-android</span><span class="st bad"><svg class="i" aria-hidden="true"><use href="#i-fail"/></svg>Failing</span></div></div>
+<div><span class="ctl-l">List row, focused</span><div class="lrow is-focus" tabindex="0"><span>e2e-android</span><span class="st bad"><svg class="i" aria-hidden="true"><use href="#i-fail"/></svg>Failing</span></div></div>
+</div></div></section>
+</body>
+</html>

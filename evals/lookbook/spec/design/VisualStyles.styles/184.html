@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 184 · Fintech · Brightwork</title>
+<style>
+:root{
+  --page:#f6f8f7; --white:#ffffff; --ink:#0f1d17; --muted:#4a5a53; --rule:#dfe5e2; --rule-strong:#c3ccc8;
+  --green:#0b4d3a; --green-2:#0f6a4f; --mint:#cfe8dd; --tint:#ecf4f0;
+  --ok:#0b6b45; --risk:#8a5300; --bad:#b42318; --risk-bg:#fdf3e2; --bad-bg:#fdecea; --ok-bg:#e7f3ec;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-variant-numeric:tabular-nums lining-nums}
+a{color:var(--green-2)}
+.i{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;vertical-align:-3px}
+.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+/* header */
+.top{background:var(--white);border-top:3px solid var(--green);border-bottom:1px solid var(--rule)}
+.top-in{max-width:1240px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:24px;min-height:56px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:8px;font-weight:700;letter-spacing:-.01em;font-size:16px;color:var(--green);text-decoration:none}
+.brand svg{width:22px;height:22px}
+.nav{display:flex;gap:4px;margin:0;padding:0;list-style:none;align-self:stretch}
+.nav a{display:flex;align-items:center;height:100%;padding:0 10px;color:var(--muted);text-decoration:none;border-bottom:2px solid transparent;font-weight:500}
+.nav a[aria-current]{color:var(--green);border-bottom-color:var(--green);font-weight:650}
+.tools{margin-left:auto;display:flex;align-items:center;gap:12px}
+.search{display:flex;align-items:center;gap:6px;border:1px solid var(--rule-strong);border-radius:4px;padding:0 8px;height:34px;background:var(--white);color:var(--muted)}
+.search input{border:0;outline:0;font:inherit;width:200px;background:transparent;color:var(--ink)}
+.btn{font:inherit;font-weight:600;height:34px;padding:0 14px;border-radius:4px;border:1px solid var(--green);background:var(--green);color:#fff;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.btn.sec{background:var(--white);color:var(--green);border-color:var(--rule-strong)}
+.icon-btn{width:34px;height:34px;border:1px solid var(--rule-strong);border-radius:4px;background:var(--white);color:var(--ink);display:grid;place-items:center;position:relative}
+.icon-btn .dot{position:absolute;top:6px;right:7px;width:7px;height:7px;border-radius:50%;background:var(--bad);border:1.5px solid #fff}
+.user{display:flex;align-items:center;gap:8px;font-weight:600}
+.av{width:30px;height:30px;border-radius:50%;background:var(--tint);color:var(--green);display:grid;place-items:center;font-size:12px;font-weight:700;border:1px solid var(--mint)}
+/* band */
+.band{background:var(--green);color:#fff}
+.band-in{max-width:1240px;margin:0 auto;padding:28px 24px 24px}
+.dateline{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mint);margin:0 0 4px}
+.band h1{margin:0;font-size:26px;font-weight:650;letter-spacing:-.015em}
+.alert{display:inline-flex;align-items:center;gap:8px;margin:12px 0 0;background:#fff;color:var(--bad);font-weight:600;border-radius:4px;padding:5px 10px;font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:24px 0 0;padding:16px 0 0;border-top:1px solid rgba(255,255,255,.25)}
+.kpi{padding:0 20px;border-left:1px solid rgba(255,255,255,.25);margin:0}
+.kpi:first-child{padding-left:0;border-left:0}
+.kpi dt{font-size:12px;color:var(--mint);letter-spacing:.04em;text-transform:uppercase}
+.kpi dd{margin:2px 0 0;font-size:32px;font-weight:600;letter-spacing:-.02em;line-height:1.1}
+.kpi small{display:block;font-size:12px;color:var(--mint);font-weight:400;letter-spacing:0;margin-top:2px}
+/* main */
+main{max-width:1240px;margin:0 auto;padding:24px}
+.grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:24px}
+.panel{background:var(--white);border:1px solid var(--rule);border-radius:4px;min-width:0}
+.ph{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid var(--rule)}
+.ph h2{margin:0;font-size:15px;font-weight:650}
+.ph span{font-size:12px;color:var(--muted)}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;text-align:left;padding:8px 12px;border-bottom:1px solid var(--rule-strong);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid var(--rule);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+th.num{text-align:right}
+td.name b{font-weight:600}
+td.name span{display:block;color:var(--muted);font-size:12px}
+.bar{display:inline-block;width:64px;height:4px;background:var(--rule);vertical-align:middle;margin-right:8px;border-radius:2px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--green-2)}
+tfoot td{border-top:1px solid var(--rule-strong);font-weight:650;border-bottom:0}
+.st{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:12px}
+.st svg{width:10px;height:10px}
+.st.ok{color:var(--ok)} .st.risk{color:var(--risk)} .st.bad{color:var(--bad)}
+.act{list-style:none;margin:0;padding:0}
+.act li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:10px 16px;border-bottom:1px solid var(--rule);font-size:13px}
+.act li:last-child{border-bottom:0}
+.act b{font-weight:600}
+.act .meta{grid-column:1;color:var(--muted);font-size:12px}
+.act time{grid-row:1;grid-column:2;color:var(--muted);font-size:12px;text-align:right}
+.chart{margin-top:24px}
+.chart-body{display:grid;grid-template-columns:220px minmax(0,1fr);gap:0}
+.stats{margin:0;padding:16px;border-right:1px solid var(--rule)}
+.stats div{padding:8px 0;border-bottom:1px solid var(--rule)}
+.stats div:last-child{border-bottom:0}
+.stats dt{font-size:12px;color:var(--muted)}
+.stats dd{margin:0;font-size:20px;font-weight:600}
+.stats .up{color:var(--ok)}
+.plot{padding:12px 16px}
+.plot svg{width:100%;height:auto;display:block}
+.legend{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:12px;color:var(--muted);margin:0 0 4px;padding:0;list-style:none}
+.legend li{white-space:nowrap;display:flex;align-items:center;gap:6px}
+/* sheet */
+.sheet{max-width:1240px;margin:16px auto 48px;padding:24px;background:var(--white);border:1px solid var(--rule);border-radius:4px}
+.wrapper{padding:0 24px}
+.sheet h2{margin:0;font-size:22px;font-weight:650;letter-spacing:-.01em}
+.sheet h3{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:28px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--rule)}
+.idea{color:var(--muted);margin:6px 0 0;max-width:70ch}
+.sw{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0 24px}
+.sw li{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--rule);font-size:13px}
+.sw i{width:28px;height:28px;border-radius:4px;border:1px solid var(--rule-strong);flex:none}
+.sw code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:var(--muted)}
+.ty{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--rule)}
+.ty code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:var(--muted)}
+.facts{display:grid;grid-template-columns:120px minmax(0,1fr);margin:0;font-size:13px}
+.facts dt,.facts dd{padding:8px 0;border-bottom:1px solid var(--rule);margin:0}
+.facts dt{font-weight:600}
+.ctl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 24px}
+.ctl .lab{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
+.field{display:block;font-size:12px;color:var(--muted);font-weight:600}
+.field input{display:block;margin-top:4px;width:100%;font:inherit;font-size:14px;color:var(--ink);height:36px;border:1px solid var(--rule-strong);border-radius:4px;padding:0 10px;background:#fff}
+.rowdemo{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 12px;border:1px solid var(--rule);border-radius:4px;font-size:13px}
+.is-focus{outline:2px solid var(--green);outline-offset:2px;box-shadow:0 0 0 4px var(--mint)}
+.field input.is-focus{outline:2px solid var(--green);outline-offset:0;border-color:var(--green)}
+:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+@media (max-width:1000px){
+  .grid{grid-template-columns:minmax(0,1fr)}
+  .search input{width:140px}
+}
+@media (max-width:720px){
+  .top-in{padding:8px 16px;gap:8px 12px}
+  .top nav{order:3;width:100%;min-width:0}
+  .nav{flex-wrap:wrap;border-top:1px solid var(--rule);padding-top:4px}
+  .nav a{height:36px;padding:0 8px}
+  .tools{gap:8px}
+  .search{display:none}
+  .user span{display:none}
+  .band-in,main{padding-left:16px;padding-right:16px}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:16px}
+  .kpi:nth-child(3){padding-left:0;border-left:0}
+  .kpi dd{font-size:26px}
+  .chart-body{grid-template-columns:minmax(0,1fr)}
+  .plot{overflow-x:auto}
+  .plot svg{min-width:480px}
+  .stats{border-right:0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+  .wrapper{padding:0 16px}
+  .sheet{padding:16px}
+  .ty,.facts{grid-template-columns:minmax(0,1fr)}
+  .facts dt{border-bottom:0;padding-bottom:0}
+  .ctl{grid-template-columns:minmax(0,1fr)}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="s-ok" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4.5" fill="currentColor"/></symbol>
+  <symbol id="s-risk" viewBox="0 0 10 10"><path d="M5 .5 9.7 9.5H.3z" fill="currentColor"/></symbol>
+  <symbol id="s-bad" viewBox="0 0 10 10"><rect x=".5" y=".5" width="9" height="9" fill="currentColor"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="#"><svg viewBox="0 0 22 22" aria-hidden="true"><rect width="22" height="22" rx="4" fill="#0b4d3a"/><path d="M6 15.5 10 11l3 3 3.5-5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Brightwork</a>
+    <nav aria-label="Main"><ul class="nav">
+      <li><a href="#" aria-current="page">Home</a></li><li><a href="#">Projects</a></li><li><a href="#">Tasks</a></li><li><a href="#">Team</a></li><li><a href="#">Reports</a></li><li><a href="#">Settings</a></li>
+    </ul></nav>
+    <div class="tools">
+      <label class="search"><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg><input type="search" aria-label="Search projects and tasks" placeholder="Search projects and tasks"></label>
+      <button class="btn" type="button"><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg>New project</button>
+      <button class="icon-btn" type="button" aria-label="Notifications, unread"><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 11V7a4 4 0 0 1 8 0v4l1 1.5H3zM6.5 14h3"/></svg><span class="dot"></span></button>
+      <div class="user"><span class="av" aria-hidden="true">MO</span><span>Mara Okafor</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="band" aria-labelledby="greet">
+  <div class="band-in">
+    <p class="dateline">Saturday 31 October 2026</p>
+    <h1 id="greet">Welcome back, Mara</h1>
+    <p class="alert"><svg class="i" viewBox="0 0 10 10" style="width:10px;height:10px" aria-hidden="true"><use href="#s-bad"/></svg>4 tasks are overdue</p>
+    <dl class="kpis">
+      <div class="kpi"><dt>Active projects</dt><dd>6<small>78 of 170 tasks done</small></dd></div>
+      <div class="kpi"><dt>Due this week</dt><dd>23<small>tasks</small></dd></div>
+      <div class="kpi"><dt>Overdue</dt><dd>4<small>tasks past due date</small></dd></div>
+      <div class="kpi"><dt>Hours logged</dt><dd>186<small>this week</small></dd></div>
+    </dl>
+  </div>
+</section>
+
+<main>
+  <div class="grid">
+    <section class="panel" aria-labelledby="proj-h">
+      <div class="ph"><h2 id="proj-h">Projects</h2><span>6 active · sorted by due date</span></div>
+      <div class="scroll" tabindex="0" role="region" aria-label="Projects table, scrolls sideways">
+      <table>
+        <thead><tr><th>Project</th><th>Progress</th><th class="num">Tasks</th><th class="num">Due</th><th class="num">Days left</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="name"><b>Q4 customer survey</b><span>Research</span></td><td><span class="bar"><i style="width:90%"></i></span>90%</td><td class="num">9 / 10</td><td class="num">7 Nov</td><td class="num">7</td><td><span class="st ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td></tr>
+          <tr><td class="name"><b>Website redesign</b><span>Design</span></td><td><span class="bar"><i style="width:72%"></i></span>72%</td><td class="num">18 / 25</td><td class="num">14 Nov</td><td class="num">14</td><td><span class="st ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td></tr>
+          <tr><td class="name"><b>Billing migration</b><span>Engineering</span></td><td><span class="bar"><i style="width:30%"></i></span>30%</td><td class="num">12 / 40</td><td class="num">20 Nov</td><td class="num">20</td><td><span class="st bad"><svg aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></td></tr>
+          <tr><td class="name"><b>Onboarding emails</b><span>Marketing</span></td><td><span class="bar"><i style="width:60%"></i></span>60%</td><td class="num">9 / 15</td><td class="num">21 Nov</td><td class="num">21</td><td><span class="st ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td></tr>
+          <tr><td class="name"><b>Mobile app 2.0</b><span>Engineering</span></td><td><span class="bar"><i style="width:45%"></i></span>45%</td><td class="num">27 / 60</td><td class="num">2 Dec</td><td class="num">32</td><td><span class="st risk"><svg aria-hidden="true"><use href="#s-risk"/></svg>At risk</span></td></tr>
+          <tr><td class="name"><b>Spring catalogue</b><span>Marketing</span></td><td><span class="bar"><i style="width:15%"></i></span>15%</td><td class="num">3 / 20</td><td class="num">15 Jan</td><td class="num">76</td><td><span class="st ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td></tr>
+        </tbody>
+        <tfoot><tr><td>Total</td><td>46%</td><td class="num">78 / 170</td><td></td><td></td><td></td></tr></tfoot>
+      </table>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="act-h">
+      <div class="ph"><h2 id="act-h">Activity</h2><span>Latest first</span></div>
+      <ul class="act">
+        <li><span><b>Jonas Weber</b> completed “Export invoices as CSV”</span><span class="meta">Billing migration</span><time>12 min ago</time></li>
+        <li><span><b>Priya Nair</b> commented on “Hero image options”</span><span class="meta">Website redesign</span><time>40 min ago</time></li>
+        <li><span><b>Sam Ortiz</b> moved “Push notifications” to Review</span><span class="meta">Mobile app 2.0</span><time>1 h ago</time></li>
+        <li><span><b>Lena Fischer</b> added 3 tasks</span><span class="meta">Spring catalogue</span><time>2 h ago</time></li>
+        <li><span><b>Tomás Ruiz</b> logged 6 h</span><span class="meta">Mobile app 2.0</span><time>3 h ago</time></li>
+        <li><span><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf</span><span class="meta">Q4 customer survey</span><time>yesterday</time></li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="panel chart" aria-labelledby="ch-h">
+    <div class="ph"><h2 id="ch-h">Tasks completed per day</h2><span>18 to 31 October</span></div>
+    <div class="chart-body">
+      <dl class="stats">
+        <div><dt>This week</dt><dd>73</dd></div>
+        <div><dt>Last week</dt><dd>59</dd></div>
+        <div><dt>Change</dt><dd class="up">+14 (+23.7%)</dd></div>
+        <div><dt>Daily average</dt><dd>10.4 <span style="font-size:13px;color:var(--muted);font-weight:400">vs 8.4</span></dd></div>
+      </dl>
+      <div class="plot" tabindex="0" role="region" aria-label="Chart, scrolls sideways on narrow screens">
+        <ul class="legend"><li><svg width="22" height="6" aria-hidden="true"><line x1="0" y1="3" x2="22" y2="3" stroke="#0b4d3a" stroke-width="2.5"/></svg>This week, 25 to 31 Oct</li><li><svg width="22" height="6" aria-hidden="true"><line x1="0" y1="3" x2="22" y2="3" stroke="#5f6f68" stroke-width="1.5" stroke-dasharray="4 3"/></svg>Last week, 18 to 24 Oct</li></ul>
+        <svg viewBox="0 0 640 200" role="img" aria-label="Tasks completed per day. Last week, Sunday 18 to Saturday 24 October: 3, 12, 9, 14, 11, 8, 2, total 59. This week, Sunday 25 to Saturday 31 October: 4, 15, 13, 17, 12, 10, 2, total 73.">
+          <g stroke="#dfe5e2" stroke-width="1"><line x1="40" y1="170" x2="620" y2="170" stroke="#c3ccc8"/><line x1="40" y1="132.5" x2="620" y2="132.5"/><line x1="40" y1="95" x2="620" y2="95"/><line x1="40" y1="57.5" x2="620" y2="57.5"/><line x1="40" y1="20" x2="620" y2="20"/></g>
+          <g font-size="11" fill="#4a5a53" text-anchor="end"><text x="32" y="174">0</text><text x="32" y="136.5">5</text><text x="32" y="99">10</text><text x="32" y="61.5">15</text><text x="32" y="24">20</text></g>
+          <g font-size="11" fill="#4a5a53" text-anchor="middle"><text x="40" y="190">Sun</text><text x="136.7" y="190">Mon</text><text x="233.3" y="190">Tue</text><text x="330" y="190">Wed</text><text x="426.7" y="190">Thu</text><text x="523.3" y="190">Fri</text><text x="620" y="190">Sat</text></g>
+          <polygon points="40,170 40,140 136.7,57.5 233.3,72.5 330,42.5 426.7,80 523.3,95 620,155 620,170" fill="#0b4d3a" opacity=".07"/>
+          <polyline points="40,147.5 136.7,80 233.3,102.5 330,65 426.7,87.5 523.3,110 620,155" fill="none" stroke="#5f6f68" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <polyline points="40,140 136.7,57.5 233.3,72.5 330,42.5 426.7,80 523.3,95 620,155" fill="none" stroke="#0b4d3a" stroke-width="2.5" stroke-linejoin="round"/>
+          <g fill="#fff" stroke="#0b4d3a" stroke-width="2"><circle cx="40" cy="140" r="3.5"/><circle cx="136.7" cy="57.5" r="3.5"/><circle cx="233.3" cy="72.5" r="3.5"/><circle cx="330" cy="42.5" r="3.5"/><circle cx="426.7" cy="80" r="3.5"/><circle cx="523.3" cy="95" r="3.5"/><circle cx="620" cy="155" r="3.5"/></g>
+          <g font-size="11" font-weight="600" fill="#0b4d3a" text-anchor="middle"><text x="330" y="34">17</text></g>
+        </svg>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="wrapper">
+<section class="sheet" aria-labelledby="sheet-h">
+  <h2 id="sheet-h">Style 184 · Fintech</h2>
+  <p class="idea">A crisp banking-grade ledger, deep green and white with precise tabular figures, hairline dividers and nothing decorative, so every number reads as trustworthy.</p>
+
+  <h3>Palette</h3>
+  <ul class="sw">
+    <li><i style="background:#0b4d3a"></i><div><b>Deep green</b> <code>#0b4d3a</code><br>top rule, summary band, primary button, line, focus</div></li>
+    <li><i style="background:#0f6a4f"></i><div><b>Green 2</b> <code>#0f6a4f</code><br>links, progress fills</div></li>
+    <li><i style="background:#cfe8dd"></i><div><b>Mint</b> <code>#cfe8dd</code><br>labels on the band, focus halo</div></li>
+    <li><i style="background:#ffffff"></i><div><b>White</b> <code>#ffffff</code><br>header, panels, fields</div></li>
+    <li><i style="background:#f6f8f7"></i><div><b>Page</b> <code>#f6f8f7</code><br>page background</div></li>
+    <li><i style="background:#0f1d17"></i><div><b>Ink</b> <code>#0f1d17</code><br>text and figures</div></li>
+    <li><i style="background:#4a5a53"></i><div><b>Muted</b> <code>#4a5a53</code><br>column heads, meta, axis</div></li>
+    <li><i style="background:#dfe5e2"></i><div><b>Rule</b> <code>#dfe5e2</code><br>row and panel hairlines</div></li>
+    <li><i style="background:#c3ccc8"></i><div><b>Rule strong</b> <code>#c3ccc8</code><br>header rule, field borders</div></li>
+    <li><i style="background:#0b6b45"></i><div><b>On track</b> <code>#0b6b45</code><br>with a filled circle</div></li>
+    <li><i style="background:#8a5300"></i><div><b>At risk</b> <code>#8a5300</code><br>with a filled triangle</div></li>
+    <li><i style="background:#b42318"></i><div><b>Behind</b> <code>#b42318</code><br>with a filled square, overdue</div></li>
+  </ul>
+
+  <h3>Type · system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial · tabular numerals everywhere</h3>
+  <div class="ty"><code>32 / 600 / −0.02em</code><span style="font-size:32px;font-weight:600;letter-spacing:-.02em">186</span></div>
+  <div class="ty"><code>26 / 650 greeting</code><span style="font-size:26px;font-weight:650;letter-spacing:-.015em">Welcome back, Mara</span></div>
+  <div class="ty"><code>15 / 650 panel title</code><span style="font-size:15px;font-weight:650">Projects</span></div>
+  <div class="ty"><code>13 / 400 table</code><span style="font-size:13px">Billing migration · 12 / 40 · 20 Nov</span></div>
+  <div class="ty"><code>11 / 600 caps +0.06em</code><span style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)">Days left</span></div>
+
+  <h3>Spacing, density, corners and depth</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>8px unit. 24px page gutter and gaps, 16px panel padding, 10px by 12px table cells.</dd>
+    <dt>Density</dt><dd>Medium high. Projects are a ledger table, not cards.</dd>
+    <dt>Corners</dt><dd>4px on panels, buttons and fields. Bars 2px. Avatar round.</dd>
+    <dt>Borders</dt><dd>1px hairlines between every row and around panels. A 3px deep green rule tops the header.</dd>
+    <dt>Shadows</dt><dd>None. Structure comes from rules.</dd>
+    <dt>Icons</dt><dd>16px line icons at 1.6 stroke. Status uses solid 10px shapes, circle, triangle and square, always with the word.</dd>
+    <dt>Tone</dt><dd>Exact and neutral, figures first. Due this week, Days left, Change +14 (+23.7%).</dd>
+  </dl>
+
+  <h3>Controls · normal and focus</h3>
+  <div class="ctl">
+    <div><span class="lab">Primary</span><button class="btn" type="button">New project</button> <button class="btn is-focus" type="button">New project</button></div>
+    <div><span class="lab">Secondary</span><button class="btn sec" type="button">Export</button> <button class="btn sec is-focus" type="button">Export</button></div>
+    <label class="field">Project name<input value="Website redesign"></label>
+    <label class="field">Project name, focused<input class="is-focus" value="Mobile app 2.0"></label>
+    <div><span class="lab">Table row</span><div class="rowdemo"><span>Billing migration</span><span class="num">12 / 40</span><span class="st bad"><svg width="10" height="10" aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></div></div>
+    <div><span class="lab">Table row, focused</span><div class="rowdemo is-focus"><span>Billing migration</span><span class="num">12 / 40</span><span class="st bad"><svg width="10" height="10" aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></div></div>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Style 242 · Velvet theatre · Brightwork</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{color-scheme:dark;-webkit-text-size-adjust:100%}
+body{margin:0}
+a{color:inherit}
+button,input{font:inherit;color:inherit}
+input{min-width:0;max-width:100%}
+.vh{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.i{width:1.15em;height:1.15em;flex:none;vertical-align:-0.2em}
+.si{width:1.1em;height:1.1em;flex:none;vertical-align:-0.18em}
+.sheet{overflow-wrap:break-word}
+.sheet .swatches{list-style:none;padding:0;margin:0 0 8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:16px}
+.sheet .sw{display:flex;gap:12px;align-items:flex-start;min-width:0}
+.sheet .chip{flex:none;width:48px;height:48px;border:1px solid var(--sh-line)}
+.sheet .swt{display:flex;flex-direction:column;gap:2px;font-size:13px;min-width:0}
+.sheet .swt span{color:var(--sh-muted)}
+.sheet .swt code{font-size:12px}
+.sheet .types{list-style:none;padding:0;margin:0}
+.sheet .ty{display:flex;flex-direction:column;gap:4px;padding:12px 0;border-bottom:1px solid var(--sh-line)}
+.sheet .tys{overflow-wrap:anywhere}
+.sheet .tym{font-size:13px;color:var(--sh-muted)}
+.sheet .facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px 24px;margin:0}
+.sheet .fact dt{font-weight:700}
+.sheet .fact dd{margin:4px 0 0;color:var(--sh-muted);font-size:14px;line-height:1.5}
+.sheet .ctl{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--sh-line)}
+.sheet .ctl-l{font-size:13px;color:var(--sh-muted)}
+.sheet .ctl-r{display:flex;flex-wrap:wrap;gap:16px;align-items:center;min-width:0}
+.sheet .ctl-r.rows{flex-direction:column;align-items:stretch}
+.sheet .field input{width:240px}
+.sheet .srow{display:flex;gap:12px;align-items:center;flex-wrap:wrap;text-decoration:none}
+.sheet .note{font-size:13px;color:var(--sh-muted)}
+@media (max-width:600px){.sheet .ctl{grid-template-columns:1fr;gap:8px}.sheet .field input{width:100%}.sheet .field{width:100%}}
+
+:root{--house:#120a0b;--stage:#1a0e0f;--prog:#1f1112;--velvet:#5a0f1a;--deep:#3a0910;--hi:#7a1a28;--gilt:#e6c372;--giltInk:#2a0d10;--ink:#f5e9d6;--muted:#d1b9a4;--rose:#e88a9a;--ok:#a6e0a0;--risk:#f4cf6e;--bad:#ff9e93;
+--disp:"Big Caslon","Goudy Old Style",Garamond,"Times New Roman",serif;--body:"Hoefler Text",Garamond,"Times New Roman",serif;--sh-line:#5a3a30;--sh-muted:#d1b9a4}
+body{background:var(--house);color:var(--ink);font:16px/1.55 var(--body)}
+:focus-visible,.is-focus{outline:2px solid var(--gilt)!important;outline-offset:3px}
+.pelmet{position:relative;z-index:2;background:linear-gradient(180deg,#4a0c15,#5a0f1a 60%,#6a1421);padding:16px 24px 40px;text-align:center;border-bottom:2px solid var(--gilt);
+-webkit-mask:radial-gradient(28px 18px at 50% 100%,transparent 98%,#000) 0 0/56px 100%,linear-gradient(#000,#000) 0 0/100% calc(100% - 18px) no-repeat;mask:radial-gradient(28px 18px at 50% 100%,transparent 98%,#000) 0 0/56px 100%,linear-gradient(#000,#000) 0 0/100% calc(100% - 18px) no-repeat}
+.pelmet::after{content:"";position:absolute;left:0;right:0;bottom:22px;border-top:1px dashed var(--gilt);opacity:.7}
+.brand{display:inline-flex;align-items:center;gap:12px;font:400 30px var(--disp);color:var(--gilt);text-decoration:none;letter-spacing:.06em}
+.star{width:14px;height:14px}
+.pr{display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:space-between;max-width:1232px;margin:10px auto 0}
+.nav{list-style:none;margin:0;padding:0;display:flex;gap:4px;flex-wrap:wrap}
+.nav a{display:block;font-variant:small-caps;font-weight:600;font-size:17px;letter-spacing:.06em;text-decoration:none;color:var(--ink);padding:4px 12px}
+.nav a:hover{color:var(--gilt)}
+.nav a[aria-current]{background:var(--deep);color:var(--gilt);box-shadow:inset 0 -2px 0 var(--gilt)}
+.tools{display:flex;align-items:center;gap:10px}
+.search{display:flex;align-items:center;gap:8px;background:var(--deep);border:1px solid var(--gilt);padding:6px 12px;width:240px;color:var(--muted)}
+.search input{border:0;background:transparent;outline:0;flex:1;color:var(--ink)}
+.search input::placeholder{color:var(--muted)}
+.search:focus-within{outline:2px solid var(--gilt);outline-offset:3px}
+.bell{width:36px;height:36px;border:1px solid var(--gilt);background:transparent;color:var(--gilt);display:grid;place-items:center;cursor:pointer;border-radius:50%}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;font:600 15px var(--body);font-variant:small-caps;letter-spacing:.08em;cursor:pointer;border:1px solid transparent;text-decoration:none}
+.btn.primary{background:var(--gilt);color:var(--giltInk)}
+.btn.secondary{background:transparent;color:var(--gilt);border-color:var(--gilt)}
+.user{display:flex;align-items:center;gap:8px;font-size:15px}
+.av{width:34px;height:34px;border-radius:50%;border:1px solid var(--gilt);display:grid;place-items:center;font-size:13px;color:var(--gilt)}
+.theatre{display:grid;grid-template-columns:88px minmax(0,1fr) 88px;margin-top:-20px;overflow:clip}
+.curtain{background:repeating-linear-gradient(90deg,#3a0910 0,#5a0f1a 10px,#7a1a28 18px,#5a0f1a 26px,#3a0910 36px);box-shadow:inset 0 0 30px rgba(0,0,0,.6)}
+.curtain.l{border-radius:0 0 60% 0/0 0 12% 0;margin-bottom:120px}
+.curtain.r{border-radius:0 0 0 60%/0 0 0 12%;margin-bottom:120px}
+.stage{background:radial-gradient(ellipse 60% 420px at 50% 0,#2a1a17,transparent 80%),var(--stage);padding:56px 40px 48px;box-shadow:inset 20px 0 30px -10px rgba(0,0,0,.7),inset -20px 0 30px -10px rgba(0,0,0,.7);min-width:0}
+.marquee{text-align:center}
+.marquee h1{margin:0;font:400 44px/1.1 var(--disp);color:var(--gilt)}
+.date{margin:8px 0 0;font-variant:small-caps;letter-spacing:.1em;color:var(--muted);font-size:17px}
+.urgent{margin:8px 0 0;color:var(--bad);display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
+.urgent a{color:var(--gilt)}
+.stubs{list-style:none;margin:36px auto 48px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;max-width:980px}
+.stub{position:relative;background:radial-gradient(circle at 0 50%,var(--stage) 10px,transparent 10.5px),radial-gradient(circle at 100% 50%,var(--stage) 10px,transparent 10.5px),var(--velvet);padding:18px 24px;text-align:center;display:flex;flex-direction:column;gap:6px}
+.stub::before{content:"";position:absolute;top:8px;bottom:8px;right:22px;border-left:1px dashed rgba(230,195,114,.6)}
+.stub b{font:400 40px/1 var(--disp);color:var(--gilt);padding-right:12px}
+.stub span{font-variant:small-caps;letter-spacing:.06em;font-size:15px;line-height:1.3;color:var(--ink);padding-right:12px}
+.stub.od b{color:var(--bad)}
+.prog{max-width:980px;margin:0 auto;background:var(--prog);border:3px double var(--gilt);outline:1px solid var(--gilt);outline-offset:-10px;padding:40px}
+.ph{text-align:center;margin-bottom:24px}
+.ph h2,.panel h2{margin:0;font:400 26px var(--disp);font-variant:small-caps;letter-spacing:.08em;color:var(--gilt)}
+.ph p{margin:4px 0 0;color:var(--muted);font-style:italic}
+.ph::after{content:"\25C6  \25C6  \25C6";display:block;color:var(--gilt);font-size:10px;letter-spacing:.3em;margin-top:10px}
+.acts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 48px}
+.act{text-align:center;padding-bottom:20px;border-bottom:1px solid rgba(230,195,114,.3)}
+.no{font-variant:small-caps;font-weight:600;font-size:14px;letter-spacing:.12em;color:var(--muted)}
+.act h3{margin:2px 0 0;font:italic 400 22px var(--disp)}
+.act h3 a{text-decoration:none}
+.act h3 a:hover{text-decoration:underline}
+.cat{margin:0;color:var(--muted);font-variant:small-caps;letter-spacing:.06em}
+.mt{height:2px;background:#4a3326;margin:10px auto 4px;max-width:220px}
+.mt i{display:block;height:100%;background:var(--gilt)}
+.pc{margin:0;font-size:14px;color:var(--muted)}
+.st{display:inline-flex;align-items:center;gap:6px;margin:6px 0 2px;font-weight:600}
+.st-ok{color:var(--ok)}.st-risk{color:var(--risk)}.st-bad{color:var(--bad)}
+.meta{margin:0;color:var(--muted);font-size:15px}
+.pf{text-align:center;margin:24px 0 0}
+.pair{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px;max-width:980px;margin:40px auto 0}
+.panel{background:var(--prog);border:1px solid var(--gilt);padding:28px;min-width:0}
+.tot{margin:6px 0 10px;display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:15px}
+.k{display:inline-block;width:10px;height:14px;border-radius:5px 5px 0 0;margin-right:6px;vertical-align:-1px}
+.kl{border:1.5px solid var(--rose)}.kt{background:var(--gilt)}
+.chart{width:100%;height:auto;display:block}
+.chart .lw{fill:none;stroke:var(--rose);stroke-width:1.8}
+.chart .tw{fill:var(--gilt)}
+.chart .vl{fill:var(--ink);font:600 13px var(--body)}
+.chart .ax{fill:var(--muted);font:13px var(--body)}
+.chart .base{stroke:var(--gilt)}
+.notices{list-style:none;margin:12px 0 0;padding:0}
+.notices li{padding:10px 0;border-top:1px solid rgba(230,195,114,.3)}
+.notices p{margin:0}
+.when{font-variant:small-caps;color:var(--muted);font-size:15px;letter-spacing:.06em}
+.sheet{background:var(--house);border-top:2px solid var(--gilt);padding:56px 24px}
+.sheet-in{max-width:1180px;margin:0 auto}
+.sheet h2{font:400 34px var(--disp);color:var(--gilt);margin:0}
+.sheet h3{font:400 22px var(--disp);font-variant:small-caps;letter-spacing:.08em;margin:36px 0 12px;color:var(--gilt)}
+.sheet .idea{color:var(--muted);max-width:70ch;font-size:17px}
+.sheet .chip{border:1px solid var(--gilt)}
+.sheet .field input{background:var(--deep);border:1px solid var(--gilt);padding:7px 12px;color:var(--ink)}
+.sheet .field input::placeholder{color:var(--muted)}
+.sheet .srow{background:var(--prog);border:1px solid var(--gilt);padding:12px 16px}
+.sheet .srow b{font:italic 400 19px var(--disp)}
+.sheet .srow-m{color:var(--muted)}
+.sheet .srow .st{margin:0 0 0 auto}
+@media (max-width:1100px){.pr{justify-content:center}}
+@media (max-width:900px){.theatre{grid-template-columns:16px minmax(0,1fr) 16px}.curtain.l,.curtain.r{border-radius:0;margin-bottom:0}.acts{grid-template-columns:1fr}.pair{grid-template-columns:1fr}.stubs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){
+.pelmet{padding:14px 16px 40px}
+.brand{font-size:26px}
+.tools{flex-wrap:wrap;justify-content:center}
+.search{flex-basis:100%;width:auto}
+.un{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.stage{padding:40px 14px 32px}
+.marquee h1{font-size:34px}
+.stubs{gap:12px}
+.stub{padding:14px 18px}
+.prog{padding:28px 16px;outline-offset:-7px}
+.panel{padding:20px 14px}
+.sheet{padding:40px 16px}}
+</style>
+</head>
+<body>
+
+<header class="pelmet">
+<a class="brand" href="#"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.6 6.2 6.7.5-5.1 4.4 1.6 6.5L12 16.6 6.2 20.1l1.6-6.5L2.7 9.2l6.7-.5z" fill="currentColor"/></svg>Brightwork<svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.6 6.2 6.7.5-5.1 4.4 1.6 6.5L12 16.6 6.2 20.1l1.6-6.5L2.7 9.2l6.7-.5z" fill="currentColor"/></svg></a>
+<div class="pr">
+<nav aria-label="Main"><ul class="nav"><li><a href="#" aria-current=page>Home</a></li><li><a href="#">Projects</a></li><li><a href="#">Tasks</a></li><li><a href="#">Team</a></li><li><a href="#">Reports</a></li><li><a href="#">Settings</a></li></ul></nav>
+<div class="tools">
+<label class="search"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg><span class="vh">Search projects and tasks</span><input type="search" placeholder="Search projects and tasks"></label>
+<button type="button" class="bell" aria-label="Notifications"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.8 1.8H4.2z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg></button>
+<button type="button" class="btn primary"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>New project</button>
+<span class="user"><span class="av" aria-hidden="true">MO</span><span class="un">Mara Okafor</span></span>
+</div>
+</div>
+</header>
+<div class="theatre">
+<div class="curtain l" aria-hidden="true"></div>
+<main class="stage">
+<section class="marquee">
+<h1>Good morning, Mara</h1>
+<p class="date">Saturday 31 October 2026</p>
+<p class="urgent"><svg class="si" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>4 tasks are overdue · <a href="#">see them</a></p>
+</section>
+<h2 class="vh">Summary</h2>
+<ul class="stubs"><li class="stub"><b>6</b><span>Active projects</span></li><li class="stub"><b>23</b><span>Tasks due this week</span></li><li class="stub od"><b>4</b><span>Overdue tasks</span></li><li class="stub"><b>186</b><span>Hours logged this week</span></li></ul>
+<section class="prog" aria-labelledby="ph">
+<div class="ph"><h2 id="ph">Tonight's programme</h2><p>Six projects in production</p></div>
+<ol class="acts"><li class="act"><span class="no">Act I</span><h3><a href="#">Website redesign</a></h3><p class="cat">Design</p><div class="mt" aria-hidden="true"><i style="width:72%"></i></div><p class="pc">72% complete</p><p class="st st-ok"><svg class="si" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m7.8 12.3 2.9 2.9 5.6-6"/></svg>On track</p><p class="meta">18 of 25 tasks · due 14 Nov</p></li><li class="act"><span class="no">Act II</span><h3><a href="#">Mobile app 2.0</a></h3><p class="cat">Engineering</p><div class="mt" aria-hidden="true"><i style="width:45%"></i></div><p class="pc">45% complete</p><p class="st st-risk"><svg class="si" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 21.3 20H2.7z"/><path d="M12 9.5V14"/><circle cx="12" cy="17" r="1.1" fill="currentColor" stroke="none"/></svg>At risk</p><p class="meta">27 of 60 tasks · due 2 Dec</p></li><li class="act"><span class="no">Act III</span><h3><a href="#">Q4 customer survey</a></h3><p class="cat">Research</p><div class="mt" aria-hidden="true"><i style="width:90%"></i></div><p class="pc">90% complete</p><p class="st st-ok"><svg class="si" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m7.8 12.3 2.9 2.9 5.6-6"/></svg>On track</p><p class="meta">9 of 10 tasks · due 7 Nov</p></li><li class="act"><span class="no">Act IV</span><h3><a href="#">Billing migration</a></h3><p class="cat">Engineering</p><div class="mt" aria-hidden="true"><i style="width:30%"></i></div><p class="pc">30% complete</p><p class="st st-bad"><svg class="si" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5"/><path d="m8.5 8.5 7 7M15.5 8.5l-7 7"/></svg>Behind</p><p class="meta">12 of 40 tasks · due 20 Nov</p></li><li class="act"><span class="no">Act V</span><h3><a href="#">Spring catalogue</a></h3><p class="cat">Marketing</p><div class="mt" aria-hidden="true"><i style="width:15%"></i></div><p class="pc">15% complete</p><p class="st st-ok"><svg class="si" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m7.8 12.3 2.9 2.9 5.6-6"/></svg>On track</p><p class="meta">3 of 20 tasks · due 15 Jan</p></li><li class="act"><span class="no">Act VI</span><h3><a href="#">Onboarding emails</a></h3><p class="cat">Marketing</p><div class="mt" aria-hidden="true"><i style="width:60%"></i></div><p class="pc">60% complete</p><p class="st st-ok"><svg class="si" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m7.8 12.3 2.9 2.9 5.6-6"/></svg>On track</p><p class="meta">9 of 15 tasks · due 21 Nov</p></li></ol>
+<p class="pf"><a href="#" class="btn secondary">View all projects</a></p>
+</section>
+<div class="pair">
+<section class="panel" aria-labelledby="ch">
+<h2 id="ch">Tasks completed</h2>
+<p class="tot"><span><i class="k kl"></i>Last week 59</span><span><i class="k kt"></i>This week 73</span></p>
+<svg class="chart" viewBox="0 0 560 230" role="img" aria-label="Tasks completed per day from Sunday 18 October to Saturday 31 October. Last week, Sunday to Saturday, 3, 12, 9, 14, 11, 8 and 2, totalling 59. This week 4, 15, 13, 17, 12, 10 and 2, totalling 73."><path d="M22.0,190 V172.0 A12.0,12.0 0 0 1 46.0,172.0 V190 Z" class="lw"/><path d="M52.0,190 V162.0 A12.0,12.0 0 0 1 76.0,162.0 V190 Z" class="tw"/><text x="64.0" y="144.0" text-anchor="middle" class="vl">4</text><text x="49.0" y="212" text-anchor="middle" class="ax">Sun</text><path d="M99.1,190 V82.0 A12.0,12.0 0 0 1 123.1,82.0 V190 Z" class="lw"/><path d="M129.1,190 V52.0 A12.0,12.0 0 0 1 153.1,52.0 V190 Z" class="tw"/><text x="141.1" y="34.0" text-anchor="middle" class="vl">15</text><text x="126.1" y="212" text-anchor="middle" class="ax">Mon</text><path d="M176.3,190 V112.0 A12.0,12.0 0 0 1 200.3,112.0 V190 Z" class="lw"/><path d="M206.3,190 V72.0 A12.0,12.0 0 0 1 230.3,72.0 V190 Z" class="tw"/><text x="218.3" y="54.0" text-anchor="middle" class="vl">13</text><text x="203.3" y="212" text-anchor="middle" class="ax">Tue</text><path d="M253.4,190 V62.0 A12.0,12.0 0 0 1 277.4,62.0 V190 Z" class="lw"/><path d="M283.4,190 V32.0 A12.0,12.0 0 0 1 307.4,32.0 V190 Z" class="tw"/><text x="295.4" y="14.0" text-anchor="middle" class="vl">17</text><text x="280.4" y="212" text-anchor="middle" class="ax">Wed</text><path d="M330.6,190 V92.0 A12.0,12.0 0 0 1 354.6,92.0 V190 Z" class="lw"/><path d="M360.6,190 V82.0 A12.0,12.0 0 0 1 384.6,82.0 V190 Z" class="tw"/><text x="372.6" y="64.0" text-anchor="middle" class="vl">12</text><text x="357.6" y="212" text-anchor="middle" class="ax">Thu</text><path d="M407.7,190 V122.0 A12.0,12.0 0 0 1 431.7,122.0 V190 Z" class="lw"/><path d="M437.7,190 V102.0 A12.0,12.0 0 0 1 461.7,102.0 V190 Z" class="tw"/><text x="449.7" y="84.0" text-anchor="middle" class="vl">10</text><text x="434.7" y="212" text-anchor="middle" class="ax">Fri</text><path d="M484.9,190 V182.0 A12.0,12.0 0 0 1 508.9,182.0 V190 Z" class="lw"/><path d="M514.9,190 V182.0 A12.0,12.0 0 0 1 538.9,182.0 V190 Z" class="tw"/><text x="526.9" y="164.0" text-anchor="middle" class="vl">2</text><text x="511.9" y="212" text-anchor="middle" class="ax">Sat</text><line x1="8" x2="552" y1="190.5" y2="190.5" class="base"/></svg>
+</section>
+<section class="panel" aria-labelledby="ah">
+<h2 id="ah">Notices</h2>
+<ul class="notices"><li><p><b>Jonas Weber</b> completed “Export invoices as CSV” in <b>Billing migration</b></p><span class="when">12 min ago</span></li><li><p><b>Priya Nair</b> commented on “Hero image options” in <b>Website redesign</b></p><span class="when">40 min ago</span></li><li><p><b>Sam Ortiz</b> moved “Push notifications” to Review in <b>Mobile app 2.0</b></p><span class="when">1 h ago</span></li><li><p><b>Lena Fischer</b> added 3 tasks to <b>Spring catalogue</b></p><span class="when">2 h ago</span></li><li><p><b>Tomás Ruiz</b> logged 6 h on <b>Mobile app 2.0</b></p><span class="when">3 h ago</span></li><li><p><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to <b>Q4 customer survey</b></p><span class="when">yesterday</span></li></ul>
+</section>
+</div>
+</main>
+<div class="curtain r" aria-hidden="true"></div>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h">
+<div class="sheet-in">
+<h2 id="sheet-h">Style 242 · Velvet theatre</h2>
+<p class="idea">The dashboard is staged inside a theatre, with deep red velvet curtains and a scalloped pelmet framing a spotlit stage, the figures printed on ticket stubs, the projects listed in a gilt programme and the chart drawn as arched gilt columns.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><span class="chip" style="background:#120a0b"></span><span class="swt"><b>house</b> <code>#120a0b</code><span>the page outside the stage and the style sheet</span></span></li><li class="sw"><span class="chip" style="background:#1a0e0f"></span><span class="swt"><b>stage</b> <code>#1a0e0f</code><span>the stage floor behind the content</span></span></li><li class="sw"><span class="chip" style="background:#2a1a17"></span><span class="swt"><b>spot</b> <code>#2a1a17</code><span>the brightest point of the spotlight, the lightest surface text sits on</span></span></li><li class="sw"><span class="chip" style="background:#1f1112"></span><span class="swt"><b>programme</b> <code>#1f1112</code><span>the programme, chart and notices panels</span></span></li><li class="sw"><span class="chip" style="background:#5a0f1a"></span><span class="swt"><b>velvet</b> <code>#5a0f1a</code><span>curtains, the pelmet and ticket stubs</span></span></li><li class="sw"><span class="chip" style="background:#3a0910"></span><span class="swt"><b>velvetDeep</b> <code>#3a0910</code><span>curtain fold shadows and the current nav item</span></span></li><li class="sw"><span class="chip" style="background:#7a1a28"></span><span class="swt"><b>velvetHi</b> <code>#7a1a28</code><span>curtain fold highlights, decoration only</span></span></li><li class="sw"><span class="chip" style="background:#e6c372"></span><span class="swt"><b>gilt</b> <code>#e6c372</code><span>programme rules, display type, the primary button, this week columns, links and focus</span></span></li><li class="sw"><span class="chip" style="background:#2a0d10"></span><span class="swt"><b>giltInk</b> <code>#2a0d10</code><span>text on gilt</span></span></li><li class="sw"><span class="chip" style="background:#f5e9d6"></span><span class="swt"><b>ink</b> <code>#f5e9d6</code><span>body text and figures</span></span></li><li class="sw"><span class="chip" style="background:#d1b9a4"></span><span class="swt"><b>muted</b> <code>#d1b9a4</code><span>meta, labels and axis text</span></span></li><li class="sw"><span class="chip" style="background:#e88a9a"></span><span class="swt"><b>rose</b> <code>#e88a9a</code><span>last week column outlines</span></span></li><li class="sw"><span class="chip" style="background:#a6e0a0"></span><span class="swt"><b>ok</b> <code>#a6e0a0</code><span>On track text and check circle</span></span></li><li class="sw"><span class="chip" style="background:#f4cf6e"></span><span class="swt"><b>risk</b> <code>#f4cf6e</code><span>At risk text and triangle</span></span></li><li class="sw"><span class="chip" style="background:#ff9e93"></span><span class="swt"><b>bad</b> <code>#ff9e93</code><span>Behind and overdue text, crossed square and clock</span></span></li></ul>
+<h3>Type scale</h3>
+<ul class="types"><li class="ty"><span class="tys" style="font:400 44px/1.1 var(--disp)">Good morning, Mara</span><span class="tym">44px 400 · Big Caslon, Goudy Old Style, Garamond, Times New Roman, serif</span></li><li class="ty"><span class="tys" style="font:400 40px/1 var(--disp)">23</span><span class="tym">40px 400 · ticket figures</span></li><li class="ty"><span class="tys" style="font:small-caps 400 26px var(--disp)">Tonight&#x27;s programme</span><span class="tym">26px small caps · section titles tracked 0.08em</span></li><li class="ty"><span class="tys" style="font:italic 400 22px var(--disp)">Spring catalogue</span><span class="tym">22px 400 italic · programme entries</span></li><li class="ty"><span class="tys" style="font:16px/1.55 var(--body)">Priya Nair commented on “Hero image options”</span><span class="tym">16px 400 · Hoefler Text, Garamond, Times New Roman, serif, body</span></li><li class="ty"><span class="tys" style="font:small-caps 600 14px var(--body)">Act IV</span><span class="tym">14px 600 small caps · act numbers and meta labels</span></li></ul>
+<h3>Spacing, density and surfaces</h3>
+<dl class="facts"><div class="fact"><dt>Spacing</dt><dd>An 8px unit. 32px programme padding, 24px between entries, 40px between stage sections.</dd></div><div class="fact"><dt>Density</dt><dd>Low to medium. A staged, ceremonial layout with room to breathe.</dd></div><div class="fact"><dt>Corners</dt><dd>Square panels with arched column tops, notched ticket stubs and a scalloped pelmet.</dd></div><div class="fact"><dt>Borders</dt><dd>Double gilt rules on the programme, 1px gilt rules on panels, a dashed tear line on each stub.</dd></div><div class="fact"><dt>Shadows</dt><dd>The curtains cast deep inner shadows on the stage and a warm spotlight falls from above, nothing on the controls.</dd></div><div class="fact"><dt>Icons</dt><dd>Thin line icons at 1.6px stroke in gilt. Status uses a check circle, a triangle with a bang and a crossed square, always with the word, overdue a clock.</dd></div><div class="fact"><dt>Focus</dt><dd>A 2px gilt outline offset 3px.</dd></div><div class="fact"><dt>Tone</dt><dd>Ceremonial and playful, such as Tonight&#x27;s programme, Act I and Notices, without overdoing it.</dd></div></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls">
+<div class="ctl"><span class="ctl-l">Primary button</span><div class="ctl-r"><button type="button" class="btn primary"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>New project</button><button type="button" class="btn primary is-focus"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>New project</button></div></div>
+<div class="ctl"><span class="ctl-l">Secondary button</span><div class="ctl-r"><button type="button" class="btn secondary">View all</button><button type="button" class="btn secondary is-focus">View all</button></div></div>
+<div class="ctl"><span class="ctl-l">Text field</span><div class="ctl-r"><label class="field"><span class="vh">Search projects, normal</span><input type="text" placeholder="Search projects and tasks"></label><label class="field"><span class="vh">Search projects, focus</span><input type="text" class="is-focus" value="Billing"></label></div></div>
+<div class="ctl"><span class="ctl-l">List row</span><div class="ctl-r rows"><a href="#" class="srow"><b>Mobile app 2.0</b><span class="srow-m">Engineering · 45%</span><span class="st st-risk"><svg class="si" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 21.3 20H2.7z"/><path d="M12 9.5V14"/><circle cx="12" cy="17" r="1.1" fill="currentColor" stroke="none"/></svg>At risk</span></a><a href="#" class="srow is-focus"><b>Mobile app 2.0</b><span class="srow-m">Engineering · 45%</span><span class="st st-risk"><svg class="si" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 21.3 20H2.7z"/><path d="M12 9.5V14"/><circle cx="12" cy="17" r="1.1" fill="currentColor" stroke="none"/></svg>At risk</span></a></div></div>
+</div>
+<p class="note">The second sample in each pair shows the focus state, drawn statically with the class is-focus. It matches the real :focus-visible rule.</p>
+</div>
+</section>
+</body>
+</html>

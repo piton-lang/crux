@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 92 · Vinyl sleeve · Brightwork</title>
+<style>
+:root {
+  --shop: #efebe3;
+  --sleeve: #f8f4ea;
+  --vinyl: #e9e4d8;
+  --groove: #cfc7b7;
+  --ink: #1a1a1a;
+  --brown: #594f44;
+  --tangerine: #e0662b;
+  --tangInk: #a8420f;
+  --mustard: #e8b931;
+  --teal: #1f6f73;
+  --dust: #857b6c;
+  --ok: #24663a;
+  --risk: #8a5000;
+  --behind: #a3271c;
+  --display: "Arial Black", "Helvetica Neue", "Avenir Next", Arial, sans-serif;
+  --text: "Avenir Next", Avenir, "Segoe UI", "Noto Sans", system-ui, sans-serif;
+  --mono: "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--shop); color: var(--ink); font: 16px/1.5 var(--text); }
+a { color: var(--ink); }
+:focus-visible, .is-focus { outline: 3px solid var(--teal); outline-offset: 3px; border-radius: 999px; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.tiny { font: 700 11px/1.4 var(--text); letter-spacing: .16em; text-transform: uppercase; }
+.trk { font: 700 13px var(--mono); }
+
+/* Shop header */
+.shop { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; padding: 18px 0; }
+.brand { margin: 0; font: 900 26px/1 var(--display); letter-spacing: -.04em; text-transform: lowercase; display: flex; align-items: center; gap: 8px; }
+.brand svg { width: 30px; height: 30px; }
+.nav { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.nav a { display: block; padding: 6px 14px; border-radius: 999px; font: 600 14px var(--text); text-decoration: none; border: 2px solid transparent; }
+.nav a[aria-current="page"] { background: var(--ink); color: var(--sleeve); }
+.tools { margin-left: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.search { display: flex; align-items: center; gap: 6px; background: var(--sleeve); border: 2px solid var(--ink); border-radius: 999px; padding: 0 14px; }
+.search svg { width: 14px; height: 14px; flex: none; }
+.search input { border: 0; outline: none; background: transparent; font: 15px var(--text); color: var(--ink); padding: 8px 4px; width: 200px; min-width: 0; }
+.search:focus-within { outline: 3px solid var(--teal); outline-offset: 3px; }
+.btn { font: 700 14px/1 var(--text); padding: 12px 20px; border-radius: 999px; border: 2px solid var(--ink); background: var(--ink); color: var(--sleeve); cursor: pointer; }
+.btn.alt { background: var(--sleeve); color: var(--ink); }
+.bell { width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--ink); background: var(--sleeve); display: grid; place-items: center; cursor: pointer; color: var(--ink); }
+.bell svg { width: 18px; height: 18px; }
+.who { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; }
+.who i { width: 34px; height: 34px; border-radius: 50%; background: var(--teal); color: #fff; display: grid; place-items: center; font: 700 12px var(--text); font-style: normal; }
+
+/* Stage: sleeve and record */
+.stage { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; margin: 16px 0 48px; }
+.sleeve { position: relative; z-index: 2; aspect-ratio: 1; background: var(--sleeve); box-shadow: 0 1px 0 rgba(0,0,0,.08), 0 24px 40px -24px rgba(0,0,0,.45); padding: 40px; display: flex; flex-direction: column; overflow: hidden; }
+.sleeve::after { content: ""; position: absolute; left: -10%; right: -10%; bottom: -4%; height: 42%; background: linear-gradient(var(--tangerine) 0 33.3%, var(--mustard) 33.3% 66.6%, var(--teal) 66.6%); transform: skewY(-8deg); transform-origin: left; z-index: -1; }
+.sleeve .label-top { display: flex; justify-content: space-between; }
+.sleeve h1 { font: 900 64px/0.92 var(--display); letter-spacing: -.045em; text-transform: lowercase; margin: 28px 0 12px; }
+.sleeve .release { margin: 0; font-weight: 600; }
+.sticker { position: absolute; right: 32px; top: 46%; width: 150px; height: 150px; display: grid; place-items: center; text-align: center; transform: rotate(10deg); }
+.sticker svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.sticker span { position: relative; font: 900 15px/1.1 var(--display); letter-spacing: -.01em; max-width: 92px; }
+.sticker b { display: block; font-size: 38px; line-height: 1; }
+.record { margin-left: -2%; position: relative; z-index: 1; }
+.record svg { width: 100%; height: auto; display: block; }
+.record svg .lw path { fill: var(--dust); }
+.record svg .tw path { fill: var(--teal); }
+.record svg text { font-family: "Avenir Next", "Segoe UI", Arial, sans-serif; text-anchor: middle; }
+.record svg .val text { font-size: 13px; font-weight: 700; fill: var(--ink); }
+.record svg .day text { font-size: 9px; font-weight: 700; fill: var(--brown); }
+.record-cap { margin: 8px 0 0 6%; font-size: 14px; color: var(--brown); }
+.record-cap span { display: inline-flex; align-items: center; gap: 6px; margin-right: 16px; }
+.record-cap i { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+
+/* Sleeve back */
+.back { background: var(--sleeve); padding: 40px; box-shadow: 0 24px 40px -28px rgba(0,0,0,.4); margin-bottom: 56px; }
+.specs { list-style: none; margin: 0 0 40px; padding: 0 0 28px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; border-bottom: 3px solid var(--ink); }
+.specs .n { display: block; font: 900 56px/1 var(--display); letter-spacing: -.04em; }
+.specs .alert .n { color: var(--tangInk); }
+.sides { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.side h2 { display: flex; align-items: center; gap: 12px; font: 900 22px var(--display); letter-spacing: -.02em; margin: 0 0 8px; text-transform: lowercase; }
+.side h2 span { width: 40px; height: 40px; border-radius: 50%; background: var(--ink); color: var(--sleeve); display: grid; place-items: center; font-size: 20px; text-transform: uppercase; }
+.tracks { list-style: none; margin: 0; padding: 0; }
+.track { display: grid; grid-template-columns: 40px 1fr auto; gap: 2px 12px; padding: 14px 0; border-bottom: 1px dashed var(--groove); align-items: baseline; }
+.track .trk { color: var(--tangInk); }
+.track h3 { font: 700 19px/1.25 var(--text); margin: 0; }
+.track h3 a { text-decoration: none; }
+.track .len { font: 700 18px var(--mono); }
+.track .meta { grid-column: 2 / 4; font-size: 14px; color: var(--brown); }
+.playhead { grid-column: 2 / 4; height: 2px; background: var(--groove); position: relative; margin: 8px 0 4px; }
+.playhead i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--ink); }
+.playhead b { position: absolute; top: -5px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--sleeve); border: 2px solid var(--ink); }
+.track .st { grid-column: 2 / 4; }
+.st { display: inline-flex; align-items: center; gap: 6px; font: 700 13px var(--text); }
+.st svg { width: 13px; height: 13px; }
+.st.ok { color: var(--ok); } .st.risk { color: var(--risk); } .st.behind { color: var(--behind); }
+.liner { margin-top: 40px; padding-top: 24px; border-top: 3px solid var(--ink); }
+.liner h2 { font: 900 22px var(--display); text-transform: lowercase; letter-spacing: -.02em; margin: 0 0 12px; }
+.liner ol { margin: 0; padding: 0; list-style: none; columns: 2; column-gap: 40px; }
+.liner li { break-inside: avoid; padding: 0 0 12px; font-size: 15px; }
+.liner time { font: 700 11px var(--mono); color: var(--tangInk); letter-spacing: .06em; text-transform: uppercase; display: block; }
+
+/* Style sheet */
+.sheet { background: var(--sleeve); padding: 40px; margin-bottom: 64px; }
+.sheet h2 { font: 900 40px/1 var(--display); letter-spacing: -.04em; margin: 6px 0 0; }
+.sheet .idea { font-size: 19px; max-width: 760px; margin: 14px 0 0; }
+.sheet h3 { font: 900 18px var(--display); text-transform: lowercase; letter-spacing: -.01em; margin: 40px 0 14px; padding-bottom: 6px; border-bottom: 3px solid var(--ink); }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px; }
+.sw { font-size: 13px; line-height: 1.4; }
+.sw i { display: block; width: 72px; height: 72px; border-radius: 50%; margin-bottom: 8px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 0 12px rgba(255,255,255,.12); }
+.sw b { display: block; font-weight: 700; font-size: 14px; }
+.trow { display: flex; flex-wrap: wrap; gap: 6px 24px; align-items: baseline; padding: 12px 0; border-bottom: 1px dashed var(--groove); }
+.trow code { font: 12px var(--mono); color: var(--brown); min-width: 280px; }
+.facts { display: grid; grid-template-columns: 130px 1fr; gap: 10px 24px; margin: 0; }
+.facts dt { font-weight: 700; }
+.facts dd { margin: 0; }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 28px; }
+.ctl-l { display: block; margin-bottom: 10px; color: var(--brown); }
+.field input { display: block; width: 100%; margin-top: 6px; font: 16px var(--text); padding: 10px 16px; border: 2px solid var(--ink); border-radius: 999px; background: #fff; color: var(--ink); }
+.rowdemo { display: grid; grid-template-columns: 40px 1fr auto; align-items: center; gap: 10px; padding: 10px 14px; border: 2px solid var(--ink); border-radius: 999px; background: #fff; }
+.rowdemo.is-focus { border-radius: 999px; }
+
+@media (max-width: 960px) {
+  .stage { grid-template-columns: 1fr; }
+  .record { margin: -12% 6% 0; }
+  .record-cap { margin-left: 6%; }
+  .sides { grid-template-columns: 1fr; }
+  .specs { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .wrap { padding: 0 16px; }
+  .tools { margin-left: 0; width: 100%; }
+  .search { flex: 1 1 100%; }
+  .search input { width: 100%; }
+  .sleeve { padding: 24px; aspect-ratio: auto; min-height: 380px; }
+  .sleeve h1 { font-size: 44px; margin-top: 20px; }
+  .sticker { width: 120px; height: 120px; right: 12px; top: auto; bottom: 64px; }
+  .sticker b { font-size: 30px; }
+  .sticker span { font-size: 12px; max-width: 76px; }
+  .record { margin: -6% 0 0; }
+  .record-cap { margin-left: 0; }
+  .back, .sheet { padding: 24px 16px; }
+  .specs .n { font-size: 42px; }
+  .liner ol { columns: 1; }
+  .facts { grid-template-columns: 1fr; gap: 2px; }
+  .facts dd { margin-bottom: 12px; }
+  .trow code { min-width: 0; }
+}
+</style>
+</head>
+<body>
+<header class="wrap shop">
+  <p class="brand"><svg viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="14" fill="#1a1a1a"/><circle cx="15" cy="15" r="10" fill="none" stroke="#594f44"/><circle cx="15" cy="15" r="5" fill="#e0662b"/><circle cx="15" cy="15" r="1.2" fill="#f8f4ea"/></svg>brightwork</p>
+  <nav aria-label="Main">
+    <ul class="nav">
+      <li><a href="#" aria-current="page">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Tasks</a></li>
+      <li><a href="#">Team</a></li>
+      <li><a href="#">Reports</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </nav>
+  <div class="tools">
+    <label class="search"><svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="5.5" cy="5.5" r="4.5" fill="none" stroke="#1a1a1a" stroke-width="1.6"/><path d="M9 9l4.5 4.5" stroke="#1a1a1a" stroke-width="1.6"/></svg><span class="sr">Search projects and tasks</span><input type="search" placeholder="Search projects and tasks"></label>
+    <button class="btn">New project</button>
+    <button class="bell" aria-label="Notifications"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4.5 13V8a4.5 4.5 0 0 1 9 0v5l1.5 1.5h-12zM7.5 16.5h3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+    <span class="who"><i aria-hidden="true">MO</i>Mara Okafor</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="stage">
+    <section class="sleeve" aria-labelledby="hello-h">
+      <div class="label-top"><span class="tiny">Brightwork records</span><span class="tiny">BW 3110</span></div>
+      <h1 id="hello-h">good morning, mara</h1>
+      <p class="release">Released Saturday 31 October 2026</p>
+      <p class="sticker"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,2 58,14 72,8 74,23 89,24 84,38 97,46 86,56 93,70 78,73 76,88 62,84 54,97 45,86 31,93 27,79 12,78 16,63 3,55 14,45 7,31 22,28 23,13 37,16" fill="#e8b931" stroke="#1a1a1a" stroke-width="2"/></svg><span><b>4</b>tasks are overdue</span></p>
+    </section>
+    <section class="record" aria-labelledby="rec-h">
+      <h2 id="rec-h" class="sr">Tasks completed per day</h2>
+      <svg viewBox="-12 -12 424 424" role="img" aria-label="Tasks completed per day, Sunday 18 to Saturday 31 October, played clockwise from the top: 3, 12, 9, 14, 11, 8, 2, then 4, 15, 13, 17, 12, 10, 2. Last week 59, this week 73.">
+        <circle cx="200" cy="200" r="196" fill="#e9e4d8" stroke="#1a1a1a" stroke-width="2"/>
+        <g fill="none" stroke="#cfc7b7"><circle cx="200" cy="200" r="186"/><circle cx="200" cy="200" r="170"/><circle cx="200" cy="200" r="154"/><circle cx="200" cy="200" r="138"/><circle cx="200" cy="200" r="122"/><circle cx="200" cy="200" r="106"/><circle cx="200" cy="200" r="90"/><circle cx="200" cy="200" r="74"/></g>
+        <g class="lw"><path d="M201.2 130.0L201.6 110.5A89.5 89.5 0 0 1 237.4 118.7L229.3 136.4A70 70 0 0 0 201.2 130.0Z"/><path d="M231.5 137.5L266.5 67.8A148.0 148.0 0 0 1 314.1 105.7L254.0 155.4A70 70 0 0 0 231.5 137.5Z"/><path d="M255.5 157.3L301.8 121.6A128.5 128.5 0 0 1 324.8 169.2L268.0 183.2A70 70 0 0 0 255.5 157.3Z"/><path d="M268.5 185.6L357.6 166.9A161.0 161.0 0 0 1 357.6 233.1L268.5 214.4A70 70 0 0 0 268.5 185.6Z"/><path d="M268.0 216.8L337.4 233.9A141.5 141.5 0 0 1 312.2 286.3L255.5 242.7A70 70 0 0 0 268.0 216.8Z"/><path d="M254.0 244.6L294.0 277.7A122.0 122.0 0 0 1 254.8 309.0L231.5 262.5A70 70 0 0 0 254.0 244.6Z"/><path d="M229.3 263.6L234.7 275.4A83.0 83.0 0 0 1 201.4 283.0L201.2 270.0A70 70 0 0 0 229.3 263.6Z"/></g>
+        <g class="tw"><path d="M198.8 270.0L198.3 296.0A96.0 96.0 0 0 1 159.9 287.2L170.7 263.6A70 70 0 0 0 198.8 270.0Z"/><path d="M168.5 262.5L124.7 349.6A167.5 167.5 0 0 1 70.9 306.7L146.0 244.6A70 70 0 0 0 168.5 262.5Z"/><path d="M144.5 242.7L77.5 294.2A154.5 154.5 0 0 1 50.0 237.0L132.0 216.8A70 70 0 0 0 144.5 242.7Z"/><path d="M131.5 214.4L23.4 237.1A180.5 180.5 0 0 1 23.4 162.9L131.5 185.6A70 70 0 0 0 131.5 214.4Z"/><path d="M132.0 183.2L56.3 164.6A148.0 148.0 0 0 1 82.7 109.8L144.5 157.3A70 70 0 0 0 132.0 183.2Z"/><path d="M146.0 155.4L95.9 114.0A135.0 135.0 0 0 1 139.3 79.4L168.5 137.5A70 70 0 0 0 146.0 155.4Z"/><path d="M170.7 136.4L165.3 124.6A83.0 83.0 0 0 1 198.6 117.0L198.8 130.0A70 70 0 0 0 170.7 136.4Z"/></g>
+        <circle cx="200" cy="200" r="48" fill="#e0662b" stroke="#1a1a1a" stroke-width="1.5"/>
+        <circle cx="200" cy="200" r="4" fill="#f8f4ea" stroke="#1a1a1a"/>
+        <text x="200" y="184" font-size="9" font-weight="700" fill="#1a1a1a" letter-spacing="1.5">SIDE A · LAST</text>
+        <text x="200" y="224" font-size="9" font-weight="700" fill="#1a1a1a" letter-spacing="1.5">SIDE B · THIS</text>
+        <g class="day"><text x="213.4" y="145.0">S</text><text x="237.4" y="156.6">M</text><text x="254.1" y="177.5">T</text><text x="260.0" y="203.5">W</text><text x="254.1" y="229.5">T</text><text x="237.4" y="250.4">F</text><text x="213.4" y="262.0">S</text><text x="186.6" y="262.0">S</text><text x="162.6" y="250.4">M</text><text x="145.9" y="229.5">T</text><text x="140.0" y="203.5">W</text><text x="145.9" y="177.5">T</text><text x="162.6" y="156.6">F</text><text x="186.6" y="145.0">S</text></g>
+        <g class="val"><text x="222.4" y="106.0">3</text><text x="299.1" y="79.7">12</text><text x="325.7" y="143.5">9</text><text x="372.0" y="204.0">14</text><text x="337.4" y="270.2">11</text><text x="282.9" y="308.0">8</text><text x="220.9" y="295.6">2</text><text x="176.2" y="308.3">4</text><text x="88.7" y="343.6">15</text><text x="50.9" y="275.8">13</text><text x="8.5" y="204.0">17</text><text x="56.7" y="135.0">12</text><text x="109.0" y="89.9">10</text><text x="179.1" y="112.4">2</text></g>
+      </svg>
+      <p class="record-cap"><span><i style="background:#857b6c"></i>Last week, 59 tasks, the right half</span><span><i style="background:#1f6f73"></i>This week, 73 tasks, the left half</span><br>Each groove wedge is one day, played clockwise from the top.</p>
+    </section>
+  </div>
+
+  <section class="back" aria-labelledby="back-h">
+    <h2 id="back-h" class="sr">Back of the sleeve</h2>
+    <ul class="specs">
+      <li><span class="tiny">Active projects</span><span class="n">6</span></li>
+      <li><span class="tiny">Tasks due this week</span><span class="n">23</span></li>
+      <li class="alert"><span class="tiny"><svg viewBox="0 0 100 100" width="12" height="12" aria-hidden="true" style="vertical-align:-1px"><polygon points="50,2 58,14 72,8 74,23 89,24 84,38 97,46 86,56 93,70 78,73 76,88 62,84 54,97 45,86 31,93 27,79 12,78 16,63 3,55 14,45 7,31 22,28 23,13 37,16" fill="#a8420f"/></svg> Overdue tasks</span><span class="n">4</span></li>
+      <li><span class="tiny">Hours logged this week</span><span class="n">186</span></li>
+    </ul>
+    <div class="sides">
+      <div class="side">
+        <h2><span>A</span>side a · projects 1 to 3</h2>
+        <ol class="tracks">
+          <li class="track"><span class="trk">A1</span><h3><a href="#">Website redesign</a></h3><span class="len">72%</span><span class="meta">Design · 18 of 25 tasks · due 14 Nov</span><span class="playhead" aria-hidden="true"><i style="width:72%"></i><b style="left:72%"></b></span>
+            <span class="st ok"><svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" fill="currentColor"/></svg>On track</span></li>
+          <li class="track"><span class="trk">A2</span><h3><a href="#">Mobile app 2.0</a></h3><span class="len">45%</span><span class="meta">Engineering · 27 of 60 tasks · due 2 Dec</span><span class="playhead" aria-hidden="true"><i style="width:45%"></i><b style="left:45%"></b></span>
+            <span class="st risk"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1L13.5 13H.5z" fill="currentColor"/></svg>At risk</span></li>
+          <li class="track"><span class="trk">A3</span><h3><a href="#">Q4 customer survey</a></h3><span class="len">90%</span><span class="meta">Research · 9 of 10 tasks · due 7 Nov</span><span class="playhead" aria-hidden="true"><i style="width:90%"></i><b style="left:90%"></b></span>
+            <span class="st ok"><svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" fill="currentColor"/></svg>On track</span></li>
+        </ol>
+      </div>
+      <div class="side">
+        <h2><span>B</span>side b · projects 4 to 6</h2>
+        <ol class="tracks">
+          <li class="track"><span class="trk">B1</span><h3><a href="#">Billing migration</a></h3><span class="len">30%</span><span class="meta">Engineering · 12 of 40 tasks · due 20 Nov</span><span class="playhead" aria-hidden="true"><i style="width:30%"></i><b style="left:30%"></b></span>
+            <span class="st behind"><svg viewBox="0 0 14 14" aria-hidden="true"><rect x="1" y="1" width="12" height="12" fill="currentColor"/></svg>Behind</span></li>
+          <li class="track"><span class="trk">B2</span><h3><a href="#">Spring catalogue</a></h3><span class="len">15%</span><span class="meta">Marketing · 3 of 20 tasks · due 15 Jan</span><span class="playhead" aria-hidden="true"><i style="width:15%"></i><b style="left:15%"></b></span>
+            <span class="st ok"><svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" fill="currentColor"/></svg>On track</span></li>
+          <li class="track"><span class="trk">B3</span><h3><a href="#">Onboarding emails</a></h3><span class="len">60%</span><span class="meta">Marketing · 9 of 15 tasks · due 21 Nov</span><span class="playhead" aria-hidden="true"><i style="width:60%"></i><b style="left:60%"></b></span>
+            <span class="st ok"><svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" fill="currentColor"/></svg>On track</span></li>
+        </ol>
+      </div>
+    </div>
+    <div class="liner">
+      <h2>liner notes · recent activity</h2>
+      <ol>
+        <li><time>12 min ago</time>Jonas Weber completed “Export invoices as CSV” in Billing migration</li>
+        <li><time>40 min ago</time>Priya Nair commented on “Hero image options” in Website redesign</li>
+        <li><time>1 h ago</time>Sam Ortiz moved “Push notifications” to Review in Mobile app 2.0</li>
+        <li><time>2 h ago</time>Lena Fischer added 3 tasks to Spring catalogue</li>
+        <li><time>3 h ago</time>Tomás Ruiz logged 6 h on Mobile app 2.0</li>
+        <li><time>Yesterday</time>Aiko Tanaka uploaded survey-results-v2.pdf to Q4 customer survey</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sheet" aria-labelledby="sheet-h">
+    <span class="tiny" style="color:var(--tangInk)">Pressing notes</span>
+    <h2 id="sheet-h">Style 92 · Vinyl sleeve</h2>
+    <p class="idea">The home screen is a 70s record sleeve with the greeting as the album title, the fortnight pressed into a pale vinyl disc as groove wedges, and the projects listed as tracks on side A and side B.</p>
+
+    <h3>palette</h3>
+    <ul class="swatches">
+      <li class="sw"><i style="background:#efebe3"></i><b>Shop</b>#efebe3 · page</li>
+      <li class="sw"><i style="background:#f8f4ea"></i><b>Sleeve</b>#f8f4ea · sleeve, back, panels</li>
+      <li class="sw"><i style="background:#e9e4d8"></i><b>Pale vinyl</b>#e9e4d8 · the record</li>
+      <li class="sw"><i style="background:#cfc7b7"></i><b>Groove</b>#cfc7b7 · grooves, dashed rules, never text</li>
+      <li class="sw"><i style="background:#1a1a1a"></i><b>Ink</b>#1a1a1a · text, buttons, playheads</li>
+      <li class="sw"><i style="background:#594f44"></i><b>Brown</b>#594f44 · notes, day letters</li>
+      <li class="sw"><i style="background:#e0662b"></i><b>Tangerine</b>#e0662b · stripe, record label, never small text</li>
+      <li class="sw"><i style="background:#a8420f"></i><b>Tangerine ink</b>#a8420f · track numbers, overdue</li>
+      <li class="sw"><i style="background:#e8b931"></i><b>Mustard</b>#e8b931 · stripe, hype sticker</li>
+      <li class="sw"><i style="background:#1f6f73"></i><b>Teal</b>#1f6f73 · stripe, this week wedges, focus</li>
+      <li class="sw"><i style="background:#857b6c"></i><b>Dust</b>#857b6c · last week wedges</li>
+      <li class="sw"><i style="background:#24663a"></i><b>Green</b>#24663a · On track</li>
+      <li class="sw"><i style="background:#8a5000"></i><b>Amber</b>#8a5000 · At risk</li>
+      <li class="sw"><i style="background:#a3271c"></i><b>Red</b>#a3271c · Behind</li>
+    </ul>
+
+    <h3>type</h3>
+    <div class="trow"><code>Display · Arial Black, Helvetica Neue 900 · 64 lowercase −0.045em</code><span style="font:900 48px/1 var(--display);letter-spacing:-.045em">good morning</span></div>
+    <div class="trow"><code>Display · 56 figures</code><span style="font:900 56px/1 var(--display);letter-spacing:-.04em">186</span></div>
+    <div class="trow"><code>Text 700 · Avenir Next, Segoe UI · 19 track titles</code><span style="font:700 19px var(--text)">Billing migration</span></div>
+    <div class="trow"><code>Text · 16 / 1.5 body</code><span>Sam Ortiz moved Push notifications to Review</span></div>
+    <div class="trow"><code>Mono 700 · SF Mono, Menlo · 13 to 18</code><span class="trk" style="color:var(--tangInk)">B1</span> <span style="font:700 18px var(--mono)">30%</span></div>
+
+    <h3>spacing, shape and voice</h3>
+    <dl class="facts">
+      <dt>Spacing</dt><dd>8px unit. 40px sleeve padding, 14px per track, 40px between sides.</dd>
+      <dt>Density</dt><dd>Medium. One huge cover, then a compact back with six tracks.</dd>
+      <dt>Corners</dt><dd>Square sleeves. Everything you press is a full pill, and the record, label, swatches and avatar are circles.</dd>
+      <dt>Borders</dt><dd>2px ink on controls, 3px ink rules on the sleeve back, dashed groove lines between tracks.</dd>
+      <dt>Shadows</dt><dd>The sleeve lifts with a long soft 40px shadow. No other shadows.</dd>
+      <dt>Icons</dt><dd>Solid simple shapes. On track a disc, At risk a triangle, Behind a square and overdue a starburst like a hype sticker.</dd>
+      <dt>Tone</dt><dd>Record shop chatter, lowercase headings. side a, liner notes, Released Saturday, tracks A1 to B3.</dd>
+    </dl>
+
+    <h3>controls · normal and focus</h3>
+    <div class="controls">
+      <div><span class="tiny ctl-l">Primary button</span><button class="btn">New project</button> <button class="btn is-focus">Focused</button></div>
+      <div><span class="tiny ctl-l">Secondary button</span><button class="btn alt">Cancel</button> <button class="btn alt is-focus">Focused</button></div>
+      <div><label class="field"><span class="tiny ctl-l">Project name</span><input value="Onboarding emails"></label></div>
+      <div><label class="field"><span class="tiny ctl-l">Project name, focused</span><input class="is-focus" value="Onboarding emails"></label></div>
+      <div><span class="tiny ctl-l">List row</span><div class="rowdemo"><span class="trk" style="color:var(--tangInk)">A2</span><span>Mobile app 2.0</span><span class="st risk"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1L13.5 13H.5z" fill="currentColor"/></svg>At risk</span></div></div>
+      <div><span class="tiny ctl-l">List row, focused</span><div class="rowdemo is-focus"><span class="trk" style="color:var(--tangInk)">A2</span><span>Mobile app 2.0</span><span class="st risk"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1L13.5 13H.5z" fill="currentColor"/></svg>At risk</span></div></div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

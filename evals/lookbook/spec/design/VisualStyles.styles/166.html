@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 166 · Punch card · Brightwork</title>
+<style>
+:root {
+  --desk: #e4e9ef;
+  --stock: #f3e7c6;
+  --stockAlt: #f7eedb;
+  --print: #6a4a22;
+  --rule: #b49a6a;
+  --type: #1d1a14;
+  --hole: #2b3440;
+  --tabBlue: #cfdcea;
+  --ok: #1f5c34;
+  --warn: #85480a;
+  --bad: #8f1f1f;
+  --focus: #1b4fae;
+  --mono: "Courier New", "Nimbus Mono PS", Courier, monospace;
+  --narrow: "Arial Narrow", "Helvetica Neue Condensed", "Roboto Condensed", "Liberation Sans Narrow", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--desk); color: var(--type); font: 15px/1.4 var(--mono); }
+a { color: var(--type); }
+button, input { font: inherit; color: inherit; }
+:focus-visible, .is-focus { outline: 3px solid var(--focus); outline-offset: 3px; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 24px 16px 48px; }
+.card { background: var(--stock); clip-path: polygon(22px 0, 100% 0, 100% 100%, 0 100%, 0 22px); border-radius: 0 6px 6px 6px; box-shadow: 0 1px 0 var(--rule); position: relative; }
+.fl { font: 700 11px/1.2 var(--narrow); letter-spacing: .08em; text-transform: uppercase; color: var(--print); }
+.sym { width: 16px; height: 16px; flex: none; }
+
+/* header card */
+.head { padding: 14px 20px 14px 32px; display: grid; grid-template-columns: auto minmax(0,1fr) auto; gap: 16px; align-items: center; }
+.brand { font: 700 22px/1 var(--mono); letter-spacing: .12em; }
+.brand small { display: block; font: 700 10px/1.4 var(--narrow); letter-spacing: .12em; color: var(--print); margin-top: 4px; }
+.kp { display: grid; gap: 4px; }
+.kp input { width: 100%; border: 0; border-bottom: 2px solid var(--type); background: repeating-linear-gradient(90deg, transparent 0 13px, rgba(180,154,106,.45) 13px 14px); font: 700 16px/1 var(--mono); padding: 8px 2px; text-transform: uppercase; letter-spacing: .1em; }
+.kp input::placeholder { color: var(--print); }
+.tools { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.btn { border: 2px solid var(--type); background: var(--type); color: var(--stock); font: 700 14px/1 var(--mono); padding: 10px 14px; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; border-radius: 0; }
+.btn.line { background: transparent; color: var(--type); }
+.bell { width: 40px; height: 40px; padding: 0; display: grid; place-items: center; }
+.bell svg { width: 18px; height: 18px; }
+.op { font: 700 12px/1.3 var(--narrow); text-transform: uppercase; letter-spacing: .08em; color: var(--print); }
+.op b { display: block; font: 700 15px/1.2 var(--mono); color: var(--type); letter-spacing: 0; text-transform: none; }
+
+/* deck tabs */
+.tabs { list-style: none; margin: 20px 0 0; padding: 0 0 0 24px; display: flex; gap: 6px; flex-wrap: wrap; }
+.tabs a { display: block; padding: 8px 14px 6px; background: var(--tabBlue); border: 1px solid #8fa3ba; border-bottom: 0; border-radius: 8px 8px 0 0; text-decoration: none; font: 700 13px/1.2 var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+.tabs a[aria-current="page"] { background: var(--stock); border-color: var(--rule); padding-bottom: 10px; margin-top: -4px; }
+.tabno { font: 700 10px var(--narrow); color: #3d4f63; margin-right: 6px; }
+.tabs a[aria-current="page"] .tabno { color: var(--print); }
+
+/* greeting */
+.greet { padding: 20px 24px 20px 40px; border-radius: 0 6px 6px 6px; }
+.greet h1 { margin: 0; font: 700 30px/1.15 var(--mono); letter-spacing: .02em; }
+.greet p { margin: 6px 0 0; font-size: 16px; }
+.greet .urgent { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; padding: 6px 10px; border: 2px dashed var(--bad); color: var(--bad); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+
+/* summary card */
+.sum { margin-top: 16px; padding: 16px 20px 16px 36px; }
+.sum h2, .sect h2 { margin: 0 0 10px; font: 700 13px/1.2 var(--narrow); letter-spacing: .14em; text-transform: uppercase; color: var(--print); }
+.fields { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); }
+.field { border-left: 2px solid var(--print); padding: 0 14px; display: grid; grid-template-columns: minmax(0,1fr) auto; grid-template-rows: auto 1fr; gap: 4px 12px; }
+.field:first-child { border-left: 0; padding-left: 0; }
+.field .fl { grid-column: 1 / -1; }
+.big { font: 700 48px/1 var(--mono); display: flex; align-items: center; gap: 6px; align-self: end; }
+.big .sym { width: 22px; height: 22px; color: var(--bad); }
+.digits { display: flex; gap: 3px; }
+.dcol { display: grid; grid-template-rows: repeat(10, 11px); gap: 1px; width: 12px; }
+.dcol i { font: 700 9px/11px var(--narrow); font-style: normal; color: var(--print); text-align: center; }
+.dcol i.hole { background: var(--hole); border-radius: 1px; }
+
+/* projects */
+.cols { display: grid; grid-template-columns: minmax(0,1.7fr) minmax(0,1fr); gap: 24px; margin-top: 24px; align-items: start; }
+.deck { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.pcard { padding: 10px 16px 6px 32px; }
+.pcard:nth-child(even) { background: var(--stockAlt); }
+.interp { display: flex; gap: 14px; flex-wrap: wrap; align-items: baseline; font-size: 15px; letter-spacing: .04em; }
+.interp a { font-weight: 700; font-size: 17px; text-decoration: none; }
+.interp a:hover { text-decoration: underline; }
+.seq, .dept { color: var(--print); font-weight: 700; }
+.pbody { display: flex; gap: 16px; align-items: center; justify-content: space-between; margin-top: 6px; }
+.pdata { display: grid; gap: 5px; min-width: 0; flex: 1; }
+.slots { display: flex; flex-wrap: wrap; gap: 3px; }
+.slots i { width: 7px; height: 14px; border: 1px solid var(--rule); border-radius: 1px; }
+.slots i.p { background: var(--hole); border-color: var(--hole); }
+.st { display: inline-flex; align-items: center; gap: 6px; font: 700 13px/1 var(--mono); text-transform: uppercase; letter-spacing: .04em; padding: 6px 8px; border: 2px solid currentColor; white-space: nowrap; background: var(--stockAlt); }
+.st.ok { color: var(--ok); } .st.warn { color: var(--warn); } .st.bad { color: var(--bad); }
+.colnums { display: flex; justify-content: space-between; font: 700 9px/1 var(--narrow); color: var(--print); border-top: 1px solid var(--rule); margin-top: 8px; padding-top: 3px; }
+
+.sect h2 { padding-left: 4px; }
+.chartcard { padding: 12px 12px 8px 24px; }
+.chartcard svg { width: 100%; height: auto; display: block; }
+.stack { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 6px; }
+.strip { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 2px 10px; padding: 8px 12px 8px 26px; clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%, 0 14px); }
+.strip .when { font: 700 11px/1.2 var(--narrow); letter-spacing: .1em; color: var(--print); }
+.strip .seqno { font: 700 11px/1.2 var(--narrow); color: var(--print); grid-row: 1; grid-column: 2; }
+.strip .txt { grid-column: 1 / -1; font-size: 14px; }
+
+@media (max-width: 960px) {
+  .cols { grid-template-columns: minmax(0,1fr); }
+  .fields { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px 0; }
+  .field:nth-child(3) { border-left: 0; padding-left: 0; }
+}
+@media (max-width: 640px) {
+  .head { grid-template-columns: minmax(0,1fr); padding-left: 28px; }
+  .greet h1 { font-size: 24px; }
+  .big { font-size: 36px; }
+  .pbody { flex-direction: column; align-items: flex-start; }
+  .colnums span:nth-child(even) { display: none; }
+  .tabs { padding-left: 8px; }
+  .tabs a { padding: 8px 10px 6px; font-size: 12px; }
+}
+
+/* sheet */
+.sheet { margin-top: 48px; padding: 28px 28px 28px 44px; }
+.sheet > h2 { margin: 0 0 8px; font: 700 28px/1.2 var(--mono); letter-spacing: .04em; }
+.sheet h3 { font: 700 13px/1.2 var(--narrow); letter-spacing: .14em; text-transform: uppercase; color: var(--print); border-bottom: 2px solid var(--print); padding-bottom: 6px; margin: 28px 0 12px; }
+.idea { max-width: 72ch; margin: 0; font-size: 16px; }
+.sw { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px 20px; }
+.sw li { display: flex; gap: 10px; align-items: center; font-size: 13px; }
+.sw i { width: 42px; height: 42px; border: 1px solid var(--type); flex: none; }
+.sw b { display: block; }
+.tr { display: grid; grid-template-columns: 250px minmax(0,1fr); gap: 12px; align-items: baseline; padding: 8px 0; border-bottom: 1px dashed var(--rule); }
+.tr code { font: 700 12px/1.3 var(--narrow); color: var(--print); }
+.facts { display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 8px 16px; margin: 0; font-size: 14px; }
+.facts dt { font: 700 12px/1.5 var(--narrow); letter-spacing: .1em; text-transform: uppercase; color: var(--print); }
+.facts dd { margin: 0; }
+.ctl { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
+.ctl .row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-top: 6px; }
+.rowdemo { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 10px; border-bottom: 1px solid var(--rule); background: var(--stockAlt); margin-top: 6px; }
+.rowdemo + .rowdemo { margin-top: 12px; }
+@media (max-width: 640px) { .tr, .facts { grid-template-columns: minmax(0,1fr); } .sheet { padding: 24px 16px 24px 28px; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="h-ok" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="3"/></symbol>
+  <symbol id="h-warn" viewBox="0 0 16 16"><path d="M8 1.5l7 13H1z" fill="currentColor"/></symbol>
+  <symbol id="h-bad" viewBox="0 0 16 16"><rect x="1" y="3" width="14" height="10" fill="currentColor"/></symbol>
+  <symbol id="h-over" viewBox="0 0 16 16"><path d="M8 1l7 7-7 7-7-7z" fill="currentColor"/><path d="M8 4.5v4.5M8 10.5v1.5" stroke="#f3e7c6" stroke-width="2"/></symbol>
+  <symbol id="h-bell" viewBox="0 0 20 20"><path d="M10 2.5a5 5 0 0 0-5 5v3.5l-2 3h14l-2-3V7.5a5 5 0 0 0-5-5zM8 16.5a2 2 0 0 0 4 0" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+</svg>
+<div class="wrap">
+  <header class="card head">
+    <div class="brand">BRIGHTWORK<small>Job control card · deck 01</small></div>
+    <label class="kp"><span class="fl">Keypunch · search projects and tasks</span><input type="search" placeholder="Project or task"></label>
+    <div class="tools">
+      <button class="btn" type="button">+ Punch new project</button>
+      <button class="btn line bell" type="button" aria-label="Notifications"><svg aria-hidden="true"><use href="#h-bell"/></svg></button>
+      <span class="op">Operator<b>Mara Okafor</b></span>
+    </div>
+  </header>
+
+  <nav aria-label="Main"><ul class="tabs"><li><a href="#" aria-current="page"><span class="tabno">01</span>Home</a></li><li><a href="#"><span class="tabno">02</span>Projects</a></li><li><a href="#"><span class="tabno">03</span>Tasks</a></li><li><a href="#"><span class="tabno">04</span>Team</a></li><li><a href="#"><span class="tabno">05</span>Reports</a></li><li><a href="#"><span class="tabno">06</span>Settings</a></li></ul></nav>
+  <main>
+    <section class="card greet" aria-labelledby="g-h">
+      <h1 id="g-h">GOOD MORNING, MARA.</h1>
+      <p>Saturday 31 October 2026</p>
+      <p class="urgent"><svg class="sym" aria-hidden="true"><use href="#h-over"/></svg>Overdue · 4 tasks are overdue</p>
+    </section>
+
+    <section class="card sum" aria-labelledby="s-h">
+      <h2 id="s-h">Summary card · each figure punched one digit per column</h2>
+      <ul class="fields">
+        <li class="field">
+      <span class="fl">Cols 1–8 · Active projects</span>
+      <span class="big">6</span>
+      <span class="digits" aria-hidden="true"><span class="dcol"><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i class="hole"></i><i>7</i><i>8</i><i>9</i></span></span>
+    </li>
+        <li class="field">
+      <span class="fl">Cols 9–16 · Tasks due this week</span>
+      <span class="big">23</span>
+      <span class="digits" aria-hidden="true"><span class="dcol"><i>0</i><i>1</i><i class="hole"></i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i></span><span class="dcol"><i>0</i><i>1</i><i>2</i><i class="hole"></i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i></span></span>
+    </li>
+        <li class="field">
+      <span class="fl">Cols 17–24 · Overdue tasks</span>
+      <span class="big"><svg class="sym" aria-hidden="true"><use href="#h-over"/></svg>4</span>
+      <span class="digits" aria-hidden="true"><span class="dcol"><i>0</i><i>1</i><i>2</i><i>3</i><i class="hole"></i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i></span></span>
+    </li>
+        <li class="field">
+      <span class="fl">Cols 25–32 · Hours logged this week</span>
+      <span class="big">186</span>
+      <span class="digits" aria-hidden="true"><span class="dcol"><i>0</i><i class="hole"></i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i></span><span class="dcol"><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i class="hole"></i><i>9</i></span><span class="dcol"><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i class="hole"></i><i>7</i><i>8</i><i>9</i></span></span>
+    </li>
+      </ul>
+    </section>
+
+    <div class="cols">
+      <section class="sect" aria-labelledby="p-h">
+        <h2 id="p-h">Project deck · 6 cards · one hole per finished task</h2>
+        <ul class="deck"><li class="card pcard">
+      <div class="interp"><span class="seq">001</span><a href="#">WEBSITE REDESIGN</a><span class="dept">DESIGN</span><span>DUE 14 NOV</span></div>
+      <div class="pbody">
+        <div class="pdata"><span class="fl">Tasks punched · 18 of 25 · 72%</span><span class="slots" aria-hidden="true"><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+        <span class="st ok"><svg class="sym" aria-hidden="true"><use href="#h-ok"/></svg>On track</span>
+      </div>
+      <div class="colnums" aria-hidden="true"><span>1</span><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>60</span><span>70</span><span>80</span></div>
+    </li><li class="card pcard">
+      <div class="interp"><span class="seq">002</span><a href="#">MOBILE APP 2.0</a><span class="dept">ENGINEERING</span><span>DUE 2 DEC</span></div>
+      <div class="pbody">
+        <div class="pdata"><span class="fl">Tasks punched · 27 of 60 · 45%</span><span class="slots" aria-hidden="true"><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+        <span class="st warn"><svg class="sym" aria-hidden="true"><use href="#h-warn"/></svg>At risk</span>
+      </div>
+      <div class="colnums" aria-hidden="true"><span>1</span><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>60</span><span>70</span><span>80</span></div>
+    </li><li class="card pcard">
+      <div class="interp"><span class="seq">003</span><a href="#">Q4 CUSTOMER SURVEY</a><span class="dept">RESEARCH</span><span>DUE 7 NOV</span></div>
+      <div class="pbody">
+        <div class="pdata"><span class="fl">Tasks punched · 9 of 10 · 90%</span><span class="slots" aria-hidden="true"><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i></i></span></div>
+        <span class="st ok"><svg class="sym" aria-hidden="true"><use href="#h-ok"/></svg>On track</span>
+      </div>
+      <div class="colnums" aria-hidden="true"><span>1</span><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>60</span><span>70</span><span>80</span></div>
+    </li><li class="card pcard">
+      <div class="interp"><span class="seq">004</span><a href="#">BILLING MIGRATION</a><span class="dept">ENGINEERING</span><span>DUE 20 NOV</span></div>
+      <div class="pbody">
+        <div class="pdata"><span class="fl">Tasks punched · 12 of 40 · 30%</span><span class="slots" aria-hidden="true"><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+        <span class="st bad"><svg class="sym" aria-hidden="true"><use href="#h-bad"/></svg>Behind</span>
+      </div>
+      <div class="colnums" aria-hidden="true"><span>1</span><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>60</span><span>70</span><span>80</span></div>
+    </li><li class="card pcard">
+      <div class="interp"><span class="seq">005</span><a href="#">SPRING CATALOGUE</a><span class="dept">MARKETING</span><span>DUE 15 JAN</span></div>
+      <div class="pbody">
+        <div class="pdata"><span class="fl">Tasks punched · 3 of 20 · 15%</span><span class="slots" aria-hidden="true"><i class="p"></i><i class="p"></i><i class="p"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+        <span class="st ok"><svg class="sym" aria-hidden="true"><use href="#h-ok"/></svg>On track</span>
+      </div>
+      <div class="colnums" aria-hidden="true"><span>1</span><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>60</span><span>70</span><span>80</span></div>
+    </li><li class="card pcard">
+      <div class="interp"><span class="seq">006</span><a href="#">ONBOARDING EMAILS</a><span class="dept">MARKETING</span><span>DUE 21 NOV</span></div>
+      <div class="pbody">
+        <div class="pdata"><span class="fl">Tasks punched · 9 of 15 · 60%</span><span class="slots" aria-hidden="true"><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+        <span class="st ok"><svg class="sym" aria-hidden="true"><use href="#h-ok"/></svg>On track</span>
+      </div>
+      <div class="colnums" aria-hidden="true"><span>1</span><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>60</span><span>70</span><span>80</span></div>
+    </li></ul>
+      </section>
+      <div>
+        <section class="sect" aria-labelledby="c-h">
+          <h2 id="c-h">Tasks completed · one hole per task · 18–31 Oct</h2>
+          <div class="card chartcard">
+            <svg viewBox="0 0 552 282" role="img" aria-label="Tasks completed per day from Sunday 18 October to Saturday 31 October 2026. Last week: Sunday 3, Monday 12, Tuesday 9, Wednesday 14, Thursday 11, Friday 8, Saturday 2, total 59. This week: Sunday 4, Monday 15, Tuesday 13, Wednesday 17, Thursday 12, Friday 10, Saturday 2, total 73.">
+              <g font-family="Courier New, Courier, monospace" font-size="13" fill="#1d1a14" text-anchor="middle">
+              <rect x="48" y="222" width="14" height="9" fill="#2b3440"/>
+<rect x="48" y="210" width="14" height="9" fill="#2b3440"/>
+<rect x="48" y="198" width="14" height="9" fill="#2b3440"/>
+<rect x="48" y="186" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="48" y="174" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="48" y="162" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="48" y="150" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="48" y="138" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="48" y="126" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="48" y="114" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="48" y="102" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="48" y="90" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="48" y="78" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="48" y="66" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="48" y="54" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="48" y="42" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="48" y="30" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<text x="55" y="20" font-weight="700">3</text>
+<text x="55" y="250">S</text>
+<rect x="82" y="222" width="14" height="9" fill="#2b3440"/>
+<rect x="82" y="210" width="14" height="9" fill="#2b3440"/>
+<rect x="82" y="198" width="14" height="9" fill="#2b3440"/>
+<rect x="82" y="186" width="14" height="9" fill="#2b3440"/>
+<rect x="82" y="174" width="14" height="9" fill="#2b3440"/>
+<rect x="82" y="162" width="14" height="9" fill="#2b3440"/>
+<rect x="82" y="150" width="14" height="9" fill="#2b3440"/>
+<rect x="82" y="138" width="14" height="9" fill="#2b3440"/>
+<rect x="82" y="126" width="14" height="9" fill="#2b3440"/>
+<rect x="82" y="114" width="14" height="9" fill="#2b3440"/>
+<rect x="82" y="102" width="14" height="9" fill="#2b3440"/>
+<rect x="82" y="90" width="14" height="9" fill="#2b3440"/>
+<rect x="82" y="78" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="82" y="66" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="82" y="54" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="82" y="42" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="82" y="30" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<text x="89" y="20" font-weight="700">12</text>
+<text x="89" y="250">M</text>
+<rect x="116" y="222" width="14" height="9" fill="#2b3440"/>
+<rect x="116" y="210" width="14" height="9" fill="#2b3440"/>
+<rect x="116" y="198" width="14" height="9" fill="#2b3440"/>
+<rect x="116" y="186" width="14" height="9" fill="#2b3440"/>
+<rect x="116" y="174" width="14" height="9" fill="#2b3440"/>
+<rect x="116" y="162" width="14" height="9" fill="#2b3440"/>
+<rect x="116" y="150" width="14" height="9" fill="#2b3440"/>
+<rect x="116" y="138" width="14" height="9" fill="#2b3440"/>
+<rect x="116" y="126" width="14" height="9" fill="#2b3440"/>
+<rect x="116" y="114" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="116" y="102" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="116" y="90" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="116" y="78" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="116" y="66" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="116" y="54" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="116" y="42" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="116" y="30" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<text x="123" y="20" font-weight="700">9</text>
+<text x="123" y="250">T</text>
+<rect x="150" y="222" width="14" height="9" fill="#2b3440"/>
+<rect x="150" y="210" width="14" height="9" fill="#2b3440"/>
+<rect x="150" y="198" width="14" height="9" fill="#2b3440"/>
+<rect x="150" y="186" width="14" height="9" fill="#2b3440"/>
+<rect x="150" y="174" width="14" height="9" fill="#2b3440"/>
+<rect x="150" y="162" width="14" height="9" fill="#2b3440"/>
+<rect x="150" y="150" width="14" height="9" fill="#2b3440"/>
+<rect x="150" y="138" width="14" height="9" fill="#2b3440"/>
+<rect x="150" y="126" width="14" height="9" fill="#2b3440"/>
+<rect x="150" y="114" width="14" height="9" fill="#2b3440"/>
+<rect x="150" y="102" width="14" height="9" fill="#2b3440"/>
+<rect x="150" y="90" width="14" height="9" fill="#2b3440"/>
+<rect x="150" y="78" width="14" height="9" fill="#2b3440"/>
+<rect x="150" y="66" width="14" height="9" fill="#2b3440"/>
+<rect x="150" y="54" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="150" y="42" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="150" y="30" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<text x="157" y="20" font-weight="700">14</text>
+<text x="157" y="250">W</text>
+<rect x="184" y="222" width="14" height="9" fill="#2b3440"/>
+<rect x="184" y="210" width="14" height="9" fill="#2b3440"/>
+<rect x="184" y="198" width="14" height="9" fill="#2b3440"/>
+<rect x="184" y="186" width="14" height="9" fill="#2b3440"/>
+<rect x="184" y="174" width="14" height="9" fill="#2b3440"/>
+<rect x="184" y="162" width="14" height="9" fill="#2b3440"/>
+<rect x="184" y="150" width="14" height="9" fill="#2b3440"/>
+<rect x="184" y="138" width="14" height="9" fill="#2b3440"/>
+<rect x="184" y="126" width="14" height="9" fill="#2b3440"/>
+<rect x="184" y="114" width="14" height="9" fill="#2b3440"/>
+<rect x="184" y="102" width="14" height="9" fill="#2b3440"/>
+<rect x="184" y="90" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="184" y="78" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="184" y="66" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="184" y="54" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="184" y="42" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="184" y="30" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<text x="191" y="20" font-weight="700">11</text>
+<text x="191" y="250">T</text>
+<rect x="218" y="222" width="14" height="9" fill="#2b3440"/>
+<rect x="218" y="210" width="14" height="9" fill="#2b3440"/>
+<rect x="218" y="198" width="14" height="9" fill="#2b3440"/>
+<rect x="218" y="186" width="14" height="9" fill="#2b3440"/>
+<rect x="218" y="174" width="14" height="9" fill="#2b3440"/>
+<rect x="218" y="162" width="14" height="9" fill="#2b3440"/>
+<rect x="218" y="150" width="14" height="9" fill="#2b3440"/>
+<rect x="218" y="138" width="14" height="9" fill="#2b3440"/>
+<rect x="218" y="126" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="218" y="114" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="218" y="102" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="218" y="90" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="218" y="78" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="218" y="66" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="218" y="54" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="218" y="42" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="218" y="30" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<text x="225" y="20" font-weight="700">8</text>
+<text x="225" y="250">F</text>
+<rect x="252" y="222" width="14" height="9" fill="#2b3440"/>
+<rect x="252" y="210" width="14" height="9" fill="#2b3440"/>
+<rect x="252" y="198" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="252" y="186" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="252" y="174" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="252" y="162" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="252" y="150" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="252" y="138" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="252" y="126" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="252" y="114" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="252" y="102" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="252" y="90" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="252" y="78" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="252" y="66" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="252" y="54" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="252" y="42" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="252" y="30" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<text x="259" y="20" font-weight="700">2</text>
+<text x="259" y="250">S</text>
+<rect x="302" y="222" width="14" height="9" fill="#2b3440"/>
+<rect x="302" y="210" width="14" height="9" fill="#2b3440"/>
+<rect x="302" y="198" width="14" height="9" fill="#2b3440"/>
+<rect x="302" y="186" width="14" height="9" fill="#2b3440"/>
+<rect x="302" y="174" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="302" y="162" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="302" y="150" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="302" y="138" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="302" y="126" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="302" y="114" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="302" y="102" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="302" y="90" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="302" y="78" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="302" y="66" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="302" y="54" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="302" y="42" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="302" y="30" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<text x="309" y="20" font-weight="700">4</text>
+<text x="309" y="250">S</text>
+<rect x="336" y="222" width="14" height="9" fill="#2b3440"/>
+<rect x="336" y="210" width="14" height="9" fill="#2b3440"/>
+<rect x="336" y="198" width="14" height="9" fill="#2b3440"/>
+<rect x="336" y="186" width="14" height="9" fill="#2b3440"/>
+<rect x="336" y="174" width="14" height="9" fill="#2b3440"/>
+<rect x="336" y="162" width="14" height="9" fill="#2b3440"/>
+<rect x="336" y="150" width="14" height="9" fill="#2b3440"/>
+<rect x="336" y="138" width="14" height="9" fill="#2b3440"/>
+<rect x="336" y="126" width="14" height="9" fill="#2b3440"/>
+<rect x="336" y="114" width="14" height="9" fill="#2b3440"/>
+<rect x="336" y="102" width="14" height="9" fill="#2b3440"/>
+<rect x="336" y="90" width="14" height="9" fill="#2b3440"/>
+<rect x="336" y="78" width="14" height="9" fill="#2b3440"/>
+<rect x="336" y="66" width="14" height="9" fill="#2b3440"/>
+<rect x="336" y="54" width="14" height="9" fill="#2b3440"/>
+<rect x="336" y="42" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="336" y="30" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<text x="343" y="20" font-weight="700">15</text>
+<text x="343" y="250">M</text>
+<rect x="370" y="222" width="14" height="9" fill="#2b3440"/>
+<rect x="370" y="210" width="14" height="9" fill="#2b3440"/>
+<rect x="370" y="198" width="14" height="9" fill="#2b3440"/>
+<rect x="370" y="186" width="14" height="9" fill="#2b3440"/>
+<rect x="370" y="174" width="14" height="9" fill="#2b3440"/>
+<rect x="370" y="162" width="14" height="9" fill="#2b3440"/>
+<rect x="370" y="150" width="14" height="9" fill="#2b3440"/>
+<rect x="370" y="138" width="14" height="9" fill="#2b3440"/>
+<rect x="370" y="126" width="14" height="9" fill="#2b3440"/>
+<rect x="370" y="114" width="14" height="9" fill="#2b3440"/>
+<rect x="370" y="102" width="14" height="9" fill="#2b3440"/>
+<rect x="370" y="90" width="14" height="9" fill="#2b3440"/>
+<rect x="370" y="78" width="14" height="9" fill="#2b3440"/>
+<rect x="370" y="66" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="370" y="54" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="370" y="42" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="370" y="30" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<text x="377" y="20" font-weight="700">13</text>
+<text x="377" y="250">T</text>
+<rect x="404" y="222" width="14" height="9" fill="#2b3440"/>
+<rect x="404" y="210" width="14" height="9" fill="#2b3440"/>
+<rect x="404" y="198" width="14" height="9" fill="#2b3440"/>
+<rect x="404" y="186" width="14" height="9" fill="#2b3440"/>
+<rect x="404" y="174" width="14" height="9" fill="#2b3440"/>
+<rect x="404" y="162" width="14" height="9" fill="#2b3440"/>
+<rect x="404" y="150" width="14" height="9" fill="#2b3440"/>
+<rect x="404" y="138" width="14" height="9" fill="#2b3440"/>
+<rect x="404" y="126" width="14" height="9" fill="#2b3440"/>
+<rect x="404" y="114" width="14" height="9" fill="#2b3440"/>
+<rect x="404" y="102" width="14" height="9" fill="#2b3440"/>
+<rect x="404" y="90" width="14" height="9" fill="#2b3440"/>
+<rect x="404" y="78" width="14" height="9" fill="#2b3440"/>
+<rect x="404" y="66" width="14" height="9" fill="#2b3440"/>
+<rect x="404" y="54" width="14" height="9" fill="#2b3440"/>
+<rect x="404" y="42" width="14" height="9" fill="#2b3440"/>
+<rect x="404" y="30" width="14" height="9" fill="#2b3440"/>
+<text x="411" y="20" font-weight="700">17</text>
+<text x="411" y="250">W</text>
+<rect x="438" y="222" width="14" height="9" fill="#2b3440"/>
+<rect x="438" y="210" width="14" height="9" fill="#2b3440"/>
+<rect x="438" y="198" width="14" height="9" fill="#2b3440"/>
+<rect x="438" y="186" width="14" height="9" fill="#2b3440"/>
+<rect x="438" y="174" width="14" height="9" fill="#2b3440"/>
+<rect x="438" y="162" width="14" height="9" fill="#2b3440"/>
+<rect x="438" y="150" width="14" height="9" fill="#2b3440"/>
+<rect x="438" y="138" width="14" height="9" fill="#2b3440"/>
+<rect x="438" y="126" width="14" height="9" fill="#2b3440"/>
+<rect x="438" y="114" width="14" height="9" fill="#2b3440"/>
+<rect x="438" y="102" width="14" height="9" fill="#2b3440"/>
+<rect x="438" y="90" width="14" height="9" fill="#2b3440"/>
+<rect x="438" y="78" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="438" y="66" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="438" y="54" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="438" y="42" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="438" y="30" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<text x="445" y="20" font-weight="700">12</text>
+<text x="445" y="250">T</text>
+<rect x="472" y="222" width="14" height="9" fill="#2b3440"/>
+<rect x="472" y="210" width="14" height="9" fill="#2b3440"/>
+<rect x="472" y="198" width="14" height="9" fill="#2b3440"/>
+<rect x="472" y="186" width="14" height="9" fill="#2b3440"/>
+<rect x="472" y="174" width="14" height="9" fill="#2b3440"/>
+<rect x="472" y="162" width="14" height="9" fill="#2b3440"/>
+<rect x="472" y="150" width="14" height="9" fill="#2b3440"/>
+<rect x="472" y="138" width="14" height="9" fill="#2b3440"/>
+<rect x="472" y="126" width="14" height="9" fill="#2b3440"/>
+<rect x="472" y="114" width="14" height="9" fill="#2b3440"/>
+<rect x="472" y="102" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="472" y="90" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="472" y="78" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="472" y="66" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="472" y="54" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="472" y="42" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="472" y="30" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<text x="479" y="20" font-weight="700">10</text>
+<text x="479" y="250">F</text>
+<rect x="506" y="222" width="14" height="9" fill="#2b3440"/>
+<rect x="506" y="210" width="14" height="9" fill="#2b3440"/>
+<rect x="506" y="198" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="506" y="186" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="506" y="174" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="506" y="162" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="506" y="150" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="506" y="138" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="506" y="126" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="506" y="114" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="506" y="102" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="506" y="90" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="506" y="78" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="506" y="66" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="506" y="54" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="506" y="42" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<rect x="506" y="30" width="14" height="9" fill="none" stroke="#b49a6a" stroke-width="1"/>
+<text x="513" y="20" font-weight="700">2</text>
+<text x="513" y="250">S</text>
+<text x="18" y="230" fill="#6a4a22">1</text>
+<text x="18" y="182" fill="#6a4a22">5</text>
+<text x="18" y="134" fill="#6a4a22">9</text>
+<text x="18" y="86" fill="#6a4a22">13</text>
+<text x="18" y="38" fill="#6a4a22">17</text>
+<text x="159.0" y="270" font-weight="700">LAST WEEK 59</text>
+<text x="413.0" y="270" font-weight="700">THIS WEEK 73</text>
+              </g>
+            </svg>
+          </div>
+        </section>
+        <section class="sect" aria-labelledby="a-h" style="margin-top:24px">
+          <h2 id="a-h">Activity · latest cards on top</h2>
+          <ol class="stack"><li class="card strip"><span class="when">12 MIN AGO</span><span class="txt"><b>Jonas Weber</b> completed “Export invoices as CSV” in Billing migration</span><span class="seqno" aria-hidden="true">BW000001</span></li><li class="card strip"><span class="when">40 MIN AGO</span><span class="txt"><b>Priya Nair</b> commented on “Hero image options” in Website redesign</span><span class="seqno" aria-hidden="true">BW000002</span></li><li class="card strip"><span class="when">1 H AGO</span><span class="txt"><b>Sam Ortiz</b> moved “Push notifications” to Review in Mobile app 2.0</span><span class="seqno" aria-hidden="true">BW000003</span></li><li class="card strip"><span class="when">2 H AGO</span><span class="txt"><b>Lena Fischer</b> added 3 tasks to Spring catalogue</span><span class="seqno" aria-hidden="true">BW000004</span></li><li class="card strip"><span class="when">3 H AGO</span><span class="txt"><b>Tomás Ruiz</b> logged 6 h on Mobile app 2.0</span><span class="seqno" aria-hidden="true">BW000005</span></li><li class="card strip"><span class="when">YESTERDAY</span><span class="txt"><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to Q4 customer survey</span><span class="seqno" aria-hidden="true">BW000006</span></li></ol>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <section class="card sheet" aria-labelledby="sheet-h">
+    <h2 id="sheet-h">Style 166 · Punch card</h2>
+    <p class="idea">Every panel is an 80-column punch card on manila stock, and the data is literally punched: summary digits, finished tasks and daily counts appear as dark rectangular holes beside printed column numbers.</p>
+    <h3>Palette</h3>
+    <ul class="sw">
+      <li><i style="background:#e4e9ef"></i><div><b>Desk</b>#e4e9ef · page behind the deck</div></li>
+      <li><i style="background:#f3e7c6"></i><div><b>Manila stock</b>#f3e7c6 · every card</div></li>
+      <li><i style="background:#f7eedb"></i><div><b>Pale stock</b>#f7eedb · alternate cards, chips, rows</div></li>
+      <li><i style="background:#6a4a22"></i><div><b>Print brown</b>#6a4a22 · printed labels, digits, field lines</div></li>
+      <li><i style="background:#b49a6a"></i><div><b>Rule</b>#b49a6a · unpunched slots and hairlines, never text</div></li>
+      <li><i style="background:#1d1a14"></i><div><b>Typed ink</b>#1d1a14 · interpreted text, primary button</div></li>
+      <li><i style="background:#2b3440"></i><div><b>Hole</b>#2b3440 · punched holes as data</div></li>
+      <li><i style="background:#cfdcea"></i><div><b>Tab blue</b>#cfdcea · deck divider tabs</div></li>
+      <li><i style="background:#1f5c34"></i><div><b>Green</b>#1f5c34 · On track, ring</div></li>
+      <li><i style="background:#85480a"></i><div><b>Amber</b>#85480a · At risk, triangle</div></li>
+      <li><i style="background:#8f1f1f"></i><div><b>Red</b>#8f1f1f · Behind bar, Overdue diamond</div></li>
+      <li><i style="background:#1b4fae"></i><div><b>Focus</b>#1b4fae · focus outline</div></li>
+    </ul>
+    <h3>Type</h3>
+    <div class="tr"><code>Mono 48 / 700 · Courier New, Nimbus Mono PS, Courier</code><span style="font:700 48px/1 var(--mono)">186</span></div>
+    <div class="tr"><code>Mono 30 / 700 caps · greeting</code><span style="font:700 30px/1.1 var(--mono)">GOOD MORNING, MARA.</span></div>
+    <div class="tr"><code>Mono 17 / 700 caps · card title</code><span style="font:700 17px var(--mono)">WEBSITE REDESIGN</span></div>
+    <div class="tr"><code>Mono 14–15 / 400 · body</code><span style="font-size:14px">Priya Nair commented on “Hero image options”</span></div>
+    <div class="tr"><code>Narrow 11 / 700 caps +0.08em · Arial Narrow, Roboto Condensed</code><span class="fl">Cols 9–16 · Tasks due this week</span></div>
+    <div class="tr"><code>Narrow 9 / 700 · printed digits</code><span style="font:700 9px var(--narrow);color:var(--print)">0 1 2 3 4 5 6 7 8 9 · 1 10 20 30 40</span></div>
+    <h3>Spacing, density and depth</h3>
+    <dl class="facts">
+      <dt>Spacing</dt><dd>8px unit. 10px between cards, 16 to 24px between sections, a 32px left inset that clears the clipped corner.</dd>
+      <dt>Density</dt><dd>Dense and data-literal. Rows of tiny slots and printed digits, with one big typed number per field.</dd>
+      <dt>Corners</dt><dd>Every card has its top-left corner clipped at 45 degrees, 22px on large cards and 14px on strips, plus 6px rounding elsewhere. Tabs round 8px on top.</dd>
+      <dt>Borders</dt><dd>2px brown field dividers, a 1px rule above column numbers, outlined unpunched slots, 2px currentColor status boxes.</dd>
+      <dt>Shadows</dt><dd>Only a 1px brown edge under each card, like stacked stock.</dd>
+      <dt>Icons</dt><dd>Hole shapes. A ring for On track, a solid triangle for At risk, a solid oblong for Behind and a diamond with a bang for Overdue, always beside the caps word.</dd>
+      <dt>Tone</dt><dd>Data-processing jargon, such as Keypunch, Operator, Punch new project and Project deck.</dd>
+    </dl>
+    <h3>Controls · normal and focus</h3>
+    <div class="ctl">
+      <div><span class="fl">Primary button</span><div class="row"><button class="btn" type="button">Punch card</button><button class="btn is-focus" type="button">Focused</button></div></div>
+      <div><span class="fl">Secondary button</span><div class="row"><button class="btn line" type="button">Cancel</button><button class="btn line is-focus" type="button">Focused</button></div></div>
+      <div><label class="kp"><span class="fl">Text field</span><input value="Website redesign"></label></div>
+      <div><label class="kp"><span class="fl">Text field, focused</span><input class="is-focus" value="Mobile app 2.0"></label></div>
+      <div><span class="fl">List row, normal and focused</span><div class="rowdemo"><span>004 BILLING MIGRATION</span><span class="st bad"><svg class="sym" aria-hidden="true"><use href="#h-bad"/></svg>Behind</span></div><div class="rowdemo is-focus"><span>004 BILLING MIGRATION</span><span class="st bad"><svg class="sym" aria-hidden="true"><use href="#h-bad"/></svg>Behind</span></div></div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

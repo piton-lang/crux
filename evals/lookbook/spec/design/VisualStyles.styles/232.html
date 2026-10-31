@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Style 232 · Dark timeline · Brightwork</title>
+<style>
+
+:root { color-scheme: dark; --font: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif; --mono: ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
+  --line: #2a2f35; --ink: #e8eaed; --muted: #9ea6af; --s-bg: #0f1113; --s-surface: #16191c; --s-r: 4px; }
+* { box-sizing: border-box; }
+html, body { background: #0f1113; }
+body { margin: 0; color: var(--ink); font: 14px/1.45 var(--font); }
+a { color: var(--ink); text-decoration: none; }
+svg.i { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+a:focus-visible, button:focus-visible, input:focus-visible, .is-focus, .scroll:focus-visible { outline: 2px solid #ff9f5a; outline-offset: 2px; }
+.top { display: flex; align-items: center; gap: 20px; padding: 0 24px; height: 56px; border-bottom: 1px solid #2a2f35; background: #16191c; }
+.brand { display: flex; gap: 8px; align-items: center; font-weight: 700; }
+.brand svg.i { color: #ff9f5a; width: 20px; height: 20px; }
+.seg { display: flex; list-style: none; margin: 0; padding: 3px; gap: 2px; background: #0f1113; border: 1px solid #2a2f35; border-radius: 6px; }
+.seg a { display: block; padding: 5px 12px; border-radius: 4px; color: var(--muted); font-size: 13px; white-space: nowrap; }
+.seg a[aria-current=page] { background: #1b1f23; color: var(--ink); box-shadow: inset 0 -2px 0 #ff9f5a; }
+.tools { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+.search { display: flex; gap: 8px; align-items: center; background: #0f1113; border: 1px solid #2a2f35; border-radius: 4px; padding: 0 10px; color: var(--muted); width: 240px; }
+.search input { flex: 1; min-width: 0; background: transparent; border: 0; color: var(--ink); font: inherit; font-size: 13px; padding: 7px 0; }
+.search input::placeholder { color: var(--muted); } .search input:focus-visible { outline: 0; }
+.search:focus-within { outline: 2px solid #ff9f5a; outline-offset: 2px; }
+.btn { display: inline-flex; gap: 6px; align-items: center; border-radius: 4px; padding: 7px 12px; font: 600 13px/1.4 var(--font); cursor: pointer; border: 1px solid transparent; white-space: nowrap; }
+.btn-primary { background: #ff9f5a; color: #2b1302; }
+.btn-secondary { background: #1b1f23; color: var(--ink); border-color: #2a2f35; }
+.iconbtn { width: 32px; height: 32px; border-radius: 4px; background: transparent; border: 1px solid #2a2f35; color: var(--ink); display: grid; place-items: center; cursor: pointer; }
+.user { display: flex; gap: 8px; align-items: center; font-size: 13px; }
+.av { width: 28px; height: 28px; border-radius: 4px; background: #2d3a4a; color: var(--ink); display: grid; place-items: center; font-size: 11px; font-weight: 700; flex: none; }
+main { padding: 24px 24px 48px; max-width: 1280px; margin: 0 auto; }
+.head { display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: end; justify-content: space-between; margin-bottom: 20px; }
+.date { font-family: var(--mono); font-size: 12px; color: #ff9f5a; margin: 0; }
+h1 { font-size: 24px; margin: 2px 0 2px; font-weight: 650; }
+.over { margin: 0; color: #ff978a; display: flex; gap: 6px; align-items: center; font-weight: 600; }
+.sum { display: flex; gap: 0; margin: 0; border: 1px solid #2a2f35; border-radius: 4px; background: #16191c; }
+.sum div { padding: 8px 16px; border-left: 1px solid #2a2f35; } .sum div:first-child { border-left: 0; }
+.sum dt { font-size: 11.5px; color: var(--muted); }
+.sum dd { margin: 0; font: 600 20px var(--mono); }
+.sum .bad dd { color: #ff978a; }
+.panel { background: #16191c; border: 1px solid #2a2f35; border-radius: 4px; }
+.ph { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid #2a2f35; flex-wrap: wrap; }
+.ph h2 { margin: 0; font-size: 14px; font-weight: 650; }
+.ph .keys { display: flex; gap: 14px; font-size: 12px; color: var(--muted); flex-wrap: wrap; align-items: center; }
+.kd, .kr { display: inline-block; width: 18px; height: 8px; border-radius: 2px; margin-right: 6px; vertical-align: 0; }
+.kd { background: #86b3ff; } .kr { border: 1.5px solid #68737f; }
+.kt { display: inline-block; width: 2px; height: 12px; background: #ff9f5a; margin-right: 6px; vertical-align: -2px; }
+.scroll { overflow-x: auto; }
+.tl { min-width: 860px; display: grid; grid-template-columns: 250px minmax(0, 1fr); }
+.axis-l { border-bottom: 1px solid #2a2f35; border-right: 1px solid #2a2f35; padding: 8px 16px; font-size: 11.5px; color: var(--muted); position: sticky; left: 0; background: #16191c; z-index: 2; }
+.axis { position: relative; height: 36px; border-bottom: 1px solid #2a2f35; }
+.axis span { position: absolute; top: 9px; font: 12px var(--mono); color: var(--muted); padding-left: 6px; border-left: 1px solid #2a2f35; height: 27px; }
+.lab { position: sticky; left: 0; z-index: 2; background: #16191c; border-right: 1px solid #2a2f35; border-bottom: 1px solid #22272c; padding: 10px 16px; display: grid; gap: 2px; }
+.lab a { font-weight: 600; }
+.lab small { color: var(--muted); font-size: 12px; display: flex; gap: 10px; align-items: center; }
+.lane { position: relative; border-bottom: 1px solid #22272c; min-height: 62px;
+  background-image: repeating-linear-gradient(90deg, transparent 0, transparent calc(6.306% - 1px), #22272c calc(6.306% - 1px), #22272c 6.306%); background-color: #16191c; background-position: 2.703% 0; }
+.bar { position: absolute; top: 20px; height: 22px; border: 1.5px solid #68737f; border-radius: 3px; background: #1b1f23; }
+.bar .fill { position: absolute; left: 0; top: 0; bottom: 0; background: #86b3ff; border-radius: 1px 0 0 1px; }
+.bar .in { position: absolute; left: 6px; top: 1px; font: 600 12px var(--mono); color: #0b1830; }
+.due { position: absolute; top: 18px; width: 0; }
+.due::before { content: ""; position: absolute; left: -6px; top: 5px; width: 11px; height: 11px; transform: rotate(45deg); border: 1.5px solid #e8eaed; background: #0f1113; }
+.due span { position: absolute; left: 12px; top: 2px; font: 12px var(--mono); color: var(--muted); white-space: nowrap; display: flex; gap: 8px; align-items: center; }
+.due.flip span { left: auto; right: 12px; background: #1b1f23; padding: 0 4px; }
+.today { position: absolute; top: 0; bottom: 0; width: 2px; background: #ff9f5a; z-index: 1; pointer-events: none; }
+.tag { position: absolute; top: 8px; transform: translateX(-50%); font: 700 11px var(--mono); background: #ff9f5a; color: #2b1302; padding: 1px 6px; border-radius: 3px; white-space: nowrap; z-index: 3; }
+.st { display: inline-flex; gap: 5px; align-items: center; font-size: 12px; font-weight: 650; white-space: nowrap; }
+.st svg.i { width: 14px; height: 14px; stroke-width: 2; }
+.st.ok { color: #7fd69e; } .st.risk { color: #f2c66a; } .st.bad { color: #ff978a; }
+.lower { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 16px; margin-top: 16px; }
+.chart { width: 100%; height: auto; display: block; }
+.cbody { padding: 12px 16px; }
+.feed { list-style: none; margin: 0; padding: 12px 16px 12px 36px; position: relative; }
+.feed::before { content: ""; position: absolute; left: 21px; top: 20px; bottom: 24px; width: 2px; background: #2a2f35; }
+.feed li { position: relative; padding: 6px 0 10px; font-size: 13px; color: var(--muted); }
+.feed li::before { content: ""; position: absolute; left: -20px; top: 11px; width: 8px; height: 8px; border-radius: 50%; background: #0f1113; border: 2px solid #9ea6af; }
+.feed li:first-child::before { border-color: #ff9f5a; background: #ff9f5a; }
+.feed time { display: block; font: 12px var(--mono); color: var(--muted); }
+.feed b { color: var(--ink); font-weight: 600; }
+@media (max-width: 1100px) { .search { width: 170px; } .seg a { padding: 5px 8px; } }
+@media (max-width: 960px) {
+  .top { flex-wrap: wrap; height: auto; padding: 10px 16px; gap: 10px; }
+  .top > nav { order: 5; flex-basis: 100%; overflow-x: auto; } .seg { width: max-content; }
+  .tools { display: contents; } .tools .btn { margin-left: auto; }
+  .search { order: 6; flex-basis: 100%; width: auto; } .user span:not(.av) { display: none; }
+  .lower { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  main { padding: 20px 16px 40px; }
+  .sum { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+  .sum div:nth-child(3) { border-left: 0; } .sum div:nth-child(n+3) { border-top: 1px solid #2a2f35; }
+  .tl { grid-template-columns: 150px minmax(0, 1fr); min-width: 760px; }
+  .lab small { flex-direction: column; align-items: start; gap: 0; }
+}
+.field input { width: 100%; background: #0f1113; border: 1px solid #2a2f35; border-radius: 4px; color: var(--ink); font: inherit; padding: 7px 10px; }
+.row-demo { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 14px; background: #16191c; border: 1px solid #2a2f35; border-radius: 4px; font-weight: 600; }
+
+
+.sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.sheet { background: var(--s-bg); color: var(--ink); border-top: 1px solid var(--line); padding: 48px 32px 64px; font-family: var(--font); }
+.sheet-in { max-width: 1120px; margin: 0 auto; }
+.sheet h2 { font-size: 26px; margin: 0 0 8px; color: var(--ink); }
+.sheet h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 40px 0 16px; font-weight: 650; }
+.sheet .idea { color: var(--ink); font-size: 16px; max-width: 70ch; margin: 0; }
+.sw-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.sw-list li { display: flex; gap: 12px; align-items: center; background: var(--s-surface); border: 1px solid var(--line); border-radius: var(--s-r, 6px); padding: 10px; font-size: 13px; color: var(--muted); min-width: 0; }
+.sw-list li i { width: 44px; height: 44px; border-radius: calc(var(--s-r, 6px) - 2px); flex: none; border: 1px solid var(--sw-edge, rgba(255,255,255,.28)); }
+.sw-list li b { display: block; color: var(--ink); font-size: 14px; }
+.sw-list code { font-family: var(--mono); color: var(--ink); }
+.type-list { display: grid; gap: 12px; }
+.type-row { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: 16px; align-items: baseline; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
+.type-row code { font-family: var(--mono); font-size: 12px; color: var(--muted); overflow-wrap: anywhere; }
+.type-row > span { min-width: 0; overflow-wrap: anywhere; }
+.facts { display: grid; grid-template-columns: 140px 1fr; gap: 10px 20px; margin: 0; font-size: 14px; }
+.facts dt { color: var(--muted); font-weight: 650; }
+.facts dd { margin: 0; color: var(--ink); }
+.ctl-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 32px; }
+.ctl-grid > div { min-width: 0; }
+.ctl-label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .06em; }
+.ctl-pair { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+@media (max-width: 720px) {
+  .sheet { padding: 32px 16px 48px; }
+  .type-row, .facts, .ctl-grid { grid-template-columns: 1fr; }
+  .facts dt { margin-top: 8px; }
+}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol><symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol><symbol id="i-tasks" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12l3 3 5-6"/></symbol><symbol id="i-team" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14.2c2.6.4 4.5 2.8 4.5 5.8"/></symbol><symbol id="i-reports" viewBox="0 0 24 24"><path d="M5 20V11M12 20V5M19 20v-6M3 20h18"/></symbol><symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></symbol><symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></symbol><symbol id="i-risk" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.1"/></symbol><symbol id="i-behind" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M9 9l6 6M15 9l-6 6"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-msg" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></symbol><symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol><symbol id="i-cmd" viewBox="0 0 24 24"><path d="M9 9V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V9"/></symbol><symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol><symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4h11l-2 4 2 4H5"/></symbol></svg>
+<header class="top"><div class="brand"><svg class="i" aria-hidden="true"><use href="#i-cal"/></svg>Brightwork</div>
+<nav aria-label="Main"><ul class="seg"><li><a href="#" aria-current=page>Home</a></li><li><a href="#">Projects</a></li><li><a href="#">Tasks</a></li><li><a href="#">Team</a></li><li><a href="#">Reports</a></li><li><a href="#">Settings</a></li></ul></nav>
+<div class="tools"><label class="search"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search projects and tasks</span><input type="search" placeholder="Search projects and tasks"></label>
+<button class="btn btn-primary" type="button"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>New project</button>
+<button class="iconbtn" type="button" aria-label="Notifications"><svg class="i" aria-hidden="true"><use href="#i-bell"/></svg></button>
+<div class="user"><span class="av" aria-hidden="true">MO</span><span>Mara Okafor</span></div></div></header>
+<main>
+<div class="head"><div><p class="date">Saturday 31 October 2026</p><h1>Good morning, Mara</h1><p class="over"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>4 tasks are overdue</p></div>
+<dl class="sum"><div class=""><dt>Active projects</dt><dd>6</dd></div><div class=""><dt>Tasks due this week</dt><dd>23</dd></div><div class="bad"><dt>Overdue tasks</dt><dd>4</dd></div><div class=""><dt>Hours logged this week</dt><dd>186</dd></div></dl></div>
+<section class="panel" aria-labelledby="t-h"><div class="ph"><h2 id="t-h">Project timeline · October to January</h2>
+<div class="keys"><span><span class="kd"></span>Done</span><span><span class="kr"></span>Remaining</span><span>◆ Due date</span><span><span class="kt"></span>Today</span></div></div>
+<div class="scroll" tabindex="0" role="region" aria-label="Project timeline, scrolls sideways"><div class="tl">
+<div class="axis-l">Project</div><div class="axis"><span style="left:0.00%">Oct 2026</span><span style="left:27.93%">Nov</span><span style="left:54.95%">Dec</span><span style="left:82.88%">Jan 2027</span><div class="today" style="left:27.03%"></div><b class="tag" style="left:27.03%">Today 31 Oct</b></div>
+<div class="lab"><a href="#">Website redesign</a><small><span>Design · 18 of 25 tasks</span><span class="st ok"><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg>On track</span></small></div><div class="lane" role="img" aria-label="Website redesign, from 1 Oct to 14 Nov, 72 percent done, On track"><div class="today" style="left:27.03%"></div><div class="bar" style="left:0.00%;width:39.64%"><span class="fill" style="width:72%"></span></div><div class="due" style="left:39.64%"><span>72% · due 14 Nov</span></div></div><div class="lab"><a href="#">Mobile app 2.0</a><small><span>Engineering · 27 of 60 tasks</span><span class="st risk"><svg class="i" aria-hidden="true"><use href="#i-risk"/></svg>At risk</span></small></div><div class="lane" role="img" aria-label="Mobile app 2.0, from 5 Oct to 2 Dec, 45 percent done, At risk"><div class="today" style="left:27.03%"></div><div class="bar" style="left:3.60%;width:52.25%"><span class="fill" style="width:45%"></span></div><div class="due" style="left:55.86%"><span>45% · due 2 Dec</span></div></div><div class="lab"><a href="#">Q4 customer survey</a><small><span>Research · 9 of 10 tasks</span><span class="st ok"><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg>On track</span></small></div><div class="lane" role="img" aria-label="Q4 customer survey, from 5 Oct to 7 Nov, 90 percent done, On track"><div class="today" style="left:27.03%"></div><div class="bar" style="left:3.60%;width:29.73%"><span class="fill" style="width:90%"></span></div><div class="due" style="left:33.33%"><span>90% · due 7 Nov</span></div></div><div class="lab"><a href="#">Billing migration</a><small><span>Engineering · 12 of 40 tasks</span><span class="st bad"><svg class="i" aria-hidden="true"><use href="#i-behind"/></svg>Behind</span></small></div><div class="lane" role="img" aria-label="Billing migration, from 1 Oct to 20 Nov, 30 percent done, Behind"><div class="today" style="left:27.03%"></div><div class="bar" style="left:0.00%;width:45.05%"><span class="fill" style="width:30%"></span></div><div class="due" style="left:45.05%"><span>30% · due 20 Nov</span></div></div><div class="lab"><a href="#">Spring catalogue</a><small><span>Marketing · 3 of 20 tasks</span><span class="st ok"><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg>On track</span></small></div><div class="lane" role="img" aria-label="Spring catalogue, from 26 Oct to 15 Jan, 15 percent done, On track"><div class="today" style="left:27.03%"></div><div class="bar" style="left:22.52%;width:72.97%"><span class="fill" style="width:15%"></span></div><div class="due flip" style="left:95.50%"><span>15% · due 15 Jan</span></div></div><div class="lab"><a href="#">Onboarding emails</a><small><span>Marketing · 9 of 15 tasks</span><span class="st ok"><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg>On track</span></small></div><div class="lane" role="img" aria-label="Onboarding emails, from 12 Oct to 21 Nov, 60 percent done, On track"><div class="today" style="left:27.03%"></div><div class="bar" style="left:9.91%;width:36.04%"><span class="fill" style="width:60%"></span></div><div class="due" style="left:45.95%"><span>60% · due 21 Nov</span></div></div>
+</div></div></section>
+<div class="lower">
+<section class="panel" aria-labelledby="c-h"><div class="ph"><h2 id="c-h">Tasks completed per day</h2><div class="keys"><span>Sun 18 Oct to Sat 31 Oct</span><span>Last week <b style="color:#e8eaed">59</b></span><span>This week <b style="color:#e8eaed">73</b></span></div></div><div class="cbody"><svg class="chart" viewBox="0 0 640 190" role="img" aria-labelledby="c232-t c232-d" style="font-family:var(--mono)"><title id="c232-t">Tasks completed, last 14 days</title><desc id="c232-d">Tasks completed per day, 18 to 31 October. Last week, Sunday to Saturday: 3, 12, 9, 14, 11, 8, 2, total 59. This week: 4, 15, 13, 17, 12, 10, 2, total 73.</desc><line x1="28" x2="636" y1="156.0" y2="156.0" stroke="#22272c" stroke-width="1"/><text x="22" y="160.0" text-anchor="end" font-size="11" fill="#9ea6af">0</text><line x1="28" x2="636" y1="86.0" y2="86.0" stroke="#22272c" stroke-width="1"/><text x="22" y="90.0" text-anchor="end" font-size="11" fill="#9ea6af">10</text><line x1="28" x2="636" y1="16.0" y2="16.0" stroke="#22272c" stroke-width="1"/><text x="22" y="20.0" text-anchor="end" font-size="11" fill="#9ea6af">20</text><rect x="32.3" y="135.0" width="34.5" height="21.0" rx="1" fill="#6e7884"/><text x="49.6" y="171.0" text-anchor="middle" font-size="11" fill="#9ea6af">S</text><text x="49.6" y="184.0" text-anchor="middle" font-size="10" fill="#9ea6af">18</text><rect x="75.5" y="72.0" width="34.5" height="84.0" rx="1" fill="#6e7884"/><text x="92.7" y="171.0" text-anchor="middle" font-size="11" fill="#9ea6af">M</text><text x="92.7" y="184.0" text-anchor="middle" font-size="10" fill="#9ea6af">19</text><rect x="118.6" y="93.0" width="34.5" height="63.0" rx="1" fill="#6e7884"/><text x="135.9" y="171.0" text-anchor="middle" font-size="11" fill="#9ea6af">T</text><text x="135.9" y="184.0" text-anchor="middle" font-size="10" fill="#9ea6af">20</text><rect x="161.7" y="58.0" width="34.5" height="98.0" rx="1" fill="#6e7884"/><text x="179.0" y="171.0" text-anchor="middle" font-size="11" fill="#9ea6af">W</text><text x="179.0" y="184.0" text-anchor="middle" font-size="10" fill="#9ea6af">21</text><rect x="204.9" y="79.0" width="34.5" height="77.0" rx="1" fill="#6e7884"/><text x="222.1" y="171.0" text-anchor="middle" font-size="11" fill="#9ea6af">T</text><text x="222.1" y="184.0" text-anchor="middle" font-size="10" fill="#9ea6af">22</text><rect x="248.0" y="100.0" width="34.5" height="56.0" rx="1" fill="#6e7884"/><text x="265.3" y="171.0" text-anchor="middle" font-size="11" fill="#9ea6af">F</text><text x="265.3" y="184.0" text-anchor="middle" font-size="10" fill="#9ea6af">23</text><rect x="291.2" y="142.0" width="34.5" height="14.0" rx="1" fill="#6e7884"/><text x="308.4" y="171.0" text-anchor="middle" font-size="11" fill="#9ea6af">S</text><text x="308.4" y="184.0" text-anchor="middle" font-size="10" fill="#9ea6af">24</text><rect x="334.3" y="128.0" width="34.5" height="28.0" rx="1" fill="#86b3ff"/><text x="351.6" y="171.0" text-anchor="middle" font-size="11" fill="#9ea6af">S</text><text x="351.6" y="184.0" text-anchor="middle" font-size="10" fill="#9ea6af">25</text><rect x="377.5" y="51.0" width="34.5" height="105.0" rx="1" fill="#86b3ff"/><text x="394.7" y="171.0" text-anchor="middle" font-size="11" fill="#9ea6af">M</text><text x="394.7" y="184.0" text-anchor="middle" font-size="10" fill="#9ea6af">26</text><rect x="420.6" y="65.0" width="34.5" height="91.0" rx="1" fill="#86b3ff"/><text x="437.9" y="171.0" text-anchor="middle" font-size="11" fill="#9ea6af">T</text><text x="437.9" y="184.0" text-anchor="middle" font-size="10" fill="#9ea6af">27</text><rect x="463.7" y="37.0" width="34.5" height="119.0" rx="1" fill="#86b3ff"/><text x="481.0" y="171.0" text-anchor="middle" font-size="11" fill="#9ea6af">W</text><text x="481.0" y="184.0" text-anchor="middle" font-size="10" fill="#9ea6af">28</text><rect x="506.9" y="72.0" width="34.5" height="84.0" rx="1" fill="#86b3ff"/><text x="524.1" y="171.0" text-anchor="middle" font-size="11" fill="#9ea6af">T</text><text x="524.1" y="184.0" text-anchor="middle" font-size="10" fill="#9ea6af">29</text><rect x="550.0" y="86.0" width="34.5" height="70.0" rx="1" fill="#86b3ff"/><text x="567.3" y="171.0" text-anchor="middle" font-size="11" fill="#9ea6af">F</text><text x="567.3" y="184.0" text-anchor="middle" font-size="10" fill="#9ea6af">30</text><rect x="593.2" y="142.0" width="34.5" height="14.0" rx="1" fill="#86b3ff"/><text x="610.4" y="171.0" text-anchor="middle" font-size="11" fill="#9ea6af">S</text><text x="610.4" y="184.0" text-anchor="middle" font-size="10" fill="#9ea6af">31</text><line x1="330.0" x2="330.0" y1="16" y2="156" stroke="#22272c" stroke-dasharray="3 3"/></svg></div></section>
+<section class="panel" aria-labelledby="a-h"><div class="ph"><h2 id="a-h">Recent activity</h2><div class="keys"><span>Newest first</span></div></div><ol class="feed"><li><time>12 min ago</time><b>Jonas Weber</b> completed “Export invoices as CSV” in <b>Billing migration</b></li><li><time>40 min ago</time><b>Priya Nair</b> commented on “Hero image options” in <b>Website redesign</b></li><li><time>1 h ago</time><b>Sam Ortiz</b> moved “Push notifications” to Review in <b>Mobile app 2.0</b></li><li><time>2 h ago</time><b>Lena Fischer</b> added 3 tasks to <b>Spring catalogue</b></li><li><time>3 h ago</time><b>Tomás Ruiz</b> logged 6 h on <b>Mobile app 2.0</b></li><li><time>yesterday</time><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to <b>Q4 customer survey</b></li></ol></section>
+</div></main>
+<section class="sheet" aria-labelledby="sheet-h"><div class="sheet-in">
+<h2 id="sheet-h">Style 232 · Dark timeline</h2>
+<p class="idea">The dashboard read as a schedule: every project is a bar on a shared date axis from October to January, with its done share filled, its due date marked and one orange today line cutting through all of them.</p>
+<h3>Palette</h3><ul class="sw-list"><li><i style="background:#0f1113"></i><div><b>Ground</b><code>#0f1113</code> · page, fields and the style sheet</div></li><li><i style="background:#16191c"></i><div><b>Panel</b><code>#16191c</code> · top bar, panels and lanes</div></li><li><i style="background:#1b1f23"></i><div><b>Band</b><code>#1b1f23</code> · remaining part of a bar, current tab, secondary button</div></li><li><i style="background:#2a2f35"></i><div><b>Line</b><code>#2a2f35</code> · panel edges, axis rules, the activity spine</div></li><li><i style="background:#22272c"></i><div><b>Grid</b><code>#22272c</code> · weekly grid lines and lane dividers</div></li><li><i style="background:#e8eaed"></i><div><b>Ink</b><code>#e8eaed</code> · text and the due diamond</div></li><li><i style="background:#9ea6af"></i><div><b>Muted</b><code>#9ea6af</code> · labels, dates, axis text</div></li><li><i style="background:#ff9f5a"></i><div><b>Orange</b><code>#ff9f5a</code> · the today line and tag, current tab edge, primary button, focus</div></li><li><i style="background:#2b1302"></i><div><b>On orange</b><code>#2b1302</code> · text on orange</div></li><li><i style="background:#86b3ff"></i><div><b>Done</b><code>#86b3ff</code> · done part of each bar and this week bars</div></li><li><i style="background:#68737f"></i><div><b>Remaining</b><code>#68737f</code> · bar outline for remaining time</div></li><li><i style="background:#6e7884"></i><div><b>Last week</b><code>#6e7884</code> · last week bars</div></li><li><i style="background:#7fd69e"></i><div><b>On track</b><code>#7fd69e</code> · On track word and icon</div></li><li><i style="background:#f2c66a"></i><div><b>At risk</b><code>#f2c66a</code> · At risk word and icon</div></li><li><i style="background:#ff978a"></i><div><b>Behind</b><code>#ff978a</code> · Behind word, icon and overdue</div></li></ul>
+<h3>Type</h3><div class="type-list"><div class="type-row"><code>Segoe UI stack · 24 / 650</code><span style="font-size:24px;font-weight:650">Good morning, Mara</span></div><div class="type-row"><code>mono 20 / 600 · figures</code><span style="font:600 20px var(--mono)">186</span></div><div class="type-row"><code>mono 12 · dates and axis</code><span style="font:12px var(--mono);color:#9ea6af">Oct 2026 · Nov · Dec · Jan 2027 · Due 14 Nov</span></div><div class="type-row"><code>14 / 600 · lane names</code><span style="font-weight:600">Spring catalogue</span></div><div class="type-row"><code>mono 11 / 700 · today tag</code><span style=""><span style="font:700 11px var(--mono);background:#ff9f5a;color:#2b1302;padding:1px 6px;border-radius:3px">Today 31 Oct</span></span></div><div class="type-row"><code>12 / 650 · status</code><span style=""><span class="st bad"><svg class="i" aria-hidden="true"><use href="#i-behind"/></svg>Behind</span></span></div></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3><dl class="facts"><dt>Spacing</dt><dd>8px unit. 62px lanes, 16px panel padding, 16px between panels.</dd><dt>Density</dt><dd>Medium. Six lanes on one axis, then chart and activity side by side.</dd><dt>Corners</dt><dd>4px panels, buttons and fields, 3px bars and the today tag.</dd><dt>Borders</dt><dd>1px #2a2f35 on panels and axis, #22272c weekly grid lines. Bars have a 1.5px outline for remaining time.</dd><dt>Shadows</dt><dd>None. The orange today line is the only thing that stands out.</dd><dt>Icons</dt><dd>16px line icons at 1.8 stroke, a diamond for each due date. Status is a check circle, a triangle or a crossed square.</dd><dt>Tone</dt><dd>Schedule-minded. Project timeline, Today 31 Oct, Due 20 Nov, Newest first.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="ctl-grid">
+<div><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn btn-primary" type="button">Save changes</button><button class="btn btn-primary is-focus" type="button">Save changes</button></div></div>
+<div><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn btn-secondary" type="button">Cancel</button><button class="btn btn-secondary is-focus" type="button">Cancel</button></div></div>
+<div><label class="field"><span class="ctl-label">Text field</span><input type="text" value="Website redesign"></label></div>
+<div><label class="field"><span class="ctl-label">Text field, focused</span><input type="text" class="is-focus" value="Mobile app 2.0"></label></div>
+<div><span class="ctl-label">List row</span><div class="row-demo"><span>Billing migration</span><span class="st bad"><svg class="i" aria-hidden="true"><use href="#i-behind"/></svg>Behind</span></div></div>
+<div><span class="ctl-label">List row, focused</span><div class="row-demo is-focus"><span>Billing migration</span><span class="st bad"><svg class="i" aria-hidden="true"><use href="#i-behind"/></svg>Behind</span></div></div>
+</div></div></section>
+</body>
+</html>

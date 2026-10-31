@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 363 · Drive-in · Brightwork</title>
+<style>
+:root { color-scheme: dark; }
+*, *::before, *::after { box-sizing: border-box; }
+
+.sheet { background: var(--sh-bg); color: var(--sh-ink); font: 15px/1.55 var(--sh-font); padding: 48px 32px 64px; border-top: var(--sh-top, 1px solid var(--sh-line)); }
+.sheet-in { max-width: 1120px; margin: 0 auto; }
+.sheet h2 { font: var(--sh-h2, 700 28px/1.2 var(--sh-head)); margin: 0 0 8px; color: var(--sh-ink); letter-spacing: var(--sh-h2-ls, 0); }
+.sheet .idea { color: var(--sh-ink); max-width: 760px; margin: 0 0 32px; font-size: 17px; }
+.sheet h3 { font: var(--sh-h3, 700 13px/1.3 var(--sh-head)); letter-spacing: .08em; text-transform: uppercase; color: var(--sh-muted); margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--sh-line); }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.sw { display: flex; gap: 12px; align-items: center; background: var(--sh-surface); border: 1px solid var(--sh-line); border-radius: var(--sh-r); padding: 10px; }
+.sw i { width: 44px; height: 44px; flex: none; border-radius: calc(var(--sh-r) / 2); border: 1px solid var(--sh-chip-line, rgba(255,255,255,.28)); }
+.sw b { display: block; font-size: 14px; }
+.sw span { display: block; font-size: 13px; color: var(--sh-muted); }
+.sw code { font: 13px var(--sh-mono, ui-monospace, Menlo, Consolas, monospace); color: var(--sh-ink); }
+.trow { display: grid; grid-template-columns: 260px 1fr; gap: 16px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--sh-line); }
+.trow code { font: 12px/1.4 var(--sh-mono, ui-monospace, Menlo, Consolas, monospace); color: var(--sh-muted); }
+.trow span { min-width: 0; overflow-wrap: anywhere; }
+.facts { display: grid; grid-template-columns: 160px 1fr; gap: 0 24px; margin: 0; }
+.facts dt { font-weight: 700; padding: 10px 0; border-bottom: 1px solid var(--sh-line); }
+.facts dd { margin: 0; padding: 10px 0; border-bottom: 1px solid var(--sh-line); color: var(--sh-ink); }
+.ctl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+.ctl { background: var(--sh-surface); border: 1px solid var(--sh-line); border-radius: var(--sh-r); padding: 16px; }
+.ctl-label { display: block; font-weight: 700; font-size: 14px; margin-bottom: 12px; }
+.ctl-pair { display: grid; gap: 14px; }
+.ctl-state { display: block; font-size: 12px; color: var(--sh-muted); margin-bottom: 4px; }
+.sf { display: grid; gap: 4px; font-size: 13px; color: var(--sh-muted); }
+.sf input { font: inherit; font-size: 14px; color: var(--sh-ink); width: 100%; }
+@media (max-width: 640px) {
+  .sheet { padding: 32px 16px 48px; }
+  .trow { grid-template-columns: 1fr; gap: 4px; }
+  .facts { grid-template-columns: 1fr; }
+  .facts dt { border-bottom: 0; padding-bottom: 0; }
+}
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+
+
+body { margin: 0; background: #0a0f2c; color: #eef0ff; font: 15px/1.5 "Futura", "Century Gothic", "Avenir Next", "Trebuchet MS", system-ui, sans-serif; }
+button { font: inherit; cursor: pointer; }
+:focus-visible, .is-focus { outline: 3px solid #4ff0d2; outline-offset: 3px; }
+.sky { background: radial-gradient(1.5px 1.5px at 10% 20%, #fff, transparent), radial-gradient(1px 1px at 30% 8%, #fff, transparent), radial-gradient(1.5px 1.5px at 55% 30%, #dfe6ff, transparent), radial-gradient(1px 1px at 72% 12%, #fff, transparent), radial-gradient(1px 1px at 88% 26%, #fff, transparent), radial-gradient(1.5px 1.5px at 18% 45%, #cfd8ff, transparent), radial-gradient(1px 1px at 46% 6%, #fff, transparent), radial-gradient(1px 1px at 94% 50%, #fff, transparent), linear-gradient(#060a22, #0f1640 80%, #1a1f4a); background-color: #0a0f2c; display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 40px; padding: 40px 40px 0; align-items: end; overflow: clip; }
+.marquee { align-self: start; }
+.board { background: #1a1206; border-radius: 14px; padding: 22px 26px; text-align: center; border: 10px solid transparent; background: linear-gradient(#1a1206, #1a1206) padding-box, radial-gradient(circle, #ffe9a8 0 3px, #8a5a14 3.5px 4px, transparent 4.5px) 0 0 / 18px 18px border-box; background-color: #1a1206; box-shadow: 0 0 40px rgba(255, 211, 107, .18); }
+.now { margin: 0; font: 700 13px "Futura", "Century Gothic", "Avenir Next", "Trebuchet MS", system-ui, sans-serif; letter-spacing: .4em; text-transform: uppercase; color: #ff9cc4; padding-left: .4em; }
+.board h1 { margin: 8px 0; font: 400 46px/1 "Haettenschweiler", "Impact", "Arial Narrow Bold", "Oswald", "Arial Narrow", sans-serif; text-transform: uppercase; letter-spacing: .04em; color: #ffd36b; text-shadow: 0 0 12px rgba(255, 211, 107, .5); }
+.fmt { margin: 0; font: 700 18px "Haettenschweiler", "Impact", "Arial Narrow Bold", "Oswald", "Arial Narrow", sans-serif; letter-spacing: .14em; color: #fff3d0; }
+.by { margin: 8px 0 0; font: italic 14px "Futura", "Century Gothic", "Avenir Next", "Trebuchet MS", system-ui, sans-serif; color: #e4c9a0; }
+.booth { margin: 0 auto; width: 70%; background: #2a1b2c; border-radius: 0 0 10px 10px; padding: 12px 14px 14px; text-align: center; border-top: 4px solid #ff6fa8; }
+.rend { margin: 0 0 10px; font-size: 13px; color: #e8dcf0; display: grid; gap: 6px; justify-items: center; }
+.rend i { font-style: italic; }
+.rbar { display: block; width: 100%; height: 6px; border-radius: 3px; background: #4a3550; }
+.exp { background: #ff6fa8; color: #2a0616; border: 0; border-radius: 6px; padding: 10px 26px; font: 400 20px "Haettenschweiler", "Impact", "Arial Narrow Bold", "Oswald", "Arial Narrow", sans-serif; letter-spacing: .14em; text-transform: uppercase; box-shadow: 0 0 18px rgba(255, 111, 168, .45); width: 100%; }
+.screen { position: relative; }
+.scr { margin: 0; aspect-ratio: 16/9; background: #06070f; border: 8px solid #d7dae8; border-radius: 4px; display: grid; place-items: center; box-shadow: 0 0 80px rgba(180, 200, 255, .22); position: relative; z-index: 1; }
+.scr p { margin: 0; font: 700 clamp(18px, 2.8vw, 36px)/1.2 "Futura", "Century Gothic", "Avenir Next", "Trebuchet MS", system-ui, sans-serif; color: #fff; text-align: center; padding: 0 10%; }
+.posts { display: flex; justify-content: space-between; padding: 0 18%; height: 40px; }
+.posts i { width: 14px; background: #2d3266; }
+.tp { display: flex; align-items: center; gap: 14px; padding: 10px 0 18px; flex-wrap: wrap; }
+.tc { font: 400 26px "Haettenschweiler", "Impact", "Arial Narrow Bold", "Oswald", "Arial Narrow", sans-serif; letter-spacing: .06em; color: #ffd36b; }
+.dur { margin-left: auto; color: #c3c8ec; font-size: 14px; }
+.ctr { display: flex; gap: 8px; }
+.ctr button { width: 42px; height: 42px; border-radius: 50%; background: #1d2456; border: 2px solid #4ff0d2; color: #eef0ff; display: grid; place-items: center; }
+.ctr svg { width: 16px; height: 16px; fill: currentColor; }
+.ctr .pl { background: #4ff0d2; color: #032a24; }
+.ground { background: #14151f; background-image: linear-gradient(#1c1d2b, #14151f 120px); display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 28px 40px; padding: 28px 40px 48px; border-top: 3px solid #2d3266; }
+.sign { display: inline-block; margin: 0 0 16px; background: #0d5a4e; color: #effffb; font: 400 20px "Haettenschweiler", "Impact", "Arial Narrow Bold", "Oswald", "Arial Narrow", sans-serif; letter-spacing: .1em; text-transform: uppercase; padding: 4px 14px; border-radius: 6px; border: 2px solid #4ff0d2; }
+.sign span { font: 13px "Futura", "Century Gothic", "Avenir Next", "Trebuchet MS", system-ui, sans-serif; letter-spacing: .04em; text-transform: none; margin-left: 8px; color: #d6fff6; }
+.cars { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.spot { display: grid; justify-items: center; gap: 4px; padding: 10px 6px 0; border-left: 2px dashed #e0c25a; position: relative; }
+.spot:last-child { border-right: 2px dashed #e0c25a; }
+.car { width: 100%; max-width: 150px; fill: #262a4a; stroke: #5a62a8; stroke-width: 1.5; }
+.car .win { fill: #4a5390; stroke: none; }
+.car .wh { fill: #07081a; stroke: #5a62a8; }
+.car .hub { fill: #8f96cc; stroke: none; }
+.plate { background: #f2ead2; color: #1d1a10; border-radius: 4px; padding: 2px 6px; font: 700 11px ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; border: 2px solid #8a7c4c; max-width: 100%; text-align: center; overflow-wrap: anywhere; }
+.post { font-size: 12px; color: #c3c8ec; }
+.snack { background: #0e0e14; border-radius: 10px; border: 3px solid #ff6fa8; padding: 16px 18px; box-shadow: 0 0 22px rgba(255, 111, 168, .2); align-self: start; }
+.snack h2 { margin: 0 0 10px; font: 400 22px "Haettenschweiler", "Impact", "Arial Narrow Bold", "Oswald", "Arial Narrow", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: #ff9cc4; }
+.snack h2 span { display: block; font: italic 13px "Futura", "Century Gothic", "Avenir Next", "Trebuchet MS", system-ui, sans-serif; letter-spacing: 0; text-transform: none; color: #c3c8ec; }
+.menu { list-style: none; margin: 0; padding: 0; }
+.menu li { display: flex; align-items: baseline; gap: 8px; padding: 6px 0; font-size: 15px; }
+.menu i { flex: 1; border-bottom: 2px dotted #4a4a66; }
+.menu b { font: 400 20px "Haettenschweiler", "Impact", "Arial Narrow Bold", "Oswald", "Arial Narrow", sans-serif; letter-spacing: .06em; color: #fff3d0; }
+.lanes { grid-column: 1 / -1; }
+.tlb { position: relative; --lh: 120px; }
+.ln { display: grid; grid-template-columns: var(--lh) 1fr; align-items: center; }
+.lh { display: flex; flex-direction: column; line-height: 1.15; }
+.lh b { font: 400 20px "Haettenschweiler", "Impact", "Arial Narrow Bold", "Oswald", "Arial Narrow", sans-serif; letter-spacing: .08em; color: #ffd36b; }
+.lh i { font-style: normal; font-size: 12px; color: #c3c8ec; }
+.lt { position: relative; height: 46px; background: #1b1c28; border-bottom: 2px dashed #e0c25a; }
+.ln:nth-child(2) .lt { border-top: 2px dashed #e0c25a; }
+.cl { position: absolute; top: 8px; bottom: 8px; border-radius: 8px; border: 2px solid; display: flex; align-items: center; padding: 0 10px; overflow: hidden; }
+.cl span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 13px; font-weight: 700; }
+.cl.v { border-color: #4ff0d2; background: #0f2f33; color: #c8fff4; }
+.cl.a { border-color: #ff6fa8; background: #331526; color: #ffd6e7; }
+.cl.t { border-color: #ffd36b; background: #3a2c0c; color: #fff1c8; }
+.cl.sel { background: #ffd36b; color: #2a1d00; border-style: double; border-width: 4px; border-color: #fff3d0; box-shadow: 0 0 16px rgba(255, 211, 107, .55); }
+.rl .lt { background: none; border: 0; height: 30px; }
+.rl .lt > span { position: absolute; top: 6px; font: 12px "Futura", "Century Gothic", "Avenir Next", "Trebuchet MS", system-ui, sans-serif; color: #c3c8ec; transform: translateX(-50%); }
+.rl .lt > span:first-child { transform: none; }
+.rl .lt > span:nth-last-child(2) { transform: translateX(-100%); }
+.mk { position: absolute; top: 0; z-index: 2; }
+.mk i { position: absolute; left: -9px; top: 4px; width: 18px; height: 18px; background: #ffd36b; transform: rotate(45deg); border: 2px solid #2a1d00; }
+.mk span { position: absolute; right: 16px; top: 3px; white-space: nowrap; background: #ffd36b; color: #2a1d00; font: 700 12px "Futura", "Century Gothic", "Avenir Next", "Trebuchet MS", system-ui, sans-serif; padding: 1px 8px; border-radius: 3px; }
+.mk::after { content: ""; position: absolute; left: -1px; top: 26px; height: 196px; border-left: 2px solid #ffd36b; }
+.ph { position: absolute; top: 30px; bottom: -6px; left: calc(var(--lh) + (100% - var(--lh)) * .2); width: 2px; margin-left: -1px; background: #fff; }
+.ph::before { content: ""; position: absolute; left: -16px; top: -30px; width: 34px; height: 30px; background: linear-gradient(rgba(255, 255, 255, .0), rgba(255, 255, 255, .35)); clip-path: polygon(40% 0, 60% 0, 100% 100%, 0 100%); }
+.ph span { position: absolute; bottom: -24px; left: -20px; width: 40px; text-align: center; background: #fff; color: #0a0f2c; font: 700 12px "Futura", "Century Gothic", "Avenir Next", "Trebuchet MS", system-ui, sans-serif; border-radius: 3px; }
+.lanes { padding-bottom: 20px; }
+.sheet { --sh-bg: #0a0f2c; --sh-surface: #141a42; --sh-ink: #eef0ff; --sh-muted: #c3c8ec; --sh-line: #2d3266; --sh-font: "Futura", "Century Gothic", "Avenir Next", "Trebuchet MS", system-ui, sans-serif; --sh-head: "Futura", "Century Gothic", "Avenir Next", "Trebuchet MS", system-ui, sans-serif; --sh-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; --sh-r: 10px; --sh-h2: 400 40px/1.1 "Haettenschweiler", "Impact", "Arial Narrow Bold", "Oswald", "Arial Narrow", sans-serif; --sh-h2-ls: .04em; }
+.sheet h2 { color: #ffd36b; text-transform: uppercase; }
+.sb { font: 400 18px "Haettenschweiler", "Impact", "Arial Narrow Bold", "Oswald", "Arial Narrow", sans-serif; letter-spacing: .14em; text-transform: uppercase; padding: 9px 22px; border-radius: 6px; }
+.sb-primary { background: #ff6fa8; color: #2a0616; border: 0; box-shadow: 0 0 18px rgba(255, 111, 168, .45); }
+.sb-secondary { background: #1d2456; color: #eef0ff; border: 2px solid #4ff0d2; }
+.sfi { background: #0a0f2c; border: 2px solid #4a5390; border-radius: 6px; padding: 8px 10px; }
+.srow { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding: 8px 4px; border-bottom: 2px dotted #4a4a66; }
+.srow span:last-child { font: 18px "Haettenschweiler", "Impact", "Arial Narrow Bold", "Oswald", "Arial Narrow", sans-serif; letter-spacing: .06em; color: #fff3d0; }
+@media (max-width: 1000px) {
+  .sky { grid-template-columns: minmax(0, 1fr); }
+  .marquee { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 0 16px; }
+  .booth { width: auto; border-radius: 10px; }
+  .ground { grid-template-columns: minmax(0, 1fr); }
+  .cars { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px) {
+  .sky { padding: 20px 16px 0; gap: 20px; }
+  .marquee { grid-template-columns: 1fr; gap: 0; }
+  .board { padding: 14px; }
+  .board h1 { font-size: 34px; }
+  .booth { width: 80%; border-radius: 0 0 10px 10px; }
+  .ground { padding: 20px 16px 36px; }
+  .row, .snack { display: none; }
+  .tlb { --lh: 40px; }
+  .lh i { display: none; }
+  .cl { padding: 0 6px; }
+  .cl span { font-size: 12px; }
+  .rl .lt > span:nth-child(even) { display: none; }
+  .ctr button { width: 44px; height: 44px; }
+  .dur { margin-left: 0; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="night">
+<main class="lot">
+  <div class="sky">
+    <section class="marquee" aria-labelledby="m-h">
+      <div class="board">
+        <p class="now">Now showing</p>
+        <h1 id="m-h">Launch teaser</h1>
+        <p class="fmt">1080p &#9733; 24 fps</p>
+        <p class="by">a Brightwork Cut picture</p>
+      </div>
+      <div class="booth">
+        <p class="rend"><span class="rbar" role="progressbar" aria-label="Render progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></span><span>Render 0% &#183; <i>reel not rolling</i></span></p>
+        <button type="button" class="exp">Export</button>
+      </div>
+    </section>
+    <section class="screen" aria-labelledby="s-h">
+      <h2 id="s-h" class="sr">Big screen</h2>
+      <figure class="scr"><p>Every project, on one calm page</p><figcaption class="sr">The big screen showing the title card Every project, on one calm page.</figcaption></figure>
+      <div class="posts" aria-hidden="true"><i></i><i></i></div>
+      <div class="tp">
+        <span class="tc">00:00:18:12</span>
+        <span class="ctr">
+          <button type="button" aria-label="Back"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 5 3 10l7 5zM17 5l-7 5 7 5z"/></svg></button>
+          <button type="button" class="pl" aria-label="Play"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg></button>
+          <button type="button" aria-label="Forward"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5l7 5-7 5zM10 5l7 5-7 5z"/></svg></button>
+        </span>
+        <span class="dur">running time 00:01:30:00</span>
+      </div>
+    </section>
+  </div>
+  <div class="ground">
+    <section class="row" aria-labelledby="c-h">
+      <h2 id="c-h" class="sign">Parked tonight <span>5 clips</span></h2>
+      <ul class="cars"><li class="spot"><svg class="car" viewBox="0 0 160 70" aria-hidden="true"><path d="M8 52v-10c0-4 3-7 7-8l22-4 18-16c3-2 6-3 10-3h40c4 0 7 1 10 4l14 15 16 3c5 1 7 4 7 8v11z"/><path class="win" d="M60 20h28v12H46zM94 20h12c2 0 3 1 4 2l9 10H94z"/><circle class="wh" cx="40" cy="54" r="11"/><circle class="wh" cx="124" cy="54" r="11"/><circle class="hub" cx="40" cy="54" r="4"/><circle class="hub" cx="124" cy="54" r="4"/></svg><span class="plate"><b>hero-motion.mp4</b></span><span class="post">00:42 &#183; picture</span></li><li class="spot"><svg class="car" viewBox="0 0 160 70" aria-hidden="true"><path d="M8 52v-10c0-4 3-7 7-8l22-4 18-16c3-2 6-3 10-3h40c4 0 7 1 10 4l14 15 16 3c5 1 7 4 7 8v11z"/><path class="win" d="M60 20h28v12H46zM94 20h12c2 0 3 1 4 2l9 10H94z"/><circle class="wh" cx="40" cy="54" r="11"/><circle class="wh" cx="124" cy="54" r="11"/><circle class="hub" cx="40" cy="54" r="4"/><circle class="hub" cx="124" cy="54" r="4"/></svg><span class="plate"><b>office-broll-03.mov</b></span><span class="post">01:15 &#183; picture</span></li><li class="spot"><svg class="car" viewBox="0 0 160 70" aria-hidden="true"><path d="M8 52v-10c0-4 3-7 7-8l22-4 18-16c3-2 6-3 10-3h40c4 0 7 1 10 4l14 15 16 3c5 1 7 4 7 8v11z"/><path class="win" d="M60 20h28v12H46zM94 20h12c2 0 3 1 4 2l9 10H94z"/><circle class="wh" cx="40" cy="54" r="11"/><circle class="wh" cx="124" cy="54" r="11"/><circle class="hub" cx="40" cy="54" r="4"/><circle class="hub" cx="124" cy="54" r="4"/></svg><span class="plate"><b>voiceover-take4.wav</b></span><span class="post">01:22 &#183; sound</span></li><li class="spot"><svg class="car" viewBox="0 0 160 70" aria-hidden="true"><path d="M8 52v-10c0-4 3-7 7-8l22-4 18-16c3-2 6-3 10-3h40c4 0 7 1 10 4l14 15 16 3c5 1 7 4 7 8v11z"/><path class="win" d="M60 20h28v12H46zM94 20h12c2 0 3 1 4 2l9 10H94z"/><circle class="wh" cx="40" cy="54" r="11"/><circle class="wh" cx="124" cy="54" r="11"/><circle class="hub" cx="40" cy="54" r="4"/><circle class="hub" cx="124" cy="54" r="4"/></svg><span class="plate"><b>music-low-tide.wav</b></span><span class="post">02:40 &#183; sound</span></li><li class="spot"><svg class="car" viewBox="0 0 160 70" aria-hidden="true"><path d="M8 52v-10c0-4 3-7 7-8l22-4 18-16c3-2 6-3 10-3h40c4 0 7 1 10 4l14 15 16 3c5 1 7 4 7 8v11z"/><path class="win" d="M60 20h28v12H46zM94 20h12c2 0 3 1 4 2l9 10H94z"/><circle class="wh" cx="40" cy="54" r="11"/><circle class="wh" cx="124" cy="54" r="11"/><circle class="hub" cx="40" cy="54" r="4"/><circle class="hub" cx="124" cy="54" r="4"/></svg><span class="plate"><b>logo-sting.mov</b></span><span class="post">00:04 &#183; picture</span></li></ul>
+    </section>
+    <section class="snack" aria-labelledby="k-h">
+      <h2 id="k-h">Snack bar board <span>Title card, selected</span></h2>
+      <ul class="menu">
+        <li><span>Position</span><i aria-hidden="true"></i><b>960 by 540</b></li>
+        <li><span>Scale</span><i aria-hidden="true"></i><b>100%</b></li>
+        <li><span>Opacity</span><i aria-hidden="true"></i><b>100%</b></li>
+        <li><span>Cross dissolve</span><i aria-hidden="true"></i><b>12 frames</b></li>
+      </ul>
+    </section>
+    <section class="lanes" aria-labelledby="l-h">
+      <h2 id="l-h" class="sign">Parking lanes <span>0 to 90 seconds</span></h2>
+      <p class="sr">Timeline from 0 to 90 seconds. V2 titles holds the selected Title card from 14 to 26 seconds. V1 video holds hero-motion.mp4 from 0 to 42, office-broll-03.mov from 42 to 84 and logo-sting.mov from 84 to 88. A1 voiceover holds voiceover-take4.wav from 4 to 86. A2 music holds music-low-tide.wav from 0 to 90. The playhead is at 18 seconds and a marker named cut to logo sits at 84 seconds.</p>
+      <div class="tlb" aria-hidden="true">
+        <div class="ln rl"><span class="lh"></span><div class="lt"><span style="left:0.000%">0</span><span style="left:11.111%">10</span><span style="left:22.222%">20</span><span style="left:33.333%">30</span><span style="left:44.444%">40</span><span style="left:55.556%">50</span><span style="left:66.667%">60</span><span style="left:77.778%">70</span><span style="left:88.889%">80</span><span style="left:100.000%">90</span><b class="mk" style="left:93.333%"><i></i><span>cut to logo</span></b></div></div>
+        <div class="ln"><span class="lh"><b>V2</b><i>titles</i></span><div class="lt"><span class="cl t sel" style="left:15.556%;width:13.333%"><span>&#9733; Title card</span></span></div></div><div class="ln"><span class="lh"><b>V1</b><i>video</i></span><div class="lt"><span class="cl v" style="left:0.000%;width:46.667%"><span>hero-motion.mp4</span></span><span class="cl v" style="left:46.667%;width:46.667%"><span>office-broll-03.mov</span></span><span class="cl v" style="left:93.333%;width:4.444%"><span>logo-sting.mov</span></span></div></div><div class="ln"><span class="lh"><b>A1</b><i>voiceover</i></span><div class="lt"><span class="cl a" style="left:4.444%;width:91.111%"><span>voiceover-take4.wav</span></span></div></div><div class="ln"><span class="lh"><b>A2</b><i>music</i></span><div class="lt"><span class="cl a" style="left:0.000%;width:100.000%"><span>music-low-tide.wav</span></span></div></div>
+        <div class="ph"><span>18 s</span></div>
+      </div>
+    </section>
+  </div>
+</main>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h"><div class="sheet-in">
+<h2 id="sheet-h">Style 363 · Drive-in</h2>
+<p class="idea">A night at a drive-in, where the viewer is the big screen on its posts under a starry sky, a bulb lit marquee carries the title and Export, the bin is a row of parked cars with number plates, settings read like the snack bar board and tracks become parking lanes.</p>
+<h3>Palette</h3><ul class="swatches"><li class="sw"><i style="background:#0a0f2c" aria-hidden="true"></i><div><b>nightSky</b><code>#0a0f2c</code><span>sky, page and style sheet</span></div></li><li class="sw"><i style="background:#1a1f4a" aria-hidden="true"></i><div><b>horizon</b><code>#1a1f4a</code><span>the sky gradient foot</span></div></li><li class="sw"><i style="background:#14151f" aria-hidden="true"></i><div><b>asphalt</b><code>#14151f</code><span>the lot under the screen</span></div></li><li class="sw"><i style="background:#1b1c28" aria-hidden="true"></i><div><b>lane</b><code>#1b1c28</code><span>parking lanes</span></div></li><li class="sw"><i style="background:#1a1206" aria-hidden="true"></i><div><b>marqueeBoard</b><code>#1a1206</code><span>the marquee face behind the bulbs</span></div></li><li class="sw"><i style="background:#eef0ff" aria-hidden="true"></i><div><b>ink</b><code>#eef0ff</code><span>text</span></div></li><li class="sw"><i style="background:#c3c8ec" aria-hidden="true"></i><div><b>moonlight</b><code>#c3c8ec</code><span>secondary text, ruler and car posts</span></div></li><li class="sw"><i style="background:#ffd36b" aria-hidden="true"></i><div><b>bulbYellow</b><code>#ffd36b</code><span>marquee title, timecode, title clips, the marker and selection</span></div></li><li class="sw"><i style="background:#4ff0d2" aria-hidden="true"></i><div><b>neonTeal</b><code>#4ff0d2</code><span>video clips, transport rings, lot signs and focus</span></div></li><li class="sw"><i style="background:#ff6fa8" aria-hidden="true"></i><div><b>neonPink</b><code>#ff6fa8</code><span>audio clips, the ticket booth, Export and the snack bar</span></div></li><li class="sw"><i style="background:#e0c25a" aria-hidden="true"></i><div><b>laneLine</b><code>#e0c25a</code><span>dashed lane and parking bay lines</span></div></li><li class="sw"><i style="background:#d7dae8" aria-hidden="true"></i><div><b>screenWhite</b><code>#d7dae8</code><span>the big screen frame</span></div></li><li class="sw"><i style="background:#f2ead2" aria-hidden="true"></i><div><b>plate</b><code>#f2ead2</code><span>number plates on the cars</span></div></li></ul>
+<h3>Type scale</h3><div class="trow"><code>Marquee 46 caps</code><span style="font:46px/1 "Haettenschweiler", "Impact", "Arial Narrow Bold", "Oswald", "Arial Narrow", sans-serif;text-transform:uppercase;color:#ffd36b">Launch teaser</span></div><div class="trow"><code>Geometric 36 / 700 screen title</code><span style="font:700 36px/1.2 "Futura", "Century Gothic", "Avenir Next", "Trebuchet MS", system-ui, sans-serif">Every project, on one calm page</span></div><div class="trow"><code>Marquee 26 +0.06em timecode</code><span style="font:26px "Haettenschweiler", "Impact", "Arial Narrow Bold", "Oswald", "Arial Narrow", sans-serif;letter-spacing:.06em;color:#ffd36b">00:00:18:12</span></div><div class="trow"><code>Marquee 20 caps lot signs</code><span style="font:20px "Haettenschweiler", "Impact", "Arial Narrow Bold", "Oswald", "Arial Narrow", sans-serif;letter-spacing:.1em;text-transform:uppercase">Parking lanes</span></div><div class="trow"><code>Geometric 15 body</code><span style="font:15px/1.5 "Futura", "Century Gothic", "Avenir Next", "Trebuchet MS", system-ui, sans-serif">reel not rolling</span></div><div class="trow"><code>Mono 11 / 700 number plates</code><span style="font:700 11px ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace">logo-sting.mov</span></div>
+<h3>Spacing, density, corners, borders, shadows, icons and tone</h3><dl class="facts"><dt>Spacing</dt><dd>An 8px unit. 40px page gutters, 28px between ground areas, 46px lanes.</dd><dt>Density</dt><dd>Medium low. One big screen, a marquee, five cars, a menu board and four lanes.</dd><dt>Corners</dt><dd>14px marquee, 10px booth and board, 8px clip blocks, round transport buttons.</dd><dt>Borders</dt><dd>A ring of bulbs round the marquee, dashed yellow lane lines, 2px neon outlines on clips.</dd><dt>Shadows</dt><dd>Glows only. Warm round the marquee, cool round the screen, neon round Export.</dd><dt>Icons</dt><dd>Car silhouettes, filled transport glyphs, a diamond road sign for the marker, a star for selected.</dd><dt>Focus</dt><dd>3px neon teal outline offset 3px.</dd><dt>Tone</dt><dd>Playful night out, such as Now showing, Parked tonight, Snack bar board and reel not rolling.</dd></dl>
+<h3>Basic controls</h3><div class="ctl-grid"><div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><div><span class="ctl-state">Normal</span><button type="button" class="sb sb-primary">Export</button></div><div><span class="ctl-state">Focus</span><button type="button" class="sb sb-primary is-focus">Export</button></div></div></div><div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><div><span class="ctl-state">Normal</span><button type="button" class="sb sb-secondary">Add marker</button></div><div><span class="ctl-state">Focus</span><button type="button" class="sb sb-secondary is-focus">Add marker</button></div></div></div><div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><div><span class="ctl-state">Normal</span><label class="sf">Clip name<input class="sfi" type="text" value="Title card"></label></div><div><span class="ctl-state">Focus</span><label class="sf">Clip name<input class="sfi is-focus" type="text" value="Title card"></label></div></div></div><div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><div><span class="ctl-state">Normal</span><div class="srow" tabindex="0"><span>hero-motion.mp4</span><span>00:42</span></div></div><div><span class="ctl-state">Focus</span><div class="srow is-focus" tabindex="0"><span>hero-motion.mp4</span><span>00:42</span></div></div></div></div></div>
+</div></section>
+</body>
+</html>

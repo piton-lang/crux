@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Style 293 · Hacker IDE · Brightwork</title>
+<style>
+
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{margin:0}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.ic{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:var(--sw,1.75);vertical-align:-.18em}
+ul,ol{list-style:none;margin:0;padding:0}
+h1,h2,h3,h4,p{margin:0}
+button{font:inherit;color:inherit}
+table{border-collapse:collapse}
+code{font-family:inherit}
+
+
+:root{--ed:#0b0e13;--ch:#151a21;--tab:#1b212a;--line:#262e3a;--text:#d6dde8;--muted:#8f9bad;--acc:#4fc1ff;--sb:#1f6feb;--green:#7ee787;--red:#ff7b72;--yellow:#e3b341;--purple:#d2a8ff;--sw:1.5;--mono:'JetBrains Mono','Fira Code','Cascadia Code',ui-monospace,Menlo,Consolas,monospace}
+body{background:var(--ed);color:var(--text);font:13px/1.5 system-ui,'Segoe UI',Ubuntu,Roboto,'Helvetica Neue',sans-serif}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible,.is-focus{outline:2px solid var(--acc)!important;outline-offset:2px}
+.tree a:focus-visible,.tabs a:focus-visible,.srow.is-focus,.srow:focus-visible{outline-width:1px!important;outline-offset:-1px}
+.title{height:36px;background:var(--ch);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:16px;padding:0 12px;color:var(--muted);font-size:12px}
+.title .t{flex:1;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.title .t a{color:var(--text)}
+.title .stats{display:flex;gap:4px}
+.title button{background:transparent;border:1px solid var(--line);border-radius:4px;color:var(--text);font:12px system-ui,'Segoe UI',Ubuntu,Roboto,'Helvetica Neue',sans-serif;padding:2px 8px;display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+.dots{display:flex;gap:6px}.dots i{width:10px;height:10px;border-radius:50%;background:var(--tab);border:1px solid var(--line)}
+.ide{display:grid;grid-template-columns:48px 290px minmax(0,1fr) 280px;grid-template-rows:minmax(0,1fr) auto;min-height:calc(100vh - 60px)}
+.act{background:var(--ch);border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;padding-top:4px;grid-row:1/3}
+.act button{width:48px;height:48px;background:transparent;border:0;color:var(--muted);display:grid;place-items:center;cursor:pointer;border-left:2px solid transparent}
+.act button .ic{width:24px;height:24px}
+.act button[aria-pressed=true]{color:var(--text);border-left-color:var(--acc)}
+.exp{background:var(--ch);border-right:1px solid var(--line);min-width:0;grid-row:1/3}
+.hd{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 12px 6px;display:flex;align-items:center;gap:6px}
+.rinfo{padding:0 12px 10px 20px}
+.rinfo p{overflow-wrap:anywhere}
+.rinfo .pv{display:inline-flex;gap:4px;align-items:center;background:var(--tab);border-radius:4px;padding:0 6px;font-size:12px;color:var(--muted);margin-top:4px}
+.exp .tabs a{display:flex;align-items:center;gap:8px;height:24px;padding:0 12px 0 20px;color:var(--text);border-left:2px solid transparent}
+.exp .tabs a:hover{background:var(--tab);text-decoration:none}
+.exp .tabs a[aria-current]{background:var(--tab);border-left-color:var(--acc)}
+.exp .tabs .ct{margin-left:auto;background:var(--line);border-radius:9px;padding:0 6px;font-size:11px}
+.tree a,.tree span.dir{display:flex;align-items:center;gap:6px;height:22px;padding-right:12px;color:var(--text)}
+.tree span.dir{color:var(--muted)}
+.tree .l0{padding-left:16px}.tree .l1{padding-left:30px}.tree .l2{padding-left:44px}
+.tree a .fn{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.tree a .cnt{font-family:var(--mono);font-size:11px}
+.tree a[aria-current]{background:#1d2a3a}
+.ed{min-width:0;display:flex;flex-direction:column;border-right:1px solid var(--line)}
+.etabs{display:flex;background:var(--ch);border-bottom:1px solid var(--line);overflow-x:auto}
+.etabs span{display:flex;align-items:center;gap:6px;height:35px;padding:0 14px;border-right:1px solid var(--line);white-space:nowrap;color:var(--muted);background:var(--tab)}
+.etabs span.on{background:var(--ed);color:var(--text);box-shadow:inset 0 2px 0 var(--acc)}
+.crumb{padding:4px 16px;color:var(--muted);font-size:12px;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+.ov{padding:16px 20px;border-bottom:1px solid var(--line)}
+.ov h1{font-size:20px;font-weight:600;line-height:1.3}
+.ov h1 span{color:var(--muted);font-weight:400}
+.ov .meta{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin-top:8px;color:var(--muted)}
+.ov .meta strong{color:var(--text)}
+.open{display:inline-flex;align-items:center;gap:5px;color:var(--green);border:1px solid var(--green);border-radius:4px;padding:0 8px;font-weight:600}
+.br{font-family:var(--mono);font-size:12px;color:var(--text);background:var(--tab);border-radius:4px;padding:0 5px;overflow-wrap:anywhere}
+.ovrow{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:12px}
+.ok{color:var(--green)}.warn{color:var(--yellow)}.bad{color:var(--red)}
+.st{display:inline-flex;align-items:center;gap:6px}
+.lb{font-size:12px;color:var(--purple);border:1px solid #4a3d66;border-radius:4px;padding:0 6px}
+.dwrap{display:grid;grid-template-columns:minmax(0,1fr) 64px;flex:1;min-height:0}
+.dscroll{overflow-x:auto;min-width:0}
+.diff{width:100%;min-width:600px;font-family:var(--mono);font-size:13px;line-height:1.6}
+.diff td{padding:0 8px;white-space:pre}
+.diff .ln{width:40px;text-align:right;color:var(--muted)}
+.diff .sg{width:14px;padding:0 4px}
+.diff .hunk td{color:var(--muted);padding:6px 12px;background:var(--ch)}
+.diff .add{background:#12261b}.diff .add .sg{color:var(--green);box-shadow:inset 3px 0 0 var(--green)}
+.diff .del{background:#2d1517}.diff .del .sg{color:var(--red);box-shadow:inset 3px 0 0 var(--red)}
+.diff .k{color:var(--purple)}.diff .s{color:var(--yellow)}.diff .f{color:#a5d6ff}.diff .t{color:var(--green)}.diff .n{color:var(--acc)}.diff .a{color:#79c0ff}
+.diff .cmt td{white-space:normal;padding:8px 16px 8px 76px}
+.cm{background:var(--ch);border:1px solid var(--line);border-top:2px solid var(--acc);padding:8px 12px;max-width:520px;font-family:system-ui,'Segoe UI',Ubuntu,Roboto,'Helvetica Neue',sans-serif;box-shadow:0 4px 12px rgba(0,0,0,.5)}
+.cm b{display:flex;gap:6px;align-items:center}
+.mini{border-left:1px solid var(--line);padding:8px 8px;display:grid;align-content:start;gap:3px;background:var(--ed)}
+.mini i{height:3px;background:#3a4350;border-radius:1px}
+.mini i.a{background:var(--green)}.mini i.d{background:var(--red)}.mini i.c{background:var(--acc);height:6px}
+.mini .vp{outline:1px solid #3a4350;height:auto}
+.det{background:var(--ch);min-width:0}
+.det section{padding:4px 12px 12px;border-bottom:1px solid var(--line)}
+.det .hd{padding-left:0}
+.det p{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.det .why{display:block;color:var(--muted);font-size:12px;margin-top:6px}
+.panel{grid-column:3/5;border-top:1px solid var(--line);background:var(--ed);min-width:0}
+.ptabs{display:flex;gap:16px;padding:0 12px;border-bottom:1px solid var(--line);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.ptabs span{padding:8px 0;color:var(--muted);border-bottom:1px solid transparent}
+.ptabs span.on{color:var(--text);border-bottom-color:var(--acc)}
+.ptabs .badge{background:var(--red);color:#1a0a0a;border-radius:9px;padding:0 6px;margin-left:4px}
+.term{font-family:var(--mono);font-size:12.5px;padding:8px 12px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 24px}
+.term li{display:flex;gap:8px;align-items:center;white-space:nowrap}
+.term li span.r{margin-left:auto}
+.term .sum{grid-column:1/-1;color:var(--muted);margin-bottom:4px;white-space:normal}
+.status{height:24px;background:var(--sb);color:#fff;display:flex;align-items:center;gap:16px;padding:0 10px;font-size:12px;overflow:hidden;white-space:nowrap}
+.status span{display:inline-flex;gap:5px;align-items:center}
+.status .r{margin-left:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border-radius:4px;padding:5px 14px;font:600 13px system-ui,'Segoe UI',Ubuntu,Roboto,'Helvetica Neue',sans-serif;cursor:pointer;border:1px solid transparent}
+.btn.primary{background:var(--acc);color:#04121c}
+.btn.secondary{background:var(--tab);color:var(--text);border-color:var(--line)}
+.btn[disabled]{background:var(--tab);color:var(--muted);border-color:var(--line);width:100%;cursor:not-allowed}
+.tf{font:13px system-ui,'Segoe UI',Ubuntu,Roboto,'Helvetica Neue',sans-serif;background:var(--ed);color:var(--text);border:1px solid var(--line);border-radius:4px;padding:5px 8px;width:220px;max-width:100%}
+.tf::placeholder{color:var(--muted)}
+.srow{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;gap:8px;align-items:center;height:26px;padding:0 10px;background:var(--ch);color:var(--text)}
+.srow b{font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.srow .add{color:var(--green);font-family:var(--mono);font-size:12px}.srow .del{color:var(--red);font-family:var(--mono);font-size:12px}
+.srow.is-focus{background:#1d2a3a}
+@media (max-width:1100px){.ide{grid-template-columns:48px 240px minmax(0,1fr)}.det{grid-column:3;border-top:1px solid var(--line)}.panel{grid-column:3}.ed{border-right:0}.ide{grid-template-rows:auto}.act,.exp{grid-row:1/4}.term{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){
+ .ide{grid-template-columns:minmax(0,1fr)}
+ .act{grid-row:auto;flex-direction:row;border-right:0;border-bottom:1px solid var(--line);padding:0}
+ .act button{border-left:0;border-bottom:2px solid transparent}
+ .act button[aria-pressed=true]{border-bottom-color:var(--acc)}
+ .exp{grid-row:auto;border-right:0;border-bottom:1px solid var(--line)}
+ .det,.panel{grid-column:auto}
+ .dwrap{grid-template-columns:minmax(0,1fr)}.mini{display:none}
+ .title .t{text-align:left}.dots{display:none}
+ .term{grid-template-columns:minmax(0,1fr)}
+ .status .hide{display:none}
+}
+
+.sheet{--sh-bg:#0b0e13;--sh-ink:#d6dde8;--sh-head:#d6dde8;--sh-muted:#8f9bad;--sh-card:#151a21;--sh-box:1px solid #262e3a;--sh-row:1px solid #262e3a;--sh-rule:1px solid #262e3a;--sh-chipline:#3a4350;--sh-r:4px;--sh-top:24px solid #1f6feb;--sh-font:system-ui,'Segoe UI',Ubuntu,Roboto,'Helvetica Neue',sans-serif;--sh-mono:'JetBrains Mono','Fira Code','Cascadia Code',ui-monospace,Menlo,Consolas,monospace;--sh-h2:600 22px/1.3 system-ui,'Segoe UI',Ubuntu,Roboto,'Helvetica Neue',sans-serif;--sh-h3:700 12px system-ui,'Segoe UI',Ubuntu,Roboto,'Helvetica Neue',sans-serif;}
+
+.sheet{background:var(--sh-bg);color:var(--sh-ink);padding:48px 24px 72px;border-top:var(--sh-top);font-family:var(--sh-font)}
+.sheet-in{max-width:1120px;margin:0 auto}
+.sheet h2{font:var(--sh-h2);margin:0 0 10px;color:var(--sh-head)}
+.sheet h3{font:var(--sh-h3);margin:36px 0 14px;padding-bottom:8px;border-bottom:var(--sh-rule);color:var(--sh-head)}
+.sheet .idea{font-size:17px;line-height:1.55;max-width:70ch;color:var(--sh-ink)}
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.sw{display:flex;gap:12px;align-items:center;border:var(--sh-box);border-radius:var(--sh-r);padding:10px;background:var(--sh-card)}
+.chip{width:48px;height:48px;flex:none;border-radius:var(--sh-r);border:1px solid var(--sh-chipline)}
+.swt{display:flex;flex-direction:column;font-size:14px;line-height:1.4;min-width:0}
+.swt b{color:var(--sh-head)}
+.swt code{font-family:var(--sh-mono);font-size:13px}
+.swt span{color:var(--sh-muted)}
+.types li{display:flex;justify-content:space-between;gap:8px 16px;align-items:baseline;flex-wrap:wrap;padding:12px 0;border-bottom:var(--sh-row)}
+.tys{color:var(--sh-head);overflow-wrap:anywhere;min-width:0}
+.tym{font-size:13px;color:var(--sh-muted);font-family:var(--sh-mono)}
+.facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:0 32px;margin:0}
+.fact{padding:12px 0;border-bottom:var(--sh-row)}
+.fact dt{font-weight:700;color:var(--sh-head)}
+.fact dd{margin:4px 0 0;line-height:1.5;color:var(--sh-ink)}
+.controls{display:grid;gap:22px}
+.ctl{display:grid;grid-template-columns:170px minmax(0,1fr);gap:16px;align-items:center}
+.ctl-l{font-weight:700;color:var(--sh-head)}
+.ctl-r{display:flex;gap:20px;flex-wrap:wrap;align-items:center;min-width:0}
+.ctl-r.rows{display:grid;gap:12px;max-width:520px}
+.note{margin-top:24px;font-size:14px;color:var(--sh-muted);max-width:70ch}
+@media (max-width:760px){.sheet{padding:32px 16px 56px}.ctl{grid-template-columns:minmax(0,1fr);gap:8px}}
+
+</style>
+</head>
+<body>
+<header class="title"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><p class="t"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="5" r="2.2"/><circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="7" r="2.2"/><path d="M6 7.2v9.6M18 9.2c0 4.5-5 5-11 8"/></svg> feature/push-prefs · <a href="#">fernhill</a>/brightwork-mobile · Brightwork Code</p>
+<span class="stats"><button type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.5 12S6 6 12 6s9.5 6 9.5 6S18 18 12 18 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.6"/></svg>Watch 12</button><button type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.6l2.6 5.3 5.8.9-4.2 4.1 1 5.8L12 17l-5.2 2.7 1-5.8-4.2-4.1 5.8-.9z"/></svg>Star 48</button><button type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="5" r="2.2"/><circle cx="18" cy="5" r="2.2"/><circle cx="12" cy="19" r="2.2"/><path d="M6 7.2V8a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3v-.8M12 11v5.8"/></svg>Fork 3</button></span></header>
+<div class="ide">
+<nav class="act" aria-label="Activity bar"><button type="button" aria-label="Explorer" aria-pressed="true"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 3h7l4 4v11H8z"/><path d="M15 3v4h4M5 7v14h10"/></svg></button><button type="button" aria-label="Search" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></button><button type="button" aria-label="Source control" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="5" r="2.2"/><circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="7" r="2.2"/><path d="M6 7.2v9.6M18 9.2c0 4.5-5 5-11 8"/></svg></button><button type="button" aria-label="Checks" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l5.5-3.5z"/></svg></button><button type="button" aria-label="Settings" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></svg></button></nav>
+<aside class="exp" aria-label="Explorer">
+<p class="hd"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg>Repository</p>
+<div class="rinfo"><p><a href="#">fernhill</a> / <b>brightwork-mobile</b></p><span class="pv"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="9.5" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Private</span></div>
+<nav class="tabs" aria-label="Repository"><ul><li><a href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 7L3.5 12l5 5M15.5 7l5 5-5 5"/></svg><span class="tl">Code</span></a></li><li><a href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.2"/></svg><span class="tl">Issues</span> <span class="ct">27</span></a></li><li><a href="#" aria-current="page"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="18" r="2.2"/><path d="M6 8.2v7.6M18 15.8V9a3 3 0 0 0-3-3h-4M13 3.8L10.8 6 13 8.2"/></svg><span class="tl">Pull requests</span> <span class="ct">5</span></a></li><li><a href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l5.5-3.5z"/></svg><span class="tl">Actions</span></a></li><li><a href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4.5h12.5a1.5 1.5 0 0 1 1.5 1.5v14H7a2 2 0 0 1-2-2z"/><path d="M5 17.5a2 2 0 0 1 2-2h12"/></svg><span class="tl">Wiki</span></a></li><li><a href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></svg><span class="tl">Settings</span></a></li></ul></nav>
+<p class="hd"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg>Changed files · 3</p>
+<ul class="tree">
+<li><span class="dir l0"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6.5h6.5l2 2H21V19H3z"/></svg>src</span></li>
+<li><span class="dir l1"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6.5h6.5l2 2H21V19H3z"/></svg>settings</span></li>
+<li><a href="#" class="l2" aria-current="true"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h8.5L19 7.5V21H6z"/><path d="M14 3v5h5"/></svg><span class="fn">NotificationPrefs.tsx</span><span class="cnt"><span class="ok">+184</span> <span class="bad">−12</span></span></a></li>
+<li><a href="#" class="l2"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h8.5L19 7.5V21H6z"/><path d="M14 3v5h5"/></svg><span class="fn">NotificationPrefs.test.tsx</span><span class="cnt"><span class="ok">+92</span> <span class="bad">−0</span></span></a></li>
+<li><span class="dir l1"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6.5h6.5l2 2H21V19H3z"/></svg>api</span></li>
+<li><a href="#" class="l2"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h8.5L19 7.5V21H6z"/><path d="M14 3v5h5"/></svg><span class="fn">push.ts</span><span class="cnt"><span class="ok">+46</span> <span class="bad">−8</span></span></a></li>
+</ul></aside>
+<main class="ed">
+<div class="etabs" role="presentation"><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="18" r="2.2"/><path d="M6 8.2v7.6M18 15.8V9a3 3 0 0 0-3-3h-4M13 3.8L10.8 6 13 8.2"/></svg>Pull request #214</span><span class="on"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h8.5L19 7.5V21H6z"/><path d="M14 3v5h5"/></svg>NotificationPrefs.tsx <em style="font-style:normal;color:var(--muted)">diff</em></span></div>
+<p class="crumb">src › settings › NotificationPrefs.tsx › NotificationPrefs</p>
+<section class="ov" aria-labelledby="prt"><h1 id="prt">Add push notification preferences <span>#214</span></h1>
+<p class="meta"><span class="open"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="18" r="2.2"/><path d="M6 8.2v7.6M18 15.8V9a3 3 0 0 0-3-3h-4M13 3.8L10.8 6 13 8.2"/></svg>Open</span><span><strong>Sam Ortiz</strong> wants to merge 6 commits into <span class="br">main</span> from <span class="br">feature/push-prefs</span></span></p>
+<div class="ovrow"><span class="st ok"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg>Jonas Weber approved</span><span class="st warn"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.8l9 16H3z"/><path d="M12 10v4.2M12 17.2v.3"/></svg>Tomás Ruiz requested changes</span><span class="st bad"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9l6 6M15 9l-6 6"/></svg>11 of 12 checks passed, 1 failing</span></div></section>
+<div class="dwrap"><div class="dscroll" tabindex="0" role="region" aria-label="Diff, scrolls sideways"><table class="diff"><caption class="vh">Diff of src/settings/NotificationPrefs.tsx, 6 lines added and 2 removed</caption><tr class="hunk"><td colspan="4"><code>@@ -40,6 +40,10 @@ export function NotificationPrefs</code></td></tr><tr class="ctx"><td class="ln">40</td><td class="ln">40</td><td class="sg"></td><td class="cd"><code>  <span class="k">const</span> [prefs, setPrefs] = <span class="f">usePushPrefs</span>(user.id);</code></td></tr><tr class="del"><td class="ln">41</td><td class="ln"></td><td class="sg"><span aria-hidden="true">−</span><span class="vh">removed</span></td><td class="cd"><code>  <span class="k">const</span> quiet = prefs.quietHours;</code></td></tr><tr class="del"><td class="ln">42</td><td class="ln"></td><td class="sg"><span aria-hidden="true">−</span><span class="vh">removed</span></td><td class="cd"><code>  <span class="k">const</span> save = () =&gt; api.<span class="f">save</span>(prefs);</code></td></tr><tr class="add"><td class="ln"></td><td class="ln">41</td><td class="sg"><span aria-hidden="true">+</span><span class="vh">added</span></td><td class="cd"><code>  <span class="k">const</span> quiet = prefs.quietHours ?? <span class="n">DEFAULT_QUIET</span>;</code></td></tr><tr class="add"><td class="ln"></td><td class="ln">42</td><td class="sg"><span aria-hidden="true">+</span><span class="vh">added</span></td><td class="cd"><code>  <span class="k">const</span> save = <span class="k">async</span> () =&gt; {</code></td></tr><tr class="add"><td class="ln"></td><td class="ln">43</td><td class="sg"><span aria-hidden="true">+</span><span class="vh">added</span></td><td class="cd"><code>    <span class="k">await</span> <span class="f">savePushPrefs</span>(user.id, prefs);</code></td></tr><tr class="add"><td class="ln"></td><td class="ln">44</td><td class="sg"><span aria-hidden="true">+</span><span class="vh">added</span></td><td class="cd"><code>  };</code></td></tr><tr class="ctx"><td class="ln">43</td><td class="ln">45</td><td class="sg"></td><td class="cd"><code> </code></td></tr><tr class="ctx"><td class="ln">44</td><td class="ln">46</td><td class="sg"></td><td class="cd"><code>  <span class="k">return</span> (</code></td></tr><tr class="ctx"><td class="ln">45</td><td class="ln">47</td><td class="sg"></td><td class="cd"><code>    <span class="t">&lt;Section</span> <span class="a">title</span>=<span class="s">"Notifications"</span>&gt;</code></td></tr><tr class="add"><td class="ln"></td><td class="ln">48</td><td class="sg"><span aria-hidden="true">+</span><span class="vh">added</span></td><td class="cd"><code>      <span class="t">&lt;QuietHours</span> <span class="a">start</span>={quiet.start} <span class="a">end</span>={quiet.end} /&gt;</code></td></tr><tr class="cmt"><td colspan="4"><div class="cm"><b><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5h16v11H9.5L4 20.5z"/></svg>Tomás Ruiz</b><p>Quiet hours should respect the device time zone.</p></div></td></tr><tr class="add"><td class="ln"></td><td class="ln">49</td><td class="sg"><span aria-hidden="true">+</span><span class="vh">added</span></td><td class="cd"><code>      <span class="t">&lt;Toggle</span> <span class="a">label</span>=<span class="s">"Mentions"</span> <span class="a">value</span>={prefs.mentions} /&gt;</code></td></tr></table></div>
+<div class="mini" aria-hidden="true"><i style="width:70%"></i><i style="width:80.0%"></i><i class="d" style="width:52.800000000000004%"></i><i class="d" style="width:59.2%"></i><i class="a" style="width:80.0%"></i><i class="a" style="width:44.800000000000004%"></i><i class="a" style="width:64.0%"></i><i class="a" style="width:12%"></i><i style="width:12%"></i><i style="width:16.0%"></i><i style="width:56.0%"></i><i class="a" style="width:89.60000000000001%"></i><i class="a" style="width:89.60000000000001%"></i><i class="c" style="width:60%"></i><i style="width:40%"></i><i style="width:65%"></i><i style="width:55%"></i><i style="width:80%"></i><i style="width:30%"></i><i style="width:50%"></i><i style="width:72%"></i><i style="width:44%"></i><i style="width:60%"></i><i style="width:35%"></i></div></div>
+</main>
+<aside class="det" aria-label="Pull request details">
+<section><p class="hd">Assignees</p><p><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg>Sam Ortiz</p></section>
+<section><p class="hd">Reviewers</p><p class="st ok"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg>Jonas Weber, approved</p><p class="st warn" style="margin-top:4px"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.8l9 16H3z"/><path d="M12 10v4.2M12 17.2v.3"/></svg>Tomás Ruiz, requested changes</p></section>
+<section><p class="hd">Labels</p><p><span class="lb">feature</span><span class="lb">mobile</span><span class="lb">needs QA</span></p></section>
+<section><p class="hd">Milestone</p><p><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5.5 21V4M5.5 4.5h11.5l-2.5 4 2.5 4H5.5"/></svg><a href="#">Mobile app 2.0</a></p></section>
+<section><p class="hd">Linked issue</p><p><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.2"/></svg><a href="#">#198 Push notifications</a></p></section>
+<section><p class="hd">Merge</p><button type="button" class="btn primary" disabled aria-describedby="mn"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="9.5" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Merge pull request</button><span class="why" id="mn">Merge blocked by 1 failing check. Enabled when all checks pass.</span></section>
+</aside>
+<section class="panel" aria-labelledby="ckh"><div class="ptabs"><span class="on" id="ckh">Checks</span><span>Problems <b class="badge">1</b></span><span>Output</span></div>
+<ul class="term"><li class="sum">$ bw checks run --pr 214 · 11 of 12 checks passed, 1 failing, e2e-android</li><li><svg class="ic ok" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg><span>lint</span><span class="r ok">passed</span></li><li><svg class="ic ok" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg><span>typecheck</span><span class="r ok">passed</span></li><li><svg class="ic ok" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg><span>unit-tests</span><span class="r ok">passed</span></li><li><svg class="ic ok" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg><span>build-ios</span><span class="r ok">passed</span></li><li><svg class="ic ok" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg><span>build-android</span><span class="r ok">passed</span></li><li><svg class="ic ok" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg><span>e2e-ios</span><span class="r ok">passed</span></li><li class="bad"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>e2e-android</span><span class="r">failing · exit 1</span></li><li><svg class="ic ok" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg><span>bundle-size</span><span class="r ok">passed</span></li><li><svg class="ic ok" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg><span>license-scan</span><span class="r ok">passed</span></li><li><svg class="ic ok" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg><span>secrets-scan</span><span class="r ok">passed</span></li><li><svg class="ic ok" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg><span>storybook</span><span class="r ok">passed</span></li><li><svg class="ic ok" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg><span>a11y-audit</span><span class="r ok">passed</span></li></ul></section>
+</div>
+<footer class="status"><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="5" r="2.2"/><circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="7" r="2.2"/><path d="M6 7.2v9.6M18 9.2c0 4.5-5 5-11 8"/></svg>feature/push-prefs</span><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9l6 6M15 9l-6 6"/></svg>1 <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.2 9.6"/></svg>11</span><span class="hide"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="18" r="2.2"/><path d="M6 8.2v7.6M18 15.8V9a3 3 0 0 0-3-3h-4M13 3.8L10.8 6 13 8.2"/></svg>Open · 1 approval, 1 change request</span><span class="r hide">TypeScript JSX · UTF-8</span></footer>
+<section class="sheet" aria-labelledby="sheet-h"><div class="sheet-in">
+<h2 id="sheet-h">Style 293 · Hacker IDE</h2>
+<p class="idea">The pull request opens inside a modern dark code editor, with an activity bar, an explorer of repository views and changed files, editor tabs, a diff with change gutters and a minimap, a details panel, a checks terminal and a status bar.</p>
+<h3>Palette</h3><ul class="swatches"><li class="sw"><span class="chip" style="background:#0b0e13"></span><span class="swt"><b>editor</b> <code>#0b0e13</code><span>the editor area, the diff and the terminal</span></span></li><li class="sw"><span class="chip" style="background:#151a21"></span><span class="swt"><b>chrome</b> <code>#151a21</code><span>the title bar, activity bar, explorer, details panel and style sheet cards</span></span></li><li class="sw"><span class="chip" style="background:#1b212a"></span><span class="swt"><b>tabRest</b> <code>#1b212a</code><span>inactive editor tabs, chips, hover and the disabled merge button</span></span></li><li class="sw"><span class="chip" style="background:#262e3a"></span><span class="swt"><b>line</b> <code>#262e3a</code><span>pane dividers and rows</span></span></li><li class="sw"><span class="chip" style="background:#d6dde8"></span><span class="swt"><b>text</b> <code>#d6dde8</code><span>text</span></span></li><li class="sw"><span class="chip" style="background:#8f9bad"></span><span class="swt"><b>muted</b> <code>#8f9bad</code><span>meta, line numbers, section headers and inactive tabs</span></span></li><li class="sw"><span class="chip" style="background:#4fc1ff"></span><span class="swt"><b>accent</b> <code>#4fc1ff</code><span>the active tab top bar, the current view, links, the primary button and focus</span></span></li><li class="sw"><span class="chip" style="background:#1f6feb"></span><span class="swt"><b>statusBar</b> <code>#1f6feb</code><span>the status bar background behind white text</span></span></li><li class="sw"><span class="chip" style="background:#7ee787"></span><span class="swt"><b>green</b> <code>#7ee787</code><span>passed, approved, Open, added lines and the add gutter</span></span></li><li class="sw"><span class="chip" style="background:#ff7b72"></span><span class="swt"><b>red</b> <code>#ff7b72</code><span>failing, removed lines and the remove gutter</span></span></li><li class="sw"><span class="chip" style="background:#e3b341"></span><span class="swt"><b>yellow</b> <code>#e3b341</code><span>requested changes and strings</span></span></li><li class="sw"><span class="chip" style="background:#d2a8ff"></span><span class="swt"><b>purple</b> <code>#d2a8ff</code><span>keywords and labels</span></span></li><li class="sw"><span class="chip" style="background:#12261b"></span><span class="swt"><b>addTint</b> <code>#12261b</code><span>added line rows</span></span></li><li class="sw"><span class="chip" style="background:#2d1517"></span><span class="swt"><b>delTint</b> <code>#2d1517</code><span>removed line rows</span></span></li></ul>
+<h3>Type scale</h3><ul class="types"><li><span class="tys" style="font:600 20px/1.3 system-ui,'Segoe UI',Ubuntu,Roboto,'Helvetica Neue',sans-serif">Add push notification preferences</span><span class="tym">20px 600 · system-ui, Segoe UI, Ubuntu, Roboto · the overview title</span></li><li><span class="tys" style="font:700 11px system-ui,'Segoe UI',Ubuntu,Roboto,'Helvetica Neue',sans-serif;letter-spacing:.08em">CHANGED FILES</span><span class="tym">11px 700 caps tracked 0.08em · explorer headers</span></li><li><span class="tys" style="font:400 13px system-ui,'Segoe UI',Ubuntu,Roboto,'Helvetica Neue',sans-serif">NotificationPrefs.tsx</span><span class="tym">13px 400 · tabs, tree rows and panel text</span></li><li><span class="tys" style="font:400 13px/1.6 'JetBrains Mono','Fira Code','Cascadia Code',ui-monospace,Menlo,Consolas,monospace">await savePushPrefs(user.id, prefs);</span><span class="tym">13px at 1.6 · JetBrains Mono, Fira Code, Cascadia Code, ui-monospace · code and terminal</span></li><li><span class="tys" style="font:400 12px system-ui,'Segoe UI',Ubuntu,Roboto,'Helvetica Neue',sans-serif">feature/push-prefs</span><span class="tym">12px · status bar</span></li></ul>
+<h3>Spacing, density and surfaces</h3><dl class="facts"><div class="fact"><dt>Spacing</dt><dd>A 4px unit. 22px tree rows, 35px tabs, 12px panel padding.</dd></div><div class="fact"><dt>Density</dt><dd>Dense. A full workspace with many panes, small type.</dd></div><div class="fact"><dt>Corners</dt><dd>Square panes and tabs, 4px buttons, fields and chips.</dd></div><div class="fact"><dt>Borders</dt><dd>1px line dividers between every pane. A 2px accent top bar on the active tab and a 2px accent left bar on the current view. 3px gutter bars for added and removed lines.</dd></div><div class="fact"><dt>Shadows</dt><dd>One shadow, under the inline comment widget, 0 4px 12px black at 50 percent.</dd></div><div class="fact"><dt>Icons</dt><dd>Thin line icons at 1.5px stroke, 24px in the activity bar and 16px elsewhere. Check circle for passed and approved, crossed square for failing, triangle with a bang for requested changes, padlock for the blocked merge, always with the word.</dd></div><div class="fact"><dt>Focus</dt><dd>A 1px accent outline offset negative 1px inside lists and tabs, and a 2px accent outline offset 2px on buttons and fields.</dd></div><div class="fact"><dt>Tone</dt><dd>Tool voice, short and exact, such as CHANGED FILES, 11/12 checks and Merge blocked by 1 failing check.</dd></div></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls"><div class="ctl"><span class="ctl-l">Primary button</span><div class="ctl-r"><button type="button" class="btn primary">Approve</button><button type="button" class="btn primary is-focus">Approve</button></div></div>
+<div class="ctl"><span class="ctl-l">Secondary button</span><div class="ctl-r"><button type="button" class="btn secondary">View file</button><button type="button" class="btn secondary is-focus">View file</button></div></div>
+<div class="ctl"><span class="ctl-l">Text field</span><div class="ctl-r"><label><span class="vh">Filter files, normal</span><input type="text" class="tf" placeholder="Filter files"></label><label><span class="vh">Filter files, focus</span><input type="text" class="tf is-focus" value="push"></label></div></div>
+<div class="ctl"><span class="ctl-l">List row</span><div class="ctl-r rows"><a href="#" class="srow"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h8.5L19 7.5V21H6z"/><path d="M14 3v5h5"/></svg><b>src/api/push.ts</b><span class="add">+46</span><span class="del">−8</span></a><a href="#" class="srow is-focus"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h8.5L19 7.5V21H6z"/><path d="M14 3v5h5"/></svg><b>src/api/push.ts</b><span class="add">+46</span><span class="del">−8</span></a></div></div></div>
+<p class="note">The second sample in each pair shows the focus state, drawn statically with the class is-focus. It matches the real :focus-visible rule.</p>
+</div></section>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 393 · Bootcamp · Brightwork</title>
+<style>
+
+:root { color-scheme: dark; --olive:#20231a; --board:#2b2f20; --sheet:#33382a; --rule:#565c44; --kh:#e9e0bd; --muted:#c2b994;
+ --stamp:#ff8a74; --onk:#1d1f14; --drab:#8c936c; --go:#c7e08a;
+ --sten: Stencil, "Stencil Std", "Capitals", "Arial Black", Impact, "Franklin Gothic Heavy", sans-serif; --type: "Courier New", Courier, "Nimbus Mono PS", ui-monospace, monospace; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--olive); color: var(--kh); font: 15px/1.55 var(--type);
+ background-image: repeating-linear-gradient(45deg, rgba(0,0,0,.08) 0 2px, transparent 2px 6px); }
+a { color: var(--kh); }
+:focus-visible, .is-focus { outline: 3px solid var(--kh) !important; outline-offset: 3px; box-shadow: 0 0 0 6px var(--olive), 0 0 0 8px var(--stamp); }
+.st { font-family: var(--sten); text-transform: uppercase; letter-spacing: .12em; font-weight: 900;
+ -webkit-mask-image: linear-gradient(180deg, #000 0 47%, transparent 47% 53%, #000 53%); mask-image: linear-gradient(180deg, #000 0 47%, transparent 47% 53%, #000 53%); }
+.top { border-bottom: 3px solid var(--kh); }
+.top .in { max-width: 1200px; margin: 0 auto; padding: 14px 28px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.top .brand { font-size: 22px; }
+.top .slash { color: var(--muted); font-weight: 700; letter-spacing: .1em; }
+.top nav { display: flex; gap: 0; margin-left: auto; border: 2px solid var(--kh); }
+.top nav a { padding: 6px 14px; text-decoration: none; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; font-size: 13px; color: var(--kh); border-left: 2px solid var(--kh); }
+.top nav a:first-child { border-left: 0; }
+.top nav a[aria-current="page"] { background: var(--kh); color: var(--onk); }
+main { max-width: 1200px; margin: 0 auto; padding: 28px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 28px; }
+.clip { background: var(--board); padding: 44px 18px 18px; position: relative; border: 2px solid #15170f; box-shadow: 6px 6px 0 #12140d; min-width: 0; }
+.clip::before { content: ""; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); width: 140px; height: 36px; background: linear-gradient(#9aa08a, #6f745f); border: 2px solid #15170f; border-radius: 4px 4px 10px 10px; }
+.paper { background: var(--sheet); padding: 22px 24px 24px; border: 1px solid var(--rule); }
+.paper h1, .paper h2 { margin: 0; font-size: 26px; line-height: 1.1; }
+.memo { display: grid; grid-template-columns: auto 1fr; gap: 0 12px; margin: 12px 0 0; font-size: 14px; border-top: 2px solid var(--kh); border-bottom: 2px solid var(--kh); padding: 8px 0; }
+.memo dt { font-weight: 700; letter-spacing: .1em; }
+.memo dd { margin: 0; color: var(--muted); }
+.orders { list-style: none; margin: 16px 0 0; padding: 0; counter-reset: ord; }
+.order { display: grid; grid-template-columns: 52px minmax(0,1fr) 96px; gap: 4px 14px; padding: 14px 0; border-bottom: 1px dashed var(--rule); align-items: start; }
+.order .no { font: 900 30px/1 var(--sten); color: var(--muted); }
+.order h3 { margin: 0; font-size: 16px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.order p { margin: 2px 0 0; font-size: 14px; color: var(--muted); }
+.order p b { color: var(--kh); }
+.boxes { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 8px; }
+.boxes i { width: 16px; height: 16px; border: 2px solid var(--muted); display: grid; place-items: center; font: 900 12px/1 var(--type); font-style: normal; color: var(--onk); }
+.boxes i.x { background: var(--kh); border-color: var(--kh); }
+.boxes i.x::before { content: "X"; }
+.stampbox { align-self: center; justify-self: end; display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; border: 3px double currentColor; font: 900 14px var(--sten); letter-spacing: .1em; text-transform: uppercase; transform: rotate(-6deg); white-space: nowrap; }
+.stampbox.open { color: var(--stamp); }
+.stampbox.done { color: var(--go); transform: rotate(4deg); }
+.stampbox svg { width: 14px; height: 14px; }
+.aar { align-self: start; }
+.aar dl { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); margin: 14px 0 0; border: 2px solid var(--kh); }
+.aar dl div { padding: 8px 12px; border-right: 2px solid var(--kh); border-bottom: 2px solid var(--kh); }
+.aar dl div:nth-child(2n) { border-right: 0; }
+.aar dl div:nth-last-child(-n+2) { border-bottom: 0; }
+.aar dt { font-size: 12px; font-weight: 700; letter-spacing: .14em; color: var(--muted); }
+.aar dd { margin: 0; font: 900 34px/1.1 var(--sten); letter-spacing: .02em; }
+.aar dd small { font: 700 14px var(--type); color: var(--muted); letter-spacing: 0; }
+.log { margin-top: 16px; }
+.log h3 { margin: 0 0 6px; font-size: 13px; letter-spacing: .14em; font-weight: 700; }
+.lg { display: grid; grid-template-columns: 74px minmax(0,1fr) 64px; gap: 10px; align-items: center; font-size: 13px; padding: 3px 0; }
+.lg .bar { height: 14px; border: 2px solid var(--muted); }
+.lg .bar i { display: block; height: 100%; background: repeating-linear-gradient(-45deg, var(--kh) 0 3px, var(--drab) 3px 6px); }
+.lg.hi b { color: var(--stamp); }
+.lg.hi .bar { border-color: var(--stamp); }
+.lg span:last-child { text-align: right; font-weight: 700; }
+.roster { grid-column: 1 / -1; }
+.tblw { overflow-x: auto; margin-top: 14px; }
+table.r { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 14px; }
+table.r th, table.r td { border: 2px solid var(--kh); padding: 8px 10px; text-align: center; }
+table.r thead th { background: var(--kh); color: var(--onk); letter-spacing: .12em; font-weight: 700; }
+table.r tbody th { text-align: left; letter-spacing: .1em; font-weight: 700; color: var(--muted); }
+table.r td.km { font: 900 22px var(--sten); }
+table.r td.rest { color: var(--muted); font-weight: 700; letter-spacing: .1em; }
+table.r .t { background: rgba(233,224,189,.1); }
+table.r thead th.t { background: var(--stamp); color: var(--onk); }
+table.r .meter { display: block; height: 40px; position: relative; }
+table.r .meter i { position: absolute; left: 25%; right: 25%; bottom: 0; background: var(--kh); }
+.small { margin-top: 12px; font-size: 14px; color: var(--muted); }
+.small b { color: var(--kh); }
+.duo { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 28px; }
+.duo .clip { padding-top: 18px; }
+.duo .clip::before { display: none; }
+.big { font: 900 44px/1.05 var(--sten); margin: 10px 0 0; letter-spacing: .02em; }
+.big small { font: 700 16px var(--type); color: var(--muted); letter-spacing: 0; }
+.camp { display: grid; grid-template-columns: repeat(12, 1fr); gap: 4px; margin: 12px 0; }
+.camp i { height: 28px; border: 2px solid var(--muted); display: grid; place-items: center; font: 700 11px var(--type); font-style: normal; color: var(--muted); }
+.camp i.d { background: var(--muted); color: var(--onk); }
+.camp i.c { background: var(--stamp); border-color: var(--stamp); color: var(--onk); }
+.nextord { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; border-top: 2px solid var(--kh); padding-top: 12px; }
+.nextord b { display: block; font-size: 17px; letter-spacing: .06em; }
+.nextord span { font-size: 12px; letter-spacing: .14em; color: var(--muted); font-weight: 700; }
+.btn-p, .btn-s { font: 700 14px var(--type); text-transform: uppercase; letter-spacing: .12em; padding: 11px 18px; cursor: pointer; border-radius: 0; }
+.btn-p { background: var(--kh); color: var(--onk); border: 2px solid var(--kh); box-shadow: 4px 4px 0 #12140d; }
+.btn-s { background: transparent; color: var(--kh); border: 2px solid var(--kh); }
+.sheet { max-width: 1200px; margin: 8px auto 0; padding: 32px 28px 56px; border-top: 3px solid var(--kh); }
+.sheet h2 { font-family: var(--sten); text-transform: uppercase; letter-spacing: .1em; font-weight: 900; font-size: 32px; margin: 0 0 10px; }
+.sheet h3 { font-size: 14px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; margin: 32px 0 12px; padding: 4px 10px; border: 2px solid var(--kh); display: inline-block; }
+.idea { margin: 0; max-width: 780px; font-size: 16px; }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 0; border: 2px solid var(--kh); }
+.sw { display: flex; gap: 10px; padding: 10px; font-size: 13px; border-right: 1px dashed var(--rule); border-bottom: 1px dashed var(--rule); background: var(--sheet); }
+.sw i { width: 32px; height: 32px; flex: none; border: 2px solid var(--kh); }
+.sw b { text-transform: uppercase; letter-spacing: .08em; }
+.sw span { color: var(--muted); }
+.types { border: 2px solid var(--kh); padding: 4px 14px; background: var(--sheet); }
+.type-row { display: flex; gap: 16px; align-items: baseline; padding: 8px 0; border-bottom: 1px dashed var(--rule); flex-wrap: wrap; }
+.type-row:last-child { border: 0; }
+.type-row code { font: 12px var(--type); color: var(--muted); min-width: 220px; }
+.facts { display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 8px 18px; margin: 0; }
+.facts dt { font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--stamp); }
+.facts dd { margin: 0; }
+.controls { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; }
+.ctl-label { display: block; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.ctl-pair { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-end; }
+.fld { display: flex; flex-direction: column; gap: 4px; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.fld input { font: 700 15px var(--type); color: var(--kh); background: var(--sheet); border: 0; border-bottom: 2px solid var(--kh); padding: 8px 10px; width: 220px; }
+.lrow { display: grid; grid-template-columns: 40px 1fr auto; gap: 10px; align-items: center; min-width: 280px; padding: 8px 10px; background: var(--sheet); border: 1px dashed var(--rule); color: var(--kh); text-decoration: none; }
+.lrow .no { font: 900 22px var(--sten); color: var(--muted); }
+.lrow .stampbox { font-size: 12px; }
+@media (max-width: 960px) { main { grid-template-columns: minmax(0,1fr); } .duo { grid-template-columns: minmax(0,1fr); } }
+@media (max-width: 600px) {
+ .top .in { padding: 12px 16px; gap: 10px; }
+ .top nav { margin-left: 0; }
+ main { padding: 24px 12px; gap: 24px; }
+ .clip { padding: 40px 10px 10px; }
+ .paper { padding: 16px 14px; }
+ .paper h1, .paper h2 { font-size: 21px; }
+ .order { grid-template-columns: 36px minmax(0,1fr); }
+ .order .no { font-size: 22px; }
+ .order .stampbox { grid-column: 2; justify-self: start; margin-top: 6px; }
+ .boxes i { width: 14px; height: 14px; }
+ .aar dd { font-size: 24px; }
+ .lg { grid-template-columns: 64px minmax(0,1fr) 54px; }
+ .duo { gap: 24px; }
+ .big { font-size: 34px; }
+ .camp { gap: 2px; }
+ .camp i { font-size: 9px; }
+ .sheet { padding: 28px 16px 40px; }
+ .sheet h2 { font-size: 24px; }
+ .facts, .controls { grid-template-columns: minmax(0,1fr); }
+ .fld input, .lrow { width: 100%; min-width: 0; }
+ .ctl-pair > * { flex: 1 1 100%; }
+}
+
+</style>
+</head>
+<body>
+<header class="top"><div class="in"><span class="brand st">Brightwork Move</span><span class="slash">// DAILY ORDERS // SAT 31 OCT</span>
+<nav aria-label="Move views"><a href="#today" aria-current="page">Today</a><a href="#week">Week</a><a href="#plan">Plan</a></nav></div></header>
+<main id="today">
+<section class="clip" aria-labelledby="h-o"><div class="paper"><h1 class="st" id="h-o">Orders of the day</h1>
+<dl class="memo"><dt>DATE</dt><dd>Saturday 31 October</dd><dt>UNIT</dt><dd>You</dd><dt>STATUS</dt><dd>3 open, 1 done</dd></dl>
+<ol class="orders"><li class="order"><span class="no" aria-hidden="true">01</span><div><h3>Move. Burn 600 kcal.</h3>
+<p>Status <b>486 of 600 kcal</b>. <b>114 kcal</b> to go. Carry on.</p>
+<div class="boxes" role="img" aria-label="Move 486 of 600 kcal, 9 of 12 boxes ticked, one box per 50 kcal"><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i><i class=""></i><i class=""></i><i class=""></i></div></div>
+<span class="stampbox open"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2h12v12H2z" fill="none" stroke="currentColor" stroke-width="2"/></svg>Open</span></li><li class="order"><span class="no" aria-hidden="true">02</span><div><h3>Exercise. Log 45 min of exercise.</h3>
+<p>Status <b>38 of 45 min</b>. <b>7 min</b> to go. Carry on.</p>
+<div class="boxes" role="img" aria-label="Exercise 38 of 45 minutes, 7 of 9 boxes ticked, one box per 5 min"><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i><i class=""></i><i class=""></i></div></div>
+<span class="stampbox open"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2h12v12H2z" fill="none" stroke="currentColor" stroke-width="2"/></svg>Open</span></li><li class="order"><span class="no" aria-hidden="true">03</span><div><h3>Stand. Stand in 12 separate hours.</h3>
+<p>Status <b>9 of 12 h</b>. <b>3 h</b> to go. Carry on.</p>
+<div class="boxes" role="img" aria-label="Stand 9 of 12 hours, 9 of 12 boxes ticked, one box per 1 h"><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i><i class=""></i><i class=""></i><i class=""></i></div></div>
+<span class="stampbox open"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2h12v12H2z" fill="none" stroke="currentColor" stroke-width="2"/></svg>Open</span></li><li class="order"><span class="no" aria-hidden="true">04</span><div><h3>Evening run. Complete.</h3>
+<p><b>8.2 km</b> in <b>42:16</b>. See after action report.</p></div><span class="stampbox done"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2h12v12H2z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="2"/></svg>Done</span></li></ol></div></section>
+<section class="clip aar" aria-labelledby="h-a" id="workout"><div class="paper"><h2 class="st" id="h-a">After action report</h2>
+<p class="small" style="margin-top:6px">Evening run. Mission complete.</p>
+<dl><div><dt>DISTANCE</dt><dd>8.2<small> km</small></dd></div><div><dt>TIME</dt><dd>42:16</dd></div><div><dt>AVG PACE</dt><dd>5:09<small> /km</small></dd></div><div><dt>AVG HR</dt><dd>152<small> bpm</small></dd></div></dl>
+<div class="log" role="img" aria-label="Heart rate zones for the evening run. Zone 1, 3 minutes. Zone 2, 9 minutes. Zone 3, 18 minutes, the most. Zone 4, 10 minutes. Zone 5, 2 minutes. 42 minutes in all."><h3>INTENSITY LOG · 42 MIN</h3><div class="lg"><b>ZONE 1</b><span class="bar"><i style="width:17%"></i></span><span>3 MIN</span></div><div class="lg"><b>ZONE 2</b><span class="bar"><i style="width:50%"></i></span><span>9 MIN</span></div><div class="lg hi"><b>ZONE 3</b><span class="bar"><i style="width:100%"></i></span><span>18 MIN</span></div><div class="lg"><b>ZONE 4</b><span class="bar"><i style="width:56%"></i></span><span>10 MIN</span></div><div class="lg"><b>ZONE 5</b><span class="bar"><i style="width:11%"></i></span><span>2 MIN</span></div></div></div></section>
+<section class="clip roster" aria-labelledby="h-w" id="week" style="padding-top:18px"><div class="paper"><h2 class="st" id="h-w">Duty roster · this week</h2>
+<div class="tblw"><table class="r"><caption style="text-align:left;color:var(--muted);font-size:13px;padding-bottom:6px">Distance per day, Sunday 25 to Saturday 31 October. Today is shaded and starred.</caption>
+<thead><tr><th scope="col">DAY</th><th scope="col">SUN 25</th><th scope="col">MON 26</th><th scope="col">TUE 27</th><th scope="col">WED 28</th><th scope="col">THU 29</th><th scope="col">FRI 30</th><th scope="col" class="t">SAT 31 ★</th></tr></thead>
+<tbody><tr><th scope="row">LOAD</th><td class=""><span class="meter" aria-hidden="true"></span></td><td class=""><span class="meter" aria-hidden="true"><i style="height:62%"></i></span></td><td class=""><span class="meter" aria-hidden="true"></span></td><td class=""><span class="meter" aria-hidden="true"><i style="height:90%"></i></span></td><td class=""><span class="meter" aria-hidden="true"><i style="height:37%"></i></span></td><td class=""><span class="meter" aria-hidden="true"></span></td><td class="t"><span class="meter" aria-hidden="true"><i style="height:100%"></i></span></td></tr><tr><th scope="row">KM</th><td class="rest">— REST</td><td class="km">5.1</td><td class="rest">— REST</td><td class="km">7.4</td><td class="km">3.0</td><td class="rest">— REST</td><td class="km t">8.2</td></tr><tr><th scope="row">DUTY</th><td class="">STAND DOWN</td><td class="">X RUN</td><td class="">STAND DOWN</td><td class="">X RUN</td><td class="">X RUN</td><td class="">STAND DOWN</td><td class="t">X RUN</td></tr></tbody></table></div>
+<p class="small">Total <b>23.7 km</b>. Four runs. Three rest days.</p></div></section>
+<div class="duo">
+<section class="clip" aria-labelledby="h-s"><div class="paper"><h2 class="st" id="h-s">Lights out</h2><p class="big">7<small> H</small> 12<small> MIN</small></p>
+<p class="small">Sleep last night. Deep sleep <b>1 h 34 min</b>. Adequate.</p></div></section>
+<section class="clip" aria-labelledby="h-p" id="plan"><div class="paper"><h2 class="st" id="h-p">Campaign · half marathon</h2><p class="big">Week 6<small> of 12</small></p>
+<div class="camp" role="img" aria-label="Week 6 of 12. Weeks 1 to 5 done, week 6 current"><i class="d">1</i><i class="d">2</i><i class="d">3</i><i class="d">4</i><i class="d">5</i><i class="c">6</i><i class="">7</i><i class="">8</i><i class="">9</i><i class="">10</i><i class="">11</i><i class="">12</i></div>
+<div class="nextord"><div><span>NEXT ORDER · TOMORROW</span><b>LONG RUN 14 KM</b></div><button class="btn-s" type="button">View plan</button></div></div></section>
+</div>
+</main>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 393 · Bootcamp</h2>
+<p class="idea">The day issued as a typed orders sheet on an olive clipboard, with stencilled headings, numbered orders ticked off in boxes, a duty roster for the week, and DONE or OPEN stamped beside every goal in terse capitals.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><i style="background:#20231a"></i><div><b>Olive</b> #20231a<br><span>the hatched page and the style sheet</span></div></li><li class="sw"><i style="background:#2b2f20"></i><div><b>Board</b> #2b2f20<br><span>the clipboards</span></div></li><li class="sw"><i style="background:#33382a"></i><div><b>Sheet</b> #33382a<br><span>the paper on each board, fields and list rows</span></div></li><li class="sw"><i style="background:#565c44"></i><div><b>Rule</b> #565c44<br><span>dashed lines between orders</span></div></li><li class="sw"><i style="background:#e9e0bd"></i><div><b>Khaki</b> #e9e0bd<br><span>text, ticked boxes, table rules, the roster header and the primary button</span></div></li><li class="sw"><i style="background:#c2b994"></i><div><b>Muted</b> #c2b994<br><span>labels, order numbers, empty boxes and done plan weeks</span></div></li><li class="sw"><i style="background:#8c936c"></i><div><b>Drab</b> #8c936c<br><span>the second stripe in hatched log bars</span></div></li><li class="sw"><i style="background:#ff8a74"></i><div><b>Stamp</b> #ff8a74<br><span>OPEN stamps, the top zone, the current plan week and sheet labels</span></div></li><li class="sw"><i style="background:#c7e08a"></i><div><b>Go</b> #c7e08a<br><span>DONE stamps</span></div></li><li class="sw"><i style="background:#1d1f14"></i><div><b>On khaki</b> #1d1f14<br><span>text on khaki, muted and stamp fills</span></div></li></ul>
+<h3>Type · Stencil, Stencil Std, Arial Black, Impact for headings with a masked bridge; Courier New, Courier, Nimbus Mono PS, ui-monospace for text</h3>
+<div class="types"><div class="type-row"><code>44 / 900 Stencil stack, bridged</code><span style="font:900 44px var(--sten);letter-spacing:.02em"><span class="st">7 H 12</span></span></div><div class="type-row"><code>26 / 900 stencil caps .12em heading</code><span style="font-size:26px"><span class="st">Orders of the day</span></span></div><div class="type-row"><code>16 / 700 typed caps order</code><span style="font-weight:700;letter-spacing:.08em;text-transform:uppercase">Move. Burn 600 kcal.</span></div><div class="type-row"><code>15 / 400 body, Courier New stack</code><span style="">Status 486 of 600 kcal. Carry on.</span></div><div class="type-row"><code>12 / 700 caps .14em label</code><span style="font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--muted)">NEXT ORDER · TOMORROW</span></div></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3>
+<dl class="facts"><dt>Spacing</dt><dd>8px unit. 28px between boards, 22 to 24px paper padding, 14px per order.</dd><dt>Density</dt><dd>Medium high. Orders, a report form, a roster table and two short notes.</dd><dt>Corners</dt><dd>None. Square boards, boxes, stamps and buttons.</dd><dt>Borders</dt><dd>2px khaki rules on forms and tables, dashed rules between orders, double stamp borders.</dd><dt>Shadows</dt><dd>Hard 4 to 6px offset shadows under clipboards and the primary button.</dd><dt>Icons</dt><dd>Tick boxes filled with an X for done units and empty for to go. Stamps read OPEN with an empty square or DONE with a crossed square. Rest days say REST with a dash and STAND DOWN.</dd><dt>Focus</dt><dd>A 3px khaki outline, an olive gap and a 2px stamp coloured ring outside.</dd><dt>Tone</dt><dd>Terse orders in capitals, Carry on, Mission complete, Lights out, Next order.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls"><div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-p" type="button">Move out</button><button class="btn-p is-focus" type="button">Move out</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-s" type="button">View plan</button><button class="btn-s is-focus" type="button">View plan</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="fld"><span>Search orders</span><input type="text" value="run"></label><label class="fld"><span>Search orders, focused</span><input type="text" class="is-focus" value="run"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><a class="lrow" href="#workout"><span class="no">04</span><span>EVENING RUN · 8.2 KM</span><span class="stampbox done"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2h12v12H2z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="2"/></svg>Done</span></a><a class="lrow is-focus" href="#workout"><span class="no">04</span><span>EVENING RUN · 8.2 KM</span><span class="stampbox done"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2h12v12H2z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="2"/></svg>Done</span></a></div></div></div>
+</section>
+</body>
+</html>

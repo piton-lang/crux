@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 157 · 90s rave flyer · Brightwork</title>
+<style>
+:root {
+  --white: #ffffff;
+  --ink: #101010;
+  --lime: #c8ff1a;
+  --pink: #ff4fc4;
+  --cyan: #3ee8ff;
+  --orange: #ff9a1f;
+  --violet: #4b10b0;
+  --fog: #f1f1f4;
+  --wide: "Arial Black", "Helvetica Neue", "Segoe UI Black", Verdana, sans-serif;
+  --tech: Verdana, "DejaVu Sans", Tahoma, sans-serif;
+  --mono: "Lucida Console", "DejaVu Sans Mono", "Courier New", monospace;
+}
+* { box-sizing: border-box; }
+html { background: var(--white); }
+body { margin: 0; color: var(--ink); background: var(--white); font: 15px/1.5 var(--tech); }
+a { color: var(--ink); }
+:focus-visible, .is-focus { outline: 3px solid var(--violet) !important; outline-offset: 3px; box-shadow: 0 0 0 9px var(--lime); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 24px; position: relative; }
+.wide { font-family: var(--wide); text-transform: uppercase; font-stretch: expanded; letter-spacing: 0.06em; }
+
+/* background acid shapes */
+.blob { position: absolute; z-index: -1; pointer-events: none; }
+
+/* info line at top */
+.infoline { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); padding: 8px 0; }
+.nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+.nav a { display: inline-block; font: 900 12px/1 var(--wide); letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; padding: 8px 10px; border-radius: 999px; }
+.nav a[aria-current="page"] { background: var(--ink); color: var(--lime); }
+.tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.search { display: flex; align-items: center; gap: 6px; border: 2px solid var(--ink); border-radius: 999px; padding: 0 12px; background: var(--white); }
+.search input { border: 0; font: 14px var(--tech); padding: 8px 0; width: 170px; background: transparent; color: var(--ink); }
+.search input:focus { outline: none; }
+.search:focus-within { outline: 3px solid var(--violet); outline-offset: 3px; box-shadow: 0 0 0 9px var(--lime); }
+.btn { font: 900 13px/1 var(--wide); letter-spacing: 0.14em; text-transform: uppercase; padding: 12px 18px; border: 2px solid var(--ink); border-radius: 999px; background: var(--pink); color: var(--ink); cursor: pointer; transform: skewX(-10deg); }
+.btn > span { display: inline-block; transform: skewX(10deg); }
+.btn.alt { background: var(--white); }
+.bell { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--ink); background: var(--cyan); font: 900 13px var(--wide); cursor: pointer; display: grid; place-items: center; }
+.me { font: 900 11px/1.2 var(--wide); letter-spacing: 0.12em; text-transform: uppercase; }
+
+/* flyer head */
+.head { text-align: center; padding: 18px 0 0; position: relative; }
+.presents { font: 900 13px var(--wide); letter-spacing: 0.5em; text-transform: uppercase; margin: 0; }
+.arc { width: 100%; max-width: 820px; height: auto; display: block; margin: 0 auto; }
+.hello { margin: -8px 0 0; font-size: clamp(30px, 6vw, 64px); line-height: 0.95; transform: scaleY(1.35) skewX(-12deg); transform-origin: center top; padding-bottom: 0.4em; }
+.hello span { background: var(--lime); padding: 0 0.15em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.date { display: inline-block; margin: 14px 0 0; font: 900 14px var(--wide); letter-spacing: 0.3em; text-transform: uppercase; border: 2px solid var(--ink); padding: 8px 14px; }
+.warn { margin: 18px auto 0; display: inline-flex; align-items: center; gap: 12px; background: var(--ink); color: var(--white); padding: 12px 20px; font: 900 clamp(16px, 2.4vw, 24px)/1.1 var(--wide); letter-spacing: 0.1em; text-transform: uppercase; transform: rotate(-2deg); }
+.warn svg { color: var(--orange); flex: none; }
+
+/* summary as round stickers */
+.stickers { list-style: none; margin: 34px 0 0; padding: 0; display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; }
+.stickers li { width: 170px; height: 170px; border-radius: 50%; display: grid; place-content: center; text-align: center; border: 3px solid var(--ink); padding: 14px; }
+.stickers li:nth-child(1) { background: var(--cyan); transform: rotate(-8deg); }
+.stickers li:nth-child(2) { background: var(--lime); transform: rotate(5deg); }
+.stickers li:nth-child(3) { background: var(--orange); transform: rotate(-3deg); border-style: dashed; border-width: 4px; }
+.stickers li:nth-child(4) { background: var(--pink); transform: rotate(9deg); }
+.stickers .n { font: 900 56px/1 var(--wide); letter-spacing: -0.02em; display: block; transform: scaleX(1.2); }
+.stickers .l { font: 900 10px/1.25 var(--wide); letter-spacing: 0.14em; text-transform: uppercase; display: block; margin-top: 6px; }
+
+/* line-up */
+.cols { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 40px; margin-top: 48px; }
+.h2 { margin: 0 0 12px; font: 900 30px/1 var(--wide); letter-spacing: 0.06em; text-transform: uppercase; transform: skewX(-12deg); display: inline-block; border-bottom: 6px solid var(--ink); }
+.room { margin: 22px 0 6px; font: 900 11px var(--wide); letter-spacing: 0.3em; text-transform: uppercase; display: inline-block; padding: 4px 10px; }
+.room.main { background: var(--cyan); } .room.two { background: var(--lime); } .room.terr { background: var(--orange); }
+.lineup { list-style: none; margin: 0; padding: 0; }
+.lineup li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 16px; padding: 10px 0; border-bottom: 1px dashed var(--ink); align-items: baseline; }
+.lineup .act { font: 900 clamp(18px, 2.6vw, 26px)/1.1 var(--wide); text-transform: uppercase; letter-spacing: 0.02em; }
+.lineup .due { font: 900 14px var(--mono); white-space: nowrap; }
+.lineup .sub { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: 13px; }
+.eq { display: inline-flex; gap: 2px; align-items: flex-end; height: 14px; }
+.eq i { width: 6px; background: var(--ink); }
+.st { display: inline-flex; align-items: center; gap: 5px; font: 900 11px/1 var(--wide); letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 9px 5px 6px; border: 2px solid var(--ink); border-radius: 999px; }
+.st.ok { background: var(--lime); } .st.risk { background: var(--orange); } .st.late { background: var(--ink); color: var(--white); }
+
+.times { list-style: none; margin: 0; padding: 0; }
+.times li { display: grid; grid-template-columns: 92px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px dashed var(--ink); font-size: 14px; }
+.times .t { font: 900 11px/1.4 var(--wide); letter-spacing: 0.1em; text-transform: uppercase; }
+.times b { font-family: var(--wide); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
+.eqchart { margin-top: 32px; }
+.eqchart svg { width: 100%; height: auto; display: block; }
+.eqchart p { margin: 8px 0 0; font: 900 11px var(--wide); letter-spacing: 0.12em; text-transform: uppercase; }
+.k { display: inline-block; width: 12px; height: 12px; border: 2px solid var(--ink); vertical-align: -2px; margin-right: 4px; }
+
+.small { margin-top: 40px; border-top: 3px solid var(--ink); padding-top: 8px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font: 900 10px var(--wide); letter-spacing: 0.2em; text-transform: uppercase; }
+
+/* style sheet */
+.ss { margin-top: 64px; border: 3px solid var(--ink); padding: 32px; position: relative; background: var(--white); }
+.ss h2 { margin: 0; font: 900 clamp(26px, 4vw, 44px)/1.05 var(--wide); text-transform: uppercase; letter-spacing: 0.04em; transform: skewX(-12deg); }
+.ss h2 span { background: var(--cyan); padding: 0 8px; }
+.ss .idea { font-size: 18px; max-width: 780px; }
+.ss h3 { font: 900 13px var(--wide); letter-spacing: 0.3em; text-transform: uppercase; margin: 32px 0 12px; display: inline-block; background: var(--ink); color: var(--white); padding: 6px 12px; border-radius: 999px; }
+.sw { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 16px; }
+.sw li { text-align: center; font-size: 13px; }
+.sw .c { width: 96px; height: 96px; border-radius: 50%; border: 3px solid var(--ink); margin: 0 auto 6px; }
+.sw b { display: block; font: 900 12px var(--wide); letter-spacing: 0.1em; text-transform: uppercase; }
+.types p { margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px dashed var(--ink); }
+.types small { display: block; font: 12px var(--mono); letter-spacing: 0; text-transform: none; font-weight: 400; transform: none; }
+.sys { margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px 28px; }
+.sys dt { font: 900 12px var(--wide); letter-spacing: 0.2em; text-transform: uppercase; }
+.sys dd { margin: 2px 0 0; font-size: 14px; }
+.ctrls { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 28px; }
+.ctrls figure { margin: 0; display: grid; gap: 16px; justify-items: start; }
+.ctrls figcaption { font: 900 11px var(--wide); letter-spacing: 0.2em; text-transform: uppercase; }
+.field { display: grid; gap: 4px; width: 100%; font: 900 11px var(--wide); letter-spacing: 0.14em; text-transform: uppercase; }
+.field input { font: 15px var(--tech); border: 2px solid var(--ink); border-radius: 999px; padding: 9px 14px; background: var(--white); color: var(--ink); width: 100%; }
+.row { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 4px; border-bottom: 1px dashed var(--ink); font: 900 15px var(--wide); text-transform: uppercase; }
+
+@media (max-width: 900px) {
+  .cols { grid-template-columns: 1fr; }
+  .infoline { justify-content: center; }
+}
+@media (max-width: 560px) {
+  .wrap { padding: 16px; }
+  .stickers li { width: 146px; height: 146px; }
+  .stickers .n { font-size: 44px; }
+  .search { flex: 1 1 100%; }
+  .search input { width: 100%; }
+  .times li { grid-template-columns: 1fr; gap: 2px; }
+  .ss { padding: 22px 16px; }
+}
+/* Keeps the page within 375px: decorative shapes and the header row stay inside the screen. */
+.wrap { overflow-x: clip; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="spark" viewBox="0 0 20 20"><path d="M10 0l2.5 7.5L20 10l-7.5 2.5L10 20l-2.5-7.5L0 10l7.5-2.5z" fill="currentColor"/></symbol>
+    <symbol id="bolt" viewBox="0 0 20 20"><path d="M12 0L3 11h6l-2 9 10-12h-6z" fill="currentColor"/></symbol>
+    <symbol id="nope" viewBox="0 0 20 20"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="3"/><path d="M4.5 15.5l11-11" stroke="currentColor" stroke-width="3"/></symbol>
+    <symbol id="siren" viewBox="0 0 24 24"><path d="M12 1.5l11 20H1z" fill="currentColor" stroke="#101010" stroke-width="1.5"/><path d="M10.6 8h2.8l-.4 7h-2zM10.6 16.5h2.8v2.8h-2.8z" fill="#101010"/></symbol>
+  </defs>
+</svg>
+<div class="wrap">
+  <svg class="blob" style="top:120px;left:-80px;width:340px" viewBox="0 0 200 200" aria-hidden="true"><path d="M40 20c40-30 90 10 120 0s50 60 20 90-10 80-60 80S10 170 20 120 0 50 40 20z" fill="#c8ff1a" opacity=".55"/></svg>
+  <svg class="blob" style="top:60px;right:-60px;width:300px" viewBox="0 0 200 200" aria-hidden="true"><path d="M100 10l20 50 55-10-35 45 40 40-55-5-10 55-30-45-45 30 10-55-45-25 55-15z" fill="#3ee8ff" opacity=".45"/></svg>
+  <svg class="blob" style="top:1100px;left:40%;width:380px" viewBox="0 0 200 200" aria-hidden="true"><path d="M20 100c0-50 60-80 100-60s70 30 60 80-80 70-110 50S20 150 20 100z" fill="#ff4fc4" opacity=".25"/></svg>
+
+<header class="infoline">
+  <nav class="nav" aria-label="Main"><ul>
+    <li><a href="#" aria-current="page">Home</a></li><li><a href="#">Projects</a></li><li><a href="#">Tasks</a></li><li><a href="#">Team</a></li><li><a href="#">Reports</a></li><li><a href="#">Settings</a></li>
+  </ul></nav>
+  <div class="tools">
+    <label class="search"><span class="sr">Search projects and tasks</span><svg width="14" height="14" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M12.5 12.5L18 18" stroke="currentColor" stroke-width="3.5"/></svg><input type="search" placeholder="Search projects and tasks"></label>
+    <button class="btn" type="button"><span>New project</span></button>
+    <button class="bell" type="button" aria-label="Notifications, 4 unread">4</button>
+    <span class="me">Mara<br>Okafor</span>
+  </div>
+</header>
+
+<main>
+<section class="head" aria-labelledby="hi">
+  <p class="presents">Your crew presents</p>
+  <svg class="arc" viewBox="0 0 820 170" role="img" aria-label="Brightwork">
+    <defs><path id="curve" d="M30 150 Q410 -20 790 150"/></defs>
+    <text font-family="Arial Black, Helvetica Neue, Verdana, sans-serif" font-weight="900" font-size="96" letter-spacing="4" fill="#101010" stroke="#ff4fc4" stroke-width="8" paint-order="stroke"><textPath href="#curve" startOffset="50%" text-anchor="middle">BRIGHTWORK</textPath></text>
+  </svg>
+  <h1 class="hello wide" id="hi"><span>Good morning, Mara</span></h1>
+  <p class="date">Saturday · 31 · October · 2026</p><br>
+  <p class="warn"><svg width="28" height="28" aria-hidden="true"><use href="#siren"/></svg>4 tasks are overdue</p>
+
+  <ul class="stickers" aria-label="This week">
+    <li><span class="n">6</span><span class="l">Active projects</span></li>
+    <li><span class="n">23</span><span class="l">Tasks due this week</span></li>
+    <li><span class="n">4</span><span class="l">Overdue tasks</span></li>
+    <li><span class="n">186</span><span class="l">Hours logged this week</span></li>
+  </ul>
+</section>
+
+<div class="cols">
+<section aria-labelledby="pj">
+  <h2 class="h2" id="pj">Line-up</h2>
+  <p class="room main">Main room · Engineering</p>
+  <ul class="lineup">
+    <li><span class="act">Mobile app 2.0</span><span class="due">due 2 Dec</span><span class="sub"><span class="st risk"><svg width="13" height="13" aria-hidden="true"><use href="#bolt"/></svg>At risk</span>27 of 60 tasks · 45% <span class="eq" aria-hidden="true"><i style="height:30%"></i><i style="height:50%"></i><i style="height:70%"></i><i style="height:90%"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i></span></span></li>
+    <li><span class="act">Billing migration</span><span class="due">due 20 Nov</span><span class="sub"><span class="st late"><svg width="13" height="13" aria-hidden="true"><use href="#nope"/></svg>Behind</span>12 of 40 tasks · 30% <span class="eq" aria-hidden="true"><i style="height:30%"></i><i style="height:50%"></i><i style="height:70%"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i></span></span></li>
+  </ul>
+  <p class="room two">Room 2 · Design and Research</p>
+  <ul class="lineup">
+    <li><span class="act">Website redesign</span><span class="due">due 14 Nov</span><span class="sub"><span class="st ok"><svg width="13" height="13" aria-hidden="true"><use href="#spark"/></svg>On track</span>Design · 18 of 25 tasks · 72% <span class="eq" aria-hidden="true"><i style="height:30%"></i><i style="height:45%"></i><i style="height:60%"></i><i style="height:70%"></i><i style="height:80%"></i><i style="height:90%"></i><i style="height:100%"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i></span></span></li>
+    <li><span class="act">Q4 customer survey</span><span class="due">due 7 Nov</span><span class="sub"><span class="st ok"><svg width="13" height="13" aria-hidden="true"><use href="#spark"/></svg>On track</span>Research · 9 of 10 tasks · 90% <span class="eq" aria-hidden="true"><i style="height:20%"></i><i style="height:30%"></i><i style="height:40%"></i><i style="height:50%"></i><i style="height:60%"></i><i style="height:70%"></i><i style="height:80%"></i><i style="height:90%"></i><i style="height:100%"></i><i style="height:20%;opacity:.2"></i></span></span></li>
+  </ul>
+  <p class="room terr">Terrace · Marketing</p>
+  <ul class="lineup">
+    <li><span class="act">Onboarding emails</span><span class="due">due 21 Nov</span><span class="sub"><span class="st ok"><svg width="13" height="13" aria-hidden="true"><use href="#spark"/></svg>On track</span>9 of 15 tasks · 60% <span class="eq" aria-hidden="true"><i style="height:30%"></i><i style="height:45%"></i><i style="height:60%"></i><i style="height:75%"></i><i style="height:90%"></i><i style="height:100%"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i></span></span></li>
+    <li><span class="act">Spring catalogue</span><span class="due">due 15 Jan</span><span class="sub"><span class="st ok"><svg width="13" height="13" aria-hidden="true"><use href="#spark"/></svg>On track</span>3 of 20 tasks · 15% <span class="eq" aria-hidden="true"><i style="height:40%"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i><i style="height:20%;opacity:.2"></i></span></span></li>
+  </ul>
+</section>
+
+<div>
+<section aria-labelledby="act">
+  <h2 class="h2" id="act">Set times</h2>
+  <ol class="times">
+    <li><span class="t">12 min ago</span><span><b>Jonas Weber</b> completed “Export invoices as CSV” in Billing migration</span></li>
+    <li><span class="t">40 min ago</span><span><b>Priya Nair</b> commented on “Hero image options” in Website redesign</span></li>
+    <li><span class="t">1 h ago</span><span><b>Sam Ortiz</b> moved “Push notifications” to Review in Mobile app 2.0</span></li>
+    <li><span class="t">2 h ago</span><span><b>Lena Fischer</b> added 3 tasks to Spring catalogue</span></li>
+    <li><span class="t">3 h ago</span><span><b>Tomás Ruiz</b> logged 6 h on Mobile app 2.0</span></li>
+    <li><span class="t">yesterday</span><span><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to Q4 customer survey</span></li>
+  </ol>
+</section>
+<section class="eqchart" aria-labelledby="ch">
+  <h2 class="h2" id="ch">Levels</h2>
+  <svg viewBox="0 0 420 200" role="img" aria-label="Tasks completed per day, Sunday 18 to Saturday 31 October: 3, 12, 9, 14, 11, 8, 2, then 4, 15, 13, 17, 12, 10, 2. Last week 59, this week 73.">
+    <defs>
+      <pattern id="segA" width="22" height="10" patternUnits="userSpaceOnUse"><rect width="22" height="7" fill="#3ee8ff" stroke="#101010" stroke-width="1.5"/></pattern>
+      <pattern id="segB" width="22" height="10" patternUnits="userSpaceOnUse"><rect width="22" height="7" fill="#ff4fc4" stroke="#101010" stroke-width="1.5"/></pattern>
+    </defs>
+    <g transform="translate(0 0)">
+      <rect x="4" y="140" width="22" height="30" fill="url(#segA)"/><rect x="32" y="50" width="22" height="120" fill="url(#segA)"/><rect x="60" y="80" width="22" height="90" fill="url(#segA)"/><rect x="88" y="30" width="22" height="140" fill="url(#segA)"/><rect x="116" y="60" width="22" height="110" fill="url(#segA)"/><rect x="144" y="90" width="22" height="80" fill="url(#segA)"/><rect x="172" y="150" width="22" height="20" fill="url(#segA)"/>
+      <rect x="218" y="130" width="22" height="40" fill="url(#segB)"/><rect x="246" y="20" width="22" height="150" fill="url(#segB)"/><rect x="274" y="40" width="22" height="130" fill="url(#segB)"/><rect x="302" y="0" width="22" height="170" fill="url(#segB)"/><rect x="330" y="50" width="22" height="120" fill="url(#segB)"/><rect x="358" y="70" width="22" height="100" fill="url(#segB)"/><rect x="386" y="150" width="22" height="20" fill="url(#segB)"/>
+    </g>
+    <path d="M0 171h420" stroke="#101010" stroke-width="3"/>
+    <g font-family="Arial Black, Verdana, sans-serif" font-size="11" font-weight="900" text-anchor="middle" fill="#101010">
+      <text x="15" y="188">S</text><text x="43" y="188">M</text><text x="71" y="188">T</text><text x="99" y="188">W</text><text x="127" y="188">T</text><text x="155" y="188">F</text><text x="183" y="188">S</text>
+      <text x="229" y="188">S</text><text x="257" y="188">M</text><text x="285" y="188">T</text><text x="313" y="188">W</text><text x="341" y="188">T</text><text x="369" y="188">F</text><text x="397" y="188">S</text>
+    </g>
+  </svg>
+  <p><span class="k" style="background:#3ee8ff"></span>18–24 Oct · 59 done &nbsp; <span class="k" style="background:#ff4fc4"></span>25–31 Oct · 73 done</p>
+</section>
+</div>
+</div>
+<p class="small"><span>Brightwork · tasks done daily</span><span>Doors open all week</span><span>Small teams only</span></p>
+</main>
+
+<section class="ss" aria-labelledby="ssh">
+  <h2 id="ssh"><span>Style 157</span> · 90s rave flyer</h2>
+  <p class="idea">A light acid-house flyer on white, with warped and stretched extra-black caps, an arched logo, fluorescent blobs and stickers behind black type, and the projects billed as a line-up by room.</p>
+  <h3>Palette</h3>
+  <ul class="sw">
+    <li><div class="c" style="background:#ffffff"></div><b>White</b>#ffffff · the flyer and fields</li>
+    <li><div class="c" style="background:#101010"></div><b>Ink</b>#101010 · all text, rules, Behind</li>
+    <li><div class="c" style="background:#c8ff1a"></div><b>Acid lime</b>#c8ff1a · greeting highlight, On track, focus halo</li>
+    <li><div class="c" style="background:#ff4fc4"></div><b>Hot pink</b>#ff4fc4 · primary button, logo outline, this week</li>
+    <li><div class="c" style="background:#3ee8ff"></div><b>Cyan</b>#3ee8ff · stickers, room tag, last week</li>
+    <li><div class="c" style="background:#ff9a1f"></div><b>Orange</b>#ff9a1f · At risk and the overdue sticker</li>
+    <li><div class="c" style="background:#4b10b0"></div><b>Violet</b>#4b10b0 · focus outline only</li>
+    <li><div class="c" style="background:#f1f1f4"></div><b>Fog</b>#f1f1f4 · spare quiet fill</li>
+  </ul>
+  <h3>Type</h3>
+  <div class="types">
+    <p class="wide" style="font-size:44px;line-height:1;transform:scaleY(1.35) skewX(-12deg);transform-origin:left top;margin-bottom:24px">Warped</p>
+    <p><small>Display · Arial Black, Helvetica Neue, Segoe UI Black, Verdana, sans-serif · 900 caps · greeting 30 to 64px stretched 1.35 tall and skewed minus 12 degrees, logo 96px on an arc, numbers 56px widened 1.2</small></p>
+    <p style="font:900 26px var(--wide);text-transform:uppercase">Billing migration<small>Acts in the line-up · 18 to 26px caps</small></p>
+    <p style="font:900 11px var(--wide);letter-spacing:.3em;text-transform:uppercase">Main room · Engineering<small>Labels · 10 to 13px caps tracked 0.12 to 0.5em</small></p>
+    <p style="font:15px var(--tech)">Tomás Ruiz logged 6 h on Mobile app 2.0<small>Body · Verdana, DejaVu Sans, Tahoma, sans-serif · 14 to 15px · dates in Lucida Console, DejaVu Sans Mono</small></p>
+  </div>
+  <h3>System</h3>
+  <dl class="sys">
+    <div><dt>Spacing</dt><dd>8px base. Big 34 to 48px breaks between flyer bands, tight 10px rows in lists.</dd></div>
+    <div><dt>Density</dt><dd>A centred headline zone, then a denser two column line-up like the back of a flyer.</dd></div>
+    <div><dt>Corners</dt><dd>Fully round pills for nav, buttons, fields and chips. Stickers are circles. Lists are square.</dd></div>
+    <div><dt>Borders</dt><dd>2 to 3px solid ink. Dashed 1px ink between rows. The overdue sticker has a dashed edge.</dd></div>
+    <div><dt>Shadows</dt><dd>None. Depth comes from soft fluorescent blobs behind content at low opacity.</dd></div>
+    <div><dt>Icons</dt><dd>Solid ink glyphs. Four point sparkle for On track, lightning bolt for At risk, slashed circle for Behind, warning triangle for overdue.</dd></div>
+    <div><dt>Tone</dt><dd>Party flyer billing. Your crew presents, Line-up, Set times, Levels.</dd></div>
+  </dl>
+  <h3>Controls</h3>
+  <div class="ctrls">
+    <figure><figcaption>Primary button</figcaption><button class="btn" type="button"><span>New project</span></button><button class="btn is-focus" type="button"><span>New project · focus</span></button></figure>
+    <figure><figcaption>Secondary button</figcaption><button class="btn alt" type="button"><span>Share</span></button><button class="btn alt is-focus" type="button"><span>Share · focus</span></button></figure>
+    <figure><figcaption>Text field</figcaption><label class="field">Project name<input type="text" value="Spring catalogue"></label><label class="field">Project name · focus<input class="is-focus" type="text" value="Spring catalogue"></label></figure>
+    <figure><figcaption>List row</figcaption><div class="row">Mobile app 2.0 <span class="st risk"><svg width="12" height="12" aria-hidden="true"><use href="#bolt"/></svg>At risk</span></div><div class="row is-focus">Mobile app 2.0 <span class="st risk"><svg width="12" height="12" aria-hidden="true"><use href="#bolt"/></svg>At risk</span></div></figure>
+  </div>
+</section>
+</div>
+</body>
+</html>

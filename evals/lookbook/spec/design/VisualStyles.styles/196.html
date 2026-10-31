@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 196 · Mini dashboards · Brightwork</title>
+<style>
+:root {
+  --bg: #f1f3f7;
+  --tile: #ffffff;
+  --ink: #182033;
+  --muted: #556075;
+  --line: #dfe3ea;
+  --violet: #5b3fc4;
+  --violet-tint: #efebfc;
+  --ok: #18794e;
+  --warn: #8a5a00;
+  --bad: #c0272d;
+  --ok-tint: #e3f3ea;
+  --warn-tint: #fbf0d9;
+  --bad-tint: #fbe7e7;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+  --shadow: 0 1px 2px rgba(24, 32, 51, 0.06), 0 2px 8px rgba(24, 32, 51, 0.05);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.5 var(--font); }
+a { color: inherit; }
+svg.i { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+:focus-visible, .is-focus { outline: 2px solid var(--violet); outline-offset: 2px; }
+
+.app { display: grid; grid-template-columns: 80px minmax(0, 1fr); min-height: 100vh; }
+.rail { background: var(--tile); border-right: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; padding: 16px 0; gap: 16px; position: sticky; top: 0; height: 100vh; }
+.logo { width: 40px; height: 40px; border-radius: 12px; background: var(--violet); display: grid; place-items: center; }
+.logo svg { width: 22px; height: 22px; }
+.rail ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.rail a { display: flex; flex-direction: column; align-items: center; gap: 2px; width: 64px; padding: 8px 0 6px; border-radius: 10px; text-decoration: none; color: var(--muted); font-size: 11px; font-weight: 500; }
+.rail a[aria-current="page"] { background: var(--violet-tint); color: var(--violet); font-weight: 700; }
+.rail .me { margin-top: auto; }
+
+main { padding: 20px 32px 48px; min-width: 0; }
+.top { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+.greet { margin-right: auto; }
+h1 { font-size: 22px; line-height: 1.3; margin: 0; letter-spacing: -0.01em; }
+.greet p { margin: 2px 0 0; color: var(--muted); }
+.greet .od { color: var(--bad); font-weight: 700; display: inline-flex; align-items: center; gap: 4px; }
+.greet .od svg { width: 16px; height: 16px; }
+.search { display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 12px; background: var(--tile); border: 1px solid #c9cfd9; border-radius: 10px; color: var(--muted); width: 280px; }
+.search input { border: 0; background: none; font: 14px var(--font); color: var(--ink); width: 100%; min-width: 0; }
+.search input::placeholder { color: var(--muted); }
+.search input:focus { outline: none; }
+.search:focus-within { outline: 2px solid var(--violet); outline-offset: 1px; }
+.btn { display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 16px; border-radius: 10px; font: 600 14px var(--font); cursor: pointer; white-space: nowrap; }
+.btn-primary { background: var(--violet); color: #fff; border: 1px solid var(--violet); }
+.btn-secondary { background: var(--tile); color: var(--ink); border: 1px solid #c9cfd9; }
+.icon-btn { width: 40px; height: 40px; border-radius: 10px; border: 1px solid #c9cfd9; background: var(--tile); color: var(--ink); display: grid; place-items: center; position: relative; cursor: pointer; }
+.icon-btn .dot { position: absolute; top: 8px; right: 9px; width: 8px; height: 8px; border-radius: 50%; background: var(--bad); border: 2px solid var(--tile); }
+.user { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+.av { width: 32px; height: 32px; border-radius: 50%; background: #2c3550; color: #fff; display: grid; place-items: center; font-size: 12px; font-weight: 700; flex: none; }
+
+/* KPI strip */
+.strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--tile); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); margin: 0 0 24px; padding: 0; list-style: none; }
+.strip li { padding: 14px 20px; display: flex; align-items: center; gap: 12px; }
+.strip li + li { border-left: 1px solid var(--line); }
+.strip .k-ic { width: 36px; height: 36px; border-radius: 10px; background: var(--violet-tint); color: var(--violet); display: grid; place-items: center; flex: none; }
+.strip .k-ic svg { width: 18px; height: 18px; }
+.strip b { display: block; font-size: 22px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.strip span { color: var(--muted); font-size: 13px; }
+.strip .bad .k-ic { background: var(--bad-tint); color: var(--bad); }
+.strip .bad b { color: var(--bad); }
+
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 0 0 12px; }
+h2 { font-size: 15px; margin: 0; }
+.sec-head p { margin: 0; color: var(--muted); font-size: 13px; }
+
+/* Tiles */
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; list-style: none; margin: 0 0 24px; padding: 0; }
+.tile { background: var(--tile); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); padding: 16px 16px 0; display: flex; flex-direction: column; overflow: hidden; }
+.t-head { display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; }
+.t-team { font-size: 12px; color: var(--muted); font-weight: 600; }
+.tile h3 { font-size: 16px; margin: 0; line-height: 1.3; }
+.tile h3 a { text-decoration: none; }
+.tile h3 a:hover { text-decoration: underline; }
+.st { display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px 3px 6px; border-radius: 6px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.st svg { width: 14px; height: 14px; flex: none; }
+.st.ok { color: var(--ok); background: var(--ok-tint); }
+.st.warn { color: var(--warn); background: var(--warn-tint); }
+.st.bad { color: var(--bad); background: var(--bad-tint); }
+.t-spark { display: flex; align-items: flex-end; gap: 12px; margin: 12px 0; }
+.t-spark svg { flex: 1; height: 48px; min-width: 0; display: block; }
+.t-sum { font-size: 12px; color: var(--muted); white-space: nowrap; text-align: right; line-height: 1.2; }
+.t-sum b { display: block; font-size: 18px; color: var(--violet); }
+.t-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0 -16px; border-top: 1px solid var(--line); }
+.t-stats div { padding: 10px 16px 12px; }
+.t-stats div + div { border-left: 1px solid var(--line); }
+.t-stats dt { font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
+.t-stats dd { margin: 0; font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.t-stats small { font-size: 12px; font-weight: 500; color: var(--muted); }
+.t-bar { height: 4px; background: var(--line); margin: 0 -16px; }
+.t-bar i { display: block; height: 100%; background: var(--violet); }
+.t-bad .t-bar i { background: var(--bad); }
+.t-warn .t-bar i { background: var(--warn); }
+
+/* Lower */
+.lower { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+.panel { background: var(--tile); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); padding: 16px 20px 20px; }
+.ch-totals { display: flex; gap: 24px; margin: 0 0 8px; }
+.ch-totals div { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; }
+.ch-totals b { color: var(--ink); font-size: 18px; font-variant-numeric: tabular-nums; }
+.sw-solid, .sw-out { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.sw-solid { background: var(--violet); }
+.sw-out { background: var(--violet-tint); border: 1.5px solid var(--violet); }
+.panel svg.chart { width: 100%; height: auto; display: block; }
+.feed { list-style: none; margin: 0; padding: 0; }
+.feed li { display: grid; grid-template-columns: 32px 1fr; gap: 10px; padding: 10px 0; border-top: 1px solid var(--line); }
+.feed li:first-child { border-top: 0; padding-top: 0; }
+.feed .av { width: 32px; height: 32px; font-size: 11px; }
+.feed p { margin: 0; line-height: 1.4; }
+.feed time { color: var(--muted); font-size: 12px; }
+.c1 { background: #0f6b5c; } .c2 { background: #a3336b; } .c3 { background: #2b55a8; } .c4 { background: #8a4d0f; } .c5 { background: #4c6b13; } .c6 { background: #5a4f73; }
+
+/* Style sheet */
+.sheet { background: var(--tile); border-top: 1px solid var(--line); padding: 48px 32px 64px; }
+.sheet-in { max-width: 1160px; margin: 0 auto; }
+.sheet h2.title { font-size: 26px; margin: 0 0 6px; }
+.sheet .idea { color: var(--muted); font-size: 16px; max-width: 48em; margin: 0; }
+.sheet h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 36px 0 12px; }
+.sw { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; list-style: none; margin: 0; padding: 0; }
+.sw li { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; font-size: 12px; }
+.sw i { display: block; height: 52px; border-bottom: 1px solid var(--line); }
+.sw div { padding: 8px 10px 10px; }
+.sw b { display: block; font-size: 13px; }
+.sw code { color: var(--muted); }
+.sw span { display: block; color: var(--muted); }
+.ts { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.ts li { display: grid; grid-template-columns: 260px 1fr; gap: 16px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.ts code { color: var(--muted); font-size: 12px; }
+dl.spec { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin: 0; }
+dl.spec div { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+dl.spec dt { font-weight: 700; margin-bottom: 2px; }
+dl.spec dd { margin: 0; color: var(--ink); }
+.ctls { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 24px; }
+.lab { display: block; font-size: 12px; color: var(--muted); margin-bottom: 8px; font-weight: 600; }
+.field { display: block; font-size: 13px; font-weight: 600; }
+.field input { display: block; width: 100%; margin-top: 6px; height: 40px; padding: 0 12px; border: 1px solid #c9cfd9; border-radius: 10px; font: 14px var(--font); color: var(--ink); background: var(--tile); }
+.field input.is-focus { border-color: var(--violet); outline-offset: 1px; }
+.rowdemo { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.rowdemo li { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; gap: 8px; }
+.rowdemo li + li { border-top: 1px solid var(--line); }
+.rowdemo li.is-focus { outline-offset: -2px; background: var(--violet-tint); }
+
+@media (max-width: 1100px) {
+  .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lower { grid-template-columns: 1fr; }
+  .search { width: 220px; }
+}
+@media (max-width: 760px) {
+  .app { grid-template-columns: minmax(0, 1fr); }
+  .rail { position: sticky; top: 0; z-index: 2; height: auto; flex-direction: row; padding: 8px 12px; gap: 8px; border-right: 0; border-bottom: 1px solid var(--line); overflow-x: auto; }
+  .logo { width: 36px; height: 36px; flex: none; }
+  .rail ul { flex-direction: row; gap: 2px; }
+  .rail a { width: 52px; padding: 6px 0 4px; font-size: 10px; }
+  .rail .me { display: none; }
+  main { padding: 16px 16px 40px; }
+  .top { gap: 8px; }
+  .greet { width: 100%; }
+  .search { flex: 1; width: auto; min-width: 0; }
+  .btn-primary .lbl { display: none; }
+  .btn-primary { padding: 0 12px; }
+  .user .nm { display: none; }
+  .sec-head { flex-direction: column; gap: 2px; }
+  .strip { grid-template-columns: 1fr 1fr; }
+  .strip li { padding: 12px; }
+  .strip li + li { border-left: 0; }
+  .strip li:nth-child(even) { border-left: 1px solid var(--line); }
+  .strip li:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .strip .k-ic { display: none; }
+  .tiles { grid-template-columns: 1fr; }
+  .ch-totals { flex-wrap: wrap; gap: 8px 16px; }
+  .sheet { padding: 40px 16px 56px; }
+  .ts li { grid-template-columns: 1fr; gap: 4px; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="s-ok" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7.5" fill="currentColor"/><path d="m4.8 8.2 2.1 2.1 4.3-4.4" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="s-warn" viewBox="0 0 16 16"><path d="M8 0.5 15.5 8 8 15.5 0.5 8Z" fill="currentColor"/><path d="M8 4.6v4.2M8 10.8v.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="s-bad" viewBox="0 0 16 16"><path d="M1 2.5h14L8 14.5Z" fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="1"/><path d="M8 5v3.4" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11 12 4l8 7v9h-5v-6H9v6H4Z"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+  <symbol id="i-team" viewBox="0 0 24 24"><circle cx="9" cy="9" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9.5" r="2.5"/><path d="M16 14.2a4.5 4.5 0 0 1 5 4.8"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15Z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></symbol>
+  <symbol id="i-timer" viewBox="0 0 24 24"><circle cx="12" cy="13" r="7"/><path d="M12 13V9.5M10 3h4"/></symbol>
+</svg>
+
+<div class="app">
+  <nav class="rail" aria-label="Main">
+    <span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="2" fill="#fff"/><rect x="13" y="4" width="7" height="7" rx="2" fill="#fff" opacity=".6"/><rect x="4" y="13" width="7" height="7" rx="2" fill="#fff" opacity=".6"/><rect x="13" y="13" width="7" height="7" rx="2" fill="#fff"/></svg></span>
+    <span class="sr">Brightwork</span>
+    <ul>
+      <li><a href="#" aria-current="page"><svg class="i" aria-hidden="true"><use href="#i-home"/></svg>Home</a></li>
+      <li><a href="#"><svg class="i" aria-hidden="true"><use href="#i-folder"/></svg>Projects</a></li>
+      <li><a href="#"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Tasks</a></li>
+      <li><a href="#"><svg class="i" aria-hidden="true"><use href="#i-team"/></svg>Team</a></li>
+      <li><a href="#"><svg class="i" aria-hidden="true"><use href="#i-chart"/></svg>Reports</a></li>
+      <li><a href="#"><svg class="i" aria-hidden="true"><use href="#i-gear"/></svg>Settings</a></li>
+    </ul>
+    <span class="me av" title="Mara Okafor" aria-hidden="true">MO</span>
+  </nav>
+
+  <main>
+    <div class="top">
+      <div class="greet">
+        <h1>Hello, Mara</h1>
+        <p>Brightwork · Saturday 31 October 2026 · <span class="od"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>4 tasks are overdue</span></p>
+      </div>
+      <label class="search"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search projects and tasks</span><input type="search" placeholder="Search projects and tasks"></label>
+      <button class="btn btn-primary" type="button" aria-label="New project"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg><span class="lbl">New project</span></button>
+      <button class="icon-btn" type="button" aria-label="Notifications, new items"><svg class="i" aria-hidden="true"><use href="#i-bell"/></svg><span class="dot"></span></button>
+      <div class="user" aria-label="Signed in as Mara Okafor"><span class="av" aria-hidden="true">MO</span><span class="sr">Signed in as </span><span class="nm">Mara Okafor</span></div>
+    </div>
+
+    <ul class="strip" aria-label="Summary">
+      <li><span class="k-ic" aria-hidden="true"><svg class="i"><use href="#i-folder"/></svg></span><div><b>6</b><span>Active projects</span></div></li>
+      <li><span class="k-ic" aria-hidden="true"><svg class="i"><use href="#i-cal"/></svg></span><div><b>23</b><span>Due this week</span></div></li>
+      <li class="bad"><span class="k-ic" aria-hidden="true"><svg class="i"><use href="#i-clock"/></svg></span><div><b>4</b><span>Overdue tasks</span></div></li>
+      <li><span class="k-ic" aria-hidden="true"><svg class="i"><use href="#i-timer"/></svg></span><div><b>186</b><span>Hours this week</span></div></li>
+    </ul>
+
+    <section aria-labelledby="h-proj">
+      <div class="sec-head"><h2 id="h-proj">Projects</h2><p>One dashboard per project, ordered by due date. Lines show tasks done per day, Sunday to Saturday.</p></div>
+      <ul class="tiles">
+<li class="tile t-ok">
+  <div class="t-head"><div><span class="t-team">Research</span><h3><a href="#">Q4 customer survey</a></h3></div><span class="st ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></div>
+  <div class="t-spark"><svg viewBox="0 0 112 40" preserveAspectRatio="none" role="img" aria-label="Q4 customer survey, tasks done per day this week, Sunday to Saturday: 0, 1, 1, 1, 0, 1, 0, total 4"><line x1="0" y1="36" x2="112" y2="36" stroke="#dfe3ea"/><path d="M6,34.0 L23,26.5 L39,26.5 L56,26.5 L73,34.0 L89,26.5 L106,34.0 L106,36 L6,36 Z" fill="#efebfc"/><polyline points="6,34.0 23,26.5 39,26.5 56,26.5 73,34.0 89,26.5 106,34.0" fill="none" stroke="#5b3fc4" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg><span class="t-sum"><b>4</b> done this week</span></div>
+  <dl class="t-stats"><div><dt>Complete</dt><dd>90%</dd></div><div><dt>Tasks</dt><dd>9<small>/10</small></dd></div><div><dt>Due 7 Nov</dt><dd>7<small> days</small></dd></div></dl>
+  <div class="t-bar" aria-hidden="true"><i style="width:90%"></i></div>
+</li>
+<li class="tile t-ok">
+  <div class="t-head"><div><span class="t-team">Design</span><h3><a href="#">Website redesign</a></h3></div><span class="st ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></div>
+  <div class="t-spark"><svg viewBox="0 0 112 40" preserveAspectRatio="none" role="img" aria-label="Website redesign, tasks done per day this week, Sunday to Saturday: 0, 2, 1, 2, 1, 1, 0, total 7"><line x1="0" y1="36" x2="112" y2="36" stroke="#dfe3ea"/><path d="M6,34.0 L23,19.0 L39,26.5 L56,19.0 L73,26.5 L89,26.5 L106,34.0 L106,36 L6,36 Z" fill="#efebfc"/><polyline points="6,34.0 23,19.0 39,26.5 56,19.0 73,26.5 89,26.5 106,34.0" fill="none" stroke="#5b3fc4" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg><span class="t-sum"><b>7</b> done this week</span></div>
+  <dl class="t-stats"><div><dt>Complete</dt><dd>72%</dd></div><div><dt>Tasks</dt><dd>18<small>/25</small></dd></div><div><dt>Due 14 Nov</dt><dd>14<small> days</small></dd></div></dl>
+  <div class="t-bar" aria-hidden="true"><i style="width:72%"></i></div>
+</li>
+<li class="tile t-bad">
+  <div class="t-head"><div><span class="t-team">Engineering</span><h3><a href="#">Billing migration</a></h3></div><span class="st bad"><svg aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></div>
+  <div class="t-spark"><svg viewBox="0 0 112 40" preserveAspectRatio="none" role="img" aria-label="Billing migration, tasks done per day this week, Sunday to Saturday: 0, 1, 0, 1, 1, 0, 1, total 4"><line x1="0" y1="36" x2="112" y2="36" stroke="#dfe3ea"/><path d="M6,34.0 L23,26.5 L39,34.0 L56,26.5 L73,26.5 L89,34.0 L106,26.5 L106,36 L6,36 Z" fill="#efebfc"/><polyline points="6,34.0 23,26.5 39,34.0 56,26.5 73,26.5 89,34.0 106,26.5" fill="none" stroke="#5b3fc4" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg><span class="t-sum"><b>4</b> done this week</span></div>
+  <dl class="t-stats"><div><dt>Complete</dt><dd>30%</dd></div><div><dt>Tasks</dt><dd>12<small>/40</small></dd></div><div><dt>Due 20 Nov</dt><dd>20<small> days</small></dd></div></dl>
+  <div class="t-bar" aria-hidden="true"><i style="width:30%"></i></div>
+</li>
+<li class="tile t-ok">
+  <div class="t-head"><div><span class="t-team">Marketing</span><h3><a href="#">Onboarding emails</a></h3></div><span class="st ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></div>
+  <div class="t-spark"><svg viewBox="0 0 112 40" preserveAspectRatio="none" role="img" aria-label="Onboarding emails, tasks done per day this week, Sunday to Saturday: 0, 1, 1, 1, 1, 0, 0, total 4"><line x1="0" y1="36" x2="112" y2="36" stroke="#dfe3ea"/><path d="M6,34.0 L23,26.5 L39,26.5 L56,26.5 L73,26.5 L89,34.0 L106,34.0 L106,36 L6,36 Z" fill="#efebfc"/><polyline points="6,34.0 23,26.5 39,26.5 56,26.5 73,26.5 89,34.0 106,34.0" fill="none" stroke="#5b3fc4" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg><span class="t-sum"><b>4</b> done this week</span></div>
+  <dl class="t-stats"><div><dt>Complete</dt><dd>60%</dd></div><div><dt>Tasks</dt><dd>9<small>/15</small></dd></div><div><dt>Due 21 Nov</dt><dd>21<small> days</small></dd></div></dl>
+  <div class="t-bar" aria-hidden="true"><i style="width:60%"></i></div>
+</li>
+<li class="tile t-warn">
+  <div class="t-head"><div><span class="t-team">Engineering</span><h3><a href="#">Mobile app 2.0</a></h3></div><span class="st warn"><svg aria-hidden="true"><use href="#s-warn"/></svg>At risk</span></div>
+  <div class="t-spark"><svg viewBox="0 0 112 40" preserveAspectRatio="none" role="img" aria-label="Mobile app 2.0, tasks done per day this week, Sunday to Saturday: 1, 3, 3, 4, 2, 2, 1, total 16"><line x1="0" y1="36" x2="112" y2="36" stroke="#dfe3ea"/><path d="M6,26.5 L23,11.5 L39,11.5 L56,4.0 L73,19.0 L89,19.0 L106,26.5 L106,36 L6,36 Z" fill="#efebfc"/><polyline points="6,26.5 23,11.5 39,11.5 56,4.0 73,19.0 89,19.0 106,26.5" fill="none" stroke="#5b3fc4" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg><span class="t-sum"><b>16</b> done this week</span></div>
+  <dl class="t-stats"><div><dt>Complete</dt><dd>45%</dd></div><div><dt>Tasks</dt><dd>27<small>/60</small></dd></div><div><dt>Due 2 Dec</dt><dd>32<small> days</small></dd></div></dl>
+  <div class="t-bar" aria-hidden="true"><i style="width:45%"></i></div>
+</li>
+<li class="tile t-ok">
+  <div class="t-head"><div><span class="t-team">Marketing</span><h3><a href="#">Spring catalogue</a></h3></div><span class="st ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></div>
+  <div class="t-spark"><svg viewBox="0 0 112 40" preserveAspectRatio="none" role="img" aria-label="Spring catalogue, tasks done per day this week, Sunday to Saturday: 0, 1, 0, 1, 0, 0, 1, total 3"><line x1="0" y1="36" x2="112" y2="36" stroke="#dfe3ea"/><path d="M6,34.0 L23,26.5 L39,34.0 L56,26.5 L73,34.0 L89,34.0 L106,26.5 L106,36 L6,36 Z" fill="#efebfc"/><polyline points="6,34.0 23,26.5 39,34.0 56,26.5 73,34.0 89,34.0 106,26.5" fill="none" stroke="#5b3fc4" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg><span class="t-sum"><b>3</b> done this week</span></div>
+  <dl class="t-stats"><div><dt>Complete</dt><dd>15%</dd></div><div><dt>Tasks</dt><dd>3<small>/20</small></dd></div><div><dt>Due 15 Jan</dt><dd>76<small> days</small></dd></div></dl>
+  <div class="t-bar" aria-hidden="true"><i style="width:15%"></i></div>
+</li>
+
+      </ul>
+    </section>
+
+    <div class="lower">
+      <section class="panel" aria-labelledby="h-chart">
+        <div class="sec-head"><h2 id="h-chart">Tasks completed per day</h2><p>18 to 31 Oct</p></div>
+        <div class="ch-totals"><div><span class="sw-out"></span>Last week <b>59</b></div><div><span class="sw-solid"></span>This week <b>73</b></div><div>Change <b>+14</b></div></div>
+        <svg class="chart" viewBox="0 0 630 196" role="img" aria-label="Tasks completed per day. Last week, Sunday 18 to Saturday 24 October: 3, 12, 9, 14, 11, 8, 2, total 59. This week, Sunday 25 to Saturday 31 October: 4, 15, 13, 17, 12, 10, 2, total 73.">
+          <g stroke="#dfe3ea"><line x1="36" y1="26" x2="626" y2="26"/><line x1="36" y1="96" x2="626" y2="96"/></g>
+          <line x1="36" y1="166" x2="626" y2="166" stroke="#556075"/>
+          <line x1="330" y1="20" x2="330" y2="190" stroke="#c9cfd9" stroke-dasharray="3 3"/>
+          <g font-size="11" fill="#556075" font-family="system-ui, sans-serif" text-anchor="end"><text x="28" y="30">20</text><text x="28" y="100">10</text><text x="28" y="170">0</text></g>
+          <g fill="#efebfc" stroke="#5b3fc4" stroke-width="1.5"><rect x="44.75" y="145.75" width="24.5" height="20.25" rx="3"/><rect x="85.75" y="82.75" width="24.5" height="83.25" rx="3"/><rect x="126.75" y="103.75" width="24.5" height="62.25" rx="3"/><rect x="167.75" y="68.75" width="24.5" height="97.25" rx="3"/><rect x="208.75" y="89.75" width="24.5" height="76.25" rx="3"/><rect x="249.75" y="110.75" width="24.5" height="55.25" rx="3"/><rect x="290.75" y="152.75" width="24.5" height="13.25" rx="3"/></g>
+          <g fill="#5b3fc4"><rect x="343" y="138" width="26" height="28" rx="3"/><rect x="384" y="61" width="26" height="105" rx="3"/><rect x="425" y="75" width="26" height="91" rx="3"/><rect x="466" y="47" width="26" height="119" rx="3"/><rect x="507" y="82" width="26" height="84" rx="3"/><rect x="548" y="96" width="26" height="70" rx="3"/><rect x="589" y="152" width="26" height="14" rx="3"/></g>
+          <g font-size="11" fill="#556075" font-family="system-ui, sans-serif" text-anchor="middle"><text x="57" y="184">S</text><text x="98" y="184">M</text><text x="139" y="184">T</text><text x="180" y="184">W</text><text x="221" y="184">T</text><text x="262" y="184">F</text><text x="303" y="184">S</text><text x="356" y="184">S</text><text x="397" y="184">M</text><text x="438" y="184">T</text><text x="479" y="184">W</text><text x="520" y="184">T</text><text x="561" y="184">F</text><text x="602" y="184">S</text></g>
+          <g font-size="11" fill="#182033" font-family="system-ui, sans-serif" text-anchor="middle" font-weight="600"><text x="57" y="140">3</text><text x="98" y="77">12</text><text x="139" y="98">9</text><text x="180" y="63">14</text><text x="221" y="84">11</text><text x="262" y="105">8</text><text x="303" y="147">2</text><text x="356" y="133">4</text><text x="397" y="56">15</text><text x="438" y="70">13</text><text x="479" y="42">17</text><text x="520" y="77">12</text><text x="561" y="91">10</text><text x="602" y="147">2</text></g>
+        </svg>
+      </section>
+      <section class="panel" aria-labelledby="h-act">
+        <div class="sec-head"><h2 id="h-act">Activity</h2></div>
+        <ul class="feed">
+          <li><span class="av c1" aria-hidden="true">JW</span><div><p><b>Jonas Weber</b> completed “Export invoices as CSV” in Billing migration</p><time>12 min ago</time></div></li>
+          <li><span class="av c2" aria-hidden="true">PN</span><div><p><b>Priya Nair</b> commented on “Hero image options” in Website redesign</p><time>40 min ago</time></div></li>
+          <li><span class="av c3" aria-hidden="true">SO</span><div><p><b>Sam Ortiz</b> moved “Push notifications” to Review in Mobile app 2.0</p><time>1 h ago</time></div></li>
+          <li><span class="av c4" aria-hidden="true">LF</span><div><p><b>Lena Fischer</b> added 3 tasks to Spring catalogue</p><time>2 h ago</time></div></li>
+          <li><span class="av c5" aria-hidden="true">TR</span><div><p><b>Tomás Ruiz</b> logged 6 h on Mobile app 2.0</p><time>3 h ago</time></div></li>
+          <li><span class="av c6" aria-hidden="true">AT</span><div><p><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to Q4 customer survey</p><time>Yesterday</time></div></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-title">
+  <div class="sheet-in">
+    <h2 class="title" id="sheet-title">Style 196 · Mini dashboards</h2>
+    <p class="idea">Every project gets its own small dashboard tile, with a status chip, a sparkline of this week's completions and three stats in a ruled footer, so the home screen reads as a wall of six comparable instruments.</p>
+
+    <h3>Palette</h3>
+    <ul class="sw">
+      <li><i style="background:#f1f3f7"></i><div><b>Canvas</b><code>#f1f3f7</code><span>Page behind the tiles</span></div></li>
+      <li><i style="background:#ffffff"></i><div><b>Tile</b><code>#ffffff</code><span>Tiles, rail, panels, fields</span></div></li>
+      <li><i style="background:#182033"></i><div><b>Ink</b><code>#182033</code><span>Text and figures</span></div></li>
+      <li><i style="background:#556075"></i><div><b>Muted</b><code>#556075</code><span>Labels, meta, axis</span></div></li>
+      <li><i style="background:#dfe3ea"></i><div><b>Line</b><code>#dfe3ea</code><span>Tile borders, stat dividers</span></div></li>
+      <li><i style="background:#5b3fc4"></i><div><b>Violet</b><code>#5b3fc4</code><span>Primary, sparklines, this week, focus</span></div></li>
+      <li><i style="background:#efebfc"></i><div><b>Violet tint</b><code>#efebfc</code><span>Current nav, spark area, last week bars</span></div></li>
+      <li><i style="background:#18794e"></i><div><b>Green</b><code>#18794e</code><span>On track, check disc, on #e3f3ea</span></div></li>
+      <li><i style="background:#8a5a00"></i><div><b>Amber</b><code>#8a5a00</code><span>At risk, diamond, on #fbf0d9</span></div></li>
+      <li><i style="background:#c0272d"></i><div><b>Red</b><code>#c0272d</code><span>Behind, down triangle, overdue, on #fbe7e7</span></div></li>
+    </ul>
+
+    <h3>Type</h3>
+    <ul class="ts">
+      <li><code>Greeting 22 / 700 · system-ui, Segoe UI, Roboto</code><span style="font-size:22px;font-weight:700">Hello, Mara</span></li>
+      <li><code>KPI 22 / 700 tabular</code><span style="font-size:22px;font-weight:700">186</span></li>
+      <li><code>Tile stat 20 / 700 with 12 unit</code><span style="font-size:20px;font-weight:700">18<small style="font-size:12px;font-weight:500;color:#556075">/25</small></span></li>
+      <li><code>Tile name 16 / 700</code><span style="font-size:16px;font-weight:700">Website redesign</span></li>
+      <li><code>Body 14 / 400</code><span>Priya Nair commented on “Hero image options”</span></li>
+      <li><code>Stat label 11 / 600 caps 0.04em</code><span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#556075">Complete</span></li>
+    </ul>
+
+    <h3>Rules</h3>
+    <dl class="spec">
+      <div><dt>Spacing</dt><dd>8px unit. 16px gaps between tiles and inside them, 24px between bands.</dd></div>
+      <div><dt>Density</dt><dd>Medium high. Six instruments at once, each with a chart and three numbers.</dd></div>
+      <div><dt>Corners</dt><dd>12px tiles and panels, 10px controls and rail items, 6px chips, 3px bars.</dd></div>
+      <div><dt>Borders</dt><dd>1px cool grey on every tile, with ruled stat footers and a 4px progress edge at the base.</dd></div>
+      <div><dt>Shadows</dt><dd>One soft pair, 0 1px 2px and 0 2px 8px at 5 to 6 percent ink.</dd></div>
+      <div><dt>Icons</dt><dd>1.8px round line icons with labels in the rail. Status is a solid check disc, diamond or down triangle in a tinted chip with its word.</dd></div>
+      <div><dt>Tone</dt><dd>Instrument labels, such as Complete, Tasks, Due 14 Nov and 7 done this week.</dd></div>
+    </dl>
+
+    <h3>Controls, normal and focus</h3>
+    <div class="ctls">
+      <div><span class="lab">Primary button</span><button class="btn btn-primary" type="button">New project</button> <button class="btn btn-primary is-focus" type="button">New project</button></div>
+      <div><span class="lab">Secondary button</span><button class="btn btn-secondary" type="button">Share</button> <button class="btn btn-secondary is-focus" type="button">Share</button></div>
+      <div><span class="lab">Text field</span><label class="field">Project name<input type="text" value="Mobile app 2.0"></label><label class="field" style="margin-top:12px">Project name, focused<input class="is-focus" type="text" value="Mobile app 2.0"></label></div>
+      <div><span class="lab">List row</span>
+        <ul class="rowdemo">
+          <li>Onboarding emails <span class="st ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></li>
+          <li class="is-focus">Mobile app 2.0 <span class="st warn"><svg aria-hidden="true"><use href="#s-warn"/></svg>At risk</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

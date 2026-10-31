@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 350 · Dispatch console · Brightwork</title>
+<style>
+:root{color-scheme:dark;--page:#080d14;--panel:#0f1824;--head:#16233a;--grid:#253850;--ink:#e3ecf7;--muted:#9fb1c7;--cyan:#38bdf8;--onCyan:#03202f;--p1:#ff7a7a;--p1bg:#3a1218;--p2:#ffc04d;--p2bg:#33260a;--ok:#4ade80;--okbg:#0d2a1a;--sans:"Inter","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;--mono:ui-monospace,"JetBrains Mono","DejaVu Sans Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:13px/1.45 var(--sans);font-variant-numeric:tabular-nums}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+:focus-visible,.is-focus{outline:2px solid var(--cyan);outline-offset:1px;box-shadow:0 0 0 4px #0b3a52}
+.strip{display:flex;flex-wrap:wrap;align-items:center;gap:4px 20px;background:var(--head);border-bottom:2px solid var(--cyan);padding:6px 16px;font:600 12px var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.strip .sys{color:var(--cyan);font-weight:800}
+.strip .clk{margin-left:auto;font-size:16px;color:var(--ink)}
+.strip span{color:var(--muted)}.strip b{color:var(--ink)}
+.alert{display:flex;align-items:center;gap:10px;background:var(--p2bg);color:var(--p2);border-bottom:1px solid #6b5317;padding:4px 16px;font:700 12px var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.con{display:grid;grid-template-columns:300px minmax(0,1fr) 230px;gap:1px;background:var(--grid);border-bottom:1px solid var(--grid)}
+.pane{background:var(--panel);min-width:0}
+.ph{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--head);padding:6px 12px;font:700 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--grid);margin:0}
+.ph em{font-style:normal;color:var(--cyan)}
+.q{list-style:none;margin:0;padding:0}
+.q a{display:grid;grid-template-columns:96px minmax(0,1fr);gap:2px 10px;padding:8px 12px;border-bottom:1px solid var(--grid);border-left:4px solid transparent}
+.q a:hover{background:#13202f}
+.q .pr{font:800 11px var(--mono);letter-spacing:.04em;display:flex;align-items:center;gap:6px;border-radius:2px;padding:2px 6px;align-self:start;justify-self:start}
+.q .nm{font-weight:650;font-size:14px}
+.q .st{grid-column:2;color:var(--muted);font-size:12px}
+.q a.p1{border-left-color:var(--p1)}.p1 .pr{background:var(--p1bg);color:var(--p1)}
+.q a.p2{border-left-color:var(--p2)}.p2 .pr{background:var(--p2bg);color:var(--p2)}
+.q a.act{border-left-color:var(--cyan);background:#0d2236}.act .pr{background:var(--cyan);color:var(--onCyan)}
+.clr .pr{color:var(--muted);border:1px solid var(--grid)}
+.logh,.row{display:grid;grid-template-columns:64px 130px minmax(0,1fr) 150px;gap:12px;padding:8px 12px;align-items:start}
+.logh{font:700 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--grid);background:#0c1520}
+.log{list-style:none;margin:0;padding:0}
+.row{border-bottom:1px solid var(--grid)}
+.row:nth-child(even){background:#0c1520}
+.row time{font:600 13px var(--mono);color:var(--cyan)}
+.row .u{font-weight:700;display:flex;align-items:center;gap:6px}
+.row .u code{font:700 10px var(--mono);border:1px solid var(--grid);color:var(--muted);padding:0 4px;border-radius:2px}
+.row p{margin:0;font-size:14px}
+.row .x{font:600 11px var(--mono);color:var(--muted);display:flex;flex-direction:column;gap:3px}
+.row .x a{color:var(--cyan);text-decoration:underline;text-underline-offset:2px}
+.row .x span{display:flex;align-items:center;gap:4px}
+.row.sel{background:#0d2236;box-shadow:inset 3px 0 0 var(--cyan)}
+.file{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--grid);background:var(--head);padding:4px 8px;border-radius:2px;font:600 12px var(--mono)}
+.file svg{flex:none}
+.units{list-style:none;margin:0;padding:0}
+.units li{display:grid;grid-template-columns:18px 1fr;gap:2px 8px;padding:8px 12px;border-bottom:1px solid var(--grid)}
+.units b{font-weight:650}
+.units small{grid-column:2;font:700 11px var(--mono);letter-spacing:.06em}
+.entry{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto auto;gap:8px;align-items:center;padding:10px 16px;background:var(--panel);border-bottom:1px solid var(--grid)}
+.entry label{font:700 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.entry input{background:var(--page);border:1px solid var(--grid);border-radius:2px;padding:8px 10px;min-width:0;font-size:14px}
+.entry input::placeholder{color:var(--muted)}
+.fk{background:var(--head);border:1px solid var(--grid);border-radius:2px;padding:6px 10px;font:700 12px var(--mono);text-transform:uppercase;cursor:pointer;display:flex;gap:6px;align-items:center}
+.fk kbd{font:inherit;font-size:10px;color:var(--muted);border:1px solid var(--grid);padding:0 3px}
+.fk.go{background:var(--cyan);border-color:var(--cyan);color:var(--onCyan)}
+.fk.go kbd{color:var(--onCyan);border-color:var(--onCyan)}
+/* sheet */
+.sheet{max-width:1240px;margin:0 auto;padding:32px 16px 64px}
+.sheet h2{font:800 24px var(--sans);margin:0 0 4px;letter-spacing:.01em}
+.sheet h2 span{font:700 12px var(--mono);color:var(--cyan);display:block;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.idea{color:var(--muted);max-width:72ch;margin:0;font-size:14px}
+.sheet h3{margin:32px 0 0;background:var(--head);border:1px solid var(--grid);border-bottom:0;padding:6px 12px;font:700 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.blk{border:1px solid var(--grid);background:var(--panel);padding:12px}
+.sw{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--grid);border:1px solid var(--grid)}
+.sw li{background:var(--panel);display:grid;grid-template-columns:28px 1fr;gap:0 10px;padding:8px 10px}
+.sw i{grid-row:span 2;border:1px solid var(--grid);height:28px}
+.sw b code{font:600 11px var(--mono);color:var(--muted);margin-left:6px}.sw span{color:var(--muted);font-size:12px}
+.ts div{display:grid;grid-template-columns:190px 1fr;gap:12px;align-items:baseline;margin-bottom:8px}
+.ts code,.facts dt{font:600 11px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.facts{display:grid;grid-template-columns:120px 1fr;gap:8px 16px;margin:0}
+.facts dd{margin:0;font-size:14px}
+.ctrls{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--grid);border:1px solid var(--grid)}
+.ctrls>div{background:var(--panel);padding:14px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.ctrls h4{margin:0;font:700 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.fld{display:grid;gap:4px;font:700 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);width:100%}
+.fld input{background:var(--page);border:1px solid var(--grid);border-radius:2px;padding:7px 10px;font:14px var(--sans);text-transform:none;letter-spacing:0;color:var(--ink);width:100%;min-width:0}
+.ctrls .q{width:100%}
+@media (max-width:1080px){.con{grid-template-columns:260px minmax(0,1fr)}.units-pane{grid-column:1/-1}.units{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}.logh,.row{grid-template-columns:56px 120px minmax(0,1fr)}.logh .xh{display:none}.row .x{grid-column:3;flex-direction:row;flex-wrap:wrap;gap:4px 12px}}
+@media (max-width:720px){
+ .con{grid-template-columns:minmax(0,1fr)}
+ .logh{display:none}
+ .row{grid-template-columns:52px minmax(0,1fr);gap:2px 10px}
+ .row .u{grid-column:2}.row p,.row .x,.row .fw{grid-column:2}
+ .row time{grid-row:1/3}
+ .entry{grid-template-columns:auto auto auto;padding:10px 12px}
+ .entry label,.entry input{grid-column:1/-1}
+ .strip .clk{margin-left:0}
+ .ts div,.facts{grid-template-columns:1fr;gap:2px}.facts dd{margin-bottom:8px}
+}
+</style>
+</head>
+<body>
+<header class="strip"><span class="sys">BRIGHTWORK CHAT · DISPATCH</span><span>Console <b>2</b></span><span>Operator <b>Mara Okafor</b></span><span>Channel <b>design-crit</b></span><span class="clk" aria-label="Console clock 09:21">09:21</span></header>
+<p class="alert" style="margin:0" role="status"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 12h3l2-5 4 10 2-5h5"/></svg>Live · Priya is typing</p>
+<div class="con">
+ <nav class="pane" aria-labelledby="qq"><h2 class="ph" id="qq">Call queue <em>5 lines</em></h2>
+  <ul class="q">
+   <li><a href="#" class="p1"><span class="pr">◆ P1</span><span class="nm">billing-war-room</span><span class="st">1 mention for you</span></a></li>
+   <li><a href="#" class="p2"><span class="pr">▲ P2</span><span class="nm">mobile-release</span><span class="st">4 unread waiting</span></a></li>
+   <li><a href="#" class="act" aria-current="page"><span class="pr">● OPEN</span><span class="nm">design-crit</span><span class="st">Active on this console</span></a></li>
+   <li><a href="#" class="clr"><span class="pr">— CLEAR</span><span class="nm">general</span><span class="st">Nothing waiting</span></a></li>
+   <li><a href="#" class="clr"><span class="pr">— CLEAR</span><span class="nm">random</span><span class="st">Nothing waiting</span></a></li>
+  </ul></nav>
+ <main class="pane"><h1 class="ph" id="lg">Log · #design-crit <em>5 entries today</em></h1>
+  <div class="logh" aria-hidden="true"><span>Time</span><span>Unit</span><span>Entry</span><span class="xh">Links</span></div>
+  <ol class="log" aria-labelledby="lg">
+   <li class="row"><time>09:02</time><span class="u"><code>PN</code>Priya Nair</span><p>Three hero options are up in Canvas. Thoughts by Monday?</p><span class="x"></span></li>
+   <li class="row sel"><time>09:05</time><span class="u"><code>AT</code>Aiko Tanaka</span><p>B reads best on phones. A feels busy.</p><span class="x"><a href="#">↳ Thread · 3 replies</a><span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" aria-hidden="true"><path d="M7 11v9H4v-9zM7 11l4-8c1.6 0 2.6 1.2 2.2 2.8L12.6 9H19a2 2 0 0 1 2 2.3l-1.2 6.8A2.3 2.3 0 0 1 17.6 20H7"/></svg>Thumbs up ×3</span><span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><ellipse cx="7.5" cy="12" rx="4.5" ry="6"/><ellipse cx="16.5" cy="12" rx="4.5" ry="6"/></svg>Eyes ×1</span></span></li>
+   <li class="row"><time>09:11</time><span class="u"><code>MO</code>Mara Okafor</span><p>Agree on B. Can we try the button in brand green?</p><span class="x"></span></li>
+   <li class="row"><time>09:12</time><span class="u"><code>PN</code>Priya Nair</span><p><a class="file" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg>IMG · homepage-hero-B.png</a></p><span class="x"><span>Attachment, image</span></span></li>
+   <li class="row"><time>09:20</time><span class="u"><code>JW</code>Jonas Weber</span><p>Unrelated, billing deploy is at 11:00, heads up</p><span class="x"></span></li>
+  </ol></main>
+ <aside class="pane units-pane" aria-labelledby="un"><h2 class="ph" id="un">Units · direct</h2>
+  <ul class="units">
+   <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="1" y="1" width="12" height="12" fill="#4ade80"/></svg><b>Priya Nair</b><small style="color:var(--ok)">AVAILABLE</small></li>
+   <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="1.5" y="1.5" width="11" height="11" fill="none" stroke="#ffc04d" stroke-width="1.5"/><path d="M1.5 12.5L12.5 1.5V12.5z" fill="#ffc04d"/></svg><b>Jonas Weber</b><small style="color:var(--p2)">AWAY</small></li>
+   <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="1.5" y="1.5" width="11" height="11" fill="none" stroke="#9fb1c7" stroke-width="1.5"/></svg><b>Aiko Tanaka</b><small style="color:var(--muted)">OFFLINE</small></li>
+  </ul></aside>
+</div>
+<form class="entry" action="#"><label for="m">New entry</label><input id="m" placeholder="Message #design-crit"><button type="button" class="fk"><kbd>F1</kbd>Attach</button><button type="button" class="fk"><kbd>F2</kbd>Emoji</button><button type="submit" class="fk go"><kbd>F12</kbd>Send</button></form>
+
+<section class="sheet" aria-labelledby="sh">
+ <h2 id="sh"><span>Style sheet</span>Style 350 · Dispatch console</h2>
+ <p class="idea">The chat as an emergency dispatch screen, where channels wait in a prioritised call queue, messages land as timestamped log entries in ruled columns, and people are units marked available, away or offline.</p>
+ <h3>Palette</h3>
+ <ul class="sw">
+  <li><i style="background:#080d14"></i><b>page<code>#080d14</code></b><span>Page, fields, sheet</span></li>
+  <li><i style="background:#0f1824"></i><b>panel<code>#0f1824</code></b><span>Queue, log, units panes</span></li>
+  <li><i style="background:#16233a"></i><b>head<code>#16233a</code></b><span>Pane headers, status strip, keys</span></li>
+  <li><i style="background:#253850"></i><b>grid<code>#253850</code></b><span>Every rule and pane gap</span></li>
+  <li><i style="background:#e3ecf7"></i><b>ink<code>#e3ecf7</code></b><span>Text</span></li>
+  <li><i style="background:#9fb1c7"></i><b>muted<code>#9fb1c7</code></b><span>Column heads, states, CLEAR</span></li>
+  <li><i style="background:#38bdf8"></i><b>cyan<code>#38bdf8</code></b><span>Open line, times, Send, focus</span></li>
+  <li><i style="background:#ff7a7a"></i><b>p1<code>#ff7a7a</code></b><span>P1 mention on #3a1218</span></li>
+  <li><i style="background:#ffc04d"></i><b>p2<code>#ffc04d</code></b><span>P2 unread, away, live strip on #33260a</span></li>
+  <li><i style="background:#4ade80"></i><b>ok<code>#4ade80</code></b><span>Available</span></li>
+ </ul>
+ <h3>Type</h3>
+ <div class="blk ts">
+  <div><code>Mono 16 / 600</code><span style="font:600 16px var(--mono)">09:21</span></div>
+  <div><code>Sans 14 / 650</code><b style="font-size:14px">billing-war-room</b></div>
+  <div><code>Sans 14 / 400</code><span style="font-size:14px">B reads best on phones. A feels busy.</span></div>
+  <div><code>Mono 11 / 700 caps .12em</code><span style="font:700 11px var(--mono);letter-spacing:.12em;color:var(--muted)">CALL QUEUE</span></div>
+  <div><code>Stacks</code><span style="color:var(--muted)">Inter, Segoe UI, system-ui, Roboto, Arial · ui-monospace, JetBrains Mono, DejaVu Sans Mono, Menlo, Consolas. Tabular numbers throughout.</span></div>
+ </div>
+ <h3>Spacing, density and depth</h3>
+ <dl class="blk facts">
+  <dt>Spacing</dt><dd>4px unit. 8px 12px cells, 1px gaps between panes show the grid colour.</dd>
+  <dt>Density</dt><dd>High. Queue, log and units all visible at once, every row ruled.</dd>
+  <dt>Corners</dt><dd>2px on keys, fields and tags. Panes are square.</dd>
+  <dt>Borders</dt><dd>1px grid rules, a 4px left bar coloured by priority, a 2px cyan rule under the strip.</dd>
+  <dt>Shadows</dt><dd>None. Selection is an inset 3px cyan bar.</dd>
+  <dt>Icons</dt><dd>Shape codes before every state, ◆ P1, ▲ P2, ● OPEN, — CLEAR, and full, half or empty squares for units.</dd>
+  <dt>Focus</dt><dd>2px cyan outline with a 4px deep cyan halo.</dd>
+  <dt>Tone</dt><dd>Operational shorthand, such as Call queue, 4 unread waiting, Units, New entry and F12 Send.</dd>
+ </dl>
+ <h3>Controls · normal and focus</h3>
+ <div class="ctrls">
+  <div><h4>Primary</h4><button class="fk go"><kbd>F12</kbd>Send</button><button class="fk go is-focus"><kbd>F12</kbd>Send</button></div>
+  <div><h4>Secondary</h4><button class="fk"><kbd>F1</kbd>Attach</button><button class="fk is-focus"><kbd>F1</kbd>Attach</button></div>
+  <div><h4>Text field</h4><label class="fld">Channel<input value="design-crit"></label><label class="fld">Channel<input class="is-focus" value="design-crit"></label></div>
+  <div><h4>List row</h4><ul class="q"><li><a href="#" class="clr"><span class="pr">— CLEAR</span><span class="nm">general</span></a></li><li><a href="#" class="clr is-focus"><span class="pr">— CLEAR</span><span class="nm">general</span></a></li></ul></div>
+ </div>
+</section>
+</body>
+</html>

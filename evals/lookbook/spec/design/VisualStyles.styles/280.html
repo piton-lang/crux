@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Style 280 · Dark Memphis · Brightwork</title>
+<style>
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{margin:0}
+.ic{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:middle}
+.si{width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ic-star.si{fill:currentColor}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+button,input{font:inherit;color:inherit}
+.sheet .swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;list-style:none;margin:0;padding:0}
+.sheet .sw i{display:block;height:44px}
+.sheet .sw div{padding:8px 10px;font-size:12px;line-height:1.4}
+.sheet .sw b{display:block;font-size:13px}
+.sheet .type-row{display:flex;gap:16px;align-items:baseline;padding:8px 0;flex-wrap:wrap}
+.sheet .type-row code{font-size:12px;min-width:170px}
+.sheet .facts{display:grid;grid-template-columns:130px minmax(0,1fr);gap:8px 16px;margin:0;font-size:14px}
+.sheet .facts dd{margin:0}
+.sheet .controls{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+.sheet .ctl-label{display:block;font-size:12px;margin-bottom:8px}
+.sheet .field{display:block;font-size:13px}
+.sheet .field input{display:block;width:100%;margin-top:6px}
+@media (max-width:560px){.sheet .facts{grid-template-columns:1fr}.sheet .facts dt{margin-top:8px}}
+
+:root{--black:#0d0d0f;--block:#17171b;--ink:#ffffff;--muted:#c4c4cc;--pink:#ff5c93;--teal:#2ee0cf;--yellow:#ffd60a;--lilac:#b99bff;--orange:#ff8a3d;
+--heavy:"Arial Black","Archivo Black","Helvetica Neue",Helvetica,Arial,sans-serif;--body:Verdana,Geneva,"DejaVu Sans",sans-serif}
+body{background:var(--black);color:var(--ink);font:14px/1.55 var(--body)}
+input::placeholder{color:var(--muted);opacity:1}
+:focus-visible,.is-focus{outline:3px solid var(--yellow)!important;outline-offset:4px}
+.party{position:relative;overflow:clip;padding:32px 32px 64px;background:radial-gradient(circle,#2a2a30 1.5px,transparent 2px) 0 0/22px 22px,var(--black)}
+.confetti{position:absolute;inset:0;pointer-events:none}
+.grid{position:relative;display:grid;grid-template-columns:220px minmax(0,1fr) 320px;grid-template-areas:"head head det" "side list det";gap:28px;max-width:1240px;margin:0 auto;align-items:start}
+.head{grid-area:head;position:relative}
+.head p{margin:0;font-family:var(--heavy);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal)}
+.head h1{font-family:var(--heavy);font-weight:900;font-size:50px;line-height:1;margin:8px 0 0;letter-spacing:-.01em}
+.head svg.sq{display:block;width:260px;max-width:70%;height:18px;margin:6px 0 12px}
+.crumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;font-size:13px}
+.crumbs li{display:flex;align-items:center;gap:8px}
+.crumbs li+li::before{content:"";width:8px;height:8px;background:var(--pink);transform:rotate(45deg)}
+.crumbs a{color:var(--ink)}
+.box{background:var(--block);border:2px solid var(--ink)}
+.side{grid-area:side;padding:16px;box-shadow:6px 6px 0 var(--lilac)}
+.side ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.side a{display:flex;align-items:center;gap:12px;padding:8px;color:var(--ink);text-decoration:none;font-weight:700}
+.side a[aria-current=page]{background:var(--ink);color:var(--black)}
+.shape{width:16px;height:16px;flex:none}
+.sh-0{border-radius:50%;background:var(--pink)}
+.sh-1{background:var(--teal);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.sh-2{background:var(--yellow)}
+.sh-3{background:var(--lilac);clip-path:polygon(0 30%,30% 30%,30% 0,70% 0,70% 30%,100% 30%,100% 70%,70% 70%,70% 100%,30% 100%,30% 70%,0 70%)}
+.sh-4{border:3px solid var(--orange);border-radius:50%}
+.store{margin-top:16px;padding-top:14px;border-top:2px dashed var(--muted);font-size:13px;color:var(--muted)}
+.store b{display:block;font-family:var(--heavy);font-size:22px;color:var(--ink)}
+.meter{height:14px;border:2px solid var(--ink);margin:8px 0 4px;background:repeating-linear-gradient(45deg,var(--teal) 0 4px,transparent 4px 8px) left/64.2% 100% no-repeat}
+.list{grid-area:list;box-shadow:8px 8px 0 var(--teal);min-width:0}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:14px;border-bottom:2px solid var(--ink)}
+.search{flex:1;min-width:180px;display:flex;align-items:center;gap:8px;border:2px solid var(--ink);padding:0 10px;background:var(--black);border-radius:999px}
+.search input{flex:1;min-width:0;border:0;background:transparent;padding:8px 0}
+.search input:focus-visible{outline:0!important}
+.search:focus-within{outline:3px solid var(--yellow);outline-offset:4px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;font:900 14px/1.2 var(--heavy);cursor:pointer;border:2px solid var(--ink);border-radius:0}
+.btn .ic{width:16px;height:16px;stroke-width:2.6}
+.btn-primary{background:var(--pink);color:#0d0d0f;box-shadow:4px 4px 0 var(--ink)}
+.btn-secondary{background:var(--black);color:var(--ink);box-shadow:4px 4px 0 var(--teal)}
+.switch{display:inline-flex;border:2px solid var(--ink)}
+.switch button{display:inline-flex;gap:6px;align-items:center;border:0;background:transparent;color:var(--ink);padding:7px 12px;font-weight:700;cursor:pointer}
+.switch button[aria-pressed=true]{background:var(--yellow);color:#0d0d0f}
+.switch .ic{width:15px;height:15px;stroke-width:2.4}
+.rows{list-style:none;margin:0;padding:0}
+.rows li{display:grid;grid-template-columns:44px minmax(0,1.7fr) 84px minmax(0,1.5fr);gap:12px;align-items:center;padding:12px 14px;border-bottom:2px solid #2c2c33}
+.rows li:last-child{border-bottom:0}
+.tile{width:40px;height:40px;display:grid;place-items:center;border:2px solid var(--ink)}
+.tile .ic{width:20px;height:20px;stroke-width:2.2}
+.t-folder{background:var(--yellow);color:#0d0d0f;border-radius:50% 50% 0 0}.t-pdf{background:var(--pink);color:#0d0d0f}.t-image{background:var(--teal);color:#0d0d0f;border-radius:50%}.t-sheet{background:var(--black);color:var(--teal)}.t-doc{background:var(--lilac);color:#0d0d0f}.t-zip{background:var(--black);color:var(--orange);border-radius:0 50% 0 50%}.t-video{background:var(--orange);color:#0d0d0f}
+.rows a{color:inherit;font-weight:700;font-size:15px;text-decoration:none;overflow-wrap:anywhere}
+.kind{display:block;font-size:12px;color:var(--muted)}
+.num{font-family:var(--heavy);font-variant-numeric:tabular-nums}
+.who{font-size:13px;color:var(--muted)}
+.rows li.sel{background:var(--yellow);color:#0d0d0f}
+.rows li.sel .kind,.rows li.sel .who{color:#2b2600}
+.rows li.sel .tile{border-color:#0d0d0f}
+.flags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.st{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:2px 10px 2px 6px;border:2px solid currentColor;background:var(--black)}
+.st .si{stroke-width:2.6;width:14px;height:14px}
+.st-star{color:var(--yellow)}.st-shared{color:var(--teal);border-radius:999px}.st-upload{color:var(--orange);border-style:dashed}.st-sel{color:#0d0d0f;background:var(--ink);border-color:#0d0d0f}
+li.sel .st-star{background:#0d0d0f}
+.zig{height:10px;margin-top:6px;max-width:260px;border:2px solid var(--ink);background:linear-gradient(90deg,var(--orange) 62%,transparent 62%)}
+.det{grid-area:det;position:relative;padding:24px 20px 20px;transform:rotate(1.2deg);box-shadow:8px 8px 0 var(--pink);margin-top:12px}
+.det::before{content:"";position:absolute;left:-2px;right:-2px;top:-14px;height:14px;background:linear-gradient(135deg,var(--ink) 25%,transparent 25%) -7px 0/14px 14px,linear-gradient(225deg,var(--ink) 25%,transparent 25%) -7px 0/14px 14px}
+.det h2{font-family:var(--heavy);font-size:22px;margin:0 0 12px}
+.det .pv{display:block;width:100%;height:auto;border:2px solid var(--ink);margin-bottom:14px}
+.det h3{font-size:17px;margin:0 0 8px;overflow-wrap:anywhere}
+.det dl{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin:14px 0 18px;font-size:13px}
+.det dt{color:var(--muted)}
+.det dd{margin:0;font-weight:700}
+.acts{display:flex;flex-wrap:wrap;gap:12px}
+.sheet{background:var(--block);border-top:2px solid var(--ink);padding:56px max(32px,calc((100% - 1176px)/2)) 72px}
+.sheet h2{font-family:var(--heavy);font-size:40px;margin:0 0 8px}
+.sheet h3{font-family:var(--heavy);font-size:15px;color:var(--teal);margin:36px 0 12px}
+.idea{color:var(--muted);margin:0;max-width:72ch}
+.sw{border:2px solid var(--ink);background:var(--black)}
+.sw div{color:var(--muted)}.sw b{color:var(--ink)}
+.type-row{border-bottom:2px dashed #2c2c33}.type-row code{color:var(--muted)}
+.facts dt{color:var(--pink);font-weight:700}
+.ctl-label,.field{color:var(--muted)}
+.field input{background:var(--black);border:2px solid var(--ink);border-radius:999px;padding:8px 14px}
+.row-demo{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;border:2px solid var(--ink);font-weight:700;background:var(--black)}
+.controls .btn{margin:0 8px 8px 0}
+@media (max-width:1080px){.grid{grid-template-columns:200px minmax(0,1fr);grid-template-areas:"head head" "side list" "det det"}.det{max-width:440px;transform:rotate(.6deg)}}
+@media (max-width:720px){
+ .party{padding:24px 16px 48px}
+ .grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "side" "list" "det";gap:24px}
+ .head h1{font-size:34px}
+ .side ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .list{box-shadow:6px 6px 0 var(--teal)}
+ .rows li{grid-template-columns:44px minmax(0,1fr);gap:4px 12px}
+ .rows .num,.rows .who{grid-column:2}
+ .det{box-shadow:6px 6px 0 var(--pink);margin-right:6px}
+ .sheet{padding:40px 16px}.sheet h2{font-size:30px}
+}
+</style>
+</head>
+<body>
+<div class="party"><svg class="confetti" width="100%" height="100%" aria-hidden="true"><path d="M40 300q15-20 30 0t30 0 30 0" fill="none" stroke="#ff5c93" stroke-width="4"/><polygon points="600,40 620,10 640,40" fill="#2ee0cf"/><circle cx="93%" cy="22" r="10" fill="none" stroke="#ffd60a" stroke-width="4"/><rect x="30%" y="900" width="16" height="16" fill="#b99bff" transform="rotate(20)"/><circle cx="3%" cy="700" r="7" fill="#2ee0cf"/><circle cx="97%" cy="820" r="9" fill="#ff8a3d"/></svg>
+<div class="grid">
+<header class="head"><p>Brightwork Drive</p><h1>Website redesign</h1><svg class="sq" viewBox="0 0 260 18" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9q8-14 16 0t16 0 16 0 16 0 16 0 16 0 16 0 16 0 16 0 16 0 16 0 16 0 16 0 16 0 16 0 16 0" fill="none" stroke="#ffd60a" stroke-width="4" stroke-linecap="round"/></svg>
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="#">My files</a></li><li><a href="#">Fernhill Studio</a></li><li><span aria-current="page">Website redesign</span></li></ol></nav></header>
+<aside class="box side"><nav aria-label="Drive"><ul><li><a href="#" aria-current=page><span class="shape sh-0" aria-hidden="true"></span>My files</a></li><li><a href="#"><span class="shape sh-1" aria-hidden="true"></span>Shared with me</a></li><li><a href="#"><span class="shape sh-2" aria-hidden="true"></span>Recent</a></li><li><a href="#"><span class="shape sh-3" aria-hidden="true"></span>Starred</a></li><li><a href="#"><span class="shape sh-4" aria-hidden="true"></span>Trash</a></li></ul></nav>
+<div class="store"><span class="vh">Storage</span><b>64.2 GB</b>of 100 GB used<div class="meter" aria-hidden="true"></div></div></aside>
+<main class="box list">
+<div class="tools"><label class="search"><svg class="ic ic-search" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg><span class="vh">Search files</span><input type="search" placeholder="Search files"></label>
+<button type="button" class="btn btn-primary"><svg class="ic ic-upload" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15V4M7.5 8.5L12 4l4.5 4.5"/><path d="M4 15v5h16v-5"/></svg>Upload</button><button type="button" class="btn btn-secondary"><svg class="ic ic-newfolder" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6.5h6.5l2 2H21V19H3z"/><path d="M12 11v6M9 14h6"/></svg>New folder</button>
+<div class="switch" role="group" aria-label="View"><button type="button" aria-pressed="true"><svg class="ic ic-list" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg>List</button><button type="button" aria-pressed="false"><svg class="ic ic-grid" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="6.5" height="6.5"/><rect x="13.5" y="4" width="6.5" height="6.5"/><rect x="4" y="13.5" width="6.5" height="6.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5"/></svg>Grid</button></div></div>
+<ul class="rows" aria-label="Files in Website redesign"><li class=""><span class="tile t-folder"><svg class="ic ic-folder" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6.5h6.5l2 2H21V19H3z"/></svg></span><div><a href="#">Brand assets</a><span class="kind">Folder</span></div><span class="num">24 items</span><div class="who">28 Oct, Priya Nair</div></li><li class=""><span class="tile t-folder"><svg class="ic ic-folder" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6.5h6.5l2 2H21V19H3z"/></svg></span><div><a href="#">Wireframes</a><span class="kind">Folder</span></div><span class="num">9 items</span><div class="who">30 Oct, Aiko Tanaka</div></li><li class="sel"><span class="tile t-pdf"><svg class="ic ic-pdf" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 16.5h4"/></svg></span><div><a href="#" aria-current=true>brand-guide-v3.pdf</a><span class="kind">PDF</span></div><span class="num">4.2 MB</span><div class="who">27 Oct, Priya Nair<div class="flags"><span class="st st-star"><svg class="si ic-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg><span>Starred</span></span><span class="st st-sel"><svg class="si ic-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M7.5 12.3l3 3 6-6.3"/></svg><span>Selected</span></span></div></div></li><li class=""><span class="tile t-image"><svg class="ic ic-image" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="4.5" width="17" height="15" rx="1"/><circle cx="9" cy="9.5" r="1.6"/><path d="M4 18l5-5 4 4 3-3 4 4"/></svg></span><div><a href="#">homepage-hero-B.png</a><span class="kind">PNG image</span></div><span class="num">2.8 MB</span><div class="who">today 08:12, Priya Nair</div></li><li class=""><span class="tile t-sheet"><svg class="ic ic-sheet" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9.5h16M4 14.5h16M10 4v16"/></svg></span><div><a href="#">content-audit.xlsx</a><span class="kind">Spreadsheet</span></div><span class="num">86 KB</span><div class="who">19 Sep, Mara Okafor</div></li><li class=""><span class="tile t-doc"><svg class="ic ic-doc" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 11h6M9 14h6M9 17h4"/></svg></span><div><a href="#">launch-plan.docx</a><span class="kind">Document</span></div><span class="num">140 KB</span><div class="who">yesterday, Mara Okafor<div class="flags"><span class="st st-shared"><svg class="si ic-people" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="3"/><path d="M2.5 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="16.5" cy="9" r="2.5"/><path d="M16 14c3 0 5.5 2.4 5.5 5.5"/></svg><span>Shared with 4 people</span></span></div></div></li><li class=""><span class="tile t-zip"><svg class="ic ic-zip" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h12v18H6z"/><path d="M12 3v2M12 7v2M12 11v2"/><rect x="10.5" y="14" width="3" height="4"/></svg></span><div><a href="#">customer-interviews.zip</a><span class="kind">ZIP archive</span></div><span class="num">312 MB</span><div class="who">12 Oct, Aiko Tanaka</div></li><li class=""><span class="tile t-video"><svg class="ic ic-video" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="5.5" width="17" height="13" rx="1"/><path d="M10 9.2v5.6l4.6-2.8z"/></svg></span><div><a href="#">hero-motion.mp4</a><span class="kind">Video</span></div><span class="num">48.6 MB</span><div class="who">29 Oct, Priya Nair<div class="flags"><span class="st st-upload"><svg class="si ic-uparrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20V5M5.5 11.5L12 5l6.5 6.5"/></svg><span>Uploading 62 percent</span></span></div><div class="zig" aria-hidden="true"></div></div></li></ul></main>
+<aside class="box det" aria-labelledby="det-h"><h2 id="det-h">Details</h2><svg class="pv" viewBox="0 0 280 170" role="img" aria-label="Preview of brand-guide-v3.pdf, the cover page"><rect width="280" height="170" fill="#0d0d0f"/><circle cx="40" cy="30" r="40" fill="#2ee0cf" opacity=".35"/><path d="M200 150q10-14 20 0t20 0 20 0" fill="none" stroke="#ff5c93" stroke-width="4"/><rect x="90" y="14" width="100" height="142" fill="#17171b" stroke="#fff" stroke-width="2"/><rect x="104" y="30" width="54" height="10" fill="#ffd60a"/><rect x="104" y="48" width="70" height="4" fill="#c4c4cc"/><rect x="104" y="58" width="60" height="4" fill="#c4c4cc"/><polygon points="140,82 168,130 112,130" fill="#ff5c93" stroke="#fff" stroke-width="2"/></svg>
+<h3>brand-guide-v3.pdf</h3><span class="st st-star"><svg class="si ic-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg><span>Starred</span></span>
+<dl><dt>Owner</dt><dd>Priya Nair</dd><dt>Size</dt><dd>4.2 MB</dd><dt>Version</dt><dd>3</dd><dt>Shared with</dt><dd>Design team</dd></dl>
+<div class="acts"><button type="button" class="btn btn-primary"><svg class="ic ic-share" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/></svg>Share</button><button type="button" class="btn btn-secondary"><svg class="ic ic-download" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5"/><path d="M4 19.5h16"/></svg>Download</button><button type="button" class="btn btn-secondary"><svg class="ic ic-link" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/></svg>Get link</button></div></aside>
+</div></div>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 280 · Dark Memphis</h2>
+<p class="idea">Memphis squiggles, confetti and dot grids on black, chunky white outlined blocks thrown slightly off grid with hard colour offset shadows, and every nav item wearing its own geometric shape.</p>
+<h3>Palette</h3><ul class="swatches"><li class="sw"><i style="background:#0d0d0f"></i><div><b>Black</b>#0d0d0f · page with a dot grid, fields, chips</div></li><li class="sw"><i style="background:#17171b"></i><div><b>Block</b>#17171b · outlined blocks, style sheet</div></li><li class="sw"><i style="background:#ffffff"></i><div><b>White</b>#ffffff · text, 2px outlines, current nav</div></li><li class="sw"><i style="background:#c4c4cc"></i><div><b>Muted</b>#c4c4cc · meta and labels</div></li><li class="sw"><i style="background:#ff5c93"></i><div><b>Pink</b>#ff5c93 · primary button, PDF tile, details shadow</div></li><li class="sw"><i style="background:#2ee0cf"></i><div><b>Teal</b>#2ee0cf · list shadow, image tile, Shared, storage stripes</div></li><li class="sw"><i style="background:#ffd60a"></i><div><b>Yellow</b>#ffd60a · selected row with black text, pressed switch, folders, Starred, focus</div></li><li class="sw"><i style="background:#b99bff"></i><div><b>Lilac</b>#b99bff · sidebar shadow, document tile</div></li><li class="sw"><i style="background:#ff8a3d"></i><div><b>Orange</b>#ff8a3d · video tile, Uploading</div></li></ul>
+<h3>Type</h3><div class="type-row"><code>50 Arial Black</code><span style="font-family:var(--heavy);font-size:50px">Website redesign</span></div><div class="type-row"><code>22 Arial Black</code><span style="font-family:var(--heavy);font-size:22px">Details</span></div><div class="type-row"><code>15 / 700 Verdana</code><span style="font-size:15px;font-weight:700">customer-interviews.zip</span></div><div class="type-row"><code>14 / 400 Verdana</code><span style="">12 Oct, Aiko Tanaka</span></div><div class="type-row"><code>13 caps .2em teal</code><span style="font-family:var(--heavy);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#2ee0cf">Brightwork Drive</span></div>
+<h3>Spacing, density and depth</h3><dl class="facts"><dt>Fonts</dt><dd>Headings and figures in Arial Black. Body in Verdana, Geneva, DejaVu Sans.</dd><dt>Spacing</dt><dd>8px unit. 28px between blocks, 14px block padding, 12px rows.</dd><dt>Density</dt><dd>Medium. Rows are plain, the blocks around them are loud.</dd><dt>Corners</dt><dd>Mixed on purpose. Square blocks and buttons, pill search, file tiles cut as squares, circles, domes and leaves.</dd><dt>Borders</dt><dd>2px white outlines on every block, tile and control, a zigzag edge on top of the details block.</dd><dt>Shadows</dt><dd>Hard offset colour blocks, 6 to 8px, lilac, teal and pink. Buttons get a 4px offset.</dd><dt>Icons</dt><dd>2.2px line icons inside filled shape tiles. Nav uses pure shapes. Status chips differ in shape, square for Starred, pill for Shared, dashed outline for Uploading.</dd><dt>Tone</dt><dd>Loud and short, Upload, New folder, Details.</dd><dt>Motifs</dt><dd>Dot grid, squiggles, confetti triangles and rings, a yellow squiggle underline and a slight tilt on the details block.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls"><div><span class="ctl-label">Primary button</span><button type="button" class="btn btn-primary"><svg class="ic ic-share" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/></svg>Share</button> <button type="button" class="btn btn-primary is-focus"><svg class="ic ic-share" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/></svg>Share</button></div>
+<div><span class="ctl-label">Secondary button</span><button type="button" class="btn btn-secondary"><svg class="ic ic-download" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5"/><path d="M4 19.5h16"/></svg>Download</button> <button type="button" class="btn btn-secondary is-focus"><svg class="ic ic-download" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5"/><path d="M4 19.5h16"/></svg>Download</button></div>
+<div><label class="field">Search files<input type="search" value="brand guide"></label></div>
+<div><label class="field">Search files, focused<input type="search" class="is-focus" value="hero"></label></div>
+<div><span class="ctl-label">List row</span><div class="row-demo"><span>brand-guide-v3.pdf</span><span class="st st-star"><svg class="si ic-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg><span>Starred</span></span></div></div>
+<div><span class="ctl-label">List row, focused</span><div class="row-demo is-focus"><span>brand-guide-v3.pdf</span><span class="st st-star"><svg class="si ic-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg><span>Starred</span></span></div></div></div>
+</section>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 158 · Grunge · Brightwork</title>
+<style>
+:root {
+  --paper: #e7e2d7;
+  --card: #efebe2;
+  --ink: #24201b;
+  --rust: #7d3a1f;
+  --olive: #4c522c;
+  --slate: #3f4a55;
+  --dust: #b8ad95;
+  --stain: #a99b78;
+  --ghost: rgba(125, 58, 31, 0.35);
+  --disp: "Trebuchet MS", "Gill Sans", "Gill Sans MT", "DejaVu Sans", sans-serif;
+  --type: "American Typewriter", "Courier New", Courier, monospace;
+  --serif: "Times New Roman", Times, serif;
+}
+* { box-sizing: border-box; }
+html { background: var(--paper); }
+body { margin: 0; color: var(--ink); font: 15px/1.5 var(--type); background-color: var(--paper); overflow-x: hidden;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .14 0 0 0 0 .12 0 0 0 0 .1 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(103deg, transparent 0 140px, rgba(36,32,27,0.06) 140px 141px, transparent 141px 300px),
+    repeating-linear-gradient(-71deg, transparent 0 210px, rgba(36,32,27,0.05) 210px 211px, transparent 211px 420px),
+    radial-gradient(ellipse at 80% 10%, rgba(169,155,120,0.35), transparent 40%),
+    radial-gradient(ellipse at 10% 70%, rgba(169,155,120,0.3), transparent 35%); }
+a { color: var(--ink); }
+:focus-visible, .is-focus { outline: 2px solid var(--ink) !important; outline-offset: 2px; box-shadow: 4px 4px 0 0 var(--rust), -3px -3px 0 0 var(--olive); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.wrap { max-width: 1220px; margin: 0 auto; padding: 28px 24px; }
+.mis { text-shadow: 3px 2px 0 var(--ghost), -2px -1px 0 rgba(76,82,44,0.3); }
+
+/* layered panel: a misaligned ghost frame behind */
+.layer { position: relative; background: var(--card); border: 2px solid var(--ink); padding: 20px; }
+.layer::before { content: ""; position: absolute; inset: 0; border: 2px solid var(--rust); transform: translate(7px, -6px) rotate(0.6deg); opacity: 0.55; pointer-events: none; }
+.layer::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(97deg, transparent 0 37px, rgba(36,32,27,0.07) 37px 38px, transparent 38px 91px); }
+
+/* masthead */
+.mast { display: grid; grid-template-columns: auto 1fr; gap: 10px 32px; align-items: end; border-bottom: 2px solid var(--ink); padding-bottom: 14px; }
+.logo { font: 700 64px/0.8 var(--disp); letter-spacing: -0.06em; text-transform: lowercase; text-decoration: none; display: inline-block; transform: rotate(-1.5deg); }
+.logo span { color: var(--rust); }
+.bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 2px 18px; }
+.nav a { font: 400 16px var(--type); text-decoration: none; text-transform: lowercase; padding: 4px 0; border-bottom: 2px solid transparent; }
+.nav a[aria-current="page"] { border-bottom: 4px solid var(--rust); font-weight: 700; }
+.tools { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.search { display: flex; align-items: center; gap: 6px; border: 2px solid var(--ink); background: var(--card); padding: 0 8px; transform: rotate(0.5deg); }
+.search input { border: 0; font: 14px var(--type); padding: 7px 0; width: 180px; background: transparent; color: var(--ink); }
+.search input:focus { outline: none; }
+.search:focus-within { outline: 2px solid var(--ink); outline-offset: 2px; box-shadow: 4px 4px 0 0 var(--rust); }
+.btn { font: 700 15px/1 var(--type); text-transform: lowercase; padding: 10px 14px; border: 2px solid var(--ink); background: var(--ink); color: var(--card); cursor: pointer; position: relative; box-shadow: 3px -3px 0 var(--rust); }
+.btn.alt { background: var(--card); color: var(--ink); box-shadow: 3px -3px 0 var(--olive); }
+.bell { font: 700 14px var(--type); border: 2px dashed var(--ink); background: transparent; padding: 7px 9px; cursor: pointer; }
+.me { font: italic 17px var(--serif); }
+
+/* grid */
+.grid { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 36px; margin-top: 28px; align-items: start; }
+.hello { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 16px; }
+.hello h1 { margin: 0; font: 700 clamp(48px, 9vw, 116px)/0.82 var(--disp); letter-spacing: -0.06em; text-transform: lowercase; }
+.hello h1 em { font: italic 400 0.6em var(--serif); letter-spacing: -0.02em; color: var(--rust); display: block; margin-left: 12%; }
+.hello .date { font: 14px var(--type); writing-mode: vertical-rl; transform: rotate(180deg); border-left: 2px solid var(--ink); padding-left: 6px; }
+.urgent { grid-column: 1 / -1; margin: 0; font: 700 22px/1.2 var(--type); display: flex; align-items: center; gap: 10px; background: var(--ink); color: var(--card); padding: 10px 14px; width: fit-content; max-width: 100%; transform: rotate(-0.8deg) translateX(18px); }
+.urgent svg { color: var(--dust); flex: none; }
+
+/* summary stack */
+.stack { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; }
+.stack li { padding: 14px 16px 12px; }
+.stack li:nth-child(2) { margin-left: 18px; } .stack li:nth-child(3) { margin-left: -6px; background: var(--rust); color: #f4ede0; } .stack li:nth-child(4) { margin-left: 10px; }
+.stack li:nth-child(3)::before { border-color: var(--ink); }
+.stack .n { display: block; font: 700 64px/0.9 var(--disp); letter-spacing: -0.06em; }
+.stack .l { display: block; font: 13px var(--type); text-transform: lowercase; }
+
+.h2 { margin: 0 0 12px; font: 700 40px/0.9 var(--disp); letter-spacing: -0.05em; text-transform: lowercase; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.h2 small { font: italic 400 16px var(--serif); letter-spacing: 0; color: var(--slate); }
+.tape { display: inline-block; background: rgba(184,173,149,0.75); padding: 2px 10px; font: 12px var(--type); transform: rotate(-2deg); border-left: 1px dashed rgba(36,32,27,0.35); border-right: 1px dashed rgba(36,32,27,0.35); }
+
+/* project rows: misaligned table */
+.rows { list-style: none; margin: 0; padding: 0 10px 0 0; position: relative; z-index: 1; }
+.prow { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr) minmax(0, 1.4fr) auto; gap: 6px 18px; align-items: center; padding: 12px 0; border-top: 1px solid var(--ink); }
+.prow:nth-child(even) { transform: translateX(8px); }
+.prow:nth-child(3n) { transform: translateX(-5px); }
+.prow .nm { font: 700 22px/1.05 var(--disp); letter-spacing: -0.03em; text-transform: lowercase; }
+.prow .nm small { display: block; font: italic 400 14px var(--serif); letter-spacing: 0; color: var(--slate); }
+.prow .ct { font-size: 13px; }
+.prog { display: flex; align-items: center; gap: 8px; }
+.mk { justify-self: start; }
+.scr { flex: 1; display: block; min-width: 70px; height: 12px; background: repeating-linear-gradient(90deg, rgba(36,32,27,0.18) 0 2px, transparent 2px 6px); position: relative; }
+.scr i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--ink); clip-path: polygon(0 10%, 97% 0, 100% 40%, 96% 70%, 100% 100%, 0 90%); }
+.scr + span { font-size: 12px; }
+.mk { display: inline-flex; align-items: center; gap: 6px; font: 700 13px var(--type); text-transform: lowercase; white-space: nowrap; padding: 3px 8px; border: 2px solid currentColor; }
+.mk.ok { color: var(--olive); } .mk.risk { color: var(--slate); border-style: dashed; } .mk.late { color: #f4ede0; background: var(--rust); border-color: var(--rust); }
+
+.lower { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 32px; margin-top: 36px; }
+.strips { list-style: none; margin: 0; padding: 0; position: relative; z-index: 1; }
+.strips li { padding: 8px 10px; margin: 0 0 8px; background: #f5f2ea; border-left: 4px solid var(--ink); font-size: 14px; }
+.strips li:nth-child(odd) { transform: rotate(-0.6deg); } .strips li:nth-child(even) { transform: rotate(0.5deg) translateX(6px); }
+.strips .w { display: block; font: italic 13px var(--serif); color: var(--rust); }
+.line svg { width: 100%; height: auto; display: block; position: relative; z-index: 1; }
+.line p { margin: 6px 0 0; font-size: 13px; position: relative; z-index: 1; }
+
+/* style sheet */
+.ss { margin-top: 64px; border-top: 2px solid var(--ink); padding-top: 24px; }
+.ss h2 { margin: 0; font: 700 clamp(40px, 6vw, 72px)/0.85 var(--disp); letter-spacing: -0.06em; text-transform: lowercase; }
+.ss h2 em { font: italic 400 0.6em var(--serif); color: var(--rust); letter-spacing: 0; }
+.ss .idea { font: italic 20px/1.4 var(--serif); max-width: 780px; }
+.ss h3 { font: 700 26px var(--disp); letter-spacing: -0.04em; text-transform: lowercase; margin: 36px 0 12px; border-bottom: 1px solid var(--ink); }
+.sw { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 18px 14px; }
+.sw li { font-size: 13px; }
+.sw .c { height: 70px; border: 2px solid var(--ink); margin-bottom: 6px; box-shadow: 5px -4px 0 rgba(125,58,31,0.4); }
+.sw b { display: block; font: 700 17px var(--disp); text-transform: lowercase; letter-spacing: -0.02em; }
+.types p { margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px dashed var(--ink); }
+.types small { display: block; font: 12px var(--type); letter-spacing: 0; text-transform: none; color: var(--slate); font-style: normal; }
+.sys { margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px 28px; }
+.sys dt { font: 700 19px var(--disp); text-transform: lowercase; letter-spacing: -0.02em; }
+.sys dd { margin: 0; font-size: 14px; }
+.ctrls { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 28px; }
+.ctrls figure { margin: 0; display: grid; gap: 16px; justify-items: start; }
+.ctrls figcaption { font: italic 15px var(--serif); color: var(--slate); }
+.field { display: grid; gap: 4px; width: 100%; font: 13px var(--type); text-transform: lowercase; }
+.field input { font: 15px var(--type); border: 2px solid var(--ink); padding: 8px 10px; background: var(--card); color: var(--ink); width: 100%; }
+.row { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 8px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); font: 700 18px var(--disp); text-transform: lowercase; letter-spacing: -0.02em; background: var(--card); }
+
+@media (max-width: 960px) {
+  .mast { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: 1fr; }
+  .stack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stack li:nth-child(n) { margin-left: 0; }
+  .lower { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .wrap { padding: 20px 16px; }
+  .logo { font-size: 50px; }
+  .search { flex: 1 1 100%; }
+  .search input { width: 100%; }
+  .prow { grid-template-columns: minmax(0, 1fr) auto; }
+  .prow .nm { grid-column: 1 / -1; }
+  .prow .prog { grid-column: 1 / -1; }
+  .prow:nth-child(n) { transform: none; }
+  .stack .n { font-size: 48px; }
+  .urgent { font-size: 18px; transform: rotate(-0.8deg); }
+  .hello .date { writing-mode: horizontal-tb; transform: none; border-left: 0; border-top: 2px solid var(--ink); padding: 4px 0 0; grid-column: 1 / -1; }
+  .hello { grid-template-columns: 1fr; }
+  .layer { padding: 16px 14px; }
+  .layer::before { transform: translate(4px, -4px) rotate(0.4deg); }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ring" viewBox="0 0 20 20"><path d="M10 2.5c4.4 0 7.6 3.3 7.4 7.6-.2 4.2-3.6 7.6-7.7 7.4C5.6 17.3 2.4 14 2.6 9.8 2.8 5.7 5.9 2.6 10 2.5z" fill="none" stroke="currentColor" stroke-width="2.6"/></symbol>
+    <symbol id="tri" viewBox="0 0 20 20"><path d="M10 2.2l8 15.3-16.2.3z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="bevel"/></symbol>
+    <symbol id="cross" viewBox="0 0 20 20"><path d="M3.5 4l13 12.5M16 3.2L4 16.8" stroke="currentColor" stroke-width="3.4" stroke-linecap="square"/></symbol>
+    <symbol id="bang" viewBox="0 0 20 20"><path d="M5 2h3.4l-.8 11H5.8zM11.6 2H15l-.8 11h-1.8zM5.3 15h3v3h-3zM11.9 15h3v3h-3z" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+<div class="wrap">
+<header class="mast">
+  <a class="logo mis" href="#" aria-label="Brightwork home">bright<span>work</span></a>
+  <div class="bar">
+    <nav class="nav" aria-label="Main"><ul>
+      <li><a href="#" aria-current="page">home</a></li><li><a href="#">projects</a></li><li><a href="#">tasks</a></li><li><a href="#">team</a></li><li><a href="#">reports</a></li><li><a href="#">settings</a></li>
+    </ul></nav>
+    <div class="tools">
+      <label class="search"><span class="sr">Search projects and tasks</span><span aria-hidden="true">/</span><input type="search" placeholder="search projects, tasks"></label>
+      <button class="btn" type="button">+ new project</button>
+      <button class="bell" type="button" aria-label="Notifications, 4 unread">alerts 4</button>
+      <span class="me">Mara Okafor</span>
+    </div>
+  </div>
+</header>
+
+<main class="grid">
+  <section class="hello" aria-labelledby="hi">
+    <h1 class="mis" id="hi">good morning <em>Mara.</em></h1>
+    <p class="date">saturday 31 october 2026</p>
+    <p class="urgent"><svg width="20" height="20" aria-hidden="true"><use href="#bang"/></svg>4 tasks are overdue</p>
+  </section>
+
+  <ul class="stack" aria-label="This week">
+    <li class="layer"><span class="n mis">6</span><span class="l">active projects</span></li>
+    <li class="layer"><span class="n mis">23</span><span class="l">tasks due this week</span></li>
+    <li class="layer"><span class="n">4</span><span class="l">overdue tasks</span></li>
+    <li class="layer"><span class="n mis">186</span><span class="l">hours logged this week</span></li>
+  </ul>
+
+  <div>
+    <section class="layer" aria-labelledby="pj">
+      <h2 class="h2 mis" id="pj">projects <small>six, give or take nothing</small> <span class="tape">sorted by nothing</span></h2>
+      <ul class="rows">
+        <li class="prow"><span class="nm">website redesign<small>Design</small></span><span class="ct">18 of 25 tasks<br>due 14 Nov</span><span class="prog"><span class="scr" role="img" aria-label="72 percent"><i style="width:72%"></i></span><span>72%</span></span><span class="mk ok"><svg width="13" height="13" aria-hidden="true"><use href="#ring"/></svg>on track</span></li>
+        <li class="prow"><span class="nm">mobile app 2.0<small>Engineering</small></span><span class="ct">27 of 60 tasks<br>due 2 Dec</span><span class="prog"><span class="scr" role="img" aria-label="45 percent"><i style="width:45%"></i></span><span>45%</span></span><span class="mk risk"><svg width="13" height="13" aria-hidden="true"><use href="#tri"/></svg>at risk</span></li>
+        <li class="prow"><span class="nm">q4 customer survey<small>Research</small></span><span class="ct">9 of 10 tasks<br>due 7 Nov</span><span class="prog"><span class="scr" role="img" aria-label="90 percent"><i style="width:90%"></i></span><span>90%</span></span><span class="mk ok"><svg width="13" height="13" aria-hidden="true"><use href="#ring"/></svg>on track</span></li>
+        <li class="prow"><span class="nm">billing migration<small>Engineering</small></span><span class="ct">12 of 40 tasks<br>due 20 Nov</span><span class="prog"><span class="scr" role="img" aria-label="30 percent"><i style="width:30%"></i></span><span>30%</span></span><span class="mk late"><svg width="13" height="13" aria-hidden="true"><use href="#cross"/></svg>behind</span></li>
+        <li class="prow"><span class="nm">spring catalogue<small>Marketing</small></span><span class="ct">3 of 20 tasks<br>due 15 Jan</span><span class="prog"><span class="scr" role="img" aria-label="15 percent"><i style="width:15%"></i></span><span>15%</span></span><span class="mk ok"><svg width="13" height="13" aria-hidden="true"><use href="#ring"/></svg>on track</span></li>
+        <li class="prow"><span class="nm">onboarding emails<small>Marketing</small></span><span class="ct">9 of 15 tasks<br>due 21 Nov</span><span class="prog"><span class="scr" role="img" aria-label="60 percent"><i style="width:60%"></i></span><span>60%</span></span><span class="mk ok"><svg width="13" height="13" aria-hidden="true"><use href="#ring"/></svg>on track</span></li>
+      </ul>
+    </section>
+
+    <div class="lower">
+      <section class="layer" aria-labelledby="act">
+        <h2 class="h2 mis" id="act">lately</h2>
+        <ol class="strips">
+          <li>Jonas Weber completed “Export invoices as CSV” in Billing migration<span class="w">12 min ago</span></li>
+          <li>Priya Nair commented on “Hero image options” in Website redesign<span class="w">40 min ago</span></li>
+          <li>Sam Ortiz moved “Push notifications” to Review in Mobile app 2.0<span class="w">1 h ago</span></li>
+          <li>Lena Fischer added 3 tasks to Spring catalogue<span class="w">2 h ago</span></li>
+          <li>Tomás Ruiz logged 6 h on Mobile app 2.0<span class="w">3 h ago</span></li>
+          <li>Aiko Tanaka uploaded survey-results-v2.pdf to Q4 customer survey<span class="w">yesterday</span></li>
+        </ol>
+      </section>
+      <section class="layer line" aria-labelledby="ch">
+        <h2 class="h2 mis" id="ch">done per day <small>18 to 31 oct</small></h2>
+        <svg viewBox="0 0 440 240" role="img" aria-label="Tasks completed per day, Sunday 18 to Saturday 31 October: 3, 12, 9, 14, 11, 8, 2, then 4, 15, 13, 17, 12, 10, 2. Last week 59, this week 73.">
+          <g stroke="rgba(36,32,27,.25)" stroke-width="1"><path d="M20 40h410M20 90h410M20 140h410"/></g>
+          <path d="M220 20v170" stroke="#24201b" stroke-width="1.5" stroke-dasharray="3 5"/>
+          <polyline points="20,173 50,92 80,119 110,74 140,101 170,128 200,182" fill="none" stroke="rgba(125,58,31,.45)" stroke-width="3" transform="translate(3 -3)"/>
+          <polyline points="20,173 50,92 80,119 110,74 140,101 170,128 200,182" fill="none" stroke="#3f4a55" stroke-width="3" stroke-dasharray="9 5"/>
+          <polyline points="230,164 260,65 290,83 320,47 350,92 380,110 410,182" fill="none" stroke="rgba(76,82,44,.5)" stroke-width="3.5" transform="translate(-3 3)"/>
+          <polyline points="230,164 260,65 290,83 320,47 350,92 380,110 410,182" fill="none" stroke="#24201b" stroke-width="3.5"/>
+          <g fill="#24201b"><rect x="316" y="43" width="8" height="8"/><circle cx="110" cy="74" r="4.5" fill="none" stroke="#3f4a55" stroke-width="2.5"/></g>
+          <g font-family="Courier New, monospace" font-size="12" fill="#24201b">
+            <text x="114" y="64">14</text><text x="300" y="38">17</text>
+            <text x="20" y="208">18</text><text x="110" y="208">21</text><text x="196" y="208">24</text><text x="226" y="208">25</text><text x="316" y="208">28</text><text x="400" y="208">31 oct</text>
+            <text x="60" y="230">last week · 59</text><text x="270" y="230">this week · 73</text>
+          </g>
+        </svg>
+        <p>dashed slate line = last week, 59 done. solid ink line = this week, 73 done.</p>
+      </section>
+    </div>
+  </div>
+</main>
+
+<section class="ss" aria-labelledby="ssh">
+  <h2 class="mis" id="ssh">Style 158 · Grunge <em>style sheet</em></h2>
+  <p class="idea">A 90s grunge magazine page, all muted dirt tones, with doubled misregistered type, scratched paper, panels whose ghost frames slip out of line and project rows that refuse to sit straight.</p>
+  <h3>palette</h3>
+  <ul class="sw">
+    <li><div class="c" style="background:#e7e2d7"></div><b>paper</b>#e7e2d7 · the scratched page</li>
+    <li><div class="c" style="background:#efebe2"></div><b>card</b>#efebe2 · panels and fields</li>
+    <li><div class="c" style="background:#24201b"></div><b>ink</b>#24201b · text, rules, the primary button</li>
+    <li><div class="c" style="background:#7d3a1f"></div><b>rust</b>#7d3a1f · ghost frames, Behind, the overdue card, accents</li>
+    <li><div class="c" style="background:#4c522c"></div><b>olive</b>#4c522c · On track, second ghost</li>
+    <li><div class="c" style="background:#3f4a55"></div><b>slate</b>#3f4a55 · At risk, asides, last week line</li>
+    <li><div class="c" style="background:#b8ad95"></div><b>dust</b>#b8ad95 · tape and the bang icon on ink</li>
+    <li><div class="c" style="background:#a99b78"></div><b>stain</b>#a99b78 · coffee ring blooms in the page, never text</li>
+  </ul>
+  <h3>type</h3>
+  <div class="types">
+    <p class="mis" style="font:700 72px/.85 var(--disp);letter-spacing:-.06em">good morning<small>Display · Trebuchet MS, Gill Sans, Gill Sans MT, DejaVu Sans, sans-serif · bold lowercase, minus 0.06em · 48 to 116px greeting, 64px numbers, 40px section heads · doubled with a rust and an olive ghost offset 2 to 3px</small></p>
+    <p style="font:italic 40px var(--serif);color:var(--rust)">Mara.<small>Accent · Times New Roman, Times, serif · italic, 0.6 of the line it sits in · also asides at 14 to 16px</small></p>
+    <p style="font:15px var(--type)">Aiko Tanaka uploaded survey-results-v2.pdf<small>Body, nav and labels · American Typewriter, Courier New, Courier, monospace · 13 to 16px at 1.5 · lowercase</small></p>
+  </div>
+  <h3>system</h3>
+  <dl class="sys">
+    <div><dt>spacing</dt><dd>8px base with uneven offsets of 5 to 18px on purpose. Columns of 260px and fluid.</dd></div>
+    <div><dt>density</dt><dd>Medium. Big lowercase headings and dense typewriter detail.</dd></div>
+    <div><dt>corners</dt><dd>Square. Rough edges come from clip paths on bars and slight rotations.</dd></div>
+    <div><dt>borders</dt><dd>2px ink box with a 2px rust ghost frame slipped 7px right and 6px up. 1px ink row rules.</dd></div>
+    <div><dt>shadows</dt><dd>No blur. Hard offset rust or olive slabs behind buttons and swatches.</dd></div>
+    <div><dt>icons</dt><dd>Rough outline strokes. Wobbly ring for on track, hollow bevelled triangle for at risk, heavy cross for behind, double bang for overdue.</dd></div>
+    <div><dt>tone</dt><dd>Flat, wry and lowercase. lately, six give or take nothing, sorted by nothing.</dd></div>
+  </dl>
+  <h3>controls</h3>
+  <div class="ctrls">
+    <figure><figcaption>primary button</figcaption><button class="btn" type="button">+ new project</button><button class="btn is-focus" type="button">+ new project · focus</button></figure>
+    <figure><figcaption>secondary button</figcaption><button class="btn alt" type="button">export</button><button class="btn alt is-focus" type="button">export · focus</button></figure>
+    <figure><figcaption>text field</figcaption><label class="field">project name<input type="text" value="Spring catalogue"></label><label class="field">project name · focus<input class="is-focus" type="text" value="Spring catalogue"></label></figure>
+    <figure><figcaption>list row</figcaption><div class="row">billing migration <span class="mk late"><svg width="12" height="12" aria-hidden="true"><use href="#cross"/></svg>behind</span></div><div class="row is-focus">billing migration <span class="mk late"><svg width="12" height="12" aria-hidden="true"><use href="#cross"/></svg>behind</span></div></figure>
+  </div>
+</section>
+</div>
+</body>
+</html>

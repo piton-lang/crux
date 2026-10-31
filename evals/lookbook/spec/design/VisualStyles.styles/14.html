@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 14 · Terminal light · Brightwork</title>
+<style>
+:root {
+  --cream: #fdf6e3;
+  --bar: #eee8d5;
+  --ink: #2b2a26;
+  --dim: #5c5a50;
+  --rule: #a59f8c;
+  --blue: #1d4f91;
+  --plum: #8a2f6b;
+  --ok: #2f6a00;
+  --warn: #8a5200;
+  --bad: #b0221c;
+  --sel: #f5e7b8;
+  --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, "DejaVu Sans Mono", "Liberation Mono", monospace;
+}
+* { box-sizing: border-box; border-radius: 0; }
+html { background: var(--cream); }
+body { margin: 0; background: var(--cream); color: var(--ink); font: 14px/1.5 var(--mono); font-variant-numeric: tabular-nums; }
+a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible, input:focus-visible, .is-focus { outline: 2px dashed var(--ink); outline-offset: 2px; background-color: var(--sel); }
+button { font: inherit; color: inherit; cursor: pointer; }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 16px; }
+.dim { color: var(--dim); }
+kbd { font: inherit; color: var(--plum); }
+
+/* tmux-like status line at top */
+.statusline { background: var(--bar); border-bottom: 1px solid var(--rule); }
+.statusline .wrap { display: flex; align-items: center; gap: 16px; min-height: 32px; flex-wrap: wrap; }
+.brand { font-weight: 700; }
+.brand::before { content: "■ "; color: var(--plum); }
+.tabs { display: flex; flex-wrap: wrap; gap: 0 16px; list-style: none; margin: 0; padding: 0; }
+.tabs a { color: var(--ink); text-decoration: none; }
+.tabs a span { color: var(--dim); }
+.tabs a[aria-current="page"] { font-weight: 700; text-decoration: underline; }
+.tabs a[aria-current="page"]::after { content: "*"; color: var(--plum); }
+.grow { flex: 1; }
+.who { color: var(--dim); }
+.who b { color: var(--ink); font-weight: 400; }
+
+/* prompt and command row */
+.prompt { margin: 24px 0 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.prompt .u { color: var(--ok); }
+.prompt .p { color: var(--blue); }
+.prompt .cursor { display: inline-block; width: 1ch; background: var(--ink); color: var(--cream); }
+.cmdrow { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin-bottom: 24px; }
+.search { display: flex; align-items: center; gap: 1ch; border: 1px solid var(--ink); padding: 0 1ch; height: 32px; flex: 1 1 280px; max-width: 460px; }
+.search input { flex: 1; min-width: 0; border: 0; background: transparent; font: inherit; color: var(--ink); height: 30px; outline: 0; }
+.search input::placeholder { color: var(--dim); }
+.search:focus-within { outline: 2px dashed var(--ink); outline-offset: 2px; background: var(--sel); }
+.btn { border: 1px solid var(--ink); background: transparent; padding: 0 1ch; height: 32px; display: inline-flex; align-items: center; gap: 1ch; text-decoration: none; color: var(--ink); white-space: nowrap; }
+.btn-primary { background: var(--ink); color: var(--cream); }
+.btn-primary kbd { color: #f0c6e0; }
+.btn-primary:focus-visible, .btn-primary.is-focus { background: var(--ink); color: var(--cream); outline: 2px dashed var(--ink); outline-offset: 3px; }
+
+/* box drawing panels */
+.box { position: relative; border: 1px solid var(--ink); padding: 20px 2ch 16px; margin-top: 16px; min-width: 0; }
+.box.double { border: 3px double var(--ink); }
+.box > h2, .box > .title { position: absolute; top: -0.8em; left: 1.5ch; margin: 0; font: 700 14px/1.5 var(--mono); background: var(--cream); padding: 0 1ch; text-transform: lowercase; }
+.box > h2::before { content: "┤ "; font-weight: 400; }
+.box > h2::after { content: " ├"; font-weight: 400; }
+.box > .hint { position: absolute; top: -0.8em; right: 1.5ch; background: var(--cream); padding: 0 1ch; color: var(--dim); }
+
+.out p { margin: 0; }
+.out .warnline { color: var(--bad); font-weight: 700; }
+.grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px 2ch; }
+.span2 { grid-column: 1 / -1; }
+
+/* summary as key ..... value */
+.kv { list-style: none; margin: 0; padding: 0; }
+.kv li { display: flex; gap: 1ch; }
+.kv .k { white-space: nowrap; }
+.kv .dots { flex: 1; overflow: hidden; color: var(--rule); white-space: nowrap; }
+.kv .dots::before { content: "................................................................................"; }
+.kv .v { font-weight: 700; min-width: 4ch; text-align: right; }
+.kv .bad { color: var(--bad); }
+
+/* project table */
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; }
+th, td { text-align: left; padding: 2px 1ch; white-space: nowrap; vertical-align: top; }
+th { font-weight: 400; color: var(--dim); border-bottom: 1px dashed var(--ink); text-transform: uppercase; }
+td.r, th.r { text-align: right; }
+tbody tr:hover td { background: var(--sel); }
+tbody tr.sel td { background: var(--sel); }
+.bar { letter-spacing: 0; }
+.bar .f { color: var(--ink); }
+.bar .e { color: var(--dim); }
+.st { font-weight: 700; }
+.st.ok { color: var(--ok); }
+.st.warn { color: var(--warn); }
+.st.bad { color: var(--bad); }
+.legend { margin: 8px 0 0; color: var(--dim); }
+
+/* chart */
+.chart svg { display: block; width: 100%; height: auto; max-width: 620px; font-family: var(--mono); }
+.chart .sum { display: flex; flex-wrap: wrap; gap: 0 3ch; margin-top: 8px; }
+
+/* activity log */
+.log { list-style: none; margin: 0; padding: 0; }
+.log li { display: grid; grid-template-columns: 10ch minmax(0, 1fr); gap: 1ch; padding: 2px 0; }
+.log .t { color: var(--dim); }
+.log .u { color: var(--plum); }
+
+.keys { border-top: 1px solid var(--rule); background: var(--bar); margin-top: 32px; }
+.keys .wrap { display: flex; flex-wrap: wrap; gap: 4px 3ch; padding-top: 6px; padding-bottom: 6px; }
+
+/* style sheet */
+.sheet { padding-bottom: 48px; }
+.sheet .rule { color: var(--rule); white-space: nowrap; overflow: hidden; margin: 32px 0 16px; }
+.sheet h2.head { font-size: 20px; margin: 0; font-weight: 700; }
+.sheet h2.head::before { content: "# "; color: var(--plum); }
+.sheet h3 { font-size: 14px; margin: 24px 0 8px; font-weight: 700; text-transform: lowercase; }
+.sheet h3::before { content: "## "; color: var(--plum); }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 4px 2ch; }
+.swatches li { display: flex; gap: 1ch; align-items: center; }
+.swatches i { width: 4ch; height: 24px; border: 1px solid var(--ink); flex: none; }
+.facts { width: 100%; }
+.facts td { white-space: normal; padding: 4px 1ch; border-bottom: 1px dashed var(--rule); }
+.facts td:first-child { color: var(--dim); width: 12ch; }
+.typerow { display: flex; flex-wrap: wrap; gap: 0 2ch; align-items: baseline; border-bottom: 1px dashed var(--rule); padding: 4px 0; }
+.typerow code { font: inherit; color: var(--dim); min-width: 22ch; }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px 3ch; }
+.ctl { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.label { display: block; color: var(--dim); margin-bottom: 6px; }
+.field { display: block; }
+.field input { display: block; width: 100%; margin-top: 4px; height: 32px; border: 1px solid var(--ink); background: transparent; font: inherit; color: var(--ink); padding: 0 1ch; }
+.field input.is-focus { outline: 2px dashed var(--ink); outline-offset: 2px; background: var(--sel); }
+
+@media (max-width: 860px) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  .who { display: none; }
+}
+@media (max-width: 480px) {
+  body { font-size: 13px; }
+  .box { padding: 20px 1ch 12px; }
+  .log li { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .search { max-width: none; }
+  .prompt { font-size: 13px; }
+  .chart > .hint { display: none; }
+}
+</style>
+</head>
+<body>
+<header class="statusline">
+  <div class="wrap">
+    <span class="brand">brightwork</span>
+    <nav aria-label="Main">
+      <ul class="tabs">
+        <li><a href="#" aria-current="page"><span>0:</span>home</a></li>
+        <li><a href="#"><span>1:</span>projects</a></li>
+        <li><a href="#"><span>2:</span>tasks</a></li>
+        <li><a href="#"><span>3:</span>team</a></li>
+        <li><a href="#"><span>4:</span>reports</a></li>
+        <li><a href="#"><span>5:</span>settings</a></li>
+      </ul>
+    </nav>
+    <span class="grow"></span>
+    <span class="who">user <b>Mara Okafor</b></span>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="prompt" aria-label="Command prompt"><span class="u">mara@brightwork</span> <span class="p">~</span> $ dashboard <span class="cursor" aria-hidden="true">&nbsp;</span></p>
+
+  <div class="cmdrow">
+    <label class="search"><span class="dim" aria-hidden="true">grep&gt;</span><input type="search" placeholder="search projects and tasks" aria-label="Search projects and tasks"><kbd aria-hidden="true">[/]</kbd></label>
+    <button class="btn btn-primary" type="button">+ new project <kbd aria-hidden="true">[n]</kbd></button>
+    <a class="btn" href="#" aria-label="Notifications, 3 unread">notify(3) <kbd aria-hidden="true">[i]</kbd></a>
+  </div>
+
+  <section class="box double out" aria-labelledby="hello">
+    <span class="title" id="hello">hello, mara</span>
+    <span class="hint">sat 2026-10-31</span>
+    <p>Good afternoon, Mara. Today is Saturday 31 October 2026.</p>
+    <p class="warnline">[x] 4 tasks are overdue. Run <kbd>[o]</kbd> to list them.</p>
+  </section>
+
+  <div class="grid">
+    <section class="box" aria-labelledby="sum-h" style="align-self:start">
+      <h2 id="sum-h">summary</h2>
+      <ul class="kv">
+        <li><span class="k">active projects</span><span class="dots" aria-hidden="true"></span><span class="v">6</span></li>
+        <li><span class="k">tasks due this week</span><span class="dots" aria-hidden="true"></span><span class="v">23</span></li>
+        <li><span class="k">overdue tasks</span><span class="dots" aria-hidden="true"></span><span class="v bad">[x] 4</span></li>
+        <li><span class="k">hours logged this week</span><span class="dots" aria-hidden="true"></span><span class="v">186</span></li>
+      </ul>
+    </section>
+
+    <section class="box chart" aria-labelledby="chart-h">
+      <h2 id="chart-h">done per day, 14d</h2>
+      <span class="hint">18 oct .. 31 oct</span>
+      <svg viewBox="0 0 286 176" role="img" aria-label="Tasks completed per day, Sunday 18 October to Saturday 31 October: 3, 12, 9, 14, 11, 8, 2, then 4, 15, 13, 17, 12, 10, 2. Last week 59, this week 73. Last week drawn as hollow cells, this week as filled cells.">
+<rect x="6.5" y="142.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="6.5" y="134.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="6.5" y="126.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<text x="13.0" y="122" text-anchor="middle" font-size="9" fill="#2b2a26">3</text>
+<text x="13.0" y="164" text-anchor="middle" font-size="9" fill="#5c5a50">S</text>
+<rect x="26.5" y="142.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="26.5" y="134.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="26.5" y="126.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="26.5" y="118.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="26.5" y="110.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="26.5" y="102.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="26.5" y="94.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="26.5" y="86.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="26.5" y="78.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="26.5" y="70.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="26.5" y="62.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="26.5" y="54.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<text x="33.0" y="50" text-anchor="middle" font-size="9" fill="#2b2a26">12</text>
+<text x="33.0" y="164" text-anchor="middle" font-size="9" fill="#5c5a50">M</text>
+<rect x="46.5" y="142.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="46.5" y="134.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="46.5" y="126.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="46.5" y="118.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="46.5" y="110.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="46.5" y="102.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="46.5" y="94.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="46.5" y="86.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="46.5" y="78.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<text x="53.0" y="74" text-anchor="middle" font-size="9" fill="#2b2a26">9</text>
+<text x="53.0" y="164" text-anchor="middle" font-size="9" fill="#5c5a50">T</text>
+<rect x="66.5" y="142.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="66.5" y="134.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="66.5" y="126.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="66.5" y="118.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="66.5" y="110.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="66.5" y="102.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="66.5" y="94.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="66.5" y="86.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="66.5" y="78.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="66.5" y="70.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="66.5" y="62.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="66.5" y="54.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="66.5" y="46.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="66.5" y="38.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<text x="73.0" y="34" text-anchor="middle" font-size="9" fill="#2b2a26">14</text>
+<text x="73.0" y="164" text-anchor="middle" font-size="9" fill="#5c5a50">W</text>
+<rect x="86.5" y="142.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="86.5" y="134.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="86.5" y="126.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="86.5" y="118.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="86.5" y="110.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="86.5" y="102.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="86.5" y="94.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="86.5" y="86.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="86.5" y="78.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="86.5" y="70.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="86.5" y="62.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<text x="93.0" y="58" text-anchor="middle" font-size="9" fill="#2b2a26">11</text>
+<text x="93.0" y="164" text-anchor="middle" font-size="9" fill="#5c5a50">T</text>
+<rect x="106.5" y="142.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="106.5" y="134.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="106.5" y="126.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="106.5" y="118.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="106.5" y="110.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="106.5" y="102.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="106.5" y="94.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="106.5" y="86.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<text x="113.0" y="82" text-anchor="middle" font-size="9" fill="#2b2a26">8</text>
+<text x="113.0" y="164" text-anchor="middle" font-size="9" fill="#5c5a50">F</text>
+<rect x="126.5" y="142.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<rect x="126.5" y="134.5" width="13" height="5" fill="none" stroke="#5c5a50"/>
+<text x="133.0" y="130" text-anchor="middle" font-size="9" fill="#2b2a26">2</text>
+<text x="133.0" y="164" text-anchor="middle" font-size="9" fill="#5c5a50">S</text>
+<rect x="146" y="142" width="14" height="6" fill="#1d4f91"/>
+<rect x="146" y="134" width="14" height="6" fill="#1d4f91"/>
+<rect x="146" y="126" width="14" height="6" fill="#1d4f91"/>
+<rect x="146" y="118" width="14" height="6" fill="#1d4f91"/>
+<text x="153.0" y="114" text-anchor="middle" font-size="9" fill="#2b2a26">4</text>
+<text x="153.0" y="164" text-anchor="middle" font-size="9" fill="#5c5a50">S</text>
+<rect x="166" y="142" width="14" height="6" fill="#1d4f91"/>
+<rect x="166" y="134" width="14" height="6" fill="#1d4f91"/>
+<rect x="166" y="126" width="14" height="6" fill="#1d4f91"/>
+<rect x="166" y="118" width="14" height="6" fill="#1d4f91"/>
+<rect x="166" y="110" width="14" height="6" fill="#1d4f91"/>
+<rect x="166" y="102" width="14" height="6" fill="#1d4f91"/>
+<rect x="166" y="94" width="14" height="6" fill="#1d4f91"/>
+<rect x="166" y="86" width="14" height="6" fill="#1d4f91"/>
+<rect x="166" y="78" width="14" height="6" fill="#1d4f91"/>
+<rect x="166" y="70" width="14" height="6" fill="#1d4f91"/>
+<rect x="166" y="62" width="14" height="6" fill="#1d4f91"/>
+<rect x="166" y="54" width="14" height="6" fill="#1d4f91"/>
+<rect x="166" y="46" width="14" height="6" fill="#1d4f91"/>
+<rect x="166" y="38" width="14" height="6" fill="#1d4f91"/>
+<rect x="166" y="30" width="14" height="6" fill="#1d4f91"/>
+<text x="173.0" y="26" text-anchor="middle" font-size="9" fill="#2b2a26">15</text>
+<text x="173.0" y="164" text-anchor="middle" font-size="9" fill="#5c5a50">M</text>
+<rect x="186" y="142" width="14" height="6" fill="#1d4f91"/>
+<rect x="186" y="134" width="14" height="6" fill="#1d4f91"/>
+<rect x="186" y="126" width="14" height="6" fill="#1d4f91"/>
+<rect x="186" y="118" width="14" height="6" fill="#1d4f91"/>
+<rect x="186" y="110" width="14" height="6" fill="#1d4f91"/>
+<rect x="186" y="102" width="14" height="6" fill="#1d4f91"/>
+<rect x="186" y="94" width="14" height="6" fill="#1d4f91"/>
+<rect x="186" y="86" width="14" height="6" fill="#1d4f91"/>
+<rect x="186" y="78" width="14" height="6" fill="#1d4f91"/>
+<rect x="186" y="70" width="14" height="6" fill="#1d4f91"/>
+<rect x="186" y="62" width="14" height="6" fill="#1d4f91"/>
+<rect x="186" y="54" width="14" height="6" fill="#1d4f91"/>
+<rect x="186" y="46" width="14" height="6" fill="#1d4f91"/>
+<text x="193.0" y="42" text-anchor="middle" font-size="9" fill="#2b2a26">13</text>
+<text x="193.0" y="164" text-anchor="middle" font-size="9" fill="#5c5a50">T</text>
+<rect x="206" y="142" width="14" height="6" fill="#1d4f91"/>
+<rect x="206" y="134" width="14" height="6" fill="#1d4f91"/>
+<rect x="206" y="126" width="14" height="6" fill="#1d4f91"/>
+<rect x="206" y="118" width="14" height="6" fill="#1d4f91"/>
+<rect x="206" y="110" width="14" height="6" fill="#1d4f91"/>
+<rect x="206" y="102" width="14" height="6" fill="#1d4f91"/>
+<rect x="206" y="94" width="14" height="6" fill="#1d4f91"/>
+<rect x="206" y="86" width="14" height="6" fill="#1d4f91"/>
+<rect x="206" y="78" width="14" height="6" fill="#1d4f91"/>
+<rect x="206" y="70" width="14" height="6" fill="#1d4f91"/>
+<rect x="206" y="62" width="14" height="6" fill="#1d4f91"/>
+<rect x="206" y="54" width="14" height="6" fill="#1d4f91"/>
+<rect x="206" y="46" width="14" height="6" fill="#1d4f91"/>
+<rect x="206" y="38" width="14" height="6" fill="#1d4f91"/>
+<rect x="206" y="30" width="14" height="6" fill="#1d4f91"/>
+<rect x="206" y="22" width="14" height="6" fill="#1d4f91"/>
+<rect x="206" y="14" width="14" height="6" fill="#1d4f91"/>
+<text x="213.0" y="10" text-anchor="middle" font-size="9" fill="#2b2a26">17</text>
+<text x="213.0" y="164" text-anchor="middle" font-size="9" fill="#5c5a50">W</text>
+<rect x="226" y="142" width="14" height="6" fill="#1d4f91"/>
+<rect x="226" y="134" width="14" height="6" fill="#1d4f91"/>
+<rect x="226" y="126" width="14" height="6" fill="#1d4f91"/>
+<rect x="226" y="118" width="14" height="6" fill="#1d4f91"/>
+<rect x="226" y="110" width="14" height="6" fill="#1d4f91"/>
+<rect x="226" y="102" width="14" height="6" fill="#1d4f91"/>
+<rect x="226" y="94" width="14" height="6" fill="#1d4f91"/>
+<rect x="226" y="86" width="14" height="6" fill="#1d4f91"/>
+<rect x="226" y="78" width="14" height="6" fill="#1d4f91"/>
+<rect x="226" y="70" width="14" height="6" fill="#1d4f91"/>
+<rect x="226" y="62" width="14" height="6" fill="#1d4f91"/>
+<rect x="226" y="54" width="14" height="6" fill="#1d4f91"/>
+<text x="233.0" y="50" text-anchor="middle" font-size="9" fill="#2b2a26">12</text>
+<text x="233.0" y="164" text-anchor="middle" font-size="9" fill="#5c5a50">T</text>
+<rect x="246" y="142" width="14" height="6" fill="#1d4f91"/>
+<rect x="246" y="134" width="14" height="6" fill="#1d4f91"/>
+<rect x="246" y="126" width="14" height="6" fill="#1d4f91"/>
+<rect x="246" y="118" width="14" height="6" fill="#1d4f91"/>
+<rect x="246" y="110" width="14" height="6" fill="#1d4f91"/>
+<rect x="246" y="102" width="14" height="6" fill="#1d4f91"/>
+<rect x="246" y="94" width="14" height="6" fill="#1d4f91"/>
+<rect x="246" y="86" width="14" height="6" fill="#1d4f91"/>
+<rect x="246" y="78" width="14" height="6" fill="#1d4f91"/>
+<rect x="246" y="70" width="14" height="6" fill="#1d4f91"/>
+<text x="253.0" y="66" text-anchor="middle" font-size="9" fill="#2b2a26">10</text>
+<text x="253.0" y="164" text-anchor="middle" font-size="9" fill="#5c5a50">F</text>
+<rect x="266" y="142" width="14" height="6" fill="#1d4f91"/>
+<rect x="266" y="134" width="14" height="6" fill="#1d4f91"/>
+<text x="273.0" y="130" text-anchor="middle" font-size="9" fill="#2b2a26">2</text>
+<text x="273.0" y="164" text-anchor="middle" font-size="9" fill="#5c5a50">S</text>
+<line x1="0" y1="152.5" x2="286" y2="152.5" stroke="#2b2a26" stroke-dasharray="3 2"/>
+<line x1="143" y1="4" x2="143" y2="170" stroke="#5c5a50" stroke-dasharray="1 2"/>
+</svg>
+      <div class="sum"><span><span class="dim">□ last wk</span> 59</span><span><span class="dim">■ this wk</span> <b>73</b></span><span class="dim">peak 17 on wed 28</span></div>
+    </section>
+
+    <section class="box span2" aria-labelledby="proj-h">
+      <h2 id="proj-h">projects (6)</h2>
+      <span class="hint"><a href="#">ls -a</a></span>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>id</th><th>project</th><th>team</th><th>progress</th><th class="r">tasks</th><th>due</th><th>status</th></tr></thead>
+          <tbody>
+            <tr><td class="dim">01</td><td><a href="#">Website redesign</a></td><td>design</td><td class="bar">[<span class="f">#######</span><span class="e">---</span>]  72%</td><td class="r">18/25</td><td>14 Nov</td><td class="st ok">[+] ON TRACK</td></tr>
+            <tr><td class="dim">02</td><td><a href="#">Mobile app 2.0</a></td><td>engineering</td><td class="bar">[<span class="f">####</span><span class="e">------</span>]  45%</td><td class="r">27/60</td><td>2 Dec</td><td class="st warn">[!] AT RISK</td></tr>
+            <tr><td class="dim">03</td><td><a href="#">Q4 customer survey</a></td><td>research</td><td class="bar">[<span class="f">#########</span><span class="e">-</span>]  90%</td><td class="r">9/10</td><td>7 Nov</td><td class="st ok">[+] ON TRACK</td></tr>
+            <tr class="sel"><td class="dim">04</td><td><a href="#">Billing migration</a></td><td>engineering</td><td class="bar">[<span class="f">###</span><span class="e">-------</span>]  30%</td><td class="r">12/40</td><td>20 Nov</td><td class="st bad">[x] BEHIND</td></tr>
+            <tr><td class="dim">05</td><td><a href="#">Spring catalogue</a></td><td>marketing</td><td class="bar">[<span class="f">#</span><span class="e">---------</span>]  15%</td><td class="r">3/20</td><td>15 Jan</td><td class="st ok">[+] ON TRACK</td></tr>
+            <tr><td class="dim">06</td><td><a href="#">Onboarding emails</a></td><td>marketing</td><td class="bar">[<span class="f">######</span><span class="e">----</span>]  60%</td><td class="r">9/15</td><td>21 Nov</td><td class="st ok">[+] ON TRACK</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="legend">key: [+] on track · [!] at risk · [x] behind</p>
+    </section>
+
+    <section class="box span2" aria-labelledby="log-h">
+      <h2 id="log-h">tail -f activity</h2>
+      <span class="hint"><a href="#">more</a></span>
+      <ul class="log">
+        <li><span class="t">12m ago</span><span><span class="u">jonas.weber</span> completed "Export invoices as CSV" in <a href="#">Billing migration</a></span></li>
+        <li><span class="t">40m ago</span><span><span class="u">priya.nair</span> commented on "Hero image options" in <a href="#">Website redesign</a></span></li>
+        <li><span class="t">1h ago</span><span><span class="u">sam.ortiz</span> moved "Push notifications" -&gt; Review in <a href="#">Mobile app 2.0</a></span></li>
+        <li><span class="t">2h ago</span><span><span class="u">lena.fischer</span> added 3 tasks to <a href="#">Spring catalogue</a></span></li>
+        <li><span class="t">3h ago</span><span><span class="u">tomas.ruiz</span> logged 6h on <a href="#">Mobile app 2.0</a></span></li>
+        <li><span class="t">yesterday</span><span><span class="u">aiko.tanaka</span> uploaded survey-results-v2.pdf to <a href="#">Q4 customer survey</a></span></li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<div class="keys" aria-label="Keyboard shortcuts">
+  <div class="wrap"><span><kbd>[/]</kbd> search</span><span><kbd>[n]</kbd> new project</span><span><kbd>[o]</kbd> overdue</span><span><kbd>[i]</kbd> inbox</span><span><kbd>[0-5]</kbd> switch view</span><span><kbd>[?]</kbd> help</span></div>
+</div>
+
+<section class="wrap sheet" aria-labelledby="sheet-h">
+  <div class="rule" aria-hidden="true">════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════</div>
+  <h2 class="head" id="sheet-h">Style 14 · Terminal light</h2>
+  <p>A light terminal session on warm cream, where everything is monospace, panels are drawn with box lines and progress is a row of hash marks.</p>
+
+  <h3>palette</h3>
+  <ul class="swatches">
+    <li><i style="background:#fdf6e3"></i><span>cream #fdf6e3 · page</span></li>
+    <li><i style="background:#eee8d5"></i><span>bar #eee8d5 · status line, key bar</span></li>
+    <li><i style="background:#2b2a26"></i><span>ink #2b2a26 · text, box lines, primary</span></li>
+    <li><i style="background:#5c5a50"></i><span>dim #5c5a50 · meta, headers, hollow bars</span></li>
+    <li><i style="background:#a59f8c"></i><span>rule #a59f8c · dot leaders, dashed rules</span></li>
+    <li><i style="background:#1d4f91"></i><span>blue #1d4f91 · links, this week's cells</span></li>
+    <li><i style="background:#8a2f6b"></i><span>plum #8a2f6b · keys, user handles</span></li>
+    <li><i style="background:#2f6a00"></i><span>ok #2f6a00 · [+] on track, user@host</span></li>
+    <li><i style="background:#8a5200"></i><span>warn #8a5200 · [!] at risk</span></li>
+    <li><i style="background:#b0221c"></i><span>bad #b0221c · [x] behind, overdue</span></li>
+    <li><i style="background:#f5e7b8"></i><span>sel #f5e7b8 · selected row, focus fill</span></li>
+  </ul>
+
+  <h3>type · one monospace stack</h3>
+  <p class="dim">ui-monospace, SF Mono, JetBrains Mono, Menlo, Consolas, DejaVu Sans Mono, Liberation Mono, monospace</p>
+  <div class="typerow"><code>20 / 700 sheet title</code><span style="font-size:20px;font-weight:700">Terminal light</span></div>
+  <div class="typerow"><code>14 / 700 panel title</code><span style="font-weight:700">┤ projects (6) ├</span></div>
+  <div class="typerow"><code>14 / 400 body</code><span>completed "Export invoices as CSV"</span></div>
+  <div class="typerow"><code>14 / 700 status</code><span class="st bad">[x] BEHIND</span></div>
+  <div class="typerow"><code>14 / 400 caps header</code><span class="dim">PROGRESS</span></div>
+  <div class="typerow"><code>13 / 400 phone body</code><span style="font-size:13px">[#######---]  72%</span></div>
+
+  <h3>system</h3>
+  <table class="facts"><tbody>
+    <tr><td>spacing</td><td>Character grid. 1ch horizontal unit, 8px vertical unit, 16px between panels, 24px above the prompt.</td></tr>
+    <tr><td>density</td><td>Medium high. 1.5 line height, one record per line, no cards.</td></tr>
+    <tr><td>corners</td><td>None anywhere. Everything is square.</td></tr>
+    <tr><td>borders</td><td>1px ink box lines with the title cut into the top edge as ┤ title ├. The greeting box uses a 3px double line. Dashed lines under headers.</td></tr>
+    <tr><td>shadows</td><td>None.</td></tr>
+    <tr><td>icons</td><td>No pictograms. Bracket codes stand in for icons, [+] on track, [!] at risk, [x] behind. Progress is [#######---]. Keys are plum [n].</td></tr>
+    <tr><td>tone</td><td>Lowercase command words, such as tail -f activity, ls -a, notify(3) and grep&gt;. Full sentences only in the greeting.</td></tr>
+  </tbody></table>
+
+  <h3>controls · normal and focus</h3>
+  <div class="controls">
+    <div><span class="label">primary</span><div class="ctl"><button class="btn btn-primary" type="button">save <kbd>[enter]</kbd></button><button class="btn btn-primary is-focus" type="button">focused</button></div></div>
+    <div><span class="label">secondary</span><div class="ctl"><button class="btn" type="button">cancel <kbd>[esc]</kbd></button><button class="btn is-focus" type="button">focused</button></div></div>
+    <div><label class="field">project name<input value="Website redesign"></label></div>
+    <div><label class="field">project name, focused<input class="is-focus" value="Mobile app 2.0"></label></div>
+    <div><span class="label">table row</span><table><tbody><tr><td><a href="#">Billing migration</a></td><td class="bar">[###-------]</td><td class="st bad">[x] BEHIND</td></tr></tbody></table></div>
+    <div><span class="label">table row, focused</span><table><tbody><tr class="sel"><td><a href="#" class="is-focus">Billing migration</a></td><td class="bar">[###-------]</td><td class="st bad">[x] BEHIND</td></tr></tbody></table></div>
+  </div>
+</section>
+</body>
+</html>

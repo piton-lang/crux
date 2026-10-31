@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 413 · Lab readout · Brightwork</title>
+<style>
+:root {
+  color-scheme: dark;
+  --bench: #0e1112;
+  --panel: #151a1c;
+  --hair: #343b3f;
+  --ink: #e9eef0;
+  --muted: #a0aaaf;
+  --acid: #d4f06a;
+  --on-acid: #1c2600;
+  --tube: #22292c;
+  --pass: #8fe0b5;
+  --fail: #ffa091;
+  --fail-bg: #2a1a19;
+  --sans: "Helvetica Neue", "Neue Haas Grotesk Text", Arial, "Liberation Sans", system-ui, sans-serif;
+  --mono: ui-monospace, "SF Mono", "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html { background: var(--bench); }
+body { margin: 0; background: var(--bench); color: var(--ink); font: 14px/1.5 var(--sans); }
+:focus-visible, .is-focus { outline: 1px solid var(--acid); outline-offset: 3px; box-shadow: 0 0 0 4px rgba(212, 240, 106, 0.25); }
+h1, h2, h3 { margin: 0; }
+
+.head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 8px 24px; padding: 24px 32px 16px; border-bottom: 1px solid var(--hair); }
+.head h1 { font-size: 24px; font-weight: 300; letter-spacing: -0.01em; }
+.head h1 b { font-weight: 700; }
+.head .id { font: 12px var(--mono); color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+.head .id b { color: var(--ink); font-weight: 400; text-transform: none; }
+
+.bench { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1px; background: var(--hair); border-bottom: 1px solid var(--hair); }
+.cell { background: var(--panel); padding: 18px 20px 20px; position: relative; min-width: 0; }
+.cell::before, .cell::after { content: ""; position: absolute; width: 10px; height: 10px; border: 1px solid var(--muted); }
+.cell::before { top: 6px; left: 6px; border-right: 0; border-bottom: 0; }
+.cell::after { bottom: 6px; right: 6px; border-left: 0; border-top: 0; }
+.tag { display: flex; justify-content: space-between; gap: 8px; font: 11px var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.tag h2 { font: inherit; color: var(--ink); }
+.span3 { grid-column: span 3; } .span4 { grid-column: span 4; } .span5 { grid-column: span 5; } .span7 { grid-column: span 7; } .span8 { grid-column: span 8; } .span12 { grid-column: span 12; }
+
+.big { font: 300 56px/1 var(--sans); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; color: var(--acid); }
+.big small { font-size: 18px; color: var(--muted); margin-left: 4px; letter-spacing: 0; }
+.big.word { font-size: 30px; font-weight: 400; letter-spacing: 0; color: var(--ink); display: flex; align-items: center; gap: 10px; padding: 9px 0 10px; }
+.note { margin: 8px 0 0; color: var(--muted); font-size: 13px; }
+.scale { display: flex; gap: 2px; margin-top: 10px; }
+.scale i { flex: 1; height: 6px; background: var(--tube); }
+.scale i.on { background: var(--acid); }
+
+table.reag { width: 100%; border-collapse: collapse; font-size: 14px; }
+.reag td, .reag th { padding: 5px 0; border-bottom: 1px solid var(--hair); text-align: left; font-weight: 400; }
+.reag th { font: 11px var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.reag .code { font: 12px var(--mono); color: var(--muted); width: 48px; }
+.reag .sub td { padding-left: 0; font-family: var(--mono); font-size: 13px; }
+.reag .sub .code { padding-left: 12px; }
+.reag .open td { color: var(--acid); }
+.reag .ty { color: var(--muted); text-align: right; font-family: var(--mono); font-size: 12px; }
+
+ol.protocol { list-style: none; margin: 0; padding: 0; counter-reset: step; font: 13.5px/1.5 var(--mono); }
+ol.protocol li { counter-increment: step; display: grid; grid-template-columns: 34px minmax(0, 1fr); padding: 3px 0; border-bottom: 1px dotted var(--hair); }
+ol.protocol li::before { content: counter(step, decimal-leading-zero); color: var(--muted); }
+ol.protocol code { font: inherit; white-space: pre-wrap; word-break: break-word; }
+.protocol .k { color: var(--acid); }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.btn { font: 500 13px var(--sans); letter-spacing: 0.08em; text-transform: uppercase; padding: 9px 18px; cursor: pointer; border-radius: 0; }
+.btn.pri { background: var(--acid); color: var(--on-acid); border: 1px solid var(--acid); }
+.btn.sec { background: transparent; color: var(--ink); border: 1px solid var(--muted); }
+
+.vials { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.vial { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; align-items: end; }
+.vial svg { width: 34px; height: 120px; }
+.vial .sid { font: 11px var(--mono); color: var(--muted); letter-spacing: 0.1em; }
+.vial .v { font: 300 40px/1 var(--sans); color: var(--acid); font-variant-numeric: tabular-nums; }
+.vial .nm { display: block; font-size: 14px; }
+.readsum { display: flex; flex-wrap: wrap; gap: 8px 32px; margin-top: 16px; padding-top: 10px; border-top: 1px solid var(--hair); font: 12px var(--mono); color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+.readsum b { color: var(--ink); font-weight: 400; }
+
+table.runs { width: 100%; border-collapse: collapse; }
+.runs th, .runs td { text-align: left; padding: 8px 12px 8px 0; border-bottom: 1px solid var(--hair); font-weight: 400; vertical-align: top; }
+.runs th { font: 11px var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.runs .mono { font-family: var(--mono); font-size: 13px; }
+.runs .res { font: 12px var(--mono); letter-spacing: 0.1em; white-space: nowrap; }
+.runs .pass { color: var(--pass); } .runs .fail { color: var(--fail); }
+.runs tr.failrow td { background: var(--fail-bg); }
+.runs .msg { display: block; font: 12.5px var(--mono); color: var(--fail); margin-top: 2px; }
+
+/* Style sheet */
+.sheet { padding: 40px 32px 56px; background: var(--bench); }
+.sheet h2 { font-size: 32px; font-weight: 300; }
+.sheet h2 b { font-weight: 700; }
+.sheet h3 { font: 11px var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 32px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--hair); }
+.idea { margin: 6px 0 0; max-width: 68ch; color: var(--muted); font-size: 16px; }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 8px; }
+.sw { background: var(--panel); border: 1px solid var(--hair); padding: 10px; font-size: 13px; display: flex; gap: 10px; }
+.sw i { width: 14px; height: 40px; flex: none; border: 1px solid var(--hair); }
+.sw b { display: block; font-weight: 600; } .sw code { font: 12px var(--mono); color: var(--muted); }
+.type-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--hair); }
+.type-row code { font: 12px var(--mono); color: var(--muted); min-width: 200px; }
+.facts { margin: 0; display: grid; grid-template-columns: 110px 1fr; gap: 8px 16px; }
+.facts dt { font: 11px/1.9 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); } .facts dd { margin: 0; }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+.ctl-label { display: block; font: 11px var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.field { display: block; font: 11px var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.field input { display: block; width: 100%; margin-top: 6px; font: 14px var(--mono); letter-spacing: 0; text-transform: none; color: var(--ink); background: var(--panel); border: 1px solid var(--hair); border-radius: 0; padding: 8px 10px; }
+.row-demo { display: flex; justify-content: space-between; padding: 8px 10px; border-bottom: 1px solid var(--hair); background: var(--panel); }
+.row-demo .n { font-family: var(--mono); color: var(--acid); }
+
+@media (max-width: 1000px) {
+  .span3 { grid-column: span 4; }
+  .span5, .span7 { grid-column: span 12; }
+  .span8 { grid-column: span 12; }
+}
+@media (max-width: 640px) {
+  .head { padding: 18px 16px 12px; }
+  .bench { grid-template-columns: minmax(0, 1fr); }
+  .bench > .cell { grid-column: auto; }
+  .cell { padding: 16px 14px 18px; }
+  .big { font-size: 44px; }
+  .vials { grid-template-columns: minmax(0, 1fr); }
+  .vial svg { height: 80px; }
+  .runs th:nth-child(1), .runs td:nth-child(1) { display: none; }
+  .sheet { padding: 28px 16px 40px; }
+  .facts { grid-template-columns: 92px 1fr; }
+}
+</style>
+</head>
+<body>
+<header class="head">
+  <h1><b>Brightwork Data</b> · assay bench</h1>
+  <span class="id">Specimen <b>production-replica</b></span>
+</header>
+
+<main class="bench">
+  <section class="cell span4" aria-labelledby="r1">
+    <div class="tag"><h2 id="r1">R1 · Mode</h2><span>state</span></div>
+    <div class="big word"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="5" y="11" width="16" height="12" fill="none" stroke="#d4f06a" stroke-width="1.6"/><path d="M8.5 11V8a4.5 4.5 0 0 1 9 0v3" fill="none" stroke="#d4f06a" stroke-width="1.6"/></svg>Read-only replica</div>
+    <p class="note">Samples are observed, never altered.</p>
+  </section>
+  <section class="cell span4" aria-labelledby="r2">
+    <div class="tag"><h2 id="r2">R2 · Replica lag</h2><span>seconds</span></div>
+    <div class="big">2<small>s</small></div>
+    <div class="scale" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </section>
+  <section class="cell span4" aria-labelledby="r3">
+    <div class="tag"><h2 id="r3">R3 · Connections</h2><span>active</span></div>
+    <div class="big">14<small>active</small></div>
+    <p class="note">Open sessions on this replica.</p>
+  </section>
+
+  <section class="cell span4" aria-labelledby="h-reag">
+    <div class="tag"><h2 id="h-reag">Reagents · tables</h2><span>public</span></div>
+    <table class="reag">
+      <thead><tr><th scope="col">Code</th><th scope="col">Name</th><th scope="col" style="text-align:right">Type</th></tr></thead>
+      <tbody>
+        <tr><td class="code">T1</td><td>projects</td><td class="ty">table</td></tr>
+        <tr class="open"><td class="code">T2</td><td>tasks</td><td class="ty">open</td></tr>
+        <tr class="sub"><td class="code">.1</td><td>id</td><td class="ty">uuid key</td></tr>
+        <tr class="sub"><td class="code">.2</td><td>project_id</td><td class="ty">uuid</td></tr>
+        <tr class="sub"><td class="code">.3</td><td>title</td><td class="ty">text</td></tr>
+        <tr class="sub"><td class="code">.4</td><td>assignee_id</td><td class="ty">uuid</td></tr>
+        <tr class="sub"><td class="code">.5</td><td>due_on</td><td class="ty">date</td></tr>
+        <tr class="sub"><td class="code">.6</td><td>status</td><td class="ty">text</td></tr>
+        <tr><td class="code">T3</td><td>members</td><td class="ty">table</td></tr>
+        <tr><td class="code">T4</td><td>activity</td><td class="ty">table</td></tr>
+        <tr><td class="code">T5</td><td>invoices</td><td class="ty">table</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="cell span8" aria-labelledby="h-prot">
+    <div class="tag"><h2 id="h-prot">Protocol · query</h2><span>method 0941</span></div>
+    <ol class="protocol" aria-label="Query, one clause per step">
+      <li><code><span class="k">SELECT</span> p.name <span class="k">AS</span> project, count(*) <span class="k">AS</span> open_overdue</code></li>
+      <li><code><span class="k">FROM</span> tasks t</code></li>
+      <li><code><span class="k">JOIN</span> projects p <span class="k">ON</span> p.id = t.project_id</code></li>
+      <li><code><span class="k">WHERE</span> t.status &lt;&gt; 'done'</code></li>
+      <li><code>  <span class="k">AND</span> t.due_on &lt; current_date</code></li>
+      <li><code><span class="k">GROUP BY</span> p.name</code></li>
+      <li><code><span class="k">ORDER BY</span> open_overdue <span class="k">DESC</span>;</code></li>
+    </ol>
+    <div class="actions"><button class="btn pri">Run assay</button><button class="btn sec">Duplicate</button></div>
+  </section>
+
+  <section class="cell span7" aria-labelledby="h-read">
+    <div class="tag"><h2 id="h-read">Readings · open overdue tasks</h2><span>scale 0 to 2</span></div>
+    <ol class="vials">
+      <li class="vial">
+        <svg viewBox="0 0 34 120" aria-hidden="true"><path d="M5 4h24M8 4v100a9 9 0 0 0 18 0V4" fill="#22292c" stroke="#a0aaaf" stroke-width="1.4"/><path d="M8.7 14h16.6v90a8.3 8.3 0 0 1-16.6 0z" fill="#d4f06a"/><path d="M26 34h4M26 64h4M26 94h4" stroke="#a0aaaf"/></svg>
+        <div><span class="sid">S-01</span><div class="v">2</div><span class="nm">Billing migration</span></div>
+      </li>
+      <li class="vial">
+        <svg viewBox="0 0 34 120" aria-hidden="true"><path d="M5 4h24M8 4v100a9 9 0 0 0 18 0V4" fill="#22292c" stroke="#a0aaaf" stroke-width="1.4"/><path d="M8.7 59h16.6v45a8.3 8.3 0 0 1-16.6 0z" fill="#d4f06a"/><path d="M26 34h4M26 64h4M26 94h4" stroke="#a0aaaf"/></svg>
+        <div><span class="sid">S-02</span><div class="v">1</div><span class="nm">Mobile app 2.0</span></div>
+      </li>
+      <li class="vial">
+        <svg viewBox="0 0 34 120" aria-hidden="true"><path d="M5 4h24M8 4v100a9 9 0 0 0 18 0V4" fill="#22292c" stroke="#a0aaaf" stroke-width="1.4"/><path d="M8.7 59h16.6v45a8.3 8.3 0 0 1-16.6 0z" fill="#d4f06a"/><path d="M26 34h4M26 64h4M26 94h4" stroke="#a0aaaf"/></svg>
+        <div><span class="sid">S-03</span><div class="v">1</div><span class="nm">Website redesign</span></div>
+      </li>
+    </ol>
+    <div class="readsum"><span>Samples <b>3 rows</b></span><span>Duration <b>38 ms</b></span><span>Order <b>highest first</b></span></div>
+  </section>
+
+  <section class="cell span5" aria-labelledby="h-runs">
+    <div class="tag"><h2 id="h-runs">Run log</h2><span>today</span></div>
+    <table class="runs">
+      <thead><tr><th scope="col">Run</th><th scope="col">Time</th><th scope="col">Method</th><th scope="col">Result</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">R-03</td><td class="mono">09:41</td><td>count overdue tasks</td><td class="res pass">&#10003; PASS 38 ms</td></tr>
+        <tr><td class="mono">R-02</td><td class="mono">09:30</td><td>members without tasks</td><td class="res pass">&#10003; PASS 12 ms</td></tr>
+        <tr class="failrow"><td class="mono">R-01</td><td class="mono">09:12</td><td>failed query<span class="msg">column "assignee" does not exist</span></td><td class="res fail">&#10007; FAIL</td></tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<section class="sheet" aria-labelledby="sheet-title">
+  <h2 id="sheet-title"><b>Style 413</b> · Lab readout</h2>
+  <p class="idea">The console is an instrument bench of hairline framed readouts, so status shows as large thin measurements, tables as coded reagents, the query as numbered protocol steps, results as filled sample vials and history as a pass or fail run log.</p>
+
+  <h3>Palette</h3>
+  <ul class="swatches">
+    <li class="sw"><i style="background:#0e1112"></i><div><b>Bench</b><code>#0e1112</code> page, sheet</div></li>
+    <li class="sw"><i style="background:#151a1c"></i><div><b>Panel</b><code>#151a1c</code> readout cells</div></li>
+    <li class="sw"><i style="background:#343b3f"></i><div><b>Hair</b><code>#343b3f</code> 1px grid lines</div></li>
+    <li class="sw"><i style="background:#22292c"></i><div><b>Tube</b><code>#22292c</code> empty vial, scale track</div></li>
+    <li class="sw"><i style="background:#e9eef0"></i><div><b>Ink</b><code>#e9eef0</code> text</div></li>
+    <li class="sw"><i style="background:#a0aaaf"></i><div><b>Muted</b><code>#a0aaaf</code> tags, codes, units</div></li>
+    <li class="sw"><i style="background:#d4f06a"></i><div><b>Acid</b><code>#d4f06a</code> readings, Run, focus</div></li>
+    <li class="sw"><i style="background:#8fe0b5"></i><div><b>Pass</b><code>#8fe0b5</code> PASS</div></li>
+    <li class="sw"><i style="background:#ffa091"></i><div><b>Fail</b><code>#ffa091</code> FAIL on #2a1a19</div></li>
+  </ul>
+
+  <h3>Type · Helvetica Neue, Arial, Liberation Sans; tags in ui-monospace, IBM Plex Mono</h3>
+  <div class="type-row"><code>56 / 300 tabular</code><span style="font:300 56px/1 var(--sans);color:var(--acid)">14</span></div>
+  <div class="type-row"><code>30 / 400 state</code><span style="font-size:30px">Read-only replica</span></div>
+  <div class="type-row"><code>14 / 1.5 body</code><span>Billing migration</span></div>
+  <div class="type-row"><code>13.5 mono protocol</code><span style="font:13.5px var(--mono)">t.due_on &lt; current_date</span></div>
+  <div class="type-row"><code>11 mono caps 0.12em</code><span style="font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">R2 · Replica lag</span></div>
+
+  <h3>Spacing, corners and depth</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>A 12 column grid with 1px hairline gaps. 18 by 20px cell padding.</dd>
+    <dt>Density</dt><dd>Medium. Seven readout cells in four rows.</dd>
+    <dt>Corners</dt><dd>Square. Corner crop brackets mark each cell instead of rounding.</dd>
+    <dt>Borders</dt><dd>Only 1px hairlines in #343b3f, dotted lines between protocol steps.</dd>
+    <dt>Shadows</dt><dd>None.</dd>
+    <dt>Icons</dt><dd>Drawn instruments. Vials with tick marks, a ten step scale, a padlock, tick for PASS and cross for FAIL.</dd>
+    <dt>Tone</dt><dd>Clinical lab words, such as Reagents, Protocol, Readings, Run assay, PASS.</dd>
+  </dl>
+
+  <h3>Controls · normal and focus</h3>
+  <div class="controls">
+    <div><span class="ctl-label">Primary</span><button class="btn pri">Run assay</button> <button class="btn pri is-focus">Run assay</button></div>
+    <div><span class="ctl-label">Secondary</span><button class="btn sec">Duplicate</button> <button class="btn sec is-focus">Duplicate</button></div>
+    <div><label class="field">Reagent<input value="tasks"></label></div>
+    <div><label class="field">Reagent, focused<input class="is-focus" value="tasks"></label></div>
+    <div><span class="ctl-label">List row</span><div class="row-demo"><span>Billing migration</span><span class="n">2</span></div></div>
+    <div><span class="ctl-label">List row, focused</span><div class="row-demo is-focus"><span>Billing migration</span><span class="n">2</span></div></div>
+  </div>
+</section>
+</body>
+</html>

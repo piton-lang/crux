@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 410 · Archive vault · Brightwork</title>
+<style>
+:root {
+  color-scheme: dark;
+  --vault: #14100c;
+  --wood: #2a1e15;
+  --drawer: #35281d;
+  --drawer-edge: #4a3829;
+  --brass: #dbb86c;
+  --on-brass: #2a1c06;
+  --card: #2b2720;
+  --cream: #f1e6cc;
+  --muted: #c4b593;
+  --ledger: #1b201a;
+  --rule: #3b4636;
+  --margin: #e8917f;
+  --ok: #a9d68f;
+  --bad: #f19a88;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Book Antiqua", serif;
+  --type: "American Typewriter", "Courier Prime", "Courier New", Courier, monospace;
+}
+* { box-sizing: border-box; }
+html { background: var(--vault); }
+body { margin: 0; background: var(--vault); color: var(--cream); font: 16px/1.5 var(--serif); }
+:focus-visible, .is-focus { outline: 3px double var(--brass); outline-offset: 3px; }
+h1, h2, h3 { margin: 0; font-weight: 600; }
+
+.plate { margin: 24px auto 0; max-width: 1232px; padding: 0 24px; }
+.plate-in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; padding: 14px 24px; border: 2px solid var(--brass); border-radius: 4px; background: var(--wood); box-shadow: inset 0 0 0 4px var(--wood), inset 0 0 0 5px #6b5530; }
+.plate h1 { font-size: 26px; letter-spacing: 0.08em; font-variant: small-caps; color: var(--brass); }
+.plate p { margin: 0; color: var(--muted); font-style: italic; }
+.plate p b { color: var(--cream); font-style: normal; font-family: var(--type); font-weight: 400; }
+
+.room { max-width: 1232px; margin: 0 auto; padding: 24px; display: grid; grid-template-columns: 290px minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.room > * { min-width: 0; }
+.sec-title { font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; font-weight: 600; }
+
+.cabinet { background: var(--wood); padding: 12px; border-radius: 6px; border: 1px solid var(--drawer-edge); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); }
+.drawers { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.drawer { background: var(--drawer); border: 1px solid var(--drawer-edge); border-radius: 3px; padding: 10px 12px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 8px; }
+.holder { border: 2px solid var(--brass); border-radius: 2px; padding: 2px 10px; background: #221a12; font-family: var(--type); font-size: 15px; color: var(--cream); justify-self: start; }
+.pull { width: 30px; height: 16px; border: 3px solid var(--brass); border-top: 0; border-radius: 0 0 16px 16px; }
+.drawer.open { grid-template-columns: 1fr auto; box-shadow: 0 6px 0 #1a130d; }
+.drawer.open .holder { background: var(--brass); color: var(--on-brass); font-weight: 700; }
+.cards { grid-column: 1 / -1; list-style: none; margin: 6px 0 2px; padding: 0; display: grid; gap: 4px; }
+.cards li { position: relative; background: var(--card); border-top: 2px solid #4b4334; border-radius: 3px 3px 0 0; padding: 4px 10px; display: flex; justify-content: space-between; gap: 8px; font-family: var(--type); font-size: 14px; }
+.cards li::before { content: ""; position: absolute; top: -7px; width: 34px; height: 6px; background: #4b4334; border-radius: 3px 3px 0 0; }
+.cards li:nth-child(odd)::before { left: 10px; } .cards li:nth-child(even)::before { right: 10px; }
+.cards em { font-style: normal; color: var(--muted); }
+
+.slip { background: var(--card); border-radius: 2px; padding: 20px 22px 22px; position: relative; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45); border-left: 6px double #4b4334; }
+.slip .no { position: absolute; right: 18px; top: 16px; font-family: var(--type); color: var(--muted); font-size: 14px; }
+.slip h2 { font-size: 22px; font-style: italic; margin-bottom: 4px; }
+.slip .lead { color: var(--muted); margin: 0 0 12px; font-size: 15px; }
+.slip pre { margin: 0; font: 14px/1.75 var(--type); white-space: pre; overflow-x: auto; background-image: repeating-linear-gradient(transparent 0 23.5px, #463f31 23.5px 24.5px); background-color: var(--card); padding-top: 2px; }
+.slip .k { color: var(--brass); }
+.slip .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.btn { font: 600 15px var(--serif); letter-spacing: 0.06em; padding: 8px 18px; cursor: pointer; border-radius: 3px; }
+.btn.pri { background: var(--brass); color: var(--on-brass); border: 1px solid var(--brass); box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.25); }
+.btn.sec { background: transparent; color: var(--cream); border: 1px solid var(--muted); }
+
+.ledger { background: var(--ledger); border-radius: 2px 6px 6px 2px; padding: 18px 20px 20px 44px; position: relative; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45); border: 1px solid #2c3428; }
+.ledger::before { content: ""; position: absolute; left: 30px; top: 0; bottom: 0; width: 2px; background: var(--margin); opacity: 0.8; }
+.ledger h2 { font-size: 22px; margin-bottom: 2px; }
+.ledger .sub { color: var(--muted); font-style: italic; margin: 0 0 10px; font-size: 15px; }
+.ledger table { width: 100%; border-collapse: collapse; }
+.ledger th, .ledger td { border-bottom: 1px solid var(--rule); padding: 8px 4px; text-align: left; font-weight: 400; }
+.ledger th { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid var(--rule); }
+.ledger td.n { text-align: right; font-family: var(--type); font-size: 18px; }
+.ledger .tally { display: inline-block; margin-right: 10px; letter-spacing: 2px; color: var(--brass); font-family: var(--type); }
+.ledger tfoot td { border-bottom: 3px double var(--rule); color: var(--muted); font-style: italic; font-size: 15px; }
+
+.log { max-width: 1232px; margin: 0 auto; padding: 0 24px 24px; }
+.slips { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.callslip { background: var(--card); padding: 14px 16px; border-radius: 2px; position: relative; border-top: 4px solid #4b4334; min-height: 120px; }
+.callslip .tm { font-family: var(--type); color: var(--muted); font-size: 14px; }
+.callslip b { display: block; font-size: 18px; margin: 2px 0 8px; font-weight: 600; }
+.stamp { display: inline-flex; align-items: center; gap: 6px; font-family: var(--type); font-weight: 700; font-size: 14px; letter-spacing: 0.12em; padding: 2px 10px; border: 2px solid currentColor; }
+.stamp.ok { color: var(--ok); }
+.stamp.bad { color: var(--bad); border-style: double; border-width: 4px; transform: rotate(-4deg); }
+.callslip .ms { font-family: var(--type); margin-left: 8px; color: var(--cream); }
+.callslip .why { display: block; margin-top: 8px; font-family: var(--type); font-size: 14px; color: var(--bad); }
+
+.plaque { max-width: 1232px; margin: 0 auto; padding: 0 24px 32px; }
+.plaque ul { list-style: none; margin: 0; padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 8px 32px; border-top: 1px solid var(--brass); border-bottom: 1px solid var(--brass); font-variant: small-caps; letter-spacing: 0.08em; font-size: 17px; }
+.plaque li::before { content: "\2756  "; color: var(--brass); }
+
+/* Style sheet */
+.sheet { max-width: 1232px; margin: 0 auto 48px; padding: 0 24px; }
+.sheet-in { background: var(--wood); border: 1px solid var(--drawer-edge); border-radius: 6px; padding: 32px; }
+.sheet h2 { font-size: 30px; font-variant: small-caps; letter-spacing: 0.06em; color: var(--brass); }
+.sheet h3 { font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin: 32px 0 12px; border-bottom: 1px solid var(--drawer-edge); padding-bottom: 6px; }
+.idea { font-style: italic; margin: 6px 0 0; max-width: 66ch; font-size: 17px; }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
+.sw { background: var(--drawer); border: 1px solid var(--drawer-edge); padding: 8px 10px; font-size: 14px; }
+.sw i { display: block; height: 36px; border: 2px solid var(--brass); margin-bottom: 6px; }
+.sw b { display: block; } .sw code { font-family: var(--type); font-size: 13px; color: var(--muted); }
+.type-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--drawer-edge); }
+.type-row code { font-family: var(--type); font-size: 13px; color: var(--muted); min-width: 200px; }
+.facts { margin: 0; display: grid; grid-template-columns: 120px 1fr; gap: 8px 16px; }
+.facts dt { color: var(--muted); font-variant: small-caps; letter-spacing: 0.06em; } .facts dd { margin: 0; }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 24px; }
+.ctl-label { display: block; color: var(--muted); font-size: 14px; margin-bottom: 8px; font-style: italic; }
+.field { display: block; font-size: 15px; }
+.field input { display: block; width: 100%; margin-top: 6px; font: 15px var(--type); color: var(--cream); background: #221a12; border: 0; border-bottom: 2px solid var(--muted); padding: 8px 10px; }
+.row-demo { display: flex; justify-content: space-between; padding: 8px 12px; background: var(--ledger); border-bottom: 1px solid var(--rule); }
+.row-demo .n { font-family: var(--type); }
+
+@media (max-width: 1100px) {
+  .room { grid-template-columns: 260px minmax(0, 1fr); }
+  .ledger { grid-column: 2; }
+}
+@media (max-width: 760px) {
+  .plate { padding: 0 12px; margin-top: 12px; }
+  .plate-in { padding: 12px 16px; }
+  .plate h1 { font-size: 22px; }
+  .room { grid-template-columns: minmax(0, 1fr); padding: 16px 12px; gap: 20px; }
+  .ledger { grid-column: auto; padding-left: 36px; }
+  .ledger::before { left: 22px; }
+  .slip { padding: 16px 14px 18px; }
+  .log, .plaque { padding-left: 12px; padding-right: 12px; }
+  .slips { grid-template-columns: 1fr; }
+  .sheet { padding: 0 12px; }
+  .sheet-in { padding: 22px 16px; }
+  .facts { grid-template-columns: 96px 1fr; }
+}
+</style>
+</head>
+<body>
+<header class="plate">
+  <div class="plate-in">
+    <h1>Brightwork Data</h1>
+    <p>Reading room for <b>production-replica</b></p>
+  </div>
+</header>
+
+<main class="room">
+  <nav aria-labelledby="h-cab">
+    <h2 class="sec-title" id="h-cab">Card cabinet</h2>
+    <div class="cabinet">
+      <ul class="drawers">
+        <li class="drawer"><span class="holder">projects</span><span class="pull" aria-hidden="true"></span></li>
+        <li class="drawer open" aria-label="tasks, drawer open">
+          <span class="holder">tasks</span><span class="pull" aria-hidden="true"></span>
+          <ul class="cards">
+            <li>id<em>uuid, key</em></li>
+            <li>project_id<em>uuid, projects</em></li>
+            <li>title<em>text</em></li>
+            <li>assignee_id<em>uuid, members</em></li>
+            <li>due_on<em>date</em></li>
+            <li>status<em>text</em></li>
+          </ul>
+        </li>
+        <li class="drawer"><span class="holder">members</span><span class="pull" aria-hidden="true"></span></li>
+        <li class="drawer"><span class="holder">activity</span><span class="pull" aria-hidden="true"></span></li>
+        <li class="drawer"><span class="holder">invoices</span><span class="pull" aria-hidden="true"></span></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section aria-labelledby="h-slip">
+    <h2 class="sec-title">Request slip</h2>
+    <div class="slip">
+      <span class="no">No. 0941</span>
+      <h2 id="h-slip">Overdue tasks by project</h2>
+      <p class="lead">Count the open tasks past their due date, per project, most first.</p>
+<pre data-scroll tabindex="0" aria-label="Query"><span class="k">SELECT</span> p.name <span class="k">AS</span> project,
+       count(*) <span class="k">AS</span> open_overdue
+  <span class="k">FROM</span> tasks t
+  <span class="k">JOIN</span> projects p <span class="k">ON</span> p.id = t.project_id
+ <span class="k">WHERE</span> t.status &lt;&gt; 'done'
+   <span class="k">AND</span> t.due_on &lt; current_date
+ <span class="k">GROUP BY</span> p.name
+ <span class="k">ORDER BY</span> open_overdue <span class="k">DESC</span>;</pre>
+      <div class="btns"><button class="btn pri">Submit request</button><button class="btn sec">Keep on file</button></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-led">
+    <h2 class="sec-title">Ledger</h2>
+    <div class="ledger">
+      <h2 id="h-led">Entries returned</h2>
+      <p class="sub">Entered in 38 ms</p>
+      <table>
+        <thead><tr><th scope="col">Project</th><th scope="col" style="text-align:right">Open overdue</th></tr></thead>
+        <tbody>
+          <tr><td>Billing migration</td><td class="n"><span class="tally" aria-hidden="true">||</span>2</td></tr>
+          <tr><td>Mobile app 2.0</td><td class="n"><span class="tally" aria-hidden="true">|</span>1</td></tr>
+          <tr><td>Website redesign</td><td class="n"><span class="tally" aria-hidden="true">|</span>1</td></tr>
+        </tbody>
+        <tfoot><tr><td colspan="2">3 rows entered</td></tr></tfoot>
+      </table>
+    </div>
+  </section>
+</main>
+
+<section class="log" aria-labelledby="h-log">
+  <h2 class="sec-title" id="h-log">Call slip log · this morning</h2>
+  <ol class="slips">
+    <li class="callslip"><span class="tm">09:41</span><b>count overdue tasks</b><span class="stamp ok">&#10003; FILED</span><span class="ms">38 ms</span></li>
+    <li class="callslip"><span class="tm">09:30</span><b>members without tasks</b><span class="stamp ok">&#10003; FILED</span><span class="ms">12 ms</span></li>
+    <li class="callslip"><span class="tm">09:12</span><b>failed query</b><span class="stamp bad">&#10007; REJECTED</span><span class="why">column "assignee" does not exist</span></li>
+  </ol>
+</section>
+
+<footer class="plaque" aria-label="Connection status">
+  <ul>
+    <li>Read-only replica</li>
+    <li>Lag 2 seconds</li>
+    <li>14 active connections</li>
+  </ul>
+</footer>
+
+<section class="sheet" aria-labelledby="sheet-title">
+  <div class="sheet-in">
+  <h2 id="sheet-title">Style 410 · Archive vault</h2>
+  <p class="idea">The console is a dark reading room, where tables are labelled cabinet drawers, the open drawer shows its columns as index cards, the query is a typed request slip, results are ledger entries and history is a row of stamped call slips.</p>
+
+  <h3>Palette</h3>
+  <ul class="swatches">
+    <li class="sw"><i style="background:#14100c"></i><b>Vault</b><code>#14100c</code> page</li>
+    <li class="sw"><i style="background:#2a1e15"></i><b>Wood</b><code>#2a1e15</code> cabinet, plate, sheet</li>
+    <li class="sw"><i style="background:#35281d"></i><b>Drawer</b><code>#35281d</code> drawer fronts</li>
+    <li class="sw"><i style="background:#2b2720"></i><b>Card</b><code>#2b2720</code> index cards, slips</li>
+    <li class="sw"><i style="background:#1b201a"></i><b>Ledger</b><code>#1b201a</code> ledger page</li>
+    <li class="sw"><i style="background:#dbb86c"></i><b>Brass</b><code>#dbb86c</code> holders, Submit, focus</li>
+    <li class="sw"><i style="background:#f1e6cc"></i><b>Cream</b><code>#f1e6cc</code> text</li>
+    <li class="sw"><i style="background:#c4b593"></i><b>Muted</b><code>#c4b593</code> labels, meta</li>
+    <li class="sw"><i style="background:#e8917f"></i><b>Margin</b><code>#e8917f</code> ledger margin rule</li>
+    <li class="sw"><i style="background:#a9d68f"></i><b>OK</b><code>#a9d68f</code> FILED stamp</li>
+    <li class="sw"><i style="background:#f19a88"></i><b>Bad</b><code>#f19a88</code> REJECTED stamp</li>
+  </ul>
+
+  <h3>Type · Iowan Old Style, Palatino Linotype, Georgia for prose; American Typewriter, Courier New for slips</h3>
+  <div class="type-row"><code>30 / 600 small caps</code><span style="font-size:30px;font-variant:small-caps;color:var(--brass)">Brightwork Data</span></div>
+  <div class="type-row"><code>22 / 600 italic</code><span style="font-size:22px;font-style:italic;font-weight:600">Overdue tasks by project</span></div>
+  <div class="type-row"><code>13 / 600 caps 0.18em</code><span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)">Ledger</span></div>
+  <div class="type-row"><code>16 / 1.5 serif body</code><span>Billing migration</span></div>
+  <div class="type-row"><code>14 / 1.75 typewriter</code><span style="font:14px var(--type)">t.due_on &lt; current_date</span></div>
+
+  <h3>Spacing, corners and depth</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>8px unit. 24px gutters between furniture, 10px between drawers, 4px between cards.</dd>
+    <dt>Density</dt><dd>Medium. Three pieces of furniture side by side, then the slip log.</dd>
+    <dt>Corners</dt><dd>Nearly square. 2 to 6px, round drawer pulls, tabbed cards.</dd>
+    <dt>Borders</dt><dd>Brass 2px label holders, double rules on slips and ledger totals, one red margin line.</dd>
+    <dt>Shadows</dt><dd>Deep soft shadows under the cabinet, slip and ledger, a ledge under the open drawer.</dd>
+    <dt>Icons</dt><dd>Objects instead of icons. Drawer pulls, card tabs, tally marks, stamps with tick or cross.</dd>
+    <dt>Tone</dt><dd>Archivist wording, such as Request slip, Submit request, Entries returned, FILED.</dd>
+  </dl>
+
+  <h3>Controls · normal and focus</h3>
+  <div class="controls">
+    <div><span class="ctl-label">Primary</span><button class="btn pri">Submit request</button> <button class="btn pri is-focus">Submit</button></div>
+    <div><span class="ctl-label">Secondary</span><button class="btn sec">Keep on file</button> <button class="btn sec is-focus">Keep on file</button></div>
+    <div><label class="field">Drawer label<input value="tasks"></label></div>
+    <div><label class="field">Drawer label, focused<input class="is-focus" value="tasks"></label></div>
+    <div><span class="ctl-label">List row</span><div class="row-demo"><span>Billing migration</span><span class="n">2</span></div></div>
+    <div><span class="ctl-label">List row, focused</span><div class="row-demo is-focus"><span>Billing migration</span><span class="n">2</span></div></div>
+  </div>
+  </div>
+</section>
+</body>
+</html>

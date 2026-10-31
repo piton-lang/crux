@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 403 · Friendly mail · Brightwork</title>
+<style>
+:root {
+  color-scheme: dark;
+  --plum: #19162b; --card: #25213d; --card-hi: #2f2a4d; --edge: #3d3760; --text: #f5f2ff; --soft: #bdb6dc;
+  --mint: #7ee0b5; --peach: #ffb38a; --sky: #8cc8ff; --lilac: #c9a7ff; --sun: #ffd76a; --pink: #ff9ec7;
+  --on-pastel: #1b1530;
+  --font: ui-rounded, "SF Pro Rounded", "Nunito", "Quicksand", "Varela Round", "Segoe UI", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--plum); color: var(--text); font: 15px/1.5 var(--font); }
+h1, h2, h3, p, ul { margin: 0; padding: 0; }
+ul { list-style: none; }
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; color: inherit; }
+svg.i { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+:focus-visible, .is-focus { outline: 3px solid var(--sun); outline-offset: 3px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.top { display: flex; align-items: center; gap: 16px; padding: 16px 24px; }
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 19px; width: 216px; flex: none; }
+.blob { width: 36px; height: 36px; border-radius: 12px 16px 12px 16px; background: var(--sun); color: var(--on-pastel); display: grid; place-items: center; font-weight: 900; transform: rotate(-6deg); }
+.search { flex: 1; max-width: 560px; display: flex; align-items: center; gap: 10px; height: 46px; padding: 0 18px; border-radius: 999px; background: var(--card); border: 2px solid var(--edge); color: var(--soft); }
+.search input { flex: 1; min-width: 0; background: none; border: 0; outline: none; color: var(--text); }
+.search input::placeholder { color: var(--soft); }
+.search:focus-within { outline: 3px solid var(--sun); outline-offset: 3px; }
+.hi { margin-left: auto; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+.face { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 14px; color: var(--on-pastel); flex: none; }
+
+.app { display: grid; grid-template-columns: 232px minmax(0, 380px) minmax(0, 1fr); gap: 20px; padding: 4px 24px 40px; }
+.side { display: flex; flex-direction: column; gap: 6px; }
+.compose { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; margin-bottom: 12px; border-radius: 18px; border: 0; background: var(--pink); color: var(--on-pastel); font-weight: 800; font-size: 16px; cursor: pointer; box-shadow: 0 6px 0 #b85c88; }
+.side h2 { font-size: 13px; font-weight: 800; color: var(--soft); padding: 14px 12px 4px; }
+.side ul { display: flex; flex-direction: column; gap: 4px; }
+.side a { display: flex; align-items: center; gap: 12px; padding: 8px 12px; border-radius: 14px; font-weight: 650; }
+.side a .ic { width: 30px; height: 30px; border-radius: 10px; display: grid; place-items: center; color: var(--on-pastel); flex: none; }
+.side a .n { margin-left: auto; min-width: 26px; padding: 0 8px; border-radius: 999px; background: var(--card-hi); text-align: center; font-size: 13px; font-weight: 800; }
+.side a[aria-current] { background: var(--card-hi); box-shadow: inset 0 0 0 2px var(--edge); }
+.side a[aria-current] .n { background: var(--sun); color: var(--on-pastel); }
+
+.list { background: var(--card); border-radius: 24px; padding: 16px; align-self: start; }
+.list-h { display: flex; justify-content: space-between; align-items: baseline; padding: 4px 8px 12px; }
+.list-h h2 { font-size: 22px; font-weight: 800; }
+.list-h p { font-size: 13px; color: var(--soft); }
+.list li + li { margin-top: 6px; }
+.mail { display: grid; grid-template-columns: 44px 1fr auto; gap: 0 12px; padding: 12px; border-radius: 18px; }
+.mail .face { grid-row: 1 / span 3; width: 44px; height: 44px; border-radius: 15px; }
+.mail .who { font-weight: 650; }
+.mail.unread .who, .mail.unread .subj { font-weight: 800; }
+.mail time { font-size: 13px; color: var(--soft); }
+.mail .subj { grid-column: 2 / span 2; }
+.mail .snip { grid-column: 2 / span 2; font-size: 14px; color: var(--soft); }
+.mail .chips { grid-column: 2 / span 2; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.mail .chips:empty { display: none; }
+.mail.open { background: var(--card-hi); box-shadow: inset 0 0 0 2px var(--lilac); }
+.chip { display: inline-flex; align-items: center; gap: 5px; height: 24px; padding: 0 10px; border-radius: 999px; font-size: 12px; font-weight: 800; color: var(--on-pastel); }
+.chip svg.i { width: 14px; height: 14px; stroke-width: 2.6; }
+.chip.ghost { background: transparent; color: var(--text); box-shadow: inset 0 0 0 2px var(--edge); }
+
+.reader { background: var(--card); border-radius: 28px; padding: 28px 32px 32px; min-width: 0; align-self: start; }
+.reader .labels { display: flex; gap: 8px; flex-wrap: wrap; }
+.reader h1 { font-size: 30px; font-weight: 800; line-height: 1.2; margin: 14px 0 20px; }
+.sender { display: flex; align-items: center; gap: 14px; }
+.sender .face { width: 52px; height: 52px; border-radius: 18px; font-size: 17px; }
+.sender b { display: block; font-size: 17px; font-weight: 800; }
+.sender div span { font-size: 14px; color: var(--soft); }
+.sender time { margin-left: auto; font-size: 14px; color: var(--soft); align-self: flex-start; padding-top: 4px; }
+.bubble { position: relative; margin: 20px 0 0 66px; padding: 20px 24px; border-radius: 6px 24px 24px 24px; background: var(--card-hi); font-size: 17px; line-height: 1.6; max-width: 560px; }
+.bubble p + p { margin-top: 10px; }
+.acts { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0 0 66px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 18px; border-radius: 999px; border: 2px solid var(--edge); background: var(--plum); color: var(--text); font-weight: 750; cursor: pointer; }
+.btn.primary { background: var(--mint); color: var(--on-pastel); border-color: var(--mint); box-shadow: 0 4px 0 #3e9a72; }
+.cheer { margin: 24px 0 0 66px; font-size: 14px; color: var(--soft); display: flex; align-items: center; gap: 8px; }
+
+.sheet { background: var(--card); border-radius: 32px 32px 0 0; padding: 48px 32px 64px; margin-top: 8px; }
+.sheet h2 { font-size: 30px; font-weight: 800; }
+.sheet .idea { color: var(--soft); max-width: 720px; margin-top: 6px; font-size: 17px; }
+.sheet h3 { display: inline-flex; font-size: 14px; font-weight: 800; padding: 4px 14px; border-radius: 999px; background: var(--lilac); color: var(--on-pastel); margin: 40px 0 16px; }
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.sw { display: flex; gap: 12px; align-items: center; padding: 10px; border-radius: 18px; background: var(--plum); font-size: 13px; color: var(--soft); }
+.sw i { width: 44px; height: 44px; border-radius: 14px; border: 2px solid var(--edge); flex: none; }
+.sw b { display: block; font-size: 15px; color: var(--text); font-weight: 800; }
+.type-row { display: flex; flex-wrap: wrap; gap: 6px 20px; align-items: baseline; padding: 10px 0; border-bottom: 2px dotted var(--edge); }
+.type-row code { width: 180px; flex: none; color: var(--soft); font-size: 13px; font-family: var(--font); }
+.facts { display: grid; grid-template-columns: 120px 1fr; gap: 10px 20px; margin: 0; }
+.facts dt { font-weight: 800; }
+.facts dd { margin: 0; color: var(--soft); }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+.ctl-label { display: block; font-size: 13px; font-weight: 800; color: var(--soft); margin-bottom: 8px; }
+.field { display: block; font-size: 13px; font-weight: 800; color: var(--soft); }
+.field input { display: block; width: 100%; margin-top: 8px; height: 46px; padding: 0 18px; border-radius: 16px; border: 2px solid var(--edge); background: var(--plum); color: var(--text); font-weight: 600; }
+.demo { background: var(--plum); border-radius: 20px; padding: 6px; }
+
+@media (max-width: 1100px) {
+  .app { grid-template-columns: 200px minmax(0, 1fr); }
+  .reader { grid-column: 1 / -1; }
+}
+@media (max-width: 720px) {
+  .top { padding: 14px 16px; gap: 10px; flex-wrap: wrap; }
+  .logo { width: auto; }
+  .hi > span:first-child { display: none; }
+  .search { order: 3; flex-basis: 100%; max-width: none; }
+  .app { display: flex; flex-direction: column; padding: 4px 16px 32px; gap: 16px; }
+  .side { flex-direction: row; overflow-x: auto; gap: 8px; padding: 4px 4px 10px; }
+  .compose { height: 42px; margin: 0; padding: 0 16px; flex: none; box-shadow: 0 4px 0 #b85c88; }
+  .side h2 { display: none; }
+  .side ul { flex-direction: row; gap: 6px; }
+  .side a { white-space: nowrap; padding: 6px 12px 6px 6px; }
+  .list { padding: 10px; border-radius: 22px; }
+  .reader { padding: 22px 18px 24px; border-radius: 24px; }
+  .reader h1 { font-size: 25px; }
+  .bubble, .acts, .cheer { margin-left: 0; }
+  .sheet { padding: 40px 16px 56px; border-radius: 24px 24px 0 0; }
+  .facts { grid-template-columns: 1fr; gap: 2px; }
+  .facts dd { margin-bottom: 10px; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-inbox" viewBox="0 0 24 24"><path d="M3 13h5l1.5 3h5L16 13h5"/><path d="M5 5h14l2 8v6H3v-6z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14A8 8 0 1 1 10 4a6 6 0 0 0 10 10z"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M4 12 20 4l-6 16-3-7z"/></symbol>
+  <symbol id="i-draft" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="5" rx="2"/><path d="M5 9v10h14V9M10 13h4"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></symbol>
+  <symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M9.5 10h4a1.5 1.5 0 0 1 0 3h-3a1.5 1.5 0 0 0 0 3h4"/></symbol>
+  <symbol id="i-team" viewBox="0 0 24 24"><circle cx="9" cy="9" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 19c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5M15 15c2.5 0 4.5 1 5.5 3.5"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h8M16.5 3.5l4 4L8 20H4v-4z"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3c.8 4.5 2.5 6.2 7 7-4.5.8-6.2 2.5-7 7-.8-4.5-2.5-6.2-7-7 4.5-.8 6.2-2.5 7-7z" fill="currentColor"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24"><path d="m20 11-8.5 8.5a5 5 0 0 1-7-7L13 4a3.5 3.5 0 0 1 5 5l-8.5 8.5a2 2 0 0 1-3-3L14 7"/></symbol>
+  <symbol id="i-reply" viewBox="0 0 24 24"><path d="M10 6 4 12l6 6"/><path d="M4 12h10a6 6 0 0 1 6 6"/></symbol>
+  <symbol id="i-fwd" viewBox="0 0 24 24"><path d="m14 6 6 6-6 6"/><path d="M20 12H10a6 6 0 0 0-6 6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="logo"><span class="blob" aria-hidden="true">B</span>Brightwork Mail</div>
+  <label class="search"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search mail</span><input type="search" placeholder="Find a message, a friend or a file"></label>
+  <div class="hi"><span>Hi, Mara!</span><span class="face" style="background:var(--sun)" aria-hidden="true">MO</span></div>
+</header>
+
+<div class="app">
+  <nav class="side" aria-label="Folders">
+    <button class="compose" type="button"><svg class="i" aria-hidden="true"><use href="#i-pen"/></svg>Write a note</button>
+    <h2>Your mail</h2>
+    <ul>
+      <li><a href="#" aria-current="page"><span class="ic" style="background:var(--sun)"><svg class="i" aria-hidden="true"><use href="#i-inbox"/></svg></span>Inbox<span class="n">12</span></a></li>
+      <li><a href="#"><span class="ic" style="background:var(--peach)"><svg class="i" aria-hidden="true"><use href="#i-star"/></svg></span>Starred</a></li>
+      <li><a href="#"><span class="ic" style="background:var(--lilac)"><svg class="i" aria-hidden="true"><use href="#i-moon"/></svg></span>Snoozed</a></li>
+      <li><a href="#"><span class="ic" style="background:var(--sky)"><svg class="i" aria-hidden="true"><use href="#i-send"/></svg></span>Sent</a></li>
+      <li><a href="#"><span class="ic" style="background:var(--pink)"><svg class="i" aria-hidden="true"><use href="#i-draft"/></svg></span>Drafts<span class="n">2</span></a></li>
+      <li><a href="#"><span class="ic" style="background:var(--mint)"><svg class="i" aria-hidden="true"><use href="#i-box"/></svg></span>Archive</a></li>
+    </ul>
+    <h2>Labels</h2>
+    <ul>
+      <li><a href="#"><span class="ic" style="background:var(--sky)"><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg></span>Clients</a></li>
+      <li><a href="#"><span class="ic" style="background:var(--peach)"><svg class="i" aria-hidden="true"><use href="#i-coin"/></svg></span>Invoices</a></li>
+      <li><a href="#"><span class="ic" style="background:var(--mint)"><svg class="i" aria-hidden="true"><use href="#i-team"/></svg></span>Team</a></li>
+    </ul>
+  </nav>
+
+  <section class="list" aria-labelledby="list-h">
+    <div class="list-h"><h2 id="list-h">Inbox</h2><p>2 new ones for you</p></div>
+    <ul>
+      <li><a href="#" class="mail unread open" aria-current="true"><span class="face" style="background:var(--sky)" aria-hidden="true">N</span><span class="who">Northpass</span><time>08:44</time><span class="subj">Demo on Tuesday</span><span class="snip">Looking forward to seeing the reports view</span><span class="chips"><span class="chip" style="background:var(--sun)"><svg class="i" aria-hidden="true"><use href="#i-spark"/></svg>New</span><span class="chip" style="background:var(--sky)"><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg>Clients</span></span></a></li>
+      <li><a href="#" class="mail unread"><span class="face" style="background:var(--pink)" aria-hidden="true">PN</span><span class="who">Priya Nair</span><time>08:02</time><span class="subj">Hero options</span><span class="snip">B is my pick, see Canvas</span><span class="chips"><span class="chip" style="background:var(--sun)"><svg class="i" aria-hidden="true"><use href="#i-spark"/></svg>New</span></span></a></li>
+      <li><a href="#" class="mail"><span class="face" style="background:var(--peach)" aria-hidden="true">B</span><span class="who">Billing</span><time>07:15</time><span class="subj">Invoice 2026-10 is ready</span><span class="chips"><span class="chip" style="background:var(--peach)"><svg class="i" aria-hidden="true"><use href="#i-coin"/></svg>Invoices</span><span class="chip ghost"><svg class="i" aria-hidden="true"><use href="#i-clip"/></svg>1 file</span></span></a></li>
+      <li><a href="#" class="mail"><span class="face" style="background:var(--mint)" aria-hidden="true">AT</span><span class="who">Aiko Tanaka</span><time>Yesterday</time><span class="subj">Survey readout slides</span><span class="chips"><span class="chip ghost"><svg class="i" aria-hidden="true" style="fill:var(--sun);color:var(--sun)"><use href="#i-star"/></svg>Starred</span></span></a></li>
+      <li><a href="#" class="mail"><span class="face" style="background:var(--lilac)" aria-hidden="true">LB</span><span class="who">Lumen Bakery</span><time>Yesterday</time><span class="subj">Re pricing question</span><span class="chips"></span></a></li>
+      <li><a href="#" class="mail"><span class="face" style="background:var(--sun)" aria-hidden="true">N</span><span class="who">Newsletter</span><time>Friday</time><span class="subj">The small team digest</span><span class="chips"></span></a></li>
+    </ul>
+  </section>
+
+  <article class="reader" aria-labelledby="read-h">
+    <div class="labels"><span class="chip" style="background:var(--sun)"><svg class="i" aria-hidden="true"><use href="#i-spark"/></svg>New</span><span class="chip" style="background:var(--sky)"><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg>Clients</span></div>
+    <h1 id="read-h">Demo on Tuesday</h1>
+    <div class="sender">
+      <span class="face" style="background:var(--sky)" aria-hidden="true">DW</span>
+      <div><b>Dana Whitfield</b><span>from Northpass, to Mara Okafor</span></div>
+      <time>08:44</time>
+    </div>
+    <div class="bubble">
+      <p>Hi Mara, looking forward to Tuesday. Can you show the reports view and how guests work?</p>
+      <p>Thanks, Dana.</p>
+    </div>
+    <div class="acts" role="toolbar" aria-label="Message actions">
+      <button class="btn primary" type="button"><svg class="i" aria-hidden="true"><use href="#i-reply"/></svg>Reply</button>
+      <button class="btn" type="button">Reply all</button>
+      <button class="btn" type="button"><svg class="i" aria-hidden="true"><use href="#i-fwd"/></svg>Forward</button>
+      <button class="btn" type="button"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Snooze</button>
+      <button class="btn" type="button"><svg class="i" aria-hidden="true"><use href="#i-box"/></svg>Archive</button>
+    </div>
+    <p class="cheer"><svg class="i" aria-hidden="true" style="color:var(--sun)"><use href="#i-spark"/></svg>One more new one after this, then you are all caught up.</p>
+  </article>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h">
+  <h2 id="sheet-h">Style 403 · Friendly mail</h2>
+  <p class="idea">A cheerful, chunky mail client on soft plum with rounded everything, a pastel colour for every person and label, and the open message shown as a friendly speech bubble.</p>
+
+  <h3>Palette</h3>
+  <ul class="swatches">
+    <li class="sw"><i style="background:#19162b"></i><div><b>Plum</b>#19162b · page, secondary buttons</div></li>
+    <li class="sw"><i style="background:#25213d"></i><div><b>Card</b>#25213d · list, reader, sheet</div></li>
+    <li class="sw"><i style="background:#2f2a4d"></i><div><b>Card high</b>#2f2a4d · open row, speech bubble</div></li>
+    <li class="sw"><i style="background:#3d3760"></i><div><b>Edge</b>#3d3760 · borders, ghost chips</div></li>
+    <li class="sw"><i style="background:#f5f2ff"></i><div><b>Text</b>#f5f2ff · text</div></li>
+    <li class="sw"><i style="background:#bdb6dc"></i><div><b>Soft</b>#bdb6dc · snippets, times</div></li>
+    <li class="sw"><i style="background:#7ee0b5"></i><div><b>Mint</b>#7ee0b5 · Reply, Archive, Team</div></li>
+    <li class="sw"><i style="background:#ffb38a"></i><div><b>Peach</b>#ffb38a · Invoices, Starred folder</div></li>
+    <li class="sw"><i style="background:#8cc8ff"></i><div><b>Sky</b>#8cc8ff · Clients, Sent</div></li>
+    <li class="sw"><i style="background:#c9a7ff"></i><div><b>Lilac</b>#c9a7ff · open row ring, sheet headings</div></li>
+    <li class="sw"><i style="background:#ffd76a"></i><div><b>Sun</b>#ffd76a · New sticker, inbox count, focus</div></li>
+    <li class="sw"><i style="background:#ff9ec7"></i><div><b>Pink</b>#ff9ec7 · Write a note, Drafts</div></li>
+  </ul>
+
+  <h3>Type · rounded system stack</h3>
+  <div class="type-row"><code>30 / 800</code><span style="font-size:30px;font-weight:800">Demo on Tuesday</span></div>
+  <div class="type-row"><code>22 / 800 section</code><span style="font-size:22px;font-weight:800">Inbox</span></div>
+  <div class="type-row"><code>17 / 1.6 bubble</code><span style="font-size:17px">Hi Mara, looking forward to Tuesday.</span></div>
+  <div class="type-row"><code>15 / 800 unread</code><span style="font-weight:800">Priya Nair</span></div>
+  <div class="type-row"><code>12 / 800 chip</code><span class="chip" style="background:var(--sun)"><svg class="i" aria-hidden="true"><use href="#i-spark"/></svg>New</span></div>
+  <p style="color:var(--soft);font-size:13px;margin-top:10px">ui-rounded, SF Pro Rounded, Nunito, Quicksand, Varela Round, Segoe UI, system-ui.</p>
+
+  <h3>Space, shape and tone</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>8px unit. 20px between panels, 12px row padding, 28 to 32px inside the reader.</dd>
+    <dt>Density</dt><dd>Comfortable. Six chunky rows with avatars and chips.</dd>
+    <dt>Corners</dt><dd>Very round. 24 to 28px panels, 18px rows, 14 to 18px avatars, pill buttons and chips, a bubble with one sharp corner.</dd>
+    <dt>Borders</dt><dd>2px edge on fields and secondary buttons. The open row gets a 2px lilac ring.</dd>
+    <dt>Shadows</dt><dd>Solid 4 to 6px darker drops under the pink and mint buttons, like toy keys.</dd>
+    <dt>Icons</dt><dd>Bold 2.2 stroke icons in pastel tiles. New is a sparkle plus the word, Starred a filled star plus the word, files a clip plus 1 file. Labels pair a colour with an icon and name.</dd>
+    <dt>Focus</dt><dd>3px sunny yellow outline offset 3px.</dd>
+    <dt>Tone</dt><dd>Warm and chatty. Hi, Mara!, Write a note, 2 new ones for you, all caught up.</dd>
+  </dl>
+
+  <h3>Controls · normal and focus</h3>
+  <div class="controls">
+    <div><span class="ctl-label">Primary</span><button class="btn primary" type="button">Reply</button> <button class="btn primary is-focus" type="button">Reply</button></div>
+    <div><span class="ctl-label">Secondary</span><button class="btn" type="button">Forward</button> <button class="btn is-focus" type="button">Forward</button></div>
+    <div><label class="field">To<input value="Dana Whitfield"></label></div>
+    <div><label class="field">To, focused<input class="is-focus" value="Dana Whitfield"></label></div>
+    <div><span class="ctl-label">List row</span><div class="demo"><a href="#" class="mail"><span class="face" style="background:var(--lilac)" aria-hidden="true">LB</span><span class="who">Lumen Bakery</span><time>Yesterday</time><span class="subj">Re pricing question</span></a></div></div>
+    <div><span class="ctl-label">List row, focused</span><div class="demo"><a href="#" class="mail is-focus"><span class="face" style="background:var(--lilac)" aria-hidden="true">LB</span><span class="who">Lumen Bakery</span><time>Yesterday</time><span class="subj">Re pricing question</span></a></div></div>
+  </div>
+</section>
+</body>
+</html>

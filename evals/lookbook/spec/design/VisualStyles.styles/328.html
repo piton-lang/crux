@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Style 328 · Concert stage · Brightwork</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{color-scheme:dark}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img,svg{max-width:100%}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:inherit}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+h1,h2,h3,h4,p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+.ic{width:1.2em;height:1.2em;flex:none;vertical-align:-.22em}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+/* style sheet scaffold, themed per style through variables */
+.sheet{background:var(--s-bg);color:var(--s-ink);font-family:var(--s-font);padding:48px 32px 64px;border-top:var(--s-top,1px solid var(--s-line))}
+.sheet>*{max-width:1120px;margin-left:auto;margin-right:auto}
+.sheet h2{font-size:var(--s-h2,28px);line-height:1.2;margin-bottom:8px}
+.sheet .idea{color:var(--s-muted);max-width:760px;margin-bottom:32px;font-size:16px;line-height:1.55}
+.sheet h3{font-size:var(--s-h3,15px);margin:32px auto 16px;text-transform:var(--s-h3-case,none);letter-spacing:var(--s-h3-ls,0)}
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.sw{display:flex;gap:12px;align-items:flex-start;padding:12px;border:1px solid var(--s-line);border-radius:var(--s-r,6px);background:var(--s-panel);font-size:14px;line-height:1.45}
+.sw i{width:44px;height:44px;flex:none;border-radius:var(--s-r,6px);border:1px solid var(--s-line)}
+.sw span{color:var(--s-muted)}
+.type-row{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--s-line)}
+.type-row code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;color:var(--s-muted);min-width:180px}
+.type-row span{min-width:0;overflow-wrap:anywhere}
+.facts{display:grid;grid-template-columns:160px 1fr;gap:10px 24px;font-size:15px;line-height:1.55}
+.facts dt{font-weight:700;color:var(--s-ink)}
+.facts dd{color:var(--s-muted)}
+.controls{display:grid;gap:20px}
+.ctl{display:grid;grid-template-columns:160px 1fr;gap:12px 24px;align-items:center}
+.ctl-label{font-size:13px;color:var(--s-muted)}
+.ctl-pair{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center}
+.fld{display:grid;gap:6px;font-size:13px;color:var(--s-muted);min-width:0}
+.fld input{min-width:0;width:240px;max-width:100%}
+.lrow{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0;width:320px;max-width:100%}
+@media (max-width:640px){.sheet{padding:32px 16px 48px}.facts,.ctl{grid-template-columns:1fr}.facts dd{margin-bottom:8px}.type-row code{min-width:0}}
+
+
+:root{--bd:#0b0912;--floor:#15121d;--truss:#2f2a3a;--ink:#f7f3ec;--haze:#b8b0c4;--spot:#ffcf5a;--ons:#1f1500;--vio:#8a5cff;--tape:#d8c48e;
+--cond:"Avenir Next Condensed","Arial Narrow","Roboto Condensed","Helvetica Neue",Arial,sans-serif;
+--s-bg:var(--bd);--s-ink:var(--ink);--s-muted:var(--haze);--s-line:var(--truss);--s-panel:var(--floor);--s-font:"Helvetica Neue",Arial,sans-serif;--s-r:4px;--s-h3:12px;--s-h3-case:uppercase;--s-h3-ls:.24em;--s-h2:36px}
+body{background:var(--bd);color:var(--ink);font:15px/1.5 "Helvetica Neue",Arial,sans-serif}
+:focus-visible,.is-focus{outline:3px solid var(--spot);outline-offset:3px}
+.sheet h2{font-family:var(--cond);font-stretch:condensed;text-transform:uppercase;font-weight:800}
+.cap{font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--haze)}
+.show{display:grid;grid-template-columns:minmax(0,1fr) 360px}
+.stage{position:relative;min-height:560px;overflow:clip;background:linear-gradient(#0b0912 0,#120e1c 70%,#0b0912)}
+.truss{position:absolute;left:0;right:0;top:0;height:28px;background:repeating-linear-gradient(45deg,#2f2a3a 0 3px,transparent 3px 14px),#1a1624;border-bottom:2px solid #2f2a3a;display:flex;justify-content:space-around;align-items:flex-end}
+.truss i{width:18px;height:18px;border-radius:50%;background:#fff2d6;margin-bottom:-9px;box-shadow:0 0 12px #fff2d6}
+.beams{position:absolute;inset:0;pointer-events:none}
+.beams i{position:absolute;top:28px;width:260px;height:120%;transform-origin:50% 0;clip-path:polygon(45% 0,55% 0,100% 100%,0 100%);background:linear-gradient(rgba(255,242,214,.18),transparent 80%)}
+.beams i.v{background:linear-gradient(rgba(138,92,255,.20),transparent 75%)}
+.on{position:relative;z-index:1;padding:120px 48px 200px;text-align:center}
+.pool{position:absolute;left:50%;top:60px;width:min(680px,90%);height:360px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(255,207,90,.16),transparent);z-index:0}
+h1{font-family:var(--cond);font-weight:800;font-stretch:condensed;text-transform:uppercase;font-size:clamp(52px,8vw,104px);line-height:.92;letter-spacing:-.01em;margin:8px 0 16px}
+.by{font-size:18px}.by span{color:var(--haze)}
+.crowd{position:absolute;left:0;right:0;bottom:0;height:190px;width:100%;fill:#000;z-index:2}
+.barrier{grid-column:1;background:var(--floor);border-top:2px solid var(--truss);padding:20px 32px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px 32px;align-items:center}
+.tb{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start}.tb .ic{width:20px;height:20px}.tb .pp .ic{width:26px;height:26px}
+.tb button{display:grid;justify-items:center;gap:4px;background:none;border:0;color:var(--ink);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:0}
+.tb button span.k{width:44px;height:44px;border-radius:50%;border:1px solid #5a5268;display:grid;place-items:center}
+.tb button.pp span.k{width:60px;height:60px;background:var(--spot);color:var(--ons);border:0;box-shadow:0 0 24px rgba(255,207,90,.4)}
+.tb button.lk span.k{color:var(--spot);border-color:var(--spot)}
+.pos{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;font-variant-numeric:tabular-nums;color:var(--haze)}
+.pos b{color:var(--ink)}
+.rail{height:6px;background:#2f2a3a;position:relative}.rail i{position:absolute;inset:0 52% 0 0;background:var(--spot)}
+.vol{display:grid;gap:4px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--haze)}
+.vb{display:flex;gap:3px;align-items:flex-end;height:28px}.vb i{width:6px;background:#3a3446}.vb i.l{background:var(--ink)}
+.vol b{color:var(--ink);letter-spacing:0;font-size:15px}
+.setlist{grid-column:2;grid-row:1/span 2;background:var(--bd);padding:32px 28px;border-left:1px solid var(--truss)}
+.card{background:var(--floor);padding:28px 24px 20px;position:relative;transform:rotate(-1deg);box-shadow:none;border:1px solid var(--truss)}
+.card::before,.card::after{content:"";position:absolute;top:-10px;width:72px;height:22px;background:var(--tape);opacity:.85}
+.card::before{left:18px;transform:rotate(-6deg)}.card::after{right:18px;transform:rotate(5deg)}
+.card h2{font-family:var(--cond);font-stretch:condensed;font-weight:800;text-transform:uppercase;font-size:20px;letter-spacing:.06em;color:var(--haze);margin-bottom:12px}
+.card ol li{border-top:1px solid var(--truss)}
+.card a,.card .cur{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:10px 0;text-decoration:none}
+.sn{font-family:var(--cond);font-weight:800;color:var(--haze);font-size:20px}
+.stt b{display:block;font-family:var(--cond);font-stretch:condensed;font-weight:800;text-transform:uppercase;font-size:26px;line-height:1.05}
+.stt small{color:var(--haze);font-size:13px}
+.sd{color:var(--haze);font-variant-numeric:tabular-nums}
+.cur{background:var(--spot);color:var(--ons);margin:0 -10px;padding:10px!important;}
+.cur .sn,.cur small,.cur .sd{color:var(--ons)}
+.screen{grid-column:1/-1;background:#000;border-top:1px solid var(--truss);padding:28px 32px;display:grid;grid-template-columns:200px minmax(0,1fr);gap:16px 32px;align-items:center}
+.screen p.l1{font-size:clamp(22px,2.6vw,32px);font-weight:600;line-height:1.25}
+.screen p.l1::before{content:"▶ ";color:var(--spot);font-size:.8em}
+.screen p.l2{color:var(--haze);font-size:18px;margin-top:6px}
+.back{grid-column:1/-1;padding:32px;display:grid;grid-template-columns:200px repeat(3,minmax(0,1fr)) auto;gap:16px;align-items:stretch;border-top:1px solid var(--truss)}
+.pass{display:block;text-decoration:none;background:var(--floor);border:1px solid var(--truss);border-radius:4px;padding:28px 16px 14px;position:relative;border-top:6px solid var(--tape)}
+.pass::before{content:"";position:absolute;top:8px;left:50%;width:28px;height:8px;border-radius:4px;background:var(--bd);transform:translateX(-50%)}
+.pass b{display:block;font-family:var(--cond);font-stretch:condensed;font-weight:800;text-transform:uppercase;font-size:22px}.pass small{color:var(--haze)}
+.lk2{display:grid;gap:6px;align-content:center}
+.lk2 a{font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:13px;text-underline-offset:4px;text-decoration-color:var(--spot)}
+@media (max-width:1060px){.show{grid-template-columns:minmax(0,1fr)}.barrier{order:1}.setlist{order:2}.screen{order:3}.back{order:4}.setlist{grid-column:1;grid-row:auto;border-left:0;border-top:1px solid var(--truss)}.barrier{grid-template-columns:1fr}.back{grid-template-columns:1fr 1fr 1fr}.back .cap{grid-column:1/-1}.lk2{grid-column:1/-1;display:flex;gap:20px}}
+@media (max-width:560px){.stage{min-height:460px}.on{padding:80px 16px 170px}.crowd{height:140px}.barrier,.screen,.back,.setlist{padding:20px 16px}.tb{justify-content:space-between;gap:8px 4px}.tb button span.k{width:40px;height:40px}.tb button.pp span.k{width:52px;height:52px}.tb button{letter-spacing:.06em}.screen{grid-template-columns:1fr}.back{grid-template-columns:1fr}.beams i{width:160px}}
+.btn-p{background:var(--spot);color:var(--ons);border:0;border-radius:999px;padding:12px 28px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.btn-s{background:none;color:var(--ink);border:1px solid #6a6178;border-radius:999px;padding:11px 24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.fld input{background:var(--floor);border:1px solid #4a4358;border-radius:0;padding:10px 12px;color:var(--ink)}
+.lrow{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:10px 12px;background:var(--floor);border-top:1px solid var(--truss)}
+.lrow .stt b{font-size:22px}
+</style>
+</head>
+<body>
+
+<div class="show">
+<section class="stage" aria-labelledby="np">
+  <div class="truss" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="beams" aria-hidden="true"><i style="left:4%;transform:rotate(-16deg)"></i><i class="v" style="left:22%;transform:rotate(-6deg)"></i><i style="left:42%;transform:rotate(2deg)"></i><i class="v" style="left:60%;transform:rotate(8deg)"></i><i style="left:78%;transform:rotate(18deg)"></i></div>
+  <div class="pool" aria-hidden="true"></div>
+  <div class="on">
+    <p class="cap">Brightwork Sound · On stage now</p>
+    <h1 id="np">Harbour Lights</h1>
+    <p class="by">The Saltmarsh Trio <span>· Low Tide</span></p>
+  </div>
+  <svg class="crowd" viewBox="0 0 1280 190" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Silhouette of a crowd in front of the stage, some with hands raised"><circle cx="-10" cy="140" r="19"/><rect x="-35" y="155" width="50" height="120" rx="19"/><circle cx="20" cy="153" r="15"/><rect x="-1" y="164" width="42" height="120" rx="15"/><path d="M20 178 L1 107" stroke="#000" stroke-width="10" stroke-linecap="round"/><circle cx="1" cy="103" r="7"/><circle cx="64" cy="142" r="22"/><rect x="36" y="160" width="56" height="120" rx="22"/><path d="M64 174 L90 96" stroke="#000" stroke-width="10" stroke-linecap="round"/><circle cx="90" cy="92" r="7"/><circle cx="100" cy="143" r="15"/><rect x="79" y="154" width="42" height="120" rx="15"/><path d="M100 168 L119 97" stroke="#000" stroke-width="10" stroke-linecap="round"/><circle cx="119" cy="93" r="7"/><circle cx="130" cy="143" r="15"/><rect x="109" y="154" width="42" height="120" rx="15"/><circle cx="169" cy="154" r="14"/><rect x="149" y="164" width="40" height="120" rx="14"/><circle cx="199" cy="137" r="17"/><rect x="176" y="150" width="46" height="120" rx="17"/><circle cx="231" cy="149" r="18"/><rect x="207" y="163" width="48" height="120" rx="18"/><path d="M231 177 L209 103" stroke="#000" stroke-width="10" stroke-linecap="round"/><circle cx="209" cy="99" r="7"/><circle cx="270" cy="153" r="18"/><rect x="246" y="167" width="48" height="120" rx="18"/><circle cx="302" cy="154" r="15"/><rect x="281" y="165" width="42" height="120" rx="15"/><circle cx="335" cy="139" r="19"/><rect x="310" y="154" width="50" height="120" rx="19"/><circle cx="366" cy="155" r="14"/><rect x="346" y="165" width="40" height="120" rx="14"/><path d="M366 179 L384 109" stroke="#000" stroke-width="10" stroke-linecap="round"/><circle cx="384" cy="105" r="7"/><circle cx="408" cy="150" r="19"/><rect x="383" y="165" width="50" height="120" rx="19"/><circle cx="445" cy="145" r="19"/><rect x="420" y="160" width="50" height="120" rx="19"/><path d="M445 174 L422 99" stroke="#000" stroke-width="10" stroke-linecap="round"/><circle cx="422" cy="95" r="7"/><circle cx="486" cy="138" r="17"/><rect x="463" y="151" width="46" height="120" rx="17"/><circle cx="524" cy="146" r="21"/><rect x="497" y="163" width="54" height="120" rx="21"/><circle cx="558" cy="139" r="15"/><rect x="537" y="150" width="42" height="120" rx="15"/><circle cx="590" cy="140" r="19"/><rect x="565" y="155" width="50" height="120" rx="19"/><circle cx="626" cy="157" r="14"/><rect x="606" y="167" width="40" height="120" rx="14"/><path d="M626 181 L644 111" stroke="#000" stroke-width="10" stroke-linecap="round"/><circle cx="644" cy="107" r="7"/><circle cx="661" cy="155" r="19"/><rect x="636" y="170" width="50" height="120" rx="19"/><circle cx="703" cy="138" r="21"/><rect x="676" y="155" width="54" height="120" rx="21"/><circle cx="737" cy="158" r="21"/><rect x="710" y="175" width="54" height="120" rx="21"/><circle cx="767" cy="156" r="18"/><rect x="743" y="170" width="48" height="120" rx="18"/><circle cx="807" cy="145" r="21"/><rect x="780" y="162" width="54" height="120" rx="21"/><circle cx="851" cy="136" r="19"/><rect x="826" y="151" width="50" height="120" rx="19"/><circle cx="886" cy="155" r="16"/><rect x="864" y="167" width="44" height="120" rx="16"/><path d="M886 181 L866 109" stroke="#000" stroke-width="10" stroke-linecap="round"/><circle cx="866" cy="105" r="7"/><circle cx="919" cy="140" r="18"/><rect x="895" y="154" width="48" height="120" rx="18"/><circle cx="955" cy="151" r="20"/><rect x="929" y="167" width="52" height="120" rx="20"/><path d="M955 181 L979 105" stroke="#000" stroke-width="10" stroke-linecap="round"/><circle cx="979" cy="101" r="7"/><circle cx="991" cy="144" r="22"/><rect x="963" y="162" width="56" height="120" rx="22"/><circle cx="1034" cy="153" r="20"/><rect x="1008" y="169" width="52" height="120" rx="20"/><path d="M1034 183 L1058 107" stroke="#000" stroke-width="10" stroke-linecap="round"/><circle cx="1058" cy="103" r="7"/><circle cx="1069" cy="143" r="20"/><rect x="1043" y="159" width="52" height="120" rx="20"/><path d="M1069 173 L1045 97" stroke="#000" stroke-width="10" stroke-linecap="round"/><circle cx="1045" cy="93" r="7"/><circle cx="1101" cy="157" r="17"/><rect x="1078" y="170" width="46" height="120" rx="17"/><path d="M1101 184 L1122 111" stroke="#000" stroke-width="10" stroke-linecap="round"/><circle cx="1122" cy="107" r="7"/><circle cx="1144" cy="144" r="16"/><rect x="1122" y="156" width="44" height="120" rx="16"/><circle cx="1176" cy="153" r="20"/><rect x="1150" y="169" width="52" height="120" rx="20"/><circle cx="1215" cy="140" r="19"/><rect x="1190" y="155" width="50" height="120" rx="19"/><circle cx="1253" cy="150" r="14"/><rect x="1233" y="160" width="40" height="120" rx="14"/></svg>
+</section>
+<section class="setlist" aria-labelledby="sl">
+  <div class="card">
+    <h2 id="sl">Tonight's set</h2>
+    <div class="cur" aria-current="true"><span class="sn">▶</span><span class="stt"><b>Harbour Lights</b><small>Now · 2:14 of 4:38</small></span><span class="sd">4:38</span></div>
+    <ol>
+      <li><a href="#" id="q1"><span class="sn">1</span><span class="stt"><b>Paper Boats</b><small>The Saltmarsh Trio</small></span><span class="sd">3:52</span></a></li>
+      <li><a href="#"><span class="sn">2</span><span class="stt"><b>Fogbank</b><small>Mira Kell</small></span><span class="sd">5:10</span></a></li>
+      <li><a href="#"><span class="sn">3</span><span class="stt"><b>North Pier</b><small>Odd Weather</small></span><span class="sd">4:01</span></a></li>
+      <li><a href="#"><span class="sn">4</span><span class="stt"><b>Slow Ferry</b><small>The Saltmarsh Trio</small></span><span class="sd">6:24</span></a></li>
+      <li><a href="#"><span class="sn">5</span><span class="stt"><b>Lantern Walk</b><small>Juno Park</small></span><span class="sd">3:33</span></a></li>
+    </ol>
+  </div>
+</section>
+<section class="barrier" aria-label="Player controls">
+  <div class="tb">
+    <button type="button" aria-pressed="false"><span class="k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7h3.5c2 0 3 1 4.2 2.6l2.6 3.8C14.5 15 15.5 17 17.5 17H21M3 17h3.5c1.4 0 2.3-.6 3.1-1.5M14.4 8.5C15.2 7.6 16 7 17.5 7H21M18.5 4.5 21 7l-2.5 2.5M18.5 14.5 21 17l-2.5 2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Shuffle</button>
+    <button type="button"><span class="k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6v12l-9-6z" fill="currentColor"/><rect x="5.5" y="6" width="2.5" height="12" fill="currentColor"/></svg></span>Prev</button>
+    <button type="button" class="pp" aria-label="Pause, playing now"><span class="k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6.5" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="13.5" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg></span>Pause</button>
+    <button type="button"><span class="k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6v12l9-6z" fill="currentColor"/><rect x="16" y="6" width="2.5" height="12" fill="currentColor"/></svg></span>Next</button>
+    <button type="button" aria-pressed="false"><span class="k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 11V9.5A2.5 2.5 0 0 1 6.5 7H19M16.5 4.5 19 7l-2.5 2.5M20 13v1.5a2.5 2.5 0 0 1-2.5 2.5H5M7.5 19.5 5 17l2.5-2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Repeat</button>
+    <button type="button" class="lk" aria-pressed="true"><span class="k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.2 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>Liked</button>
+  </div>
+  <div class="pos"><b>2:14</b><div class="rail" role="progressbar" aria-label="Position" aria-valuemin="0" aria-valuemax="278" aria-valuenow="134" aria-valuetext="2:14 of 4:38"><i></i></div><span>4:38</span></div>
+  <div class="vol" role="slider" tabindex="0" aria-label="Volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" aria-valuetext="70 percent"><span>Crowd volume</span><span class="vb" aria-hidden="true"><i class="l" style="height:20%"></i><i class="l" style="height:28%"></i><i class="l" style="height:36%"></i><i class="l" style="height:44%"></i><i class="l" style="height:52%"></i><i class="l" style="height:60%"></i><i class="l" style="height:68%"></i><i style="height:76%"></i><i style="height:88%"></i><i style="height:100%"></i></span><b>70%</b></div>
+</section>
+<section class="screen" aria-labelledby="ly">
+  <h2 class="cap" id="ly">Lyrics on screen</h2>
+  <div><p class="l1" aria-current="true">And the harbour lights go out one by one</p><p class="l2">Still I wait for the slow boat home</p></div>
+</section>
+<section class="back" aria-labelledby="bk">
+  <h2 class="cap" id="bk">Backstage · your library</h2>
+  <a class="pass" href="#"><b>Morning focus</b><small>42 songs</small></a>
+  <a class="pass" href="#"><b>Late drive</b><small>28 songs</small></a>
+  <a class="pass" href="#"><b>Liked songs</b><small>311 songs</small></a>
+  <nav class="lk2" aria-label="More library"><a href="#">Albums</a><a href="#">Artists</a><a href="#">Podcasts</a></nav>
+</section>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 328 · Concert stage</h2>
+<p class="idea">The player is a live stage seen from the crowd, with light beams falling from a truss, the song title lit in a spotlight, a crowd silhouette along the front and the queue taped down as a hand set list.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><i style="background:#0b0912"></i><div><b>Backdrop</b> #0b0912<br><span>the page, the stage and the style sheet</span></div></li><li class="sw"><i style="background:#15121d"></i><div><b>Floor</b> #15121d<br><span>the barrier strip, set list card and passes</span></div></li><li class="sw"><i style="background:#2f2a3a"></i><div><b>Truss</b> #2f2a3a<br><span>the truss, borders and dividers</span></div></li><li class="sw"><i style="background:#f7f3ec"></i><div><b>House light</b> #f7f3ec<br><span>titles and body text</span></div></li><li class="sw"><i style="background:#b8b0c4"></i><div><b>Haze</b> #b8b0c4<br><span>artists, times and labels</span></div></li><li class="sw"><i style="background:#ffcf5a"></i><div><b>Spot</b> #ffcf5a<br><span>the spotlight, the play button, the now marker and focus</span></div></li><li class="sw"><i style="background:#1f1500"></i><div><b>On spot</b> #1f1500<br><span>text on Spot</span></div></li><li class="sw"><i style="background:#8a5cff"></i><div><b>Beam violet</b> #8a5cff<br><span>decorative beams only, never under text</span></div></li><li class="sw"><i style="background:#d8c48e"></i><div><b>Tape</b> #d8c48e<br><span>gaffer tape strips on the set list and pass straps</span></div></li></ul>
+<h3>Type · Avenir Next Condensed, Arial Narrow, Roboto Condensed, Helvetica Neue, Arial, sans-serif, set condensed and uppercase</h3>
+<div class="type-row"><code>88 / 800 condensed caps title</code><span style="font-size:clamp(44px,10vw,72px);font-weight:800;font-stretch:condensed;text-transform:uppercase;line-height:.95;letter-spacing:-.01em">Harbour Lights</span></div><div class="type-row"><code>32 / 800 condensed set list</code><span style="font-size:32px;font-weight:800;font-stretch:condensed;text-transform:uppercase">Paper Boats</span></div><div class="type-row"><code>26 / 600 lyric screen</code><span style="font-size:26px;font-weight:600">And the harbour lights go out one by one</span></div><div class="type-row"><code>15 / 400 body</code><span style="font-size:15px">The Saltmarsh Trio, Low Tide</span></div><div class="type-row"><code>12 / 700 / .24em caps label</code><span style="font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#b8b0c4">Tonight&#x27;s set</span></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3>
+<dl class="facts"><dt>Spacing</dt><dd>8px unit. A tall 520px stage, 24px barrier padding, 12px set list rows.</dd><dt>Density</dt><dd>Low on the stage, medium on the set list and passes.</dd><dt>Corners</dt><dd>Square stage and barrier, 4px pass cards with a punched round hole, round play button.</dd><dt>Borders</dt><dd>A 6px truss bar with lamp circles across the top, 1px Truss rules elsewhere, tape strips instead of frames on the set list.</dd><dt>Shadows</dt><dd>None on boxes. Light does the work, a soft amber pool behind the title and beams at 12 to 18 percent.</dd><dt>Icons</dt><dd>Solid glyphs on round barrier buttons with caps words beneath. Liked is a filled heart with the word Liked. The set list marks the current song with a play arrow and NOW.</dd><dt>Focus</dt><dd>A 3px Spot outline offset 3px.</dd><dt>Tone</dt><dd>Live show words, such as Tonight&#x27;s set, On stage, Backstage, Crowd volume.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls">
+<div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-p" type="button">Play</button><button class="btn-p is-focus" type="button">Play</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-s" type="button">Add to set</button><button class="btn-s is-focus" type="button">Add to set</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="fld"><span>Search the setlist</span><input type="text" value="harbour"></label><label class="fld"><span>Search the setlist, focused</span><input type="text" class="is-focus" value="harbour"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><a class="lrow" href="#q1"><span class="sn">1</span><span class="stt"><b>Paper Boats</b><small>The Saltmarsh Trio</small></span><span class="sd">3:52</span></a><a class="lrow is-focus" href="#q1"><span class="sn">1</span><span class="stt"><b>Paper Boats</b><small>The Saltmarsh Trio</small></span><span class="sd">3:52</span></a></div></div>
+</div>
+</section>
+</body>
+</html>

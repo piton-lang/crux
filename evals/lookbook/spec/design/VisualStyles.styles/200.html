@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 200 · Page tabs · Brightwork</title>
+<style>
+* { box-sizing: border-box; }
+.vh { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+svg.i { width: 1.15em; height: 1.15em; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; vertical-align: -0.2em; }
+img, svg { max-width: 100%; }
+button, input { font: inherit; color: inherit; }
+
+:root {
+  --page: #ffffff; --subtle: #f6f7f8; --seg: #eceef1; --line: #dfe2e6; --text: #1c1f24; --muted: #5d646e;
+  --teal: #0e6b63; --tealSoft: #e2f1ef; --lastBar: #7b9894; --track: #e3e6ea;
+  --ok: #1b7543; --risk: #885200; --behind: #b3261e; --behindSoft: #fbe9e7;
+  --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --s-bg: #f6f7f8; --s-line: #dfe2e6; --s-muted: #5d646e; --s-r: 8px; --s-max: 1280px; --s-pad: 24px;
+}
+body { margin: 0; background: var(--page); color: var(--text); font: 14px/1.5 var(--font); }
+a { color: var(--teal); }
+:focus-visible, .is-focus { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+.appbar { display: flex; align-items: center; gap: 28px; min-height: 56px; padding: 0 24px; border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 16px; color: var(--text); text-decoration: none; }
+.mark { width: 26px; height: 26px; border-radius: 50%; background: var(--teal); color: #fff; display: grid; place-items: center; font-size: 13px; font-weight: 800; }
+.nav ul { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+.nav a { display: flex; align-items: center; height: 56px; padding: 0 10px; color: var(--muted); text-decoration: none; font-weight: 500; border-bottom: 2px solid transparent; }
+.nav a[aria-current="page"] { color: var(--text); border-bottom-color: var(--text); font-weight: 650; }
+.tools { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.search { display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--subtle); color: var(--muted); flex: 0 1 260px; min-width: 120px; }
+.search input { border: 0; background: transparent; outline: 0; width: 100%; min-width: 0; font-size: 13.5px; }
+.search input::placeholder { color: var(--muted); opacity: 1; }
+.search:focus-within { outline: 2px solid var(--teal); outline-offset: 1px; background: #fff; }
+.kbd { font-size: 11px; border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; color: var(--muted); background: #fff; }
+.btn { display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 12px; border-radius: 6px; font-size: 13.5px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+.btn-primary { background: var(--teal); color: #fff; border: 1px solid var(--teal); }
+.btn-secondary { background: #fff; color: var(--text); border: 1px solid #c3c8cf; }
+.icon-btn { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--line); background: #fff; border-radius: 6px; cursor: pointer; color: var(--text); }
+.av { width: 28px; height: 28px; border-radius: 50%; background: var(--tealSoft); color: var(--teal); font-size: 11px; font-weight: 700; display: grid; place-items: center; flex: none; }
+.user { display: flex; align-items: center; gap: 8px; font-weight: 500; white-space: nowrap; }
+
+.head { max-width: 1280px; margin: 0 auto; padding: 24px 24px 0; }
+.crumb { font-size: 12.5px; color: var(--muted); margin: 0 0 4px; }
+.head-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+h1 { font-size: 24px; line-height: 1.25; font-weight: 650; margin: 0 0 6px; letter-spacing: -0.01em; }
+.meta { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: 0; color: var(--muted); }
+.chip-bad { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px 2px 8px; border-radius: 999px; background: var(--behindSoft); color: var(--behind); font-weight: 600; font-size: 13px; }
+.tabs { display: flex; gap: 24px; border-bottom: 1px solid var(--line); margin-top: 20px; }
+.tabs a { display: flex; align-items: center; gap: 8px; padding: 10px 2px 11px; color: var(--muted); text-decoration: none; font-weight: 500; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.tabs a[aria-current="page"] { color: var(--teal); border-bottom-color: var(--teal); font-weight: 650; }
+.count { font-size: 11.5px; font-weight: 600; background: var(--seg); color: var(--muted); border-radius: 999px; padding: 0 7px; }
+.tabs a[aria-current="page"] .count { background: var(--tealSoft); color: var(--teal); }
+
+.seg { display: inline-flex; border: 0; padding: 2px; margin: 0; background: var(--seg); border-radius: 7px; min-width: 0; }
+.seg label { position: relative; display: block; }
+.seg input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+.seg span { display: block; padding: 3px 12px; border-radius: 5px; font-size: 12.5px; font-weight: 500; color: var(--muted); }
+.seg input:checked + span { background: #fff; color: var(--text); font-weight: 650; box-shadow: 0 1px 2px rgba(20, 30, 40, 0.16); }
+.seg input:focus-visible + span { outline: 2px solid var(--teal); outline-offset: 1px; }
+
+.content { max-width: 1280px; margin: 0 auto; padding: 24px 24px 48px; display: grid; gap: 24px; }
+.strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: 8px; margin: 0; padding: 0; list-style: none; }
+.strip li { padding: 14px 20px; }
+.strip li + li { border-left: 1px solid var(--line); }
+.s-label { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 13px; }
+.s-value { display: flex; align-items: baseline; gap: 8px; font-size: 28px; font-weight: 650; line-height: 1.25; font-variant-numeric: tabular-nums; }
+.s-note { font-size: 12.5px; color: var(--muted); font-weight: 400; }
+.strip .bad .s-value { color: var(--behind); }
+.row2 { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.card { border: 1px solid var(--line); border-radius: 8px; padding: 16px 20px 20px; min-width: 0; }
+.card-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+h2 { font-size: 15px; font-weight: 650; margin: 0; }
+.card-head .sub { color: var(--muted); font-size: 13px; font-weight: 400; margin-left: 6px; }
+
+.weeks { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 12.5px; color: var(--muted); margin-bottom: 8px; }
+.weeks b { color: var(--text); font-size: 15px; font-variant-numeric: tabular-nums; }
+.weeks .lw::before, .weeks .tw::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; }
+.weeks .lw::before { background: var(--lastBar); }
+.weeks .tw::before { background: var(--teal); }
+.bars { display: grid; grid-template-columns: repeat(14, minmax(0, 1fr)); gap: 6px; height: 230px; align-items: end; border-bottom: 1px solid var(--line); }
+.bars div { display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.bars i { display: block; width: 100%; max-width: 28px; border-radius: 3px 3px 0 0; margin-top: 3px; }
+.bars .l i { background: var(--lastBar); }
+.bars .t i { background: var(--teal); }
+.bars .t:nth-child(8) { box-shadow: -4px 0 0 -1px #fff, -5px 0 0 0 var(--line); }
+.xlab { display: grid; grid-template-columns: repeat(14, minmax(0, 1fr)); gap: 6px; text-align: center; font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+.feed { list-style: none; margin: 0; padding: 0; }
+.feed li { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; gap: 10px; padding: 9px 0; font-size: 13.5px; align-items: start; }
+.feed li + li { border-top: 1px solid var(--line); }
+.feed .av { width: 24px; height: 24px; font-size: 10px; background: var(--seg); color: var(--text); }
+.feed time { font-size: 12px; color: var(--muted); white-space: nowrap; }
+
+.pgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; list-style: none; margin: 0; padding: 0; }
+.pc { border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; }
+.pc-top { display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; }
+.pc-name { font-weight: 650; font-size: 14.5px; }
+.pc-team { font-size: 12.5px; color: var(--muted); }
+.pc-prog { display: flex; align-items: center; gap: 10px; margin: 12px 0 8px; }
+.track { flex: 1; height: 4px; border-radius: 2px; background: var(--track); overflow: hidden; }
+.track i { display: block; height: 100%; background: var(--teal); }
+.pc-prog b { font-size: 13px; font-variant-numeric: tabular-nums; }
+.pc-foot { display: flex; justify-content: space-between; gap: 8px; font-size: 12.5px; color: var(--muted); flex-wrap: wrap; }
+.st { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 650; padding: 1px 8px 1px 6px; border-radius: 4px; border: 1px solid currentColor; white-space: nowrap; }
+.st svg.i { width: 14px; height: 14px; stroke-width: 2.2; }
+.st.ok { color: var(--ok); } .st.risk { color: var(--risk); } .st.behind { color: var(--behind); }
+
+.sheet { border-top: 1px solid var(--line); }
+.field input { font-size: 14px; height: 34px; padding: 0 10px; border: 1px solid #c3c8cf; border-radius: 6px; background: #fff; }
+.field input.is-focus { border-color: var(--teal); outline: 2px solid var(--teal); outline-offset: 1px; }
+.row-demo { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 12px; background: #fff; border: 1px solid var(--line); border-radius: 8px; color: var(--text); text-decoration: none; }
+.row-demo small { display: block; color: var(--muted); font-size: 12.5px; }
+
+@media (max-width: 1100px) {
+  .appbar { flex-wrap: wrap; gap: 8px 16px; padding: 8px 16px 0; }
+  .nav { order: 3; width: 100%; }
+  .nav a { height: 40px; }
+  .pgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .row2 { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 680px) {
+  .head, .content { padding-left: 16px; padding-right: 16px; }
+  .user .name, .kbd, .tools .btn-primary .lbl { display: none; }
+  .tools { flex: 1; }
+  .search { flex: 1; }
+  .nav a { padding: 0 8px; }
+  h1 { font-size: 22px; }
+  .tabs { gap: 16px; }
+  .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .strip li + li { border-left: 0; }
+  .strip li:nth-child(even) { border-left: 1px solid var(--line); }
+  .strip li:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .strip li { padding: 12px 14px; }
+  .card { padding: 14px 14px 16px; }
+  .bars { gap: 3px; height: 140px; }
+  .xlab { gap: 3px; }
+  .pgrid { grid-template-columns: minmax(0, 1fr); }
+}
+
+.sheet { background: var(--s-bg); }
+.sheet-in { max-width: var(--s-max, 1216px); margin: 0 auto; padding: 48px var(--s-pad, 32px) 64px; }
+.sheet h2 { font-size: 24px; margin: 0 0 6px; }
+.sheet h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--s-muted); margin: 36px 0 12px; }
+.idea { color: var(--s-muted); margin: 0; max-width: 720px; }
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; list-style: none; margin: 0; padding: 0; }
+.sw { border: 1px solid var(--s-line); border-radius: var(--s-r); overflow: hidden; font-size: 12px; background: #fff; }
+.sw i { display: block; height: 48px; border-bottom: 1px solid var(--s-line); }
+.sw div { padding: 8px 10px; }
+.sw b { display: block; font-size: 13px; }
+.sw code, .sw span { display: block; color: var(--s-muted); }
+.type-row { display: flex; gap: 16px; align-items: baseline; flex-wrap: wrap; border-bottom: 1px solid var(--s-line); padding: 10px 0; }
+.type-row code { color: var(--s-muted); font-size: 12px; min-width: 210px; }
+.facts { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 10px 16px; margin: 0; font-size: 14px; }
+.facts dt { color: var(--s-muted); font-weight: 600; }
+.facts dd { margin: 0; }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
+.ctl-label { display: block; font-size: 12px; color: var(--s-muted); margin-bottom: 8px; }
+.ctl-pair { display: flex; gap: 12px; flex-wrap: wrap; }
+.field { display: block; font-size: 13px; font-weight: 600; }
+.field input { display: block; width: 100%; margin-top: 6px; }
+@media (max-width: 680px) {
+  .sheet-in { padding-left: 16px; padding-right: 16px; }
+  .facts { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .facts dd { margin-bottom: 10px; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+<symbol id="i-projects" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+<symbol id="i-tasks" viewBox="0 0 24 24"><path d="M10 6h10M10 12h10M10 18h10M3.5 6 5 7.5 8 4.5M3.5 12 5 13.5 8 10.5M3.5 18 5 19.5 8 16.5"/></symbol>
+<symbol id="i-team" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M21.5 20a5.5 5.5 0 0 0-3.5-5.1"/></symbol>
+<symbol id="i-reports" viewBox="0 0 24 24"><path d="M3 21h18M6 17v-6M11 17V6M16 17v-4M20 17V9"/></symbol>
+<symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4zM10 21h4"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 3 3 5-6"/></symbol>
+<symbol id="i-risk" viewBox="0 0 24 24"><path d="M12 3 22 20H2z"/><path d="M12 10v4.5M12 17.2v.3"/></symbol>
+<symbol id="i-behind" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="m9 9 6 6M15 9l-6 6"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3 5 13h6l-1 8 8-10h-6z"/></symbol>
+<symbol id="i-hours" viewBox="0 0 24 24"><path d="M7 3h10M7 21h10M8 3c0 5 8 5 8 9s-8 4-8 9M16 3c0 5-8 5-8 9s8 4 8 9"/></symbol>
+<symbol id="i-due" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+</defs></svg>
+
+<header class="appbar">
+ <a class="brand" href="#"><span class="mark" aria-hidden="true">B</span>Brightwork</a>
+ <nav class="nav" aria-label="Main"><ul><li><a href="#" aria-current="page">Home</a></li><li><a href="#">Projects</a></li><li><a href="#">Tasks</a></li><li><a href="#">Team</a></li><li><a href="#">Reports</a></li><li><a href="#">Settings</a></li></ul></nav>
+ <div class="tools">
+  <label class="search"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-search"/></svg><span class="vh">Search projects and tasks</span><input type="search" placeholder="Search projects and tasks"><span class="kbd" aria-hidden="true">/</span></label>
+  <button class="btn btn-primary" type="button" aria-label="New project"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg><span class="lbl">New project</span></button>
+  <button class="icon-btn" type="button" aria-label="Notifications"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-bell"/></svg></button>
+  <span class="user"><span class="av" aria-hidden="true">MO</span><span class="name">Mara Okafor</span><span class="vh">Signed in as Mara Okafor</span></span>
+ </div>
+</header>
+
+<div class="head">
+ <p class="crumb">Home</p>
+ <div class="head-row">
+  <div>
+   <h1>Good morning, Mara</h1>
+   <p class="meta"><span>Saturday 31 October 2026</span><span class="chip-bad"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>4 tasks are overdue</span></p>
+  </div>
+ </div>
+ <nav class="tabs" aria-label="Home sections">
+  <a href="#" aria-current="page">Overview</a>
+  <a href="#">Projects <span class="count">6</span></a>
+  <a href="#">Activity <span class="count">6</span></a>
+ </nav>
+</div>
+
+<main class="content">
+ <h2 class="vh">Overview</h2>
+ <ul class="strip" aria-label="Summary">
+  <li><span class="s-label"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-projects"/></svg>Active projects</span><span class="s-value">6 <span class="s-note">4 on track</span></span></li>
+  <li><span class="s-label"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-due"/></svg>Tasks due this week</span><span class="s-value">23 <span class="s-note">25 to 31 Oct</span></span></li>
+  <li class="bad"><span class="s-label"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>Overdue tasks</span><span class="s-value">4 <span class="s-note">needs attention</span></span></li>
+  <li><span class="s-label"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-hours"/></svg>Hours logged this week</span><span class="s-value">186 <span class="s-note">team total</span></span></li>
+ </ul>
+
+ <div class="row2">
+  <section class="card" aria-labelledby="chart-h">
+   <div class="card-head"><h2 id="chart-h">Tasks completed <span class="sub">last 14 days</span></h2><fieldset class="seg"><legend class="vh">Chart interval</legend><label><input type="radio" name="ival" checked><span>Daily</span></label><label><input type="radio" name="ival"><span>Weekly</span></label></fieldset></div>
+   <div class="weeks"><span class="lw">Last week <b>59</b></span><span class="tw">This week <b>73</b> · up 14</span></div>
+   <div role="img" aria-label="Bar chart of tasks completed per day over the last 14 days. Last week, Sunday 18 to Saturday 24 October: 3, 12, 9, 14, 11, 8 and 2, total 59. This week, Sunday 25 to Saturday 31 October: 4, 15, 13, 17, 12, 10 and 2, total 73.">
+    <div class="bars"><div class="l">3<i style="height:14.5%"></i></div><div class="l">12<i style="height:57.9%"></i></div><div class="l">9<i style="height:43.4%"></i></div><div class="l">14<i style="height:67.5%"></i></div><div class="l">11<i style="height:53.1%"></i></div><div class="l">8<i style="height:38.6%"></i></div><div class="l">2<i style="height:9.6%"></i></div><div class="t">4<i style="height:19.3%"></i></div><div class="t">15<i style="height:72.4%"></i></div><div class="t">13<i style="height:62.7%"></i></div><div class="t">17<i style="height:82.0%"></i></div><div class="t">12<i style="height:57.9%"></i></div><div class="t">10<i style="height:48.2%"></i></div><div class="t">2<i style="height:9.6%"></i></div></div>
+    <div class="xlab" aria-hidden="true"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+   </div>
+  </section>
+  <section class="card" aria-labelledby="act-h">
+   <div class="card-head"><h2 id="act-h">Recent activity</h2><a href="#">Activity tab</a></div>
+   <ul class="feed"><li><span class="av" aria-hidden="true">JW</span><span><b>Jonas Weber</b> completed “Export invoices as CSV” in Billing migration</span><time>12 min ago</time></li><li><span class="av" aria-hidden="true">PN</span><span><b>Priya Nair</b> commented on “Hero image options” in Website redesign</span><time>40 min ago</time></li><li><span class="av" aria-hidden="true">SO</span><span><b>Sam Ortiz</b> moved “Push notifications” to Review in Mobile app 2.0</span><time>1 h ago</time></li><li><span class="av" aria-hidden="true">LF</span><span><b>Lena Fischer</b> added 3 tasks to Spring catalogue</span><time>2 h ago</time></li><li><span class="av" aria-hidden="true">TR</span><span><b>Tomás Ruiz</b> logged 6 h on Mobile app 2.0</span><time>3 h ago</time></li><li><span class="av" aria-hidden="true">AT</span><span><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to Q4 customer survey</span><time>yesterday</time></li></ul>
+  </section>
+ </div>
+
+ <section class="card" aria-labelledby="proj-h">
+  <div class="card-head"><h2 id="proj-h">Projects <span class="sub">6 active · 78 of 170 tasks done</span></h2><fieldset class="seg"><legend class="vh">Project view</legend><label><input type="radio" name="pview" checked><span>Cards</span></label><label><input type="radio" name="pview"><span>List</span></label></fieldset></div>
+  <ul class="pgrid"><li class="pc">
+<div class="pc-top"><div><div class="pc-name">Website redesign</div><div class="pc-team">Design</div></div><span class="st ok"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>On track</span></div>
+<div class="pc-prog"><div class="track" role="img" aria-label="72 percent complete"><i style="width:72%"></i></div><b>72%</b></div>
+<div class="pc-foot"><span>18 of 25 tasks</span><span>Due 14 Nov · 14 days</span></div>
+</li><li class="pc">
+<div class="pc-top"><div><div class="pc-name">Mobile app 2.0</div><div class="pc-team">Engineering</div></div><span class="st risk"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-risk"/></svg>At risk</span></div>
+<div class="pc-prog"><div class="track" role="img" aria-label="45 percent complete"><i style="width:45%"></i></div><b>45%</b></div>
+<div class="pc-foot"><span>27 of 60 tasks</span><span>Due 2 Dec · 32 days</span></div>
+</li><li class="pc">
+<div class="pc-top"><div><div class="pc-name">Q4 customer survey</div><div class="pc-team">Research</div></div><span class="st ok"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>On track</span></div>
+<div class="pc-prog"><div class="track" role="img" aria-label="90 percent complete"><i style="width:90%"></i></div><b>90%</b></div>
+<div class="pc-foot"><span>9 of 10 tasks</span><span>Due 7 Nov · 7 days</span></div>
+</li><li class="pc">
+<div class="pc-top"><div><div class="pc-name">Billing migration</div><div class="pc-team">Engineering</div></div><span class="st behind"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-behind"/></svg>Behind</span></div>
+<div class="pc-prog"><div class="track" role="img" aria-label="30 percent complete"><i style="width:30%"></i></div><b>30%</b></div>
+<div class="pc-foot"><span>12 of 40 tasks</span><span>Due 20 Nov · 20 days</span></div>
+</li><li class="pc">
+<div class="pc-top"><div><div class="pc-name">Spring catalogue</div><div class="pc-team">Marketing</div></div><span class="st ok"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>On track</span></div>
+<div class="pc-prog"><div class="track" role="img" aria-label="15 percent complete"><i style="width:15%"></i></div><b>15%</b></div>
+<div class="pc-foot"><span>3 of 20 tasks</span><span>Due 15 Jan · 76 days</span></div>
+</li><li class="pc">
+<div class="pc-top"><div><div class="pc-name">Onboarding emails</div><div class="pc-team">Marketing</div></div><span class="st ok"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>On track</span></div>
+<div class="pc-prog"><div class="track" role="img" aria-label="60 percent complete"><i style="width:60%"></i></div><b>60%</b></div>
+<div class="pc-foot"><span>9 of 15 tasks</span><span>Due 21 Nov · 21 days</span></div>
+</li></ul>
+ </section>
+</main>
+
+<section class="sheet" aria-labelledby="sheet-h">
+<div class="sheet-in">
+  <h2 id="sheet-h">Style 200 · Page tabs</h2>
+  <p class="idea">A white workspace organised by page tabs, Overview, Projects and Activity, with segmented controls for views, a single stat strip and compact teal-accented cards.</p>
+  <h3>Palette</h3>
+  <ul class="swatches">
+<li class="sw"><i style="background:#ffffff"></i><div><b>page</b><code>#ffffff</code><span>the workspace and cards</span></div></li>
+<li class="sw"><i style="background:#f6f7f8"></i><div><b>subtle</b><code>#f6f7f8</code><span>the search field and the style sheet</span></div></li>
+<li class="sw"><i style="background:#eceef1"></i><div><b>segment</b><code>#eceef1</code><span>segmented control track and tab counts</span></div></li>
+<li class="sw"><i style="background:#dfe2e6"></i><div><b>line</b><code>#dfe2e6</code><span>card borders, the stat strip and tab rule</span></div></li>
+<li class="sw"><i style="background:#1c1f24"></i><div><b>text</b><code>#1c1f24</code><span>body text and the current nav item</span></div></li>
+<li class="sw"><i style="background:#5d646e"></i><div><b>muted</b><code>#5d646e</code><span>labels, idle tabs and meta</span></div></li>
+<li class="sw"><i style="background:#0e6b63"></i><div><b>teal</b><code>#0e6b63</code><span>current tab, primary button, this week bars, focus</span></div></li>
+<li class="sw"><i style="background:#e2f1ef"></i><div><b>tealSoft</b><code>#e2f1ef</code><span>avatar and current tab count</span></div></li>
+<li class="sw"><i style="background:#7b9894"></i><div><b>lastWeek</b><code>#7b9894</code><span>last week bars</span></div></li>
+<li class="sw"><i style="background:#1b7543"></i><div><b>ok</b><code>#1b7543</code><span>On track outlined tag with a check circle</span></div></li>
+<li class="sw"><i style="background:#885200"></i><div><b>risk</b><code>#885200</code><span>At risk outlined tag with a triangle</span></div></li>
+<li class="sw"><i style="background:#b3261e"></i><div><b>behind</b><code>#b3261e</code><span>Behind tag with a crossed square, overdue</span></div></li>
+<li class="sw"><i style="background:#fbe9e7"></i><div><b>behindSoft</b><code>#fbe9e7</code><span>the overdue chip</span></div></li>
+  </ul>
+  <h3>Type · "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif</h3>
+  <div class="types">
+<div class="type-row"><code>24 / 650 / -0.01em</code><span style="font-size:24px;font-weight:650;letter-spacing:-0.01em">Good morning, Mara</span></div>
+<div class="type-row"><code>28 / 650 tabular</code><span style="font-size:28px;font-weight:650;font-variant-numeric:tabular-nums">186</span></div>
+<div class="type-row"><code>14 / 650 tab, current</code><span style="font-size:14px;font-weight:650;color:#0e6b63">Overview</span></div>
+<div class="type-row"><code>15 / 650 card title</code><span style="font-size:15px;font-weight:650">Tasks completed</span></div>
+<div class="type-row"><code>14 / 400 / 1.5 body</code><span style="font-size:14px">Sam Ortiz moved “Push notifications” to Review</span></div>
+<div class="type-row"><code>12.5 / 500 segment</code><span style="font-size:12.5px;font-weight:500;color:#5d646e">Daily · Weekly</span></div>
+<div class="type-row"><code>11 / 400 axis values</code><span style="font-size:11px;color:#5d646e">4 15 13 17 12 10 2</span></div>
+  </div>
+  <h3>Spacing, density and surface</h3>
+  <dl class="facts">
+<dt>Spacing</dt><dd>8px unit. 24px gutters and gaps, 16 to 20px card padding, 12px between project cards.</dd>
+<dt>Density</dt><dd>Compact. 14px body, 34px controls, values printed on every bar.</dd>
+<dt>Corners</dt><dd>8px cards and the stat strip, 6px buttons and fields, 7px segment track, 4px tags.</dd>
+<dt>Borders</dt><dd>1px #dfe2e6 on every card. The stat strip is one bordered box split by vertical rules.</dd>
+<dt>Shadows</dt><dd>Only on the selected segment, 0 1px 2px. Cards are flat.</dd>
+<dt>Icons</dt><dd>18px line icons at 1.8 stroke on stat labels. Status tags are outlined in their colour with a check circle, triangle or crossed square.</dd>
+<dt>Tone</dt><dd>Short labels, such as Overview, Recent activity, Daily and Weekly.</dd>
+  </dl>
+  <h3>Controls · normal and focus</h3>
+  <div class="controls">
+    <div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn btn-primary" type="button"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>New project</button><button class="btn btn-primary is-focus" type="button"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>New project</button></div></div>
+    <div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn btn-secondary" type="button">View all</button><button class="btn btn-secondary is-focus" type="button">View all</button></div></div>
+    <div class="ctl"><span class="ctl-label">Text field</span><label class="field"><span>Project name</span><input type="text" value="Website redesign"></label></div>
+    <div class="ctl"><span class="ctl-label">Text field, focused</span><label class="field"><span>Project name</span><input class="is-focus" type="text" value="Mobile app 2.0"></label></div>
+    <div class="ctl"><span class="ctl-label">List row</span><a class="row-demo" href="#"><span><b>Mobile app 2.0</b><small>Engineering · Due 2 Dec</small></span><span class="st risk"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-risk"/></svg>At risk</span></a></div>
+    <div class="ctl"><span class="ctl-label">List row, focused</span><a class="row-demo is-focus" href="#"><span><b>Mobile app 2.0</b><small>Engineering · Due 2 Dec</small></span><span class="st risk"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-risk"/></svg>At risk</span></a></div>
+  </div>
+</div>
+</section>
+</body>
+</html>

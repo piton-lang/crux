@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 356 · Cinemascope · Brightwork</title>
+<style>
+:root { color-scheme: dark; }
+*, *::before, *::after { box-sizing: border-box; }
+
+.sheet { background: var(--sh-bg); color: var(--sh-ink); font: 15px/1.55 var(--sh-font); padding: 48px 32px 64px; border-top: var(--sh-top, 1px solid var(--sh-line)); }
+.sheet-in { max-width: 1120px; margin: 0 auto; }
+.sheet h2 { font: var(--sh-h2, 700 28px/1.2 var(--sh-head)); margin: 0 0 8px; color: var(--sh-ink); letter-spacing: var(--sh-h2-ls, 0); }
+.sheet .idea { color: var(--sh-ink); max-width: 760px; margin: 0 0 32px; font-size: 17px; }
+.sheet h3 { font: var(--sh-h3, 700 13px/1.3 var(--sh-head)); letter-spacing: .08em; text-transform: uppercase; color: var(--sh-muted); margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--sh-line); }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.sw { display: flex; gap: 12px; align-items: center; background: var(--sh-surface); border: 1px solid var(--sh-line); border-radius: var(--sh-r); padding: 10px; }
+.sw i { width: 44px; height: 44px; flex: none; border-radius: calc(var(--sh-r) / 2); border: 1px solid var(--sh-chip-line, rgba(255,255,255,.28)); }
+.sw b { display: block; font-size: 14px; }
+.sw span { display: block; font-size: 13px; color: var(--sh-muted); }
+.sw code { font: 13px var(--sh-mono, ui-monospace, Menlo, Consolas, monospace); color: var(--sh-ink); }
+.trow { display: grid; grid-template-columns: 260px 1fr; gap: 16px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--sh-line); }
+.trow code { font: 12px/1.4 var(--sh-mono, ui-monospace, Menlo, Consolas, monospace); color: var(--sh-muted); }
+.trow span { min-width: 0; overflow-wrap: anywhere; }
+.facts { display: grid; grid-template-columns: 160px 1fr; gap: 0 24px; margin: 0; }
+.facts dt { font-weight: 700; padding: 10px 0; border-bottom: 1px solid var(--sh-line); }
+.facts dd { margin: 0; padding: 10px 0; border-bottom: 1px solid var(--sh-line); color: var(--sh-ink); }
+.ctl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+.ctl { background: var(--sh-surface); border: 1px solid var(--sh-line); border-radius: var(--sh-r); padding: 16px; }
+.ctl-label { display: block; font-weight: 700; font-size: 14px; margin-bottom: 12px; }
+.ctl-pair { display: grid; gap: 14px; }
+.ctl-state { display: block; font-size: 12px; color: var(--sh-muted); margin-bottom: 4px; }
+.sf { display: grid; gap: 4px; font-size: 13px; color: var(--sh-muted); }
+.sf input { font: inherit; font-size: 14px; color: var(--sh-ink); width: 100%; }
+@media (max-width: 640px) {
+  .sheet { padding: 32px 16px 48px; }
+  .trow { grid-template-columns: 1fr; gap: 4px; }
+  .facts { grid-template-columns: 1fr; }
+  .facts dt { border-bottom: 0; padding-bottom: 0; }
+}
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+
+
+body { margin: 0; background: #000; color: #efe6d2; font: 15px/1.6 "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif; }
+button { font: inherit; cursor: pointer; }
+:focus-visible, .is-focus { outline: 2px solid #efe6d2; outline-offset: 3px; }
+.film { background: #0e0c0a; }
+.barT, .barB { background: #000; text-align: center; }
+.barT { padding: 40px 24px 36px; }
+.presents { margin: 0; font: 12px/1 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; letter-spacing: .5em; text-transform: uppercase; color: #a89e8a; padding-left: .5em; }
+.presents span { font-style: italic; text-transform: none; letter-spacing: .1em; font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif; font-size: 14px; }
+.ttl { margin: 14px 0 8px; font: 400 44px/1 "Didot", "Bodoni 72", "Bodoni MT", "Hoefler Text", "Iowan Old Style", Georgia, serif; letter-spacing: .32em; text-transform: uppercase; color: #d9b56a; padding-left: .32em; }
+.spec { margin: 0; font: 12px system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; letter-spacing: .4em; color: #a89e8a; padding-left: .4em; }
+main { padding: 40px 48px 56px; }
+.screen { max-width: 1080px; margin: 0 auto; text-align: center; }
+.scope { margin: 0; aspect-ratio: 2.39 / 1; background: #000; display: grid; place-items: center; box-shadow: 0 0 0 1px #2a241b, 0 30px 80px -20px rgba(217, 181, 106, .14); }
+.card { margin: 0; font: italic 400 clamp(17px, 3vw, 38px)/1.2 "Didot", "Bodoni 72", "Bodoni MT", "Hoefler Text", "Iowan Old Style", Georgia, serif; color: #f4ecd8; letter-spacing: .02em; padding: 0 8%; }
+.subtitle { margin: 18px 0 6px; font: italic 18px "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif; }
+.now { font-variant-numeric: tabular-nums; color: #f4ecd8; letter-spacing: .06em; }
+.of { color: #a89e8a; font-size: 15px; }
+.play { display: flex; justify-content: center; gap: 22px; }
+.play button { background: none; border: 0; color: #d9cdb2; width: 40px; height: 40px; display: grid; place-items: center; }
+.play svg { width: 18px; height: 18px; fill: currentColor; stroke: currentColor; stroke-width: 1.4; }
+.play .pp { border: 1px solid #d9b56a; border-radius: 50%; color: #d9b56a; }
+.cap { text-align: center; font: 400 13px system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; letter-spacing: .42em; text-transform: uppercase; color: #d9b56a; margin: 0 0 20px; padding-left: .42em; }
+.cap span { display: block; margin-top: 6px; font: italic 14px "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif; letter-spacing: .04em; text-transform: none; color: #a89e8a; }
+.reel { max-width: 1080px; margin: 56px auto 0; }
+.tlb { position: relative; --lh: 132px; border-top: 1px solid #3a3226; border-bottom: 1px solid #3a3226; padding: 6px 0 22px; }
+.ln { display: grid; grid-template-columns: var(--lh) 1fr; align-items: center; height: 26px; }
+.lh { font: 12px system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #a89e8a; }
+.lh b { color: #efe6d2; font-weight: 600; margin-right: 4px; }
+.lt { position: relative; height: 12px; border-bottom: 1px solid #241f17; }
+.c { position: absolute; top: 4px; height: 4px; }
+.c::before { content: ""; position: absolute; inset: 0; background: #8a7b5c; }
+.c span { position: absolute; bottom: 5px; left: 0; font: italic 12px/1 "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif; color: #d4c9b1; white-space: nowrap; max-width: 100%; overflow: hidden; text-overflow: ellipsis; padding-right: 4px; }
+.c.sel { height: 6px; top: 3px; }
+.c.sel::before { background: #d9b56a; box-shadow: 0 0 0 2px #0e0c0a, 0 0 0 3px #d9b56a; }
+.c.sel span { color: #d9b56a; font-style: normal; font-weight: 700; }
+.c.sel span::after { content: " \2605  selected"; font-weight: 400; }
+.rl .lt { border: 0; height: 16px; }
+.rl .lt span { position: absolute; transform: translateX(-50%); font: 11px system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: #a89e8a; letter-spacing: .1em; top: 0; }
+.rl .lt span:first-child { transform: none; }
+.rl .lt span:nth-last-child(2) { transform: translateX(-100%); }
+.mk { position: absolute; top: -2px; transform: translateX(-100%); font: italic 400 13px "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif; color: #d9b56a; white-space: nowrap; padding-right: 10px; background: #0e0c0a; }
+.mk i { position: absolute; right: -5px; top: 4px; width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 8px solid #d9b56a; }
+.mk::after { content: ""; position: absolute; right: -1px; top: 12px; height: 118px; border-right: 1px dotted #d9b56a; }
+.phd { position: absolute; top: 0; bottom: 0; left: calc(var(--lh) + (100% - var(--lh)) * .2); border-left: 1px solid #f4ecd8; }
+.phd span { position: absolute; bottom: 2px; left: 6px; font: 11px system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; letter-spacing: .1em; color: #f4ecd8; }
+.phd span::before { content: "\25B2  "; }
+.credits { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; max-width: 920px; margin: 64px auto 0; }
+.roll { list-style: none; margin: 0; padding: 0; }
+.roll li { display: flex; align-items: baseline; gap: 8px; padding: 6px 0; }
+.role { font-style: italic; color: #d4c9b1; }
+.who { font: 13px system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; letter-spacing: .14em; color: #efe6d2; font-variant-numeric: tabular-nums; }
+.lead { flex: 1; border-bottom: 1px dotted #5c5243; transform: translateY(-4px); min-width: 16px; }
+.barB { padding: 28px 24px; display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.render { display: flex; align-items: center; gap: 14px; font: 12px system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; letter-spacing: .24em; text-transform: uppercase; color: #a89e8a; }
+.rtrack { display: block; width: 200px; height: 1px; background: #5c5243; position: relative; }
+.rtrack::before { content: ""; position: absolute; left: 0; top: -4px; height: 9px; border-left: 1px solid #efe6d2; }
+.rv { color: #efe6d2; }
+.rv i { text-transform: none; letter-spacing: .04em; font: italic 14px "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif; color: #a89e8a; }
+.exp { background: #d9b56a; color: #120f0a; border: 0; padding: 12px 36px; font: 600 12px system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; letter-spacing: .4em; text-transform: uppercase; }
+.sheet { --sh-bg: #0e0c0a; --sh-surface: #16130f; --sh-ink: #efe6d2; --sh-muted: #a89e8a; --sh-line: #3a3226; --sh-font: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif; --sh-head: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; --sh-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; --sh-r: 0px; --sh-h2: 400 30px/1.2 "Didot", "Bodoni 72", "Bodoni MT", "Hoefler Text", "Iowan Old Style", Georgia, serif; --sh-h2-ls: .08em; --sh-top: 48px solid #000; }
+.sb { font: 600 12px system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; letter-spacing: .3em; text-transform: uppercase; padding: 12px 24px; border-radius: 0; }
+.sb-primary { background: #d9b56a; color: #120f0a; border: 1px solid #d9b56a; }
+.sb-secondary { background: transparent; color: #efe6d2; border: 1px solid #8a7b5c; }
+.sfi { background: #000; border: 0; border-bottom: 1px solid #8a7b5c; padding: 8px 2px; font-style: italic; }
+.srow { display: flex; gap: 8px; align-items: baseline; padding: 6px 2px; }
+.srow span:first-child { font-style: italic; flex: 1; border-bottom: 1px dotted #5c5243; }
+.srow span:last-child { font: 13px system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; letter-spacing: .14em; }
+@media (max-width: 640px) {
+  .barT { padding: 22px 16px 20px; }
+  .ttl { font-size: 26px; letter-spacing: .2em; padding-left: .2em; }
+  .presents { letter-spacing: .3em; }
+  main { padding: 24px 16px 32px; }
+  .credits { display: none; }
+  .reel { margin-top: 32px; }
+  .tlb { --lh: 36px; }
+  .lh { font-size: 0; }
+  .lh b { font-size: 12px; }
+  .rl .lt span:nth-child(even) { display: none; }
+  .c span { font-size: 11px; }
+  .c.sel span::after { content: " \2605"; }
+  .play button { width: 44px; height: 44px; }
+  .barB { gap: 16px; padding: 20px 16px; }
+  .rtrack { width: 80px; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="film">
+<header class="barT">
+  <p class="presents">Brightwork Cut <span>presents</span></p>
+  <h1 class="ttl">Launch teaser</h1>
+  <p class="spec">1080p <span aria-hidden="true">&#183;</span> 24 fps</p>
+</header>
+<main>
+  <section class="screen" aria-labelledby="scr-h">
+    <h2 id="scr-h" class="sr">Program monitor</h2>
+    <figure class="scope"><p class="card">Every project, on one calm page</p>
+      <figcaption class="sr">Widescreen program monitor showing the title card Every project, on one calm page.</figcaption></figure>
+    <p class="subtitle"><span class="now">00:00:18:12</span> <span class="of">of 00:01:30:00</span></p>
+    <div class="play">
+      <button type="button" aria-label="Back one second"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M15 4 7 10l8 6zM5 4v12"/></svg></button>
+      <button type="button" class="pp" aria-label="Play"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4l9 6-9 6z"/></svg></button>
+      <button type="button" aria-label="Forward one second"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 4l8 6-8 6zM15 4v12"/></svg></button>
+    </div>
+  </section>
+  <section class="reel" aria-labelledby="tl-h">
+    <h2 id="tl-h" class="cap">The Timeline <span>nought to ninety seconds</span></h2>
+    <p class="sr">Timeline from 0 to 90 seconds. V2 titles holds the selected Title card from 14 to 26 seconds. V1 video holds hero-motion.mp4 from 0 to 42, office-broll-03.mov from 42 to 84 and logo-sting.mov from 84 to 88. A1 voiceover holds voiceover-take4.wav from 4 to 86. A2 music holds music-low-tide.wav from 0 to 90. The playhead is at 18 seconds and a marker named cut to logo sits at 84 seconds.</p>
+    <div class="tlb" aria-hidden="true">
+      <div class="ln rl"><span class="lh"></span><div class="lt"><span style="left:0.000%">0</span><span style="left:11.111%">10</span><span style="left:22.222%">20</span><span style="left:33.333%">30</span><span style="left:44.444%">40</span><span style="left:55.556%">50</span><span style="left:66.667%">60</span><span style="left:77.778%">70</span><span style="left:88.889%">80</span><span style="left:100.000%">90</span><b class="mk" style="left:93.333%"><i></i>cut to logo</b></div></div>
+      <div class="ln"><span class="lh"><b>V2</b> titles</span><div class="lt"><span class="c sel" style="left:15.556%;width:13.333%"><span>Title card</span></span></div></div><div class="ln"><span class="lh"><b>V1</b> video</span><div class="lt"><span class="c" style="left:0.000%;width:46.667%"><span>hero-motion.mp4</span></span><span class="c" style="left:46.667%;width:46.667%"><span>office-broll-03.mov</span></span><span class="c" style="left:93.333%;width:4.444%"><span>logo-sting.mov</span></span></div></div><div class="ln"><span class="lh"><b>A1</b> voiceover</span><div class="lt"><span class="c" style="left:4.444%;width:91.111%"><span>voiceover-take4.wav</span></span></div></div><div class="ln"><span class="lh"><b>A2</b> music</span><div class="lt"><span class="c" style="left:0.000%;width:100.000%"><span>music-low-tide.wav</span></span></div></div>
+      <div class="phd"><span>18</span></div>
+    </div>
+  </section>
+  <section class="credits">
+    <div class="col" aria-labelledby="b-h">
+      <h2 id="b-h" class="cap">Featuring <span>the bin</span></h2>
+      <ul class="roll"><li><span class="role">hero-motion.mp4</span><span class="lead" aria-hidden="true"></span><span class="who">00:42</span></li><li><span class="role">office-broll-03.mov</span><span class="lead" aria-hidden="true"></span><span class="who">01:15</span></li><li><span class="role">voiceover-take4.wav</span><span class="lead" aria-hidden="true"></span><span class="who">01:22</span></li><li><span class="role">music-low-tide.wav</span><span class="lead" aria-hidden="true"></span><span class="who">02:40</span></li><li><span class="role">logo-sting.mov</span><span class="lead" aria-hidden="true"></span><span class="who">00:04</span></li></ul>
+    </div>
+    <div class="col" aria-labelledby="i-h">
+      <h2 id="i-h" class="cap">Title card <span>selected, V2 titles</span></h2>
+      <ul class="roll">
+        <li><span class="role">Position</span><span class="lead" aria-hidden="true"></span><span class="who">960 by 540</span></li>
+        <li><span class="role">Scale</span><span class="lead" aria-hidden="true"></span><span class="who">100 percent</span></li>
+        <li><span class="role">Opacity</span><span class="lead" aria-hidden="true"></span><span class="who">100 percent</span></li>
+        <li><span class="role">Cross dissolve</span><span class="lead" aria-hidden="true"></span><span class="who">12 frames</span></li>
+      </ul>
+    </div>
+  </section>
+</main>
+<footer class="barB">
+  <div class="render"><span class="rl2">Render</span><span class="rtrack" role="progressbar" aria-label="Render progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></span><span class="rv">0% <i>not yet begun</i></span></div>
+  <button type="button" class="exp">Export</button>
+</footer>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h"><div class="sheet-in">
+<h2 id="sheet-h">Style 356 · Cinemascope</h2>
+<p class="idea">The editor framed as a widescreen film, with solid black letterbox bars carrying opening titles and the export, a 2.39 to 1 picture, and the bin and inspector set below as centred end credits with dotted leaders.</p>
+<h3>Palette</h3><ul class="swatches"><li class="sw"><i style="background:#000000" aria-hidden="true"></i><div><b>letterbox</b><code>#000000</code><span>the top and bottom bars and the picture itself</span></div></li><li class="sw"><i style="background:#0e0c0a" aria-hidden="true"></i><div><b>auditorium</b><code>#0e0c0a</code><span>the warm dark between the bars and the style sheet</span></div></li><li class="sw"><i style="background:#16130f" aria-hidden="true"></i><div><b>seat</b><code>#16130f</code><span>swatch and control cells</span></div></li><li class="sw"><i style="background:#3a3226" aria-hidden="true"></i><div><b>rule</b><code>#3a3226</code><span>hairline rules framing the timeline</span></div></li><li class="sw"><i style="background:#5c5243" aria-hidden="true"></i><div><b>leader</b><code>#5c5243</code><span>dotted credit leaders and the render line</span></div></li><li class="sw"><i style="background:#efe6d2" aria-hidden="true"></i><div><b>ivory</b><code>#efe6d2</code><span>text, the playhead and focus</span></div></li><li class="sw"><i style="background:#a89e8a" aria-hidden="true"></i><div><b>parchment</b><code>#a89e8a</code><span>small caps labels and italic asides</span></div></li><li class="sw"><i style="background:#8a7b5c" aria-hidden="true"></i><div><b>clip</b><code>#8a7b5c</code><span>clip bars and outlined buttons</span></div></li><li class="sw"><i style="background:#d9b56a" aria-hidden="true"></i><div><b>marqueeGold</b><code>#d9b56a</code><span>the title, section caps, the selected clip, marker and Export</span></div></li></ul>
+<h3>Type scale</h3><div class="trow"><code>Didone 44 caps +0.32em title</code><span style="font:400 44px/1 "Didot", "Bodoni 72", "Bodoni MT", "Hoefler Text", "Iowan Old Style", Georgia, serif;letter-spacing:.32em;text-transform:uppercase;color:#d9b56a">Launch teaser</span></div><div class="trow"><code>Didone italic 38 picture card</code><span style="font:italic 38px/1.2 "Didot", "Bodoni 72", "Bodoni MT", "Hoefler Text", "Iowan Old Style", Georgia, serif">Every project, on one calm page</span></div><div class="trow"><code>Serif italic 18 subtitle timecode</code><span style="font:italic 18px "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif">00:00:18:12 of 00:01:30:00</span></div><div class="trow"><code>Sans 13 caps +0.42em credit heads</code><span style="font:13px system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;letter-spacing:.42em;text-transform:uppercase;color:#d9b56a">Featuring</span></div><div class="trow"><code>Serif italic 15 credit roles</code><span style="font:italic 15px "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif">voiceover-take4.wav</span></div><div class="trow"><code>Sans 13 +0.14em credit values</code><span style="font:13px system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;letter-spacing:.14em">960 by 540</span></div>
+<h3>Spacing, density, corners, borders, shadows, icons and tone</h3><dl class="facts"><dt>Spacing</dt><dd>Generous. 40px letterbox bars, 56px between acts, 64px between credit columns.</dd><dt>Density</dt><dd>Low. One wide picture, one thin timeline, two short credit lists.</dd><dt>Corners</dt><dd>None anywhere except the round play ring.</dd><dt>Borders</dt><dd>Hairline rules and dotted leaders only.</dd><dt>Shadows</dt><dd>A faint gold spill below the picture, as if from a projector.</dd><dt>Icons</dt><dd>Few. Filled transport glyphs, a triangle marker, a star for selected.</dd><dt>Focus</dt><dd>2px ivory outline offset 3px.</dd><dt>Tone</dt><dd>Cinematic and courteous, such as presents, Featuring and not yet begun.</dd></dl>
+<h3>Basic controls</h3><div class="ctl-grid"><div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><div><span class="ctl-state">Normal</span><button type="button" class="sb sb-primary">Export</button></div><div><span class="ctl-state">Focus</span><button type="button" class="sb sb-primary is-focus">Export</button></div></div></div><div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><div><span class="ctl-state">Normal</span><button type="button" class="sb sb-secondary">Add marker</button></div><div><span class="ctl-state">Focus</span><button type="button" class="sb sb-secondary is-focus">Add marker</button></div></div></div><div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><div><span class="ctl-state">Normal</span><label class="sf">Clip name<input class="sfi" type="text" value="Title card"></label></div><div><span class="ctl-state">Focus</span><label class="sf">Clip name<input class="sfi is-focus" type="text" value="Title card"></label></div></div></div><div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><div><span class="ctl-state">Normal</span><div class="srow" tabindex="0"><span>hero-motion.mp4</span><span>00:42</span></div></div><div><span class="ctl-state">Focus</span><div class="srow is-focus" tabindex="0"><span>hero-motion.mp4</span><span>00:42</span></div></div></div></div></div>
+</div></section>
+</body>
+</html>

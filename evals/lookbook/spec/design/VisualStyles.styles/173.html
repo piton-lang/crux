@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 173 · Soft UI · Brightwork</title>
+<style>
+:root {
+  --base: #e4e8ef;
+  --hi: #ffffff;
+  --lo: #b6bfcc;
+  --lift: #eef1f6;
+  --ink: #263040;
+  --inkSoft: #4d5868;
+  --indigo: #3346c2;
+  --indigoDeep: #24339a;
+  --ok: #1d6b45;
+  --warn: #8a4b00;
+  --bad: #b4232c;
+  --focus: #3346c2;
+  --sans: system-ui, -apple-system, "Segoe UI Variable", "Segoe UI", "SF Pro Display", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --out: 7px 7px 14px var(--lo), -7px -7px 14px var(--hi);
+  --outSm: 4px 4px 8px var(--lo), -4px -4px 8px var(--hi);
+  --in: inset 4px 4px 8px var(--lo), inset -4px -4px 8px var(--hi);
+  --inSm: inset 2px 2px 4px var(--lo), inset -2px -2px 4px var(--hi);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--base); color: var(--ink); font: 15px/1.5 var(--sans); }
+a { color: var(--ink); }
+button, input { font: inherit; color: inherit; }
+:focus-visible, .is-focus { outline: 3px solid var(--focus); outline-offset: 3px; }
+.raised { background: var(--base); box-shadow: var(--out); border-radius: 20px; }
+.app { max-width: 1280px; margin: 0 auto; padding: 28px 24px 48px; display: grid; grid-template-columns: 220px minmax(0,1fr); gap: 32px; }
+
+/* side */
+.side { padding: 22px 16px; align-self: start; position: sticky; top: 20px; }
+.brand { display: flex; align-items: center; gap: 10px; font: 700 20px/1 var(--sans); margin: 0 0 24px 6px; }
+.brand i { width: 36px; height: 36px; border-radius: 50%; box-shadow: var(--outSm); display: grid; place-items: center; }
+.brand i::after { content: ""; width: 14px; height: 14px; border-radius: 50%; background: var(--indigo); box-shadow: inset -2px -2px 3px rgba(0,0,0,.25); }
+.nav { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.nav a { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; text-decoration: none; font-weight: 600; color: var(--inkSoft); box-shadow: var(--outSm); }
+.nav svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.nav a[aria-current="page"] { box-shadow: var(--in); color: var(--indigo); }
+
+/* top */
+.topbar { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.find { flex: 1 1 260px; display: flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 999px; box-shadow: var(--in); }
+.find svg { width: 18px; height: 18px; color: var(--inkSoft); flex: none; }
+.find input { border: 0; background: transparent; width: 100%; }
+.find input::placeholder { color: var(--inkSoft); }
+.find input:focus-visible { outline: 0; }
+.find:focus-within { outline: 3px solid var(--focus); outline-offset: 3px; }
+.btn { border: 0; border-radius: 14px; padding: 12px 20px; font-weight: 700; cursor: pointer; background: var(--indigo); color: #fff; box-shadow: 5px 5px 10px var(--lo), -5px -5px 10px var(--hi), inset 1px 1px 0 rgba(255,255,255,.3); }
+.btn.soft { background: var(--base); color: var(--ink); box-shadow: var(--outSm); }
+.round { width: 46px; height: 46px; border-radius: 50%; padding: 0; display: grid; place-items: center; }
+.round svg { width: 20px; height: 20px; }
+.me { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.me i { width: 44px; height: 44px; border-radius: 50%; box-shadow: var(--in); display: grid; place-items: center; font-style: normal; font-weight: 700; font-size: 14px; color: var(--indigo); }
+
+.main { display: grid; gap: 28px; min-width: 0; }
+.hello { padding: 26px 28px; display: flex; justify-content: space-between; gap: 20px; align-items: center; flex-wrap: wrap; }
+.hello h1 { margin: 0; font: 700 32px/1.15 var(--sans); letter-spacing: -.01em; }
+.hello .date { margin: 4px 0 0; color: var(--inkSoft); }
+.alert { display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 999px; box-shadow: var(--in); color: var(--bad); font-weight: 700; margin: 0; }
+.alert svg { width: 20px; height: 20px; }
+
+.knobs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 20px; }
+.knobwrap { display: grid; justify-items: center; gap: 12px; padding: 22px 12px 18px; border-radius: 24px; box-shadow: var(--out); text-align: center; }
+.knob { width: 120px; height: 120px; border-radius: 50%; box-shadow: var(--in); display: grid; place-items: center; }
+.dish { width: 92px; height: 92px; border-radius: 50%; box-shadow: var(--outSm); display: grid; place-items: center; align-content: center; background: linear-gradient(145deg, #eef1f6, #dde2ea); }
+.dish b { font: 700 34px/1 var(--sans); }
+.kl { font-weight: 600; color: var(--inkSoft); font-size: 14px; }
+.knobwrap.hot .knob { box-shadow: var(--in), 0 0 0 3px var(--bad); }
+.knobwrap.hot b, .knobwrap.hot .kl { color: var(--bad); }
+.ov { width: 18px; height: 18px; color: var(--bad); margin-bottom: 2px; }
+
+h2 { font: 700 17px/1.2 var(--sans); margin: 0 0 16px; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; align-items: baseline; }
+h2 small { font-weight: 500; font-size: 13px; color: var(--inkSoft); }
+.plist { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.prow { display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr) 52px 110px; gap: 18px; align-items: center; padding: 14px 18px; border-radius: 18px; box-shadow: var(--outSm); }
+.pinfo a { display: block; font-weight: 700; font-size: 16px; text-decoration: none; }
+.pinfo a:hover { text-decoration: underline; }
+.pinfo span { font-size: 13px; color: var(--inkSoft); }
+.groove { position: relative; height: 14px; border-radius: 999px; box-shadow: var(--inSm); }
+.groove i { position: absolute; left: 3px; top: 3px; bottom: 3px; max-width: calc(100% - 6px); border-radius: 999px; background: var(--indigo); }
+.groove b { position: absolute; top: 50%; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%; background: var(--base); box-shadow: 2px 2px 5px var(--lo), -2px -2px 5px var(--hi); }
+.pct { font-weight: 700; text-align: right; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px 6px 8px; border-radius: 999px; box-shadow: var(--inSm); font-size: 13px; font-weight: 700; white-space: nowrap; justify-self: start; }
+.chip svg { width: 16px; height: 16px; flex: none; }
+.chip.ok { color: var(--ok); } .chip.warn { color: var(--warn); } .chip.bad { color: var(--bad); }
+
+.cols { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(0,1fr); gap: 28px; }
+.panel { padding: 22px; }
+.trough { border-radius: 18px; box-shadow: var(--in); padding: 14px 10px 8px; }
+.trough svg { width: 100%; height: auto; display: block; }
+.legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; font-weight: 600; color: var(--inkSoft); margin: 12px 0 0; }
+.legend i { display: inline-block; width: 14px; height: 14px; border-radius: 50%; vertical-align: -2px; margin-right: 6px; box-shadow: 1px 1px 3px var(--lo), -1px -1px 3px var(--hi); }
+.alist { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.alist li { display: grid; grid-template-columns: 40px minmax(0,1fr); gap: 12px; align-items: start; }
+.av { width: 40px; height: 40px; border-radius: 50%; box-shadow: var(--inSm); display: grid; place-items: center; font-size: 12px; font-weight: 700; color: var(--indigo); }
+.alist p { margin: 0; font-size: 14px; }
+.alist .when { display: block; font-size: 12px; color: var(--inkSoft); margin-top: 2px; }
+
+@media (max-width: 1000px) {
+  .app { grid-template-columns: minmax(0,1fr); padding: 16px 16px 40px; gap: 24px; }
+  .side { position: static; padding: 14px; }
+  .brand { margin-bottom: 14px; }
+  .nav { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; }
+  .nav a { padding: 10px; gap: 8px; font-size: 14px; }
+  .cols { grid-template-columns: minmax(0,1fr); }
+  .knobs { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 640px) {
+  .prow { grid-template-columns: minmax(0,1fr) auto; gap: 10px 14px; }
+  .pinfo { grid-column: 1 / -1; }
+  .chip { grid-column: 1 / -1; }
+  .knob { width: 96px; height: 96px; }
+  .dish { width: 72px; height: 72px; }
+  .dish b { font-size: 26px; }
+  .hello { padding: 20px; }
+  .hello h1 { font-size: 26px; }
+  .me span { display: none; }
+  .nav svg { display: none; }
+  .panel { padding: 16px; }
+  .trough { overflow-x: auto; }
+  .trough svg { min-width: 400px; }
+}
+
+/* sheet */
+.sheet { max-width: 1232px; margin: 0 auto 48px; padding: 32px; border-radius: 28px; }
+.sheetwrap { padding: 0 24px; }
+.sheet > h2:first-child { font-size: 28px; margin-bottom: 8px; }
+.sheet h3 { font: 700 15px var(--sans); margin: 32px 0 14px; }
+.idea { font-size: 17px; max-width: 68ch; margin: 0; color: var(--inkSoft); }
+.sw { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }
+.sw li { display: flex; gap: 12px; align-items: center; font-size: 13px; line-height: 1.35; padding: 10px; border-radius: 16px; box-shadow: var(--outSm); }
+.sw i { width: 42px; height: 42px; border-radius: 12px; flex: none; box-shadow: var(--inSm); border: 1px solid rgba(38,48,64,.25); }
+.sw b { display: block; font-size: 14px; }
+.tr { display: grid; grid-template-columns: 300px minmax(0,1fr); gap: 12px; align-items: baseline; padding: 10px 0; }
+.tr + .tr { box-shadow: 0 -1px 0 var(--lo), 0 -2px 0 var(--hi); }
+.tr code { font: 12px/1.4 ui-monospace, Menlo, Consolas, monospace; color: var(--inkSoft); }
+.facts { display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 10px 16px; margin: 0; }
+.facts dt { font-weight: 700; }
+.facts dd { margin: 0; color: var(--ink); }
+.ctl { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px; }
+.ctl .lb { display: block; font-size: 13px; font-weight: 700; color: var(--inkSoft); margin-bottom: 10px; }
+.ctl .row { display: flex; gap: 18px; flex-wrap: wrap; }
+.fld input { width: 100%; border: 0; border-radius: 14px; padding: 12px 16px; background: var(--base); box-shadow: var(--in); }
+.rowdemo { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 12px 14px; border-radius: 16px; box-shadow: var(--outSm); font-weight: 700; }
+.rowdemo + .rowdemo { margin-top: 18px; }
+@media (max-width: 640px) { .tr, .facts { grid-template-columns: minmax(0,1fr); } .sheet { padding: 20px; } .sheetwrap { padding: 0 16px; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs><filter id="lift" x="-50%" y="-20%" width="200%" height="140%"><feDropShadow dx="3" dy="3" stdDeviation="3" flood-color="#b6bfcc"/><feDropShadow dx="-3" dy="-3" stdDeviation="3" flood-color="#ffffff"/></filter></defs>
+  <symbol id="s-ok" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="currentColor"/><path d="M4.8 8.2l2.2 2.2 4.2-4.6" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="s-warn" viewBox="0 0 16 16"><path d="M8 1.5l7 12.8H1z" fill="currentColor" stroke="currentColor" stroke-linejoin="round"/><path d="M8 6v3.6M8 11.4v.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="s-bad" viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="13" height="13" rx="3" fill="currentColor"/><path d="M5.3 5.3l5.4 5.4M10.7 5.3l-5.4 5.4" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="s-over" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 5.5V10l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="s-bell" viewBox="0 0 20 20"><path d="M10 2.5a5 5 0 0 0-5 5v3.5l-2 3h14l-2-3V7.5a5 5 0 0 0-5-5zM8 16.5a2 2 0 0 0 4 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="s-mag" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12.5 12.5l5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+</svg>
+<div class="app">
+  <aside class="side raised">
+    <p class="brand"><i aria-hidden="true"></i>Brightwork</p>
+    <nav aria-label="Main"><ul class="nav"><li><a href="#" aria-current="page"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10l7-6 7 6v7h-5v-4H8v4H3z"/></svg>Home</a></li><li><a href="#"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M3 8h14"/></svg>Projects</a></li><li><a href="#"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 6l2 2 3-3M4 13l2 2 3-3M11 7h6M11 14h6"/></svg>Tasks</a></li><li><a href="#"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="7" cy="7" r="3"/><circle cx="14" cy="8" r="2.4"/><path d="M2 17c0-3 2.5-5 5-5s5 2 5 5M12 16.5c.3-2 1.5-3.5 3-3.5s3 1.5 3 3.5"/></svg>Team</a></li><li><a href="#"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 17V9M10 17V4M16 17v-6"/></svg>Reports</a></li><li><a href="#"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3"/><path d="M10 2v3M10 15v3M2 10h3M15 10h3M4.3 4.3l2.1 2.1M13.6 13.6l2.1 2.1M4.3 15.7l2.1-2.1M13.6 6.4l2.1-2.1"/></svg>Settings</a></li></ul></nav>
+  </aside>
+  <div class="main">
+    <header class="topbar">
+      <label class="find"><svg aria-hidden="true"><use href="#s-mag"/></svg><input type="search" placeholder="Search projects and tasks" aria-label="Search projects and tasks"></label>
+      <button class="btn" type="button">+ New project</button>
+      <button class="btn soft round" type="button" aria-label="Notifications"><svg aria-hidden="true"><use href="#s-bell"/></svg></button>
+      <span class="me"><i aria-hidden="true">MO</i><span>Mara Okafor</span></span>
+    </header>
+    <main class="main">
+      <section class="hello raised" aria-labelledby="g-h">
+        <div><h1 id="g-h">Good morning, Mara</h1><p class="date">Saturday 31 October 2026</p></div>
+        <p class="alert"><svg aria-hidden="true"><use href="#s-over"/></svg>Overdue: 4 tasks are overdue</p>
+      </section>
+      <ul class="knobs" aria-label="This week">
+        <li class="knobwrap"><span class="knob"><span class="dish"><b>6</b></span></span><span class="kl">Active projects</span></li>
+        <li class="knobwrap"><span class="knob"><span class="dish"><b>23</b></span></span><span class="kl">Tasks due this week</span></li>
+        <li class="knobwrap hot"><span class="knob"><span class="dish"><svg class="ov" aria-hidden="true"><use href="#s-over"/></svg><b>4</b></span></span><span class="kl">Overdue tasks</span></li>
+        <li class="knobwrap"><span class="knob"><span class="dish"><b>186</b></span></span><span class="kl">Hours logged this week</span></li>
+      </ul>
+      <section aria-labelledby="p-h">
+        <h2 id="p-h">Projects <small>6 active</small></h2>
+        <ul class="plist"><li class="prow raised">
+      <div class="pinfo"><a href="#">Website redesign</a><span>Design · 18 of 25 tasks · due 14 Nov</span></div>
+      <div class="groove" aria-hidden="true"><i style="width:72%"></i><b style="left:72%"></b></div>
+      <span class="pct">72%</span>
+      <span class="chip ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span>
+    </li><li class="prow raised">
+      <div class="pinfo"><a href="#">Mobile app 2.0</a><span>Engineering · 27 of 60 tasks · due 2 Dec</span></div>
+      <div class="groove" aria-hidden="true"><i style="width:45%"></i><b style="left:45%"></b></div>
+      <span class="pct">45%</span>
+      <span class="chip warn"><svg aria-hidden="true"><use href="#s-warn"/></svg>At risk</span>
+    </li><li class="prow raised">
+      <div class="pinfo"><a href="#">Q4 customer survey</a><span>Research · 9 of 10 tasks · due 7 Nov</span></div>
+      <div class="groove" aria-hidden="true"><i style="width:90%"></i><b style="left:90%"></b></div>
+      <span class="pct">90%</span>
+      <span class="chip ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span>
+    </li><li class="prow raised">
+      <div class="pinfo"><a href="#">Billing migration</a><span>Engineering · 12 of 40 tasks · due 20 Nov</span></div>
+      <div class="groove" aria-hidden="true"><i style="width:30%"></i><b style="left:30%"></b></div>
+      <span class="pct">30%</span>
+      <span class="chip bad"><svg aria-hidden="true"><use href="#s-bad"/></svg>Behind</span>
+    </li><li class="prow raised">
+      <div class="pinfo"><a href="#">Spring catalogue</a><span>Marketing · 3 of 20 tasks · due 15 Jan</span></div>
+      <div class="groove" aria-hidden="true"><i style="width:15%"></i><b style="left:15%"></b></div>
+      <span class="pct">15%</span>
+      <span class="chip ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span>
+    </li><li class="prow raised">
+      <div class="pinfo"><a href="#">Onboarding emails</a><span>Marketing · 9 of 15 tasks · due 21 Nov</span></div>
+      <div class="groove" aria-hidden="true"><i style="width:60%"></i><b style="left:60%"></b></div>
+      <span class="pct">60%</span>
+      <span class="chip ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span>
+    </li></ul>
+      </section>
+      <div class="cols">
+        <section class="panel raised" aria-labelledby="c-h">
+          <h2 id="c-h">Tasks completed <small>18 to 31 October</small></h2>
+          <div class="trough">
+            <svg viewBox="0 0 450 232" role="img" aria-label="Tasks completed per day from Sunday 18 October to Saturday 31 October 2026. Last week: Sunday 3, Monday 12, Tuesday 9, Wednesday 14, Thursday 11, Friday 8, Saturday 2, total 59. This week: Sunday 4, Monday 15, Tuesday 13, Wednesday 17, Thursday 12, Friday 10, Saturday 2, total 73.">
+              <g font-family="system-ui, Segoe UI, Roboto, sans-serif" font-size="13" fill="#263040" text-anchor="middle"><rect x="14" y="170" width="20" height="30" rx="10" fill="#eef1f6" filter="url(#lift)" stroke="#4d5868" stroke-width="1.5"/><text x="24" y="161" font-weight="700">3</text><text x="24" y="222">S</text><rect x="44" y="80" width="20" height="120" rx="10" fill="#eef1f6" filter="url(#lift)" stroke="#4d5868" stroke-width="1.5"/><text x="54" y="71" font-weight="700">12</text><text x="54" y="222">M</text><rect x="74" y="110" width="20" height="90" rx="10" fill="#eef1f6" filter="url(#lift)" stroke="#4d5868" stroke-width="1.5"/><text x="84" y="101" font-weight="700">9</text><text x="84" y="222">T</text><rect x="104" y="60" width="20" height="140" rx="10" fill="#eef1f6" filter="url(#lift)" stroke="#4d5868" stroke-width="1.5"/><text x="114" y="51" font-weight="700">14</text><text x="114" y="222">W</text><rect x="134" y="90" width="20" height="110" rx="10" fill="#eef1f6" filter="url(#lift)" stroke="#4d5868" stroke-width="1.5"/><text x="144" y="81" font-weight="700">11</text><text x="144" y="222">T</text><rect x="164" y="120" width="20" height="80" rx="10" fill="#eef1f6" filter="url(#lift)" stroke="#4d5868" stroke-width="1.5"/><text x="174" y="111" font-weight="700">8</text><text x="174" y="222">F</text><rect x="194" y="180" width="20" height="20" rx="10" fill="#eef1f6" filter="url(#lift)" stroke="#4d5868" stroke-width="1.5"/><text x="204" y="171" font-weight="700">2</text><text x="204" y="222">S</text><rect x="236" y="160" width="20" height="40" rx="10" fill="#3346c2" filter="url(#lift)"/><text x="246" y="151" font-weight="700">4</text><text x="246" y="222">S</text><rect x="266" y="50" width="20" height="150" rx="10" fill="#3346c2" filter="url(#lift)"/><text x="276" y="41" font-weight="700">15</text><text x="276" y="222">M</text><rect x="296" y="70" width="20" height="130" rx="10" fill="#3346c2" filter="url(#lift)"/><text x="306" y="61" font-weight="700">13</text><text x="306" y="222">T</text><rect x="326" y="30" width="20" height="170" rx="10" fill="#3346c2" filter="url(#lift)"/><text x="336" y="21" font-weight="700">17</text><text x="336" y="222">W</text><rect x="356" y="80" width="20" height="120" rx="10" fill="#3346c2" filter="url(#lift)"/><text x="366" y="71" font-weight="700">12</text><text x="366" y="222">T</text><rect x="386" y="100" width="20" height="100" rx="10" fill="#3346c2" filter="url(#lift)"/><text x="396" y="91" font-weight="700">10</text><text x="396" y="222">F</text><rect x="416" y="180" width="20" height="20" rx="10" fill="#3346c2" filter="url(#lift)"/><text x="426" y="171" font-weight="700">2</text><text x="426" y="222">S</text></g>
+            </svg>
+          </div>
+          <p class="legend"><span><i style="background:#eef1f6;border:1.5px solid #4d5868"></i>Last week, raised · 59</span><span><i style="background:#3346c2"></i>This week, indigo · 73</span></p>
+        </section>
+        <section class="panel raised" aria-labelledby="a-h">
+          <h2 id="a-h">Activity</h2>
+          <ul class="alist"><li><span class="av" aria-hidden="true">JW</span><p><b>Jonas Weber</b> completed “Export invoices as CSV” in Billing migration<span class="when">12 min ago</span></p></li><li><span class="av" aria-hidden="true">PN</span><p><b>Priya Nair</b> commented on “Hero image options” in Website redesign<span class="when">40 min ago</span></p></li><li><span class="av" aria-hidden="true">SO</span><p><b>Sam Ortiz</b> moved “Push notifications” to Review in Mobile app 2.0<span class="when">1 h ago</span></p></li><li><span class="av" aria-hidden="true">LF</span><p><b>Lena Fischer</b> added 3 tasks to Spring catalogue<span class="when">2 h ago</span></p></li><li><span class="av" aria-hidden="true">TR</span><p><b>Tomás Ruiz</b> logged 6 h on Mobile app 2.0<span class="when">3 h ago</span></p></li><li><span class="av" aria-hidden="true">AT</span><p><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to Q4 customer survey<span class="when">yesterday</span></p></li></ul>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div class="sheetwrap">
+<section class="sheet raised" aria-labelledby="sheet-h">
+  <h2 id="sheet-h">Style 173 · Soft UI</h2>
+  <p class="idea">The dashboard is moulded from one pale grey surface: panels, knobs and buttons are extruded by paired light and dark shadows, wells and grooves are pressed in, yet text keeps full AA contrast and focus is a solid indigo ring.</p>
+  <h3>Palette</h3>
+  <ul class="sw">
+    <li><i style="background:#e4e8ef"></i><div><b>Base</b>#e4e8ef · the single surface everything is moulded from</div></li>
+    <li><i style="background:#ffffff"></i><div><b>Highlight</b>#ffffff · top-left shadow, never text</div></li>
+    <li><i style="background:#b6bfcc"></i><div><b>Lowlight</b>#b6bfcc · bottom-right shadow, never text</div></li>
+    <li><i style="background:#eef1f6;border:1.5px solid #4d5868"></i><div><b>Lift</b>#eef1f6 · knob dishes, last-week bars</div></li>
+    <li><i style="background:#263040"></i><div><b>Ink</b>#263040 · text, 10.9 to 1 on base</div></li>
+    <li><i style="background:#4d5868"></i><div><b>Soft ink</b>#4d5868 · meta and labels, 5.9 to 1</div></li>
+    <li><i style="background:#3346c2"></i><div><b>Indigo</b>#3346c2 · primary button, fills, current nav, focus</div></li>
+    <li><i style="background:#1d6b45"></i><div><b>Green</b>#1d6b45 · On track</div></li>
+    <li><i style="background:#8a4b00"></i><div><b>Amber</b>#8a4b00 · At risk</div></li>
+    <li><i style="background:#b4232c"></i><div><b>Red</b>#b4232c · Behind, overdue ring and text</div></li>
+  </ul>
+  <h3>Type · system-ui, Segoe UI Variable, SF Pro Display, Roboto, Helvetica Neue, Arial</h3>
+  <div class="tr"><code>34 / 700 · knob figures</code><span style="font:700 34px/1 var(--sans)">186</span></div>
+  <div class="tr"><code>32 / 700 / -0.01em · greeting</code><span style="font:700 30px/1.15 var(--sans)">Good morning, Mara</span></div>
+  <div class="tr"><code>16–17 / 700 · project names, headings</code><span style="font-weight:700;font-size:16px">Website redesign</span></div>
+  <div class="tr"><code>14–15 / 400 · body</code><span>Priya Nair commented on “Hero image options”</span></div>
+  <div class="tr"><code>13 / 600 to 700 · meta, chips</code><span style="font-size:13px;color:var(--inkSoft);font-weight:600">Engineering · 27 of 60 tasks · due 2 Dec</span></div>
+  <h3>Spacing, density and depth</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>8px unit. 16 to 20px between raised items so shadows can breathe, 28px between sections.</dd>
+    <dt>Density</dt><dd>Low to medium. Few, large soft objects.</dd>
+    <dt>Corners</dt><dd>Very round. 20 to 28px panels, 14px buttons and nav, full circles for knobs and icon buttons, pills for fields and chips.</dd>
+    <dt>Borders</dt><dd>None. Edges come only from shadow pairs.</dd>
+    <dt>Shadows</dt><dd>Raised uses 7px 7px 14px lowlight with minus 7px highlight. Small raised is 4px. Pressed wells use the same pair inset. Current nav is pressed in.</dd>
+    <dt>Icons</dt><dd>Line icons at 1.7px for nav. Status icons are solid, a check circle for On track, a triangle for At risk, a rounded crossed square for Behind, a clock ring for Overdue, inside pressed chips with their word.</dd>
+    <dt>Tone</dt><dd>Plain and neutral, such as Projects, 6 active and Activity.</dd>
+  </dl>
+  <h3>Controls · normal and focus</h3>
+  <div class="ctl">
+    <div><span class="lb">Primary button</span><div class="row"><button class="btn" type="button">Save</button><button class="btn is-focus" type="button">Focused</button></div></div>
+    <div><span class="lb">Secondary button</span><div class="row"><button class="btn soft" type="button">Cancel</button><button class="btn soft is-focus" type="button">Focused</button></div></div>
+    <div><label class="fld"><span class="lb">Text field</span><input value="Website redesign"></label></div>
+    <div><label class="fld"><span class="lb">Text field, focused</span><input class="is-focus" value="Mobile app 2.0"></label></div>
+    <div><span class="lb">List row, normal and focused</span><div class="rowdemo"><span>Billing migration</span><span class="chip bad"><svg aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></div><div class="rowdemo is-focus"><span>Billing migration</span><span class="chip bad"><svg aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></div></div>
+  </div>
+</section>
+</div>
+</body>
+</html>

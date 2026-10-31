@@ -1,0 +1,21 @@
+export anchor FitnessTracker:
+    description:
+        Brightwork Move, a made-up fitness app, on the Today view for
+        Saturday 31 October.
+
+    rings:
+        Move 486 of 600 kcal, Exercise 38 of 45 minutes, Stand 9 of 12 hours.
+
+    workout:
+        An evening run of 8.2 km in 42:16, average pace 5:09 per km, average
+        heart rate 152, with heart rate zones 1 to 5 of 3, 9, 18, 10 and 2
+        minutes.
+
+    week:
+        Distance per day this week of 0, 5.1, 0, 7.4, 3.0, 0 and 8.2 km.
+
+    sleep:
+        7 h 12 min last night, with 1 h 34 min deep sleep.
+
+    plan:
+        Half marathon plan, week 6 of 12, next session tomorrow, long run 14 km.

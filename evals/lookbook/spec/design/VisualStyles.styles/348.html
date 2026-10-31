@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 348 · BBS ANSI · Brightwork</title>
+<style>
+:root{color-scheme:dark;--black:#000000;--blue:#0000aa;--navy:#000055;--cyan:#55ffff;--dcyan:#00aaaa;--yellow:#ffff55;--white:#ffffff;--grey:#aaaaaa;--magenta:#ff55ff;--green:#55ff55;--red:#ff5555;--brown:#aa5500;--mono:"Perfect DOS VGA 437","Px437 IBM VGA8",ui-monospace,"DejaVu Sans Mono","Liberation Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--black);color:var(--grey);font:15px/1.35 var(--mono)}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+:focus-visible,.is-focus{outline:none;background:var(--yellow)!important;color:var(--black)!important;box-shadow:0 0 0 2px var(--yellow)}
+.scr{max-width:1200px;margin:0 auto;padding:16px}
+.ban{overflow:hidden;white-space:nowrap;line-height:1;font-size:15px;margin:0}
+.ban .a{color:var(--blue)}.ban .b{color:var(--dcyan)}.ban .c{color:var(--cyan)}
+.logo{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:6px 0}
+.logo h1{margin:0;font:700 26px/1.1 var(--mono);color:var(--yellow);letter-spacing:.12em;text-shadow:3px 3px 0 var(--brown)}
+.logo p{margin:0;color:var(--cyan)}
+.box{border:4px double var(--cyan);background:var(--navy);position:relative;padding:14px 12px 10px}
+.box>.lab{position:absolute;top:-12px;left:12px;background:var(--black);color:var(--yellow);padding:0 6px;font-weight:700;margin:0;font-size:15px}
+.grid{display:grid;grid-template-columns:350px minmax(0,1fr);gap:20px;margin-top:20px}
+.col{display:flex;flex-direction:column;gap:20px}
+.menu{list-style:none;margin:0;padding:0}
+.menu a{display:flex;gap:1ch;padding:1px 4px;color:var(--white)}
+.menu .k{color:var(--yellow)}
+.menu .k::before{content:"[";color:var(--dcyan)}.menu .k::after{content:"]";color:var(--dcyan)}
+.menu a[aria-current]{background:var(--dcyan);color:var(--black)}
+.menu a[aria-current] .k,.menu a[aria-current] .k::before,.menu a[aria-current] .k::after{color:var(--black)}
+.menu .n{margin-left:auto;color:var(--green)}
+.menu .m{margin-left:auto;color:var(--magenta)}
+.who{list-style:none;margin:0;padding:0}
+.who li{display:flex;gap:1ch;padding:1px 4px;color:var(--white)}
+.who .s{margin-left:auto}
+.on{color:var(--green)}.aw{color:var(--yellow)}.off{color:var(--grey)}
+.reader{background:var(--blue);border-color:var(--white)}
+.reader>.lab{color:var(--cyan)}
+.msgs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.msg{border:1px solid var(--dcyan)}
+.hdr{background:var(--dcyan);color:var(--black);display:flex;flex-wrap:wrap;gap:0 2ch;padding:1px 6px;font-weight:700}
+.hdr .t{margin-left:auto}
+.msg p{margin:0;padding:6px 8px;color:var(--white)}
+.att{display:flex;gap:12px;align-items:center;padding:6px 8px;color:var(--yellow);flex-wrap:wrap}
+.att svg{width:120px;height:auto;border:1px solid var(--yellow);flex:none}
+.att a{text-decoration:underline}
+.rx{padding:0 8px 6px;display:flex;flex-wrap:wrap;gap:0 2ch;color:var(--cyan)}
+.rx b{color:var(--yellow);font-weight:400}
+.typing{margin:12px 0 4px;color:var(--magenta)}
+.prompt{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.prompt label{color:var(--green)}
+.prompt input{flex:1;min-width:14ch;background:var(--black);border:0;border-bottom:2px solid var(--grey);padding:3px 6px;color:var(--white);outline:none}
+.prompt input::placeholder{color:var(--grey)}
+.prompt input:focus{border-bottom-color:var(--yellow)}
+.hk{background:var(--navy);border:0;padding:2px 8px;color:var(--white);cursor:pointer}
+.hk u{color:var(--yellow);text-decoration:none}
+.hk.go{background:var(--green);color:var(--black)}
+.hk.go u{color:var(--black);text-decoration:underline}
+.foot{margin-top:16px;background:var(--grey);color:var(--black);padding:1px 8px;display:flex;flex-wrap:wrap;gap:0 2ch}
+/* sheet */
+.sheet{max-width:1200px;margin:0 auto;padding:24px 16px 64px;display:flex;flex-direction:column;gap:24px}
+.sheet h2{margin:0;color:var(--yellow);font:700 24px var(--mono);letter-spacing:.06em;text-shadow:2px 2px 0 var(--brown)}
+.idea{color:var(--white);margin:6px 0 0;max-width:80ch}
+.sw{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:6px 16px}
+.sw li{display:flex;gap:1ch;color:var(--white)}
+.sw i{width:3ch;height:1.3em;flex:none;outline:1px solid var(--grey)}
+.sw code{color:var(--cyan)}.sw span{color:var(--grey)}
+.facts{display:grid;grid-template-columns:12ch 1fr;gap:4px 2ch;margin:0;color:var(--white)}
+.facts dt{color:var(--yellow)}.facts dd{margin:0}
+.ts div{display:grid;grid-template-columns:24ch 1fr;gap:2ch;color:var(--white);margin-bottom:4px}
+.ts code{color:var(--cyan)}
+.ctrls{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.ctrls>div{display:flex;flex-direction:column;gap:10px;align-items:flex-start;border:1px solid var(--dcyan);padding:10px;background:var(--black)}
+.ctrls h4{margin:0;font:inherit;color:var(--cyan)}
+.fld{display:grid;gap:2px;color:var(--green);width:100%}
+.fld input{background:var(--black);border:0;border-bottom:2px solid var(--grey);color:var(--white);padding:3px 6px;width:100%;min-width:0}
+.row{display:flex;gap:1ch;padding:1px 4px;color:var(--white);width:100%}
+.row .k{color:var(--yellow)}
+@media (max-width:780px){
+ .scr{padding:12px}
+ .grid{grid-template-columns:minmax(0,1fr)}
+ .logo h1{font-size:21px}
+ .facts,.ts div{grid-template-columns:1fr;gap:0}.facts dd{margin-bottom:6px}
+ .sheet{padding:24px 12px 56px}
+}
+.is-focus *,:focus-visible *{color:#000!important}
+</style>
+</head>
+<body>
+<div class="scr">
+ <p class="ban" aria-hidden="true"><span class="a">░░░░░░░░</span><span class="b">▒▒▒▒▒▒▒▒</span><span class="c">▓▓▓▓▓▓▓▓████████████████████████████████████████████████████████████▓▓▓▓▓▓▓▓</span><span class="b">▒▒▒▒▒▒▒▒</span><span class="a">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></p>
+ <div class="logo"><h1>BRIGHTWORK CHAT</h1><p>Message board · caller Mara Okafor · board #design-crit</p></div>
+ <p class="ban" aria-hidden="true"><span class="a">▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀</span><span class="b">▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀</span><span class="a">▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀</span></p>
+ <div class="grid">
+  <div class="col">
+   <nav class="box" aria-labelledby="mb"><p class="lab" id="mb">≡ Message boards</p>
+    <ul class="menu">
+     <li><a href="#"><span class="k">G</span>general</a></li>
+     <li><a href="#" aria-current="page"><span class="k">D</span>design-crit<span style="margin-left:auto">◄ HERE</span></a></li>
+     <li><a href="#"><span class="k">M</span>mobile-release<span class="n">4 NEW</span></a></li>
+     <li><a href="#"><span class="k">B</span>billing-war-room<span class="m">@1 FOR YOU</span></a></li>
+     <li><a href="#"><span class="k">R</span>random</a></li>
+    </ul></nav>
+   <section class="box" aria-labelledby="wo"><p class="lab" id="wo">≡ Direct lines</p>
+    <ul class="who">
+     <li><span class="on" aria-hidden="true">■</span>Priya Nair<span class="s on">ON-LINE</span></li>
+     <li><span class="aw" aria-hidden="true">▄</span>Jonas Weber<span class="s aw">AWAY</span></li>
+     <li><span class="off" aria-hidden="true">·</span>Aiko Tanaka<span class="s off">OFF-LINE</span></li>
+    </ul></section>
+  </div>
+  <main class="box reader" aria-labelledby="rd"><h2 class="lab" id="rd">≡ Reading #design-crit · 5 messages</h2>
+   <ol class="msgs">
+    <li class="msg"><div class="hdr"><span>MSG 1/5</span><span>FROM Priya Nair</span><span class="t">09:02</span></div><p>Three hero options are up in Canvas. Thoughts by Monday?</p></li>
+    <li class="msg"><div class="hdr"><span>MSG 2/5</span><span>FROM Aiko Tanaka</span><span class="t">09:05</span></div><p>B reads best on phones. A feels busy.</p>
+     <div class="rx"><a href="#"><b>►</b> 3 REPLIES · read thread</a><span><b>+1</b> thumbs up x3</span><span><b>oo</b> eyes x1</span></div></li>
+    <li class="msg"><div class="hdr"><span>MSG 3/5</span><span>FROM Mara Okafor</span><span class="t">09:11</span></div><p>Agree on B. Can we try the button in brand green?</p></li>
+    <li class="msg"><div class="hdr"><span>MSG 4/5</span><span>FROM Priya Nair</span><span class="t">09:12</span></div>
+     <div class="att"><svg viewBox="0 0 40 24" shape-rendering="crispEdges" role="img" aria-label="Blocky preview of homepage-hero-B.png, a headline bar and a green button"><rect width="40" height="24" fill="#000055"/><rect x="3" y="4" width="20" height="3" fill="#ffffff"/><rect x="3" y="9" width="14" height="2" fill="#aaaaaa"/><rect x="3" y="15" width="9" height="4" fill="#55ff55"/><rect x="27" y="3" width="10" height="18" fill="#00aaaa"/></svg><span>FILE ATTACHED <a href="#">homepage-hero-B.png</a> · image</span></div></li>
+    <li class="msg"><div class="hdr"><span>MSG 5/5</span><span>FROM Jonas Weber</span><span class="t">09:20</span></div><p>Unrelated, billing deploy is at 11:00, heads up</p></li>
+   </ol>
+   <p class="typing">» Priya is typing...</p>
+   <form class="prompt" action="#"><label for="m">Enter text&gt;</label><input id="m" placeholder="Message #design-crit">
+    <button type="button" class="hk"><u>A</u>ttach</button><button type="button" class="hk"><u>E</u>moji</button><button type="submit" class="hk go"><u>S</u>end</button></form>
+  </main>
+ </div>
+ <div class="foot"><span>Caller Mara Okafor</span><span>Board design-crit</span><span>Keys D G M B R · A E S</span></div>
+</div>
+
+<section class="sheet" aria-labelledby="sh">
+ <div><h2 id="sh">Style 348 · BBS ANSI</h2>
+ <p class="idea">A chat that behaves like a dial-up message board, drawn in sixteen-colour ANSI with shade-block banners, double-line boxes, hotkey menus and a message reader that counts MSG 1/5.</p></div>
+ <section class="box"><h3 class="lab">≡ Palette</h3>
+  <ul class="sw">
+   <li><i style="background:#000000"></i><span>black <code>#000000</code> <span>page, labels on rims</span></span></li>
+   <li><i style="background:#000055"></i><span>navy <code>#000055</code> <span>side boxes, sheet boxes</span></span></li>
+   <li><i style="background:#0000aa"></i><span>blue <code>#0000aa</code> <span>message reader</span></span></li>
+   <li><i style="background:#00aaaa"></i><span>dcyan <code>#00aaaa</code> <span>message headers, current board</span></span></li>
+   <li><i style="background:#55ffff"></i><span>cyan <code>#55ffff</code> <span>box rims, info text</span></span></li>
+   <li><i style="background:#ffff55"></i><span>yellow <code>#ffff55</code> <span>titles, hotkeys, focus block</span></span></li>
+   <li><i style="background:#ffffff"></i><span>white <code>#ffffff</code> <span>message text</span></span></li>
+   <li><i style="background:#aaaaaa"></i><span>grey <code>#aaaaaa</code> <span>body, offline, footer bar</span></span></li>
+   <li><i style="background:#55ff55"></i><span>green <code>#55ff55</code> <span>NEW count, ON-LINE, Send</span></span></li>
+   <li><i style="background:#ff55ff"></i><span>magenta <code>#ff55ff</code> <span>mentions, typing</span></span></li>
+   <li><i style="background:#aa5500"></i><span>brown <code>#aa5500</code> <span>title drop shadow only</span></span></li>
+  </ul></section>
+ <section class="box"><h3 class="lab">≡ Type</h3>
+  <div class="ts">
+   <div><code>26 / 700 / .12em</code><span style="color:var(--yellow);font-weight:700;font-size:26px;letter-spacing:.12em;text-shadow:3px 3px 0 #aa5500">BRIGHTWORK</span></div>
+   <div><code>15 / 700 on dcyan</code><span style="background:#00aaaa;color:#000;font-weight:700;padding:0 6px">MSG 2/5 FROM Aiko Tanaka</span></div>
+   <div><code>15 / 400 / 1.35</code><span>B reads best on phones. A feels busy.</span></div>
+   <div><code>stack</code><span style="color:var(--grey)">Perfect DOS VGA 437, Px437 IBM VGA8, ui-monospace, DejaVu Sans Mono, Liberation Mono, Menlo, Consolas</span></div>
+  </div></section>
+ <section class="box"><h3 class="lab">≡ Spacing and shape</h3>
+  <dl class="facts">
+   <dt>Spacing</dt><dd>Character grid. 10px between message frames, 20px between boxes.</dd>
+   <dt>Density</dt><dd>Busy and full. Every region boxed, a header bar on every message.</dd>
+   <dt>Corners</dt><dd>Square.</dd>
+   <dt>Borders</dt><dd>4px double cyan box rims with the label cut into the top edge, 1px cyan message frames.</dd>
+   <dt>Shadows</dt><dd>Only a hard 3px brown drop under the title text.</dd>
+   <dt>Icons</dt><dd>Block glyphs. ■ on-line, ▄ away, · off-line, ► thread, ◄ HERE, always with words.</dd>
+   <dt>Focus</dt><dd>A solid yellow block with black text.</dd>
+   <dt>Tone</dt><dd>Shouty sysop labels, such as 4 NEW, @1 FOR YOU, FILE ATTACHED and Enter text&gt;.</dd>
+  </dl></section>
+ <section class="box"><h3 class="lab">≡ Controls · normal and focus</h3>
+  <div class="ctrls">
+   <div><h4>Primary</h4><button class="hk go"><u>S</u>end</button><button class="hk go is-focus"><u>S</u>end</button></div>
+   <div><h4>Secondary</h4><button class="hk"><u>A</u>ttach</button><button class="hk is-focus"><u>A</u>ttach</button></div>
+   <div><h4>Text field</h4><label class="fld">Board name&gt;<input value="design-crit"></label><label class="fld">Board name&gt;<input class="is-focus" value="design-crit"></label></div>
+   <div><h4>List row</h4><a class="row" href="#"><span class="k">[G]</span>general</a><a class="row is-focus" href="#"><span class="k">[G]</span>general</a></div>
+  </div></section>
+</section>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Style 379 · Home AI · Brightwork</title>
+<style>
+
+:root{color-scheme:dark;--page:#07060f;--deep:#0e0c1c;--veil:#151229;--line:#2a2548;--ink:#ecebfa;--mute:#a7a3c7;
+--cyan:#9ee7ff;--lilac:#c7a8ff;--coral:#ffb3a1;--mint:#9df0cf;--onCyan:#061a24;
+--f:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+body{margin:0;background:var(--page);color:var(--ink);font:16px/1.6 var(--f);font-weight:350}
+.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
+button,input{font:inherit;color:inherit}
+:focus-visible,.is-focus{outline:2px solid var(--cyan);outline-offset:4px}
+.space{position:relative;overflow:clip;background:radial-gradient(900px 600px at 50% 18%,#1a1438,transparent 70%),var(--page)}
+.wrap{max-width:1120px;margin:0 auto;padding:28px 32px 72px}
+.top{display:flex;justify-content:space-between;gap:16px;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
+.hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:24px 0 8px}
+.orb{width:220px;height:220px}
+.status{display:flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-top:8px}
+.say{max-width:760px;margin:16px 0 0;font-size:30px;line-height:1.4;font-weight:300}
+.say em{font-style:normal;color:var(--coral)}
+.wave{width:min(420px,100%);height:36px;margin:20px 0 0}
+.ask{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:16px}
+.btn{border-radius:999px;padding:12px 24px;min-height:48px;border:1px solid var(--line);background:var(--veil);cursor:pointer;font-weight:500;display:inline-flex;gap:10px;align-items:center}
+.btn.pri{background:linear-gradient(90deg,var(--cyan),var(--lilac));background-color:var(--cyan);color:var(--onCyan);border:0}
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.note{background:linear-gradient(180deg,var(--deep),rgba(14,12,28,.4));background-color:var(--deep);border:1px solid var(--line);border-radius:32px;padding:24px 24px 20px}
+.note h2{margin:0 0 4px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+.note .lede{margin:0 0 12px;font-size:19px;font-weight:300}
+.rl{list-style:none;margin:0;padding:0}
+.rl li{display:grid;grid-template-columns:24px 1fr auto;gap:10px;padding:10px 0;border-top:1px solid var(--line);align-items:start}
+.rl small{display:block;color:var(--mute);font-size:14px}
+.rl .v{font-variant-numeric:tabular-nums;font-weight:400}
+.c-cyan{color:var(--cyan)}.c-lilac{color:var(--lilac)}.c-coral{color:var(--coral)}.c-mint{color:var(--mint)}.c-mute{color:var(--mute)}
+.big{font-size:52px;font-weight:200;line-height:1;letter-spacing:-.02em}
+.big span{font-size:18px;color:var(--mute);font-weight:400;letter-spacing:0}
+.pair{display:flex;gap:24px;margin:12px 0}
+.pair b{display:block;font-size:22px;font-weight:300}.pair small{color:var(--mute);font-size:13px}
+.glow{width:100%;height:auto;display:block}
+.cap{display:flex;justify-content:space-between;color:var(--mute);font-size:12px}
+.sc{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.scene{width:100%;display:flex;align-items:center;gap:12px;padding:12px 16px;min-height:48px;border-radius:999px;border:1px solid var(--line);background:transparent;cursor:pointer;text-align:left;color:var(--ink)}
+.scene .q{flex:1}.scene small{color:var(--mute);font-size:13px}
+.scene[aria-pressed=true]{border-color:var(--lilac);background:#221a3e}
+.scene[aria-pressed=true] small{color:var(--lilac)}
+@media (max-width:980px){.notes{grid-template-columns:1fr 1fr}.notes .note:last-child{grid-column:1/-1}}
+@media (max-width:640px){.wrap{padding:20px 16px 48px}.orb{width:160px;height:160px}.say{font-size:22px}.notes{grid-template-columns:1fr;gap:16px;margin-top:40px}.top{letter-spacing:.14em}.note{border-radius:24px;padding:20px}}
+.sheet{background:#0a0916;border-top:1px solid var(--line);padding:56px 32px 72px}
+.sheet-in{max-width:1000px;margin:0 auto}
+.sheet h2{font-size:32px;font-weight:200;margin:0 0 8px}
+.sheet h3{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin:48px 0 16px}
+.idea{font-size:19px;font-weight:300;max-width:760px;margin:0}
+.swatches{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.sw{display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:28px;background:var(--deep);border:1px solid var(--line)}
+.sw i{height:56px;border-radius:999px;border:1px solid var(--line)}
+.sw div{font-size:14px}.sw code{color:var(--mute)}.sw span{display:block;color:var(--mute);font-size:13px}
+.type-row{display:flex;flex-wrap:wrap;gap:6px 24px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
+.type-row code{width:250px;color:var(--mute);font-size:12px}
+.facts{display:grid;grid-template-columns:180px 1fr;gap:16px 32px;margin:0}
+@media (max-width:640px){.facts{grid-template-columns:1fr;gap:4px}.facts dd{margin-bottom:12px}}
+.facts dt{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}.facts dd{margin:4px 0 0}
+.facts div{}
+.controls{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.ctl{border-radius:32px;background:var(--deep);border:1px solid var(--line);padding:24px}
+.ctl-label{display:block;margin-bottom:14px;font-size:17px;font-weight:400}
+.ctl-pair{display:flex;flex-wrap:wrap;gap:24px}.ctl-pair>div{display:flex;flex-direction:column;gap:8px;align-items:flex-start;min-width:0}
+.ctl-state{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.fld{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--mute)}
+.fld input{background:var(--veil);border:1px solid var(--line);border-radius:999px;padding:12px 18px;width:220px;max-width:100%;color:var(--ink)}
+.lrow{display:flex;gap:12px;align-items:center;width:240px;max-width:100%;padding:10px 4px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lrow span:nth-child(2){flex:1}.lrow small{color:var(--mute)}
+@media (max-width:640px){.sheet{padding:40px 16px}.controls{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-sofa" viewBox="0 0 24 24"><path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M3 11a2 2 0 0 1 2 2v2h14v-2a2 2 0 1 1 2 2v3H3v-3a2 2 0 0 1 0-4z"/><path d="M6 18v2M18 18v2"/></symbol><symbol id="i-pot" viewBox="0 0 24 24"><path d="M4 10h16v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M2 10h2M20 10h2M9 6c0-1 1-1 1-2M14 6c0-1 1-1 1-2"/></symbol><symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 18V6M3 14h18v4M21 14v-2a3 3 0 0 0-3-3h-7v5"/><circle cx="7" cy="11" r="1.6"/></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><path d="M12 15v2"/></symbol><symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 21v-6"/><path d="M12 3l6 8h-3l4 5H5l4-5H6z"/></symbol><symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol><symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol><symbol id="i-battery" viewBox="0 0 24 24"><rect x="2" y="7" width="17" height="10" rx="2"/><path d="M22 11v2"/><path d="M5 10v4M8 10v4M11 10v4"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol><symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></symbol><symbol id="i-away" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h6M15 15h6M18 12l3 3-3 3"/></symbol><symbol id="i-sunrise" viewBox="0 0 24 24"><path d="M3 18h18M6 18a6 6 0 0 1 12 0"/><path d="M12 4v4M4.9 9.9l1.4 1.4M19.1 9.9l-1.4 1.4M9 6l3-2 3 2"/></symbol><symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 3L2 20h20z"/><path d="M12 10v4M12 17v.5"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></symbol><symbol id="i-garage" viewBox="0 0 24 24"><path d="M3 21V9l9-6 9 6v12"/><path d="M7 21v-9h10v9M7 15h10M7 18h10"/></symbol><symbol id="i-therm" viewBox="0 0 24 24"><path d="M10 14V5a2 2 0 0 1 4 0v9a4 4 0 1 1-4 0z"/><path d="M12 9v7"/></symbol><symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></symbol><symbol id="i-motion" viewBox="0 0 24 24"><circle cx="13" cy="4" r="2"/><path d="M8 21l3-6 3 2v4M7 12l3-4 4 1 3 3M11 15l1-5"/></symbol><symbol id="i-tv" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></symbol><symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3c1 4 6 6 6 11a6 6 0 0 1-12 0c0-3 2-4 2-7 2 1 3 3 3 4 1-2 1-5 1-8z"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-door" viewBox="0 0 24 24"><path d="M5 21V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v17M3 21h18"/><circle cx="15" cy="12" r="1"/></symbol><symbol id="i-off" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></symbol><symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol><symbol id="i-cam" viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></symbol></svg>
+<div class="space"><main class="wrap">
+<div class="top"><span>Brightwork Home</span><span>Saturday 21:40</span></div>
+<section class="hero" aria-labelledby="say">
+<svg class="orb" viewBox="0 0 220 220" role="img" aria-label="Assistant orb, glowing softly while speaking">
+<defs><radialGradient id="o1" cx=".42" cy=".38" r=".62"><stop offset="0" stop-color="#f4f2ff"/><stop offset=".25" stop-color="#9ee7ff"/><stop offset=".6" stop-color="#7a5cf0"/><stop offset="1" stop-color="#1a1438"/></radialGradient>
+<radialGradient id="o2" cx=".5" cy=".5" r=".5"><stop offset=".55" stop-color="#7a5cf0" stop-opacity=".35"/><stop offset="1" stop-color="#7a5cf0" stop-opacity="0"/></radialGradient></defs>
+<circle cx="110" cy="110" r="108" fill="url(#o2)"/><circle cx="110" cy="110" r="78" fill="url(#o1)"/>
+<ellipse cx="110" cy="110" rx="96" ry="30" fill="none" stroke="#9ee7ff" stroke-opacity=".5" transform="rotate(-18 110 110)"/>
+<ellipse cx="110" cy="110" rx="92" ry="22" fill="none" stroke="#c7a8ff" stroke-opacity=".45" transform="rotate(24 110 110)"/></svg>
+<span class="status"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-mic"/></svg>Speaking</span>
+<p class="say" id="say">Good evening. Movie is on and the house is settled. <em>The garage door has been open for 2 hours.</em> Shall I close it?</p>
+<svg class="wave" viewBox="0 0 420 36" aria-hidden="true"><path d="M0,18 L0,18.0 L4,18.2 L8,18.4 L12,18.5 L16,18.6 L20,18.6 L24,18.4 L28,18.0 L32,17.6 L36,17.1 L40,16.8 L44,16.6 L48,16.7 L52,17.1 L56,17.9 L60,18.8 L64,19.8 L68,20.5 L72,20.9 L76,20.6 L80,19.8 L84,18.3 L88,16.6 L92,14.8 L96,13.5 L100,12.9 L104,13.3 L108,14.8 L112,17.2 L116,20.1 L120,23.0 L124,25.1 L128,26.0 L132,25.3 L136,23.0 L140,19.4 L144,15.2 L148,11.2 L152,8.2 L156,7.0 L160,8.0 L164,11.1 L168,15.8 L172,21.2 L176,26.3 L180,29.9 L184,31.2 L188,30.0 L192,26.3 L196,20.9 L200,14.8 L204,9.3 L208,5.4 L212,4.0 L216,5.4 L220,9.2 L224,14.7 L228,20.7 L232,26.1 L236,29.7 L240,31.0 L244,29.7 L248,26.2 L252,21.3 L256,16.0 L260,11.4 L264,8.4 L268,7.4 L272,8.5 L276,11.3 L280,15.2 L284,19.2 L288,22.7 L292,24.9 L296,25.6 L300,24.7 L304,22.7 L308,20.1 L312,17.4 L316,15.1 L320,13.7 L324,13.3 L328,13.8 L332,15.0 L336,16.7 L340,18.3 L344,19.6 L348,20.4 L352,20.6 L356,20.3 L360,19.6 L364,18.8 L368,17.9 L372,17.2 L376,16.8 L380,16.7 L384,16.9 L388,17.2 L392,17.6 L396,18.0 L400,18.3 L404,18.5 L408,18.5 L412,18.5 L416,18.3 L420,18.2" fill="none" stroke="#9ee7ff" stroke-width="1.6" stroke-linecap="round"/></svg>
+<div class="ask"><button class="btn pri"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-garage"/></svg>Close now</button><button class="btn">Leave it open</button></div>
+</section>
+<div class="notes">
+<section class="note" aria-labelledby="rm-h"><h2 id="rm-h">Rooms</h2><p class="lede">Five places I am watching.</p>
+<ul class="rl">
+<li><span class="c-cyan"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-bulb"/></svg></span><span>Living room<small>3 lights at 40 percent, TV off</small></span><span class="v">21.5°</span></li>
+<li><span class="c-mute"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-off"/></svg></span><span>Kitchen<small>Lights off</small></span><span class="v">20.0°</span></li>
+<li><span class="c-coral"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg></span><span>Bedroom<small>Heating to 18 at 23:00</small></span><span class="v">19.0°</span></li>
+<li><span class="c-mint"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-lock"/></svg></span><span>Front door<small>Locked, last opened 19:12</small></span><span class="v">Locked</span></li>
+<li><span class="c-lilac"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-motion"/></svg></span><span>Garden<small>Motion detected 21:31</small></span><span class="v">Motion</span></li>
+</ul></section>
+<section class="note" aria-labelledby="en-h"><h2 id="en-h">Energy</h2><p class="lede">A quiet day until the evening.</p>
+<div class="big">11.4 <span>kWh today</span></div>
+<div class="pair"><div><b class="c-cyan">3.2 kWh</b><small>from solar</small></div><div><b class="c-mint">64%</b><small>battery</small></div></div>
+<svg class="glow" viewBox="0 0 300 84" role="img" aria-labelledby="gl-t"><title id="gl-t">Hourly use today, 00:00 to 21:00. Low overnight at 0.2 to 0.3 kWh, a morning bump to 0.8 kWh at 07:00, flat at about 0.3 to 0.5 kWh through the day, then an evening peak of 1.35 kWh at 19:00, now 0.8 kWh at 21:00.</title>
+<defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c7a8ff" stop-opacity=".45"/><stop offset="1" stop-color="#c7a8ff" stop-opacity="0"/></linearGradient></defs>
+<path d="M0.0,61.0 C2.4,61.4 9.5,62.7 14.29,63.5 C19.1,64.3 23.8,65.6 28.57,66.0 C33.3,66.4 38.1,66.0 42.86,66.0 C47.6,66.0 52.4,66.4 57.14,66.0 C61.9,65.6 66.7,65.2 71.43,63.5 C76.2,61.8 80.9,60.6 85.71,56.0 C90.5,51.4 95.2,38.5 100.0,36.0 C104.8,33.5 109.5,37.7 114.29,41.0 C119.1,44.3 123.8,52.7 128.57,56.0 C133.3,59.3 138.1,60.2 142.86,61.0 C147.6,61.8 152.4,62.7 157.14,61.0 C161.9,59.3 166.7,51.4 171.43,51.0 C176.2,50.6 180.9,56.8 185.71,58.5 C190.5,60.2 195.2,60.6 200.0,61.0 C204.8,61.4 209.5,61.8 214.29,61.0 C219.1,60.2 223.8,59.3 228.57,56.0 C233.3,52.7 238.1,48.5 242.86,41.0 C247.6,33.5 252.4,16.4 257.14,11.0 C261.9,5.6 266.7,6.8 271.43,8.5 C276.2,10.2 280.9,16.4 285.71,21.0 C290.5,25.6 297.6,33.5 300.0,36.0 L300,80 L0,80Z" fill="url(#ga)"/><path d="M0.0,61.0 C2.4,61.4 9.5,62.7 14.29,63.5 C19.1,64.3 23.8,65.6 28.57,66.0 C33.3,66.4 38.1,66.0 42.86,66.0 C47.6,66.0 52.4,66.4 57.14,66.0 C61.9,65.6 66.7,65.2 71.43,63.5 C76.2,61.8 80.9,60.6 85.71,56.0 C90.5,51.4 95.2,38.5 100.0,36.0 C104.8,33.5 109.5,37.7 114.29,41.0 C119.1,44.3 123.8,52.7 128.57,56.0 C133.3,59.3 138.1,60.2 142.86,61.0 C147.6,61.8 152.4,62.7 157.14,61.0 C161.9,59.3 166.7,51.4 171.43,51.0 C176.2,50.6 180.9,56.8 185.71,58.5 C190.5,60.2 195.2,60.6 200.0,61.0 C204.8,61.4 209.5,61.8 214.29,61.0 C219.1,60.2 223.8,59.3 228.57,56.0 C233.3,52.7 238.1,48.5 242.86,41.0 C247.6,33.5 252.4,16.4 257.14,11.0 C261.9,5.6 266.7,6.8 271.43,8.5 C276.2,10.2 280.9,16.4 285.71,21.0 C290.5,25.6 297.6,33.5 300.0,36.0" fill="none" stroke="#c7a8ff" stroke-width="2"/>
+<circle cx="271.43" cy="8.5" r="4" fill="#ecebfa"/><line x1="0" y1="80.5" x2="300" y2="80.5" stroke="#2a2548"/></svg><div class="cap"><span>00:00</span><span>peak 19:00</span><span>21:00</span></div></section>
+<section class="note" aria-labelledby="sc-h"><h2 id="sc-h">Scenes</h2><p class="lede">Ask me, or tap one.</p>
+<ul class="sc">
+<li><button class="scene" aria-pressed="false"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-moon"/></svg><span class="q">Good night</span><small>Say “good night”</small></button></li>
+<li><button class="scene" aria-pressed="true"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-film"/></svg><span class="q">Movie</span><small><svg class="i" aria-hidden="true" focusable="false"><use href="#i-check"/></svg> Running</small></button></li>
+<li><button class="scene" aria-pressed="false"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-away"/></svg><span class="q">Away</span><small>Say “we are out”</small></button></li>
+<li><button class="scene" aria-pressed="false"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-sunrise"/></svg><span class="q">Morning</span><small>Say “morning”</small></button></li>
+</ul></section>
+</div></main></div><section class="sheet" aria-labelledby="sheet-h">
+<div class="sheet-in">
+<h2 id="sheet-h">Style 379 · Home AI</h2>
+<p class="idea">The home speaks as a calm intelligence, a softly lit orb and one spoken line lead the screen, and the rooms, energy and scenes sit below as quiet notes the assistant is keeping an eye on.</p>
+<h3>Palette</h3>
+<ul class="swatches">
+<li class="sw"><i style="background:#07060f" aria-hidden="true"></i><div><b>page</b> <code>#07060f</code> <span>page ground</span></div></li>
+<li class="sw"><i style="background:#0e0c1c" aria-hidden="true"></i><div><b>deep</b> <code>#0e0c1c</code> <span>note panels and swatch cards</span></div></li>
+<li class="sw"><i style="background:#151229" aria-hidden="true"></i><div><b>veil</b> <code>#151229</code> <span>secondary buttons and fields</span></div></li>
+<li class="sw"><i style="background:#2a2548" aria-hidden="true"></i><div><b>line</b> <code>#2a2548</code> <span>panel edges and row rules</span></div></li>
+<li class="sw"><i style="background:#ecebfa" aria-hidden="true"></i><div><b>ink</b> <code>#ecebfa</code> <span>text and the spoken line</span></div></li>
+<li class="sw"><i style="background:#a7a3c7" aria-hidden="true"></i><div><b>mute</b> <code>#a7a3c7</code> <span>labels and meta</span></div></li>
+<li class="sw"><i style="background:#9ee7ff" aria-hidden="true"></i><div><b>cyan</b> <code>#9ee7ff</code> <span>orb core, speaking status, lights on, focus</span></div></li>
+<li class="sw"><i style="background:#c7a8ff" aria-hidden="true"></i><div><b>lilac</b> <code>#c7a8ff</code> <span>energy curve, motion, active scene</span></div></li>
+<li class="sw"><i style="background:#ffb3a1" aria-hidden="true"></i><div><b>coral</b> <code>#ffb3a1</code> <span>the alert words in the spoken line, heating</span></div></li>
+<li class="sw"><i style="background:#9df0cf" aria-hidden="true"></i><div><b>mint</b> <code>#9df0cf</code> <span>locked and battery</span></div></li>
+<li class="sw"><i style="background:#061a24" aria-hidden="true"></i><div><b>onCyan</b> <code>#061a24</code> <span>text on the cyan to lilac primary button</span></div></li>
+</ul>
+<h3>Type</h3>
+<div class="type-row"><code>52 / 200 · figure</code><span style="font-size:52px;font-weight:200">11.4</span></div>
+<div class="type-row"><code>30 / 300 · spoken line, 1.4</code><span style="font-size:30px;font-weight:300">Shall I close it?</span></div>
+<div class="type-row"><code>19 / 300 · note lede</code><span style="font-size:19px;font-weight:300">Five places I am watching.</span></div>
+<div class="type-row"><code>16 / 350 · body</code><span style="font-size:16px;font-weight:350">Living room</span></div>
+<div class="type-row"><code>14 / 400 · meta</code><span style="font-size:14px;color:#a7a3c7">Heating to 18 at 23:00</span></div>
+<div class="type-row"><code>12 / 600 caps 0.22em · label</code><span style="font-size:12px;font-weight:600;letter-spacing:.22em;color:#a7a3c7">ROOMS</span></div>
+<h3>Spacing, density and depth</h3>
+<dl class="facts">
+<dt>Font</dt><dd>system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial at light weights 200 to 350.</dd>
+<dt>Spacing</dt><dd>8px unit, very open. 56px between hero and notes, 24px panel padding.</dd>
+<dt>Density</dt><dd>Low. One sentence leads, three short note panels follow.</dd>
+<dt>Corners</dt><dd>32px panels, full pills for every button, field and scene.</dd>
+<dt>Borders</dt><dd>1px #2a2548 on panels and rows, lilac on the active scene.</dd>
+<dt>Shadows</dt><dd>None. Light comes from the orb glow and a radial haze behind it.</dd>
+<dt>Icons</dt><dd>Thin 1.4 stroke line icons, coloured per state, always with words. A mic marks speaking.</dd>
+<dt>Focus</dt><dd>2px cyan outline offset 4px, round with the pill.</dd>
+<dt>Tone</dt><dd>First person and gentle, such as Five places I am watching and Shall I close it?</dd>
+</dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls">
+<div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><div><span class="ctl-state">Normal</span><button class="btn pri">Close now</button></div><div><span class="ctl-state">Focus</span><button class="btn pri is-focus">Close now</button></div></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><div><span class="ctl-state">Normal</span><button class="btn">Leave it open</button></div><div><span class="ctl-state">Focus</span><button class="btn is-focus">Leave it open</button></div></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><div><span class="ctl-state">Normal</span><label class="fld">Ask the house<input value="Dim the living room" class=""></label></div><div><span class="ctl-state">Focus</span><label class="fld">Ask the house<input value="Dim the living room" class="is-focus"></label></div></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><div><span class="ctl-state">Normal</span><div class="lrow" tabindex="0"><span class="c-mint"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-lock"/></svg></span><span>Front door</span><small>Locked</small></div></div><div><span class="ctl-state">Focus</span><div class="lrow is-focus" tabindex="0"><span class="c-mint"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-lock"/></svg></span><span>Front door</span><small>Locked</small></div></div></div></div>
+</div>
+
+</div>
+</section>
+</body>
+</html>

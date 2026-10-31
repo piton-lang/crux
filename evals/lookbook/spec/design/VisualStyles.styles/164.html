@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 164 · Cash register · Brightwork</title>
+<style>
+:root {
+  --counter: #e9e4d8;
+  --case: #f8f5ee;
+  --caseEdge: #a89f8c;
+  --lcd: #cbd8bb;
+  --lcdInk: #1c2a12;
+  --lcdDim: #4a5a3c;
+  --keyCream: #fffdf6;
+  --keyNavy: #1f3a5f;
+  --keyRed: #9e2121;
+  --ink: #23201b;
+  --muted: #5b5446;
+  --tape: #ffffff;
+  --ok: #24602f;
+  --warn: #8a4f00;
+  --bad: #9e2121;
+  --focus: #1f5fd1;
+  --mono: "Consolas", "DejaVu Sans Mono", "Menlo", "Liberation Mono", monospace;
+  --key: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--counter); color: var(--ink); font: 15px/1.45 var(--sans); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+a, button, input { font: inherit; color: inherit; }
+:focus-visible, .is-focus { outline: 3px solid var(--focus); outline-offset: 3px; }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 24px 16px 48px; }
+
+/* terminal case */
+.terminal { background: var(--case); border: 2px solid var(--caseEdge); border-radius: 18px; box-shadow: 0 6px 0 #c9c1ae, 0 14px 24px rgba(60,50,30,.18); padding: 16px; display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr) 320px; }
+.badge { display: flex; align-items: center; gap: 10px; font: 700 12px/1.2 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.brand { font: 900 18px/1 var(--key); letter-spacing: .04em; color: var(--ink); text-transform: uppercase; }
+.brand small { display: block; font: 700 10px/1.4 var(--mono); letter-spacing: .14em; color: var(--muted); }
+
+/* pole display */
+.pole { grid-column: 1 / -1; display: grid; grid-template-columns: auto minmax(0,1fr) auto; gap: 16px; align-items: center; }
+.lcd { background: var(--lcd); color: var(--lcdInk); border: 6px solid #3a3a33; border-radius: 8px; box-shadow: inset 0 3px 8px rgba(0,0,0,.25); font-family: var(--mono); }
+.pole .lcd { padding: 10px 16px; }
+.lcd h1 { margin: 0; font: 700 26px/1.15 var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+.lcd .line2 { margin: 4px 0 0; font: 700 16px/1.3 var(--mono); letter-spacing: .06em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.clerk { text-align: right; }
+.clerk b { display: block; font: 700 15px/1.2 var(--sans); color: var(--ink); letter-spacing: 0; text-transform: none; }
+
+/* totals windows */
+.totals { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.totals li { padding: 8px 12px 10px; }
+.totals .k { font: 700 11px/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--lcdInk); display: flex; justify-content: space-between; gap: 8px; }
+.totals .v { font: 700 44px/1 var(--mono); text-align: right; display: block; margin-top: 6px; letter-spacing: .02em; }
+.totals .v small { font-size: 14px; letter-spacing: .1em; }
+
+/* screen: item lines */
+.screen { background: #fff; border: 2px solid #3a3a33; border-radius: 6px; overflow: hidden; min-width: 0; }
+.screen-head { background: var(--keyNavy); color: #fff; display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; font: 700 12px/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; gap: 8px; flex-wrap: wrap; }
+.screen h2 { margin: 0; font: inherit; }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; min-width: 640px; font: 14px/1.35 var(--mono); }
+th { text-align: left; font: 700 11px/1.2 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: 8px 10px; border-bottom: 2px solid var(--ink); white-space: nowrap; }
+td { padding: 10px; border-bottom: 1px dashed #b9b2a2; vertical-align: middle; white-space: nowrap; }
+td.n, th.n { text-align: right; }
+tr:nth-child(even) td { background: #f6f3ea; }
+td a { text-decoration: none; font-weight: 700; }
+td a:hover { text-decoration: underline; }
+.plu { color: var(--muted); }
+.dept { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.qbar { display: inline-block; width: 64px; height: 10px; border: 1px solid var(--ink); vertical-align: middle; margin-left: 6px; background: repeating-linear-gradient(90deg, transparent 0 7px, #d7d0bf 7px 8px); position: relative; }
+.qbar i { position: absolute; inset: 0 auto 0 0; background: var(--ink); }
+tfoot td { border-bottom: 0; border-top: 2px solid var(--ink); font-weight: 700; background: #fff !important; }
+.st { display: inline-flex; align-items: center; gap: 6px; font: 700 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; padding: 4px 8px 4px 6px; border: 2px solid currentColor; border-radius: 4px; }
+.st svg { width: 14px; height: 14px; flex: none; }
+.st.ok { color: var(--ok); } .st.warn { color: var(--warn); } .st.bad { color: var(--bad); }
+
+/* keypad */
+.pad { display: grid; gap: 12px; align-content: start; }
+.pad h2 { margin: 0; font: 700 11px/1.2 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.keys { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.key { display: flex; flex-direction: column; justify-content: space-between; min-height: 72px; padding: 8px; background: var(--keyCream); border: 2px solid #8b836f; border-radius: 8px; box-shadow: 0 4px 0 #8b836f; text-decoration: none; font: 900 13px/1.1 var(--key); text-transform: uppercase; letter-spacing: .02em; color: var(--ink); }
+.key small { font: 700 10px/1 var(--mono); color: var(--muted); letter-spacing: .1em; }
+.key[aria-current="page"] { transform: translateY(3px); box-shadow: 0 1px 0 #8b836f; background: #fff1c2; border-color: var(--ink); }
+.key svg { width: 18px; height: 18px; }
+.plu-field { display: grid; gap: 6px; }
+.plu-field span { font: 700 11px/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.plu-field input { width: 100%; background: var(--lcd); color: var(--lcdInk); border: 4px solid #3a3a33; border-radius: 6px; padding: 10px; font: 700 15px/1 var(--mono); text-transform: uppercase; }
+.plu-field input::placeholder { color: var(--lcdDim); }
+.fn { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.bigkey { min-height: 64px; border-radius: 8px; border: 2px solid #12233a; background: var(--keyNavy); color: #fff; box-shadow: 0 4px 0 #12233a; font: 900 15px/1.1 var(--key); text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 8px; }
+.bigkey.total { grid-column: 1 / -1; min-height: 76px; font-size: 20px; }
+.bigkey.alt { background: var(--keyCream); color: var(--ink); border-color: #8b836f; box-shadow: 0 4px 0 #8b836f; }
+.bigkey svg { width: 20px; height: 20px; }
+.count { background: var(--keyRed); color: #fff; border-radius: 999px; font: 700 12px/1 var(--mono); padding: 3px 7px; }
+
+/* lower */
+.lower { grid-column: 1 / -1; display: grid; grid-template-columns: 340px minmax(0,1fr); gap: 16px; align-items: start; }
+.tape { background: var(--tape); border: 1px solid #c9c1ae; padding: 20px 16px 16px; font: 13px/1.45 var(--mono); position: relative; box-shadow: 0 2px 6px rgba(60,50,30,.12);
+  -webkit-mask: linear-gradient(#000 0 0) 0 10px/100% calc(100% - 10px) no-repeat, conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top/12px 10px repeat-x;
+  mask: linear-gradient(#000 0 0) 0 10px/100% calc(100% - 10px) no-repeat, conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top/12px 10px repeat-x; }
+.tape h2 { margin: 0 0 4px; font: 700 13px/1.3 var(--mono); text-align: center; letter-spacing: .14em; text-transform: uppercase; }
+.tape .sub { text-align: center; margin: 0 0 10px; color: var(--muted); font-size: 12px; }
+.tape ol { list-style: none; margin: 0; padding: 0; border-top: 1px dashed var(--ink); }
+.tape li { padding: 8px 0; border-bottom: 1px dashed #b9b2a2; display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; }
+.tape li .who { font-weight: 700; text-transform: uppercase; }
+.tape li .t { color: var(--muted); text-align: right; white-space: nowrap; }
+.tape li .what { grid-column: 1 / -1; }
+.chartbox { padding: 12px 16px 14px; min-width: 0; }
+.chartbox h2 { margin: 0; font: 700 14px/1.2 var(--mono); letter-spacing: .1em; text-transform: uppercase; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.chartbox svg { display: block; width: 100%; height: auto; margin-top: 8px; }
+.wk { display: flex; gap: 24px; font: 700 14px/1.2 var(--mono); text-transform: uppercase; margin-top: 6px; flex-wrap: wrap; }
+
+@media (max-width: 960px) {
+  .terminal { grid-template-columns: minmax(0,1fr); }
+  .lower { grid-template-columns: minmax(0,1fr); }
+}
+@media (max-width: 640px) {
+  .pole { grid-template-columns: minmax(0,1fr); }
+  .clerk { text-align: left; }
+  .totals { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .lcd h1 { font-size: 20px; }
+  .totals .v { font-size: 34px; }
+  .terminal { padding: 10px; border-radius: 12px; }
+  .chartbox { overflow-x: auto; }
+  .chartbox svg { min-width: 460px; }
+}
+
+/* style sheet */
+.sheet { margin-top: 40px; background: var(--case); border: 2px solid var(--caseEdge); border-radius: 18px; padding: 24px; }
+.sheet h2 { font: 900 28px/1.1 var(--key); margin: 0 0 8px; text-transform: uppercase; }
+.sheet h3 { font: 700 13px/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; margin: 28px 0 12px; border-bottom: 2px solid var(--ink); padding-bottom: 6px; }
+.idea { font-size: 17px; max-width: 70ch; margin: 0; }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.swatches li { display: flex; gap: 10px; align-items: center; background: #fff; border: 1px dashed #b9b2a2; padding: 8px; font: 12px/1.35 var(--mono); }
+.swatches i { width: 44px; height: 44px; border-radius: 6px; border: 1px solid #3a3a33; flex: none; }
+.swatches b { display: block; font-size: 13px; }
+.typerow { display: grid; grid-template-columns: 220px minmax(0,1fr); gap: 12px; align-items: baseline; padding: 8px 0; border-bottom: 1px dashed #b9b2a2; }
+.typerow code { font: 12px/1.3 var(--mono); color: var(--muted); }
+.facts { display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 8px 16px; margin: 0; }
+.facts dt { font: 700 12px/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+.facts dd { margin: 0; }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+.controls .lbl { display: block; font: 700 11px/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.ctlrow { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.ctlrow .bigkey { min-height: 52px; padding: 8px 16px; font-size: 14px; }
+.rowdemo { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px; background: #fff; border-bottom: 1px dashed #b9b2a2; font: 14px var(--mono); }
+.rowdemo + .rowdemo { margin-top: 12px; }
+@media (max-width: 640px) { .typerow, .facts { grid-template-columns: minmax(0,1fr); } .sheet { padding: 16px; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="s-ok" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="currentColor"/><path d="M4.5 8.2l2.3 2.3 4.7-4.9" fill="none" stroke="#fff" stroke-width="2"/></symbol>
+  <symbol id="s-warn" viewBox="0 0 16 16"><path d="M8 1l7.5 13.5H.5z" fill="currentColor"/><path d="M8 6v4M8 11.5v1.5" stroke="#fff" stroke-width="2"/></symbol>
+  <symbol id="s-bad" viewBox="0 0 16 16"><rect x="1" y="1" width="14" height="14" fill="currentColor"/><path d="M5 5l6 6M11 5l-6 6" stroke="#fff" stroke-width="2"/></symbol>
+  <symbol id="s-over" viewBox="0 0 16 16"><path d="M5 1h6l4 4v6l-4 4H5l-4-4V5z" fill="currentColor"/><path d="M8 4v5M8 10.5v2" stroke="#cbd8bb" stroke-width="2"/></symbol>
+  <symbol id="s-bell" viewBox="0 0 20 20"><path d="M10 2a5 5 0 0 0-5 5v4l-2 3h14l-2-3V7a5 5 0 0 0-5-5zM8 16a2 2 0 0 0 4 0" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="s-plus" viewBox="0 0 20 20"><path d="M10 3v14M3 10h14" stroke="currentColor" stroke-width="3"/></symbol>
+</svg>
+<div class="wrap">
+<div class="terminal">
+  <header class="pole">
+    <div class="brand">Brightwork<small>Register 01 · Projects</small></div>
+    <div class="lcd" role="group" aria-label="Customer display">
+      <h1>Good morning, Mara</h1>
+      <p class="line2"><span>Sat 31 Oct 2026</span><span aria-hidden="true">··</span><svg width="16" height="16" aria-hidden="true"><use href="#s-over"/></svg><span>Overdue · 4 tasks</span></p>
+    </div>
+    <div class="badge clerk">Clerk on duty<b>Mara Okafor</b></div>
+  </header>
+
+  <ul class="totals" aria-label="This week's totals">
+    <li class="lcd"><span class="k"><span>Active projects</span><span>01</span></span><span class="v">6</span></li>
+    <li class="lcd"><span class="k"><span>Due this week</span><span>02</span></span><span class="v">23<small> TSK</small></span></li>
+    <li class="lcd"><span class="k"><span>Overdue</span><span><svg width="12" height="12" aria-hidden="true"><use href="#s-over"/></svg> 03</span></span><span class="v">4<small> TSK</small></span></li>
+    <li class="lcd"><span class="k"><span>Hours logged</span><span>04</span></span><span class="v">186<small> H</small></span></li>
+  </ul>
+
+  <main class="screen" aria-labelledby="items-h">
+    <div class="screen-head"><h2 id="items-h">Item lines · 6 projects</h2><span>Sale no. 2026-10-31</span></div>
+    <div class="scroll" tabindex="0" role="region" aria-label="Projects table, scrolls sideways">
+    <table>
+      <thead><tr><th>PLU</th><th>Item</th><th>Dept</th><th class="n">Qty</th><th class="n">Pct</th><th>Due</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td class="plu">001</td><td><a href="#">Website redesign</a></td><td class="dept">Design</td><td class="n">18/25</td><td class="n">72% <span class="qbar" aria-hidden="true"><i style="width:72%"></i></span></td><td>14 Nov</td><td><span class="st ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td></tr>
+        <tr><td class="plu">002</td><td><a href="#">Mobile app 2.0</a></td><td class="dept">Engineering</td><td class="n">27/60</td><td class="n">45% <span class="qbar" aria-hidden="true"><i style="width:45%"></i></span></td><td>2 Dec</td><td><span class="st warn"><svg aria-hidden="true"><use href="#s-warn"/></svg>At risk</span></td></tr>
+        <tr><td class="plu">003</td><td><a href="#">Q4 customer survey</a></td><td class="dept">Research</td><td class="n">9/10</td><td class="n">90% <span class="qbar" aria-hidden="true"><i style="width:90%"></i></span></td><td>7 Nov</td><td><span class="st ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td></tr>
+        <tr><td class="plu">004</td><td><a href="#">Billing migration</a></td><td class="dept">Engineering</td><td class="n">12/40</td><td class="n">30% <span class="qbar" aria-hidden="true"><i style="width:30%"></i></span></td><td>20 Nov</td><td><span class="st bad"><svg aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></td></tr>
+        <tr><td class="plu">005</td><td><a href="#">Spring catalogue</a></td><td class="dept">Marketing</td><td class="n">3/20</td><td class="n">15% <span class="qbar" aria-hidden="true"><i style="width:15%"></i></span></td><td>15 Jan</td><td><span class="st ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td></tr>
+        <tr><td class="plu">006</td><td><a href="#">Onboarding emails</a></td><td class="dept">Marketing</td><td class="n">9/15</td><td class="n">60% <span class="qbar" aria-hidden="true"><i style="width:60%"></i></span></td><td>21 Nov</td><td><span class="st ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td></tr>
+      </tbody>
+      <tfoot><tr><td></td><td>Subtotal</td><td>6 items</td><td class="n">78/170</td><td class="n">46%</td><td colspan="2"></td></tr></tfoot>
+    </table>
+    </div>
+  </main>
+
+  <aside class="pad" aria-label="Keypad">
+    <nav aria-label="Main">
+      <h2>Department keys</h2>
+      <ul class="keys">
+        <li><a class="key" href="#" aria-current="page"><small>D1</small>Home</a></li>
+        <li><a class="key" href="#"><small>D2</small>Projects</a></li>
+        <li><a class="key" href="#"><small>D3</small>Tasks</a></li>
+        <li><a class="key" href="#"><small>D4</small>Team</a></li>
+        <li><a class="key" href="#"><small>D5</small>Reports</a></li>
+        <li><a class="key" href="#"><small>D6</small>Settings</a></li>
+      </ul>
+    </nav>
+    <label class="plu-field"><span>PLU lookup · search projects and tasks</span><input type="search" placeholder="Type a project or task"></label>
+    <div class="fn">
+      <button class="bigkey alt" type="button" aria-label="Notifications, 3 new"><svg aria-hidden="true"><use href="#s-bell"/></svg>Notices <span class="count" aria-hidden="true">3</span></button>
+      <button class="bigkey alt" type="button">Mara O.</button>
+      <button class="bigkey total" type="button"><svg aria-hidden="true"><use href="#s-plus"/></svg>New project</button>
+    </div>
+  </aside>
+
+  <div class="lower">
+    <section class="tape" aria-labelledby="tape-h">
+      <h2 id="tape-h">Journal tape</h2>
+      <p class="sub">Team activity · newest first</p>
+      <ol>
+        <li><span class="who">Jonas Weber</span><span class="t">12 min</span><span class="what">Completed "Export invoices as CSV" · Billing migration</span></li>
+        <li><span class="who">Priya Nair</span><span class="t">40 min</span><span class="what">Commented on "Hero image options" · Website redesign</span></li>
+        <li><span class="who">Sam Ortiz</span><span class="t">1 h</span><span class="what">Moved "Push notifications" to Review · Mobile app 2.0</span></li>
+        <li><span class="who">Lena Fischer</span><span class="t">2 h</span><span class="what">Added 3 tasks · Spring catalogue</span></li>
+        <li><span class="who">Tomás Ruiz</span><span class="t">3 h</span><span class="what">Logged 6 h · Mobile app 2.0</span></li>
+        <li><span class="who">Aiko Tanaka</span><span class="t">Yesterday</span><span class="what">Uploaded survey-results-v2.pdf · Q4 customer survey</span></li>
+      </ol>
+    </section>
+    <section class="lcd chartbox" aria-labelledby="chart-h">
+      <h2 id="chart-h"><span>Z report · tasks closed per day</span><span>18–31 Oct</span></h2>
+      <svg viewBox="0 0 700 220" role="img" aria-label="Tasks completed per day from Sunday 18 October to Saturday 31 October 2026. Last week: Sunday 3, Monday 12, Tuesday 9, Wednesday 14, Thursday 11, Friday 8, Saturday 2, total 59. This week: Sunday 4, Monday 15, Tuesday 13, Wednesday 17, Thursday 12, Friday 10, Saturday 2, total 73.">
+        <defs><pattern id="seg" width="40" height="10" patternUnits="userSpaceOnUse"><rect width="40" height="8" fill="#1c2a12"/></pattern></defs>
+        <g font-family="Consolas, DejaVu Sans Mono, monospace" font-size="13" font-weight="700" fill="#1c2a12" text-anchor="middle">
+          <line x1="0" y1="190" x2="700" y2="190" stroke="#1c2a12" stroke-width="2"/>
+          <line x1="350" y1="10" x2="350" y2="210" stroke="#1c2a12" stroke-dasharray="4 4"/>
+          <g fill="url(#seg)">
+            <rect x="10" y="160" width="40" height="30"/><rect x="58" y="70" width="40" height="120"/><rect x="106" y="100" width="40" height="90"/><rect x="154" y="50" width="40" height="140"/><rect x="202" y="80" width="40" height="110"/><rect x="250" y="110" width="40" height="80"/><rect x="298" y="170" width="40" height="20"/>
+            <rect x="362" y="150" width="40" height="40"/><rect x="410" y="40" width="40" height="150"/><rect x="458" y="60" width="40" height="130"/><rect x="506" y="20" width="40" height="170"/><rect x="554" y="70" width="40" height="120"/><rect x="602" y="90" width="40" height="100"/><rect x="650" y="170" width="40" height="20"/>
+          </g>
+          <text x="30" y="154">3</text><text x="78" y="64">12</text><text x="126" y="94">9</text><text x="174" y="44">14</text><text x="222" y="74">11</text><text x="270" y="104">8</text><text x="318" y="164">2</text>
+          <text x="382" y="144">4</text><text x="430" y="34">15</text><text x="478" y="54">13</text><text x="526" y="14">17</text><text x="574" y="64">12</text><text x="622" y="84">10</text><text x="670" y="164">2</text>
+          <g font-size="12"><text x="30" y="207">S</text><text x="78" y="207">M</text><text x="126" y="207">T</text><text x="174" y="207">W</text><text x="222" y="207">T</text><text x="270" y="207">F</text><text x="318" y="207">S</text><text x="382" y="207">S</text><text x="430" y="207">M</text><text x="478" y="207">T</text><text x="526" y="207">W</text><text x="574" y="207">T</text><text x="622" y="207">F</text><text x="670" y="207">S</text></g>
+        </g>
+      </svg>
+      <div class="wk"><span>Last wk total 59</span><span>This wk total 73</span></div>
+    </section>
+  </div>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h">
+  <h2 id="sheet-h">Style 164 · Cash register</h2>
+  <p class="idea">The dashboard is a point-of-sale terminal: green LCD windows ring up the totals, projects are item lines on the sale screen, the menu is a block of chunky department keys and activity prints on a journal tape.</p>
+
+  <h3>Palette</h3>
+  <ul class="swatches">
+    <li><i style="background:#e9e4d8"></i><div><b>Counter</b>#e9e4d8 · page behind the terminal</div></li>
+    <li><i style="background:#f8f5ee"></i><div><b>Case</b>#f8f5ee · terminal body and this sheet</div></li>
+    <li><i style="background:#a89f8c"></i><div><b>Case edge</b>#a89f8c · case border, never text</div></li>
+    <li><i style="background:#cbd8bb"></i><div><b>LCD</b>#cbd8bb · display windows and search</div></li>
+    <li><i style="background:#1c2a12"></i><div><b>LCD ink</b>#1c2a12 · all text and bars on LCD</div></li>
+    <li><i style="background:#fffdf6"></i><div><b>Key cream</b>#fffdf6 · department and secondary keys</div></li>
+    <li><i style="background:#1f3a5f"></i><div><b>Key navy</b>#1f3a5f · New project key, screen title bar</div></li>
+    <li><i style="background:#23201b"></i><div><b>Ink</b>#23201b · text on paper and keys</div></li>
+    <li><i style="background:#5b5446"></i><div><b>Muted</b>#5b5446 · PLU codes, departments, labels</div></li>
+    <li><i style="background:#24602f"></i><div><b>Green</b>#24602f · On track, circle check</div></li>
+    <li><i style="background:#8a4f00"></i><div><b>Amber</b>#8a4f00 · At risk, triangle</div></li>
+    <li><i style="background:#9e2121"></i><div><b>Void red</b>#9e2121 · Behind square, notice count</div></li>
+    <li><i style="background:#1f5fd1"></i><div><b>Focus blue</b>#1f5fd1 · focus outline only</div></li>
+  </ul>
+
+  <h3>Type</h3>
+  <div class="typerow"><code>Mono 44 / 700 · Consolas, DejaVu Sans Mono, Menlo</code><span style="font:700 44px/1 var(--mono)">186</span></div>
+  <div class="typerow"><code>Mono 26 / 700 caps · LCD headline</code><span style="font:700 26px/1.1 var(--mono);text-transform:uppercase">Good morning, Mara</span></div>
+  <div class="typerow"><code>Key 13–20 / 900 caps · Arial Black, Helvetica Neue, Arial</code><span style="font:900 18px/1 var(--key);text-transform:uppercase">New project</span></div>
+  <div class="typerow"><code>Mono 14 / 400 · item lines and tape</code><span style="font:14px var(--mono)">Billing migration 12/40 30%</span></div>
+  <div class="typerow"><code>Mono 11 / 700 caps +0.12em · labels</code><span style="font:700 11px var(--mono);letter-spacing:.12em;text-transform:uppercase">Department keys</span></div>
+  <div class="typerow"><code>Sans 15 / 400 · system-ui · clerk name</code><span>Mara Okafor</span></div>
+
+  <h3>Spacing, density and depth</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>8px unit. 16px inside the case and between blocks, 8px between keys.</dd>
+    <dt>Density</dt><dd>Busy and tactile like a shop counter. Many small windows, every key large enough to hit with a thumb.</dd>
+    <dt>Corners</dt><dd>18px on the case, 8px on keys and LCD bezels, 4px on status codes.</dd>
+    <dt>Borders</dt><dd>6px dark bezel around LCDs, 2px taupe key edges, dashed lines between item lines and tape entries.</dd>
+    <dt>Shadows</dt><dd>Keys sit on a hard 4px bottom ledge and the current key is pressed down to 1px. LCDs have an inset shadow.</dd>
+    <dt>Icons</dt><dd>Solid geometric marks. Circle with check for On track, triangle with bang for At risk, square with cross for Behind, octagon with bang for Overdue, always beside a caps word.</dd>
+    <dt>Tone</dt><dd>Register shorthand in caps, such as Item lines, Subtotal, PLU lookup and Z report.</dd>
+  </dl>
+
+  <h3>Controls · normal and focus</h3>
+  <div class="controls">
+    <div><span class="lbl">Primary key</span><div class="ctlrow"><button class="bigkey" type="button">Ring up</button><button class="bigkey is-focus" type="button">Focused</button></div></div>
+    <div><span class="lbl">Secondary key</span><div class="ctlrow"><button class="bigkey alt" type="button">Cancel</button><button class="bigkey alt is-focus" type="button">Focused</button></div></div>
+    <div><label class="plu-field"><span>Text field</span><input value="Website redesign"></label></div>
+    <div><label class="plu-field"><span>Text field, focused</span><input class="is-focus" value="Mobile app 2.0"></label></div>
+    <div><span class="lbl">Item row, normal and focused</span><div class="rowdemo"><span>004 Billing migration</span><span class="st bad"><svg aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></div><div class="rowdemo is-focus"><span>004 Billing migration</span><span class="st bad"><svg aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></div></div>
+  </div>
+</section>
+</div>
+</body>
+</html>

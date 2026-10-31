@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 249 · Darkroom · Brightwork</title>
+<style>
+:root{
+  color-scheme:dark;
+  --room:#140a09; --bench:#1e100e; --tray:#0d0606; --film:#0a0505; --sprocket:#3b2420; --line:#4a2a25;
+  --ink:#f4ddd6; --muted:#c99f95; --safe:#ff5a4c; --safeBtn:#c4231a; --glow:rgba(190,30,20,.42); --amber:#ffb45e; --paper:#fbf7f2;
+  --ui:"Avenir Next","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--room);color:var(--ink);font:14px/1.45 var(--ui)}
+.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.i.sm{width:15px;height:15px}
+button,input{font:inherit;color:inherit}
+:focus-visible,.is-focus{outline:2px solid var(--amber);outline-offset:3px}
+.mono{font-family:var(--mono)}
+
+.app{display:grid;grid-template-columns:minmax(0,1fr) 300px;grid-template-areas:"top top" "tray notes" "strip strip" "status status";background:radial-gradient(60% 55% at 38% 45%,var(--glow),transparent 72%),var(--room)}
+.top{grid-area:top;display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:12px 20px;border-bottom:1px solid var(--line);background:var(--bench)}
+.can{display:flex;align-items:center;gap:10px}
+.can .lamp{width:14px;height:14px;border-radius:50%;background:var(--safe);box-shadow:0 0 10px 3px rgba(255,90,76,.6)}
+.can b{font-weight:700;letter-spacing:.02em}
+.can span{color:var(--muted)}
+.knobs{display:flex;gap:6px}
+.knob{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:radial-gradient(circle at 35% 30%,#3a201c,#160b0a);display:grid;place-items:center;cursor:pointer;color:var(--ink)}
+.knob[aria-pressed=true]{border-color:var(--safe);color:var(--safe);box-shadow:0 0 0 3px rgba(255,90,76,.25)}
+.timer{font:600 15px var(--mono);color:var(--amber);background:#0b0504;border:1px solid var(--line);padding:6px 10px;border-radius:4px;letter-spacing:.08em}
+.sp{flex:1}
+.avs{display:flex;gap:6px}
+.av{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;border:1px solid var(--muted);color:var(--ink);background:#2a1513}
+.btn{height:38px;padding:0 16px;border-radius:4px;border:1px solid var(--line);background:#2a1513;display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-weight:600}
+.btn.primary{background:var(--safeBtn);border-color:var(--safeBtn);color:#fff}
+
+.trayw{grid-area:tray;padding:28px 32px 32px;min-width:0;position:relative}
+.cap{font:600 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.trayhead{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.trayhead b{color:var(--ink)}
+.tray{background:var(--tray);border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:inset 0 0 40px rgba(190,30,20,.35)}
+.fwrap{position:relative;max-width:860px;margin:0 auto}
+.print{background:var(--paper);padding:2.2%;box-shadow:0 0 0 1px #000,0 10px 30px rgba(0,0,0,.6)}
+.frame{container-type:inline-size;aspect-ratio:1440/820;background:#fff;color:#1c1412;display:flex;flex-direction:column;align-items:flex-start;padding:6.67cqw;gap:2.22cqw;outline:2px solid var(--safe);outline-offset:0}
+.frame .h{margin:0;font:600 4.4cqw/1.08 Georgia,"Times New Roman",serif}
+.frame .s{margin:0;font-size:1.6cqw;color:#5a4a46}
+.frame .b{position:relative;background:#1c1412;color:#fff;font-weight:600;font-size:1.25cqw;padding:1.1cqw 2.4cqw;border-radius:.3cqw}
+.frame .shot{align-self:stretch;flex:1;background:linear-gradient(160deg,#d9cfc9,#b8aaa3);display:grid;place-items:center;color:#2e2421;font-size:1.3cqw}
+.guide{position:absolute;left:calc(100% + 1.5cqw);top:-2.22cqw;height:2.22cqw;border-left:2px solid #c4231a;padding-left:.8cqw;display:flex;align-items:center;font:700 1.2cqw var(--mono);color:#9a160e;background:#fff}
+.crop{position:absolute;width:18px;height:18px;border-color:var(--safe);border-style:solid;border-width:0}
+.c1{left:-12px;top:-12px;border-left-width:2px;border-top-width:2px}.c2{right:-12px;top:-12px;border-right-width:2px;border-top-width:2px}
+.c3{left:-12px;bottom:-12px;border-left-width:2px;border-bottom-width:2px}.c4{right:-12px;bottom:-12px;border-right-width:2px;border-bottom-width:2px}
+.pin{position:absolute;left:36%;top:45%;display:flex;gap:6px;align-items:flex-start}
+.pin .dot{width:30px;height:30px;border-radius:50%;background:var(--amber);color:#2a1500;font-weight:800;font-size:11px;display:grid;place-items:center;box-shadow:0 0 0 3px rgba(255,180,94,.3)}
+.pin .bub{background:#1e100e;border:1px solid var(--amber);border-radius:4px;padding:8px 12px;width:210px;transform:rotate(-1deg)}
+.pin .bub b{display:flex;gap:6px;align-items:center;color:var(--amber)}
+.pin .bub p{margin:2px 0 0}
+
+.notes{grid-area:notes;padding:28px 20px 32px 0;min-width:0}
+.card{background:var(--bench);border:1px solid var(--line);border-radius:6px;padding:16px 16px 12px;background-image:repeating-linear-gradient(180deg,transparent 0 31px,rgba(201,159,149,.14) 31px 32px)}
+.card h2{margin:0 0 4px;font:600 13px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--safe)}
+.card .sub{margin:0 0 10px;color:var(--muted);font-size:13px}
+.read{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.read label{display:flex;flex-direction:column;gap:2px;font:600 11px var(--mono);letter-spacing:.12em;color:var(--muted)}
+.read input{background:#0b0504;border:1px solid var(--line);border-radius:3px;height:34px;padding:0 10px;font:600 16px var(--mono);color:var(--amber);letter-spacing:.06em;width:100%;min-width:0}
+.read input:focus{outline:2px solid var(--amber);outline-offset:1px}
+.nl{display:flex;justify-content:space-between;align-items:center;min-height:32px;gap:8px}
+.nl span:first-child{color:var(--muted)}
+.nl .v{font-family:var(--mono);color:var(--ink)}
+.sw{display:inline-block;width:14px;height:14px;background:#fff;border:1px solid var(--muted);vertical-align:-2px;margin-right:6px}
+
+.strip{grid-area:strip;background:var(--film);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 20px;position:relative;overflow-x:auto}
+.strip::before,.strip::after{content:"";position:absolute;left:0;right:0;height:9px;background:repeating-linear-gradient(90deg,transparent 0 8px,var(--sprocket) 8px 20px,transparent 20px 28px)}
+.strip::before{top:6px}.strip::after{bottom:6px}
+.strip h2{margin:0 0 10px}
+.frames{list-style:none;margin:0;padding:0;display:flex;gap:6px;min-width:max-content}
+.frames li{width:168px;border:1px solid var(--line);background:#160b0a;padding:8px 10px;display:flex;flex-direction:column;gap:6px;border-radius:2px}
+.frames .no{display:flex;justify-content:space-between;font:600 11px var(--mono);color:var(--amber);letter-spacing:.1em}
+.frames .nm{display:flex;gap:8px;align-items:center;font-weight:600}
+.frames .ty{font-size:12px;color:var(--muted)}
+.frames li.sel{border-color:var(--safe);box-shadow:inset 0 0 0 1px var(--safe),0 0 18px rgba(255,90,76,.35)}
+.frames li.sel .ty{color:var(--safe)}
+.frames li.child{margin-top:10px}
+.mk{display:inline-flex;align-items:center;gap:3px}
+.mk .i{width:10px;height:10px;fill:currentColor;stroke:none}
+
+.status{grid-area:status;display:flex;flex-wrap:wrap;gap:8px 24px;padding:10px 20px;background:var(--bench);font:600 13px var(--mono);letter-spacing:.04em}
+.status span{display:inline-flex;align-items:center;gap:8px}
+.status .ok{color:var(--amber)}
+.mtools{display:none}
+
+@media (max-width:1100px){.app{grid-template-columns:minmax(0,1fr) 260px}.trayw{padding:24px 20px}}
+@media (max-width:760px){
+  .app{grid-template-columns:minmax(0,1fr);grid-template-areas:"top" "tray" "mtools" "status"}
+  .notes,.strip,.knobs,.timer,.btn.pres{display:none}
+  .top{padding:10px 12px;gap:10px}.can{flex-basis:100%}
+  .trayw{padding:18px 12px 20px}.tray{padding:12px;border-radius:12px}
+  .pin{left:12%;top:42%}.pin .bub{width:170px}
+  .guide{display:none}
+  .mtools{grid-area:mtools;display:flex;justify-content:space-around;background:var(--film);padding:20px 6px;position:relative}
+  .mtools::before,.mtools::after{content:"";position:absolute;left:0;right:0;height:7px;background:repeating-linear-gradient(90deg,transparent 0 6px,var(--sprocket) 6px 16px,transparent 16px 22px)}
+  .mtools::before{top:5px}.mtools::after{bottom:5px}
+  .status{padding:10px 12px}
+}
+
+.sheet{max-width:1180px;margin:0 auto;padding:48px 24px 64px}
+.sheet h2{font:600 30px/1.2 Georgia,"Times New Roman",serif;margin:0 0 8px}
+.idea{font-size:16px;max-width:740px;margin:0 0 28px}
+.sheet h3{margin:32px 0 12px}
+.sws{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.sws li{background:var(--bench);border:1px solid var(--line);border-radius:4px;padding:8px;display:flex;gap:10px;align-items:center;font-size:13px}
+.sws i{width:42px;height:42px;border:1px solid var(--line);flex:none}
+.sws b{display:block}
+.sws code{font-family:var(--mono);color:var(--muted)}
+.trow{display:flex;flex-wrap:wrap;gap:16px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line)}
+.trow code{width:190px;font:12px var(--mono);color:var(--muted);flex:none}
+.facts{display:grid;grid-template-columns:150px 1fr;gap:8px 20px;margin:0}
+.facts dt{font:600 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--safe);padding-top:2px}
+.facts dd{margin:0}
+.ctls{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.ctls>div{background:var(--bench);border:1px solid var(--line);border-radius:6px;padding:14px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.fld{display:flex;flex-direction:column;gap:4px;width:100%;font:600 11px var(--mono);letter-spacing:.12em;color:var(--muted)}
+.fld input{background:#0b0504;border:1px solid var(--line);border-radius:3px;height:36px;padding:0 10px;font:600 15px var(--mono);color:var(--amber);letter-spacing:.04em}
+.rowd{display:flex;gap:8px;align-items:center;width:100%;border:1px solid var(--line);background:#160b0a;padding:8px 10px;font-weight:600}
+.rowd .no{font:600 11px var(--mono);color:var(--amber)}
+@media (max-width:760px){.sheet{padding:36px 16px 48px}.facts{grid-template-columns:1fr}.facts dd{margin-bottom:8px}.trow code{width:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<symbol id="i-move" viewBox="0 0 24 24"><path d="M5 3l14 7-6.5 2L10 19z"/></symbol>
+<symbol id="i-frame" viewBox="0 0 24 24"><path d="M8 3v18M16 3v18M3 8h18M3 16h18"/></symbol>
+<symbol id="i-rect" viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12"/></symbol>
+<symbol id="i-text" viewBox="0 0 24 24"><path d="M5 5h14M12 5v14M9 19h6"/></symbol>
+<symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l1.5-5L16 4.5l3.5 3.5L9 18.5zM14 6.5l3.5 3.5"/></symbol>
+<symbol id="i-hand" viewBox="0 0 24 24"><path d="M8 13V6a1.5 1.5 0 013 0v5M11 11V4.5a1.5 1.5 0 013 0V11M14 11V6.5a1.5 1.5 0 013 0V14a7 7 0 01-7 7h-.5a6 6 0 01-5-2.7L3 15a1.5 1.5 0 012.5-1.6L8 16"/></symbol>
+<symbol id="i-zoom" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21M8 10.5h5M10.5 8v5"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24"><path d="M5 12v8h14v-8M12 3v12M8 7l4-4 4 4"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5l12 7.5-12 7.5z"/></symbol>
+<symbol id="i-comp" viewBox="0 0 24 24"><path d="M12 3l9 9-9 9-9-9z"/><path d="M12 8.5l3.5 3.5-3.5 3.5-3.5-3.5z"/></symbol>
+<symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="15.5" cy="9.5" r="1.5"/></symbol>
+<symbol id="i-chev-r" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+<symbol id="i-chev-d" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+<symbol id="i-saved" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0113 0M16 4.6a3.5 3.5 0 010 6.8M18 14.2a6.5 6.5 0 013.5 5.8"/></symbol>
+<symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V3h9l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/></symbol>
+<symbol id="i-comment" viewBox="0 0 24 24"><path d="M4 4h16v12H10l-6 5z"/></symbol>
+<symbol id="i-sel" viewBox="0 0 24 24"><path d="M7 5l11 7-11 7z"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v16M6 14l6 6 6-6"/></symbol>
+<symbol id="i-radius" viewBox="0 0 24 24"><path d="M4 20V11a7 7 0 017-7h9"/></symbol>
+<symbol id="i-export" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M4 20h16"/></symbol>
+<symbol id="i-fill" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 14l10-10"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+<symbol id="i-gap" viewBox="0 0 24 24"><path d="M4 4h16M4 20h16M12 8v8M9 10l3-2 3 2M9 14l3 2 3-2"/></symbol>
+<symbol id="i-pad" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><rect x="8" y="8" width="8" height="8"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+</svg>
+<div class="app">
+  <header class="top">
+    <div class="can"><span class="lamp" aria-hidden="true"></span><b>Website redesign</b><span>Home v3 · Canvas</span></div>
+    <div class="knobs" role="toolbar" aria-label="Tools">
+      <button class="knob" aria-pressed="true" aria-label="Move"><svg class="i"><use href="#i-move"/></svg></button>
+      <button class="knob" aria-pressed="false" aria-label="Frame"><svg class="i"><use href="#i-frame"/></svg></button>
+      <button class="knob" aria-pressed="false" aria-label="Rectangle"><svg class="i"><use href="#i-rect"/></svg></button>
+      <button class="knob" aria-pressed="false" aria-label="Text"><svg class="i"><use href="#i-text"/></svg></button>
+      <button class="knob" aria-pressed="false" aria-label="Pen"><svg class="i"><use href="#i-pen"/></svg></button>
+      <button class="knob" aria-pressed="false" aria-label="Hand"><svg class="i"><use href="#i-hand"/></svg></button>
+    </div>
+    <span class="timer" aria-label="Zoom 66 percent">ZOOM 66%</span>
+    <span class="sp"></span>
+    <div class="avs" role="group" aria-label="In this file: Priya Nair, Mara Okafor, Aiko Tanaka"><span class="av" title="Priya Nair">PN</span><span class="av" title="Mara Okafor">MO</span><span class="av" title="Aiko Tanaka">AT</span></div>
+    <button class="btn pres"><svg class="i sm" aria-hidden="true"><use href="#i-play"/></svg>Present</button>
+    <button class="btn primary"><svg class="i sm" aria-hidden="true"><use href="#i-share"/></svg>Share</button>
+  </header>
+
+  <main class="trayw" aria-label="Canvas">
+    <div class="trayhead"><span class="cap"><b>Hero</b> · frame, selected</span><span class="cap">1440 × 820</span></div>
+    <div class="tray">
+      <div class="fwrap">
+        <div class="print">
+          <div class="frame" role="img" aria-label="Hero frame, 1440 by 820, selected. Headline Every project, on one calm page, a subline, a primary button and a product screenshot placeholder, with a 32 pixel spacing guide above the button.">
+            <p class="h">Every project, on one calm page</p>
+            <p class="s">Plans, files and reviews for small teams, in one place.</p>
+            <span class="b">Get started<span class="guide">32</span></span>
+            <span class="shot">Product screenshot</span>
+          </div>
+        </div>
+        <span class="crop c1"></span><span class="crop c2"></span><span class="crop c3"></span><span class="crop c4"></span>
+        <div class="pin"><span class="dot" aria-hidden="true">PN</span><div class="bub" role="note"><b><svg class="i sm" aria-hidden="true"><use href="#i-comment"/></svg>Priya Nair</b><p>Try the button in brand green?</p></div></div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="notes" aria-labelledby="nh">
+    <div class="card">
+      <h2 id="nh">Exposure notes</h2>
+      <p class="sub">Hero, frame</p>
+      <div class="read">
+        <label>X<input value="0"></label><label>Y<input value="0"></label>
+        <label>W<input value="1440"></label><label>H<input value="820"></label>
+      </div>
+      <div class="nl"><span>Fill</span><span class="v"><i class="sw" aria-hidden="true"></i>#FFFFFF</span></div>
+      <div class="nl"><span>Auto layout</span><span class="v"><svg class="i sm" aria-hidden="true" style="vertical-align:-3px"><use href="#i-down"/></svg> vertical</span></div>
+      <div class="nl"><span>Gap</span><span class="v">32</span></div>
+      <div class="nl"><span>Padding</span><span class="v">96</span></div>
+      <div class="nl"><span>Corner radius</span><span class="v">0</span></div>
+      <div class="nl"><span>Export</span><span class="v">PNG · 2x</span></div>
+      <button class="btn" style="width:100%;justify-content:center;margin-top:8px"><svg class="i sm" aria-hidden="true"><use href="#i-export"/></svg>Export print</button>
+    </div>
+  </aside>
+
+  <nav class="strip" aria-labelledby="sh2">
+    <h2 class="cap" id="sh2">Layers</h2>
+    <ol class="frames">
+      <li class="sel" aria-current="true"><span class="no"><span>1A</span><span class="mk"><svg class="i" aria-hidden="true"><use href="#i-sel"/></svg>SELECTED</span></span><span class="nm"><svg class="i sm" aria-hidden="true"><use href="#i-frame"/></svg>Hero</span><span class="ty">Frame</span></li>
+      <li class="child"><span class="no"><span>2A</span><span>in Hero</span></span><span class="nm"><svg class="i sm" aria-hidden="true"><use href="#i-text"/></svg>Headline</span><span class="ty">Text · Every project, on one calm page</span></li>
+      <li class="child"><span class="no"><span>3A</span><span>in Hero</span></span><span class="nm"><svg class="i sm" aria-hidden="true"><use href="#i-text"/></svg>Subline</span><span class="ty">Text</span></li>
+      <li class="child"><span class="no"><span>4A</span><span>in Hero</span></span><span class="nm"><svg class="i sm" aria-hidden="true"><use href="#i-comp"/></svg>Primary button</span><span class="ty">Component instance</span></li>
+      <li class="child"><span class="no"><span>5A</span><span>in Hero</span></span><span class="nm"><svg class="i sm" aria-hidden="true"><use href="#i-image"/></svg>Product screenshot</span><span class="ty">Image</span></li>
+      <li><span class="no"><span>6A</span></span><span class="nm"><svg class="i sm" aria-hidden="true"><use href="#i-frame"/></svg>Logo strip</span><span class="ty">Frame</span></li>
+      <li><span class="no"><span>7A</span><span class="mk" style="color:var(--muted)"><svg class="i" aria-hidden="true" style="fill:none;stroke:currentColor"><use href="#i-chev-r"/></svg>COLLAPSED</span></span><span class="nm"><svg class="i sm" aria-hidden="true"><use href="#i-frame"/></svg>Features</span><span class="ty">Frame</span></li>
+    </ol>
+  </nav>
+
+  <div class="mtools" role="toolbar" aria-label="Tools">
+    <button class="knob" aria-pressed="true" aria-label="Move"><svg class="i"><use href="#i-move"/></svg></button>
+    <button class="knob" aria-pressed="false" aria-label="Frame"><svg class="i"><use href="#i-frame"/></svg></button>
+    <button class="knob" aria-pressed="false" aria-label="Rectangle"><svg class="i"><use href="#i-rect"/></svg></button>
+    <button class="knob" aria-pressed="false" aria-label="Text"><svg class="i"><use href="#i-text"/></svg></button>
+    <button class="knob" aria-pressed="false" aria-label="Pen"><svg class="i"><use href="#i-pen"/></svg></button>
+    <button class="knob" aria-pressed="false" aria-label="Hand"><svg class="i"><use href="#i-hand"/></svg></button>
+  </div>
+
+  <footer class="status" aria-label="File status">
+    <span class="ok"><svg class="i sm" aria-hidden="true"><use href="#i-saved"/></svg>Saved 2 minutes ago</span>
+    <span><svg class="i sm" aria-hidden="true"><use href="#i-users"/></svg>3 people editing</span>
+    <span><svg class="i sm" aria-hidden="true"><use href="#i-tag"/></svg>Version 41</span>
+  </footer>
+</div>
+
+<section class="sheet" aria-labelledby="sh">
+  <h2 id="sh">Style 249 · Darkroom</h2>
+  <p class="idea">The editor is a photographic darkroom under a deep red safelight, with the canvas as a print in a developing tray, the inspector as exposure notes and the layers as a numbered film strip.</p>
+  <h3 class="cap">Palette</h3>
+  <ul class="sws">
+    <li><i style="background:#140a09"></i><div><b>Room</b><code>#140a09</code> page, behind the glow</div></li>
+    <li><i style="background:#1e100e"></i><div><b>Bench</b><code>#1e100e</code> top bar, notes card, status</div></li>
+    <li><i style="background:#0d0606"></i><div><b>Tray</b><code>#0d0606</code> canvas tray, film base</div></li>
+    <li><i style="background:#4a2a25"></i><div><b>Line</b><code>#4a2a25</code> edges and rules</div></li>
+    <li><i style="background:#3b2420"></i><div><b>Sprocket</b><code>#3b2420</code> film strip holes</div></li>
+    <li><i style="background:#be1e14"></i><div><b>Safelight</b><code>#be1e14</code> at 42 percent, the radial glow</div></li>
+    <li><i style="background:#f4ddd6"></i><div><b>Ink</b><code>#f4ddd6</code> warm text</div></li>
+    <li><i style="background:#c99f95"></i><div><b>Muted</b><code>#c99f95</code> labels</div></li>
+    <li><i style="background:#ff5a4c"></i><div><b>Safe red</b><code>#ff5a4c</code> selection, headings, active knob</div></li>
+    <li><i style="background:#c4231a"></i><div><b>Safe button</b><code>#c4231a</code> primary under white</div></li>
+    <li><i style="background:#ffb45e"></i><div><b>Amber</b><code>#ffb45e</code> timer readouts, frame numbers, saved, pins, focus</div></li>
+    <li><i style="background:#fbf7f2"></i><div><b>Paper</b><code>#fbf7f2</code> print border around the frame</div></li>
+  </ul>
+  <h3 class="cap">Type · Avenir Next, Segoe UI, system-ui · Georgia for display · ui-monospace for readouts</h3>
+  <div class="trow"><code>30 / 600 Georgia</code><span style="font:600 30px Georgia,serif">Style 249 · Darkroom</span></div>
+  <div class="trow"><code>13 mono caps red</code><span style="font:600 13px var(--mono);letter-spacing:.14em;color:var(--safe)">EXPOSURE NOTES</span></div>
+  <div class="trow"><code>16 mono amber</code><span style="font:600 16px var(--mono);color:var(--amber)">1440 · 820</span></div>
+  <div class="trow"><code>14 / 400 body</code><span>Try the button in brand green?</span></div>
+  <div class="trow"><code>11 mono caps</code><span class="cap">1A · Selected</span></div>
+  <h3 class="cap">System</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>8px unit. 28 to 32px around the tray, 16px card padding, 6px between film frames.</dd>
+    <dt>Density</dt><dd>Medium. Tray and notes side by side, the film strip runs the full width below.</dd>
+    <dt>Corners</dt><dd>18px tray, 4 to 6px cards and buttons, round knobs and avatars, square film frames.</dd>
+    <dt>Borders</dt><dd>1px #4a2a25 everywhere, red on the selected frame and active knob.</dd>
+    <dt>Shadows</dt><dd>A red inner glow in the tray and a red outer glow on the selected film frame.</dd>
+    <dt>Icons</dt><dd>18px line icons at 1.7px stroke inside round enlarger knobs.</dd>
+    <dt>Focus</dt><dd>2px amber outline offset 3px.</dd>
+    <dt>Tone</dt><dd>Gentle darkroom vocabulary, such as Exposure notes and Export print, plain elsewhere.</dd>
+  </dl>
+  <h3 class="cap">Controls · normal and focus</h3>
+  <div class="ctls">
+    <div><span class="cap">Primary</span><button class="btn primary">Share</button><button class="btn primary is-focus">Share</button></div>
+    <div><span class="cap">Secondary</span><button class="btn">Export print</button><button class="btn is-focus">Export print</button></div>
+    <div><label class="fld">LAYER NAME<input value="Hero"></label><label class="fld">LAYER NAME, FOCUSED<input class="is-focus" value="Hero"></label></div>
+    <div><span class="cap">Film frame row</span><div class="rowd"><span class="no">5A</span><svg class="i sm" aria-hidden="true"><use href="#i-image"/></svg>Product screenshot</div><div class="rowd is-focus"><span class="no">5A</span><svg class="i sm" aria-hidden="true"><use href="#i-image"/></svg>Product screenshot</div></div>
+  </div>
+</section>
+</body>
+</html>

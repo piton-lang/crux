@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Style 271 · Obsidian · Brightwork</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+:root { --void: #09080a; --glass: #141216; --glass2: #1c191f; --edge: #2e2930; --ink: #f1ebe6; --muted: #b3a8a3; --lava: #ff7a2f; --magma: #ffb07a; --lavaink: #1d0900; --seldeep: #221510;
+  --font: "Bahnschrift", "DIN Alternate", "Roboto Condensed", "Arial Narrow", "Segoe UI", system-ui, sans-serif;
+  --cut: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+  --cuts: polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px);
+  --s-bg: #09080a; --s-ink: #f1ebe6; --s-muted: #b3a8a3; --s-line: #2e2930; --s-font: var(--font); --s-h2: 600 32px/1.1 var(--font); --s-chip: 0; }
+body { margin: 0; background: var(--void); color: var(--ink); font: 15px/1.45 var(--font); }
+a { color: inherit; text-decoration: none; }
+.i { width: 18px; height: 18px; flex: none; }
+:focus-visible, .is-focus { outline: 2px solid var(--lava); outline-offset: 3px; clip-path: none !important; }
+.cap { text-transform: uppercase; letter-spacing: .12em; font-size: 12px; font-weight: 600; color: var(--muted); }
+.top { display: flex; align-items: center; gap: 20px; padding: 16px 28px 18px; position: relative; flex-wrap: wrap; }
+.crack { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 14px; display: block; }
+.mark { display: flex; align-items: center; gap: 12px; font-size: 18px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.mark svg { width: 34px; height: 34px; }
+.mark span { color: var(--muted); font-weight: 400; }
+.search { margin-left: auto; display: flex; align-items: center; gap: 10px; padding: 0 14px; height: 40px; background: var(--glass); clip-path: var(--cuts); color: var(--muted); width: min(360px, 100%); box-shadow: inset 0 0 0 1px var(--edge); }
+.search input { background: none; border: 0; color: var(--ink); font: 15px var(--font); width: 100%; }
+.search input::placeholder { color: var(--muted); }
+.search input:focus-visible { outline: none; }
+.search:focus-within { box-shadow: inset 0 0 0 2px var(--lava); }
+.app { display: grid; grid-template-columns: 220px minmax(0, 1fr) 330px; gap: 20px; padding: 24px 28px 56px; }
+.app > * { min-width: 0; }
+.slab { background: linear-gradient(135deg, var(--glass2), var(--glass) 45%, #0f0e11); clip-path: var(--cut); position: relative; }
+.slab::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg, rgba(255,255,255,.05), transparent 30%); }
+.side { padding: 18px 12px; display: flex; flex-direction: column; gap: 4px; min-height: 520px; }
+.side .cap { padding: 0 10px 8px; }
+.side ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.side a { display: flex; gap: 12px; align-items: center; padding: 10px 12px; clip-path: var(--cuts); color: var(--muted); font-size: 15px; }
+.side a[aria-current] { background: var(--seldeep); color: var(--ink); box-shadow: inset 3px 0 0 var(--lava); }
+.side a[aria-current] .i { color: var(--lava); }
+.shards { margin-top: auto; padding: 12px 10px 4px; }
+.shards .row { display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; margin: 10px 0 8px; }
+.shards .row i { height: 14px; background: var(--edge); clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%); }
+.shards .row i.on { background: var(--lava); }
+.shards .row i.part { background: linear-gradient(90deg, var(--lava) 20%, var(--edge) 20%); }
+.shards b { font-size: 20px; }
+.shards span { color: var(--muted); font-size: 13px; }
+.head { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; margin-bottom: 18px; }
+.crumb { display: flex; gap: 8px; align-items: center; list-style: none; margin: 0 0 4px; padding: 0; }
+.crumb .i { width: 12px; height: 12px; color: var(--lava); }
+.crumb [aria-current] { color: var(--ink); }
+h1 { font-size: 40px; line-height: 1; margin: 0; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.titlebox { margin-right: auto; }
+.btn { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 18px; border: 0; clip-path: var(--cuts); font: 700 13px var(--font); letter-spacing: .1em; text-transform: uppercase; cursor: pointer; }
+.pri { background: var(--lava); color: var(--lavaink); }
+.sec { background: var(--glass2); color: var(--ink); box-shadow: inset 0 0 0 1px #4a4249; }
+.btn.is-focus, .btn:focus-visible { clip-path: none; }
+.vs { display: flex; gap: 2px; }
+.vs a { display: flex; align-items: center; gap: 6px; height: 40px; padding: 0 12px; background: var(--glass); color: var(--muted); clip-path: var(--cuts); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; }
+.vs a[aria-pressed="true"] { background: var(--seldeep); color: var(--ink); box-shadow: inset 0 -2px 0 var(--lava); }
+.cols { display: grid; grid-template-columns: minmax(0, 1fr) 120px 130px 84px; gap: 14px; align-items: center; }
+.colh { padding: 0 18px 8px; }
+.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.it { padding: 12px 18px; }
+.it .nm { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.it .nm .i { color: var(--muted); }
+.it .nm b { font-weight: 600; overflow-wrap: anywhere; }
+.it .m { color: var(--muted); font-size: 14px; }
+.it .r { text-align: right; font-variant-numeric: tabular-nums; }
+.it.sel { background: linear-gradient(90deg, #2a170e, var(--seldeep) 40%, var(--glass)); }
+.it.sel .nm .i { color: var(--lava); }
+.it .vein { position: absolute; left: 0; top: 0; height: 100%; width: 16px; }
+.badge { display: inline-flex; align-items: center; gap: 6px; padding: 2px 9px; margin-left: 10px; font-size: 11.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--magma); box-shadow: inset 0 0 0 1px #7a3a18; clip-path: var(--cuts); white-space: nowrap; }
+.badge .i { width: 13px; height: 13px; }
+.flow { display: block; height: 4px; background: var(--edge); margin-top: 8px; max-width: 300px; }
+.flow i { display: block; height: 100%; width: 62%; background: linear-gradient(90deg, #c2410c, var(--lava), var(--magma)); }
+.det { padding: 20px; }
+.frame { position: relative; margin: 12px 0 16px; clip-path: var(--cut); }
+.frame svg { display: block; width: 100%; height: auto; }
+.det h2 { margin: 0; }
+.det h3 { font-size: 22px; margin: 0 0 8px; overflow-wrap: anywhere; font-weight: 700; }
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 16px 0; }
+.tiles div { background: var(--void); clip-path: var(--cuts); padding: 10px 12px; }
+.tiles dt { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.tiles dd { margin: 0; font-weight: 600; }
+.acts { display: flex; flex-wrap: wrap; gap: 6px; }
+.field { display: grid; gap: 6px; }
+.field input { background: var(--glass); border: 0; box-shadow: inset 0 0 0 1px #4a4249; color: var(--ink); height: 40px; padding: 0 14px; font: 15px var(--font); clip-path: var(--cuts); max-width: 300px; }
+.field input.is-focus { box-shadow: inset 0 0 0 2px var(--lava); clip-path: none; }
+.samp .it { max-width: 440px; }
+.samp .cols { grid-template-columns: minmax(0,1fr) auto; }
+.samp .it.is-focus { clip-path: none; }
+@media (max-width: 1180px) { .app { grid-template-columns: 200px minmax(0, 1fr); } .det { grid-column: 2; } }
+@media (max-width: 760px) {
+  .top { padding: 14px 16px 18px; }
+  .search { width: 100%; margin: 0; }
+  .app { grid-template-columns: 1fr; padding: 16px 16px 48px; gap: 16px; }
+  .det { grid-column: auto; }
+  .side { min-height: 0; }
+  .side ul { grid-auto-flow: column; overflow-x: auto; }
+  .side a { white-space: nowrap; }
+  h1 { font-size: 30px; }
+  .colh { display: none; }
+  .cols { grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; }
+  .it .when, .it .who { grid-column: 1; padding-left: 30px; font-size: 13px; }
+  .it .r { grid-row: 1; grid-column: 2; }
+  .badge { margin: 4px 0 0; }
+}
+
+
+.sheet { background: var(--s-bg); color: var(--s-ink); border-top: 1px solid var(--s-line); padding: 56px 32px 72px; font-family: var(--s-font); }
+.sheet-in { max-width: 1120px; margin: 0 auto; }
+.sheet h2 { font: var(--s-h2); margin: 0 0 8px; color: var(--s-ink); }
+.sheet h3 { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--s-muted); margin: 40px 0 16px; font-weight: 600; font-family: var(--s-font); }
+.sheet .idea { font-size: 17px; line-height: 1.55; max-width: 64ch; color: var(--s-ink); margin: 0; }
+.sheet code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; font-size: 12.5px; color: var(--s-muted); }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px 24px; }
+.swatches li { display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: center; font-size: 13px; line-height: 1.4; color: var(--s-muted); }
+.swatches i { width: 44px; height: 44px; border-radius: var(--s-chip, 6px); border: 1px solid var(--s-line); display: block; }
+.swatches b { display: block; color: var(--s-ink); font-size: 14px; }
+.swatches code { color: var(--s-ink); }
+.tscale { display: grid; gap: 14px; }
+.trow { display: grid; grid-template-columns: 240px 1fr; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--s-line); padding-bottom: 12px; }
+.trow > span { min-width: 0; overflow-wrap: anywhere; color: var(--s-ink); }
+.facts { display: grid; grid-template-columns: 140px 1fr; gap: 10px 24px; margin: 0; font-size: 14.5px; line-height: 1.55; }
+.facts dt { color: var(--s-muted); font-weight: 600; }
+.facts dd { margin: 0; color: var(--s-ink); }
+.ctls { display: grid; grid-template-columns: 160px 1fr 1fr; gap: 20px 24px; align-items: center; }
+.ctls .h { font-size: 12px; color: var(--s-muted); text-transform: uppercase; letter-spacing: .08em; }
+.ctls .lab { color: var(--s-muted); font-size: 14px; }
+.ctls > div { min-width: 0; }
+@media (max-width: 760px) {
+  .sheet { padding: 40px 16px 56px; }
+  .trow { grid-template-columns: 1fr; gap: 4px; }
+  .facts { grid-template-columns: 1fr; gap: 2px; }
+  .facts dd { margin-bottom: 10px; }
+  .ctls { grid-template-columns: 1fr; gap: 10px; }
+  .ctls .h { display: none; }
+  .ctls .lab { margin-top: 14px; }
+}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol><symbol id="i-myfiles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 10h18"/></symbol><symbol id="i-pdf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M8.5 16.5h7M8.5 13h4"/></symbol><symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><circle cx="9" cy="9.5" r="1.6"/><path d="M4 17l5-5 4 4 2.5-2.5L20 18"/></symbol><symbol id="i-sheet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9.5h16M4 14.5h16M10 9.5V20"/></symbol><symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M8.5 12h7M8.5 15h7M8.5 18h4"/></symbol><symbol id="i-archive" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M11 4v1.5M11 7.5v1.5M11 11v1.5"/><rect x="9.5" y="14" width="3" height="4" rx="1"/></symbol><symbol id="i-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="2"/><path d="M10 9.5v5l4.5-2.5z"/></symbol><symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></symbol><symbol id="i-starfill" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M12 3.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></symbol><symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.2"/><path d="M3 19.5c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><circle cx="17" cy="9.5" r="2.4"/><path d="M16.5 14.2c2.6.3 4.5 2.3 4.5 5.3"/></symbol><symbol id="i-uploading" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 16.5v-9M8.5 11 12 7.5l3.5 3.5"/></symbol><symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></symbol><symbol id="i-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4.5M7.5 9 12 4.5 16.5 9M5 19.5h14"/></symbol><symbol id="i-newfolder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M12 10.5v5M9.5 13h5"/></symbol><symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6.5h11M9 12h11M9 17.5h11M4.5 6.5h.01M4.5 12h.01M4.5 17.5h.01"/></symbol><symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.2"/></symbol><symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol><symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7h15M10 11v6M14 11v6M6.5 7l1 13h9l1-13M9.5 7V4.5h5V7"/></symbol><symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.5" cy="12" r="2.5"/><circle cx="17.5" cy="6" r="2.5"/><circle cx="17.5" cy="18" r="2.5"/><path d="M8.7 10.8l6.6-3.6M8.7 13.2l6.6 3.6"/></symbol><symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5V15M7.5 10.5 12 15l4.5-4.5M5 19.5h14"/></symbol><symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol><symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></symbol><symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5l6 6 6-6"/></symbol><symbol id="i-more" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="18.5" cy="12" r="1.2"/></symbol><symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18.5a4.2 4.2 0 0 1-.6-8.4A6 6 0 0 1 17.8 9a4.8 4.8 0 0 1-.8 9.5z"/></symbol><symbol id="i-sortup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18.5v-13M7 10.5l5-5 5 5"/></symbol><symbol id="i-sort" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9.5l4-4 4 4M8 14.5l4 4 4-4"/></symbol><symbol id="i-disk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6.5" rx="7.5" ry="2.8"/><path d="M4.5 6.5v11c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-11M4.5 12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8"/></symbol><symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol><symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol></defs></svg>
+
+<header class="top">
+  <div class="mark"><svg viewBox="0 0 34 34" aria-hidden="true"><polygon points="17,1 32,10 28,31 6,31 2,10" fill="#1c191f" stroke="#4a4249"/><polyline points="9,12 15,17 12,22 19,27" fill="none" stroke="#ff7a2f" stroke-width="1.8"/></svg>Brightwork <span>Drive</span></div>
+  <label class="search"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search files</span><input type="search" placeholder="Search files"></label>
+  <svg class="crack" viewBox="0 0 1280 14" preserveAspectRatio="none" aria-hidden="true"><defs><filter id="lg" x="-5%" y="-200%" width="110%" height="500%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><rect width="1280" height="14" fill="#09080a"/><polyline filter="url(#lg)" fill="none" stroke="#ff7a2f" stroke-width="1.6" points="0,8 90,6 140,10 210,5 300,9 360,4 430,8 520,7 560,11 640,6 700,8 790,3 850,9 930,6 1000,10 1080,5 1150,8 1210,6 1280,9"/><polyline fill="none" stroke="#ffb07a" stroke-width=".8" points="360,4 380,1 395,0 M790,3 800,0"/></svg>
+</header>
+<div class="app">
+  <nav class="slab side" aria-label="Drive">
+    <span class="cap">Drive</span>
+    <ul><li><a href="#" aria-current="page"><svg class="i" aria-hidden="true"><use href="#i-myfiles"/></svg>My files</a></li><li><a href="#"><svg class="i" aria-hidden="true"><use href="#i-users"/></svg>Shared with me</a></li><li><a href="#"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Recent</a></li><li><a href="#"><svg class="i" aria-hidden="true"><use href="#i-star"/></svg>Starred</a></li><li><a href="#"><svg class="i" aria-hidden="true"><use href="#i-trash"/></svg>Trash</a></li></ul>
+    <div class="shards"><span class="cap">Storage</span><div class="row" role="progressbar" aria-label="Storage used" aria-valuenow="64.2" aria-valuemin="0" aria-valuemax="100"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="part"></i><i></i><i></i><i></i></div><b>64.2 GB</b> <span>of 100 GB</span></div>
+  </nav>
+  <main>
+    <div class="head">
+      <div class="titlebox"><ol class="crumb cap" aria-label="Breadcrumb"><li><a href="#">Fernhill Studio</a></li><li><svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></li><li aria-current="page">Website redesign</li></ol><h1>Website redesign</h1></div>
+      <button class="btn pri" type="button"><svg class="i" aria-hidden="true"><use href="#i-upload"/></svg>Upload</button>
+      <button class="btn sec" type="button"><svg class="i" aria-hidden="true"><use href="#i-newfolder"/></svg>New folder</button>
+      <div class="vs" role="group" aria-label="View"><a href="#" role="button" aria-pressed="true"><svg class="i" aria-hidden="true"><use href="#i-list"/></svg>List</a><a href="#" role="button" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-grid"/></svg>Grid</a></div>
+    </div>
+    <div class="cols colh cap" aria-hidden="true"><span>Name</span><span>Modified</span><span>By</span><span style="text-align:right">Size</span></div>
+    <ul class="list" aria-label="Files in Website redesign"><li class="slab it cols"><div class="nm"><svg class="i" aria-hidden="true"><use href="#i-folder"/></svg><div><b><a href="#">Brand assets</a></b></div></div><span class="m when">28 Oct</span><span class="m who">Priya Nair</span><span class="m r">24 items</span></li><li class="slab it cols"><div class="nm"><svg class="i" aria-hidden="true"><use href="#i-folder"/></svg><div><b><a href="#">Wireframes</a></b></div></div><span class="m when">30 Oct</span><span class="m who">Aiko Tanaka</span><span class="m r">9 items</span></li><li class="slab it cols sel"><svg class="vein" viewBox="0 0 16 60" preserveAspectRatio="none" aria-hidden="true"><polyline points="3,0 7,10 4,20 9,30 5,42 8,52 4,60" fill="none" stroke="#ff7a2f" stroke-width="2"/></svg><div class="nm"><svg class="i" aria-hidden="true"><use href="#i-pdf"/></svg><div><b><a href="#">brand-guide-v3.pdf</a></b><span class="sr">, selected</span><span class="badge"><svg class="i" aria-hidden="true"><use href="#i-starfill"/></svg>Starred</span></div></div><span class="m when">27 Oct</span><span class="m who">Priya Nair</span><span class="m r">4.2 MB</span></li><li class="slab it cols"><div class="nm"><svg class="i" aria-hidden="true"><use href="#i-image"/></svg><div><b><a href="#">homepage-hero-B.png</a></b></div></div><span class="m when">Today 08:12</span><span class="m who">Priya Nair</span><span class="m r">2.8 MB</span></li><li class="slab it cols"><div class="nm"><svg class="i" aria-hidden="true"><use href="#i-sheet"/></svg><div><b><a href="#">content-audit.xlsx</a></b></div></div><span class="m when">19 Sep</span><span class="m who">Mara Okafor</span><span class="m r">86 KB</span></li><li class="slab it cols"><div class="nm"><svg class="i" aria-hidden="true"><use href="#i-doc"/></svg><div><b><a href="#">launch-plan.docx</a></b><span class="badge"><svg class="i" aria-hidden="true"><use href="#i-users"/></svg>Shared ×4</span><span class="sr"> people</span></div></div><span class="m when">Yesterday</span><span class="m who">Mara Okafor</span><span class="m r">140 KB</span></li><li class="slab it cols"><div class="nm"><svg class="i" aria-hidden="true"><use href="#i-archive"/></svg><div><b><a href="#">customer-interviews.zip</a></b></div></div><span class="m when">12 Oct</span><span class="m who">Aiko Tanaka</span><span class="m r">312 MB</span></li><li class="slab it cols"><div class="nm"><svg class="i" aria-hidden="true"><use href="#i-video"/></svg><div><b><a href="#">hero-motion.mp4</a></b><span class="badge"><svg class="i" aria-hidden="true"><use href="#i-uploading"/></svg>Uploading 62%</span><span class="flow" role="progressbar" aria-label="hero-motion.mp4 upload" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"><i></i></span></div></div><span class="m when">29 Oct</span><span class="m who">Priya Nair</span><span class="m r">48.6 MB</span></li></ul>
+  </main>
+  <aside class="slab det" aria-labelledby="det-h">
+    <h2 class="cap" id="det-h">Details</h2>
+    <div class="frame"><svg viewBox="0 0 290 200" role="img" aria-label="Preview of brand-guide-v3.pdf, cover page with a faceted B mark"><rect width="290" height="200" fill="#09080a"/><polyline points="0,150 40,140 70,160 120,130 150,150 200,120 250,145 290,130" fill="none" stroke="#ff7a2f" stroke-width="1.4" opacity=".8"/><polygon points="102,22 196,22 196,168 188,176 94,176 94,30" fill="#f1ebe6"/><polygon points="122,44 140,38 152,52 140,68 120,62" fill="#1c191f"/><text x="137" y="58" text-anchor="middle" font-family="Bahnschrift, Arial Narrow, sans-serif" font-size="14" font-weight="700" fill="#ff7a2f">B</text><rect x="112" y="88" width="60" height="6" fill="#1c191f"/><rect x="112" y="102" width="72" height="3" fill="#7d7470"/><rect x="112" y="110" width="66" height="3" fill="#7d7470"/><rect x="112" y="118" width="70" height="3" fill="#7d7470"/></svg></div>
+    <h3>brand-guide-v3.pdf</h3>
+    <span class="badge" style="margin:0"><svg class="i" aria-hidden="true"><use href="#i-starfill"/></svg>Starred</span>
+    <dl class="tiles"><div><dt>Owner</dt><dd>Priya Nair</dd></div><div><dt>Size</dt><dd>4.2 MB</dd></div><div><dt>Version</dt><dd>3</dd></div><div><dt>Shared with</dt><dd>Design team</dd></div></dl>
+    <div class="acts"><button class="btn pri" type="button"><svg class="i" aria-hidden="true"><use href="#i-share"/></svg>Share</button><button class="btn sec" type="button"><svg class="i" aria-hidden="true"><use href="#i-download"/></svg>Download</button><button class="btn sec" type="button"><svg class="i" aria-hidden="true"><use href="#i-link"/></svg>Get link</button></div>
+  </aside>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h"><div class="sheet-in">
+<h2 id="sheet-h">Style 271 · Obsidian</h2>
+<p class="idea">Volcanic black glass cut into chamfered slabs, with glowing lava orange cracks marking the selected file, live meters and the paths through the screen.</p>
+<h3>Palette</h3><ul class="swatches"><li><i style="background:#09080a"></i><div><b>Void</b><code>#09080a</code> · page, fact tiles and style sheet</div></li><li><i style="background:#141216"></i><div><b>Glass</b><code>#141216</code> · slab body, search and view switch</div></li><li><i style="background:#1c191f"></i><div><b>Glass sheen</b><code>#1c191f</code> · top left of the slab gradient and secondary buttons</div></li><li><i style="background:#2e2930"></i><div><b>Edge</b><code>#2e2930</code> · empty shards and tracks</div></li><li><i style="background:#f1ebe6"></i><div><b>Ink</b><code>#f1ebe6</code> · text</div></li><li><i style="background:#b3a8a3"></i><div><b>Muted</b><code>#b3a8a3</code> · meta, caps labels, inactive nav</div></li><li><i style="background:#ff7a2f"></i><div><b>Lava</b><code>#ff7a2f</code> · primary button, cracks, current marker, storage shards, focus</div></li><li><i style="background:#ffb07a"></i><div><b>Magma</b><code>#ffb07a</code> · badge words and the hot end of the upload flow</div></li><li><i style="background:#221510"></i><div><b>Selected</b><code>#221510</code> · selected slab and current nav fill</div></li><li><i style="background:#1d0900"></i><div><b>Lava ink</b><code>#1d0900</code> · text on lava</div></li></ul>
+<h3>Type scale</h3><div class="tscale"><div class="trow"><code>40 / 700 caps Bahnschrift, DIN stack</code><span style="font:700 40px/1 "Bahnschrift", "DIN Alternate", "Roboto Condensed", "Arial Narrow", "Segoe UI", system-ui, sans-serif;text-transform:uppercase;letter-spacing:.04em">Website redesign</span></div><div class="trow"><code>22 / 700 detail title</code><span style="font:700 22px "Bahnschrift", "DIN Alternate", "Roboto Condensed", "Arial Narrow", "Segoe UI", system-ui, sans-serif">brand-guide-v3.pdf</span></div><div class="trow"><code>15 / 600 file name</code><span style="font:600 15px "Bahnschrift", "DIN Alternate", "Roboto Condensed", "Arial Narrow", "Segoe UI", system-ui, sans-serif">hero-motion.mp4</span></div><div class="trow"><code>14 / 400 muted meta</code><span style="font:14px "Bahnschrift", "DIN Alternate", "Roboto Condensed", "Arial Narrow", "Segoe UI", system-ui, sans-serif;color:#b3a8a3">29 Oct · Priya Nair · 48.6 MB</span></div><div class="trow"><code>12 / 600 caps 0.12em label</code><span style="font:600 12px "Bahnschrift", "DIN Alternate", "Roboto Condensed", "Arial Narrow", "Segoe UI", system-ui, sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#b3a8a3">Storage · Details</span></div></div>
+<h3>Spacing, density and surface</h3><dl class="facts"><dt>Spacing</dt><dd>4px base. 20px between slabs and columns, 6px between file slabs, 18px slab padding.</dd><dt>Density</dt><dd>Medium dense. Each file is a 52px slab with its meta in columns.</dd><dt>Corners</dt><dd>Chamfered. 12px cuts on the top left and bottom right of slabs, 7px on buttons, fields, badges and tiles.</dd><dt>Borders</dt><dd>No ordinary borders. Inner 1px lines on secondary controls and badges, a 3px lava edge on the current nav item.</dd><dt>Shadows</dt><dd>No drop shadows. Slabs have a 135 degree glass gradient and a faint white sheen, and lava lines glow with a 2px blur.</dd><dt>Icons</dt><dd>18px line icons in muted grey, lava when current or selected. Badges pair a filled star, two people or an up arrow ring with the word.</dd><dt>Focus</dt><dd>2px lava outline, 3px offset, and the chamfer drops away so the outline is whole.</dd><dt>Tone</dt><dd>Short caps labels, such as Drive, Storage and Shared ×4, over plain values.</dd></dl>
+<h3>Basic controls</h3><div class="ctls"><div class="h">Control</div><div class="h">Normal</div><div class="h">Focus</div><div class="lab">Primary button</div><div><button class="btn pri" type="button"><svg class="i" aria-hidden="true"><use href="#i-upload"/></svg>Upload</button></div><div><button class="btn pri is-focus" type="button"><svg class="i" aria-hidden="true"><use href="#i-upload"/></svg>Upload</button></div><div class="lab">Secondary button</div><div><button class="btn sec" type="button"><svg class="i" aria-hidden="true"><use href="#i-newfolder"/></svg>New folder</button></div><div><button class="btn sec is-focus" type="button"><svg class="i" aria-hidden="true"><use href="#i-newfolder"/></svg>New folder</button></div><div class="lab">Text field</div><div><label class="field"><span class="cap">Folder name</span><input class="" value="Website redesign"></label></div><div><label class="field"><span class="cap">Folder name</span><input class="is-focus" value="Website redesign"></label></div><div class="lab">List row</div><div><div class="samp"><div class="slab it cols"><div class="nm"><svg class="i" aria-hidden="true"><use href="#i-archive"/></svg><b>customer-interviews.zip</b></div><span class="m r">312 MB</span></div></div></div><div><div class="samp"><div class="slab it cols is-focus"><div class="nm"><svg class="i" aria-hidden="true"><use href="#i-archive"/></svg><b>customer-interviews.zip</b></div><span class="m r">312 MB</span></div></div></div></div>
+</div></section>
+</body>
+</html>

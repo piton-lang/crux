@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 31 · Glossy aqua · Brightwork</title>
+<style>
+:root {
+  --stripe: #ececec;
+  --stripeLight: #f7f7f7;
+  --metal: #c9ccd1;
+  --metalLight: #e9ebee;
+  --window: #f4f5f7;
+  --text: #1d1d1f;
+  --muted: #4f545c;
+  --line: #a7acb4;
+  --jelly: #2a6bc2;
+  --jellyDark: #0e4a9c;
+  --jellyLight: #8cc0f4;
+  --error: #b3141b;
+  --done: #23733a;
+  --focusRing: #6fa8eb;
+  --sans: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Helvetica Neue", Verdana, Tahoma, system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { font: 13px/1.45 var(--sans); color: var(--text); background: repeating-linear-gradient(var(--stripeLight) 0 2px, var(--stripe) 2px 4px); }
+a { color: #0b4fae; }
+:focus-visible, .is-focus { outline: 0; box-shadow: 0 0 0 1px #3876d3, 0 0 0 4px var(--focusRing) !important; }
+
+.desktop { padding: 56px 16px 40px; }
+.window { max-width: 640px; margin: 0 auto; border-radius: 10px 10px 8px 8px; background: var(--window); box-shadow: 0 0 0 1px rgba(0,0,0,.28), 0 14px 34px rgba(0,0,0,.28), 0 3px 8px rgba(0,0,0,.18); overflow: hidden; }
+.titlebar { position: relative; display: flex; align-items: center; justify-content: center; height: 40px; padding: 0 14px;
+  background: repeating-linear-gradient(90deg, rgba(255,255,255,.18) 0 1px, rgba(0,0,0,.03) 1px 2px, rgba(255,255,255,.07) 2px 4px), linear-gradient(var(--metalLight), var(--metal));
+  border-bottom: 1px solid #8e939b; text-shadow: 0 1px 0 rgba(255,255,255,.75); font-size: 13px; color: #2b2d31; }
+.titlebar .orb { position: absolute; left: 12px; top: 12px; width: 15px; height: 15px; border-radius: 50%; background: radial-gradient(circle at 50% 30%, #fff 0 18%, transparent 40%), linear-gradient(#b9c2cd, #7f8a98); box-shadow: inset 0 0 0 1px rgba(0,0,0,.35), 0 1px 0 rgba(255,255,255,.7); }
+.toolbar { display: flex; align-items: center; gap: 14px; padding: 14px 24px; background: linear-gradient(#dfe2e6, #cdd1d7); border-bottom: 1px solid #9ca2ab; box-shadow: inset 0 1px 0 rgba(255,255,255,.7); }
+.app-icon { width: 54px; height: 54px; flex: none; }
+.brand { font: bold 22px/1.1 var(--sans); letter-spacing: -.01em; text-shadow: 0 1px 0 rgba(255,255,255,.8); margin: 0; }
+.sub { margin: 2px 0 0; color: var(--muted); font-size: 12px; text-shadow: 0 1px 0 rgba(255,255,255,.7); }
+
+.body { padding: 24px 28px 22px; }
+h1 { font: bold 17px/1.3 var(--sans); margin: 0 0 16px; }
+.group { border: 1px solid #b9bec6; border-radius: 6px; background: rgba(255,255,255,.65); box-shadow: inset 0 1px 2px rgba(0,0,0,.08); padding: 16px 18px; }
+
+.sso { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.pill { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 30px; padding: 6px 18px; border-radius: 999px; font: bold 13px/1 var(--sans); color: #1d1d1f; cursor: pointer; border: 1px solid #7d8590;
+  background: linear-gradient(#ffffff, #e9ecf0 48%, #d7dce3 52%, #eef1f5); box-shadow: 0 1px 2px rgba(0,0,0,.25), inset 0 1px 0 #fff; text-shadow: 0 1px 0 #fff; overflow: hidden; }
+.pill .ico { width: 18px; height: 18px; border-radius: 50%; display: inline-grid; place-items: center; font-size: 11px; color: #fff; background: linear-gradient(#7c8796, #4b5563); box-shadow: inset 0 1px 0 rgba(255,255,255,.5); text-shadow: none; }
+.pill.jelly { color: #fff; border-color: #0b3c80; text-shadow: 0 -1px 0 rgba(0,0,0,.45);
+  background: linear-gradient(#5f9be4, var(--jelly) 50%, var(--jellyDark) 51%, #2e74cd); box-shadow: 0 2px 4px rgba(14,74,156,.4), inset 0 -3px 6px rgba(140,192,244,.7); }
+.pill.jelly::before { content: ""; position: absolute; left: 10%; right: 10%; top: 2px; height: 42%; border-radius: 999px; background: linear-gradient(rgba(255,255,255,.75), rgba(255,255,255,.08)); pointer-events: none; }
+.pill.jelly span { position: relative; }
+
+.or { display: flex; align-items: center; gap: 10px; margin: 16px 0; color: var(--muted); font-size: 12px; }
+.or::before, .or::after { content: ""; flex: 1; height: 2px; border-top: 1px solid #b3b8c0; border-bottom: 1px solid #fff; }
+
+.form { display: grid; grid-template-columns: 110px 1fr; gap: 12px 12px; align-items: center; }
+.form > label, .form .lbl { text-align: right; font-weight: bold; color: #2b2d31; }
+.form .wide { grid-column: 2; }
+.input { display: flex; align-items: center; background: #fff; border: 1px solid #8f959e; border-top-color: #6d737c; border-radius: 4px; box-shadow: inset 0 1px 2px rgba(0,0,0,.2); }
+.input input { flex: 1; min-width: 0; border: 0; background: transparent; padding: 6px 8px; font: 14px var(--sans); color: var(--text); outline: 0; }
+.input input:focus-visible { box-shadow: none !important; }
+.input:focus-within, .input.is-focus { border-color: #3876d3; box-shadow: inset 0 1px 2px rgba(0,0,0,.2), 0 0 0 3px var(--focusRing) !important; }
+.input.bad { border-color: var(--error); background: #fff6f6; }
+.show { margin: 2px 3px; min-height: 22px; padding: 2px 12px; font-size: 11px; }
+.err { display: flex; gap: 6px; align-items: flex-start; margin: 0; color: var(--error); font-size: 12px; }
+.err svg { width: 16px; height: 16px; flex: none; margin-top: 1px; }
+.opts { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.check { display: inline-flex; gap: 6px; align-items: center; }
+.check input { width: 15px; height: 15px; margin: 0; accent-color: var(--jelly); }
+
+.actions { display: flex; justify-content: flex-end; align-items: center; gap: 12px; margin-top: 18px; }
+.actions .new { margin: 0 auto 0 0; color: var(--muted); }
+.actions .pill.jelly { min-width: 120px; min-height: 32px; font-size: 14px; }
+
+.statusbar { display: flex; justify-content: space-between; gap: 12px; padding: 6px 14px; background: linear-gradient(#e2e4e8, #cfd3d9); border-top: 1px solid #a2a8b1; font-size: 11px; color: var(--muted); }
+.statusbar nav { display: flex; gap: 14px; }
+.statusbar a { color: #2b2d31; }
+
+/* Style sheet */
+.sheet { padding: 40px 16px 64px; }
+.sheet .window { max-width: 1060px; }
+.sheet .inner { padding: 28px 32px 36px; }
+.sheet h2 { font: bold 22px var(--sans); margin: 0; }
+.sheet .idea { margin: 6px 0 0; font-size: 14px; color: var(--muted); max-width: 720px; }
+.sheet h3 { font: bold 12px var(--sans); margin: 32px 0 10px; padding: 5px 12px; border-radius: 4px 4px 0 0; color: #2b2d31; background: linear-gradient(#eef0f3, #d4d8de); border: 1px solid #a7acb4; border-bottom: 0; display: inline-block; text-shadow: 0 1px 0 #fff; }
+.swatches { list-style: none; margin: 0; padding: 14px; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; border: 1px solid #b9bec6; border-radius: 0 6px 6px 6px; background: #fff; }
+.sw { font-size: 12px; }
+.sw i { display: block; height: 40px; border-radius: 8px; margin-bottom: 6px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.2), inset 0 10px 10px -6px rgba(255,255,255,.6); }
+.sw b { display: block; }
+.box { border: 1px solid #b9bec6; border-radius: 0 6px 6px 6px; background: #fff; padding: 6px 14px; }
+.type-row { display: flex; flex-wrap: wrap; gap: 4px 18px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid #e3e5e8; }
+.type-row:last-child { border-bottom: 0; }
+.type-row code { font: 11px Monaco, Menlo, Consolas, monospace; color: var(--muted); min-width: 230px; }
+.facts { display: grid; grid-template-columns: 110px 1fr; gap: 8px 14px; margin: 0; padding: 8px 0; }
+.facts dt { font-weight: bold; text-align: right; }
+.facts dd { margin: 0; }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; padding: 12px 0; }
+.ctl-label { display: block; font-weight: bold; margin-bottom: 6px; }
+.list { border: 1px solid #8f959e; border-radius: 3px; background: #fff; }
+.list-row { display: flex; justify-content: space-between; gap: 10px; padding: 5px 10px; background: #fff; }
+.list-row:nth-child(even) { background: #edf3fe; }
+.list-row.sel { color: #fff; background: linear-gradient(#2f6fc6, #1a55a8); }
+.list-row .st { color: var(--done); font-weight: bold; }
+.list-row.sel .st { color: #fff; }
+
+@media (max-width: 600px) {
+  .desktop { padding: 20px 10px; }
+  .body { padding: 18px 16px; }
+  .toolbar { padding: 12px 16px; }
+  .sso { grid-template-columns: 1fr; }
+  .form { grid-template-columns: 1fr; gap: 4px; }
+  .form > label, .form .lbl { text-align: left; margin-top: 8px; }
+  .form .wide { grid-column: 1; }
+  .actions { flex-direction: column-reverse; align-items: stretch; }
+  .actions .new { margin: 4px 0 0; text-align: center; }
+  .sheet { padding: 24px 10px; }
+  .sheet .inner { padding: 20px 16px; }
+  .facts { grid-template-columns: 1fr; gap: 0; } .facts dt { text-align: left; margin-top: 8px; }
+}
+</style>
+</head>
+<body>
+<main class="desktop">
+  <div class="window">
+    <div class="titlebar"><span class="orb" aria-hidden="true"></span>Brightwork</div>
+    <div class="toolbar">
+      <svg class="app-icon" viewBox="0 0 54 54" aria-hidden="true">
+        <defs>
+          <radialGradient id="ball" cx="50%" cy="65%" r="60%"><stop offset="0" stop-color="#9fd0ff"/><stop offset=".6" stop-color="#2a6bc2"/><stop offset="1" stop-color="#0b3c80"/></radialGradient>
+          <linearGradient id="hl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+        </defs>
+        <circle cx="27" cy="28" r="23" fill="url(#ball)" stroke="#0b3c80"/>
+        <path d="M17 29l7 7 13-15" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <ellipse cx="27" cy="15" rx="16" ry="9" fill="url(#hl)"/>
+      </svg>
+      <div><p class="brand">Brightwork</p><p class="sub">Project tracker for small teams</p></div>
+    </div>
+
+    <div class="body">
+      <h1>Sign in to Brightwork</h1>
+      <div class="sso">
+        <button class="pill" type="button"><span class="ico" aria-hidden="true">G</span>Continue with Google</button>
+        <button class="pill" type="button"><span class="ico" aria-hidden="true">M</span>Continue with Microsoft</button>
+      </div>
+      <div class="or" role="separator" aria-label="or">or</div>
+
+      <form action="#" class="group">
+        <div class="form">
+          <label for="em">Email:</label>
+          <span class="input"><input id="em" type="email" value="mara@fernhill.studio" autocomplete="email"></span>
+          <label for="pw">Password:</label>
+          <span class="input bad"><input id="pw" type="password" value="lanterns42" aria-invalid="true" aria-describedby="pw-err" autocomplete="current-password"><button class="pill show" type="button" aria-label="Show password" aria-pressed="false">Show</button></span>
+          <p class="err wide" id="pw-err"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 1h6l4 4v6l-4 4H5l-4-4V5z" fill="#b3141b"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><span>That password does not match. Try again or reset it.</span></p>
+          <div class="opts wide">
+            <label class="check"><input type="checkbox" checked>Keep me signed in</label>
+            <a href="#">Forgot password</a>
+          </div>
+        </div>
+        <div class="actions">
+          <p class="new">New to Brightwork? <a href="#">Create an account</a></p>
+          <button class="pill jelly" type="submit"><span>Sign in</span></button>
+        </div>
+      </form>
+    </div>
+    <div class="statusbar"><span>Brightwork</span><nav aria-label="Legal"><a href="#">Privacy</a><a href="#">Terms</a></nav></div>
+  </div>
+</main>
+
+<section class="sheet" aria-labelledby="sheet-h">
+  <div class="window">
+    <div class="titlebar"><span class="orb" aria-hidden="true"></span>Style sheet</div>
+    <div class="inner">
+      <h2 id="sheet-h">Style 31 · Glossy aqua</h2>
+      <p class="idea">An early-2000s desktop window, brushed metal chrome on a pinstripe backdrop, with blue jelly buttons that look wet enough to press.</p>
+
+      <h3>Palette</h3>
+      <ul class="swatches">
+        <li class="sw"><i style="background:repeating-linear-gradient(#f7f7f7 0 2px,#ececec 2px 4px)"></i><b>Pinstripe</b>#f7f7f7 / #ececec · page background, 2px stripes</li>
+        <li class="sw"><i style="background:linear-gradient(#e9ebee,#c9ccd1)"></i><b>Brushed metal</b>#e9ebee → #c9ccd1 · title bar and toolbar</li>
+        <li class="sw"><i style="background:#f4f5f7"></i><b>Window</b>#f4f5f7 · window body</li>
+        <li class="sw"><i style="background:#1d1d1f"></i><b>Text</b>#1d1d1f · body text</li>
+        <li class="sw"><i style="background:#4f545c"></i><b>Muted</b>#4f545c · sub lines, status bar</li>
+        <li class="sw"><i style="background:#a7acb4"></i><b>Bevel line</b>#a7acb4 · group and tab borders</li>
+        <li class="sw"><i style="background:#2a6bc2"></i><b>Jelly blue</b>#2a6bc2 · primary gel button, selection</li>
+        <li class="sw"><i style="background:#0e4a9c"></i><b>Jelly deep</b>#0e4a9c · lower half of the gel</li>
+        <li class="sw"><i style="background:#8cc0f4"></i><b>Jelly glow</b>#8cc0f4 · inner glow under the gel</li>
+        <li class="sw"><i style="background:#6fa8eb"></i><b>Focus ring</b>#6fa8eb · 3px focus halo</li>
+        <li class="sw"><i style="background:#0b4fae"></i><b>Link</b>#0b4fae · links</li>
+        <li class="sw"><i style="background:#b3141b"></i><b>Error</b>#b3141b · error text and field border</li>
+        <li class="sw"><i style="background:#23733a"></i><b>Done</b>#23733a · On track text</li>
+      </ul>
+
+      <h3>Type · Lucida Grande, Lucida Sans Unicode, Helvetica Neue, Verdana</h3>
+      <div class="box">
+        <div class="type-row"><code>22 / bold, white 1px emboss</code><span style="font-size:22px;font-weight:bold;text-shadow:0 1px 0 #fff">Brightwork</span></div>
+        <div class="type-row"><code>17 / bold heading</code><span style="font-size:17px;font-weight:bold">Sign in to Brightwork</span></div>
+        <div class="type-row"><code>13 / bold labels, right aligned</code><span style="font-weight:bold">Password:</span></div>
+        <div class="type-row"><code>14 / regular field text</code><span style="font-size:14px">mara@fernhill.studio</span></div>
+        <div class="type-row"><code>13 / 1.45 body</code><span>Keep me signed in</span></div>
+        <div class="type-row"><code>11–12 small, status bar</code><span style="font-size:11px;color:var(--muted)">Privacy · Terms</span></div>
+      </div>
+
+      <h3>Spacing, corners and depth</h3>
+      <div class="box">
+        <dl class="facts">
+          <dt>Spacing</dt><dd>Tight, a 4px base. 12px between rows, 24 to 28px window padding.</dd>
+          <dt>Density</dt><dd>Compact desktop density, 13px type, 30px controls.</dd>
+          <dt>Corners</dt><dd>Fully round pill buttons, 10px top window corners, 6px groups, 4px fields.</dd>
+          <dt>Borders</dt><dd>1px grey bevels, darker on top for inset fields. Dividers are a grey line over a white line.</dd>
+          <dt>Shadows</dt><dd>A deep soft window shadow, inset field shadows, and gel buttons with a white top highlight and a light blue inner glow below.</dd>
+          <dt>Icons</dt><dd>Glossy orbs and gel balls with a white reflection. An octagon with a cross for errors, a tick in the app icon.</dd>
+          <dt>Tone</dt><dd>Plain desktop dialog wording with colons after labels, such as Email: and Password:.</dd>
+        </dl>
+      </div>
+
+      <h3>Controls · normal and focus</h3>
+      <div class="box">
+        <div class="controls">
+          <div><span class="ctl-label">Primary</span><button class="pill jelly" type="button"><span>Sign in</span></button></div>
+          <div><span class="ctl-label">Primary, focused</span><button class="pill jelly is-focus" type="button"><span>Sign in</span></button></div>
+          <div><span class="ctl-label">Secondary</span><button class="pill" type="button">Cancel</button></div>
+          <div><span class="ctl-label">Secondary, focused</span><button class="pill is-focus" type="button">Cancel</button></div>
+          <div><label class="ctl-label" for="d1">Email:</label><span class="input"><input id="d1" value="mara@fernhill.studio"></span></div>
+          <div><label class="ctl-label" for="d2">Email, focused:</label><span class="input is-focus"><input id="d2" value="mara@fernhill.studio"></span></div>
+          <div><span class="ctl-label">List rows</span><div class="list"><div class="list-row"><span>Website redesign</span><span class="st">✓ On track</span></div><div class="list-row"><span>Q4 customer survey</span><span class="st">✓ On track</span></div></div></div>
+          <div><span class="ctl-label">List row, focused and selected</span><div class="list"><div class="list-row sel is-focus"><span>▸ Website redesign</span><span class="st">✓ On track</span></div><div class="list-row"><span>Q4 customer survey</span><span class="st">✓ On track</span></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

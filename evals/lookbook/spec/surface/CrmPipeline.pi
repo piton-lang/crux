@@ -1,0 +1,27 @@
+export anchor CrmPipeline:
+    description:
+        Brightwork Sales, a made-up CRM, on the deal pipeline for Q4.
+
+    summary:
+        Pipeline value 412,000, won this quarter 128,500, target 200,000,
+        win rate 31 percent, 18 open deals. The stages below list only the 7
+        deals shown on screen, so their values do not add up to the pipeline.
+
+    stages:
+        lead:
+            - Lumen Bakery, 6,000, owner Lena Fischer
+            - Orbit Labs, 24,000, owner Sam Ortiz
+        qualified:
+            - Northpass, 48,000, owner Mara Okafor, next step demo on 4 Nov
+        proposal:
+            - Kettle & Co, 32,500, owner Lena Fischer, proposal sent 28 Oct
+            - Saltwater Freight, 90,000, owner Mara Okafor, stalled 12 days
+        negotiation:
+            - Fernhill Studio, 18,000, owner Sam Ortiz, closing 7 Nov
+        won:
+            - Bluewater Clinics, 64,000, closed 22 Oct
+
+    activity:
+        - Call with Northpass booked for 4 Nov 10:00
+        - Kettle & Co opened the proposal 3 times
+        - Saltwater Freight has had no reply for 12 days

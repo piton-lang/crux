@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 191 · Bold modern · Brightwork</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0}
+img,svg{display:block}
+button,input{font:inherit;color:inherit}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+:root{--ink:#0d0d0d;--gr:#5a5a55;--hl:#deded8;--lime:#456300;--wash:#f1f6df;--chalk:#f4f4f0;--bad:#b42318;--warn:#8a4b00;--ok:#456300;
+--f:"Helvetica Neue",Inter,"Arial Nova",Arial,"Liberation Sans",sans-serif}
+body{background:#fff;color:var(--ink);font:400 16px/1.5 var(--f)}
+a{color:inherit}
+.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{max-width:1232px;margin:0 auto;padding:0 24px}
+.top{display:flex;align-items:center;gap:28px;padding-top:24px;padding-bottom:24px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:22px;letter-spacing:-.03em;text-decoration:none}
+.brand span{color:var(--lime)}
+.nav{display:flex;gap:22px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.nav a{text-decoration:none;color:var(--gr);font-weight:700;padding:4px 0;border-bottom:4px solid transparent}
+.nav a:hover{color:var(--ink)}
+.nav a[aria-current]{color:var(--ink);border-bottom-color:var(--lime)}
+.acts{margin-left:auto;display:flex;align-items:center;gap:16px}
+.search{display:flex;align-items:center;gap:8px;border-bottom:2px solid var(--ink);width:170px}
+.search input{border:0;padding:6px 0;width:100%;outline:0;background:transparent}
+.search input::placeholder{color:var(--gr)}
+.search:focus-within{background:var(--wash);border-bottom-color:var(--lime)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 20px;font-weight:700;border:2px solid transparent;cursor:pointer;white-space:nowrap}
+.btn-p{background:var(--lime);color:#fff}
+.btn-s{background:#fff;border-color:var(--ink);color:var(--ink)}
+.btn:focus-visible,.btn.is-focus,.ib:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+.ib{width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);background:#fff;display:grid;place-items:center;cursor:pointer}
+.ib .i{width:18px;height:18px}
+.me{display:flex;align-items:center;gap:10px;font-weight:700}
+.av{width:40px;height:40px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px}
+.hero{padding-top:64px;padding-bottom:56px}
+.date{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gr);margin:0 0 16px}
+h1{font-size:96px;line-height:.95;font-weight:800;letter-spacing:-.045em;margin:0}
+.urgent{font-size:28px;font-weight:700;letter-spacing:-.02em;margin:24px 0 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.urgent .sym{width:24px;height:24px;color:var(--bad)}
+.urgent a{font-size:16px;color:var(--lime);text-underline-offset:4px;text-decoration-thickness:2px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;list-style:none;margin:0;padding:0 0 24px}
+.k{border-top:4px solid var(--ink);padding-top:16px}
+.kv{display:flex;align-items:flex-start;gap:8px;font-size:104px;line-height:1;font-weight:800;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.kl{display:block;margin-top:12px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gr)}
+.k.hot{border-top-color:var(--bad)}
+.k.hot .kv{color:var(--bad)}
+.ksym{width:28px;height:28px;margin-top:12px;color:var(--bad)}
+.sec{padding-top:80px}
+.sh{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-top:4px solid var(--ink);padding-top:16px;margin-bottom:8px;flex-wrap:wrap}
+h2{font-size:40px;font-weight:800;letter-spacing:-.03em;margin:0;line-height:1.1}
+.sh p{margin:0;color:var(--gr);font-weight:700}
+.sh p b{color:var(--ink)}
+.plist{list-style:none;margin:0;padding:0}
+.pr{display:grid;grid-template-columns:56px minmax(0,1fr) 140px 140px;column-gap:24px;align-items:center;padding:24px 0 0;position:relative}
+.idx{font-size:15px;font-weight:800;color:var(--gr);font-variant-numeric:tabular-nums}
+.pr-name{font-size:24px;font-weight:700;letter-spacing:-.015em;text-decoration:none}
+.pr-name:hover{text-decoration:underline;text-decoration-color:var(--lime);text-decoration-thickness:3px}
+.pr-meta{display:block;color:var(--gr);font-size:15px}
+.pct{font-size:56px;font-weight:800;letter-spacing:-.05em;line-height:1;text-align:right;font-variant-numeric:tabular-nums}
+.pct small{font-size:24px;letter-spacing:0;margin-left:2px}
+.line{grid-column:2/-1;height:4px;background:var(--hl);margin-top:20px;display:block}
+.line i{display:block;height:100%;background:var(--lime)}
+.chip{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;white-space:nowrap}
+.chip .sym{width:16px;height:16px}
+.chip.ok{color:var(--ok)}.chip.warn{color:var(--warn)}.chip.bad{color:var(--bad)}
+.duo{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:64px;padding-bottom:96px}
+.big{display:flex;align-items:flex-end;gap:32px;margin:24px 0 16px;flex-wrap:wrap}
+.big b{font-size:104px;line-height:.9;font-weight:800;letter-spacing:-.05em}
+.big span{font-weight:700;color:var(--gr);padding-bottom:6px}
+.big span em{font-style:normal;color:var(--lime)}
+.legend{display:flex;gap:24px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gr);margin:0 0 12px;flex-wrap:wrap}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{width:14px;height:14px}
+.lg-t{background:var(--lime)}.lg-l{border:2px solid var(--gr)}
+.chart{width:100%;height:auto}
+.cscroll{overflow-x:auto}
+.chart .b-t{fill:var(--lime)}
+.chart .b-l{fill:#fff;stroke:var(--gr);stroke-width:2}
+.chart .vl{font:800 13px var(--f);fill:var(--ink)}
+.chart .ax{font:700 11px var(--f);fill:var(--gr)}
+.chart .base{stroke:var(--ink);stroke-width:2}
+.chart .split{stroke:var(--hl);stroke-width:1;stroke-dasharray:3 3}
+.feed{list-style:none;margin:16px 0 0;padding:0}
+.feed li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:1px solid var(--hl)}
+.feed p{margin:0}
+.feed .when{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gr);padding-top:3px}
+/* sheet */
+.sheet{background:var(--chalk)}
+.sheet-in{max-width:1232px;margin:0 auto;padding:80px 24px 96px}
+.sheet h2{font-size:48px;border-top:4px solid var(--ink);padding-top:16px}
+.sheet-idea{font-size:20px;max-width:760px;margin:16px 0 0}
+.sheet h3{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;margin:56px 0 16px}
+.sw-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px 32px}
+.sw{display:flex;gap:16px}
+.sw-chip{width:72px;height:72px;display:grid;place-items:center;font-weight:800;font-size:20px;flex:none;border:1px solid var(--hl)}
+.sw-meta{display:flex;flex-direction:column;font-size:14px;color:var(--gr)}
+.sw-meta b{color:var(--ink);font-size:16px}
+.sw-meta code{color:var(--ink)}
+.ty-list{list-style:none;margin:0;padding:0}
+.ty{display:grid;grid-template-columns:260px minmax(0,1fr);gap:24px;align-items:baseline;padding:16px 0;border-top:1px solid var(--hl)}
+.ty-label{font-size:13px;font-weight:700;color:var(--gr)}
+.sp-list{margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px}
+.sp{padding:16px 0;border-top:1px solid var(--hl)}
+.sp dt{font-weight:800}.sp dd{margin:4px 0 0;color:var(--gr)}
+.ctrl-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 48px}
+.ctrl{border-top:4px solid var(--ink);padding-top:16px}
+.ctrl-cap{display:block;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
+.ctrl-row{display:flex;gap:24px;flex-wrap:wrap}
+.ctrl-col{display:grid;gap:16px}
+.fld{display:grid;gap:4px;font-size:13px;font-weight:700;color:var(--gr)}
+.fld input{border:0;border-bottom:2px solid var(--ink);padding:8px 0;background:transparent;font-size:18px;color:var(--ink);width:100%;font-weight:400}
+.fld input:focus,.fld.is-focus input{outline:0;border-bottom:3px solid var(--lime);background:var(--wash)}
+.srow{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--hl);text-decoration:none}
+.srow b{font-size:18px}
+.srow:focus-visible,.srow.is-focus{outline:3px solid var(--lime);outline-offset:3px;background:#fff}
+@media (max-width:1100px){.kv{font-size:80px}.duo{grid-template-columns:minmax(0,1fr)}.acts{margin-left:0;width:100%}.search{flex:1}}
+@media (max-width:720px){
+ .wrap{padding:0 16px}.top{gap:16px;padding-top:16px;padding-bottom:16px}.nav{gap:18px;order:3;width:100%}
+ .me .nm{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.btn-p.new span{display:none}.btn-p.new{padding:10px 12px}
+ .hero{padding-top:32px;padding-bottom:40px}h1{font-size:56px}.urgent{font-size:22px}
+ .kpis{grid-template-columns:1fr 1fr;gap:32px 20px}.kv{font-size:64px}
+ .sec{padding-top:56px}h2{font-size:32px}
+ .pr{grid-template-columns:32px minmax(0,1fr) auto;row-gap:8px}.pr-main{grid-column:2/-1}.chip{grid-column:2;grid-row:2}.pct{grid-column:3;grid-row:2;font-size:40px}.line{grid-row:3;grid-column:2/-1;margin-top:8px}
+ .big b{font-size:80px}.chart{min-width:520px}.duo{gap:56px;padding-bottom:64px}.feed li{grid-template-columns:minmax(0,1fr);gap:4px}
+ .sheet-in{padding:56px 16px 64px}.sheet h2{font-size:36px}.ty,.sp-list,.ctrl-grid{grid-template-columns:1fr}.ty{gap:4px}.ty-sample{overflow-wrap:anywhere}
+}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="s-ok" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="currentColor"/><path d="M4.8 8.2l2.2 2.2 4.2-4.6" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-warn" viewBox="0 0 16 16"><path d="M8 1.2l7.2 13.3H.8z" fill="currentColor"/><path d="M8 6v4" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><circle cx="8" cy="12.3" r="1" fill="#fff"/></symbol>
+<symbol id="s-bad" viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="13" height="13" rx="1.5" fill="currentColor"/><path d="M5.2 5.2l5.6 5.6M10.8 5.2l-5.6 5.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></symbol>
+</svg>
+<header class="wrap top">
+  <a href="#" class="brand">Brightwork<span>.</span></a>
+  <nav aria-label="Main"><ul class="nav"><li><a href="#" aria-current="page">Home</a></li><li><a href="#">Projects</a></li><li><a href="#">Tasks</a></li><li><a href="#">Team</a></li><li><a href="#">Reports</a></li><li><a href="#">Settings</a></li></ul></nav>
+  <div class="acts">
+    <label class="search"><svg class="i" viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13 13l4 4"/></svg><span class="sr">Search projects and tasks</span><input type="search" placeholder="Search"></label>
+    <button type="button" class="btn btn-p new" aria-label="New project"><svg class="i" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg><span>New project</span></button>
+    <button type="button" class="ib" aria-label="Notifications"><svg class="i" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 14V9a5 5 0 0110 0v5l1.5 2h-13zM8 18h4"/></svg></button>
+    <span class="me"><span class="av" aria-hidden="true">MO</span><span class="nm">Mara Okafor</span></span>
+  </div>
+</header>
+<main>
+  <section class="wrap hero" aria-labelledby="hello">
+    <p class="date">Saturday 31 October 2026</p>
+    <h1 id="hello">Hi, Mara.</h1>
+    <p class="urgent"><svg class="sym" aria-hidden="true"><use href="#s-bad"/></svg>4 tasks are overdue. <a href="#">See them</a></p>
+  </section>
+  <div class="wrap"><ul class="kpis" aria-label="This week"><li class="k"><span class="kv">6</span><span class="kl">Active projects</span></li><li class="k"><span class="kv">23</span><span class="kl">Tasks due this week</span></li><li class="k hot"><span class="kv">4<svg class="ksym" aria-hidden="true"><use href="#s-bad"/></svg></span><span class="kl">Overdue tasks</span></li><li class="k"><span class="kv">186</span><span class="kl">Hours logged this week</span></li></ul></div>
+  <section class="wrap sec" aria-labelledby="ph">
+    <div class="sh"><h2 id="ph">Projects</h2><p><b>78</b> of 170 tasks done · <a href="#">All projects</a></p></div>
+    <ul class="plist"><li class="pr">
+  <span class="idx" aria-hidden="true">01</span>
+  <div class="pr-main"><a href="#" class="pr-name">Website redesign</a><span class="pr-meta">Design · 18 of 25 tasks · due 14 Nov, 14 days left</span></div>
+  <span class="chip ok"><svg class="sym" aria-hidden="true"><use href="#s-ok"/></svg>On track</span>
+  <span class="pct">72<small>%</small></span>
+  <span class="line" role="img" aria-label="72 percent complete"><i style="width:72%"></i></span>
+</li><li class="pr">
+  <span class="idx" aria-hidden="true">02</span>
+  <div class="pr-main"><a href="#" class="pr-name">Mobile app 2.0</a><span class="pr-meta">Engineering · 27 of 60 tasks · due 2 Dec, 32 days left</span></div>
+  <span class="chip warn"><svg class="sym" aria-hidden="true"><use href="#s-warn"/></svg>At risk</span>
+  <span class="pct">45<small>%</small></span>
+  <span class="line" role="img" aria-label="45 percent complete"><i style="width:45%"></i></span>
+</li><li class="pr">
+  <span class="idx" aria-hidden="true">03</span>
+  <div class="pr-main"><a href="#" class="pr-name">Q4 customer survey</a><span class="pr-meta">Research · 9 of 10 tasks · due 7 Nov, 7 days left</span></div>
+  <span class="chip ok"><svg class="sym" aria-hidden="true"><use href="#s-ok"/></svg>On track</span>
+  <span class="pct">90<small>%</small></span>
+  <span class="line" role="img" aria-label="90 percent complete"><i style="width:90%"></i></span>
+</li><li class="pr">
+  <span class="idx" aria-hidden="true">04</span>
+  <div class="pr-main"><a href="#" class="pr-name">Billing migration</a><span class="pr-meta">Engineering · 12 of 40 tasks · due 20 Nov, 20 days left</span></div>
+  <span class="chip bad"><svg class="sym" aria-hidden="true"><use href="#s-bad"/></svg>Behind</span>
+  <span class="pct">30<small>%</small></span>
+  <span class="line" role="img" aria-label="30 percent complete"><i style="width:30%"></i></span>
+</li><li class="pr">
+  <span class="idx" aria-hidden="true">05</span>
+  <div class="pr-main"><a href="#" class="pr-name">Spring catalogue</a><span class="pr-meta">Marketing · 3 of 20 tasks · due 15 Jan, 76 days left</span></div>
+  <span class="chip ok"><svg class="sym" aria-hidden="true"><use href="#s-ok"/></svg>On track</span>
+  <span class="pct">15<small>%</small></span>
+  <span class="line" role="img" aria-label="15 percent complete"><i style="width:15%"></i></span>
+</li><li class="pr">
+  <span class="idx" aria-hidden="true">06</span>
+  <div class="pr-main"><a href="#" class="pr-name">Onboarding emails</a><span class="pr-meta">Marketing · 9 of 15 tasks · due 21 Nov, 21 days left</span></div>
+  <span class="chip ok"><svg class="sym" aria-hidden="true"><use href="#s-ok"/></svg>On track</span>
+  <span class="pct">60<small>%</small></span>
+  <span class="line" role="img" aria-label="60 percent complete"><i style="width:60%"></i></span>
+</li></ul>
+  </section>
+  <div class="wrap sec duo">
+    <section aria-labelledby="ch">
+      <div class="sh"><h2 id="ch">Tasks completed</h2><p>18 to 31 October</p></div>
+      <div class="big"><b>73</b><span>done this week<br><em>+14</em> on last week’s 59</span></div>
+      <p class="legend"><span><i class="lg-t"></i>This week</span><span><i class="lg-l"></i>Last week</span></p>
+      <div class="cscroll"><svg viewBox="0 0 560 240" class="chart" role="img" aria-label="Tasks completed per day from Sunday 18 October to Saturday 31 October 2026. Last week: Sunday 3, Monday 12, Tuesday 9, Wednesday 14, Thursday 11, Friday 8, Saturday 2, total 59. This week: Sunday 4, Monday 15, Tuesday 13, Wednesday 17, Thursday 12, Friday 10, Saturday 2, total 73."><rect x="6.0" y="178.7" width="28.0" height="31.3" class="b-l"/><text x="20.0" y="172.7" class="vl" text-anchor="middle">3</text><text x="20.0" y="232" class="ax" text-anchor="middle">18</text><rect x="46.0" y="84.7" width="28.0" height="125.3" class="b-l"/><text x="60.0" y="78.7" class="vl" text-anchor="middle">12</text><text x="60.0" y="232" class="ax" text-anchor="middle">19</text><rect x="86.0" y="116.0" width="28.0" height="94.0" class="b-l"/><text x="100.0" y="110.0" class="vl" text-anchor="middle">9</text><text x="100.0" y="232" class="ax" text-anchor="middle">20</text><rect x="126.0" y="63.8" width="28.0" height="146.2" class="b-l"/><text x="140.0" y="57.8" class="vl" text-anchor="middle">14</text><text x="140.0" y="232" class="ax" text-anchor="middle">21</text><rect x="166.0" y="95.1" width="28.0" height="114.9" class="b-l"/><text x="180.0" y="89.1" class="vl" text-anchor="middle">11</text><text x="180.0" y="232" class="ax" text-anchor="middle">22</text><rect x="206.0" y="126.4" width="28.0" height="83.6" class="b-l"/><text x="220.0" y="120.4" class="vl" text-anchor="middle">8</text><text x="220.0" y="232" class="ax" text-anchor="middle">23</text><rect x="246.0" y="189.1" width="28.0" height="20.9" class="b-l"/><text x="260.0" y="183.1" class="vl" text-anchor="middle">2</text><text x="260.0" y="232" class="ax" text-anchor="middle">24</text><rect x="294.0" y="168.2" width="28.0" height="41.8" class="b-t"/><text x="308.0" y="162.2" class="vl" text-anchor="middle">4</text><text x="308.0" y="232" class="ax" text-anchor="middle">25</text><rect x="334.0" y="53.3" width="28.0" height="156.7" class="b-t"/><text x="348.0" y="47.3" class="vl" text-anchor="middle">15</text><text x="348.0" y="232" class="ax" text-anchor="middle">26</text><rect x="374.0" y="74.2" width="28.0" height="135.8" class="b-t"/><text x="388.0" y="68.2" class="vl" text-anchor="middle">13</text><text x="388.0" y="232" class="ax" text-anchor="middle">27</text><rect x="414.0" y="32.4" width="28.0" height="177.6" class="b-t"/><text x="428.0" y="26.4" class="vl" text-anchor="middle">17</text><text x="428.0" y="232" class="ax" text-anchor="middle">28</text><rect x="454.0" y="84.7" width="28.0" height="125.3" class="b-t"/><text x="468.0" y="78.7" class="vl" text-anchor="middle">12</text><text x="468.0" y="232" class="ax" text-anchor="middle">29</text><rect x="494.0" y="105.6" width="28.0" height="104.4" class="b-t"/><text x="508.0" y="99.6" class="vl" text-anchor="middle">10</text><text x="508.0" y="232" class="ax" text-anchor="middle">30</text><rect x="534.0" y="189.1" width="28.0" height="20.9" class="b-t"/><text x="548.0" y="183.1" class="vl" text-anchor="middle">2</text><text x="548.0" y="232" class="ax" text-anchor="middle">31</text><line x1="0" x2="560" y1="210" y2="210" class="base"/><line x1="284.0" x2="284.0" y1="12" y2="210" class="split"/></svg></div>
+    </section>
+    <section aria-labelledby="ah">
+      <div class="sh"><h2 id="ah">Activity</h2></div>
+      <ul class="feed"><li><span class="when">12 min ago</span><p><b>Jonas Weber</b> completed “Export invoices as CSV” in <a href="#">Billing migration</a></p></li><li><span class="when">40 min ago</span><p><b>Priya Nair</b> commented on “Hero image options” in <a href="#">Website redesign</a></p></li><li><span class="when">1 h ago</span><p><b>Sam Ortiz</b> moved “Push notifications” to Review in <a href="#">Mobile app 2.0</a></p></li><li><span class="when">2 h ago</span><p><b>Lena Fischer</b> added 3 tasks to <a href="#">Spring catalogue</a></p></li><li><span class="when">3 h ago</span><p><b>Tomás Ruiz</b> logged 6 h on <a href="#">Mobile app 2.0</a></p></li><li><span class="when">yesterday</span><p><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to <a href="#">Q4 customer survey</a></p></li></ul>
+    </section>
+  </div>
+</main>
+
+<section class="sheet" aria-labelledby="sheet-h">
+  <div class="sheet-in">
+  <h2 id="sheet-h">Style 191 · Bold modern</h2>
+  <p class="sheet-idea">A confident, editorial dashboard of black heavy headings and oversized numbers on white, where generous whitespace replaces boxes and a single dark lime accent marks progress, the current page and the primary action.</p>
+  <h3>Palette</h3>
+  <ul class="sw-list"><li class="sw"><span class="sw-chip" style="background:#ffffff;color:#0d0d0d">Aa</span><span class="sw-meta"><b>white</b><code>#ffffff</code><span>the page and fields</span></span></li><li class="sw"><span class="sw-chip" style="background:#f4f4f0;color:#0d0d0d">Aa</span><span class="sw-meta"><b>chalk</b><code>#f4f4f0</code><span>the style sheet band and hovered rows</span></span></li><li class="sw"><span class="sw-chip" style="background:#0d0d0d;color:#ffffff">Aa</span><span class="sw-meta"><b>black</b><code>#0d0d0d</code><span>headings, figures, body, the 4px rules and the secondary button</span></span></li><li class="sw"><span class="sw-chip" style="background:#5a5a55;color:#ffffff">Aa</span><span class="sw-meta"><b>graphite</b><code>#5a5a55</code><span>meta, labels, axis text and last week's outlined bars</span></span></li><li class="sw"><span class="sw-chip" style="background:#deded8;color:#0d0d0d">Aa</span><span class="sw-meta"><b>hairline</b><code>#deded8</code><span>1px row dividers and the empty progress line, never text</span></span></li><li class="sw"><span class="sw-chip" style="background:#456300;color:#ffffff">Aa</span><span class="sw-meta"><b>lime</b><code>#456300</code><span>the single accent, the primary button, current nav bar, progress fills, this week's bars and focus</span></span></li><li class="sw"><span class="sw-chip" style="background:#f1f6df;color:#0d0d0d">Aa</span><span class="sw-meta"><b>limeWash</b><code>#f1f6df</code><span>the overdue figure field and focused fields</span></span></li><li class="sw"><span class="sw-chip" style="background:#b42318;color:#ffffff">Aa</span><span class="sw-meta"><b>signal</b><code>#b42318</code><span>Behind and the overdue square, square with a cross</span></span></li><li class="sw"><span class="sw-chip" style="background:#8a4b00;color:#ffffff">Aa</span><span class="sw-meta"><b>rust</b><code>#8a4b00</code><span>At risk, triangle with a bar</span></span></li></ul>
+  <h3>Type scale</h3>
+  <ul class="ty-list"><li class="ty"><span class="ty-label">Display 96px / 800, -0.045em</span><span class="ty-sample" style="font-size:96px;font-weight:800;letter-spacing:-.045em;line-height:1">Hi, Mara.</span></li><li class="ty"><span class="ty-label">Figure 104px / 800 tabular</span><span class="ty-sample" style="font-size:104px;font-weight:800;letter-spacing:-.05em;line-height:1">186</span></li><li class="ty"><span class="ty-label">Section 40px / 800</span><span class="ty-sample" style="font-size:40px;font-weight:800;letter-spacing:-.03em">Projects</span></li><li class="ty"><span class="ty-label">Row title 24px / 700</span><span class="ty-sample" style="font-size:24px;font-weight:700;letter-spacing:-.01em">Billing migration</span></li><li class="ty"><span class="ty-label">Body 16px / 400, 1.5</span><span class="ty-sample" style="font-size:16px">Sam Ortiz moved “Push notifications” to Review</span></li><li class="ty"><span class="ty-label">Label 13px / 700 caps, 0.08em</span><span class="ty-sample" style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em">Hours logged this week</span></li></ul>
+  <h3>System</h3>
+  <dl class="sp-list"><div class="sp"><dt>Type stack</dt><dd>Helvetica Neue, Inter, Arial Nova, Arial, Liberation Sans, sans-serif. Weights 400, 700 and 800 with tight negative tracking on big sizes.</dd></div><div class="sp"><dt>Layout</dt><dd>A slim white bar with the wordmark, plain word nav and an underlined search. A huge greeting, then four giant figures under 4px black rules. Projects run full width as numbered rows with a giant percent. The chart and activity share the last band, 7 to 5.</dd></div><div class="sp"><dt>Spacing</dt><dd>8px unit with big jumps, 24, 48, 80 and 120px. Sections have 80px above.</dd></div><div class="sp"><dt>Density</dt><dd>Low. Few elements, very large, with whitespace doing the grouping.</dd></div><div class="sp"><dt>Corners</dt><dd>Square for rules, bars and fields; pill buttons only.</dd></div><div class="sp"><dt>Borders</dt><dd>4px black rules above sections and figures, 1px hairlines between rows. No boxes.</dd></div><div class="sp"><dt>Shadows</dt><dd>None.</dd></div><div class="sp"><dt>Icons</dt><dd>Almost none. Solid status shapes at 16px and a 2px line icon set for search, bell and plus.</dd></div><div class="sp"><dt>Focus</dt><dd>A 3px lime outline offset 3px. Fields get a lime underline and a lime wash.</dd></div><div class="sp"><dt>Tone</dt><dd>Short and direct, with full stops. Hi, Mara. 4 tasks are overdue.</dd></div></dl>
+  <h3>Controls, normal and focus</h3>
+  
+<div class="ctrl-grid">
+  <div class="ctrl"><span class="ctrl-cap">Primary button</span><div class="ctrl-row"><button type="button" class="btn btn-p">Create project</button><button type="button" class="btn btn-p is-focus" aria-label="Create project, focus state">Create project</button></div></div>
+  <div class="ctrl"><span class="ctrl-cap">Secondary button</span><div class="ctrl-row"><button type="button" class="btn btn-s">Export</button><button type="button" class="btn btn-s is-focus" aria-label="Export, focus state">Export</button></div></div>
+  <div class="ctrl"><span class="ctrl-cap">Text field</span><div class="ctrl-col"><label class="fld"><span>Project name</span><input type="text" value="Website redesign"></label><label class="fld is-focus"><span>Project name, focus</span><input type="text" value="Website redesign"></label></div></div>
+  <div class="ctrl"><span class="ctrl-cap">Table row</span><div class="ctrl-col"><a href="#" class="srow"><b>Billing migration</b><span>30%</span><span class="chip bad"><svg class="sym" aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></a><a href="#" class="srow is-focus" aria-label="Billing migration, 30 percent, Behind, focus state"><b>Billing migration</b><span>30%</span><span class="chip bad"><svg class="sym" aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></a></div></div>
+  
+</div>
+  </div>
+</section>
+</body>
+</html>

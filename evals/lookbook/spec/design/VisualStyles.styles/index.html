@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style Library · Brightwork</title>
+<style>
+:root { --bg: #f4f4f2; --surface: #fff; --text: #1a1a1a; --muted: #5c5c5c; --line: #d9d9d6; --accent: #1f4fd1; --fav: #17784a; --rej: #b3261e; --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 var(--font); }
+button, input { font: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+header.top { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 16px 24px; background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 5; }
+header.top h1 { font-size: 18px; margin: 0; }
+header.top p { margin: 0; color: var(--muted); font-size: 13px; }
+.grow { flex: 1; }
+.filters { display: flex; gap: 4px; flex-wrap: wrap; }
+.filters button { border: 1px solid var(--line); background: var(--surface); padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--text); color: #fff; border-color: var(--text); }
+.jump { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
+.jump input { width: 72px; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; }
+main { padding: 24px; }
+.run h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 12px; }
+.run + .run { margin-top: 40px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; list-style: none; margin: 0; padding: 0; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
+.card button.open { all: unset; cursor: pointer; display: block; position: relative; height: 280px; overflow: hidden; border-bottom: 1px solid var(--line); background: #eee; }
+.card button.open:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+.card iframe { width: 1280px; height: 1100px; border: 0; transform: scale(0.3); transform-origin: 0 0; pointer-events: none; }
+.card .body { padding: 14px 16px 16px; display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; align-items: start; }
+.no { font-size: 44px; font-weight: 800; line-height: 1; grid-row: span 3; }
+.name { font-weight: 700; font-size: 17px; }
+.idea { color: var(--muted); font-size: 14px; }
+.verdict { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+.verdict.favoured { color: var(--fav); } .verdict.rejected { color: var(--rej); } .verdict.unrated { color: var(--muted); }
+.empty { color: var(--muted); }
+
+/* Large view */
+.lv { position: fixed; inset: 0; background: rgba(20, 20, 20, 0.92); z-index: 10; display: none; flex-direction: column; }
+.lv.on { display: flex; }
+.lv-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 10px 16px; color: #fff; }
+.lv-bar .t { font-weight: 700; margin-right: 8px; }
+.lv-bar button, .lv-bar a { background: #333; color: #fff; border: 1px solid #555; border-radius: 6px; padding: 6px 12px; cursor: pointer; text-decoration: none; font-size: 14px; }
+.lv-bar button[aria-pressed="true"] { background: #fff; color: #111; }
+.lv-stage { flex: 1; overflow: auto; display: flex; justify-content: center; padding: 0 16px 16px; }
+.lv-stage iframe { background: #fff; border: 0; height: 100%; width: 100%; max-width: 100%; border-radius: 4px; }
+@media (max-width: 600px) { header.top { padding: 12px 16px; } main { padding: 16px; } .cards { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div><h1>Brightwork style library</h1><p>Styles in one run draw the same screen. Click a card to open it large.</p></div>
+  <span class="grow"></span>
+  <div class="filters" role="group" aria-label="Filter by verdict">
+    <button aria-pressed="true" data-f="all">All</button>
+    <button aria-pressed="false" data-f="favoured">Favoured</button>
+    <button aria-pressed="false" data-f="unrated">Unrated</button>
+    <button aria-pressed="false" data-f="rejected">Rejected</button>
+  </div>
+  <label class="jump">Open number <input id="jump" inputmode="numeric" placeholder="e.g. 2" aria-label="Style number, press Enter to open"></label>
+</header>
+<main id="runs"></main>
+
+<div class="lv" id="lv" role="dialog" aria-modal="true" aria-label="Large view">
+  <div class="lv-bar">
+    <span class="t" id="lv-title"></span>
+    <button data-w="100%" aria-pressed="true">Wide</button>
+    <button data-w="820px" aria-pressed="false">Tablet</button>
+    <button data-w="375px" aria-pressed="false">Phone 375</button>
+    <span class="grow"></span>
+    <button id="lv-prev" aria-label="Previous style">← Prev</button>
+    <button id="lv-next" aria-label="Next style">Next →</button>
+    <a id="lv-open" href="#" target="_blank" rel="noopener">Open page</a>
+    <button id="lv-close" aria-label="Close large view (Escape)">Close ✕</button>
+  </div>
+  <div class="lv-stage"><iframe id="lv-frame" title="Style page"></iframe></div>
+</div>
+
+<script>
+// Library data. Verdicts are updated here and in spec/design/VisualStyles.pi.
+const STYLES = [
+  {"no": 1, "run": 1, "name": "Clean app", "idea": "Calm white cards on a cool grey page, soft shadows and rounded pills that make the app feel light and friendly.", "verdict": "unrated"},
+  {"no": 2, "run": 1, "name": "Editorial guide", "idea": "A printed weekly on warm paper, with serif headlines, ink rules and plain words that read the dashboard like a short report.", "verdict": "unrated"},
+  {"no": 3, "run": 1, "name": "Dense listing", "idea": "A compact work tool, with tables, mono figures and terse labels that fit the whole picture on one screen.", "verdict": "unrated"},
+  {"no": 4, "run": 2, "name": "Playful pastel", "idea": "A friendly toy box of candy pastel blocks, chunky round corners and soft blobs that makes project work feel light and encouraging.", "verdict": "unrated"},
+  {"no": 5, "run": 2, "name": "Swiss grid", "idea": "A strict twelve column grid in black Helvetica on white, where huge flush left numbers, rules and alignment carry everything and one signal red marks what needs action.", "verdict": "unrated"},
+  {"no": 6, "run": 2, "name": "Neo-brutalist", "idea": "Raw web zine energy, with thick black borders, hard offset shadows and loud yellow, pink and cyan blocks stacked like stickers on off-white paper.", "verdict": "unrated"},
+  {"no": 7, "run": 2, "name": "Blueprint", "idea": "The dashboard as an engineering drawing on pale blue drafting paper, with navy line work, monospace lettering, outlined boxes and dimension style annotations.", "verdict": "unrated"},
+  {"no": 8, "run": 2, "name": "Frosted glass", "idea": "Light airy panels of frosted glass floating over a soft pastel haze, with thin white edges, light type weights and plenty of breathing room.", "verdict": "unrated"},
+  {"no": 9, "run": 3, "name": "Enterprise shell", "idea": "A formal corporate suite, with a deep-blue shell bar, a collapsible tree nav, breadcrumbs and flat square tiles on light grey that frame the work like an official system of record.", "verdict": "unrated"},
+  {"no": 10, "run": 3, "name": "Retro desktop", "idea": "A 1990s desktop, with silver bevelled windows on a teal backdrop, where each part of the dashboard opens as its own window with a title bar, sunken fields and pixel-crisp edges.", "verdict": "unrated"},
+  {"no": 11, "run": 3, "name": "Notebook", "idea": "A personal planner on lined paper, with a red margin, taped sticky notes, highlighter marks and handwritten headings, while the numbers and names stay in a clean sans so they read at a glance.", "verdict": "unrated"},
+  {"no": 12, "run": 3, "name": "Monochrome minimal", "idea": "Black, white and grey only, one weight, hairlines and a great deal of empty space, so the content itself is the only thing that carries weight.", "verdict": "unrated"},
+  {"no": 13, "run": 3, "name": "Bento tiles", "idea": "A modern product page, where the dashboard is a bento grid of softly tinted tiles in different sizes, with big rounded corners and large heavy numbers that make the key facts land first.", "verdict": "unrated"},
+  {"no": 14, "run": 4, "name": "Terminal light", "idea": "A light terminal session on warm cream, where everything is monospace, panels are drawn with box lines and progress is a row of hash marks.", "verdict": "unrated"},
+  {"no": 15, "run": 4, "name": "Document workspace", "idea": "The dashboard as one calm document page, with a narrow column, a big title, callouts, toggles and properties, beside a slim grey list of pages.", "verdict": "unrated"},
+  {"no": 16, "run": 4, "name": "Analytics forward", "idea": "Charts lead everything, with a large hero chart on top, a sparkline and a delta on every number, and progress rings for projects in deep teal and coral on white.", "verdict": "unrated"},
+  {"no": 17, "run": 4, "name": "Luxury", "idea": "An ivory house style with thin, widely tracked capitals, a dark gold accent, hairline rules and a great deal of quiet space.", "verdict": "unrated"},
+  {"no": 18, "run": 4, "name": "Bauhaus", "idea": "Primary red, yellow and blue blocks locked together by thick black bars, with circles, squares and triangles as both structure and status.", "verdict": "unrated"},
+  {"no": 19, "run": 5, "name": "Tonal surfaces", "idea": "A modern mobile-OS app feel, where layers of tinted teal-grey surfaces replace borders and a floating action button, chips and a navigation rail do the work.", "verdict": "unrated"},
+  {"no": 20, "run": 5, "name": "Organic wellness", "idea": "A calm wellness-app mood in sage, cream and terracotta, with soft blob shapes, generous rounded cards, leaf-shaped progress and gentle reassuring words.", "verdict": "unrated"},
+  {"no": 21, "run": 5, "name": "Gamified", "idea": "Productivity as a friendly game, with XP bars, level badges, a streak counter and achievement chips in bold purple, orange and green on white.", "verdict": "unrated"},
+  {"no": 22, "run": 5, "name": "Signage", "idea": "Wayfinding signage for work, with huge high-contrast type, black and safety-yellow bands, big pictograms and numbered sections that read from across the room.", "verdict": "unrated"},
+  {"no": 23, "run": 5, "name": "Stationery", "idea": "A tidy Japanese paper notebook, with washi and kraft tones, pale ruled lines, a red square seal and stamped circle, triangle and cross status marks in small neat type.", "verdict": "unrated"},
+  {"no": 24, "run": 6, "name": "Art deco", "idea": "A gilded 1920s poster, with cream paper, black bands, deep gold sunbursts and stepped fans, and tall condensed capitals set in strict symmetry.", "verdict": "unrated"},
+  {"no": 25, "run": 6, "name": "Memphis", "idea": "A 1980s Memphis poster, with squiggles, confetti shapes and clashing pastel and primary blocks thrown into a playful, off-balance layout.", "verdict": "unrated"},
+  {"no": 26, "run": 6, "name": "Y2K bubble", "idea": "Late-90s web optimism, with bubbly chrome-silver capsules, glossy pill buttons, iridescent pastel edges and little star sparkles.", "verdict": "unrated"},
+  {"no": 27, "run": 6, "name": "Aurora gradient", "idea": "A modern startup page, with soft aurora mesh glows on white, a huge tightly tracked headline, a floating glassy pill nav and a generous centred hero.", "verdict": "unrated"},
+  {"no": 28, "run": 6, "name": "Tropical resort", "idea": "A sunny resort brochure, with palm-leaf silhouettes, turquoise sea and coral sand tones, wavy edges, a postcard and relaxed rounded type.", "verdict": "unrated"},
+  {"no": 29, "run": 7, "name": "Pixel 8-bit", "idea": "A light 8-bit title screen where every box is drawn in 4px pixel steps, the type is chunky monospace caps, and signing in feels like pressing start.", "verdict": "unrated"},
+  {"no": 30, "run": 7, "name": "Leather skeuomorphic", "idea": "A 2010-era desk object, a stitched tan leather folio holding a cream ruled paper card, with embossed labels and glossy buttons you want to press.", "verdict": "unrated"},
+  {"no": 31, "run": 7, "name": "Glossy aqua", "idea": "An early-2000s desktop window, brushed metal chrome on a pinstripe backdrop, with blue jelly buttons that look wet enough to press.", "verdict": "unrated"},
+  {"no": 32, "run": 7, "name": "Zen ink", "idea": "Japanese ink-brush calm, one sumi stroke and one red sun above a narrow column of hairline fields, with the brand written vertically down the edge and space doing most of the work.", "verdict": "unrated"},
+  {"no": 33, "run": 7, "name": "Origami", "idea": "The sign-in form is one sheet of paper folded into three panels, with crisp creases, a dog-eared corner and light triangular facets on every surface.", "verdict": "unrated"},
+  {"no": 34, "run": 8, "name": "Sketch wireframe", "idea": "The app drawn as a pencil wireframe on dotted paper, wobbly hand-drawn boxes in greyscale with one blue pen for the things that need attention.", "verdict": "unrated"},
+  {"no": 35, "run": 8, "name": "Scrapbook collage", "idea": "The board as a scrapbook spread, with torn paper scraps, washi tape, label-maker strips and rubber stamps pasted onto a kraft board.", "verdict": "unrated"},
+  {"no": 36, "run": 8, "name": "Metro tiles", "idea": "Flat solid colour tiles packed edge to edge with hairline white gaps, where big thin lowercase type does all the work and nothing has a border or a shadow.", "verdict": "unrated"},
+  {"no": 37, "run": 8, "name": "Claymorphism", "idea": "Everything is a puffy piece of soft candy clay, pressed out of a lilac surface with fat rounded corners, an inner highlight and a soft coloured drop shadow.", "verdict": "unrated"},
+  {"no": 38, "run": 8, "name": "Comic book", "idea": "The board as a comic page, with inked panels on white gutters, halftone dot skies, task cards spoken in speech bubbles and a starburst that shouts what is overdue.", "verdict": "unrated"},
+  {"no": 39, "run": 9, "name": "Academic paper", "idea": "The project page is typeset like a journal article, with a centred title block, an abstract, numbered sections, ruled tables, a captioned figure and footnotes.", "verdict": "unrated"},
+  {"no": 40, "run": 9, "name": "Encyclopedia", "idea": "The project reads like a reference article, with a lead paragraph, a summary infobox on the right, a contents box, serif headings over thin rules, blue links and bracketed citations.", "verdict": "unrated"},
+  {"no": 41, "run": 9, "name": "Technical manual", "idea": "The project is a section of an equipment manual, with numbered clauses like 4.4.3, boxed spec tables, symbol warning boxes and a condensed uppercase sans.", "verdict": "unrated"},
+  {"no": 42, "run": 9, "name": "Architectural", "idea": "The project is laid out like a floor plan on a drawing sheet, with hairline walls between numbered rooms, grid bubbles, a dimension line timeline, a scale bar and a title block, all in lowercase geometric type.", "verdict": "unrated"},
+  {"no": 43, "run": 9, "name": "Card catalogue", "idea": "The project is a drawer of library index cards, each one typewritten on ruled stock with a call number, a punched hole and rubber stamps for status.", "verdict": "unrated"},
+  {"no": 44, "run": 10, "name": "Control panel", "idea": "Settings laid out like an industrial equipment panel in light brushed metal, with rocker switches, engraved labels, rivets and shaped indicator lamps.", "verdict": "unrated"},
+  {"no": 45, "run": 10, "name": "Big and simple", "idea": "One wide column of extra large text and huge tap targets in plain words, built for low vision and older users with AAA contrast everywhere.", "verdict": "unrated"},
+  {"no": 46, "run": 10, "name": "Public service plain", "idea": "A plain public-service form in black on white, one bold sans and a thick yellow focus, where nothing is decoration and every heading sits hard left.", "verdict": "unrated"},
+  {"no": 47, "run": 10, "name": "Raw HTML", "idea": "The page looks almost unstyled, like hand-written HTML from the late 1990s, with Times, blue underlined links, grey bevel buttons, rules and bordered tables.", "verdict": "unrated"},
+  {"no": 48, "run": 10, "name": "Scandinavian", "idea": "Birch and oat surfaces with muted sage and dusty blue, soft rounded type and thin calm lines, so settings feel like a quiet, airy room.", "verdict": "unrated"},
+  {"no": 49, "run": 11, "name": "Private bank", "idea": "A conservative wealth-management letterhead in navy and ivory, with engraved serif capitals, a thin gold rule and a framed schedule of fees in a formal voice.", "verdict": "unrated"},
+  {"no": 50, "run": 11, "name": "Constructivist", "idea": "An avant-garde propaganda poster in red, black and cream, where tilted slabs, heavy condensed capitals and solid arrows drive the eye from plan to button.", "verdict": "unrated"},
+  {"no": 51, "run": 11, "name": "50s diner", "idea": "A retro American diner menu in cherry red and mint, with script headings, a checkerboard band, chrome trim and dotted price leaders that make choosing a plan feel like ordering lunch.", "verdict": "unrated"},
+  {"no": 52, "run": 11, "name": "Sports magazine", "idea": "An energetic sports print spread, with slanted italic condensed headlines, plans as numbered jerseys, diagonal stripes and a scoreboard of amber figures for the comparison.", "verdict": "unrated"},
+  {"no": 53, "run": 11, "name": "Risograph", "idea": "A two-ink risograph zine in fluorescent pink and blue, where the inks overprint into violet, every heading sits slightly off register and a fine grain covers the paper.", "verdict": "unrated"},
+  {"no": 54, "run": 12, "name": "Chat-first", "idea": "The inbox reads like a messaging app, with people as round avatars, notifications as speech bubbles and a composer bar always ready for a reply.", "verdict": "unrated"},
+  {"no": 55, "run": 12, "name": "Typewriter", "idea": "Every notification is a typed paper slip in an in-tray, and the open item is a memo with carbon-blue type, index-tab filters and finished work struck through.", "verdict": "unrated"},
+  {"no": 56, "run": 12, "name": "Thermal receipt", "idea": "The inbox prints out as narrow thermal receipts, with numbered line items, dot leaders, dashed tear lines, a totals block and a barcode at the foot.", "verdict": "unrated"},
+  {"no": 57, "run": 12, "name": "Code editor light", "idea": "The inbox opens like files in a light code editor, with a file tree for filters, tabs for open items, numbered lines and syntax colours that tell names, verbs, titles and times apart.", "verdict": "unrated"},
+  {"no": 58, "run": 12, "name": "Clinical", "idea": "A calm records system in pale blue-green, where every fact sits under a careful small-caps label and every alert is gentle, boxed and marked by a symbol.", "verdict": "unrated"},
+  {"no": 59, "run": 13, "name": "Botanical herbarium", "idea": "Each day is a pressed-plant specimen sheet taped to parchment, its events written on small inked labels in a quiet museum hand.", "verdict": "unrated"},
+  {"no": 60, "run": 13, "name": "Watercolour", "idea": "Events bloom as soft watercolour washes on warm paper, with handwritten headings and no hard lines, so the week feels painted rather than ruled.", "verdict": "unrated"},
+  {"no": 61, "run": 13, "name": "Mid-century modern", "idea": "A 1950s hi-fi console of a calendar, with walnut, mustard and teal, starbursts and boomerangs, and each day as a long rounded lane along an hour dial.", "verdict": "unrated"},
+  {"no": 62, "run": 13, "name": "Art nouveau", "idea": "The week as seven arched gallery windows inside a gilded frame, with whiplash flourishes, a lancet side panel and soft greens and golds.", "verdict": "unrated"},
+  {"no": 63, "run": 13, "name": "Psychedelic 60s", "idea": "A warm concert poster of a week, with swirling orange, magenta and yellow waves, bubble lettering and an op-art medallion, while the event cards stay plain and easy to read.", "verdict": "unrated"},
+  {"no": 64, "run": 14, "name": "Picture book", "idea": "The setup reads like a children's picture book, with crayon drawings, wobbly hand-cut boxes and big friendly words across a two-page spread.", "verdict": "unrated"},
+  {"no": 65, "run": 14, "name": "Vaporwave pastel", "idea": "Retro computer windows float over a pastel sunset with a pink grid horizon, a striped sun and a marble bust, so setup feels like a dreamy 1990s desktop.", "verdict": "unrated"},
+  {"no": 66, "run": 14, "name": "Isometric", "idea": "Progress is built as a staircase of isometric blocks drawn at 30 degrees, and every card, row and button is a flat shaded slab with a visible bottom face.", "verdict": "unrated"},
+  {"no": 67, "run": 14, "name": "Flat long-shadow", "idea": "Solid bright fields and big circles, with long 45 degree shadows trailing off every icon and the headline, straight out of 2013 flat design.", "verdict": "unrated"},
+  {"no": 68, "run": 14, "name": "Nautical", "idea": "A ship's setup log in navy, white and signal red, framed in rope, with numeral pennants hoisted on a halyard as the step markers and a compass rose behind the form.", "verdict": "unrated"},
+  {"no": 69, "run": 15, "name": "Boarding pass", "idea": "Every meeting is a line on a departure board and every task a paper ticket with a torn-off stub, so the day reads like a travel itinerary.", "verdict": "unrated"},
+  {"no": 70, "run": 15, "name": "Spreadsheet", "idea": "The Today list is a live worksheet with lettered columns, numbered rows, a formula bar showing the selected cell and sheet tabs for navigation.", "verdict": "unrated"},
+  {"no": 71, "run": 15, "name": "Cartographic", "idea": "The day is drawn as a survey map on contour-lined paper, with tasks as stops along a dashed route, meetings as waypoints and a legend for every marker.", "verdict": "unrated"},
+  {"no": 72, "run": 15, "name": "Lab instrument", "idea": "The phone becomes a bench instrument with a screwed chassis, inset readouts on graph paper, tasks logged as labelled samples and meetings plotted on a time axis.", "verdict": "unrated"},
+  {"no": 73, "run": 15, "name": "Letterpress Victorian", "idea": "The day is set as a Victorian playbill in black and red ink on cream stock, with mixed wood-type headings, fleurons and double rules announcing each task like an act.", "verdict": "unrated"},
+  {"no": 74, "run": 16, "name": "Cockpit avionics", "idea": "A light-mode flight deck where every number is an instrument in a screwed-down bezel, projects are vertical tape gauges and trouble lights up as an amber caution caption.", "verdict": "unrated"},
+  {"no": 75, "run": 16, "name": "Weather forecast", "idea": "The dashboard is the evening weather map, with projects placed as towns carrying a sun, cloud or rain symbol and a big temperature-style percent, and the overdue count shown as a storm warning.", "verdict": "unrated"},
+  {"no": 76, "run": 16, "name": "Exchange board", "idea": "The dashboard reads like a light trading-floor board, with projects quoted as tickers carrying a last price, a depth bar and an up, hold or down signal, over a static ticker tape and a volume chart.", "verdict": "unrated"},
+  {"no": 77, "run": 16, "name": "Split-flap timetable", "idea": "The dashboard is a railway departures hall in light grey, where projects leave from numbered platforms, key words are set in split-flap character cells and the remarks column says whether each one is on time.", "verdict": "unrated"},
+  {"no": 78, "run": 16, "name": "Broadsheet", "idea": "The dashboard is a dense daily front page where the most urgent fact is the banner headline, each project is a story with a dateline and a jump line, and the numbers live in a ruled sidebar.", "verdict": "unrated"},
+  {"no": 79, "run": 17, "name": "Tabloid", "idea": "The dashboard shouts like a tabloid front page, with a red masthead, a giant condensed splash for the overdue count, starburst stickers and every project in a tilted cut-out photo box.", "verdict": "unrated"},
+  {"no": 80, "run": 17, "name": "Recipe card", "idea": "Every project is a handwritten index recipe card on a gingham-bordered counter, with tasks measured in cups, a jug that fills as work is done and a stamp for the status.", "verdict": "unrated"},
+  {"no": 81, "run": 17, "name": "Wine label", "idea": "The dashboard is an estate cellar where an engraved crest heads the page, each project is a cream wine label with its cuvée, vintage and percent complete set like strength, and status is a small seal.", "verdict": "unrated"},
+  {"no": 82, "run": 17, "name": "Coffee menu board", "idea": "The dashboard is a café menu board on kraft paper in a wooden frame, with projects as menu items priced in percent with dotted leaders, the summary in cup sizes and the overdue count as the day’s special.", "verdict": "unrated"},
+  {"no": 83, "run": 17, "name": "Bakery box", "idea": "The dashboard is a pink pastry box tied with striped tape, with projects sitting in its compartments as round cakes that fill like a pie, numbers hanging on cake tags from twine and every status on a notched tag.", "verdict": "unrated"},
+  {"no": 84, "run": 18, "name": "Farmers market", "idea": "A Saturday market stall where projects sit in wooden crates filled with produce to their progress, the week's numbers hang as price tags on twine, and every sign looks hand painted.", "verdict": "unrated"},
+  {"no": 85, "run": 18, "name": "Seed packet", "idea": "Every project is a vintage seed packet with a small painted vignette and its progress read as germination, while the fortnight sits in a sowing chart of growing stems.", "verdict": "unrated"},
+  {"no": 86, "run": 18, "name": "Apothecary", "idea": "An old pharmacy counter in black and gold on cream, where each project is a numbered bottle filled to its progress and every figure sits on a framed label with a Latin-style caption.", "verdict": "unrated"},
+  {"no": 87, "run": 18, "name": "Hotel concierge", "idea": "The dashboard arrives as a grand hotel's letter on cream stationery under an embossed crest, with every project hanging as a brass room-key fob in a pigeonhole rack and each fact put politely.", "verdict": "unrated"},
+  {"no": 88, "run": 18, "name": "Museum placard", "idea": "The dashboard hangs on a vast white gallery wall, each project a framed colour field filled to its progress with a small neat wall label beside it, and every fact given an object number.", "verdict": "unrated"},
+  {"no": 89, "run": 19, "name": "Exhibition catalogue", "idea": "The dashboard is bound as an art catalogue of open spreads, with numbered plates for each project, catalogue entries on the facing page and wide calm margins that pair a book serif with a clean sans.", "verdict": "unrated"},
+  {"no": 90, "run": 19, "name": "Film festival", "idea": "The home screen reads like a festival programme on light stock, with laurel wreaths around the week's numbers, a screening schedule grid that runs each project to its premiere, and programme codes on every film.", "verdict": "unrated"},
+  {"no": 91, "run": 19, "name": "End credits", "idea": "The dashboard rolls like film end credits on a pale screen, everything centred on one axis with italic roles on the left and spaced capital names on the right, and the week's chart mirrored across the same line.", "verdict": "unrated"},
+  {"no": 92, "run": 19, "name": "Vinyl sleeve", "idea": "The home screen is a 70s record sleeve with the greeting as the album title, the fortnight pressed into a pale vinyl disc as groove wedges, and the projects listed as tracks on side A and side B.", "verdict": "unrated"},
+  {"no": 93, "run": 19, "name": "Cassette J-card", "idea": "The dashboard is a home-made mixtape, with the week written on a cassette label, the projects as a hand-lettered track list on a folded J-card with tape counters and reels, and the chart as segmented recording levels.", "verdict": "unrated"},
+  {"no": 94, "run": 20, "name": "Festival lineup", "idea": "The dashboard printed as a music festival lineup poster, with projects billed on stage columns, headliners sized by how many tasks they carry, and set times for the team's activity.", "verdict": "unrated"},
+  {"no": 95, "run": 20, "name": "Sheet music", "idea": "The dashboard engraved as a page of a printed score, with five line staves under the numbers, projects as numbered movements with tempo markings, and the fortnight's tasks as notes on a staff.", "verdict": "unrated"},
+  {"no": 96, "run": 20, "name": "Theatre playbill", "idea": "The dashboard as an open theatre programme, two framed pages under a crimson valance, with the team as the company, projects as scenes in Act I, the fortnight as Act II and activity written as stage directions.", "verdict": "unrated"},
+  {"no": 97, "run": 20, "name": "Circus poster", "idea": "The dashboard as a big-top circus bill, with a striped tent crown, figures blazing in starbursts, each project in its own ring and the ringmaster calling out the team's news.", "verdict": "unrated"},
+  {"no": 98, "run": 20, "name": "Board game", "idea": "The dashboard laid out as a family board game, with a checkered track round the board, each project racing a pawn along its own lane, dice for the totals and a rule card that explains the statuses.", "verdict": "unrated"},
+  {"no": 99, "run": 21, "name": "Playing cards", "idea": "The dashboard dealt onto a light sage card table, with every project a playing card whose suit is its status, the totals held as a fanned hand and the fortnight stacked in chips.", "verdict": "unrated"},
+  {"no": 100, "run": 21, "name": "Tarot", "idea": "The dashboard read as a gentle tarot spread on pale lavender parchment, with arched gold-lined cards, roman numerals and fine line drawings, and the fortnight drawn as two constellations.", "verdict": "unrated"},
+  {"no": 101, "run": 21, "name": "Chess notation", "idea": "The dashboard kept like a tournament scoresheet, with board files for navigation, the totals on a checkered rank, projects in a standings table with chess pieces and annotation marks, and activity written as numbered moves.", "verdict": "unrated"},
+  {"no": 102, "run": 21, "name": "Crossword", "idea": "The dashboard set as a newspaper crossword, with the brand and totals written into numbered squares, the fortnight filled in on a grid split by black squares, projects as the Across clues and activity as the Down clues.", "verdict": "unrated"},
+  {"no": 103, "run": 21, "name": "Dominoes", "idea": "The dashboard laid out in ivory and black domino tiles, with every total spelled in pips, each project a long tile with a pip track for progress, and the fortnight stood up as a row of dominoes whose height is the day's count.", "verdict": "unrated"},
+  {"no": 104, "run": 22, "name": "Toy bricks", "idea": "The dashboard is built from chunky interlocking plastic bricks on a studded baseplate, so every panel, number and progress bar snaps together in primary colours.", "verdict": "unrated"},
+  {"no": 105, "run": 22, "name": "Felt patches", "idea": "The dashboard is a craft fair table of cut felt shapes, each sewn down with a running stitch, so numbers sit in round badges and progress is a line of thread.", "verdict": "unrated"},
+  {"no": 106, "run": 22, "name": "Cross-stitch", "idea": "The dashboard is an embroidered sampler on aida cloth, where every bar and border is counted out one cross stitch at a time on an 8px grid.", "verdict": "unrated"},
+  {"no": 107, "run": 22, "name": "Patchwork quilt", "idea": "The dashboard is one bound quilt, its blocks butted edge to edge in homey fabrics, each with a muslin centre that holds a number, a project or the chart.", "verdict": "unrated"},
+  {"no": 108, "run": 22, "name": "Knitting pattern", "idea": "The dashboard reads like a printed knitting pattern, with row counters for numbers, yarn ball bands for projects, stitch charts for progress and pattern abbreviations for status.", "verdict": "unrated"},
+  {"no": 109, "run": 23, "name": "Garment labels", "idea": "Projects hang from a clothes rail as woven labels, numbers are size tags, the greeting is a kraft swing tag, and every status is a care symbol sewn on a satin strip.", "verdict": "unrated"},
+  {"no": 110, "run": 23, "name": "Sewing pattern", "idea": "Every panel is a numbered pattern piece on tissue paper, with a dashed cutting line, an inner stitching line, notches and grain arrows, and progress drawn as a grain arrow sewn part way.", "verdict": "unrated"},
+  {"no": 111, "run": 23, "name": "Sticker sheet", "idea": "The dashboard is a sheet of glossy die-cut stickers with thick white borders on a pale backing, each number, project and chart bar its own sticker, slightly tilted as if just placed.", "verdict": "unrated"},
+  {"no": 112, "run": 23, "name": "Polaroid wall", "idea": "The dashboard is a wall of instant photos taped up with washi tape, where captions are written by hand in the white margins and each project photo develops from left to right as its work is done.", "verdict": "unrated"},
+  {"no": 113, "run": 23, "name": "Corkboard", "idea": "The dashboard is a framed corkboard where index cards, sticky notes and paper slips are held up with push pins, and the project cards hang from a sagging red yarn strung pin to pin.", "verdict": "unrated"},
+  {"no": 114, "run": 24, "name": "Whiteboard", "idea": "The dashboard is a dry-erase board in an aluminium frame, written up in four marker colours, with magnets for navigation and faint eraser smudges left behind.", "verdict": "unrated"},
+  {"no": 115, "run": 24, "name": "Ring binder", "idea": "The dashboard is the first sheet in a team ring binder, with coloured index tabs for navigation, punched holes and every panel slipped into a clear sheet protector.", "verdict": "unrated"},
+  {"no": 116, "run": 24, "name": "Manila folders", "idea": "The dashboard is a desk file pulled from a steel drawer, with manila folders behind typed tab labels, rubber stamped dates and statuses, and paper clipped cards for the numbers.", "verdict": "unrated"},
+  {"no": 117, "run": 24, "name": "Passport stamps", "idea": "The dashboard is an open passport, with a holder page for the user and contents, and a visa page where each project is an inked entry stamp whose shape and mark give its status.", "verdict": "unrated"},
+  {"no": 118, "run": 24, "name": "Postage stamps", "idea": "The dashboard is a page in a stamp album, where numbers are denominations, projects are a perforated souvenir sheet with an overprinted status, and the chart is a coil of one task stamps.", "verdict": "unrated"},
+  {"no": 119, "run": 25, "name": "Airmail", "idea": "The dashboard is an airmail envelope addressed to Mara, with red and blue chevron edges, a par avion label, postcode boxes for the numbers, and each project flying a dashed route towards its due date.", "verdict": "unrated"},
+  {"no": 120, "run": 25, "name": "Telegram", "idea": "The dashboard is a telegram form, with printed brown field labels and boxes and every fact pasted on as an uppercase teletype tape strip closed with STOP.", "verdict": "unrated"},
+  {"no": 121, "run": 25, "name": "Tax form", "idea": "The dashboard is an official return, with numbered lines, dotted leaders and amount boxes, black Part bars for each section, comb boxes for the date and one status box per project.", "verdict": "unrated"},
+  {"no": 122, "run": 25, "name": "Cheque", "idea": "The dashboard is a chequebook, where counterfoils hold the numbers, the greeting is a cheque made out to Mara on a wavy security background, and projects are lines in a register.", "verdict": "unrated"},
+  {"no": 123, "run": 25, "name": "Stock certificate", "idea": "The dashboard is an engraved share certificate made out to Mara, with hatched borders and guilloche rosettes, share numbers in corner cartouches, projects as a schedule of holdings, and a gold seal.", "verdict": "unrated"},
+  {"no": 124, "run": 26, "name": "Diploma", "idea": "The dashboard as a formal certificate on parchment, with a double gilt frame, wax seals for the numbers, a numbered register of projects and a signature line under every activity.", "verdict": "unrated"},
+  {"no": 125, "run": 26, "name": "Subway map", "idea": "Each project is a coloured transit line running from its start to a terminus at the due date, with station dots, a train marker at the current percent, and the navigation drawn as a line you ride.", "verdict": "unrated"},
+  {"no": 126, "run": 26, "name": "Circuit board", "idea": "The dashboard laid out as a light green circuit board, with numbers on chips, projects as dashed component footprints carrying LED bar graphs, activity as test points on a trace, and the chart built from stacked copper pads.", "verdict": "unrated"},
+  {"no": 127, "run": 26, "name": "Periodic table", "idea": "Every number and project becomes an element tile with a number, a two-letter symbol and a mass, arranged in the classic table shape with the greeting in the gap and the chart and activity as detached series rows below.", "verdict": "unrated"},
+  {"no": 128, "run": 26, "name": "Anatomy chart", "idea": "The dashboard as an antique scientific plate in sepia, where projects are segments of a sectioned specimen with lettered leader lines, numbers are labelled measurements and activity reads as numbered field notes.", "verdict": "unrated"},
+  {"no": 129, "run": 27, "name": "Star chart", "idea": "A pale celestial chart where projects are stars plotted on a dotted coordinate grid and joined by a constellation line, numbers are magnitudes in an oval cartouche and the daily chart is a light curve.", "verdict": "unrated"},
+  {"no": 130, "run": 27, "name": "Field guide", "idea": "The dashboard as a pocket naturalist's guide, with thumb index tabs for navigation, each project written up as a species account with a plate drawing, field marks and a range map to its due date, and the chart drawn as a seasonal abundance band.", "verdict": "unrated"},
+  {"no": 131, "run": 27, "name": "Merit badges", "idea": "The dashboard as an earned badge sash, with the four numbers sewn on a khaki sash, each project a round embroidered badge whose stitched ring fills with progress, and woven name tapes for navigation.", "verdict": "unrated"},
+  {"no": 132, "run": 27, "name": "Field manual", "idea": "The dashboard written as a light olive drab field manual, with stencil headings, numbered paragraphs, a boxed WARNING for the overdue tasks, ruled tables with hatched progress bars and figures with numbered captions.", "verdict": "unrated"},
+  {"no": 133, "run": 27, "name": "Warehouse logistics", "idea": "The dashboard as a warehouse dispatch board, with aisle signs for navigation, numbers on hazard striped counters, each project a shipping label with a bin location, a barcode and cartons loaded, and the daily chart as a row of conveyor belts.", "verdict": "unrated"},
+  {"no": 134, "run": 28, "name": "Shipping labels", "idea": "Every panel is a white parcel label stuck on kraft cardboard, with thick black rules, barcodes, tracking codes and handling pictograms for status.", "verdict": "unrated"},
+  {"no": 135, "run": 28, "name": "Flight strips", "idea": "Projects are paper flight progress strips slotted into a grey bay, read left to right in tidy columns of callsign, route, progress boxes, due time and a status code.", "verdict": "unrated"},
+  {"no": 136, "run": 28, "name": "Racing telemetry", "idea": "A daylight timing screen where projects race in a position tower, progress reads as three sector bars, and italic slanted numbers carry the speed.", "verdict": "unrated"},
+  {"no": 137, "run": 28, "name": "Ski trail map", "idea": "The dashboard opens on a painted mountain where each project is a numbered run, and status uses the trail sign shapes, green circle, blue square and black diamond.", "verdict": "unrated"},
+  {"no": 138, "run": 28, "name": "Surf report", "idea": "A beach shack surf forecast where the week is a smooth swell chart, projects are breaks in a forecast table, and progress stands up as rounded waves.", "verdict": "unrated"},
+  {"no": 139, "run": 29, "name": "National park", "idea": "Routed wooden park signs on a meadow page, with projects as arrow boards on a signpost, the week as a mileage sign and status as painted trail markers.", "verdict": "unrated"},
+  {"no": 140, "run": 29, "name": "Vintage travel poster", "idea": "A 1930s railway poster wall, where the greeting sits under a sunlit flat landscape and each project is a little poster whose sun rises as its tasks are done.", "verdict": "unrated"},
+  {"no": 141, "run": 29, "name": "Space age 1960s", "idea": "The dashboard is a filled in mission control form on white paper, with numbered fields, embroidered style patches, T minus countdown clocks for due dates and GO, HOLD, SCRUB status.", "verdict": "unrated"},
+  {"no": 142, "run": 29, "name": "Pulp sci-fi", "idea": "A 1950s pulp magazine printed in two inks on yellowed paper, where the greeting is a cover headline with a starburst, projects are the contents page and progress is a little ship on a dashed flight path.", "verdict": "unrated"},
+  {"no": 143, "run": 29, "name": "Steampunk", "idea": "A Victorian engine room on parchment, where the week reads from brass pressure gauges, projects are riveted brass plates with copper filled glass tubes, and the fortnight scrolls out of a chart recorder.", "verdict": "unrated"},
+  {"no": 144, "run": 30, "name": "Illuminated manuscript", "idea": "The dashboard is a page of a medieval book of hours, with vellum, ruled text blocks, a gilded drop capital for the greeting, red rubrics for headings and a vine growing down the margin.", "verdict": "unrated"},
+  {"no": 145, "run": 30, "name": "Roman inscription", "idea": "The dashboard is a marble temple front, with the brand carved in a pediment, the four totals on fluted columns and each project cut into an inscribed tablet with dovetail handles.", "verdict": "unrated"},
+  {"no": 146, "run": 30, "name": "Greek classical", "idea": "The dashboard is painted round a black-figure vase, in stacked registers shaped like its silhouette, framed by Greek key bands, with the four totals in terracotta tondo medallions.", "verdict": "unrated"},
+  {"no": 147, "run": 30, "name": "Moroccan tiles", "idea": "The dashboard is a tiled courtyard, with white plaster walls, zellige star patterns as borders and dados, the totals set in horseshoe-arched niches and progress filled with glazed tile colours.", "verdict": "unrated"},
+  {"no": 148, "run": 30, "name": "Papel picado", "idea": "The dashboard hangs from strings of cut tissue paper banners, with bright paper flags carrying the totals, scalloped and pierced edges on every panel and a festive but readable layout on white.", "verdict": "unrated"},
+  {"no": 149, "run": 31, "name": "Block print", "idea": "The dashboard is a hand block printed cloth, with an indigo border of repeated motifs, madder red stripes between printed panels, stamped figures with slightly rough edges and progress counted in printed dots.", "verdict": "unrated"},
+  {"no": 150, "run": 31, "name": "Folk rosemaling", "idea": "The dashboard is a painted farmhouse cupboard, with the totals on drawer fronts, each project on a small painted door, and blue frames carrying red and ochre scrolls and flowers in their corners.", "verdict": "unrated"},
+  {"no": 151, "run": 31, "name": "Mosaic", "idea": "The dashboard is laid as a floor mosaic, where small stone tesserae set in pale grout form the totals, the progress of each project and one tile for every task completed in the chart.", "verdict": "unrated"},
+  {"no": 152, "run": 31, "name": "Stained glass", "idea": "The dashboard is one leaded church window, with every panel a pane of pale jewel glass, black lead cames as the gaps between them, pointed lancets for the totals and a rose window beside the greeting.", "verdict": "unrated"},
+  {"no": 153, "run": 31, "name": "Sign painter", "idea": "The dashboard is a hand-painted shop front, with a green fascia in gold-leaf letters, the greeting arched across the window, the totals on painted show cards and the projects listed on a lettered directory board.", "verdict": "unrated"},
+  {"no": 154, "run": 32, "name": "Tattoo flash", "idea": "A traditional tattoo flash sheet on warm paper, where every project is a bold outlined design with a ribbon banner, numbers sit in arched badges and swallows, stars and daggers carry the meaning.", "verdict": "unrated"},
+  {"no": 155, "run": 32, "name": "Xerox zine", "idea": "A photocopied punk zine spread, stapled down the middle, with ransom-note cut-out letters, typewritten listings and nothing but toner black on white paper.", "verdict": "unrated"},
+  {"no": 156, "run": 32, "name": "Wheatpaste poster", "idea": "A street wall of pasted posters, torn and overlapping, where each part of the dashboard is its own bill in huge condensed capitals and flat ink colours.", "verdict": "unrated"},
+  {"no": 157, "run": 32, "name": "90s rave flyer", "idea": "A light acid-house flyer on white, with warped and stretched extra black caps, an arched logo, fluorescent blobs and stickers behind black type, and the projects billed as a line-up by room.", "verdict": "unrated"},
+  {"no": 158, "run": 32, "name": "Grunge", "idea": "A 90s grunge magazine page in muted dirt tones, with doubled misregistered type, scratched paper, panels whose ghost frames slip out of line and project rows that refuse to sit straight.", "verdict": "unrated"},
+  {"no": 159, "run": 33, "name": "Web 2.0 beta", "idea": "A 2006 web 2.0 app, with a lowercase two tone logo and its mirror reflection, an orange Beta starburst, rounded tabs attached to a white content box, and glossy gel buttons and tiles over soft sky gradients.", "verdict": "unrated"},
+  {"no": 160, "run": 33, "name": "1998 homepage", "idea": "A hand made 1998 personal homepage, with a tiled star background, centred bevelled tables, grey outset buttons, hazard striped under construction bars and the weekly numbers on green odometer hit counters.", "verdict": "unrated"},
+  {"no": 161, "run": 33, "name": "PDA LCD", "idea": "A late 90s handheld organiser in a grey plastic case, with silkscreened app buttons beside a greenish monochrome LCD, inverted title bars, small round ended stylus buttons, pixel glyphs and dotted record lists.", "verdict": "unrated"},
+  {"no": 162, "run": 33, "name": "Handheld game LCD", "idea": "A grey handheld game console held sideways, whose four shade pea green screen draws the dashboard as a role playing game, with a menu window, a stats sheet, a dialog box greeting, projects as a party with health bars and the chart built from one block per task.", "verdict": "unrated"},
+  {"no": 163, "run": 33, "name": "Calculator LCD", "idea": "A beige solar desk calculator with a printing tape, where the weekly numbers glow in seven segment digits over ghost segments, the nav is a pad of chunky keys with an orange equals key for New project, and the projects print out on paper tape.", "verdict": "unrated"},
+  {"no": 164, "run": 34, "name": "Cash register", "idea": "The dashboard is a point-of-sale terminal, with green LCD windows ringing up the totals, projects as item lines on the sale screen, the menu as a block of chunky department keys and activity printed on a journal tape.", "verdict": "unrated"},
+  {"no": 165, "run": 34, "name": "E-ink", "idea": "The dashboard reads like an open e-reader, with grey electronic paper, crisp black serif type and no colour at all, set as a two-page spread with chapter tabs and page-turn controls.", "verdict": "unrated"},
+  {"no": 166, "run": 34, "name": "Punch card", "idea": "Every panel is an 80-column punch card on manila stock, and the data is literally punched, so summary digits, finished tasks and daily counts appear as dark rectangular holes beside printed column numbers.", "verdict": "unrated"},
+  {"no": 167, "run": 34, "name": "Dot-matrix greenbar", "idea": "The dashboard is one long dot-matrix printout on continuous greenbar paper, with tractor-feed margins, banded rows every three lines, a run header, fixed-width columns and charts drawn with asterisks.", "verdict": "unrated"},
+  {"no": 168, "run": 34, "name": "Fax", "idea": "The dashboard arrives as a faxed cover sheet, with a transmission line across the top, a boxed To and From form, heavy black toner on slightly grainy paper, halftone bars and rubber-stamped statuses.", "verdict": "unrated"},
+  {"no": 169, "run": 35, "name": "Accounting ledger", "idea": "The dashboard is a page of a green bookkeeping ledger, with ruled columns, black and red ink, projects kept as accounts with double-underlined totals, a tally of completed tasks and thumb-index tabs down the edge.", "verdict": "unrated"},
+  {"no": 170, "run": 35, "name": "Pool tiles", "idea": "The dashboard is a lap pool seen from the deck, with white grouted tiles, a stone coping header, depth-marker tiles for the totals and one swimming lane per project divided by striped lane ropes.", "verdict": "unrated"},
+  {"no": 171, "run": 35, "name": "Tea house", "idea": "The dashboard is laid out like a quiet tea room, where panels are tatami mats edged in dark cloth, a wooden beam carries the header, a bamboo pole divides the room and progress grows as bamboo segments in tea green and wood.", "verdict": "unrated"},
+  {"no": 172, "run": 35, "name": "Kawaii", "idea": "The dashboard is a sheet of cute stickers, where pastel blobs with little faces hold the totals, every corner is round, sparkles float behind, and each status wears its own face on its own shape.", "verdict": "unrated"},
+  {"no": 173, "run": 35, "name": "Soft UI", "idea": "The dashboard is moulded from one pale grey surface, where panels, knobs and buttons are extruded by paired light and dark shadows and wells and grooves are pressed in, yet text keeps full AA contrast and focus is a solid indigo ring.", "verdict": "unrated"},
+  {"no": 174, "run": 36, "name": "Icon rail master-detail", "idea": "A three-pane work surface where a slim dark icon rail, a white list pane with the greeting, figures and projects, and a wide detail pane for the selected project sit side by side, quiet slate with one blue.", "verdict": "unrated"},
+  {"no": 175, "run": 36, "name": "Top nav hub", "idea": "A classic hub page with a navy bar of horizontal navigation and sub-tabs on top, a full-width stone band of four large figures, and three equal ruled columns for projects, the chart and activity, on warm grey paper.", "verdict": "unrated"},
+  {"no": 176, "run": 36, "name": "Command first", "idea": "A sparse home built around one large search and command field with keyboard hints, followed by a hairline strip of four figures and quiet unboxed lists, graphite text with a single violet accent.", "verdict": "unrated"},
+  {"no": 177, "run": 36, "name": "Two sidebars", "idea": "A three-column workspace with labelled navigation on the left, a centre feed of project cards with progress rings, and a pale green context panel on the right holding the week chart and an activity timeline, cool white with one green.", "verdict": "unrated"},
+  {"no": 178, "run": 36, "name": "Focus column", "idea": "The whole dashboard as one calm 720px column read top to bottom in priority order, a sentence that names what matters, then numbered sections set in a bookish serif on off-white paper with ink blue accents and rules instead of boxes.", "verdict": "unrated"},
+  {"no": 179, "run": 37, "name": "Grouped data grid", "idea": "The dashboard is one hierarchical grid, projects grouped under team header rows with subtotals, a sticky column header and inline progress strips, set in cool grey with a single teal accent.", "verdict": "unrated"},
+  {"no": 180, "run": 37, "name": "Card masonry", "idea": "Every piece of the dashboard is a soft paper card of its own height, dropped into masonry columns on warm beige, so busy projects get tall detailed cards and quiet ones stay a single line, with rust as the one accent.", "verdict": "unrated"},
+  {"no": 181, "run": 37, "name": "Timeline first", "idea": "A blue-grey planning view where the projects are the hero as bars on a September to January date axis, cut by a today line at 31 October, with a slim KPI band above and the chart and activity below.", "verdict": "unrated"},
+  {"no": 182, "run": 37, "name": "Status columns", "idea": "A portfolio board on white, where three status columns, On track, At risk and Behind, hold the project cards, a charcoal icon rail and charcoal type carry the structure, and soft status tints only mark the column heads.", "verdict": "unrated"},
+  {"no": 183, "run": 37, "name": "Metric wall", "idea": "A navy monochrome scoreboard, where eight large figures, four given and four derived, fill a two by four wall of ruled cells under a navy band, and the projects and activity follow as compact ruled lists.", "verdict": "unrated"},
+  {"no": 184, "run": 38, "name": "Fintech", "idea": "A crisp banking grade ledger, deep green and white with precise tabular figures, hairline dividers and nothing decorative, so every number reads as trustworthy.", "verdict": "unrated"},
+  {"no": 185, "run": 38, "name": "Healthcare SaaS", "idea": "A calm, reassuring workspace in soft teal with 8px corners, roomy spacing and plain sentences, so the busiest day still feels under control.", "verdict": "unrated"},
+  {"no": 186, "run": 38, "name": "Consulting", "idea": "A formal partner's briefing on warm paper, with a serif voice, a burgundy accent, numbered sections and exhibits, all held to one narrow reading column.", "verdict": "unrated"},
+  {"no": 187, "run": 38, "name": "Developer platform", "idea": "A light developer console in indigo, where projects read like a list of build checks, figures sit in monospace and the overdue alert looks like a failed check annotation.", "verdict": "unrated"},
+  {"no": 188, "run": 38, "name": "Design tool", "idea": "The dashboard laid out like a design file, white sections floating as frames on a dotted grey canvas between a compact pages panel and a properties inspector, all in tight 11px interface text.", "verdict": "unrated"},
+  {"no": 189, "run": 39, "name": "Warm minimal", "idea": "A calm, paper-like workspace in cream and warm brown, where one terracotta accent marks what to act on, corners are a soft 6px and a humanist sans keeps the tone friendly and unhurried.", "verdict": "unrated"},
+  {"no": 190, "run": 39, "name": "Cool corporate", "idea": "A dependable enterprise console with a strong blue masthead, a light grey shell, crisp 2px corners and every section framed as a tabbed panel, so the dashboard reads like a well-ordered set of files.", "verdict": "unrated"},
+  {"no": 191, "run": 39, "name": "Bold modern", "idea": "A confident, editorial dashboard of black heavy headings and oversized numbers on white, where generous whitespace replaces boxes and a single dark lime accent marks progress, the current page and the primary action.", "verdict": "unrated"},
+  {"no": 192, "run": 39, "name": "Soft premium", "idea": "A quiet, high-end workspace on pale lavender grey, where floating 16px cards with faint gradients and soft shadows, a serif for headings and generous spacing make the dashboard feel calm and considered.", "verdict": "unrated"},
+  {"no": 193, "run": 39, "name": "Nordic neutral", "idea": "An airy, Scandinavian workspace of warm stone greys and hairlines, light large numerals and wide margins, with one forest green accent and a quiet due-date timeline that lets the week breathe.", "verdict": "unrated"},
+  {"no": 194, "run": 40, "name": "Written brief", "idea": "The dashboard opens with a short written paragraph that states the week in plain sentences, then hands over to one carefully set sortable table, like a briefing memo from a good analyst.", "verdict": "unrated"},
+  {"no": 195, "run": 40, "name": "Sectioned report", "idea": "The home screen reads as a numbered status report on a white sheet, with large light section numerals in the margin and a sticky contents list on the left, so the week can be read top to bottom or jumped to by section.", "verdict": "unrated"},
+  {"no": 196, "run": 40, "name": "Mini dashboards", "idea": "Every project gets its own small dashboard tile, with a status chip, a sparkline of this week's completions and three stats in a ruled footer, so the home screen reads as a wall of six comparable instruments.", "verdict": "unrated"},
+  {"no": 197, "run": 40, "name": "Triage first", "idea": "The home screen is an inbox for problems, where a red headed Needs attention list leads with overdue, behind and at risk work and offers the next action on each row, while the healthy projects follow as a quiet table and the week's numbers sit in a right rail.", "verdict": "unrated"},
+  {"no": 198, "run": 40, "name": "Asymmetric feature", "idea": "A 12 column asymmetric grid gives one project the stage, a large navy feature card with a progress ring and its key figures, while a tall watch card, four small project cards, a chart and the activity feed support it at smaller sizes.", "verdict": "unrated"},
+  {"no": 199, "run": 41, "name": "Ink header band", "idea": "A strong ink-navy header band carries the navigation, the greeting and the four headline figures, and a quiet light body below holds the work.", "verdict": "unrated"},
+  {"no": 200, "run": 41, "name": "Page tabs", "idea": "A white workspace organised by page tabs, Overview, Projects and Activity, with segmented controls for views, a single stat strip and compact teal-accented cards.", "verdict": "unrated"},
+  {"no": 201, "run": 41, "name": "Floating panels", "idea": "White panels float with soft, wide shadows over a tinted blue-grey page, steered from a collapsed icon rail, so every block reads as its own lifted surface.", "verdict": "unrated"},
+  {"no": 202, "run": 41, "name": "Outline only", "idea": "Every component is drawn as a crisp 1px outline in black or blue on white paper, with no fills and no shadows, so structure comes from line alone.", "verdict": "unrated"},
+  {"no": 203, "run": 41, "name": "Tonal blocks", "idea": "Each section is a soft block of its own muted colour, sand, sage, sky, rose and lilac, separated only by space, with no outlines or shadows anywhere.", "verdict": "unrated"},
+  {"no": 204, "run": 42, "name": "Serif professional", "idea": "A calm report-like workspace where a modern serif carries headings and every figure, a plain sans carries the interface, and ruled lines replace cards.", "verdict": "unrated"},
+  {"no": 205, "run": 42, "name": "Condensed efficient", "idea": "A tight operations console where condensed uppercase headings save width, 32px rows fit everything on one screen, and a slim icon rail keeps the canvas wide.", "verdict": "unrated"},
+  {"no": 206, "run": 42, "name": "Executive large", "idea": "A dashboard built for a thirty second read by a manager, with 18px text, huge numbers, one idea per row and lots of air.", "verdict": "unrated"},
+  {"no": 207, "run": 42, "name": "Mono numbers", "idea": "A crisp sans interface where every number, date and ID is set in a monospace, so columns align like a ledger and figures read as data.", "verdict": "unrated"},
+  {"no": 208, "run": 42, "name": "Humanist", "idea": "A warm, serious workspace set in a humanist sans, with soft ivory surfaces, clay accents, rounded but restrained shapes and plain friendly words.", "verdict": "unrated"},
+  {"no": 209, "run": 43, "name": "Scorecard", "idea": "A board report you can work from, where every figure sits on a ruled row beside its target, drawn as a bullet chart with a red target tick, so the page answers whether the team is meeting its numbers.", "verdict": "unrated"},
+  {"no": 210, "run": 43, "name": "Chart grid", "idea": "Four equal chart cards answer the week at a glance, with tasks per day, status, completion per project and hours, framed by an icon rail on the left and a running activity column on the right.", "verdict": "unrated"},
+  {"no": 211, "run": 43, "name": "Status matrix", "idea": "A planning grid of projects against weeks, where each row shows this week's status as a shaped marker, hatched weeks running to a due flag, and summary rows below, read like a spreadsheet.", "verdict": "unrated"},
+  {"no": 212, "run": 43, "name": "Progress led", "idea": "Huge pill shaped progress bars are the page, one full width row per project in order of due date, each with a large percentage, so how far along everything is reads from across the room.", "verdict": "unrated"},
+  {"no": 213, "run": 43, "name": "Portfolio quadrant", "idea": "A portfolio review where one large scatter of percent done against days left sorts projects into four labelled quadrants, with the figures and a numbered project list set beside it like an analyst's exhibit.", "verdict": "unrated"},
+  {"no": 214, "run": 44, "name": "Desktop native", "idea": "A generic desktop application window, with a title bar, a toolbar of small push buttons, a grey source list on the left and a zebra striped table view, so the dashboard feels installed rather than visited.", "verdict": "unrated"},
+  {"no": 215, "run": 44, "name": "Fluent-like", "idea": "A modern desktop look built from soft layers, a tinted base, a lighter content layer with one rounded corner, and white 4px cards stacked like settings rows beside a navigation pane with a small accent pill.", "verdict": "unrated"},
+  {"no": 216, "run": 44, "name": "Breadcrumb web app", "idea": "A conventional business web app with a dark top navigation bar, then a white page header with breadcrumbs, a title and its actions, then a filter bar, a sortable table and pagination, all in flat bordered boxes.", "verdict": "unrated"},
+  {"no": 217, "run": 44, "name": "Mobile first", "idea": "Designed for one thumb on a phone, with big rounded cards in a single column, progress rings, 48px touch targets and a bottom tab bar with a raised New project button, which becomes a navigation rail and a three column grid of the same cards on a desktop.", "verdict": "unrated"},
+  {"no": 218, "run": 44, "name": "Embedded panel", "idea": "Brightwork as a guest, a compact 480px panel living inside someone else's page with its own small header, tabs and one quiet plum accent, so it reads clearly as a separate app without fighting the host.", "verdict": "unrated"},
+  {"no": 219, "run": 45, "name": "Quiet ops", "idea": "A calm operations console in low chroma greys with hairline rules and tabular figures, where the only colour on screen belongs to status, so anything green, amber or red is news.", "verdict": "unrated"},
+  {"no": 220, "run": 45, "name": "Bright confident", "idea": "A crisp white workspace under a bold saturated blue band, with big friendly figures, rounded cards that lift off the band and one confident blue doing all the work.", "verdict": "unrated"},
+  {"no": 221, "run": 45, "name": "Earthy professional", "idea": "A serious, grounded workspace in olive, sand and clay, with a dark olive sidebar, serif figures set like a ledger and projects filed under their departments.", "verdict": "unrated"},
+  {"no": 222, "run": 45, "name": "Single blue", "idea": "Every colour on the page is a shade of one steel blue, from a pale wash to a near navy rail, with neutral grey text, so hierarchy comes from tone and weight and status from shape.", "verdict": "unrated"},
+  {"no": 223, "run": 45, "name": "High contrast professional", "idea": "Strict black on white with heavy 2px rules, large plain type and no colour at all except a bright yellow focus ring, built first for people who need maximum contrast and still calm enough for daily work.", "verdict": "unrated"},
+  {"no": 224, "run": 46, "name": "Graphite neutral", "idea": "The baseline professional dark, with balanced mid-dark graphite greys in three steps, quiet borders and one soft blue accent, so nothing but the work and the statuses draws the eye.", "verdict": "unrated"},
+  {"no": 225, "run": 46, "name": "Midnight navy", "idea": "Deep blue-black surfaces cut by crisp 1px hairlines, cool ice text and one ice cyan accent, laid out as a precise ruled instrument with a top nav and thin light figures.", "verdict": "unrated"},
+  {"no": 226, "run": 46, "name": "True black", "idea": "Pure black for OLED screens with white type, razor-thin 1px separators and no tint anywhere, so the only colour on the screen is the status of a project.", "verdict": "unrated"},
+  {"no": 227, "run": 46, "name": "Warm charcoal", "idea": "A brownish charcoal room lit by one amber lamp, with cream text, serif headings, soft rounded cards with progress rings and a journal of the day, cosy but still serious.", "verdict": "unrated"},
+  {"no": 228, "run": 46, "name": "Dim mode", "idea": "A soft low-contrast slate around #22272e for long sessions, with muted colours, generous line height and one reading column that groups projects by what needs attention, while every text pair still passes AA.", "verdict": "unrated"},
+  {"no": 229, "run": 47, "name": "Dark icon rail", "idea": "A dense three-pane dark work surface, with a near-black icon rail, a list pane holding the greeting, figures and projects, and a wider detail pane with Mobile app 2.0 open, stepped in cool greys with one violet accent.", "verdict": "unrated"},
+  {"no": 230, "run": 47, "name": "Dark command first", "idea": "A sparse dark home centred on one large command field with keyboard hints, where the urgent items appear as palette rows under it and the rest of the dashboard sits quietly below in small monospace-labelled lists.", "verdict": "unrated"},
+  {"no": 231, "run": 47, "name": "Dark bento", "idea": "An asymmetric bento of rounded tiles in different sizes and faint tints on near-black, where size carries priority, so the greeting and the overdue count are the biggest tiles and the two troubled projects outsize the healthy ones.", "verdict": "unrated"},
+  {"no": 232, "run": 47, "name": "Dark timeline", "idea": "The dashboard read as a schedule, where every project is a bar on a shared date axis from October to January with its done share filled, its due date marked and one orange today line cutting through all of them.", "verdict": "unrated"},
+  {"no": 233, "run": 47, "name": "Dark floating panels", "idea": "Opaque indigo panels float over a deep tinted backdrop of slow indigo and teal light, each lifted by a soft periwinkle glow edge and a long shadow, with a floating dock for navigation and a floating pill for the header.", "verdict": "unrated"},
+  {"no": 234, "run": 48, "name": "Deep forest", "idea": "A calm woodland workspace in layered pine greens, where projects sit as soft cards with growth ring meters, the week is a moss line over a fern dashed line, and activity follows a winding trail.", "verdict": "unrated"},
+  {"no": 235, "run": 48, "name": "Aubergine", "idea": "A plush plum workspace of rounded capsules, with a violet hero that holds the greeting and four pill figures, projects as rows with segmented pill meters, and rose as the single warm accent.", "verdict": "unrated"},
+  {"no": 236, "run": 48, "name": "Espresso", "idea": "A warm coffee house menu board in dark roast browns, where projects are listed like menu items with dotted leaders running to their percent, figures sit under crema rules, and activity prints on a narrow order ticket.", "verdict": "unrated"},
+  {"no": 237, "run": 48, "name": "Dark enterprise", "idea": "A formal dark suite shell with an app switcher bar, a tree navigation that opens Projects into its six projects, breadcrumbs and a command bar, square live tiles and a dense sortable data grid, all square and quietly blue.", "verdict": "unrated"},
+  {"no": 238, "run": 48, "name": "Night shift clinical", "idea": "A calm dark teal shift board made for reading at 3 in the morning, with large legible type, figures shown as quiet readouts down a station column, projects as roomy bed style cards, a soft monitor trace for the fortnight and handover notes for activity.", "verdict": "unrated"},
+  {"no": 239, "run": 49, "name": "Chalkboard", "idea": "The whole dashboard is written up on a slate chalkboard in a wooden frame, with handwritten headings, wobbly chalk boxes, tally marks beside the counts, hatched chalk bars and soft eraser smudges.", "verdict": "unrated"},
+  {"no": 240, "run": 49, "name": "Casino felt", "idea": "The dashboard is laid out on a dark green felt table inside a padded leather rail, with the four figures as stacked chips, the projects dealt as a fanned hand of dark cards with corner indices, and the fortnight drawn as chip stacks.", "verdict": "unrated"},
+  {"no": 241, "run": 49, "name": "Whisky bar", "idea": "A low lit bar of dark leather and walnut with brass rails, where the projects stand on a shelf as glasses filled with amber to their percent, the figures sit on engraved brass framed plaques and a warm amber glow lights the greeting.", "verdict": "unrated"},
+  {"no": 242, "run": 49, "name": "Velvet theatre", "idea": "The dashboard is staged inside a theatre, with deep red velvet curtains and a scalloped pelmet framing a spotlit stage, the figures printed on ticket stubs, the projects listed in a gilt programme and the chart drawn as arched gilt columns.", "verdict": "unrated"},
+  {"no": 243, "run": 49, "name": "Candlelight", "idea": "A quiet near black page lit by warm candle glows, written as one narrow serif column like a letter, with the figures told in a sentence, projects as entries with a flame marking their progress and the fortnight drawn as a row of small candles.", "verdict": "unrated"},
+  {"no": 244, "run": 50, "name": "Slate tool", "idea": "Blue-grey professional tool chrome with a compact 11px UI, clear ruled panels and one working blue, built for long sessions in a design tool.", "verdict": "unrated"},
+  {"no": 245, "run": 50, "name": "Dark tonal", "idea": "Panels float as rounded cards separated by steps of tone instead of lines, so the editor reads as soft layered surfaces with one lavender accent.", "verdict": "unrated"},
+  {"no": 246, "run": 50, "name": "Outline dark", "idea": "Every panel, control and even the canvas preview is a thin line drawing on pure black with no fills, so structure shows as wireframe and one mint line marks what is active.", "verdict": "unrated"},
+  {"no": 247, "run": 50, "name": "Dark glass", "idea": "The canvas sits on a deep, softly glowing colour field and every tool floats above it as translucent dark glass, so the work feels lit from behind while text stays on dark tint.", "verdict": "unrated"},
+  {"no": 248, "run": 50, "name": "High contrast dark", "idea": "Pure white on pure black with 2px white rules, literal labels under every tool and no colour at all except a bright yellow focus ring, so every part of the editor passes AAA.", "verdict": "unrated"},
+  {"no": 249, "run": 51, "name": "Darkroom", "idea": "The editor is a photographic darkroom under a deep red safelight, with the canvas as a print in a developing tray, the inspector as exposure notes and the layers as a numbered film strip.", "verdict": "unrated"},
+  {"no": 250, "run": 51, "name": "Dark Swiss", "idea": "A strict twelve column grid on black set in one grotesque, with flush left numbered lists, heavy top rules and a single signal red that marks only what is active.", "verdict": "unrated"},
+  {"no": 251, "run": 51, "name": "Dark brutalist", "idea": "Raw slabs on black with thick white borders, hard lime offset shadows, typewriter text and giant numbers, so the editor feels like a poster bolted together.", "verdict": "unrated"},
+  {"no": 252, "run": 51, "name": "Dark risograph", "idea": "The editor is printed like a two colour zine on dark paper, fluorescent pink and teal overprinting each other with a slight misregistration, halftone dots and grain.", "verdict": "unrated"},
+  {"no": 253, "run": 51, "name": "Dark duotone", "idea": "Everything is drawn in exactly two tones, deep indigo and electric orange, with hierarchy made by inverting blocks, halftone dots and circles instead of extra colours.", "verdict": "unrated"},
+  {"no": 254, "run": 52, "name": "Urushi lacquer", "idea": "A design tool laid out like a set of black lacquer trays, where gold leaf hairlines frame each panel, the inspector stacks like tiered boxes and a single vermilion marks what is chosen.", "verdict": "unrated"},
+  {"no": 255, "run": 52, "name": "Indigo dyed", "idea": "Panels sewn from deep indigo cloth, edged with white running stitches over a faint shibori ring pattern, with the inspector read like a woven care label and undyed cream for the one main action.", "verdict": "unrated"},
+  {"no": 256, "run": 52, "name": "Dark workshop", "idea": "A woodworker's bench at night, with tools hung on a steel pegboard, layers kept in labelled walnut drawers, an engraved steel plate screwed on for the inspector and a brass rule along the foot.", "verdict": "unrated"},
+  {"no": 257, "run": 52, "name": "Dark marble", "idea": "A hushed luxury studio where the whole canvas is a slab of black marble with gold and grey veins, and the layers and inspector float on it as polished stone cards edged in a single gold line.", "verdict": "unrated"},
+  {"no": 258, "run": 52, "name": "Dark concrete", "idea": "A brutalist editor cast in raw dark concrete slabs with deep seams, form tie holes and spray stencilled labels, where safety yellow marks the active tool, the selection and the one action that matters.", "verdict": "unrated"},
+  {"no": 259, "run": 53, "name": "Holographic", "idea": "Floating capsules and glass cards on deep black, each rimmed with a thin iridescent foil edge that shifts from cyan to lilac to pink, so the interface reads as light caught in a hologram while the content stays plain.", "verdict": "unrated"},
+  {"no": 260, "run": 53, "name": "Chrome", "idea": "A dark brushed steel console where every control is a pill of polished liquid chrome with a hard horizon reflection, pressed tools sink into dark wells and one ice blue light marks focus.", "verdict": "unrated"},
+  {"no": 261, "run": 53, "name": "Dark mesh gradient", "idea": "Soft blurred glows of violet, teal and coral drift behind smoked glass panels, with the tools in a floating dock at the bottom of the canvas and the file status as quiet chips in the top bar.", "verdict": "unrated"},
+  {"no": 262, "run": 53, "name": "Synthwave", "idea": "A retro future night drive, where the frame floats over a striped sunset sun and a cyan perspective grid, neon magenta and cyan outlines trace the panels, and the inspector runs as a single property strip under the horizon.", "verdict": "unrated"},
+  {"no": 263, "run": 53, "name": "Dark pastel", "idea": "A soft charcoal workspace of rounded cards where each kind of thing has its own pastel, mint for text, lilac for frames, peach for components and sky for images, so the layer tree and the inspector read by colour and by label at once.", "verdict": "unrated"},
+  {"no": 264, "run": 54, "name": "Dark mono minimal", "idea": "Black, white and greys only, with wide margins, hairline rules and thin type, so the files read like a quiet gallery list.", "verdict": "unrated"},
+  {"no": 265, "run": 54, "name": "Dark dense grid", "idea": "A graphite data grid with 28px rows, sortable column heads, mono figures and a key value inspector, built for scanning many files fast.", "verdict": "unrated"},
+  {"no": 266, "run": 54, "name": "Dark document", "idea": "The folder reads like a calm written page on warm charcoal, with a slim page tree on the left and the selected file opening as a callout inside the text.", "verdict": "unrated"},
+  {"no": 267, "run": 54, "name": "Dark editorial", "idea": "The folder is laid out like a magazine spread at night, with a serif masthead, a numbered index of files and the selected file run as the cover story.", "verdict": "unrated"},
+  {"no": 268, "run": 54, "name": "Dark soft UI", "idea": "Every panel, row and button is pressed out of one slate surface with paired light and dark shadows, the selected file sinks in, and text stays crisp with a bright focus ring.", "verdict": "unrated"},
+  {"no": 269, "run": 55, "name": "Aurora", "idea": "Green and violet northern lights ribbon across a deep night sky header, and the files sit below in calm dark panels lit by one thin aurora edge.", "verdict": "unrated"},
+  {"no": 270, "run": 55, "name": "Bioluminescent", "idea": "Files drift as rounded capsules in blue black deep water, lit only by glowing cyan rings, a depth gauge for storage and a round porthole for the selected file.", "verdict": "unrated"},
+  {"no": 271, "run": 55, "name": "Obsidian", "idea": "Volcanic black glass cut into chamfered slabs, with glowing lava orange cracks marking the selected file, live meters and the paths through the screen.", "verdict": "unrated"},
+  {"no": 272, "run": 55, "name": "Midnight garden", "idea": "Files hang like leaves along a drawn vine on deep night green, the selected file blooms as a moonlit flower, and its details open in an arched garden window.", "verdict": "unrated"},
+  {"no": 273, "run": 55, "name": "Moonlit zen", "idea": "An ink black garden of few things, where a moon shows how full storage is, raked sand lines separate the files and the selected file rests like a stone in a ringed pebble panel.", "verdict": "unrated"},
+  {"no": 274, "run": 56, "name": "Rainy neon city", "idea": "A wet night street where the file list glows like shop signs on rain soaked asphalt, pink and cyan neon tubes, soft bokeh and reflections pooling under every row.", "verdict": "unrated"},
+  {"no": 275, "run": 56, "name": "Film noir", "idea": "A black and white case file lit through venetian blinds, typewriter captions on every fact, the selected file printed in reverse like a lone lit window.", "verdict": "unrated"},
+  {"no": 276, "run": 56, "name": "Jazz club", "idea": "A late night lounge where one blue spotlight falls on a numbered set list of files, brass trim and a deep red velvet card hold the details, and titles sing in italic serif.", "verdict": "unrated"},
+  {"no": 277, "run": 56, "name": "Cinema", "idea": "A dark auditorium where the selected file plays on a glowing screen, the folder is billed on a bulb lit marquee, and every file is a torn ticket stub in the aisle.", "verdict": "unrated"},
+  {"no": 278, "run": 56, "name": "Gothic cathedral", "idea": "A dark stone nave where every panel rises to a pointed arch, files are set like stones between mortar joints, and rose window colours mark file types and statuses.", "verdict": "unrated"},
+  {"no": 279, "run": 57, "name": "Candy dark", "idea": "Chunky candy pieces on a dark plum tray, fat rounded file cards with bright sweet coloured blobs, gummy pill tabs and buttons that sit up on a little 3D ledge.", "verdict": "unrated"},
+  {"no": 280, "run": 57, "name": "Dark Memphis", "idea": "Memphis squiggles, confetti and dot grids on black, chunky white outlined blocks thrown slightly off grid with hard colour offset shadows, and every nav item wearing its own geometric shape.", "verdict": "unrated"},
+  {"no": 281, "run": 57, "name": "Noir comic", "idea": "A dark comic page cut into angled panels with cream ink borders and black gutters, halftone shading, caption boxes and speech bubbles, and one red spot colour for what matters.", "verdict": "unrated"},
+  {"no": 282, "run": 57, "name": "Tarot night", "idea": "A tarot spread laid out on a starry indigo cloth, three framed cards with fine gold line art, corner stars and crescent moons, the selected file drawn as its own card.", "verdict": "unrated"},
+  {"no": 283, "run": 57, "name": "Art deco night", "idea": "A black lacquer and gold night club facade, a sunburst fan crowning the title, symmetric double ruled frames with stepped corners, and files set in a tall gold ruled register.", "verdict": "unrated"},
+  {"no": 284, "run": 58, "name": "Arctic", "idea": "A calm frost-toned review page in cool blue-grey, with a quiet three-card glance row over the files, the diff and a slim facts column, soft 10px corners and pale ice-blue as the only strong accent.", "verdict": "unrated"},
+  {"no": 285, "run": 58, "name": "Vampire", "idea": "A dark purple bento board where every tile is labelled like a code comment, the title reads like a keyword, labels are string tokens, and pink, green and cyan carry the syntax colours of the whole page.", "verdict": "unrated"},
+  {"no": 286, "run": 58, "name": "Retro groove", "idea": "A warm brown-black conversation timeline with a three-stripe orange, mustard and aqua band, slab serif headings, chunky pill buttons with hard offset shadows and a ticket stub side column, like a seventies hi-fi brochure set in code.", "verdict": "unrated"},
+  {"no": 287, "run": 58, "name": "Vibrant classic", "idea": "A dense, square, all-monospace review workspace on near-black, with a file tree, a dominant syntax-coloured diff and a narrow facts pane butted together by hairlines, where hot pink, lime and orange do the talking.", "verdict": "unrated"},
+  {"no": 288, "run": 58, "name": "Indigo night", "idea": "A soft deep-indigo workspace with a left repository sidebar and floating 16px cards, led by a merge readiness panel that gathers the twelve check pills, the two reviewers and the locked merge button, lit only by soft blue and purple.", "verdict": "unrated"},
+  {"no": 289, "run": 59, "name": "Green phosphor", "idea": "The whole review is one glowing green-on-black terminal transcript, each part of the screen printed as the output of a command, with inverse-video highlights, ruled output boxes and a blinking block cursor waiting at the end.", "verdict": "unrated"},
+  {"no": 290, "run": 59, "name": "Amber terminal", "idea": "A full-screen amber text-mode application of double-ruled panes with titles set into their borders, an inverse selection bar, a top status line and a bottom function key bar, glowing warmly on black.", "verdict": "unrated"},
+  {"no": 291, "run": 59, "name": "CRT scanlines", "idea": "The review is broadcast like a teletext page on a curved colour CRT, set in a rounded plastic bezel with scanlines, a soft vignette and a hint of red and cyan fringing, its sections marked by solid colour bands and block mosaic graphics.", "verdict": "unrated"},
+  {"no": 292, "run": 59, "name": "Pixel CRT game", "idea": "The pull request is laid out like an 8-bit adventure screen, with a coin-counter HUD, a menu cursor on the tabs, notched pixel-bordered dialog boxes, a checks health bar of twelve blocks, a reviewer party with pixel portraits and the changed files as inventory slots.", "verdict": "unrated"},
+  {"no": 293, "run": 59, "name": "Hacker IDE", "idea": "The pull request opens inside a modern dark code editor, with an activity bar, an explorer of repository views and changed files, editor tabs, a diff with change gutters and a minimap, a details panel, a checks terminal and a status bar.", "verdict": "unrated"},
+  {"no": 294, "run": 60, "name": "Dark blueprint", "idea": "The pull request drawn as a technical sheet, white and cyan line work on deep blueprint blue, with a parts list for files, a wiring schematic for checks and a title block for the merge facts.", "verdict": "unrated"},
+  {"no": 295, "run": 60, "name": "Ink and red", "idea": "A pull request set like the front page of a serious evening paper, warm white serif type on black ink, hairline column rules and one sharp red kept for what blocks the merge.", "verdict": "unrated"},
+  {"no": 296, "run": 60, "name": "Dark luxury", "idea": "A hushed, symmetrical page of near black and fine gold hairlines, light display serif and widely spaced capitals, where the pull request reads like an invitation card and every figure has room.", "verdict": "unrated"},
+  {"no": 297, "run": 60, "name": "Stealth", "idea": "A low glare field console in matte black olive, where chamfered panels, stencil labels and a twelve cell status board turn the pull request into a dense, readable set of orders.", "verdict": "unrated"},
+  {"no": 298, "run": 60, "name": "Carbon fibre", "idea": "A pit wall timing screen on woven carbon, with heavy italic condensed type, skewed tabs, a timing tower of checks, sector bars for files and motorsport red for the one thing holding the merge.", "verdict": "unrated"},
+  {"no": 299, "run": 61, "name": "Cyberpunk neon", "idea": "A night city terminal in magenta and cyan neon on black, with cut corner panels, scanlines, a glitched headline and a hex grid of checks, loud in colour but strict about shape and contrast.", "verdict": "unrated"},
+  {"no": 300, "run": 61, "name": "Starship bridge", "idea": "The pull request as a ship's bridge, with an arched header, a curved main viewscreen for the diff, two bevelled side consoles in orange and blue, and a check gauge that shows which system is down.", "verdict": "unrated"},
+  {"no": 301, "run": 61, "name": "Space station HUD", "idea": "A heads up display floating over near black, with hairline cyan rules, corner brackets instead of boxes, thin type with tiny telemetry labels, and a ring of twelve check ticks around the pull request number.", "verdict": "unrated"},
+  {"no": 302, "run": 61, "name": "Night vision", "idea": "The pull request seen through a night vision viewfinder, one phosphor green on black with grain, a vignette, corner readouts and a reticle on the title, so every status speaks through its shape and word.", "verdict": "unrated"},
+  {"no": 303, "run": 61, "name": "Sonar", "idea": "A submarine sonar console in deep sea green, where a round scope with a sweeping arc plots the twelve checks as contacts, the failing one pinged and labelled, and rounded instrument bezels hold the rest.", "verdict": "unrated"},
+  {"no": 304, "run": 62, "name": "Dark analytics", "idea": "Charts lead on a dark slate canvas, a full-width requests chart over error and latency half charts, each series in its own crisp colour, with a service table and stacked lists below.", "verdict": "unrated"},
+  {"no": 305, "run": 62, "name": "Trading terminal", "idea": "A dense black terminal of seven numbered panels with orange title bars, a service ticker tape, function key app tabs and all caps monospace readouts.", "verdict": "unrated"},
+  {"no": 306, "run": 62, "name": "Mission control", "idea": "A deep navy control room wall, a row of large countdown style clocks over a grid of numbered console panels with cyan corner brackets, nominal and caution wording and condensed caps.", "verdict": "unrated"},
+  {"no": 307, "run": 62, "name": "Radar", "idea": "An air traffic radar scope where services are blips on healthy, degraded and outage rings under a sweeping wedge, with flight progress strips, phosphor traces, advisories and departures beside it.", "verdict": "unrated"},
+  {"no": 308, "run": 62, "name": "SRE minimal", "idea": "A very quiet single column in neutral greys, a plain sentence of the state at the top, hairline lists and tiny grey charts, with colour used only for the open incident.", "verdict": "unrated"},
+  {"no": 309, "run": 63, "name": "Oscilloscope", "idea": "The monitor as a bench oscilloscope, phosphor green and yellow traces on a dark graticule with on screen scale readouts, lettered deploy cursors, measurement boxes, knobs and soft keys for the services.", "verdict": "unrated"},
+  {"no": 310, "run": 63, "name": "Tube amp", "idea": "A vintage amplifier faceplate on dark tolex, a row of glowing tubes for the services, analog VU meters for traffic, errors and latency, a chart recorder, a jewel warning lamp for the incident and engraved small caps labels.", "verdict": "unrated"},
+  {"no": 311, "run": 63, "name": "Modular synth", "idea": "A rack of synth modules between metal rails, each service a module with an uptime knob, a status lamp and jacks, a patch bay of coloured cables linking the services, and hourly traffic as a step sequencer.", "verdict": "unrated"},
+  {"no": 312, "run": 63, "name": "Audio workstation", "idea": "A music workstation session, an arrangement of tracks for requests, errors, latency, deploy clips, the incident region and alert markers under a playhead, and a mixer with one channel strip, meter and fader per service.", "verdict": "unrated"},
+  {"no": 313, "run": 63, "name": "Video timeline", "idea": "A video editor where services sit in a bin as clips, a program monitor shows the frame at the 07.48 playhead, an inspector holds the incident, and a multi track timeline lays out the 24 hours as video and audio tracks with markers.", "verdict": "unrated"},
+  {"no": 314, "run": 64, "name": "Gaming RGB", "idea": "A gamer HUD for the service monitor, with chamfered black panels framed by a cyan to magenta to lime gradient edge, services as a roster of cards with segmented uptime health bars, and terse caps labels.", "verdict": "unrated"},
+  {"no": 315, "run": 64, "name": "Esports broadcast", "idea": "The monitor as a live broadcast overlay, with a LIVE bug, a slanted scoreboard where each service is a team with its own colour and its uptime as the score, a big stage chart with a lower third for the incident, and tickers of alerts and deploys.", "verdict": "unrated"},
+  {"no": 316, "run": 64, "name": "Night metro", "idea": "The monitor drawn as a night transit map, where each service is a coloured line running across the last 24 hours, deploys and alerts are stations on it, and trouble shows as dashed track and an amber disruption sign.", "verdict": "unrated"},
+  {"no": 317, "run": 64, "name": "Witch hour", "idea": "A deep purple night watch where services stand as potion bottles on a shelf filled to their uptime, charts sit in arched windows under a thin moon, and green glows only where things are well.", "verdict": "unrated"},
+  {"no": 318, "run": 64, "name": "Ember", "idea": "A calm fireside monitor on near black, where the day's traffic rises as a glowing ember curve, service cards warm from below, and one merged timeline of alerts, deploys and the incident reads like a log by the fire.", "verdict": "unrated"},
+  {"no": 319, "run": 65, "name": "Stained glass night", "idea": "The whole monitor is one leaded window seen at night, with deep jewel glass panes held in thick black lead, an arched head pane for traffic, five round arched lancets for the services, and pale glowing text on every pane.", "verdict": "unrated"},
+  {"no": 320, "run": 65, "name": "Observatory", "idea": "A night observatory console where the last 24 hours are a round sky chart with traffic as a glowing contour and events as numbered marks on the rim, beside monospaced telescope readouts for each service.", "verdict": "unrated"},
+  {"no": 321, "run": 65, "name": "NOC wall", "idea": "A network operations video wall where every block is a square cornered screen split by black bezels, with huge status words, giant figures and thick chart lines that can be read from across the room.", "verdict": "unrated"},
+  {"no": 322, "run": 65, "name": "Dark spreadsheet", "idea": "The monitor as a dark workbook, with a formula bar, lettered columns and numbered rows holding services, the incident, alerts and deploys as ranges, conditional formatted status cells, floating chart objects and sheet tabs along the foot.", "verdict": "unrated"},
+  {"no": 323, "run": 65, "name": "Night paper", "idea": "The monitor typeset as a short evening report on warm dark grey paper, a serif reading column with a summary headline, inline sparklines in the prose, a leader dotted service list, numbered figures, and alerts and deploys as margin notes.", "verdict": "unrated"},
+  {"no": 324, "run": 66, "name": "Pro streaming", "idea": "A polished, generic dark streaming app with a big square cover art block leading the page, clean edge to edge lists, one warm coral accent and a fixed player bar along the bottom.", "verdict": "unrated"},
+  {"no": 325, "run": 66, "name": "Spectrum analyser", "idea": "The bars and peak caps of a live frequency analyser run the whole layout, so every figure on the page, from progress to volume to song length, is drawn as lime and cyan level bars on black.", "verdict": "unrated"},
+  {"no": 326, "run": 66, "name": "Vinyl lounge", "idea": "A walnut turntable plinth fills half the screen with a spinning record drawn in SVG, a brass tonearm in the grooves, brass knobs for volume and a crate of record spines for the queue, all in warm serif type.", "verdict": "unrated"},
+  {"no": 327, "run": 66, "name": "Club LED", "idea": "The screen is a wall of LED modules in a black housing, with the title spelled in round lit dots on a matrix, a strip of colour blocks that pulse to the beat and square light pads for every control.", "verdict": "unrated"},
+  {"no": 328, "run": 66, "name": "Concert stage", "idea": "The player is a live stage seen from the crowd, with light beams falling from a truss, the song title lit in a spotlight, a crowd silhouette along the front and the queue taped down as a hand set list.", "verdict": "unrated"},
+  {"no": 329, "run": 67, "name": "Hi-fi receiver", "idea": "The player is a stack of hi-fi components in brushed dark aluminium, with a blue backlit LCD for the song and lyrics, a machined volume knob ringed by a lit arc, small LED push buttons and a tuner dial whose presets are the queue.", "verdict": "unrated"},
+  {"no": 330, "run": 67, "name": "Hard bop sleeve", "idea": "The screen is laid out like a 1950s jazz record sleeve, with a huge tight sans title, flat blocks of orange, teal and mustard on near black, controls as coloured slabs and the queue listed as Side B on the back cover.", "verdict": "unrated"},
+  {"no": 331, "run": 67, "name": "Ambient haze", "idea": "A quiet room of soft blurred colour fog behind a single centred column, with light thin type, hairline progress and almost invisible controls, so the song and its words float and nothing asks for attention.", "verdict": "unrated"},
+  {"no": 332, "run": 67, "name": "Cassette deck", "idea": "The player is a front loading cassette deck, with a tape window of turning reels, a mechanical counter, two amber VU meters with needles, a row of chrome piano keys for transport and the queue typed on the cassette insert card.", "verdict": "unrated"},
+  {"no": 333, "run": 67, "name": "Karaoke lyrics", "idea": "The lyrics take over the screen, with the current line set huge and wiped in yellow as it is sung, a bouncing ball over the next word, the next line small beneath and every other control shrunk to rounded strips at the edges.", "verdict": "unrated"},
+  {"no": 334, "run": 68, "name": "Sales graphite", "idea": "A sober working CRM in cool graphite, with one summary strip, five even stage columns of clean deal cards and a single teal accent for progress and action.", "verdict": "unrated"},
+  {"no": 335, "run": 68, "name": "Neon swimlanes", "idea": "The pipeline as five horizontal lanes on near black, each edged by one thin neon line in its own colour, with every value shown as a glowing figure and the deals riding the lane as outlined capsules.", "verdict": "unrated"},
+  {"no": 336, "run": 68, "name": "Executive navy", "idea": "The pipeline as a formal quarterly board paper in deep navy and gold, with large serif figures between double gold rules, a numbered ledger of stages with leader lines, and notes for the board set apart.", "verdict": "unrated"},
+  {"no": 337, "run": 68, "name": "Dense deal table", "idea": "The whole pipeline as one tight 13px table grouped by stage, with group subtotals, a sorted value column, small bracketed status tags and the summary squeezed into a single line of key figures.", "verdict": "unrated"},
+  {"no": 338, "run": 68, "name": "Funnel first", "idea": "A large stepped funnel in pale sea greens leads the screen, each band naming its stage, count and value, with a round target gauge beside it and the deals laid out in soft rounded stage trays underneath.", "verdict": "unrated"},
+  {"no": 339, "run": 69, "name": "Territory map", "idea": "The pipeline placed on a dark abstract map of five sales regions, where each deal is a numbered pin whose shape tells its state, with a keyed deal list beside the map as the legend and text version.", "verdict": "unrated"},
+  {"no": 340, "run": 69, "name": "Sales leaderboard", "idea": "The pipeline as a friendly sales league on deep indigo, with an owner podium ranked by open value, earned badges and streaks drawn from real deal events, a quarter quest bar toward target and the stages as levels on a quest board.", "verdict": "unrated"},
+  {"no": 341, "run": 69, "name": "Rolodex", "idea": "The pipeline as a rotary card file on a dark desk, each deal a typed index card with a coloured stage tab, cards filed back to front so their top strips stay readable, and one card pulled forward open in full.", "verdict": "unrated"},
+  {"no": 342, "run": 69, "name": "Boardroom walnut", "idea": "The pipeline laid out on a dark walnut boardroom table, each stage a stitched leather folder with a brass name plate, owners on small engraved brass plates, the figures on brass plaques and the activity as minutes on a green leather blotter.", "verdict": "unrated"},
+  {"no": 343, "run": 69, "name": "Signal board", "idea": "The pipeline as a black departures board, one terse uppercase row per deal on split flap tiles, each led by a signal lamp whose shape and word give its state, with the key figures spelled out tile by tile above.", "verdict": "unrated"},
+  {"no": 344, "run": 70, "name": "Chat slate", "idea": "A professional three pane chat in blue slate, where a quiet sidebar, a roomy message list and a docked thread panel share one mint accent that only marks where you are and what you can do.", "verdict": "unrated"},
+  {"no": 345, "run": 70, "name": "Threaded minimal", "idea": "A chat set like a well kept letter, where there are no avatars, boxes or bubbles, and names, times, indents and one citron underline do all of the work.", "verdict": "unrated"},
+  {"no": 346, "run": 70, "name": "Rounded bubbles", "idea": "A friendly messenger on deep plum where every person speaks in their own softly coloured bubble, your own words glow coral on the right, and every shape is a pill or a circle.", "verdict": "unrated"},
+  {"no": 347, "run": 70, "name": "IRC classic", "idea": "A plain terminal chat client, where a topic line, a window list, a log with a fixed time and nick column, a nick list and a status bar do everything in one monospace face.", "verdict": "unrated"},
+  {"no": 348, "run": 70, "name": "BBS ANSI", "idea": "A chat that behaves like a dial-up message board, drawn in sixteen colour ANSI with shade block banners, double line boxes, hotkey menus and a message reader that counts MSG 1/5.", "verdict": "unrated"},
+  {"no": 349, "run": 71, "name": "Rugged radio", "idea": "The chat as a rugged field handset, with a rubber housing, a channel knob and chunky rocker keys around a black screen that logs every message as an RX or TX transmission, and one safety orange for the live channel and Send.", "verdict": "unrated"},
+  {"no": 350, "run": 71, "name": "Dispatch console", "idea": "The chat as an emergency dispatch screen, where channels wait in a prioritised call queue, messages land as timestamped log entries in ruled columns, and people are units marked available, away or offline.", "verdict": "unrated"},
+  {"no": 351, "run": 71, "name": "Pager LCD", "idea": "The chat as a stack of two way pagers, where every message is its own small backlit LCD frame counted MSG 1/5 in a moulded shell, folders replace the sidebar, and pill shaped hardware keys stand in for buttons.", "verdict": "unrated"},
+  {"no": 352, "run": 71, "name": "Neon arcade", "idea": "The chat as an arcade cabinet, with a glowing marquee, a black bezelled screen where channels are stages and people are players with pixel faces, and a control panel of big round coloured buttons for attach, emoji and send.", "verdict": "unrated"},
+  {"no": 353, "run": 71, "name": "Night market", "idea": "The chat as an evening market lane, where channels are stalls under striped awnings, the current stall glows under a string of paper lanterns, and messages hang as warm wooden tags.", "verdict": "unrated"},
+  {"no": 354, "run": 72, "name": "Pro NLE", "idea": "A professional dark grey editing room, four tight panels butted together on a near black frame, tabbed headers, 12px type, and precise yellow timecode as the one voice that speaks loudly.", "verdict": "unrated"},
+  {"no": 355, "run": 72, "name": "Colour grade suite", "idea": "A neutral eighteen percent grey grading room where scopes flank the picture, the inspector becomes a row of round wheels, and the bin is a strip of numbered thumbnails above a thin graticule timeline.", "verdict": "unrated"},
+  {"no": 356, "run": 72, "name": "Cinemascope", "idea": "The editor framed as a widescreen film, with solid black letterbox bars carrying opening titles and the export, a 2.39 to 1 picture, and the bin and inspector set below as centred end credits with dotted leaders.", "verdict": "unrated"},
+  {"no": 357, "run": 72, "name": "Film reel", "idea": "An editing bench of real film, where every track is a strip of amber celluloid with sprocket holes, audio runs as an optical soundtrack, media sits in labelled film cans and grease pencil marks the selection and the marker.", "verdict": "unrated"},
+  {"no": 358, "run": 72, "name": "Broadcast control", "idea": "The editor as a television control room multiviewer, a black wall of tiles each named by an under monitor label with a tally box, the program tile ringed red and marked ON AIR, sources as small monitors with level meters, and the timeline as a rundown strip.", "verdict": "unrated"},
+  {"no": 359, "run": 73, "name": "Creator playful", "idea": "A bright creator app on deep plum, with chunky rounded cards, fat candy coloured clip pills that each track owns, stickers for the selection and the marker, and big friendly sliders in place of number fields.", "verdict": "unrated"},
+  {"no": 360, "run": 73, "name": "Motion graphics", "idea": "A motion design workspace on a blue black grid, where the inspector is a graph editor of glowing neon curves, every property owns a colour and a keyframe shape, and the timeline is a layer stack with diamond keyframes.", "verdict": "unrated"},
+  {"no": 361, "run": 73, "name": "Animation studio", "idea": "A night animation desk where the viewer sits on a round light table disc with pencil construction lines, panels are punched cel sheets with peg holes, and the timeline is turned upright into an exposure sheet read top to bottom.", "verdict": "unrated"},
+  {"no": 362, "run": 73, "name": "Documentary muted", "idea": "A quiet, desaturated editing page set like a documentary book, with a serif main column for picture and sequence, sources and settings as marginal notes, captions under every figure and the marker written as a footnote.", "verdict": "unrated"},
+  {"no": 363, "run": 73, "name": "Drive-in", "idea": "A night at a drive-in, where the viewer is the big screen on its posts under a starry sky, a bulb lit marquee carries the title and Export, the bin is a row of parked cars with number plates, settings read like the snack bar board and tracks become parking lanes.", "verdict": "unrated"},
+  {"no": 364, "run": 74, "name": "Private wealth", "idea": "A discreet private client statement in near black, with fine gold double rules, serif old style figures, a centred monogram and a framed goal arc, so money reads as quiet and well kept.", "verdict": "unrated"},
+  {"no": 365, "run": 74, "name": "Neobank vibrant", "idea": "A phone first bank on pure black with one electric volt accent, a giant tabular balance, round action buttons, fat rounded cards and pill meters, where overspend flips a tile to white instead of turning red.", "verdict": "unrated"},
+  {"no": 366, "run": 74, "name": "Ledger night", "idea": "The month kept as a bound ledger at night, a two page spread on green black with ruled lines and green column rules, monospace figures in pale ink, red ink in brackets for anything overdrawn or owed, and double underlined totals.", "verdict": "unrated"},
+  {"no": 367, "run": 74, "name": "Market depth", "idea": "The budget read as an order book, each category a mirrored depth row with spent growing left and remaining growing right from a central limit column, balances on a ticker strip, savings as a goal ladder and transactions as a trade tape.", "verdict": "unrated"},
+  {"no": 368, "run": 74, "name": "Vault", "idea": "The money app as a steel vault, riveted brushed steel plates, numbered deposit boxes with keyholes and inset readouts for balances, a combination dial for the savings goal and drawer fronts with gauges and indicator lamps for the budget.", "verdict": "unrated"},
+  {"no": 369, "run": 75, "name": "Piggy playful", "idea": "A friendly rounded money app on deep plum, with a big pink piggy bank that fills like a jar for the savings goal, budgets as little glass jars with faces that fill up, and cheerful words that stay kind when a jar overflows.", "verdict": "unrated"},
+  {"no": 370, "run": 75, "name": "Bullion", "idea": "Savings shown as real weight, gold ingots on deep burgundy velvet, balances stamped on trapezoid bars, the goal as a pyramid of ten 500 euro bars filling from the bottom, and budget lines as ingot shaped meters.", "verdict": "unrated"},
+  {"no": 371, "run": 75, "name": "Calm budget", "idea": "A gentle single column on soft blue grey dark, large unhurried type, budgets explained in reassuring sentences with soft rounded bars, the goal as a gentle path with You are here, and no alarm colours anywhere.", "verdict": "unrated"},
+  {"no": 372, "run": 75, "name": "Monochrome money", "idea": "Only white on black, with the numbers doing all the work, a poster size balance, heavy and hairline weights for whole and decimal parts, white rules as the only structure, budget blocks as filled and empty squares, and the over budget row inverted to white.", "verdict": "unrated"},
+  {"no": 373, "run": 75, "name": "Banknote engraving", "idea": "The overview printed as a dark green banknote, with the everyday balance as its denomination, an engraved oval frame holding a fern emblem, a guilloche rosette ringed by the savings goal, fine line etched meters and double rules throughout.", "verdict": "unrated"},
+  {"no": 374, "run": 76, "name": "Glass hub", "idea": "Every room is a frosted dark glass tile floating over slow coloured light, and a room that is doing something glows softly in its own colour while idle rooms stay clear and still.", "verdict": "unrated"},
+  {"no": 375, "run": 76, "name": "Thermostat dial", "idea": "One big round thermostat dial for the living room leads the screen, the other rooms sit around it as small ring gauges, and even the day's energy is drawn as a 24 hour clock face.", "verdict": "unrated"},
+  {"no": 376, "run": 76, "name": "Night light", "idea": "A bedside screen in warm low amber on near black, one narrow quiet column with a large clock and old style serif text, dim enough for a dark bedroom yet every word still clears AA.", "verdict": "unrated"},
+  {"no": 377, "run": 76, "name": "Floor plan", "idea": "The home is drawn as a dark blueprint floor plan, each room filled by its state with its own hatch or dot pattern and glyph, framed by a drawing title block, a room schedule and a plotted load graph.", "verdict": "unrated"},
+  {"no": 378, "run": 76, "name": "Security console", "idea": "The home seen as a monitoring desk, a 2 by 2 camera wall with burned in captions leads, an armed status strip runs across the top, and a time stamped event log and zone list carry the rest in dense monospace.", "verdict": "unrated"},
+  {"no": 379, "run": 77, "name": "Home AI", "idea": "The home speaks as a calm intelligence, a softly lit orb and one spoken line lead the screen, and the rooms, energy and scenes sit below as quiet notes the assistant is keeping an eye on.", "verdict": "unrated"},
+  {"no": 380, "run": 77, "name": "Cosy linen", "idea": "The home dressed like a warm den at night, dark walnut wood behind stitched linen cards, serif headings, a hanging fabric tag for the alert and an energy chart sewn in running stitches.", "verdict": "unrated"},
+  {"no": 381, "run": 77, "name": "Tactile knobs", "idea": "The home as a wall of brushed metal faceplates, each room a screwed module with real looking rotary knobs, toggle switches, lit lamps and amber readouts, and scenes are chunky push buttons that stay pressed in.", "verdict": "unrated"},
+  {"no": 382, "run": 77, "name": "Moon phase", "idea": "A calm night sky holds the home, a pale moon and scattered stars over a horizon, the day's energy drawn as a tide with high and low marks, and scenes shown as phases of the moon.", "verdict": "unrated"},
+  {"no": 383, "run": 77, "name": "Family bright", "idea": "A home screen the whole family can use, big candy bright room tiles with thick friendly icons and dark ink on a deep slate page, every touch target at least 64px and every state spelled out in plain words.", "verdict": "unrated"},
+  {"no": 384, "run": 78, "name": "Athletic neon", "idea": "A sports poster in volt yellow on black, where the screen is built from slanted panels and every figure is a heavy italic number, so today reads like a race result.", "verdict": "unrated"},
+  {"no": 385, "run": 78, "name": "Heart monitor", "idea": "The day shown on a bedside style monitor, with stacked signal channels on a fine grid, a live trace for heart rate, the week drawn as a rhythm strip of beats, and the five zone colours leading every reading.", "verdict": "unrated"},
+  {"no": 386, "run": 78, "name": "Track lanes", "idea": "Every measure runs as a lane on a night running track, with painted lane numbers at the start, white lane lines, a chequered finish at the goal and a runner chevron marking how far today has got.", "verdict": "unrated"},
+  {"no": 387, "run": 78, "name": "Boxing gym", "idea": "A gritty gym wall at night, with a red digit round timer for the workout, rings counted as rounds of timer lights, heart zones scored in tally marks, and every heading torn from a strip of cream athletic tape.", "verdict": "unrated"},
+  {"no": 388, "run": 78, "name": "Yoga dusk", "idea": "A calm single column under a dusk sky, where the three rings become one slowly breathing circle, every figure is told in a soft sentence, and weeks and plans are strung as beads.", "verdict": "unrated"},
+  {"no": 389, "run": 79, "name": "Cycle computer", "idea": "The day shown on two pages of a handlebar computer, a moulded housing with hardware buttons around a dark LCD split by hard lines into data fields, each with a tiny caps label, a huge digit and a unit.", "verdict": "unrated"},
+  {"no": 390, "run": 79, "name": "Night trail", "idea": "A mountain trail at night seen by headlamp, with topographic contour lines in the dark, a warm beam lighting the run, heart zones stacked as altitude bands in a peak, the week drawn as a ridge, and goals marked by painted trail blazes.", "verdict": "unrated"},
+  {"no": 391, "run": 79, "name": "Night swim", "idea": "An outdoor pool under night floodlights, seen from above, where the screen is four lanes split by bead lane ropes, numbered from the starting blocks, with a round pace clock for the run and rings filled like water levels.", "verdict": "unrated"},
+  {"no": 392, "run": 79, "name": "Watch face", "idea": "The whole day laid out as a round watch face on true black, a large dial with the three rings as outer arcs and subdials for the run, ringed by smaller round complications for zones, week, sleep and plan, so nothing on the screen is square.", "verdict": "unrated"},
+  {"no": 393, "run": 79, "name": "Bootcamp", "idea": "The day issued as a typed orders sheet on an olive clipboard, with stencilled headings, numbered orders ticked off in boxes, a duty roster for the week, and DONE or OPEN stamped beside every goal in terse capitals.", "verdict": "unrated"},
+  {"no": 394, "run": 80, "name": "Mail slate", "idea": "A sober, professional three pane mail client in cool slate greys with one teal accent, where rules and steps of lightness do the organising and nothing decorates the work.", "verdict": "unrated"},
+  {"no": 395, "run": 80, "name": "Focus inbox", "idea": "The inbox leads with only the few messages that need you, set large in a quiet serif inside vast dark space, and lets everything else shrink to one soft line each.", "verdict": "unrated"},
+  {"no": 396, "run": 80, "name": "Night letters", "idea": "Mail as real paper post on a midnight desk under one warm lamp, with messages as envelopes sealed in wax until read and the open message laid out as a letter on dim warm paper.", "verdict": "unrated"},
+  {"no": 397, "run": 80, "name": "Sorting office", "idea": "A postal sorting room in green enamel and brass, where folders are a wall of pigeonholes filling with slips, messages are tagged dockets on a belt, and the open message is a routing form.", "verdict": "unrated"},
+  {"no": 398, "run": 80, "name": "Newswire", "idea": "The inbox reads as a wire service feed on a perforated dark paper strip, with every message filed under a timestamp, a priority code and an uppercase slug, and the open message set as wire copy.", "verdict": "unrated"},
+  {"no": 399, "run": 81, "name": "Telegraph office", "idea": "Mail as a sepia telegraph counter, with folders as brass plaques carrying morse marks, the inbox as a numbered received book, and the open message typed onto a telegram form.", "verdict": "unrated"},
+  {"no": 400, "run": 81, "name": "Mahogany desk", "idea": "A private secretary desk in mahogany and green leather, where the open message lies on a gold tooled blotter in a fountain pen serif and the folders are leather index tabs along its right edge.", "verdict": "unrated"},
+  {"no": 401, "run": 81, "name": "Power user", "idea": "A dense, keyboard first mail client on near black, with thirty pixel rows, a key hint beside every action and folder, a command field on top and a lime modal status line along the bottom.", "verdict": "unrated"},
+  {"no": 402, "run": 81, "name": "Zen mail", "idea": "One message at a time on sumi black, set in a large quiet serif with ink brush strokes and an enso, a short numbered queue to the side, and a single vermilion seal for the one action that matters.", "verdict": "unrated"},
+  {"no": 403, "run": 81, "name": "Friendly mail", "idea": "A cheerful, chunky mail client on soft plum with rounded everything, a pastel colour for every person and label, and the open message shown as a friendly speech bubble.", "verdict": "unrated"},
+  {"no": 404, "run": 82, "name": "DB admin", "idea": "A professional dark console built from square ruled panes, a tree, a tabbed editor and a dense grid, where a single cyan accent marks only what runs and what is selected.", "verdict": "unrated"},
+  {"no": 405, "run": 82, "name": "SQL terminal", "idea": "The whole console is one terminal session in a tmux style frame, so the schema, the query, the result table and the history are all plain monospace text drawn with pipes and dashes.", "verdict": "unrated"},
+  {"no": 406, "run": 82, "name": "Schema blueprint", "idea": "The console is a single engineering drawing on cobalt paper, with the tables drawn as an entity diagram in pale lines, the query and result as lettered notes, history as the revision table and status in the title block.", "verdict": "unrated"},
+  {"no": 407, "run": 82, "name": "Mainframe", "idea": "The console is a block mode terminal screen in seven field colours, with a command line on top, selection letters beside the tables, a message line and a row of PF keys, all in caps inside a dark grey bezel.", "verdict": "unrated"},
+  {"no": 408, "run": 82, "name": "Data lake", "idea": "The console reads from the surface down, with each part of the screen a deeper and darker band of water, so status floats at the waterline, tables bob as buoys, results hang as plumb lines and history settles as sediment.", "verdict": "unrated"},
+  {"no": 409, "run": 83, "name": "Graph network", "idea": "The schema is drawn as a node and edge graph, so tables are circles, columns are diamonds, the join is a thick gold edge, result rows are gold nodes sized by their count and history is a chain whose failed link breaks.", "verdict": "unrated"},
+  {"no": 410, "run": 83, "name": "Archive vault", "idea": "The console is a dark reading room, where tables are labelled cabinet drawers, the open drawer shows its columns as index cards, the query is a typed request slip, results are ledger entries and history is a row of stamped call slips.", "verdict": "unrated"},
+  {"no": 411, "run": 83, "name": "Query notebook", "idea": "The console is a notebook of numbered cells, so a short prose heading explains the question, the SQL cell carries its own output table, a chart cell draws the answer and the history is a log cell of earlier runs.", "verdict": "unrated"},
+  {"no": 412, "run": 83, "name": "Server room", "idea": "The console is two equipment racks, with tables as patch panel ports, the open table cabled to its columns, the query on a console LCD, results as LED meters, history as an event log and connections as lit power sockets.", "verdict": "unrated"},
+  {"no": 413, "run": 83, "name": "Lab readout", "idea": "The console is an instrument bench of hairline framed readouts, so status shows as large thin measurements, tables as coded reagents, the query as numbered protocol steps, results as filled sample vials and history as a pass or fail run log.", "verdict": "unrated"},
+  {"no": 414, "run": 84, "name": "Night flight", "idea": "The trip shown as a seatback screen in a darkened cabin, a deep violet bezel around a glowing moving map, swipeable itinerary tiles and a round icon dock, lit by a lavender and pink mood strip.", "verdict": "unrated"},
+  {"no": 415, "run": 84, "name": "Departure lounge", "idea": "The trip read off an airport departures board, split flap cells in monospace on black, framed by amber wayfinding signs with square pictograms and arrows, and a row of lounge seats showing who is travelling.", "verdict": "unrated"},
+  {"no": 416, "run": 84, "name": "Sleeper train", "idea": "A night train compartment, walnut panelling and brass trim around a rounded window that holds the route as lit towns along a railway, a printed timetable card with dotted leaders for the itinerary, and small punched ticket cards on a brass rack.", "verdict": "unrated"},
+  {"no": 417, "run": 84, "name": "Passport night", "idea": "The trip kept in a dark passport, a data page with the holder, dates and a machine readable line, then a visa page where every itinerary leg is an inked stamp of its own shape and unbooked legs are dashed blanks waiting for ink.", "verdict": "unrated"},
+  {"no": 418, "run": 84, "name": "Road trip", "idea": "The trip as a car instrument cluster at night, a budget gauge and a checklist gauge with orange needles flanking a cyan navigation screen, warning style lights for the checklist, and the itinerary read out as turn by turn route guidance.", "verdict": "unrated"},
+  {"no": 419, "run": 85, "name": "Night sailing", "idea": "The trip on a marine chart plotter run in red night mode, one hue only, a ruled data bar, a chart with crosshair waypoints and a dashed planned route, a waypoint table and physical softkeys on the case, with states told by filled or hollow shapes.", "verdict": "unrated"},
+  {"no": 420, "run": 85, "name": "Desert stars", "idea": "The trip under a desert night sky, a full width starfield that warms to an ember horizon over dune silhouettes, a huge thin title, the route drawn as a three star constellation, the itinerary as a glowing star line, and the weather sitting on the horizon.", "verdict": "unrated"},
+  {"no": 421, "run": 85, "name": "Neon alley", "idea": "The itinerary as a rainy side street of hanging neon signs, each leg a sign with a vertical date blade, booked legs lit in a glowing tube colour and unbooked legs dark with dashed unlit tubes, over a faint brick wall and slanted rain.", "verdict": "unrated"},
+  {"no": 422, "run": 85, "name": "Hotel noir", "idea": "The trip as a dim hotel lobby in black and brass, a wall of deep key boxes where booked legs hold a hanging key, unbooked legs show an empty hook and flights leave a letter, beside a guest register, a weather telegram and a deco framed map, under slanted blind shadows.", "verdict": "unrated"},
+  {"no": 423, "run": 85, "name": "Arctic expedition", "idea": "The trip kept as a polar expedition log, a dark graph paper logbook with an orange margin line where each leg is a dated entry, beside a contoured route sheet with camp triangles, a weather observation table, a taped kit list and a provisions fund drawn as ration blocks.", "verdict": "unrated"}
+];
+const RUNS = {
+  1: "Run 1 · Projects dashboard · styles 1 to 3",
+  2: "Run 2 · Projects dashboard · styles 4 to 8",
+  3: "Run 3 · Projects dashboard · styles 9 to 13",
+  4: "Run 4 · Projects dashboard · styles 14 to 18",
+  5: "Run 5 · Projects dashboard · styles 19 to 23",
+  6: "Run 6 · Landing page · styles 24 to 28",
+  7: "Run 7 · Sign-in · styles 29 to 33",
+  8: "Run 8 · Task board · styles 34 to 38",
+  9: "Run 9 · Project detail · styles 39 to 43",
+  10: "Run 10 · Settings · styles 44 to 48",
+  11: "Run 11 · Pricing · styles 49 to 53",
+  12: "Run 12 · Inbox · styles 54 to 58",
+  13: "Run 13 · Calendar · styles 59 to 63",
+  14: "Run 14 · Onboarding · styles 64 to 68",
+  15: "Run 15 · Phone Today screen · styles 69 to 73",
+  16: "Run 16 · Projects dashboard · styles 74 to 78",
+  17: "Run 17 · Projects dashboard · styles 79 to 83",
+  18: "Run 18 · Projects dashboard · styles 84 to 88",
+  19: "Run 19 · Projects dashboard · styles 89 to 93",
+  20: "Run 20 · Projects dashboard · styles 94 to 98",
+  21: "Run 21 · Projects dashboard · styles 99 to 103",
+  22: "Run 22 · Projects dashboard · styles 104 to 108",
+  23: "Run 23 · Projects dashboard · styles 109 to 113",
+  24: "Run 24 · Projects dashboard · styles 114 to 118",
+  25: "Run 25 · Projects dashboard · styles 119 to 123",
+  26: "Run 26 · Projects dashboard · styles 124 to 128",
+  27: "Run 27 · Projects dashboard · styles 129 to 133",
+  28: "Run 28 · Projects dashboard · styles 134 to 138",
+  29: "Run 29 · Projects dashboard · styles 139 to 143",
+  30: "Run 30 · Projects dashboard · styles 144 to 148",
+  31: "Run 31 · Projects dashboard · styles 149 to 153",
+  32: "Run 32 · Projects dashboard · styles 154 to 158",
+  33: "Run 33 · Projects dashboard · styles 159 to 163",
+  34: "Run 34 · Projects dashboard · styles 164 to 168",
+  35: "Run 35 · Projects dashboard · styles 169 to 173",
+  36: "Run 36 · Projects dashboard · Professional · navigation · styles 174 to 178",
+  37: "Run 37 · Projects dashboard · Professional · layout type · styles 179 to 183",
+  38: "Run 38 · Projects dashboard · Professional · industry tone · styles 184 to 188",
+  39: "Run 39 · Projects dashboard · Professional · brand personality · styles 189 to 193",
+  40: "Run 40 · Projects dashboard · Professional · page archetype · styles 194 to 198",
+  41: "Run 41 · Projects dashboard · Professional · surface treatment · styles 199 to 203",
+  42: "Run 42 · Projects dashboard · Professional · typography · styles 204 to 208",
+  43: "Run 43 · Projects dashboard · Professional · data focus · styles 209 to 213",
+  44: "Run 44 · Projects dashboard · Professional · app frame · styles 214 to 218",
+  45: "Run 45 · Projects dashboard · Professional · mood · styles 219 to 223",
+  46: "Run 46 · Projects dashboard · Dark · styles 224 to 228",
+  47: "Run 47 · Projects dashboard · Dark · styles 229 to 233",
+  48: "Run 48 · Projects dashboard · Dark · styles 234 to 238",
+  49: "Run 49 · Projects dashboard · Dark · styles 239 to 243",
+  50: "Run 50 · Design editor · Dark · styles 244 to 248",
+  51: "Run 51 · Design editor · Dark · styles 249 to 253",
+  52: "Run 52 · Design editor · Dark · styles 254 to 258",
+  53: "Run 53 · Design editor · Dark · styles 259 to 263",
+  54: "Run 54 · Cloud files · Dark · styles 264 to 268",
+  55: "Run 55 · Cloud files · Dark · styles 269 to 273",
+  56: "Run 56 · Cloud files · Dark · styles 274 to 278",
+  57: "Run 57 · Cloud files · Dark · styles 279 to 283",
+  58: "Run 58 · Code repository · Dark · styles 284 to 288",
+  59: "Run 59 · Code repository · Dark · styles 289 to 293",
+  60: "Run 60 · Code repository · Dark · styles 294 to 298",
+  61: "Run 61 · Code repository · Dark · styles 299 to 303",
+  62: "Run 62 · Ops monitor · Dark · styles 304 to 308",
+  63: "Run 63 · Ops monitor · Dark · styles 309 to 313",
+  64: "Run 64 · Ops monitor · Dark · styles 314 to 318",
+  65: "Run 65 · Ops monitor · Dark · styles 319 to 323",
+  66: "Run 66 · Music player · Dark · styles 324 to 328",
+  67: "Run 67 · Music player · Dark · styles 329 to 333",
+  68: "Run 68 · CRM pipeline · Dark · styles 334 to 338",
+  69: "Run 69 · CRM pipeline · Dark · styles 339 to 343",
+  70: "Run 70 · Team chat · Dark · styles 344 to 348",
+  71: "Run 71 · Team chat · Dark · styles 349 to 353",
+  72: "Run 72 · Video editor · Dark · styles 354 to 358",
+  73: "Run 73 · Video editor · Dark · styles 359 to 363",
+  74: "Run 74 · Personal finance · Dark · styles 364 to 368",
+  75: "Run 75 · Personal finance · Dark · styles 369 to 373",
+  76: "Run 76 · Smart home · Dark · styles 374 to 378",
+  77: "Run 77 · Smart home · Dark · styles 379 to 383",
+  78: "Run 78 · Fitness tracker · Dark · styles 384 to 388",
+  79: "Run 79 · Fitness tracker · Dark · styles 389 to 393",
+  80: "Run 80 · Email client · Dark · styles 394 to 398",
+  81: "Run 81 · Email client · Dark · styles 399 to 403",
+  82: "Run 82 · Database console · Dark · styles 404 to 408",
+  83: "Run 83 · Database console · Dark · styles 409 to 413",
+  84: "Run 84 · Travel planner · Dark · styles 414 to 418",
+  85: "Run 85 · Travel planner · Dark · styles 419 to 423"
+};
+
+let filter = "all", current = null, lastFocus = null;
+const runsEl = document.getElementById("runs");
+
+function visible() { return STYLES.filter(s => filter === "all" || s.verdict === filter); }
+
+function render() {
+  runsEl.innerHTML = "";
+  const runNos = [...new Set(STYLES.map(s => s.run))].sort((a, b) => b - a);
+  let shown = 0;
+  for (const r of runNos) {
+    const items = visible().filter(s => s.run === r).sort((a, b) => a.no - b.no);
+    if (!items.length) continue;
+    shown += items.length;
+    const sec = document.createElement("section");
+    sec.className = "run";
+    sec.innerHTML = `<h2>${RUNS[r] || "Run " + r}</h2><ul class="cards"></ul>`;
+    const ul = sec.querySelector("ul");
+    for (const s of items) {
+      const li = document.createElement("li");
+      li.className = "card";
+      li.innerHTML = `<button class="open" aria-label="Open style ${s.no}, ${s.name}, large"><iframe src="${s.no}.html" title="Preview of style ${s.no}" loading="lazy" tabindex="-1"></iframe></button>
+        <div class="body"><span class="no">${s.no}</span><span class="name">${s.name}</span><span class="idea">${s.idea}</span><span class="verdict ${s.verdict}">${s.verdict}</span></div>`;
+      li.querySelector("button").addEventListener("click", () => openLarge(s.no));
+      ul.appendChild(li);
+    }
+    runsEl.appendChild(sec);
+  }
+  if (!shown) runsEl.innerHTML = `<p class="empty">No styles match this filter.</p>`;
+}
+
+document.querySelectorAll(".filters button").forEach(b => b.addEventListener("click", () => {
+  filter = b.dataset.f;
+  document.querySelectorAll(".filters button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+  render();
+}));
+
+const lv = document.getElementById("lv"), frame = document.getElementById("lv-frame");
+function order() { return [...STYLES].sort((a, b) => b.run - a.run || a.no - b.no); }
+function openLarge(no) {
+  const s = STYLES.find(x => x.no === no);
+  if (!s) return;
+  if (!lv.classList.contains("on")) lastFocus = document.activeElement;
+  current = no;
+  frame.src = `${no}.html`;
+  document.getElementById("lv-title").textContent = `${s.no} · ${s.name} · ${s.verdict}`;
+  document.getElementById("lv-open").href = `${no}.html`;
+  lv.classList.add("on");
+  document.getElementById("lv-close").focus();
+}
+function closeLarge() { lv.classList.remove("on"); frame.src = "about:blank"; current = null; if (lastFocus) lastFocus.focus(); }
+function step(d) { const o = order(); const i = o.findIndex(s => s.no === current); openLarge(o[(i + d + o.length) % o.length].no); }
+document.getElementById("lv-close").addEventListener("click", closeLarge);
+document.getElementById("lv-prev").addEventListener("click", () => step(-1));
+document.getElementById("lv-next").addEventListener("click", () => step(1));
+document.querySelectorAll(".lv-bar [data-w]").forEach(b => b.addEventListener("click", () => {
+  frame.style.width = b.dataset.w;
+  document.querySelectorAll(".lv-bar [data-w]").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+}));
+document.addEventListener("keydown", e => {
+  if (!lv.classList.contains("on")) return;
+  if (e.key === "Escape") closeLarge();
+  if (e.key === "ArrowLeft") step(-1);
+  if (e.key === "ArrowRight") step(1);
+});
+document.getElementById("jump").addEventListener("keydown", e => {
+  if (e.key !== "Enter") return;
+  const n = parseInt(e.target.value, 10);
+  if (STYLES.some(s => s.no === n)) { openLarge(n); e.target.value = ""; }
+  else e.target.setCustomValidity("No style with that number"), e.target.reportValidity(), setTimeout(() => e.target.setCustomValidity(""), 1500);
+});
+render();
+</script>
+</body>
+</html>

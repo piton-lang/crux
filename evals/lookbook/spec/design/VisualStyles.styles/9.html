@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 9 · Enterprise shell · Brightwork</title>
+<style>
+:root {
+  --shell: #0f2a52;
+  --shell-2: #1d3f72;
+  --canvas: #edf0f4;
+  --tile: #ffffff;
+  --text: #1b2430;
+  --muted: #556170;
+  --line: #cdd3db;
+  --line-soft: #e4e8ed;
+  --primary: #0b57b0;
+  --primary-dark: #083f80;
+  --select: #e3edf9;
+  --pos: #1f6e3a;
+  --att: #8a5200;
+  --crit: #b3241b;
+  --attn-bg: #fff6e5;
+  --sans: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--canvas); color: var(--text); font: 14px/1.43 var(--sans); }
+a { color: var(--primary); }
+h1, h2, h3 { margin: 0; }
+svg.i { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: miter; stroke-linecap: square; }
+svg.s { width: 14px; height: 14px; flex: none; }
+.num { font-variant-numeric: tabular-nums; }
+:focus-visible, .is-focus { outline: 2px solid var(--primary); outline-offset: 1px; }
+.shell :focus-visible, .shell .is-focus { outline-color: #ffffff; }
+
+/* Shell bar */
+.shell { background: var(--shell); color: #ffffff; height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 8px 0 0; }
+.launcher { width: 48px; height: 48px; display: grid; place-items: center; background: transparent; border: 0; color: #fff; border-right: 1px solid var(--shell-2); cursor: pointer; }
+.brand { display: flex; align-items: baseline; gap: 8px; padding: 0 8px; white-space: nowrap; }
+.brand b { font-size: 16px; letter-spacing: 0.01em; }
+.brand span { font-size: 13px; color: #c9d6ea; border-left: 1px solid #4a6797; padding-left: 8px; }
+.shell .grow { flex: 1; min-width: 0; }
+.shell-search { display: flex; align-items: center; gap: 8px; height: 32px; width: 320px; max-width: 100%; padding: 0 8px; background: #ffffff; color: var(--muted); border-radius: 2px; }
+.shell-search input { border: 0; outline: 0; font: 13px var(--sans); color: var(--text); width: 100%; background: transparent; }
+.shell-search:focus-within { outline: 2px solid #ffffff; outline-offset: 2px; }
+.shell-btn { position: relative; width: 40px; height: 40px; display: grid; place-items: center; background: transparent; border: 0; color: #fff; cursor: pointer; border-radius: 2px; }
+.shell-btn:hover { background: var(--shell-2); }
+.badge { position: absolute; top: 4px; right: 4px; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 8px; background: #ffffff; color: var(--shell); font: 700 11px/16px var(--sans); }
+.me { display: flex; align-items: center; gap: 8px; padding: 0 8px; white-space: nowrap; font-size: 13px; }
+.avatar { width: 28px; height: 28px; border-radius: 2px; background: #ffffff; color: var(--shell); display: grid; place-items: center; font: 700 12px var(--sans); }
+
+/* Frame */
+.frame { display: grid; grid-template-columns: 248px minmax(0, 1fr); min-height: calc(100vh - 48px); }
+.tree { background: var(--tile); border-right: 1px solid var(--line); padding: 8px 0; display: flex; flex-direction: column; }
+.tree details { border-bottom: 1px solid var(--line-soft); padding: 4px 0 8px; }
+.tree summary { list-style: none; display: flex; align-items: center; gap: 8px; padding: 8px 16px; font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer; }
+.tree summary::-webkit-details-marker { display: none; }
+.tree summary svg { transition: transform .15s; }
+.tree details[open] summary svg { transform: rotate(90deg); }
+.tree ul { list-style: none; margin: 0; padding: 0; }
+.tree li a { display: flex; align-items: center; gap: 8px; padding: 0 16px 0 32px; height: 36px; color: var(--text); text-decoration: none; border-left: 3px solid transparent; }
+.tree li a:hover { background: #f3f6fa; }
+.tree li a[aria-current="page"] { background: var(--select); border-left-color: var(--primary); font-weight: 600; color: var(--primary-dark); }
+.tree .count { margin-left: auto; font-size: 12px; color: var(--muted); }
+.collapse { margin-top: auto; display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border: 0; border-top: 1px solid var(--line-soft); background: transparent; color: var(--muted); font: 13px var(--sans); cursor: pointer; text-align: left; }
+
+/* Page */
+.page { padding: 0 24px 32px; min-width: 0; }
+.crumbs { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 12px 0 0; font-size: 13px; color: var(--muted); }
+.crumbs li + li::before { content: "›"; margin-right: 8px; color: var(--muted); }
+.crumbs a { color: var(--primary); text-decoration: none; }
+.toolbar { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px; padding: 8px 0 16px; border-bottom: 1px solid var(--line); }
+.toolbar h1 { font-size: 24px; font-weight: 600; line-height: 1.25; }
+.toolbar p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+.toolbar .grow { flex: 1; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 16px; font: 600 13px var(--sans); border-radius: 2px; border: 1px solid var(--primary); background: var(--tile); color: var(--primary); cursor: pointer; }
+.btn.primary { background: var(--primary); color: #ffffff; }
+.btn.primary:hover { background: var(--primary-dark); }
+.btn.ghost { border-color: transparent; background: transparent; }
+.strip { display: flex; align-items: center; gap: 8px; margin: 16px 0 0; padding: 8px 16px; background: var(--attn-bg); border: 1px solid #e3c48a; border-left: 4px solid var(--att); font-size: 13px; }
+.strip a { margin-left: auto; font-weight: 600; }
+
+/* KPI tiles */
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 16px 0; padding: 0; list-style: none; }
+.kpi { background: var(--tile); border: 1px solid var(--line); border-radius: 4px; padding: 16px; display: grid; gap: 8px; align-content: start; }
+.kpi .label { font-size: 12px; color: var(--muted); font-weight: 600; }
+.kpi .row { display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; }
+.kpi .value { font-size: 32px; font-weight: 300; line-height: 1; }
+.kpi .unit { font-size: 13px; color: var(--muted); margin-left: 4px; }
+.kpi .note { font-size: 12px; color: var(--muted); }
+.kpi.crit .value { color: var(--crit); font-weight: 400; }
+.micro { display: block; }
+
+/* Content tiles */
+.grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 8px; align-items: start; }
+.col { display: grid; gap: 8px; min-width: 0; }
+.tile { background: var(--tile); border: 1px solid var(--line); border-radius: 4px; min-width: 0; }
+.tile-head { display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 8px 0 16px; border-bottom: 1px solid var(--line-soft); }
+.tile-head h2 { font-size: 15px; font-weight: 600; }
+.tile-head .grow { flex: 1; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 2px; overflow: hidden; }
+.seg button { height: 28px; padding: 0 12px; border: 0; background: var(--tile); font: 12px var(--sans); color: var(--text); cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--select); color: var(--primary-dark); font-weight: 600; }
+.seg button + button { border-left: 1px solid var(--line); }
+.icon-btn { width: 32px; height: 32px; display: grid; place-items: center; border: 0; background: transparent; color: var(--muted); border-radius: 2px; cursor: pointer; }
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 0 16px; height: 44px; border-bottom: 1px solid var(--line-soft); white-space: nowrap; }
+th { height: 36px; font-size: 12px; font-weight: 600; color: var(--muted); background: #f7f8fa; }
+tbody tr:hover td { background: #f7f9fc; }
+tbody tr:last-child td { border-bottom: 0; }
+td .sub { display: block; font-size: 12px; color: var(--muted); line-height: 1.2; }
+td.name a { font-weight: 600; text-decoration: none; }
+.r { text-align: right; }
+.status { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; }
+.status.ok { color: var(--pos); } .status.risk { color: var(--att); } .status.late { color: var(--crit); }
+.bar { display: inline-block; width: 96px; height: 8px; background: var(--line-soft); vertical-align: middle; margin-right: 8px; }
+.bar span { display: block; height: 100%; background: var(--primary); }
+.legend { display: flex; flex-wrap: wrap; gap: 16px; padding: 8px 16px 12px; margin: 0; font-size: 12px; color: var(--muted); list-style: none; border-top: 1px solid var(--line-soft); }
+.legend li { display: inline-flex; align-items: center; gap: 4px; }
+
+.chart { padding: 16px; }
+.chart svg { display: block; width: 100%; height: auto; }
+.chart-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 0 0; }
+.chart-facts div { border-left: 3px solid var(--line); padding-left: 8px; }
+.chart-facts div.cur { border-left-color: var(--primary); }
+.chart-facts dt { font-size: 12px; color: var(--muted); }
+.chart-facts dd { margin: 0; font-size: 20px; font-weight: 300; }
+
+.feed { list-style: none; margin: 0; padding: 0; }
+.feed li { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line-soft); font-size: 13px; }
+.feed li:last-child { border-bottom: 0; }
+.ini { width: 32px; height: 32px; border-radius: 2px; background: var(--select); color: var(--primary-dark); display: grid; place-items: center; font-size: 12px; font-weight: 700; }
+.feed time { display: block; font-size: 12px; color: var(--muted); }
+.tile-foot { display: block; padding: 8px 16px; border-top: 1px solid var(--line-soft); font-size: 13px; font-weight: 600; text-decoration: none; }
+
+/* Style sheet */
+.sheet { margin: 0; padding: 32px 24px 48px; background: var(--tile); border-top: 4px solid var(--shell); }
+.sheet-inner { max-width: 1160px; }
+.sheet h2 { font-size: 24px; font-weight: 600; }
+.sheet .idea { margin: 8px 0 24px; color: var(--muted); max-width: 720px; }
+.sheet h3 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 24px 0 8px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; list-style: none; margin: 0; padding: 0; }
+.sw { display: flex; gap: 8px; align-items: center; border: 1px solid var(--line); border-radius: 4px; padding: 8px; font-size: 13px; }
+.sw i { width: 40px; height: 40px; border-radius: 2px; border: 1px solid rgba(0,0,0,.15); flex: none; }
+.sw b { display: block; }
+.sw code { font-size: 12px; color: var(--muted); font-family: var(--sans); }
+.type-row { display: flex; align-items: baseline; gap: 16px; padding: 8px 0; border-bottom: 1px solid var(--line-soft); flex-wrap: wrap; }
+.type-row code { width: 160px; flex: none; font-size: 12px; color: var(--muted); font-family: var(--sans); }
+.facts { display: grid; grid-template-columns: 160px minmax(0, 1fr); margin: 0; font-size: 13px; }
+.facts dt, .facts dd { padding: 8px 0; border-bottom: 1px solid var(--line-soft); margin: 0; }
+.facts dt { font-weight: 600; }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.ctl-label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 8px; font-weight: 600; }
+.field { display: grid; gap: 4px; font-size: 12px; font-weight: 600; color: var(--muted); }
+.field input { height: 32px; padding: 0 8px; border: 1px solid #8b96a4; border-radius: 2px; font: 14px var(--sans); color: var(--text); background: #fff; }
+.field input:focus, .field input.is-focus { border-color: var(--primary); outline: 2px solid var(--primary); outline-offset: 0; }
+.demo-row { border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+.demo-row td { height: 44px; }
+.demo-row tr.is-focus td { background: var(--select); }
+.demo-row tr.is-focus { outline: 2px solid var(--primary); outline-offset: -2px; }
+
+@media (max-width: 1080px) {
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 820px) {
+  .frame { grid-template-columns: minmax(0, 1fr); align-content: start; min-height: 0; }
+  .tree { flex-direction: row; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--line); padding: 0; }
+  .tree details { display: contents; }
+  .tree summary, .collapse { display: none; }
+  .tree ul { display: flex; }
+  .tree li a { padding: 0 12px; height: 44px; border-left: 0; border-bottom: 3px solid transparent; white-space: nowrap; }
+  .tree li a[aria-current="page"] { border-bottom-color: var(--primary); }
+  .tree .count { display: none; }
+  .brand span { display: none; }
+  .me .name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .shell-search { width: auto; flex: 1; }
+}
+@media (max-width: 560px) {
+  .page { padding: 0 16px 24px; }
+  .shell { flex-wrap: wrap; height: auto; padding-right: 0; }
+  .shell-search { order: 9; flex: 1 1 100%; width: auto; margin: 0 16px 8px; }
+  .brand { padding: 0 4px; }
+  .launcher { width: 40px; }
+  .kpi .value { font-size: 28px; }
+  .toolbar { align-items: flex-start; }
+  .strip { flex-wrap: wrap; }
+  .strip a { margin-left: 24px; }
+  .sheet { padding: 24px 16px 40px; }
+  .facts { grid-template-columns: minmax(0, 1fr); }
+  .facts dt { border-bottom: 0; padding-bottom: 0; }
+  .type-row code { width: 100%; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-grid" viewBox="0 0 16 16"><path d="M2 2h3v3H2zM6.5 2h3v3h-3zM11 2h3v3h-3zM2 6.5h3v3H2zM6.5 6.5h3v3h-3zM11 6.5h3v3h-3zM2 11h3v3H2zM6.5 11h3v3h-3zM11 11h3v3h-3z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 16 16"><path d="M7 2.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zM10.5 10.5 14 14"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 16 16"><path d="M4 11V7a4 4 0 0 1 8 0v4l1.5 1.5h-11zM6.5 14h3"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 16 16"><path d="M6 4l4 4-4 4"/></symbol>
+  <symbol id="i-home" viewBox="0 0 16 16"><path d="M2.5 7.5 8 3l5.5 4.5M4 6.5V13h8V6.5"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 16 16"><path d="M2 4h4l1.5 1.5H14V13H2z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 16 16"><path d="M2.5 3h11v10h-11zM5 8l2 2 4-4"/></symbol>
+  <symbol id="i-team" viewBox="0 0 16 16"><path d="M6 7.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM1.5 13.5c.5-2.5 2.3-4 4.5-4s4 1.5 4.5 4M11 3a2.2 2.2 0 0 1 0 4.4M12.5 9.5c1.2.6 1.9 1.9 2 4"/></symbol>
+  <symbol id="i-report" viewBox="0 0 16 16"><path d="M2.5 13.5h11M4 11V8M7 11V4M10 11V6.5M13 11V9"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 16 16"><path d="M8 5.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM8 1.5v2M8 12.5v2M1.5 8h2M12.5 8h2M3.4 3.4l1.4 1.4M11.2 11.2l1.4 1.4M3.4 12.6l1.4-1.4M11.2 4.8l1.4-1.4"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></symbol>
+  <symbol id="i-export" viewBox="0 0 16 16"><path d="M8 2v8M5 7l3 3 3-3M2.5 11v2.5h11V11"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 16 16"><path d="M2 4h7M12 4h2M2 12h2M7 12h7M10.5 2.5v3M5.5 10.5v3"/></symbol>
+  <symbol id="i-collapse" viewBox="0 0 16 16"><path d="M10 4 6 8l4 4M2.5 2.5v11"/></symbol>
+  <symbol id="i-more" viewBox="0 0 16 16"><path d="M3 8h.5M8 8h.5M13 8h.5" stroke-width="2.5"/></symbol>
+  <!-- Status: circle with tick, diamond with bar, square with cross -->
+  <symbol id="s-ok" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6.5" fill="currentColor"/><path d="M4 7.2l2 2 4-4.2" fill="none" stroke="#fff" stroke-width="1.6"/></symbol>
+  <symbol id="s-risk" viewBox="0 0 14 14"><path d="M7 0.5 13.5 7 7 13.5 0.5 7z" fill="currentColor"/><path d="M7 3.8v4M7 9.6v.8" stroke="#fff" stroke-width="1.6"/></symbol>
+  <symbol id="s-late" viewBox="0 0 14 14"><rect x="1" y="1" width="12" height="12" fill="currentColor"/><path d="M4.5 4.5l5 5M9.5 4.5l-5 5" stroke="#fff" stroke-width="1.6"/></symbol>
+</svg>
+
+<header class="shell">
+  <button class="launcher" aria-label="Open app launcher"><svg class="i" aria-hidden="true"><use href="#i-grid"/></svg></button>
+  <div class="brand"><b>Brightwork</b><span>Portfolio</span></div>
+  <span class="grow"></span>
+  <label class="shell-search"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><input type="search" placeholder="Search projects and tasks" aria-label="Search projects and tasks"></label>
+  <button class="shell-btn" aria-label="Notifications, 3 unread"><svg class="i" aria-hidden="true"><use href="#i-bell"/></svg><span class="badge" aria-hidden="true">3</span></button>
+  <div class="me"><span class="avatar" aria-hidden="true">MO</span><span class="name">Mara Okafor</span></div>
+</header>
+
+<div class="frame">
+  <nav class="tree" aria-label="Main">
+    <details open>
+      <summary><svg class="i" aria-hidden="true"><use href="#i-chev"/></svg>Workspace</summary>
+      <ul>
+        <li><a href="#" aria-current="page"><svg class="i" aria-hidden="true"><use href="#i-home"/></svg>Home</a></li>
+        <li><a href="#"><svg class="i" aria-hidden="true"><use href="#i-folder"/></svg>Projects<span class="count">6</span></a></li>
+        <li><a href="#"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Tasks<span class="count">23</span></a></li>
+      </ul>
+    </details>
+    <details open>
+      <summary><svg class="i" aria-hidden="true"><use href="#i-chev"/></svg>Organisation</summary>
+      <ul>
+        <li><a href="#"><svg class="i" aria-hidden="true"><use href="#i-team"/></svg>Team</a></li>
+        <li><a href="#"><svg class="i" aria-hidden="true"><use href="#i-report"/></svg>Reports</a></li>
+      </ul>
+    </details>
+    <details open>
+      <summary><svg class="i" aria-hidden="true"><use href="#i-chev"/></svg>Administration</summary>
+      <ul>
+        <li><a href="#"><svg class="i" aria-hidden="true"><use href="#i-gear"/></svg>Settings</a></li>
+      </ul>
+    </details>
+    <button class="collapse"><svg class="i" aria-hidden="true"><use href="#i-collapse"/></svg>Collapse navigation</button>
+  </nav>
+
+  <main class="page">
+    <ol class="crumbs" aria-label="Breadcrumb">
+      <li><a href="#">Home</a></li>
+      <li aria-current="page">Portfolio overview</li>
+    </ol>
+    <div class="toolbar">
+      <div>
+        <h1>Portfolio overview</h1>
+        <p>Welcome back, Mara. Saturday 31 October 2026.</p>
+      </div>
+      <span class="grow"></span>
+      <div class="actions">
+        <button class="btn ghost"><svg class="i" aria-hidden="true"><use href="#i-sliders"/></svg>Customise</button>
+        <button class="btn"><svg class="i" aria-hidden="true"><use href="#i-export"/></svg>Export</button>
+        <button class="btn primary"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>New project</button>
+      </div>
+    </div>
+    <p class="strip" role="status"><svg class="s" style="color:var(--att)" aria-hidden="true"><use href="#s-risk"/></svg><span><b>Attention required.</b> 4 tasks are overdue.</span><a href="#">Review overdue tasks</a></p>
+
+    <ul class="kpis" aria-label="Key figures">
+      <li class="kpi">
+        <span class="label">Active projects</span>
+        <div class="row"><span class="value num">6</span>
+          <svg class="micro" width="96" height="12" viewBox="0 0 96 12" role="img" aria-label="Status mix: 4 on track, 1 at risk, 1 behind"><rect width="64" height="12" fill="#1f6e3a"/><rect x="64" width="16" height="12" fill="#8a5200"/><rect x="80" width="16" height="12" fill="#b3241b"/><path d="M64 0v12M80 0v12" stroke="#fff"/></svg>
+        </div>
+        <span class="note">4 on track · 1 at risk · 1 behind</span>
+      </li>
+      <li class="kpi">
+        <span class="label">Tasks due this week</span>
+        <div class="row"><span class="value num">23</span>
+          <svg class="micro" width="96" height="12" viewBox="0 0 96 12" role="img" aria-label="4 of 23 tasks due this week are overdue"><rect width="96" height="12" fill="#e4e8ed"/><rect width="17" height="12" fill="#b3241b"/></svg>
+        </div>
+        <span class="note">4 of 23 overdue</span>
+      </li>
+      <li class="kpi crit">
+        <span class="label">Overdue tasks</span>
+        <div class="row"><span class="value num">4</span><span class="status late"><svg class="s" aria-hidden="true"><use href="#s-late"/></svg>Action needed</span></div>
+        <span class="note">Past their due date</span>
+      </li>
+      <li class="kpi">
+        <span class="label">Hours logged this week</span>
+        <div class="row"><span class="value num">186<span class="unit">h</span></span>
+          <span class="note">Team total</span>
+        </div>
+        <span class="note">Sunday to today</span>
+      </li>
+    </ul>
+
+    <div class="grid">
+      <section class="tile" aria-labelledby="proj-h">
+        <div class="tile-head">
+          <h2 id="proj-h">Projects (6)</h2>
+          <span class="grow"></span>
+          <div class="seg" role="group" aria-label="Project scope"><button aria-pressed="true">All</button><button aria-pressed="false">Mine</button></div>
+          <button class="icon-btn" aria-label="Table settings"><svg class="i" aria-hidden="true"><use href="#i-gear"/></svg></button>
+        </div>
+        <div class="scroll">
+          <table>
+            <thead><tr><th>Project</th><th>Status</th><th>Progress</th><th class="r">Tasks</th><th>Due date</th></tr></thead>
+            <tbody>
+              <tr><td class="name"><a href="#">Website redesign</a><span class="sub">Design</span></td><td><span class="status ok"><svg class="s" aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td><td class="num"><span class="bar" aria-hidden="true"><span style="width:72%"></span></span>72%</td><td class="r num">18 / 25</td><td class="num">14 Nov 2026</td></tr>
+              <tr><td class="name"><a href="#">Mobile app 2.0</a><span class="sub">Engineering</span></td><td><span class="status risk"><svg class="s" aria-hidden="true"><use href="#s-risk"/></svg>At risk</span></td><td class="num"><span class="bar" aria-hidden="true"><span style="width:45%"></span></span>45%</td><td class="r num">27 / 60</td><td class="num">2 Dec 2026</td></tr>
+              <tr><td class="name"><a href="#">Q4 customer survey</a><span class="sub">Research</span></td><td><span class="status ok"><svg class="s" aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td><td class="num"><span class="bar" aria-hidden="true"><span style="width:90%"></span></span>90%</td><td class="r num">9 / 10</td><td class="num">7 Nov 2026</td></tr>
+              <tr><td class="name"><a href="#">Billing migration</a><span class="sub">Engineering</span></td><td><span class="status late"><svg class="s" aria-hidden="true"><use href="#s-late"/></svg>Behind</span></td><td class="num"><span class="bar" aria-hidden="true"><span style="width:30%"></span></span>30%</td><td class="r num">12 / 40</td><td class="num">20 Nov 2026</td></tr>
+              <tr><td class="name"><a href="#">Spring catalogue</a><span class="sub">Marketing</span></td><td><span class="status ok"><svg class="s" aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td><td class="num"><span class="bar" aria-hidden="true"><span style="width:15%"></span></span>15%</td><td class="r num">3 / 20</td><td class="num">15 Jan 2027</td></tr>
+              <tr><td class="name"><a href="#">Onboarding emails</a><span class="sub">Marketing</span></td><td><span class="status ok"><svg class="s" aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td><td class="num"><span class="bar" aria-hidden="true"><span style="width:60%"></span></span>60%</td><td class="r num">9 / 15</td><td class="num">21 Nov 2026</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="legend" aria-label="Status legend">
+          <li><svg class="s" style="color:var(--pos)" aria-hidden="true"><use href="#s-ok"/></svg>Circle, On track</li>
+          <li><svg class="s" style="color:var(--att)" aria-hidden="true"><use href="#s-risk"/></svg>Diamond, At risk</li>
+          <li><svg class="s" style="color:var(--crit)" aria-hidden="true"><use href="#s-late"/></svg>Square, Behind</li>
+        </ul>
+      </section>
+
+      <div class="col">
+        <section class="tile" aria-labelledby="chart-h">
+          <div class="tile-head"><h2 id="chart-h">Throughput</h2><span class="grow"></span><button class="icon-btn" aria-label="More chart options"><svg class="i" aria-hidden="true"><use href="#i-more"/></svg></button></div>
+          <div class="chart">
+            <svg viewBox="0 0 300 150" role="img" aria-label="Tasks completed per day, 18 to 31 October. Previous week, Sunday to Saturday: 3, 12, 9, 14, 11, 8, 2. Current week: 4, 15, 13, 17, 12, 10, 2.">
+              <g stroke="#e4e8ed"><line x1="20" y1="20.5" x2="300" y2="20.5"/><line x1="20" y1="70.5" x2="300" y2="70.5"/></g>
+              <g font-size="10" fill="#556170" font-family="Segoe UI, system-ui, sans-serif" text-anchor="end"><text x="14" y="24">20</text><text x="14" y="74">10</text><text x="14" y="124">0</text></g>
+              <line x1="20" y1="120.5" x2="300" y2="120.5" stroke="#556170"/>
+              <g fill="#9fb3cf"><rect x="23" y="105" width="14" height="15"/><rect x="43" y="60" width="14" height="60"/><rect x="63" y="75" width="14" height="45"/><rect x="83" y="50" width="14" height="70"/><rect x="103" y="65" width="14" height="55"/><rect x="123" y="80" width="14" height="40"/><rect x="143" y="110" width="14" height="10"/></g>
+              <g fill="#0b57b0"><rect x="163" y="100" width="14" height="20"/><rect x="183" y="45" width="14" height="75"/><rect x="203" y="55" width="14" height="65"/><rect x="223" y="35" width="14" height="85"/><rect x="243" y="60" width="14" height="60"/><rect x="263" y="70" width="14" height="50"/><rect x="283" y="110" width="14" height="10"/></g>
+              <g font-size="10" fill="#556170" font-family="Segoe UI, system-ui, sans-serif" text-anchor="middle"><text x="30" y="136">18</text><text x="90" y="136">21</text><text x="150" y="136">24</text><text x="170" y="136">25</text><text x="230" y="136">28</text><text x="290" y="136">31</text><text x="90" y="148">Oct, previous</text><text x="230" y="148">Oct, current</text></g>
+            </svg>
+            <dl class="chart-facts">
+              <div><dt>Previous week</dt><dd class="num">59</dd></div>
+              <div class="cur"><dt>Current week</dt><dd class="num">73</dd></div>
+            </dl>
+          </div>
+        </section>
+
+        <section class="tile" aria-labelledby="act-h">
+          <div class="tile-head"><h2 id="act-h">Recent activity</h2></div>
+          <ul class="feed">
+            <li><span class="ini" aria-hidden="true">JW</span><div><b>Jonas Weber</b> completed “Export invoices as CSV” in <a href="#">Billing migration</a><time>12 min ago</time></div></li>
+            <li><span class="ini" aria-hidden="true">PN</span><div><b>Priya Nair</b> commented on “Hero image options” in <a href="#">Website redesign</a><time>40 min ago</time></div></li>
+            <li><span class="ini" aria-hidden="true">SO</span><div><b>Sam Ortiz</b> moved “Push notifications” to Review in <a href="#">Mobile app 2.0</a><time>1 h ago</time></div></li>
+            <li><span class="ini" aria-hidden="true">LF</span><div><b>Lena Fischer</b> added 3 tasks to <a href="#">Spring catalogue</a><time>2 h ago</time></div></li>
+            <li><span class="ini" aria-hidden="true">TR</span><div><b>Tomás Ruiz</b> logged 6 h on <a href="#">Mobile app 2.0</a><time>3 h ago</time></div></li>
+            <li><span class="ini" aria-hidden="true">AT</span><div><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to <a href="#">Q4 customer survey</a><time>Yesterday</time></div></li>
+          </ul>
+          <a class="tile-foot" href="#">Open activity log</a>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h">
+ <div class="sheet-inner">
+  <h2 id="sheet-h">Style 9 · Enterprise shell</h2>
+  <p class="idea">A formal corporate suite, with a deep-blue shell bar, a collapsible tree nav, breadcrumbs and flat square tiles on light grey that frame the work like an official system of record.</p>
+
+  <h3>Palette</h3>
+  <ul class="swatches">
+    <li class="sw"><i style="background:#0f2a52"></i><div><b>Shell</b><code>#0f2a52 · shell bar, sheet rule</code></div></li>
+    <li class="sw"><i style="background:#1d3f72"></i><div><b>Shell hover</b><code>#1d3f72 · shell dividers, hover</code></div></li>
+    <li class="sw"><i style="background:#edf0f4"></i><div><b>Canvas</b><code>#edf0f4 · page behind tiles</code></div></li>
+    <li class="sw"><i style="background:#ffffff"></i><div><b>Tile</b><code>#ffffff · tiles, tree nav, fields</code></div></li>
+    <li class="sw"><i style="background:#1b2430"></i><div><b>Text</b><code>#1b2430 · body and headings</code></div></li>
+    <li class="sw"><i style="background:#556170"></i><div><b>Muted</b><code>#556170 · labels, meta, axes</code></div></li>
+    <li class="sw"><i style="background:#cdd3db"></i><div><b>Line</b><code>#cdd3db · tile borders; #e4e8ed rows</code></div></li>
+    <li class="sw"><i style="background:#0b57b0"></i><div><b>Primary</b><code>#0b57b0 · buttons, links, bars, focus</code></div></li>
+    <li class="sw"><i style="background:#e3edf9"></i><div><b>Selection</b><code>#e3edf9 · current nav item, pressed</code></div></li>
+    <li class="sw"><i style="background:#1f6e3a"></i><div><b>Positive</b><code>#1f6e3a · On track circle</code></div></li>
+    <li class="sw"><i style="background:#8a5200"></i><div><b>Attention</b><code>#8a5200 · At risk diamond; strip #fff6e5</code></div></li>
+    <li class="sw"><i style="background:#b3241b"></i><div><b>Critical</b><code>#b3241b · Behind square, overdue</code></div></li>
+  </ul>
+
+  <h3>Type · "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif</h3>
+  <div class="type-row"><code>32 / 300 figures</code><span class="num" style="font-size:32px;font-weight:300">186<span class="unit" style="font-size:13px;color:var(--muted)">h</span></span></div>
+  <div class="type-row"><code>24 / 600 page title</code><span style="font-size:24px;font-weight:600">Portfolio overview</span></div>
+  <div class="type-row"><code>15 / 600 tile title</code><span style="font-size:15px;font-weight:600">Recent activity</span></div>
+  <div class="type-row"><code>14 / 400 body</code><span>Sam Ortiz moved “Push notifications” to Review</span></div>
+  <div class="type-row"><code>12 / 600 labels</code><span style="font-size:12px;font-weight:600;color:var(--muted)">Tasks due this week</span></div>
+  <div class="type-row"><code>12 / 600 caps tree group</code><span style="font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em">Administration</span></div>
+
+  <h3>Spacing, density and depth</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>8px unit. 8px gaps between tiles, 16px tile padding, 24px page gutter.</dd>
+    <dt>Density</dt><dd>Compact. 44px table rows, 36px nav rows, a 48px shell bar.</dd>
+    <dt>Corners</dt><dd>4px on tiles, 2px on buttons, fields, avatars and segmented controls.</dd>
+    <dt>Borders</dt><dd>1px #cdd3db around every tile, 1px #e4e8ed between rows, a 3px left bar on the current nav item.</dd>
+    <dt>Shadows</dt><dd>None. Tiles are flat and separated by the grey canvas.</dd>
+    <dt>Icons</dt><dd>16px line icons, 1.5 stroke, square caps and mitred joins. Status uses filled 14px shapes, a circle with a tick, a diamond with a bar, a square with a cross, always beside the word.</dd>
+    <dt>Tone</dt><dd>Formal and neutral. Portfolio overview, Throughput, Attention required, Review overdue tasks.</dd>
+  </dl>
+
+  <h3>Controls · normal and focus</h3>
+  <div class="controls">
+    <div><span class="ctl-label">Primary button</span><button class="btn primary">Create project</button> <button class="btn primary is-focus">Focused</button></div>
+    <div><span class="ctl-label">Secondary button</span><button class="btn">Export</button> <button class="btn is-focus">Focused</button></div>
+    <div><label class="field">Project name<input value="Website redesign"></label></div>
+    <div><label class="field">Project name, focused<input class="is-focus" value="Mobile app 2.0"></label></div>
+    <div><span class="ctl-label">Table row</span><table class="demo-row"><tbody><tr><td class="name"><a href="#">Billing migration</a></td><td><span class="status late"><svg class="s" aria-hidden="true"><use href="#s-late"/></svg>Behind</span></td><td class="num">30%</td></tr></tbody></table></div>
+    <div><span class="ctl-label">Table row, focused</span><table class="demo-row"><tbody><tr class="is-focus"><td class="name"><a href="#">Billing migration</a></td><td><span class="status late"><svg class="s" aria-hidden="true"><use href="#s-late"/></svg>Behind</span></td><td class="num">30%</td></tr></tbody></table></div>
+  </div>
+ </div>
+</section>
+</body>
+</html>

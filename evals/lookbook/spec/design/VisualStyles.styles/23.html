@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 23 · Stationery · Brightwork</title>
+<style>
+:root {
+  --desk: #ece3d2;
+  --paper: #fbf8f1;
+  --kraft: #d6bf98;
+  --kraft-lt: #ede1c9;
+  --ink: #2b2721;
+  --sumi: #615a50;
+  --rule: #cfdae5;
+  --line: #d8ccb6;
+  --seal: #b3262c;
+  --indigo: #2c4a72;
+  --matcha: #4a6b33;
+  --amber: #855700;
+  --sans: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", Meiryo, "Noto Sans CJK JP", system-ui, sans-serif;
+  --serif: "Hiragino Mincho ProN", "Yu Mincho", YuMincho, "Noto Serif CJK JP", "Songti SC", Georgia, serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--desk); color: var(--ink); font: 13px/24px var(--sans); letter-spacing: 0.02em; }
+a { color: var(--indigo); text-decoration: none; border-bottom: 1px solid var(--rule); }
+svg.i { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: square; flex: none; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+a:focus-visible, button:focus-visible, input:focus-visible, .is-focus { outline: 2px solid var(--indigo); outline-offset: 2px; }
+.num { font-variant-numeric: tabular-nums; }
+
+.book { max-width: 1200px; margin: 0 auto; padding: 24px 24px 48px; }
+
+.cover { display: flex; align-items: center; gap: 24px; padding: 12px 0 0; flex-wrap: wrap; }
+.seal { width: 48px; height: 48px; background: var(--seal); color: #fbf3ea; display: grid; place-items: center; font: 700 26px/1 var(--serif); border-radius: 3px; transform: rotate(-4deg); box-shadow: inset 0 0 0 3px var(--seal), inset 0 0 0 4px #e9b9a9; flex: none; }
+.brand { font: 400 20px/24px var(--serif); letter-spacing: 0.14em; }
+.brand small { display: block; font: 11px/12px var(--sans); letter-spacing: 0.2em; color: var(--sumi); text-transform: uppercase; }
+.cover .sp { flex: 1; }
+.search { display: flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px; background: var(--paper); border: 1px solid var(--line); border-radius: 2px; color: var(--sumi); min-width: 0; }
+.search input { border: 0; outline: 0; background: transparent; font: 13px var(--sans); color: var(--ink); width: 200px; min-width: 0; }
+.search input::placeholder { color: var(--sumi); }
+.search:focus-within { outline: 2px solid var(--indigo); outline-offset: 2px; }
+.bell { width: 36px; height: 36px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); display: grid; place-items: center; border-radius: 2px; cursor: pointer; position: relative; }
+.bell b { position: absolute; top: -6px; right: -6px; width: 16px; height: 16px; border-radius: 50%; background: var(--seal); color: #fff; font-size: 10px; line-height: 16px; }
+.user { display: flex; align-items: center; gap: 8px; color: var(--sumi); }
+.hanko { width: 32px; height: 32px; border: 1.5px solid var(--seal); color: var(--seal); border-radius: 50%; display: grid; place-items: center; font: 600 11px/1 var(--serif); letter-spacing: 0; }
+
+.tabs { display: flex; gap: 4px; list-style: none; margin: 24px 0 0; padding: 0 24px; flex-wrap: wrap; }
+.tabs a { display: block; padding: 6px 16px 4px; border: 1px solid var(--line); border-bottom: 0; border-radius: 4px 4px 0 0; background: var(--kraft-lt); color: var(--sumi); font-size: 12px; letter-spacing: 0.12em; }
+.tabs a[aria-current] { background: var(--paper); color: var(--ink); position: relative; top: 1px; padding-bottom: 5px; }
+.tabs li:nth-child(2) a { background: #e3eadf; } .tabs li:nth-child(4) a { background: #e7e3ee; }
+
+.spread { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); background: var(--paper); border: 1px solid var(--line); position: relative; }
+.page { padding: 48px 40px; position: relative; background-image: repeating-linear-gradient(to bottom, transparent 0 23px, var(--rule) 23px 24px); background-position: 0 47px; }
+.page + .page { border-left: 1px dashed var(--line); }
+.tape { position: absolute; height: 22px; width: 120px; opacity: 0.85; background: repeating-linear-gradient(45deg, #e9c2b8 0 6px, #f1d6cf 6px 12px); }
+.tape.t1 { top: -10px; left: 40px; transform: rotate(-3deg); }
+.tape.t2 { top: -10px; right: 56px; transform: rotate(2deg); background: repeating-linear-gradient(90deg, #c4d6c9 0 8px, #d6e3d9 8px 16px); }
+
+.label { font-size: 11px; line-height: 24px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sumi); margin: 0; }
+.datebox { display: inline-grid; grid-template-columns: auto auto auto; border: 1px solid var(--ink); margin: 0 0 24px; background: var(--paper); }
+.datebox span { padding: 0 12px; line-height: 23px; border-right: 1px solid var(--ink); }
+.datebox span:last-child { border-right: 0; }
+h1 { font: 400 26px/48px var(--serif); margin: 0; letter-spacing: 0.06em; }
+.note { margin: 0 0 24px; font-size: 14px; }
+.note mark { background: linear-gradient(transparent 60%, #f2c9c0 60%); color: var(--seal); font-weight: 600; padding: 0 2px; }
+h2 { font: 400 17px/24px var(--serif); margin: 0; letter-spacing: 0.1em; display: flex; align-items: baseline; gap: 12px; }
+h2 .no { font: 11px/24px var(--sans); color: var(--seal); letter-spacing: 0.1em; }
+.sec { margin-top: 48px; }
+.sec-h { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 0; border-bottom: 1px solid var(--ink); }
+
+.form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); border-left: 1px solid var(--line); background: var(--paper); }
+.form li { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 0 12px 0; display: grid; }
+.form li .label { line-height: 24px; }
+.form li b { font: 400 30px/48px var(--serif); font-variant-numeric: tabular-nums; }
+.form li.warn b { color: var(--seal); }
+
+.chart svg { display: block; width: 100%; height: auto; margin-top: 12px; }
+.weeks { display: flex; gap: 24px; color: var(--sumi); font-size: 12px; flex-wrap: wrap; }
+.weeks i { display: inline-block; width: 10px; height: 6px; margin-right: 6px; vertical-align: 2px; }
+
+.diary { list-style: none; margin: 0; padding: 0; }
+.diary li { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 12px; border-bottom: 1px solid var(--line); padding: 0; }
+.diary .t { color: var(--sumi); font-size: 11px; letter-spacing: 0.06em; }
+.diary b { font-weight: 600; }
+
+.new { white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 14px; background: var(--paper); color: var(--seal); border: 1.5px solid var(--seal); border-radius: 2px; font: 600 12px var(--sans); letter-spacing: 0.12em; cursor: pointer; }
+
+.ledger-wrap { overflow-x: auto; }
+table.ledger { width: 100%; border-collapse: collapse; min-width: 560px; }
+.ledger th { font-weight: 400; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sumi); text-align: left; padding: 0 8px; line-height: 24px; border-bottom: 1px solid var(--ink); }
+.ledger td { padding: 12px 8px 11px; border-bottom: 1px solid var(--line); vertical-align: middle; line-height: 24px; }
+.ledger td.no { color: var(--seal); font-size: 11px; width: 32px; }
+.ledger .nm { font-size: 14px; color: var(--ink); border: 0; display: block; }
+.ledger .tm { font-size: 11px; color: var(--sumi); line-height: 12px; display: block; letter-spacing: 0.08em; }
+.cells { width: 100px; height: 10px; border: 1px solid var(--ink); background: linear-gradient(to right, var(--indigo) 0 var(--p), transparent var(--p)); position: relative; }
+.cells::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(to right, transparent 0 9px, var(--paper) 9px 10px); }
+.pc { font-size: 12px; color: var(--sumi); }
+.stamp { display: inline-flex; align-items: center; gap: 6px; padding: 0 8px; border: 1.5px solid currentColor; border-radius: 3px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; transform: rotate(-3deg); white-space: nowrap; line-height: 22px; }
+.stamp svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2.4; }
+.stamp.ok { color: var(--matcha); }
+.stamp.risk { color: var(--amber); transform: rotate(2deg); }
+.stamp.bad { color: var(--seal); transform: rotate(-5deg); }
+.key { display: flex; gap: 24px; flex-wrap: wrap; color: var(--sumi); font-size: 11px; margin-top: 12px; }
+
+/* Style sheet */
+.sheet { max-width: 1200px; margin: 0 auto; padding: 0 24px 72px; }
+.sheet-in { background: var(--paper); border: 1px solid var(--line); padding: 48px 40px; position: relative; background-image: linear-gradient(var(--rule) 1px, transparent 1px), linear-gradient(90deg, var(--rule) 1px, transparent 1px); background-size: 24px 24px; background-position: -1px -1px; }
+.sheet-in > * { position: relative; }
+.sheet-title { display: flex; align-items: center; gap: 16px; }
+.sheet-title h2 { font-size: 22px; line-height: 48px; background: var(--paper); padding: 0 8px; }
+.idea { font-size: 14px; max-width: 46em; margin: 0; background: var(--paper); display: table; }
+.sheet h3 { font: 400 15px/24px var(--serif); letter-spacing: 0.12em; margin: 48px 0 12px; background: var(--paper); display: inline-block; padding-right: 12px; border-bottom: 1px solid var(--ink); }
+.sw-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 12px; }
+.sw { background: var(--paper); border: 1px solid var(--line); padding: 8px; font-size: 11px; line-height: 18px; color: var(--sumi); }
+.sw i { display: block; height: 40px; margin-bottom: 6px; border: 1px solid rgba(43,39,33,.12); }
+.sw b { display: block; color: var(--ink); font-size: 13px; font-weight: 600; line-height: 24px; }
+.typeset { background: var(--paper); border-top: 1px solid var(--ink); }
+.typeset div { display: flex; gap: 24px; align-items: baseline; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding: 6px 0; }
+.typeset code { font: 11px/24px ui-monospace, Menlo, Consolas, monospace; color: var(--sumi); min-width: 180px; }
+.facts { display: grid; grid-template-columns: 120px minmax(0, 1fr); margin: 0; background: var(--paper); border-top: 1px solid var(--ink); }
+.facts dt, .facts dd { margin: 0; padding: 0 8px; border-bottom: 1px solid var(--line); }
+.facts dt { color: var(--sumi); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; }
+.ctls { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
+.ctl { background: var(--paper); border: 1px solid var(--line); padding: 12px 16px 16px; display: grid; gap: 12px; align-content: start; }
+.btn { height: 32px; padding: 0 16px; border-radius: 2px; font: 600 12px var(--sans); letter-spacing: 0.12em; cursor: pointer; }
+.btn-p { background: var(--ink); color: var(--paper); border: 1px solid var(--ink); }
+.btn-s { background: var(--paper); color: var(--ink); border: 1px solid var(--ink); }
+.field { display: grid; font-size: 11px; color: var(--sumi); letter-spacing: 0.16em; text-transform: uppercase; }
+.field input { font: 14px/24px var(--sans); color: var(--ink); border: 0; border-bottom: 1px solid var(--ink); background: transparent; padding: 4px 0 3px; letter-spacing: 0.02em; }
+.field input.is-focus { border-bottom: 2px solid var(--indigo); padding-bottom: 2px; background: #eef2f7; outline: 0; }
+.lrow { display: flex; justify-content: space-between; align-items: center; gap: 12px; border-bottom: 1px solid var(--line); padding: 8px 4px; flex-wrap: wrap; }
+.lrow.is-focus { background: #eef2f7; outline-offset: 0; }
+
+@media (max-width: 980px) {
+  .spread { grid-template-columns: minmax(0, 1fr); }
+  .page + .page { border-left: 0; border-top: 1px dashed var(--line); }
+}
+@media (max-width: 640px) {
+  .book { padding: 16px 16px 40px; }
+  .cover { gap: 12px; }
+  .brand { flex: 1; }
+  .cover .sp { display: none; }
+  .search { order: 5; width: 100%; }
+  .search input { width: 100%; }
+  .user span:last-child { display: none; }
+  .tabs { padding: 0 8px; margin-top: 16px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .tabs a { text-align: center; padding: 6px 4px 4px; border-bottom: 1px solid var(--line); border-radius: 4px; }
+  .tabs a[aria-current] { top: 0; border-color: var(--ink); }
+  .spread { margin-top: 8px; }
+  .page { padding: 36px 16px 24px; }
+  .datebox { grid-template-columns: auto auto; }
+  .datebox span:nth-child(2) { border-right: 0; }
+  .datebox span:last-child { grid-column: 1 / -1; border-top: 1px solid var(--ink); }
+  table.ledger { min-width: 0; }
+  .ledger thead { display: none; }
+  .ledger tr { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; column-gap: 8px; border-bottom: 1px solid var(--line); padding: 12px 0 11px; }
+  .ledger td { border: 0; padding: 0; }
+  .ledger td:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .ledger td:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .ledger td:nth-child(6) { grid-column: 3; grid-row: 1; }
+  .ledger td:nth-child(3) { grid-column: 2 / 4; grid-row: 2; display: flex; gap: 12px; align-items: center; }
+  .ledger td:nth-child(4) { grid-column: 2; grid-row: 3; color: var(--sumi); }
+  .ledger td:nth-child(5) { grid-column: 3; grid-row: 3; text-align: right; color: var(--sumi); }
+  .ledger td:nth-child(4)::after { content: " tasks"; }
+  .ledger td:nth-child(5)::before { content: "Due "; }
+  .sheet { padding: 0 16px 56px; }
+  .sheet-in { padding: 32px 16px; }
+  .facts { grid-template-columns: minmax(0, 1fr); }
+  .facts dt { border-bottom: 0; padding-top: 8px; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-search" viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 16 16"><path d="M4 11.5V7a4 4 0 0 1 8 0v4.5l1 1H3zM6.5 14h3"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 16 16"><path d="M8 3v10M3 8h10"/></symbol>
+  <symbol id="s-ok" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.2"/></symbol>
+  <symbol id="s-risk" viewBox="0 0 14 14"><path d="M7 1.8 12.6 12H1.4z" stroke-linejoin="miter"/></symbol>
+  <symbol id="s-bad" viewBox="0 0 14 14"><path d="M2.5 2.5l9 9M11.5 2.5l-9 9"/></symbol>
+</svg>
+
+<div class="book">
+  <header class="cover">
+    <span class="seal" aria-hidden="true">B</span>
+    <div class="brand">Brightwork<small>Project notebook</small></div>
+    <span class="sp"></span>
+    <label class="search"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span class="vh">Search projects and tasks</span><input type="search" placeholder="Search projects and tasks"></label>
+    <button class="bell" aria-label="Notifications, 3 new"><svg class="i" aria-hidden="true"><use href="#i-bell"/></svg><b aria-hidden="true">3</b></button>
+    <div class="user"><span class="hanko" aria-hidden="true">MO</span><span>Mara Okafor</span></div>
+  </header>
+
+  <nav aria-label="Main">
+    <ul class="tabs">
+      <li><a href="#" aria-current="page">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Tasks</a></li>
+      <li><a href="#">Team</a></li>
+      <li><a href="#">Reports</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </nav>
+
+  <main class="spread">
+    <div class="page">
+      <span class="tape t1" aria-hidden="true"></span>
+      <div class="datebox num" aria-label="Date"><span>Sat</span><span>31 . 10</span><span>2026</span></div>
+      <h1>Good morning, Mara.</h1>
+      <p class="note">Saturday 31 October. <mark>4 tasks are overdue</mark> and come first today.</p>
+
+      <section aria-labelledby="s-h">
+        <div class="sec-h" style="border:0"><h2 id="s-h"><span class="no">01</span>This week</h2></div>
+        <ul class="form">
+          <li><span class="label">Active projects</span><b>6</b></li>
+          <li><span class="label">Tasks due this week</span><b>23</b></li>
+          <li class="warn"><span class="label">Overdue tasks</span><b>4</b></li>
+          <li><span class="label">Hours logged</span><b>186</b></li>
+        </ul>
+      </section>
+
+      <section class="sec chart" aria-labelledby="c-h">
+        <div class="sec-h"><h2 id="c-h"><span class="no">02</span>Tasks completed</h2><span class="pc">18 to 31 Oct</span></div>
+        <div class="weeks"><span><i style="background:#8f8676"></i>Last week · 59</span><span><i style="background:#2b2721"></i>This week · 73</span></div>
+        <svg viewBox="0 0 320 172" role="img" aria-label="Tasks completed per day, Sunday 18 to Saturday 31 October: 3, 12, 9, 14, 11, 8, 2, then 4, 15, 13, 17, 12, 10, 2. Last week 59, this week 73.">
+          <g stroke="#cfdae5" stroke-width="0.6">
+            <line x1="0" y1="150" x2="320" y2="150" stroke="#2b2721" stroke-width="1"/>
+            <line x1="0" y1="110" x2="320" y2="110"/><line x1="0" y1="70" x2="320" y2="70"/><line x1="0" y1="30" x2="320" y2="30"/>
+            <line x1="163" y1="10" x2="163" y2="150" stroke="#d8ccb6" stroke-dasharray="2 2"/>
+          </g>
+          <g font-size="8" fill="#615a50" font-family="Hiragino Sans, Yu Gothic, system-ui, sans-serif">
+<rect x="10" y="144" width="12" height="6" fill="#8f8676"/>
+<rect x="10" y="136" width="12" height="6" fill="#8f8676"/>
+<rect x="10" y="128" width="12" height="6" fill="#8f8676"/>
+<text x="16" y="122" text-anchor="middle">3</text>
+<rect x="32" y="144" width="12" height="6" fill="#8f8676"/>
+<rect x="32" y="136" width="12" height="6" fill="#8f8676"/>
+<rect x="32" y="128" width="12" height="6" fill="#8f8676"/>
+<rect x="32" y="120" width="12" height="6" fill="#8f8676"/>
+<rect x="32" y="112" width="12" height="6" fill="#8f8676"/>
+<rect x="32" y="104" width="12" height="6" fill="#8f8676"/>
+<rect x="32" y="96" width="12" height="6" fill="#8f8676"/>
+<rect x="32" y="88" width="12" height="6" fill="#8f8676"/>
+<rect x="32" y="80" width="12" height="6" fill="#8f8676"/>
+<rect x="32" y="72" width="12" height="6" fill="#8f8676"/>
+<rect x="32" y="64" width="12" height="6" fill="#8f8676"/>
+<rect x="32" y="56" width="12" height="6" fill="#8f8676"/>
+<text x="38" y="50" text-anchor="middle">12</text>
+<rect x="54" y="144" width="12" height="6" fill="#8f8676"/>
+<rect x="54" y="136" width="12" height="6" fill="#8f8676"/>
+<rect x="54" y="128" width="12" height="6" fill="#8f8676"/>
+<rect x="54" y="120" width="12" height="6" fill="#8f8676"/>
+<rect x="54" y="112" width="12" height="6" fill="#8f8676"/>
+<rect x="54" y="104" width="12" height="6" fill="#8f8676"/>
+<rect x="54" y="96" width="12" height="6" fill="#8f8676"/>
+<rect x="54" y="88" width="12" height="6" fill="#8f8676"/>
+<rect x="54" y="80" width="12" height="6" fill="#8f8676"/>
+<text x="60" y="74" text-anchor="middle">9</text>
+<rect x="76" y="144" width="12" height="6" fill="#8f8676"/>
+<rect x="76" y="136" width="12" height="6" fill="#8f8676"/>
+<rect x="76" y="128" width="12" height="6" fill="#8f8676"/>
+<rect x="76" y="120" width="12" height="6" fill="#8f8676"/>
+<rect x="76" y="112" width="12" height="6" fill="#8f8676"/>
+<rect x="76" y="104" width="12" height="6" fill="#8f8676"/>
+<rect x="76" y="96" width="12" height="6" fill="#8f8676"/>
+<rect x="76" y="88" width="12" height="6" fill="#8f8676"/>
+<rect x="76" y="80" width="12" height="6" fill="#8f8676"/>
+<rect x="76" y="72" width="12" height="6" fill="#8f8676"/>
+<rect x="76" y="64" width="12" height="6" fill="#8f8676"/>
+<rect x="76" y="56" width="12" height="6" fill="#8f8676"/>
+<rect x="76" y="48" width="12" height="6" fill="#8f8676"/>
+<rect x="76" y="40" width="12" height="6" fill="#8f8676"/>
+<text x="82" y="34" text-anchor="middle">14</text>
+<rect x="98" y="144" width="12" height="6" fill="#8f8676"/>
+<rect x="98" y="136" width="12" height="6" fill="#8f8676"/>
+<rect x="98" y="128" width="12" height="6" fill="#8f8676"/>
+<rect x="98" y="120" width="12" height="6" fill="#8f8676"/>
+<rect x="98" y="112" width="12" height="6" fill="#8f8676"/>
+<rect x="98" y="104" width="12" height="6" fill="#8f8676"/>
+<rect x="98" y="96" width="12" height="6" fill="#8f8676"/>
+<rect x="98" y="88" width="12" height="6" fill="#8f8676"/>
+<rect x="98" y="80" width="12" height="6" fill="#8f8676"/>
+<rect x="98" y="72" width="12" height="6" fill="#8f8676"/>
+<rect x="98" y="64" width="12" height="6" fill="#8f8676"/>
+<text x="104" y="58" text-anchor="middle">11</text>
+<rect x="120" y="144" width="12" height="6" fill="#8f8676"/>
+<rect x="120" y="136" width="12" height="6" fill="#8f8676"/>
+<rect x="120" y="128" width="12" height="6" fill="#8f8676"/>
+<rect x="120" y="120" width="12" height="6" fill="#8f8676"/>
+<rect x="120" y="112" width="12" height="6" fill="#8f8676"/>
+<rect x="120" y="104" width="12" height="6" fill="#8f8676"/>
+<rect x="120" y="96" width="12" height="6" fill="#8f8676"/>
+<rect x="120" y="88" width="12" height="6" fill="#8f8676"/>
+<text x="126" y="82" text-anchor="middle">8</text>
+<rect x="142" y="144" width="12" height="6" fill="#8f8676"/>
+<rect x="142" y="136" width="12" height="6" fill="#8f8676"/>
+<text x="148" y="130" text-anchor="middle">2</text>
+<rect x="164" y="144" width="12" height="6" fill="#2b2721"/>
+<rect x="164" y="136" width="12" height="6" fill="#2b2721"/>
+<rect x="164" y="128" width="12" height="6" fill="#2b2721"/>
+<rect x="164" y="120" width="12" height="6" fill="#2b2721"/>
+<text x="170" y="114" text-anchor="middle">4</text>
+<rect x="186" y="144" width="12" height="6" fill="#2b2721"/>
+<rect x="186" y="136" width="12" height="6" fill="#2b2721"/>
+<rect x="186" y="128" width="12" height="6" fill="#2b2721"/>
+<rect x="186" y="120" width="12" height="6" fill="#2b2721"/>
+<rect x="186" y="112" width="12" height="6" fill="#2b2721"/>
+<rect x="186" y="104" width="12" height="6" fill="#2b2721"/>
+<rect x="186" y="96" width="12" height="6" fill="#2b2721"/>
+<rect x="186" y="88" width="12" height="6" fill="#2b2721"/>
+<rect x="186" y="80" width="12" height="6" fill="#2b2721"/>
+<rect x="186" y="72" width="12" height="6" fill="#2b2721"/>
+<rect x="186" y="64" width="12" height="6" fill="#2b2721"/>
+<rect x="186" y="56" width="12" height="6" fill="#2b2721"/>
+<rect x="186" y="48" width="12" height="6" fill="#2b2721"/>
+<rect x="186" y="40" width="12" height="6" fill="#2b2721"/>
+<rect x="186" y="32" width="12" height="6" fill="#2b2721"/>
+<text x="192" y="26" text-anchor="middle">15</text>
+<rect x="208" y="144" width="12" height="6" fill="#2b2721"/>
+<rect x="208" y="136" width="12" height="6" fill="#2b2721"/>
+<rect x="208" y="128" width="12" height="6" fill="#2b2721"/>
+<rect x="208" y="120" width="12" height="6" fill="#2b2721"/>
+<rect x="208" y="112" width="12" height="6" fill="#2b2721"/>
+<rect x="208" y="104" width="12" height="6" fill="#2b2721"/>
+<rect x="208" y="96" width="12" height="6" fill="#2b2721"/>
+<rect x="208" y="88" width="12" height="6" fill="#2b2721"/>
+<rect x="208" y="80" width="12" height="6" fill="#2b2721"/>
+<rect x="208" y="72" width="12" height="6" fill="#2b2721"/>
+<rect x="208" y="64" width="12" height="6" fill="#2b2721"/>
+<rect x="208" y="56" width="12" height="6" fill="#2b2721"/>
+<rect x="208" y="48" width="12" height="6" fill="#2b2721"/>
+<text x="214" y="42" text-anchor="middle">13</text>
+<rect x="230" y="144" width="12" height="6" fill="#2b2721"/>
+<rect x="230" y="136" width="12" height="6" fill="#2b2721"/>
+<rect x="230" y="128" width="12" height="6" fill="#2b2721"/>
+<rect x="230" y="120" width="12" height="6" fill="#2b2721"/>
+<rect x="230" y="112" width="12" height="6" fill="#2b2721"/>
+<rect x="230" y="104" width="12" height="6" fill="#2b2721"/>
+<rect x="230" y="96" width="12" height="6" fill="#2b2721"/>
+<rect x="230" y="88" width="12" height="6" fill="#2b2721"/>
+<rect x="230" y="80" width="12" height="6" fill="#2b2721"/>
+<rect x="230" y="72" width="12" height="6" fill="#2b2721"/>
+<rect x="230" y="64" width="12" height="6" fill="#2b2721"/>
+<rect x="230" y="56" width="12" height="6" fill="#2b2721"/>
+<rect x="230" y="48" width="12" height="6" fill="#2b2721"/>
+<rect x="230" y="40" width="12" height="6" fill="#2b2721"/>
+<rect x="230" y="32" width="12" height="6" fill="#2b2721"/>
+<rect x="230" y="24" width="12" height="6" fill="#2b2721"/>
+<rect x="230" y="16" width="12" height="6" fill="#2b2721"/>
+<text x="236" y="10" text-anchor="middle">17</text>
+<rect x="252" y="144" width="12" height="6" fill="#2b2721"/>
+<rect x="252" y="136" width="12" height="6" fill="#2b2721"/>
+<rect x="252" y="128" width="12" height="6" fill="#2b2721"/>
+<rect x="252" y="120" width="12" height="6" fill="#2b2721"/>
+<rect x="252" y="112" width="12" height="6" fill="#2b2721"/>
+<rect x="252" y="104" width="12" height="6" fill="#2b2721"/>
+<rect x="252" y="96" width="12" height="6" fill="#2b2721"/>
+<rect x="252" y="88" width="12" height="6" fill="#2b2721"/>
+<rect x="252" y="80" width="12" height="6" fill="#2b2721"/>
+<rect x="252" y="72" width="12" height="6" fill="#2b2721"/>
+<rect x="252" y="64" width="12" height="6" fill="#2b2721"/>
+<rect x="252" y="56" width="12" height="6" fill="#2b2721"/>
+<text x="258" y="50" text-anchor="middle">12</text>
+<rect x="274" y="144" width="12" height="6" fill="#2b2721"/>
+<rect x="274" y="136" width="12" height="6" fill="#2b2721"/>
+<rect x="274" y="128" width="12" height="6" fill="#2b2721"/>
+<rect x="274" y="120" width="12" height="6" fill="#2b2721"/>
+<rect x="274" y="112" width="12" height="6" fill="#2b2721"/>
+<rect x="274" y="104" width="12" height="6" fill="#2b2721"/>
+<rect x="274" y="96" width="12" height="6" fill="#2b2721"/>
+<rect x="274" y="88" width="12" height="6" fill="#2b2721"/>
+<rect x="274" y="80" width="12" height="6" fill="#2b2721"/>
+<rect x="274" y="72" width="12" height="6" fill="#2b2721"/>
+<text x="280" y="66" text-anchor="middle">10</text>
+<rect x="296" y="144" width="12" height="6" fill="#2b2721"/>
+<rect x="296" y="136" width="12" height="6" fill="#2b2721"/>
+<text x="302" y="130" text-anchor="middle">2</text>
+<text x="16" y="164" text-anchor="middle">18</text><text x="38" y="164" text-anchor="middle">19</text><text x="60" y="164" text-anchor="middle">20</text><text x="82" y="164" text-anchor="middle">21</text><text x="104" y="164" text-anchor="middle">22</text><text x="126" y="164" text-anchor="middle">23</text><text x="148" y="164" text-anchor="middle">24</text><text x="170" y="164" text-anchor="middle">25</text><text x="192" y="164" text-anchor="middle">26</text><text x="214" y="164" text-anchor="middle">27</text><text x="236" y="164" text-anchor="middle">28</text><text x="258" y="164" text-anchor="middle">29</text><text x="280" y="164" text-anchor="middle">30</text><text x="302" y="164" text-anchor="middle">31</text>
+          </g>
+        </svg>
+      </section>
+
+
+    </div>
+
+    <div class="page">
+      <span class="tape t2" aria-hidden="true"></span>
+      <section aria-labelledby="p-h">
+        <div class="sec-h"><h2 id="p-h"><span class="no">03</span>Projects ledger</h2><button class="new"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>New project</button></div>
+        <div class="ledger-wrap" role="region" aria-label="Projects table" tabindex="0">
+          <table class="ledger">
+            <thead><tr><th scope="col">No.</th><th scope="col">Project</th><th scope="col">Progress</th><th scope="col">Tasks</th><th scope="col">Due</th><th scope="col">Status</th></tr></thead>
+            <tbody>
+              <tr><td class="no">01</td><td><a class="nm" href="#">Website redesign</a><span class="tm">Design</span></td><td><div class="cells" style="--p:72%" role="img" aria-label="72 percent"></div><span class="pc num">72%</span></td><td class="num">18 / 25</td><td class="num">14 Nov</td><td><span class="stamp ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td></tr>
+              <tr><td class="no">02</td><td><a class="nm" href="#">Mobile app 2.0</a><span class="tm">Engineering</span></td><td><div class="cells" style="--p:45%" role="img" aria-label="45 percent"></div><span class="pc num">45%</span></td><td class="num">27 / 60</td><td class="num">2 Dec</td><td><span class="stamp risk"><svg aria-hidden="true"><use href="#s-risk"/></svg>At risk</span></td></tr>
+              <tr><td class="no">03</td><td><a class="nm" href="#">Q4 customer survey</a><span class="tm">Research</span></td><td><div class="cells" style="--p:90%" role="img" aria-label="90 percent"></div><span class="pc num">90%</span></td><td class="num">9 / 10</td><td class="num">7 Nov</td><td><span class="stamp ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td></tr>
+              <tr><td class="no">04</td><td><a class="nm" href="#">Billing migration</a><span class="tm">Engineering</span></td><td><div class="cells" style="--p:30%" role="img" aria-label="30 percent"></div><span class="pc num">30%</span></td><td class="num">12 / 40</td><td class="num">20 Nov</td><td><span class="stamp bad"><svg aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></td></tr>
+              <tr><td class="no">05</td><td><a class="nm" href="#">Spring catalogue</a><span class="tm">Marketing</span></td><td><div class="cells" style="--p:15%" role="img" aria-label="15 percent"></div><span class="pc num">15%</span></td><td class="num">3 / 20</td><td class="num">15 Jan</td><td><span class="stamp ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td></tr>
+              <tr><td class="no">06</td><td><a class="nm" href="#">Onboarding emails</a><span class="tm">Marketing</span></td><td><div class="cells" style="--p:60%" role="img" aria-label="60 percent"></div><span class="pc num">60%</span></td><td class="num">9 / 15</td><td class="num">21 Nov</td><td><span class="stamp ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="key">Key · ○ On track · △ At risk · × Behind</p>
+      </section>
+
+      <section class="sec" aria-labelledby="a-h">
+        <div class="sec-h"><h2 id="a-h"><span class="no">04</span>Diary</h2></div>
+        <ul class="diary">
+          <li><span class="t">12 min ago</span><span><b>Jonas Weber</b> completed “Export invoices as CSV” in <a href="#">Billing migration</a></span></li>
+          <li><span class="t">40 min ago</span><span><b>Priya Nair</b> commented on “Hero image options” in <a href="#">Website redesign</a></span></li>
+          <li><span class="t">1 h ago</span><span><b>Sam Ortiz</b> moved “Push notifications” to Review in <a href="#">Mobile app 2.0</a></span></li>
+          <li><span class="t">2 h ago</span><span><b>Lena Fischer</b> added 3 tasks to <a href="#">Spring catalogue</a></span></li>
+          <li><span class="t">3 h ago</span><span><b>Tomás Ruiz</b> logged 6 h on <a href="#">Mobile app 2.0</a></span></li>
+          <li><span class="t">Yesterday</span><span><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to <a href="#">Q4 customer survey</a></span></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h">
+  <div class="sheet-in">
+    <div class="sheet-title"><span class="seal" aria-hidden="true">23</span><h2 id="sheet-h">Style 23 · Stationery</h2></div>
+    <p class="idea">A tidy Japanese paper notebook, with washi and kraft tones, pale ruled lines, a red square seal and stamped ○ △ × status marks in small neat type.</p>
+
+    <h3>Palette</h3>
+    <ul class="sw-grid">
+      <li class="sw"><i style="background:#ece3d2"></i><b>Desk</b>#ece3d2 · behind the notebook</li>
+      <li class="sw"><i style="background:#fbf8f1"></i><b>Washi paper</b>#fbf8f1 · pages, fields, cards</li>
+      <li class="sw"><i style="background:#d6bf98"></i><b>Kraft</b>#d6bf98 · notebook accents</li>
+      <li class="sw"><i style="background:#ede1c9"></i><b>Kraft light</b>#ede1c9 · index tabs</li>
+      <li class="sw"><i style="background:#cfdae5"></i><b>Rule blue</b>#cfdae5 · ruled lines and grid</li>
+      <li class="sw"><i style="background:#d8ccb6"></i><b>Line</b>#d8ccb6 · row lines, page edge, stitch</li>
+      <li class="sw"><i style="background:#2b2721"></i><b>Sumi ink</b>#2b2721 · text, heading rules, this week cells</li>
+      <li class="sw"><i style="background:#615a50"></i><b>Grey ink</b>#615a50 · labels, times; #8f8676 last week cells</li>
+      <li class="sw"><i style="background:#b3262c"></i><b>Seal red</b>#b3262c · seal, overdue, Behind, section numbers</li>
+      <li class="sw"><i style="background:#2c4a72"></i><b>Indigo</b>#2c4a72 · links, progress cells, focus</li>
+      <li class="sw"><i style="background:#4a6b33"></i><b>Matcha</b>#4a6b33 · On track stamp</li>
+      <li class="sw"><i style="background:#855700"></i><b>Amber</b>#855700 · At risk stamp</li>
+    </ul>
+
+    <h3>Type · sans "Hiragino Sans", "Yu Gothic UI", Meiryo, system-ui · serif "Hiragino Mincho ProN", "Yu Mincho", Georgia</h3>
+    <div class="typeset">
+      <div><code>30 / 48 serif figures</code><span style="font:400 30px/48px var(--serif)">186</span></div>
+      <div><code>26 / 48 serif</code><span style="font:400 26px/48px var(--serif);letter-spacing:.06em">Good morning, Mara.</span></div>
+      <div><code>17 / 24 serif +0.1em</code><span style="font:400 17px/24px var(--serif);letter-spacing:.1em">Projects ledger</span></div>
+      <div><code>14 / 24 sans</code><span style="font-size:14px">Website redesign</span></div>
+      <div><code>13 / 24 sans body</code><span>Sam Ortiz moved “Push notifications” to Review</span></div>
+      <div><code>11 / 24 caps +0.2em</code><span class="label">Tasks due this week</span></div>
+    </div>
+
+    <h3>Spacing, density, corners and depth</h3>
+    <dl class="facts">
+      <dt>Rhythm</dt><dd>A 24px baseline. Every line, row and gap is 12, 24 or 48px</dd>
+      <dt>Density</dt><dd>Medium-high but airy. Small type, a full ledger on one page</dd>
+      <dt>Corners</dt><dd>2px on buttons and fields, 3px on the seal and stamps, 4px tops on index tabs</dd>
+      <dt>Borders</dt><dd>1px hairlines · ink under headings, beige between rows, a dashed stitch between pages</dd>
+      <dt>Shadows</dt><dd>None. Depth comes from washi tape strips and tabs</dd>
+      <dt>Paper</dt><dd>Pale blue ruled lines every 24px on pages and a 24px graph grid on this sheet</dd>
+      <dt>Icons</dt><dd>16px thin square-cap line icons. Status stamps are tilted outlines with ○ for On track, △ for At risk and × for Behind</dd>
+      <dt>Focus</dt><dd>2px indigo outline offset 2px; fields get a 2px indigo underline and a pale blue fill</dd>
+      <dt>Tone</dt><dd>Calm, tidy and brief · “Projects ledger”, “Diary”, numbered sections 01 to 04</dd>
+    </dl>
+
+    <h3>Controls · normal and focus</h3>
+    <div class="ctls">
+      <div class="ctl"><span class="label">Primary button</span><div style="display:flex;gap:12px;flex-wrap:wrap"><button class="btn btn-p">Save</button><button class="btn btn-p is-focus">Focused</button></div></div>
+      <div class="ctl"><span class="label">Secondary button</span><div style="display:flex;gap:12px;flex-wrap:wrap"><button class="btn btn-s">Cancel</button><button class="btn btn-s is-focus">Focused</button></div></div>
+      <div class="ctl"><label class="field">Project name<input value="Website redesign"></label><label class="field">Focused<input class="is-focus" value="Mobile app 2.0"></label></div>
+      <div class="ctl"><span class="label">Ledger row, normal then focused</span><div class="lrow"><span>04 · Billing migration</span><span class="stamp bad"><svg aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></div><div class="lrow is-focus"><span>04 · Billing migration</span><span class="stamp bad"><svg aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></div></div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

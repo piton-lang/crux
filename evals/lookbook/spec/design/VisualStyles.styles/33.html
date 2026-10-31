@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 33 · Origami · Brightwork</title>
+<style>
+:root {
+  --page: #f3efe8;
+  --sheet: #fffdf9;
+  --facetLight: #f8f4ee;
+  --facetMid: #ece5da;
+  --facetShade: #ddd3c3;
+  --crease: #cfc3b0;
+  --edge: #8a7d68;
+  --ink: #2a2620;
+  --muted: #5f574b;
+  --teal: #2b7479;
+  --tealDeep: #1f5f63;
+  --coral: #b5462c;
+  --error: #a63a22;
+  --done: #2d6b3c;
+  --sans: "Avenir Next", Avenir, "Century Gothic", Futura, "Segoe UI", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--page); color: var(--ink); font: 400 15px/1.55 var(--sans); }
+a { color: var(--tealDeep); font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+:focus-visible, .is-focus { outline: 3px solid var(--coral); outline-offset: 3px; }
+
+.stage { position: relative; overflow: hidden; padding: 56px 16px 48px; }
+.facets { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.wrapper { position: relative; max-width: 460px; margin: 0 auto; filter: drop-shadow(0 1px 0 rgba(120,100,70,.25)) drop-shadow(0 14px 18px rgba(120,100,70,.18)); }
+.crane { display: block; width: 132px; height: auto; margin: 0 auto 12px; position: relative; }
+
+.sheet { position: relative; clip-path: polygon(0 0, calc(100% - 44px) 0, 100% 44px, 100% 100%, 0 100%); }
+.sheet::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  background:
+    linear-gradient(118deg, transparent calc(50% - .5px), rgba(120,100,70,.12) 50%, transparent calc(50% + .5px)),
+    linear-gradient(62deg, transparent calc(50% - .5px), rgba(255,255,255,.9) 50%, transparent calc(50% + 1px)); }
+.dogear { position: absolute; top: 0; right: 0; width: 44px; height: 44px; z-index: 2; background: linear-gradient(225deg, transparent 50%, var(--facetShade) 50%, var(--facetMid)); box-shadow: -2px 2px 3px rgba(120,100,70,.18); }
+.panel { position: relative; padding: 28px 32px; }
+.panel + .panel { border-top: 1px solid var(--crease); box-shadow: inset 0 1px 0 #fff; }
+.p1 { background: linear-gradient(160deg, #ffffff 0%, var(--sheet) 55%, var(--facetLight) 100%); padding-top: 40px; }
+.p2 { background: linear-gradient(200deg, var(--facetMid) 0%, var(--facetLight) 50%, #fbf8f3 100%); }
+.p3 { background: linear-gradient(160deg, #fbf8f3 0%, var(--facetMid) 100%); padding-top: 20px; padding-bottom: 22px; }
+.panel > * { position: relative; z-index: 3; }
+
+.brand { margin: 0; text-align: center; font: 600 13px/1 var(--sans); letter-spacing: .32em; text-transform: uppercase; color: var(--muted); }
+h1 { margin: 10px 0 22px; text-align: center; font: 500 26px/1.25 var(--sans); letter-spacing: -.005em; }
+
+.fold-btn { position: relative; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 13px 16px; margin-bottom: 12px; font: 600 15px/1 var(--sans); color: var(--ink); cursor: pointer; border: 1px solid var(--edge); border-radius: 0; background: linear-gradient(135deg, #ffffff 50%, var(--facetLight) 50%); }
+.fold-btn::after { content: ""; position: absolute; top: -1px; right: -1px; width: 14px; height: 14px; background: linear-gradient(225deg, var(--page) 50%, var(--facetShade) 50%); border-left: 1px solid var(--edge); border-bottom: 1px solid var(--edge); }
+.fold-btn .ico { width: 22px; height: 22px; display: inline-grid; place-items: center; font-size: 11px; font-weight: 700; color: var(--ink); clip-path: polygon(50% 0, 100% 100%, 0 100%); background: var(--facetShade); padding-top: 6px; }
+.fold-btn.primary { border: 0; color: #fff; font-size: 16px; padding: 15px 16px; background: linear-gradient(135deg, var(--teal) 50%, var(--tealDeep) 50%); clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px); }
+.fold-btn.primary::after { display: none; }
+.fold-btn.primary .chev { font-size: 13px; }
+.fold-btn.primary:focus-visible, .fold-btn.primary.is-focus { clip-path: none; outline-offset: 3px; }
+
+.or { display: flex; align-items: center; gap: 12px; margin: 8px 0 0; color: var(--muted); font-size: 13px; letter-spacing: .2em; text-transform: uppercase; }
+.or::before, .or::after { content: ""; flex: 1; height: 10px; background: linear-gradient(170deg, transparent 45%, var(--crease) 46% 54%, transparent 55%); }
+.or::after { transform: scaleX(-1); }
+
+.field { display: block; margin: 0 0 18px; }
+.lab { display: block; font: 600 12px/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.input { display: flex; align-items: stretch; background: #fff; border: 1px solid var(--edge); position: relative; }
+.input::before { content: ""; position: absolute; left: 0; top: 0; width: 10px; height: 10px; background: linear-gradient(135deg, var(--facetShade) 50%, transparent 50%); }
+.input input { flex: 1; min-width: 0; border: 0; background: transparent; padding: 11px 12px 11px 16px; font: 400 16px var(--sans); color: var(--ink); outline: 0; }
+.input input:focus-visible { outline: 0; }
+.input:focus-within, .input.is-focus { outline: 3px solid var(--coral); outline-offset: 3px; border-color: var(--ink); }
+.input.bad { border-color: var(--error); border-width: 1px 1px 3px; }
+.show { border: 0; border-left: 1px solid var(--crease); background: linear-gradient(135deg, var(--facetLight) 50%, var(--facetMid) 50%); font: 600 13px var(--sans); color: var(--ink); padding: 0 14px; cursor: pointer; }
+.err { display: flex; gap: 10px; margin: 10px 0 0; color: var(--error); font-size: 14px; line-height: 1.45; }
+.err svg { width: 20px; height: 18px; flex: none; margin-top: 1px; }
+
+.opts { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin: 4px 0 22px; font-size: 14px; }
+.check { display: inline-flex; gap: 10px; align-items: center; cursor: pointer; }
+.check input { appearance: none; -webkit-appearance: none; margin: 0; width: 20px; height: 20px; border: 1px solid var(--edge); background: linear-gradient(135deg, #fff 50%, var(--facetLight) 50%); display: grid; place-items: center; cursor: pointer; }
+.check input:checked { background: linear-gradient(135deg, var(--teal) 50%, var(--tealDeep) 50%); border-color: var(--tealDeep); }
+.check input:checked::after { content: "✓"; color: #fff; font: 700 13px/1 var(--sans); }
+
+.new { text-align: center; margin: 0; font-size: 15px; }
+.legal { position: relative; display: flex; justify-content: center; gap: 28px; margin: 28px 0 0; font-size: 13px; }
+.legal a { color: var(--muted); font-weight: 500; }
+
+/* Style sheet */
+.sheet-doc { background: var(--sheet); border-top: 1px solid var(--crease); padding: 56px 16px 72px; position: relative; }
+.sheet-doc::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 24px; background: linear-gradient(178deg, var(--facetMid), transparent); }
+.sheet-doc .wrap { max-width: 1060px; margin: 0 auto; position: relative; }
+.sheet-doc h2 { font: 500 30px/1.2 var(--sans); margin: 0; }
+.sheet-doc .idea { font-size: 17px; margin: 10px 0 0; max-width: 720px; color: var(--muted); }
+.sheet-doc h3 { display: inline-flex; align-items: center; gap: 10px; font: 600 12px var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin: 44px 0 16px; }
+.sheet-doc h3::before { content: ""; width: 14px; height: 14px; background: linear-gradient(135deg, var(--teal) 50%, var(--tealDeep) 50%); clip-path: polygon(0 0, 100% 0, 0 100%, 0 0, 100% 100%, 0 100%); }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+.sw { font-size: 13px; }
+.sw i { display: block; height: 56px; margin-bottom: 8px; clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%); box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); }
+.sw b { display: block; font-weight: 600; font-size: 14px; }
+.type-row { display: flex; flex-wrap: wrap; gap: 4px 20px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--facetMid); }
+.type-row code { font: 12px ui-monospace, Menlo, Consolas, monospace; color: var(--muted); min-width: 230px; }
+.facts { display: grid; grid-template-columns: 140px 1fr; gap: 10px 20px; margin: 0; }
+.facts dt { font: 600 12px/2 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 0; }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 28px; }
+.controls .fold-btn { margin: 0; }
+.list-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 14px; background: linear-gradient(160deg, #fff 50%, var(--facetLight) 50%); border-bottom: 1px solid var(--crease); }
+.list-row .st { color: var(--done); font-weight: 600; font-size: 13px; }
+
+@media (max-width: 640px) {
+  .stage { padding: 32px 16px 40px; }
+  .panel { padding: 22px 18px; }
+  .p1 { padding-top: 34px; }
+  h1 { font-size: 22px; }
+  .crane { width: 104px; }
+  .facts { grid-template-columns: 1fr; gap: 2px; } .facts dd { margin-bottom: 10px; }
+}
+</style>
+</head>
+<body>
+<main class="stage">
+  <svg class="facets" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <polygon points="0,0 380,0 0,420" fill="#ebe5da"/>
+    <polygon points="380,0 0,420 260,800 0,800" fill="#f7f4ee"/>
+    <polygon points="1200,0 820,0 1200,360" fill="#efe9df"/>
+    <polygon points="1200,360 920,800 1200,800" fill="#e8e1d5"/>
+    <polygon points="820,0 1200,360 920,800" fill="#f6f2eb"/>
+  </svg>
+
+  <div class="wrapper">
+    <svg class="crane" viewBox="0 0 140 72" aria-hidden="true">
+      <g stroke="#cfc3b0" stroke-width=".8" stroke-linejoin="round">
+        <polygon points="70,40 18,4 56,48" fill="#ffffff"/>
+        <polygon points="70,40 122,2 84,48" fill="#ddd3c3"/>
+        <polygon points="46,52 70,40 70,64" fill="#f8f4ee"/>
+        <polygon points="94,52 70,40 70,64" fill="#e2d9ca"/>
+        <polygon points="84,54 134,30 92,60" fill="#ece5da"/>
+        <polygon points="56,54 18,24 50,60" fill="#f3eee5"/>
+      </g>
+      <polygon points="18,24 8,30 24,30" fill="#2b7479"/>
+    </svg>
+    <section class="sheet" aria-labelledby="h">
+      <span class="dogear" aria-hidden="true"></span>
+      <div class="panel p1">
+        <p class="brand">Brightwork</p>
+        <h1 id="h">Sign in to Brightwork</h1>
+        <button class="fold-btn" type="button"><span class="ico" aria-hidden="true">G</span>Continue with Google</button>
+        <button class="fold-btn" type="button"><span class="ico" aria-hidden="true">M</span>Continue with Microsoft</button>
+        <div class="or" role="separator" aria-label="or">or</div>
+      </div>
+      <form class="panel p2" action="#">
+        <label class="field"><span class="lab">Email</span>
+          <span class="input"><input type="email" value="mara@fernhill.studio" autocomplete="email"></span>
+        </label>
+        <div class="field">
+          <label class="lab" for="pw">Password</label>
+          <span class="input bad"><input id="pw" type="password" value="lanterns42" aria-invalid="true" aria-describedby="pw-err" autocomplete="current-password"><button class="show" type="button" aria-label="Show password" aria-pressed="false">Show</button></span>
+          <p class="err" id="pw-err"><svg viewBox="0 0 20 18" aria-hidden="true"><polygon points="10,1 19,17 1,17" fill="#a63a22"/><polygon points="10,1 19,17 10,17" fill="#7e2a17"/><path d="M10 6.5v5M10 13.6v.6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>That password does not match. Try again or reset it.</span></p>
+        </div>
+        <div class="opts">
+          <label class="check"><input type="checkbox" checked>Keep me signed in</label>
+          <a href="#">Forgot password</a>
+        </div>
+        <button class="fold-btn primary" type="submit">Sign in <span class="chev" aria-hidden="true">▸</span></button>
+      </form>
+      <div class="panel p3">
+        <p class="new">New to Brightwork? <a href="#">Create an account</a></p>
+      </div>
+    </section>
+  </div>
+  <nav class="legal" aria-label="Legal"><a href="#">Privacy</a><a href="#">Terms</a></nav>
+</main>
+
+<section class="sheet-doc" aria-labelledby="sheet-h">
+  <div class="wrap">
+    <h2 id="sheet-h">Style 33 · Origami</h2>
+    <p class="idea">The sign-in form is one sheet of paper folded into three panels, with crisp creases, a dog-eared corner and light triangular facets on every surface.</p>
+
+    <h3>Palette</h3>
+    <ul class="swatches">
+      <li class="sw"><i style="background:#f3efe8"></i><b>Page</b>#f3efe8 · background behind the sheet</li>
+      <li class="sw"><i style="background:#fffdf9"></i><b>Sheet</b>#fffdf9 · the lit side of the paper</li>
+      <li class="sw"><i style="background:#f8f4ee"></i><b>Facet light</b>#f8f4ee · second half of every facet</li>
+      <li class="sw"><i style="background:#ece5da"></i><b>Facet mid</b>#ece5da · the middle panel, turned away</li>
+      <li class="sw"><i style="background:#ddd3c3"></i><b>Facet shade</b>#ddd3c3 · dog-ear, icon triangles</li>
+      <li class="sw"><i style="background:#cfc3b0"></i><b>Crease</b>#cfc3b0 · fold lines between panels</li>
+      <li class="sw"><i style="background:#8a7d68"></i><b>Edge</b>#8a7d68 · field and button edges</li>
+      <li class="sw"><i style="background:#2a2620"></i><b>Ink</b>#2a2620 · text</li>
+      <li class="sw"><i style="background:#5f574b"></i><b>Muted</b>#5f574b · labels, brand line, divider</li>
+      <li class="sw"><i style="background:linear-gradient(135deg,#2b7479 50%,#1f5f63 50%)"></i><b>Teal fold</b>#2b7479 and #1f5f63 · primary button, links, checked box</li>
+      <li class="sw"><i style="background:#b5462c"></i><b>Coral</b>#b5462c · focus outline</li>
+      <li class="sw"><i style="background:#a63a22"></i><b>Error</b>#a63a22 · error text and field edge</li>
+      <li class="sw"><i style="background:#2d6b3c"></i><b>Done</b>#2d6b3c · On track text</li>
+    </ul>
+
+    <h3>Type · Avenir Next, Avenir, Century Gothic, Futura, Segoe UI</h3>
+    <div class="type-row"><code>26 / 500 / 1.25 heading</code><span style="font-size:26px;font-weight:500">Sign in to Brightwork</span></div>
+    <div class="type-row"><code>16 / 600 primary button</code><span style="font-size:16px;font-weight:600">Sign in</span></div>
+    <div class="type-row"><code>16 / 400 field text</code><span style="font-size:16px">mara@fernhill.studio</span></div>
+    <div class="type-row"><code>15 / 400 / 1.55 body</code><span>New to Brightwork? Create an account</span></div>
+    <div class="type-row"><code>13 / 600 caps +0.32em brand</code><span class="brand">Brightwork</span></div>
+    <div class="type-row"><code>12 / 600 caps +0.14em labels</code><span class="lab" style="margin:0">Password</span></div>
+
+    <h3>Spacing, corners and depth</h3>
+    <dl class="facts">
+      <dt>Spacing</dt><dd>An 8px base. 28px by 32px panel padding, 12px between sign-in buttons, 18px between fields.</dd>
+      <dt>Density</dt><dd>Medium. One 460px sheet in three panels.</dd>
+      <dt>Corners</dt><dd>No rounding. Corners are cut on the diagonal instead, a 44px dog-ear on the sheet, 14px cuts on the primary button, small folded corners on secondary buttons.</dd>
+      <dt>Borders</dt><dd>1px crease lines with a white highlight below, 1px edge on fields and buttons. An error field gets a 3px bottom edge.</dd>
+      <dt>Shadows</dt><dd>A tight 1px drop and a soft 14px drop under the whole sheet. Facets are hard 50 percent diagonal splits, never blurred.</dd>
+      <dt>Icons</dt><dd>Everything is a triangle. A folded crane above the sheet, triangle tabs for sign-in letters, a two-tone triangle with ! for errors, ▸ on the primary button.</dd>
+      <dt>Tone</dt><dd>Neat, quiet and precise, short plain words.</dd>
+    </dl>
+
+    <h3>Controls · normal and focus</h3>
+    <div class="controls">
+      <div><span class="lab">Primary</span><button class="fold-btn primary" type="button">Sign in <span aria-hidden="true">▸</span></button></div>
+      <div><span class="lab">Primary, focused</span><button class="fold-btn primary is-focus" type="button">Sign in <span aria-hidden="true">▸</span></button></div>
+      <div><span class="lab">Secondary</span><button class="fold-btn" type="button">Cancel</button></div>
+      <div><span class="lab">Secondary, focused</span><button class="fold-btn is-focus" type="button">Cancel</button></div>
+      <div><label class="field" style="margin:0"><span class="lab">Email</span><span class="input"><input value="mara@fernhill.studio"></span></label></div>
+      <div><label class="field" style="margin:0"><span class="lab">Email, focused</span><span class="input is-focus"><input value="mara@fernhill.studio"></span></label></div>
+      <div><span class="lab">List row</span><div class="list-row"><span>Website redesign</span><span class="st">✓ On track</span></div></div>
+      <div><span class="lab">List row, focused</span><div class="list-row is-focus"><span>Website redesign</span><span class="st">✓ On track</span></div></div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

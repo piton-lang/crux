@@ -1,0 +1,30 @@
+export anchor CodeRepository:
+    description:
+        Brightwork Code, the suite's code forge, showing the repository
+        fernhill/brightwork-mobile on the Pull requests tab, with one pull
+        request open.
+
+    repoHeader:
+        The repository name, Private, Watch 12, Star 48 and Fork 3, and tabs
+        for Code, Issues 27, Pull requests 5, Actions, Wiki and Settings.
+
+    pullRequest:
+        title: Add push notification preferences, number 214
+        state: Open, Sam Ortiz wants to merge 6 commits into main from feature/push-prefs
+        checks: 11 of 12 checks passed, 1 failing, e2e-android
+        reviewers: Jonas Weber approved, Tomás Ruiz requested changes
+        labels: feature, mobile, needs QA
+
+    files:
+        - src/settings/NotificationPrefs.tsx, plus 184 minus 12
+        - src/api/push.ts, plus 46 minus 8
+        - src/settings/NotificationPrefs.test.tsx, plus 92 minus 0
+
+    diff:
+        One hunk of NotificationPrefs.tsx with about 12 lines, a few added and
+        two removed, and an inline comment from Tomás Ruiz, "Quiet hours should
+        respect the device time zone."
+
+    sideColumn:
+        Assignees, labels, the milestone Mobile app 2.0, linked issue 198 Push
+        notifications, and a Merge button that is disabled until checks pass.

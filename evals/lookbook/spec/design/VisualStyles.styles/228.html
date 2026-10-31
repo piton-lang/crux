@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Style 228 · Dim mode · Brightwork</title>
+<style>
+
+:root { color-scheme: dark; --font: -apple-system, "Segoe UI", system-ui, Roboto, "Noto Sans", sans-serif; --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --line: #444c56; --ink: #c9d1d9; --muted: #9aa5b1; --s-bg: #22272e; --s-surface: #2b3139; --s-r: 6px; }
+* { box-sizing: border-box; }
+html, body { background: #22272e; }
+body { margin: 0; color: var(--ink); font: 15px/1.65 var(--font); }
+a { color: #7ea9dc; text-decoration: none; }
+svg.i { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+a:focus-visible, button:focus-visible, input:focus-visible, .is-focus { outline: 2px solid #7ea9dc; outline-offset: 2px; }
+.app { display: grid; grid-template-columns: 200px minmax(0, 1fr); min-height: 100vh; }
+.side { padding: 24px 16px; border-right: 1px solid #444c56; }
+.brand { font-weight: 600; color: var(--ink); margin: 0 8px 24px; display: flex; gap: 8px; align-items: center; }
+.brand i { width: 10px; height: 10px; border-radius: 50%; background: #7ea9dc; }
+.nav { list-style: none; margin: 0; padding: 0; }
+.nav a { display: block; padding: 6px 8px; color: var(--muted); border-radius: 6px; }
+.nav a[aria-current=page] { color: var(--ink); background: #343b44; font-weight: 600; }
+.bar { display: flex; gap: 12px; align-items: center; padding: 12px 32px; border-bottom: 1px solid #444c56; }
+.search { flex: 1; max-width: 480px; display: flex; gap: 8px; align-items: center; color: var(--muted); background: #2b3139; border: 1px solid #444c56; border-radius: 6px; padding: 0 10px; }
+.search input { flex: 1; min-width: 0; background: transparent; border: 0; color: var(--ink); font: inherit; font-size: 14px; padding: 7px 0; }
+.search input::placeholder { color: var(--muted); } .search input:focus-visible { outline: 0; }
+.search:focus-within { outline: 2px solid #7ea9dc; outline-offset: 2px; }
+.sp { flex: 1; }
+.btn { display: inline-flex; gap: 6px; align-items: center; border-radius: 6px; padding: 6px 14px; font: 500 14px/1.5 var(--font); cursor: pointer; border: 1px solid transparent; white-space: nowrap; }
+.btn-primary { background: #41618a; color: #e6edf5; border-color: #50719c; }
+.btn-secondary { background: #343b44; color: var(--ink); border-color: #444c56; }
+.iconbtn { background: transparent; border: 1px solid transparent; border-radius: 6px; color: var(--muted); padding: 6px; display: grid; cursor: pointer; }
+.user { display: flex; gap: 8px; align-items: center; font-size: 14px; color: var(--ink); }
+.av { width: 28px; height: 28px; border-radius: 50%; background: #343b44; border: 1px solid #444c56; display: grid; place-items: center; font-size: 11px; font-weight: 600; flex: none; }
+.col { max-width: 760px; margin: 0 auto; padding: 40px 32px 64px; }
+.date { color: var(--muted); margin: 0; font-size: 14px; }
+h1 { font-size: 26px; font-weight: 500; margin: 0 0 12px; color: var(--ink); }
+.lede { font-size: 17px; margin: 0 0 8px; color: var(--ink); max-width: 60ch; }
+.lede b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.lede .warn { color: #e3958c; white-space: nowrap; }
+.facts4 { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
+.facts4 li { background: #2b3139; border: 1px solid #444c56; border-radius: 6px; padding: 4px 12px; font-size: 13px; color: var(--muted); }
+.facts4 b { color: var(--ink); font-weight: 600; margin-right: 4px; font-variant-numeric: tabular-nums; }
+.facts4 .warn b, .facts4 .warn { color: #e3958c; }
+h2 { font-size: 15px; font-weight: 600; margin: 48px 0 12px; color: var(--ink); display: flex; justify-content: space-between; align-items: baseline; }
+h2 small { font-weight: 400; color: var(--muted); font-size: 13px; }
+h3 { font-size: 13px; font-weight: 500; color: var(--muted); margin: 20px 0 6px; display: flex; gap: 8px; align-items: center; }
+.group { list-style: none; margin: 0; padding: 0; background: #2b3139; border: 1px solid #444c56; border-radius: 6px; }
+.group li { display: grid; grid-template-columns: minmax(0, 1fr) 140px 90px; gap: 4px 20px; align-items: center; padding: 12px 16px; border-top: 1px solid #444c56; }
+.group li:first-child { border-top: 0; }
+.group a { color: var(--ink); font-weight: 500; }
+.group .cat { color: var(--muted); font-size: 13px; margin-left: 8px; }
+.prog { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.prog span { flex: 1; height: 4px; border-radius: 2px; background: #444c56; }
+.prog i { display: block; height: 100%; border-radius: 2px; background: #7ea9dc; }
+.due { font-size: 13px; color: var(--muted); text-align: right; white-space: nowrap; }
+.tasks { font-size: 13px; color: var(--muted); }
+.st { display: inline-flex; gap: 6px; align-items: center; }
+.st.ok { color: #8fc49c; } .st.risk { color: #d8b46c; } .st.bad { color: #e3958c; }
+.chart { width: 100%; height: auto; display: block; }
+.chartbox { background: #2b3139; border: 1px solid #444c56; border-radius: 6px; padding: 16px 16px 8px; }
+.cap { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
+.cap b { color: var(--ink); font-weight: 600; }
+.feed { list-style: none; margin: 0; padding: 0; }
+.feed li { padding: 10px 0; border-top: 1px solid #444c56; color: var(--muted); display: flex; gap: 16px; justify-content: space-between; }
+.feed li:first-child { border-top: 0; }
+.feed b { color: var(--ink); font-weight: 500; }
+.feed time { font-size: 13px; white-space: nowrap; color: var(--muted); }
+@media (max-width: 760px) {
+  .app { grid-template-columns: 1fr; }
+  .side { border-right: 0; border-bottom: 1px solid #444c56; padding: 12px 16px; display: flex; gap: 16px; align-items: center; overflow-x: auto; }
+  .brand { margin: 0; } .nav { display: flex; gap: 2px; } .nav a { white-space: nowrap; }
+  .bar { flex-wrap: wrap; padding: 12px 16px; } .search { order: 5; flex-basis: 100%; max-width: none; } .user span:not(.av) { display: none; }
+  .col { padding: 28px 16px 48px; }
+  .group li { grid-template-columns: 1fr auto; } .group .prog { grid-column: 1 / -1; grid-row: 3; }
+  .feed li { flex-direction: column; gap: 0; }
+}
+.field input { width: 100%; background: #22272e; border: 1px solid #444c56; border-radius: 6px; color: var(--ink); font: inherit; padding: 7px 10px; }
+.row-demo { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 10px 14px; background: #2b3139; border: 1px solid #444c56; border-radius: 6px; }
+
+
+.sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.sheet { background: var(--s-bg); color: var(--ink); border-top: 1px solid var(--line); padding: 48px 32px 64px; font-family: var(--font); }
+.sheet-in { max-width: 1120px; margin: 0 auto; }
+.sheet h2 { font-size: 26px; margin: 0 0 8px; color: var(--ink); }
+.sheet h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 40px 0 16px; font-weight: 650; }
+.sheet .idea { color: var(--ink); font-size: 16px; max-width: 70ch; margin: 0; }
+.sw-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.sw-list li { display: flex; gap: 12px; align-items: center; background: var(--s-surface); border: 1px solid var(--line); border-radius: var(--s-r, 6px); padding: 10px; font-size: 13px; color: var(--muted); min-width: 0; }
+.sw-list li i { width: 44px; height: 44px; border-radius: calc(var(--s-r, 6px) - 2px); flex: none; border: 1px solid var(--sw-edge, rgba(255,255,255,.28)); }
+.sw-list li b { display: block; color: var(--ink); font-size: 14px; }
+.sw-list code { font-family: var(--mono); color: var(--ink); }
+.type-list { display: grid; gap: 12px; }
+.type-row { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: 16px; align-items: baseline; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
+.type-row code { font-family: var(--mono); font-size: 12px; color: var(--muted); overflow-wrap: anywhere; }
+.type-row > span { min-width: 0; overflow-wrap: anywhere; }
+.facts { display: grid; grid-template-columns: 140px 1fr; gap: 10px 20px; margin: 0; font-size: 14px; }
+.facts dt { color: var(--muted); font-weight: 650; }
+.facts dd { margin: 0; color: var(--ink); }
+.ctl-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 32px; }
+.ctl-grid > div { min-width: 0; }
+.ctl-label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .06em; }
+.ctl-pair { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+@media (max-width: 720px) {
+  .sheet { padding: 32px 16px 48px; }
+  .type-row, .facts, .ctl-grid { grid-template-columns: 1fr; }
+  .facts dt { margin-top: 8px; }
+}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol><symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol><symbol id="i-tasks" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12l3 3 5-6"/></symbol><symbol id="i-team" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14.2c2.6.4 4.5 2.8 4.5 5.8"/></symbol><symbol id="i-reports" viewBox="0 0 24 24"><path d="M5 20V11M12 20V5M19 20v-6M3 20h18"/></symbol><symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></symbol><symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></symbol><symbol id="i-risk" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.1"/></symbol><symbol id="i-behind" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M9 9l6 6M15 9l-6 6"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-msg" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></symbol><symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol><symbol id="i-cmd" viewBox="0 0 24 24"><path d="M9 9V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V9"/></symbol><symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol><symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4h11l-2 4 2 4H5"/></symbol></svg>
+<div class="app">
+<nav class="side" aria-label="Main"><div class="brand"><i aria-hidden="true"></i>Brightwork</div><ul class="nav"><li><a href="#" aria-current=page>Home</a></li><li><a href="#">Projects</a></li><li><a href="#">Tasks</a></li><li><a href="#">Team</a></li><li><a href="#">Reports</a></li><li><a href="#">Settings</a></li></ul></nav>
+<div>
+<header class="bar"><label class="search"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search projects and tasks</span><input type="search" placeholder="Search projects and tasks"></label><span class="sp"></span>
+<button class="btn btn-primary" type="button"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>New project</button>
+<button class="iconbtn" type="button" aria-label="Notifications"><svg class="i" aria-hidden="true"><use href="#i-bell"/></svg></button>
+<div class="user"><span class="av" aria-hidden="true">MO</span><span>Mara Okafor</span></div></header>
+<main class="col">
+<p class="date">Saturday 31 October 2026</p>
+<h1>Good morning, Mara</h1>
+<p class="lede"><span class="warn"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg> <b>4 tasks are overdue.</b></span> Start there, then the rest of the week.</p>
+<ul class="facts4" aria-label="Summary"><li><b>6</b>active projects</li><li><b>23</b>tasks due this week</li><li class="warn"><b>4</b>overdue tasks</li><li><b>186</b>hours logged this week</li></ul>
+<section aria-labelledby="p-h"><h2 id="p-h">Projects by status <small>6 projects</small></h2><h3><span class="st bad"><svg class="i" aria-hidden="true"><use href="#i-behind"/></svg>Behind</span><span>· 1 project</span></h3><ul class="group"><li><span><a href="#">Billing migration</a><span class="cat">Engineering</span></span><span class="prog"><span><i style="width:30%"></i></span>30%</span><span class="due">Due 20 Nov</span><span class="tasks">12 of 40 tasks</span></li></ul><h3><span class="st risk"><svg class="i" aria-hidden="true"><use href="#i-risk"/></svg>At risk</span><span>· 1 project</span></h3><ul class="group"><li><span><a href="#">Mobile app 2.0</a><span class="cat">Engineering</span></span><span class="prog"><span><i style="width:45%"></i></span>45%</span><span class="due">Due 2 Dec</span><span class="tasks">27 of 60 tasks</span></li></ul><h3><span class="st ok"><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg>On track</span><span>· 4 projects</span></h3><ul class="group"><li><span><a href="#">Website redesign</a><span class="cat">Design</span></span><span class="prog"><span><i style="width:72%"></i></span>72%</span><span class="due">Due 14 Nov</span><span class="tasks">18 of 25 tasks</span></li><li><span><a href="#">Q4 customer survey</a><span class="cat">Research</span></span><span class="prog"><span><i style="width:90%"></i></span>90%</span><span class="due">Due 7 Nov</span><span class="tasks">9 of 10 tasks</span></li><li><span><a href="#">Spring catalogue</a><span class="cat">Marketing</span></span><span class="prog"><span><i style="width:15%"></i></span>15%</span><span class="due">Due 15 Jan</span><span class="tasks">3 of 20 tasks</span></li><li><span><a href="#">Onboarding emails</a><span class="cat">Marketing</span></span><span class="prog"><span><i style="width:60%"></i></span>60%</span><span class="due">Due 21 Nov</span><span class="tasks">9 of 15 tasks</span></li></ul></section>
+<section aria-labelledby="c-h"><h2 id="c-h">Tasks completed <small>18 to 31 October</small></h2><div class="chartbox"><svg class="chart" viewBox="0 0 700 180" role="img" aria-labelledby="c228-t c228-d" style="font-family:inherit"><title id="c228-t">Tasks completed, last 14 days</title><desc id="c228-d">Tasks completed per day, 18 to 31 October. Last week, Sunday to Saturday: 3, 12, 9, 14, 11, 8, 2, total 59. This week: 4, 15, 13, 17, 12, 10, 2, total 73.</desc><line x1="28" x2="696" y1="146.0" y2="146.0" stroke="#444c56" stroke-width="1"/><text x="22" y="150.0" text-anchor="end" font-size="11" fill="#9aa5b1">0</text><line x1="28" x2="696" y1="81.0" y2="81.0" stroke="#444c56" stroke-width="1"/><text x="22" y="85.0" text-anchor="end" font-size="11" fill="#9aa5b1">10</text><line x1="28" x2="696" y1="16.0" y2="16.0" stroke="#444c56" stroke-width="1"/><text x="22" y="20.0" text-anchor="end" font-size="11" fill="#9aa5b1">20</text><rect x="38.7" y="126.5" width="26.1" height="19.5" rx="3" fill="#7d8794"/><text x="51.7" y="161.0" text-anchor="middle" font-size="11" fill="#9aa5b1">S</text><text x="51.7" y="174.0" text-anchor="middle" font-size="10" fill="#9aa5b1">18</text><rect x="86.1" y="68.0" width="26.1" height="78.0" rx="3" fill="#7d8794"/><text x="99.1" y="161.0" text-anchor="middle" font-size="11" fill="#9aa5b1">M</text><text x="99.1" y="174.0" text-anchor="middle" font-size="10" fill="#9aa5b1">19</text><rect x="133.5" y="87.5" width="26.1" height="58.5" rx="3" fill="#7d8794"/><text x="146.6" y="161.0" text-anchor="middle" font-size="11" fill="#9aa5b1">T</text><text x="146.6" y="174.0" text-anchor="middle" font-size="10" fill="#9aa5b1">20</text><rect x="181.0" y="55.0" width="26.1" height="91.0" rx="3" fill="#7d8794"/><text x="194.0" y="161.0" text-anchor="middle" font-size="11" fill="#9aa5b1">W</text><text x="194.0" y="174.0" text-anchor="middle" font-size="10" fill="#9aa5b1">21</text><rect x="228.4" y="74.5" width="26.1" height="71.5" rx="3" fill="#7d8794"/><text x="241.4" y="161.0" text-anchor="middle" font-size="11" fill="#9aa5b1">T</text><text x="241.4" y="174.0" text-anchor="middle" font-size="10" fill="#9aa5b1">22</text><rect x="275.8" y="94.0" width="26.1" height="52.0" rx="3" fill="#7d8794"/><text x="288.9" y="161.0" text-anchor="middle" font-size="11" fill="#9aa5b1">F</text><text x="288.9" y="174.0" text-anchor="middle" font-size="10" fill="#9aa5b1">23</text><rect x="323.2" y="133.0" width="26.1" height="13.0" rx="3" fill="#7d8794"/><text x="336.3" y="161.0" text-anchor="middle" font-size="11" fill="#9aa5b1">S</text><text x="336.3" y="174.0" text-anchor="middle" font-size="10" fill="#9aa5b1">24</text><rect x="370.7" y="120.0" width="26.1" height="26.0" rx="3" fill="#7ea9dc"/><text x="383.7" y="161.0" text-anchor="middle" font-size="11" fill="#9aa5b1">S</text><text x="383.7" y="174.0" text-anchor="middle" font-size="10" fill="#9aa5b1">25</text><rect x="418.1" y="48.5" width="26.1" height="97.5" rx="3" fill="#7ea9dc"/><text x="431.1" y="161.0" text-anchor="middle" font-size="11" fill="#9aa5b1">M</text><text x="431.1" y="174.0" text-anchor="middle" font-size="10" fill="#9aa5b1">26</text><rect x="465.5" y="61.5" width="26.1" height="84.5" rx="3" fill="#7ea9dc"/><text x="478.6" y="161.0" text-anchor="middle" font-size="11" fill="#9aa5b1">T</text><text x="478.6" y="174.0" text-anchor="middle" font-size="10" fill="#9aa5b1">27</text><rect x="513.0" y="35.5" width="26.1" height="110.5" rx="3" fill="#7ea9dc"/><text x="526.0" y="161.0" text-anchor="middle" font-size="11" fill="#9aa5b1">W</text><text x="526.0" y="174.0" text-anchor="middle" font-size="10" fill="#9aa5b1">28</text><rect x="560.4" y="68.0" width="26.1" height="78.0" rx="3" fill="#7ea9dc"/><text x="573.4" y="161.0" text-anchor="middle" font-size="11" fill="#9aa5b1">T</text><text x="573.4" y="174.0" text-anchor="middle" font-size="10" fill="#9aa5b1">29</text><rect x="607.8" y="81.0" width="26.1" height="65.0" rx="3" fill="#7ea9dc"/><text x="620.9" y="161.0" text-anchor="middle" font-size="11" fill="#9aa5b1">F</text><text x="620.9" y="174.0" text-anchor="middle" font-size="10" fill="#9aa5b1">30</text><rect x="655.2" y="133.0" width="26.1" height="13.0" rx="3" fill="#7ea9dc"/><text x="668.3" y="161.0" text-anchor="middle" font-size="11" fill="#9aa5b1">S</text><text x="668.3" y="174.0" text-anchor="middle" font-size="10" fill="#9aa5b1">31</text><line x1="360.0" x2="360.0" y1="16" y2="146" stroke="#444c56" stroke-dasharray="3 3"/></svg></div>
+<p class="cap">Last week <b>59</b>, shown in grey. This week <b>73</b>, shown in blue.</p></section>
+<section aria-labelledby="a-h"><h2 id="a-h">Recent activity</h2><ul class="feed"><li><span><b>Jonas Weber</b> completed “Export invoices as CSV” in <b>Billing migration</b></span><time>12 min ago</time></li><li><span><b>Priya Nair</b> commented on “Hero image options” in <b>Website redesign</b></span><time>40 min ago</time></li><li><span><b>Sam Ortiz</b> moved “Push notifications” to Review in <b>Mobile app 2.0</b></span><time>1 h ago</time></li><li><span><b>Lena Fischer</b> added 3 tasks to <b>Spring catalogue</b></span><time>2 h ago</time></li><li><span><b>Tomás Ruiz</b> logged 6 h on <b>Mobile app 2.0</b></span><time>3 h ago</time></li><li><span><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to <b>Q4 customer survey</b></span><time>yesterday</time></li></ul></section>
+</main></div></div>
+<section class="sheet" aria-labelledby="sheet-h"><div class="sheet-in">
+<h2 id="sheet-h">Style 228 · Dim mode</h2>
+<p class="idea">A soft low-contrast slate around #22272e for long sessions, with muted colours, generous line height and a single reading column that groups projects by what needs attention, while every text pair still passes AA.</p>
+<h3>Palette</h3><ul class="sw-list"><li><i style="background:#22272e"></i><div><b>Dim</b><code>#22272e</code> · page, header and style sheet</div></li><li><i style="background:#2b3139"></i><div><b>Panel</b><code>#2b3139</code> · project groups, chart box, chips, fields</div></li><li><i style="background:#343b44"></i><div><b>Raised</b><code>#343b44</code> · current nav item, secondary button, avatar</div></li><li><i style="background:#444c56"></i><div><b>Line</b><code>#444c56</code> · every border and divider, meter tracks</div></li><li><i style="background:#c9d1d9"></i><div><b>Text</b><code>#c9d1d9</code> · body and names, held below white</div></li><li><i style="background:#9aa5b1"></i><div><b>Muted</b><code>#9aa5b1</code> · labels, meta, axis text</div></li><li><i style="background:#7ea9dc"></i><div><b>Blue</b><code>#7ea9dc</code> · links, meters, this week bars, focus</div></li><li><i style="background:#41618a"></i><div><b>Button</b><code>#41618a</code> · primary button fill, a muted blue</div></li><li><i style="background:#e6edf5"></i><div><b>On button</b><code>#e6edf5</code> · text on the primary button</div></li><li><i style="background:#7d8794"></i><div><b>Last week</b><code>#7d8794</code> · last week bars</div></li><li><i style="background:#8fc49c"></i><div><b>On track</b><code>#8fc49c</code> · On track word and icon</div></li><li><i style="background:#d8b46c"></i><div><b>At risk</b><code>#d8b46c</code> · At risk word and icon</div></li><li><i style="background:#e3958c"></i><div><b>Behind</b><code>#e3958c</code> · Behind word, icon and overdue</div></li></ul>
+<h3>Type</h3><div class="type-list"><div class="type-row"><code>-apple-system stack · 26 / 500</code><span style="font-size:26px;font-weight:500">Good morning, Mara</span></div><div class="type-row"><code>17 / 400 / 1.65 · lede</code><span style="font-size:17px">4 tasks are overdue. Start there.</span></div><div class="type-row"><code>15 / 600 · section</code><span style="font-size:15px;font-weight:600">Projects by status</span></div><div class="type-row"><code>15 / 400 / 1.65 · body</code><span style="">Aiko Tanaka uploaded survey-results-v2.pdf</span></div><div class="type-row"><code>13 / 400 muted · meta</code><span style="font-size:13px;color:#9aa5b1">9 of 10 tasks · Due 7 Nov</span></div><div class="type-row"><code>13 / 500 · group label</code><span style=""><span class="st risk"><svg class="i" aria-hidden="true"><use href="#i-risk"/></svg>At risk</span></span></div></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3><dl class="facts"><dt>Spacing</dt><dd>8px unit. 12px row padding, 48px between sections, a 760px reading column with 32px sides.</dd><dt>Density</dt><dd>Low. One column, projects grouped into Behind, At risk and On track.</dd><dt>Corners</dt><dd>6px on panels, fields, buttons and chips. Round avatar.</dd><dt>Borders</dt><dd>1px #444c56 around panels and between rows. No heavier rules.</dd><dt>Shadows</dt><dd>None. Low glare matters more than depth.</dd><dt>Icons</dt><dd>17px line icons at 1.6 stroke, only where they carry meaning. Status is a check circle, a triangle or a crossed square.</dd><dt>Tone</dt><dd>Calm and guiding. 4 tasks are overdue. Start there, then the rest of the week.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="ctl-grid">
+<div><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn btn-primary" type="button">Save changes</button><button class="btn btn-primary is-focus" type="button">Save changes</button></div></div>
+<div><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn btn-secondary" type="button">Cancel</button><button class="btn btn-secondary is-focus" type="button">Cancel</button></div></div>
+<div><label class="field"><span class="ctl-label">Text field</span><input type="text" value="Website redesign"></label></div>
+<div><label class="field"><span class="ctl-label">Text field, focused</span><input type="text" class="is-focus" value="Mobile app 2.0"></label></div>
+<div><span class="ctl-label">List row</span><div class="row-demo"><span>Billing migration</span><span class="st bad"><svg class="i" aria-hidden="true"><use href="#i-behind"/></svg>Behind</span></div></div>
+<div><span class="ctl-label">List row, focused</span><div class="row-demo is-focus"><span>Billing migration</span><span class="st bad"><svg class="i" aria-hidden="true"><use href="#i-behind"/></svg>Behind</span></div></div>
+</div></div></section>
+</body>
+</html>

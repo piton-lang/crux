@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 306 · Mission control · Brightwork</title>
+<style>
+:root{color-scheme:dark;--bg:#040a14;--pn:#0a1628;--pn2:#0e1d33;--ln:#29486b;--ink:#dbe8f5;--mut:#8fa8c4;--cy:#59d6ff;--amb:#ffb020;--red:#ff6b6b;--grn:#4be08a;--focus:#ffffff;--c:Bahnschrift,"DIN Alternate","Roboto Condensed","Arial Narrow",system-ui,sans-serif;--m:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg) radial-gradient(ellipse at 50% -20%,#0f2747 0,transparent 60%) no-repeat;color:var(--ink);font:14px/1.45 var(--c)}
+:focus-visible,.is-focus{outline:2px solid var(--focus);outline-offset:3px;box-shadow:0 0 0 6px rgba(89,214,255,.45)}
+.ic{width:18px;height:18px;flex:none}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;padding:12px 24px;border-bottom:1px solid var(--ln)}
+.bar .id{font:700 15px var(--c);letter-spacing:.2em;text-transform:uppercase}
+.bar .id small{display:block;font-size:11px;color:var(--mut);letter-spacing:.14em}
+.bar nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.bar nav a{display:block;padding:6px 12px;color:var(--mut);text-decoration:none;text-transform:uppercase;letter-spacing:.12em;font-size:12px;border:1px solid transparent}
+.bar nav a[aria-current]{color:var(--cy);border-color:var(--cy)}
+.live{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.live b{color:var(--grn)}
+main{padding:16px 24px 24px;max-width:1440px;margin:0 auto}
+h1{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--mut);font-weight:600;margin:0 0 12px}
+.clocks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:12px;list-style:none;padding:0}
+.clk{position:relative;background:#030810;border:1px solid var(--ln);padding:12px 16px;text-align:center}
+.clk .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+.clk .v{font:600 44px/1.1 var(--m);font-variant-numeric:tabular-nums;letter-spacing:.04em;color:var(--cy);text-shadow:0 0 18px rgba(89,214,255,.35)}
+.clk.warn .v{color:var(--amb);text-shadow:0 0 18px rgba(255,176,32,.3)}
+.clk .n{font-size:12px;color:var(--mut)}
+.wall{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr) minmax(0,1fr);gap:12px}
+.pn{position:relative;background:var(--pn);border:1px solid var(--ln);padding:12px 16px 16px;min-width:0;
+ background-image:linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy));
+ background-size:14px 2px,2px 14px,14px 2px,2px 14px,14px 2px,2px 14px,14px 2px,2px 14px;
+ background-position:0 0,0 0,100% 0,100% 0,0 100%,0 100%,100% 100%,100% 100%;background-repeat:no-repeat}
+.pn h2{display:flex;justify-content:space-between;gap:8px;margin:0 0 12px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);font-weight:600;border-bottom:1px solid #1b3352;padding-bottom:8px}
+.pn h2 b{color:var(--ink);font-weight:600}
+.span2{grid-column:1/-1}
+.seq{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 24px}.seq li:nth-child(-n+3){border-top:0}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;list-style:none;margin:0;padding:0}
+.tile{border:1px solid #1f3a5a;background:var(--pn2);padding:10px 12px;border-top:3px solid var(--grn)}
+.tile.degraded{border-top-color:var(--amb);background:#1c1a14}.tile.recovered{border-top-color:var(--cy)}
+.tile:last-child{grid-column:1/-1}
+.tile .nm{font:600 14px var(--m)}
+.tile .s{display:flex;align-items:center;gap:6px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin:4px 0}
+.tile .d{font-size:12px;color:var(--mut)}.tile .d b{color:var(--ink);font-family:var(--m);font-weight:500}
+.healthy{color:var(--grn)}.degraded .s,.degraded{color:var(--amb)}.recovered{color:var(--cy)}.firing{color:var(--red)}.resolved{color:var(--grn)}
+svg.ch{display:block;width:100%;height:auto}
+svg.ch .g line{stroke:#17304d;stroke-width:1}
+.ax{display:flex;justify-content:space-between;font:11px var(--m);color:var(--mut);margin-top:4px}
+.read{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:8px;font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.1em}
+.read b{font:600 18px var(--m);color:var(--ink);letter-spacing:0;display:block}
+.inc{border-color:var(--amb);background-color:#14130e}
+.inc .code{font:700 28px var(--m);color:var(--amb)}
+.inc .tt{font-size:18px;margin:4px 0 12px}
+.inc dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0}
+.inc dt{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);padding-top:2px}.inc dd{margin:0}
+.chip{display:inline-flex;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:.12em;font-weight:700;font-size:13px}
+ol.log{list-style:none;margin:0;padding:0}
+ol.log li{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;padding:8px 0;border-top:1px solid #1b3352}
+ol.log li:first-child{border-top:0}
+ol.log .t{font:13px var(--m);color:var(--cy);grid-row:span 2}
+ol.log .m{font-size:12px;color:var(--mut)}
+.leg{display:flex;gap:16px;font-size:12px;color:var(--mut);margin-bottom:6px;text-transform:uppercase;letter-spacing:.1em}
+.leg i{display:inline-block;width:16px;height:2px;vertical-align:4px;margin-right:6px}
+.foot{margin:12px 0 0;font-size:12px;color:var(--mut);letter-spacing:.06em}
+/* sheet */
+.sheet{max-width:1440px;margin:32px auto 0;padding:32px 24px 64px;border-top:1px solid var(--ln);background:#060e1b}
+.sheet h2{font-size:22px;letter-spacing:.12em;text-transform:uppercase;margin:0}
+.sheet h3{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--cy);margin:32px 0 12px}
+.idea{color:var(--mut);max-width:760px}
+.swatches{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+.sw{display:flex;gap:12px;align-items:center;border:1px solid var(--ln);padding:8px;background:var(--pn)}
+.sw i{width:36px;height:36px;flex:none;border:1px solid #3d5f86}
+.sw b{display:block;letter-spacing:.08em;text-transform:uppercase;font-size:12px}.sw code{display:block;font-size:12px;color:var(--cy)}.sw span{font-size:12px;color:var(--mut)}
+.stack code{color:var(--mut);font-size:12px}
+.type-row{display:flex;flex-wrap:wrap;gap:6px 24px;align-items:baseline;padding:8px 0;border-bottom:1px solid #1b3352}
+.type-row code{width:160px;font-size:12px;color:var(--mut)}
+.facts{display:grid;grid-template-columns:140px 1fr;gap:6px 16px;margin:0}
+.facts dt{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}.facts dd{margin:0}
+.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 24px}
+.ctl-label,.field span{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);margin-bottom:6px}
+.btn{font:700 13px var(--c);letter-spacing:.14em;text-transform:uppercase;padding:9px 18px;cursor:pointer;margin:0 10px 8px 0;border-radius:0;clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px)}
+.btn.is-focus{clip-path:none}
+.btn.primary{background:var(--cy);color:#04121f;border:1px solid var(--cy)}
+.btn.secondary{background:transparent;color:var(--cy);border:1px solid var(--cy)}
+.field input{width:100%;background:#030810;color:var(--ink);border:1px solid var(--ln);padding:9px 12px;font:14px var(--m)}
+.row-demo{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border:1px solid var(--ln);background:var(--pn);color:var(--ink);text-decoration:none;font-family:var(--m)}
+.st{display:inline-flex;gap:6px;align-items:center;color:var(--amb);font:700 12px var(--c);letter-spacing:.12em;text-transform:uppercase}
+@media (max-width:1100px){.wall{grid-template-columns:repeat(2,minmax(0,1fr))}.clocks{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.seq{grid-template-columns:minmax(0,1fr)}.seq li:nth-child(n+2){border-top:1px solid #1b3352}.bar,main{padding-left:16px;padding-right:16px}.live{margin-left:0}.wall,.clocks{grid-template-columns:minmax(0,1fr)}.span2{grid-column:auto}.clk .v{font-size:34px}.tiles{grid-template-columns:minmax(0,1fr)}.controls,.facts{grid-template-columns:minmax(0,1fr)}.sheet{padding:24px 16px 48px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="s-healthy" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-degraded" viewBox="0 0 24 24"><path d="M12 3L22 20H2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9.5v5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17.3" r="1.2" fill="currentColor"/></symbol>
+<symbol id="s-down" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+<symbol id="s-recovered" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18.5 2.8v4.6h-4.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-firing" viewBox="0 0 24 24"><path d="M13.5 2L5 13.5h6L10 22l9-12h-6.2z" fill="currentColor"/></symbol>
+<symbol id="s-resolved" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-investigating" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15 15l5.5 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+<symbol id="s-deploy" viewBox="0 0 24 24"><path d="M12 3v12M7 8l5-5 5 5M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="s-bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15zM10 20.5h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+</defs></svg>
+<header class="bar">
+  <div class="id">Brightwork Ops<small>Production control</small></div>
+  <nav aria-label="Suite"><ul><li><a href="#">Projects</a></li><li><a href="#">Canvas</a></li><li><a href="#">Drive</a></li><li><a href="#">Code</a></li><li><a href="#" aria-current="page">Ops</a></li></ul></nav>
+  <div class="live"><svg class="ic healthy" aria-hidden="true"><use href="#s-healthy"/></svg><span>Telemetry <b>live</b> · last 24 hours</span></div>
+</header>
+<main>
+  <h1>Brightwork Ops, the suite's service monitor, showing production for the last 24 hours</h1>
+  <ul class="clocks" aria-label="Mission clocks">
+    <li class="clk"><div class="k">Station time</div><div class="v">10:00:00</div><div class="n">Production · window 10:00 to 10:00</div></li><li class="clk warn"><div class="k">INC-0427 open</div><div class="v">T+03:02</div><div class="n">Opened 06:58</div></li><li class="clk"><div class="k">Billing back</div><div class="v">T+02:06</div><div class="n">Recovered 07:54 after 6 min down</div></li><li class="clk"><div class="k">Last deploy</div><div class="v">T+00:48</div><div class="n">web v3.18.2 at 09:12</div></li>
+  </ul>
+  <div class="wall">
+    <section class="pn" aria-labelledby="p1"><h2 id="p1"><span>Console 01 · <b>Services</b></span><span>5 tracked</span></h2>
+      <ul class="tiles"><li class="tile healthy"><div class="nm">api</div><div class="s healthy"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg>Nominal</div><div class="d">Healthy · uptime <b>99.98%</b><br>p95 latency <b>182 ms</b></div></li><li class="tile healthy"><div class="nm">web</div><div class="s healthy"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg>Nominal</div><div class="d">Healthy · uptime <b>99.99%</b><br>p95 latency <b>96 ms</b></div></li><li class="tile degraded"><div class="nm">sync-worker</div><div class="s degraded"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-degraded"/></svg>Caution</div><div class="d">Degraded · uptime <b>99.41%</b><br>Queue depth <b>4,812</b></div></li><li class="tile healthy"><div class="nm">notifications</div><div class="s healthy"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg>Nominal</div><div class="d">Healthy · uptime <b>99.95%</b></div></li><li class="tile recovered"><div class="nm">billing</div><div class="s recovered"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-recovered"/></svg>Recovered</div><div class="d">Recovered<br>Outage <b>Down 6 min, back 07:54</b></div></li></ul>
+    </section>
+    <section class="pn" aria-labelledby="p2"><h2 id="p2"><span>Console 02 · <b>Requests per minute</b></span><span>24 h</span></h2>
+      <svg class="ch" viewBox="0 0 600 200" role="img" aria-label="Requests per minute over 24 hours, from about 1,200 at night to a peak of 9,400 at 14:00."><g class="g"><line x1="0" x2="600" y1="0" y2="0"/><line x1="0" x2="600" y1="40" y2="40"/><line x1="0" x2="600" y1="80" y2="80"/><line x1="0" x2="600" y1="120" y2="120"/><line x1="0" x2="600" y1="160" y2="160"/><line x1="0" x2="600" y1="200" y2="200"/><line y1="0" y2="200" x1="0" x2="0"/><line y1="0" y2="200" x1="50" x2="50"/><line y1="0" y2="200" x1="100" x2="100"/><line y1="0" y2="200" x1="150" x2="150"/><line y1="0" y2="200" x1="200" x2="200"/><line y1="0" y2="200" x1="250" x2="250"/><line y1="0" y2="200" x1="300" x2="300"/><line y1="0" y2="200" x1="350" x2="350"/><line y1="0" y2="200" x1="400" x2="400"/><line y1="0" y2="200" x1="450" x2="450"/><line y1="0" y2="200" x1="500" x2="500"/><line y1="0" y2="200" x1="550" x2="550"/><line y1="0" y2="200" x1="600" x2="600"/></g><path d="M0 48 L25 34 L50 24 L75 18 L100 12 L125 20 L150 30 L175 46 L200 68 L225 90 L250 112 L275 132 L300 150 L325 162 L350 170 L375 174 L400 176 L425 176 L450 175 L475 168 L500 148 L525 116 L550 82 L575 60 L600 50" fill="none" stroke="#59d6ff" stroke-width="3"/><circle cx="100" cy="12" r="6" fill="none" stroke="#ffffff" stroke-width="2"/></svg>
+      <div class="ax" aria-hidden="true"><span>10:00</span><span>14:00</span><span>18:00</span><span>22:00</span><span>02:00</span><span>06:00</span><span>10:00</span></div>
+      <div class="read"><span>Peak<b>9,400</b>at 14:00</span><span>Night floor<b>~1,200</b>02:00 to 03:00</span></div>
+    </section>
+    <section class="pn inc" aria-labelledby="p3"><h2 id="p3"><span>Console 03 · <b>Incident</b></span><span>Severity 2</span></h2>
+      <div class="code">INC-0427</div><div class="tt">sync-worker queue backlog</div>
+      <dl><dt>Status</dt><dd><span class="chip degraded"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-investigating"/></svg>Investigating</span></dd><dt>Severity</dt><dd>2</dd><dt>Opened</dt><dd>06:58</dd><dt>Owner</dt><dd>Jonas Weber</dd></dl>
+    </section>
+    <section class="pn" aria-labelledby="p4"><h2 id="p4"><span>Console 04 · <b>Error rate</b></span><span>%</span></h2>
+      <svg class="ch" viewBox="0 0 300 110" role="img" aria-label="Error rate over 24 hours, near 0.1 percent with a spike to 2.3 percent at 07:48."><g class="g"><line x1="0" x2="300" y1="0" y2="0"/><line x1="0" x2="300" y1="27.5" y2="27.5"/><line x1="0" x2="300" y1="55" y2="55"/><line x1="0" x2="300" y1="82.5" y2="82.5"/><line x1="0" x2="300" y1="110" y2="110"/><line y1="0" y2="110" x1="0" x2="0"/><line y1="0" y2="110" x1="50" x2="50"/><line y1="0" y2="110" x1="100" x2="100"/><line y1="0" y2="110" x1="150" x2="150"/><line y1="0" y2="110" x1="200" x2="200"/><line y1="0" y2="110" x1="250" x2="250"/><line y1="0" y2="110" x1="300" x2="300"/></g><path d="M0 105.6 L12.5 106 L25 105.2 L37.5 105.6 L50 104.7 L62.5 105.6 L75 106 L87.5 105.6 L100 105.2 L112.5 105.6 L125 106 L137.5 105.6 L150 105.6 L162.5 106.5 L175 106 L187.5 105.6 L200 106 L212.5 105.6 L225 105.6 L237.5 105.2 L250 105.6 L262.5 105.2 L270 104.3 L272.5 8.8 L273.8 70.4 L276.3 103 L287.5 105.2 L300 105.6" fill="none" stroke="#ff6b6b" stroke-width="2.5"/></svg>
+      <div class="read"><span>Baseline<b>0.1%</b></span><span>Spike<b>2.3%</b>at 07:48</span></div>
+    </section>
+    <section class="pn" aria-labelledby="p5"><h2 id="p5"><span>Console 05 · <b>Latency</b></span><span>ms</span></h2>
+      <div class="leg"><span><i style="background:#ffb020"></i>p95</span><span><i style="background:#59d6ff"></i>p50</span></div>
+      <svg class="ch" viewBox="0 0 300 110" role="img" aria-label="Latency p50 and p95 over 24 hours. p50 between 55 and 84 ms, p95 between 138 and 226 ms with the high near 08:00."><g class="g"><line x1="0" x2="300" y1="0" y2="0"/><line x1="0" x2="300" y1="27.5" y2="27.5"/><line x1="0" x2="300" y1="55" y2="55"/><line x1="0" x2="300" y1="82.5" y2="82.5"/><line x1="0" x2="300" y1="110" y2="110"/><line y1="0" y2="110" x1="0" x2="0"/><line y1="0" y2="110" x1="50" x2="50"/><line y1="0" y2="110" x1="100" x2="100"/><line y1="0" y2="110" x1="150" x2="150"/><line y1="0" y2="110" x1="200" x2="200"/><line y1="0" y2="110" x1="250" x2="250"/><line y1="0" y2="110" x1="300" x2="300"/></g><path d="M0 35.2 L12.5 32.6 L25 29 L37.5 26.4 L50 22.9 L62.5 25.5 L75 28.2 L87.5 31.7 L100 36.1 L112.5 39.6 L125 43.1 L137.5 44.9 L150 46.2 L162.5 47.5 L175 48.4 L187.5 48.8 L200 49.3 L212.5 49.3 L225 48.4 L237.5 45.8 L250 40.5 L262.5 34.3 L275 10.6 L287.5 29.9 L300 30.8" fill="none" stroke="#ffb020" stroke-width="2.5"/><path d="M0 78.3 L12.5 77 L25 75.7 L37.5 74.8 L50 73 L62.5 74.4 L75 75.7 L87.5 77.4 L100 79.2 L112.5 81 L125 82.7 L137.5 83.6 L150 84.5 L162.5 84.9 L175 85.4 L187.5 85.4 L200 85.8 L212.5 85.8 L225 85.4 L237.5 84.5 L250 82.3 L262.5 80.1 L275 73.9 L287.5 78.3 L300 78.8" fill="none" stroke="#59d6ff" stroke-width="2.5" stroke-dasharray="5 4"/></svg>
+      <div class="read"><span>p50<b>55–84</b></span><span>p95<b>138–226</b>high near 08:00</span></div>
+    </section>
+    <section class="pn" aria-labelledby="p6"><h2 id="p6"><span>Console 06 · <b>Event log</b></span><span>Alerts</span></h2>
+      <ol class="log"><li><span class="t">07:48</span><span>billing 5xx rate above 2 percent</span><span class="chip resolved"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-resolved"/></svg>Resolved</span></li><li><span class="t">06:58</span><span>sync-worker queue depth above 3,000</span><span class="chip firing"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-firing"/></svg>Firing</span></li><li><span class="t">Yesterday 22:10</span><span>api disk 80 percent</span><span class="chip resolved"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-resolved"/></svg>Resolved</span></li></ol>
+    </section>
+    <section class="pn span2" aria-labelledby="p7"><h2 id="p7"><span>Console 07 · <b>Deploy sequence</b></span><span>3 today</span></h2>
+      <ol class="log seq"><li><span class="t">09:12</span><span style="font-family:var(--m)">web v3.18.2</span><span class="m">by Priya Nair</span></li><li><span class="t">08:30</span><span style="font-family:var(--m)">api v5.4.0</span><span class="m">by Jonas Weber</span></li><li><span class="t">06:40</span><span style="font-family:var(--m)">sync-worker v1.9.1</span><span class="m">by Sam Ortiz</span></li></ol>
+    </section>
+  </div>
+</main>
+<section class="sheet" aria-labelledby="sheet-h">
+  <h2 id="sheet-h">Style 306 · Mission control</h2>
+  <p class="idea">A deep navy control-room wall: a row of large countdown-style clocks over a grid of numbered console panels with cyan corner brackets, nominal and caution wording and condensed caps.</p>
+  <h3>Palette</h3>
+  <ul class="swatches">
+    <li class="sw"><i style="background:#040a14"></i><div><b>Night</b><code>#040a14</code><span>page and clock faces</span></div></li>
+    <li class="sw"><i style="background:#0a1628"></i><div><b>Console</b><code>#0a1628</code><span>panel fill</span></div></li>
+    <li class="sw"><i style="background:#0e1d33"></i><div><b>Tile</b><code>#0e1d33</code><span>service tiles</span></div></li>
+    <li class="sw"><i style="background:#29486b"></i><div><b>Rule</b><code>#29486b</code><span>panel borders</span></div></li>
+    <li class="sw"><i style="background:#dbe8f5"></i><div><b>Ink</b><code>#dbe8f5</code><span>text</span></div></li>
+    <li class="sw"><i style="background:#8fa8c4"></i><div><b>Muted</b><code>#8fa8c4</code><span>labels and axes</span></div></li>
+    <li class="sw"><i style="background:#59d6ff"></i><div><b>Cyan</b><code>#59d6ff</code><span>clock digits, brackets, requests, p50, Recovered, primary</span></div></li>
+    <li class="sw"><i style="background:#ffb020"></i><div><b>Amber</b><code>#ffb020</code><span>Caution, the incident, p95, open incident clock</span></div></li>
+    <li class="sw"><i style="background:#4be08a"></i><div><b>Green</b><code>#4be08a</code><span>Nominal and Resolved</span></div></li>
+    <li class="sw"><i style="background:#ff6b6b"></i><div><b>Red</b><code>#ff6b6b</code><span>error series and Firing</span></div></li>
+    <li class="sw"><i style="background:#ffffff"></i><div><b>Focus</b><code>#ffffff</code><span>focus outline with a cyan halo</span></div></li>
+  </ul>
+  <h3>Type</h3>
+  <p class="stack"><code>Bahnschrift, "DIN Alternate", "Roboto Condensed", "Arial Narrow", system-ui for labels; ui-monospace, Menlo, Consolas for clocks and figures</code></p>
+  <div class="type-row"><code>44 mono 600</code><span style="font:600 44px var(--m);color:var(--cy)">T+03:02</span></div>
+  <div class="type-row"><code>28 mono 700</code><span style="font:700 28px var(--m);color:var(--amb)">INC-0427</span></div>
+  <div class="type-row"><code>12 caps 0.2em</code><span style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)">Console 02 · Requests</span></div>
+  <div class="type-row"><code>14 condensed</code><span style="">sync-worker queue backlog</span></div>
+  <div class="type-row"><code>13 caps bold</code><span style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--grn)">Nominal</span></div>
+  <h3>Spacing, density, corners and depth</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>12px gutters between panels, 16px panel padding</dd>
+    <dt>Density</dt><dd>Medium dense. Four clocks and seven consoles on one wide wall</dd>
+    <dt>Corners</dt><dd>Square panels with 14px cyan corner brackets; chamfered buttons</dd>
+    <dt>Borders</dt><dd>1px #29486b; service tiles carry a 3px status top edge</dd>
+    <dt>Shadows</dt><dd>A faint glow on clock digits only</dd>
+    <dt>Icons</dt><dd>18px status shapes beside words such as Nominal, Caution and Recovered</dd>
+    <dt>Tone</dt><dd>Control-room wording such as Console 04, Event log, Deploy sequence and T+ clocks</dd>
+  </dl>
+  <h3>Controls · normal and focus</h3>
+  <div class="controls">
+    <div class="ctl"><span class="ctl-label">Primary</span><button type="button" class="btn primary">Acknowledge</button> <button type="button" class="btn primary is-focus">Acknowledge</button></div>
+    <div class="ctl"><span class="ctl-label">Secondary</span><button type="button" class="btn secondary">Silence 1 h</button> <button type="button" class="btn secondary is-focus">Silence 1 h</button></div>
+    <div class="ctl"><label class="field"><span>Filter services</span><input value="sync-worker"></label></div>
+    <div class="ctl"><label class="field"><span>Filter services, focused</span><input class="is-focus" value="billing"></label></div>
+    <div class="ctl"><span class="ctl-label">List row</span><a href="#" class="row-demo"><span>sync-worker</span><span class="st degraded"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-degraded"/></svg>Degraded</span></a></div>
+    <div class="ctl"><span class="ctl-label">List row, focused</span><a href="#" class="row-demo is-focus"><span>sync-worker</span><span class="st degraded"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-degraded"/></svg>Degraded</span></a></div>
+  </div>
+</section>
+</body>
+</html>

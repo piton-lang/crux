@@ -1,0 +1,24 @@
+export anchor TeamChat:
+    description:
+        Brightwork Chat, a made-up team chat app, in the channel design-crit.
+
+    sidebar:
+        Channels general, design-crit which is current, mobile-release with 4
+        unread, billing-war-room with 1 mention, and random. Direct messages
+        with Priya Nair who is online, Jonas Weber who is away and Aiko Tanaka
+        who is offline.
+
+    messages:
+        - Priya Nair, 09:02, "Three hero options are up in Canvas. Thoughts by Monday?"
+        - Aiko Tanaka, 09:05, "B reads best on phones. A feels busy."
+        - Mara Okafor, 09:11, "Agree on B. Can we try the button in brand green?"
+        - Priya Nair, 09:12, an image attachment homepage-hero-B.png
+        - Jonas Weber, 09:20, "Unrelated, billing deploy is at 11:00, heads up"
+
+    thread:
+        A thread on Aiko's message has 3 replies, and reactions of a thumbs up
+        from 3 people and an eyes reaction from 1.
+
+    composer:
+        A message field with "Message #design-crit", buttons for attach, emoji
+        and send, and "Priya is typing" shown above it.

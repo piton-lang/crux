@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 246 · Outline dark · Brightwork</title>
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#000000; --line:#7a7a7a; --faint:#3a3a3a; --ink:#ededed; --muted:#a8a8a8; --mint:#5ef0c0; --pink:#ff8fc8; --amber:#ffc46b;
+  --ui:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:13px/1.45 var(--ui)}
+.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.25;stroke-linecap:square;stroke-linejoin:miter;flex:none}
+.i.sm{width:15px;height:15px}
+button,input{font:inherit;color:inherit;background:none}
+:focus-visible,.is-focus{outline:1px dashed var(--mint);outline-offset:3px}
+.cap{font:500 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+
+.app{margin:12px;display:grid;grid-template-columns:minmax(0,1fr) 300px;grid-template-rows:auto minmax(600px,auto) auto;gap:12px;grid-template-areas:"top top" "canvas side" "status status"}
+.box{border:1px solid var(--line);min-width:0}
+.top{grid-area:top;display:flex;flex-wrap:wrap;gap:12px;align-items:stretch}
+.top>*{border:1px solid var(--line);display:flex;align-items:center;gap:10px;padding:0 12px;min-height:48px}
+.brand b{font:600 13px var(--mono);letter-spacing:.04em}
+.brand span{color:var(--muted)}
+.tools{padding:0;gap:0}
+.tool{width:52px;height:48px;border:0;border-right:1px solid var(--faint);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;color:var(--ink)}
+.tool:last-child{border-right:0}
+.tool kbd{font:10px var(--mono);color:var(--muted)}
+.tool[aria-pressed=true]{color:var(--mint);box-shadow:inset 0 0 0 1px var(--mint)}
+.tool[aria-pressed=true] kbd{color:var(--mint)}
+.grow{flex:1;border:0!important;padding:0!important}
+.av{width:30px;height:30px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font:600 11px var(--mono)}
+.av.p{border-color:var(--amber);color:var(--amber)}
+.av.m{border-color:var(--mint);color:var(--mint)}
+.av.a{border-color:var(--pink);color:var(--pink)}
+.btn{height:36px;padding:0 14px;border:1px solid var(--line);display:inline-flex;align-items:center;gap:8px;cursor:pointer;font:500 12px var(--mono);text-transform:uppercase;letter-spacing:.08em}
+.btn.primary{border-color:var(--mint);color:var(--mint)}
+.btn:hover{border-color:var(--ink)}
+.acts{gap:8px}
+
+.canvas{grid-area:canvas;position:relative;display:grid;grid-template-columns:24px minmax(0,1fr);grid-template-rows:24px minmax(0,1fr);overflow:hidden}
+.ruler{border-color:var(--faint);border-style:solid;border-width:0;background:repeating-linear-gradient(90deg,var(--faint) 0 1px,transparent 1px 40px)}
+.rx{grid-column:2;border-bottom-width:1px;font:10px var(--mono);color:var(--muted);display:flex;gap:0;overflow:hidden}
+.rx span{flex:none;width:80px;padding:4px 3px}
+.ry{grid-row:2;border-right-width:1px;background:repeating-linear-gradient(180deg,var(--faint) 0 1px,transparent 1px 40px)}
+.corner{border-right:1px solid var(--faint);border-bottom:1px solid var(--faint)}
+.stage{padding:36px 40px 48px;min-width:0}
+.mode{display:flex;justify-content:space-between;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.mode .cap b{color:var(--mint);font-weight:500}
+.fwrap{position:relative;max-width:860px}
+.frame{container-type:inline-size;aspect-ratio:1440/820;border:1px solid var(--mint);display:flex;flex-direction:column;align-items:flex-start;padding:6.67cqw;gap:2.22cqw;position:relative}
+.frame>*{outline:1px solid var(--faint);outline-offset:.4cqw}
+.frame .h{margin:0;font:600 4.2cqw/1.1 var(--ui);color:var(--ink)}
+.frame .s{margin:0;font-size:1.6cqw;color:var(--muted)}
+.frame .b{position:relative;border:1px solid var(--ink);padding:1cqw 2.2cqw;font:500 1.25cqw var(--mono);text-transform:uppercase;letter-spacing:.1em}
+.frame .shot{align-self:stretch;flex:1;border:1px solid var(--line);position:relative;display:grid;place-items:center;color:var(--muted);font:1.3cqw var(--mono);background:linear-gradient(to top right,transparent calc(50% - .5px),var(--faint) 50%,transparent calc(50% + .5px)),linear-gradient(to top left,transparent calc(50% - .5px),var(--faint) 50%,transparent calc(50% + .5px))}
+.frame .shot span{background:var(--bg);padding:0 1cqw}
+.guide{position:absolute;left:30%;top:calc(-2.22cqw - 1px);height:2.22cqw;border-left:1px dashed var(--pink)}
+.guide i{position:absolute;left:.8cqw;top:50%;transform:translateY(-50%);font:normal 1.2cqw var(--mono);color:var(--pink);letter-spacing:0}
+.hd{position:absolute;width:9px;height:9px;border:1px solid var(--mint);background:var(--bg)}
+.htl{left:-5px;top:-5px}.htr{right:-5px;top:-5px}.hbl{left:-5px;bottom:-5px}.hbr{right:-5px;bottom:-5px}
+.pin{position:absolute;left:36%;top:44%;display:flex;gap:0;align-items:flex-start}
+.pin .dot{width:28px;height:28px;border:1px solid var(--amber);color:var(--amber);display:grid;place-items:center;font:600 10px var(--mono);background:var(--bg)}
+.pin .bub{border:1px solid var(--amber);border-left:0;background:var(--bg);padding:6px 10px;width:210px}
+.pin .bub b{font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--amber);display:flex;align-items:center;gap:6px}
+.pin .bub p{margin:4px 0 0}
+
+.side{grid-area:side;display:flex;flex-direction:column;gap:12px;min-width:0}
+.side section{border:1px solid var(--line)}
+.side h2{margin:0;padding:10px 12px;border-bottom:1px solid var(--faint);display:flex;justify-content:space-between}
+.props{display:grid;grid-template-columns:1fr 1fr;margin:0}
+.prop{display:flex;align-items:center;gap:8px;padding:0 12px;height:38px;border-bottom:1px solid var(--faint)}
+.prop:nth-child(odd){border-right:1px solid var(--faint)}
+.prop.full{grid-column:1/-1;border-right:0}
+.prop span{font:11px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em;min-width:30px}
+.prop input{border:0;width:100%;min-width:0;font:13px var(--mono);padding:4px 0}
+.prop input:focus{outline:none}
+.prop:focus-within{box-shadow:inset 0 0 0 1px var(--mint)}
+.prop .sw{width:14px;height:14px;border:1px solid var(--ink)}
+.prop:last-child,.prop.last{border-bottom:0}
+.tree{list-style:none;margin:0;padding:6px}
+.tree li{display:flex;align-items:center;gap:8px;height:32px;padding:0 8px 0 calc(8px + var(--d,0)*20px);border:1px solid transparent;white-space:nowrap}
+.tree li.sel{border-color:var(--mint);color:var(--mint)}
+.tree li.sel .ty{color:var(--mint)}
+.tree .ty{color:var(--muted)}
+.tree .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.tree .flag{font:10px var(--mono);text-transform:uppercase;letter-spacing:.08em;display:inline-flex;align-items:center;gap:4px}
+.tree .flag .i{width:10px;height:10px}
+.tree .co{color:var(--muted)}
+
+.status{grid-area:status;display:flex;flex-wrap:wrap;gap:12px}
+.status span{border:1px solid var(--line);display:inline-flex;align-items:center;gap:8px;padding:6px 12px;font:12px var(--mono)}
+.status .ok{border-color:var(--mint);color:var(--mint)}
+.mtools{display:none}
+
+@media (max-width:1100px){.app{grid-template-columns:minmax(0,1fr) 260px}}
+@media (max-width:760px){
+  .app{margin:8px;grid-template-columns:minmax(0,1fr);grid-template-areas:"top" "canvas" "mtools" "status";grid-template-rows:auto auto auto auto;gap:8px}
+  .side,.top .tools,.top .zoombox,.btn.pres{display:none}
+  .top{gap:8px}.top>*{min-height:44px;padding:0 8px}
+  .brand{flex:1 1 100%}
+  .canvas{grid-template-columns:16px minmax(0,1fr);grid-template-rows:16px auto}
+  .rx span{display:none}
+  .stage{padding:20px 12px 28px}
+  .pin{left:14%;top:46%}.pin .bub{width:160px}
+  .guide{display:none}
+  .mtools{grid-area:mtools;display:flex;border:1px solid var(--line)}
+  .mtools .tool{flex:1;width:auto}
+}
+
+.sheet{margin:40px 12px 0;padding:32px 24px 56px;border-top:1px solid var(--line)}
+.sheet>*{max-width:1160px;margin-left:auto;margin-right:auto}
+.sheet h2{font:600 24px/1.2 var(--ui);margin-top:0;margin-bottom:6px}
+.idea{font-size:15px;margin-top:0;margin-bottom:28px}
+.sheet h3{margin-top:28px;margin-bottom:10px}
+.sws{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.sws li{display:flex;gap:10px;align-items:center;padding:10px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-size:12px}
+.sws i{width:36px;height:36px;border:1px solid var(--line);flex:none}
+.sws b{display:block;font:500 12px var(--mono)}
+.sws code{font-family:var(--mono);color:var(--muted)}
+.trow{display:flex;flex-wrap:wrap;gap:16px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--faint)}
+.trow code{width:190px;font:11px var(--mono);color:var(--muted);flex:none}
+.facts{display:grid;grid-template-columns:140px 1fr;margin-top:0;border-top:1px solid var(--faint)}
+.facts dt,.facts dd{padding:8px 0;border-bottom:1px solid var(--faint);margin:0}
+.facts dt{font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding-top:10px}
+.ctls{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.ctls>div{border:1px solid var(--line);padding:14px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.fld{display:flex;flex-direction:column;gap:6px;width:100%;font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.fld input{height:36px;border:1px solid var(--line);padding:0 10px;font:13px var(--mono);text-transform:none;letter-spacing:0;color:var(--ink)}
+.fld input.is-focus{border-color:var(--mint)}
+.rowd{display:flex;align-items:center;gap:8px;height:32px;padding:0 8px;width:100%;border:1px solid var(--faint)}
+@media (max-width:760px){.sheet{margin:32px 8px 0;padding:28px 8px 48px}.facts{grid-template-columns:1fr}.facts dd{padding-top:0}.facts dt{border-bottom:0}.trow code{width:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<symbol id="i-move" viewBox="0 0 24 24"><path d="M5 3l14 7-6.5 2L10 19z"/></symbol>
+<symbol id="i-frame" viewBox="0 0 24 24"><path d="M8 3v18M16 3v18M3 8h18M3 16h18"/></symbol>
+<symbol id="i-rect" viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12"/></symbol>
+<symbol id="i-text" viewBox="0 0 24 24"><path d="M5 5h14M12 5v14M9 19h6"/></symbol>
+<symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l1.5-5L16 4.5l3.5 3.5L9 18.5zM14 6.5l3.5 3.5"/></symbol>
+<symbol id="i-hand" viewBox="0 0 24 24"><path d="M8 13V6a1.5 1.5 0 013 0v5M11 11V4.5a1.5 1.5 0 013 0V11M14 11V6.5a1.5 1.5 0 013 0V14a7 7 0 01-7 7h-.5a6 6 0 01-5-2.7L3 15a1.5 1.5 0 012.5-1.6L8 16"/></symbol>
+<symbol id="i-zoom" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21M8 10.5h5M10.5 8v5"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24"><path d="M5 12v8h14v-8M12 3v12M8 7l4-4 4 4"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5l12 7.5-12 7.5z"/></symbol>
+<symbol id="i-comp" viewBox="0 0 24 24"><path d="M12 3l9 9-9 9-9-9z"/><path d="M12 8.5l3.5 3.5-3.5 3.5-3.5-3.5z"/></symbol>
+<symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="15.5" cy="9.5" r="1.5"/></symbol>
+<symbol id="i-chev-r" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+<symbol id="i-chev-d" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+<symbol id="i-saved" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0113 0M16 4.6a3.5 3.5 0 010 6.8M18 14.2a6.5 6.5 0 013.5 5.8"/></symbol>
+<symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V3h9l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/></symbol>
+<symbol id="i-comment" viewBox="0 0 24 24"><path d="M4 4h16v12H10l-6 5z"/></symbol>
+<symbol id="i-sel" viewBox="0 0 24 24"><path d="M7 5l11 7-11 7z"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v16M6 14l6 6 6-6"/></symbol>
+<symbol id="i-radius" viewBox="0 0 24 24"><path d="M4 20V11a7 7 0 017-7h9"/></symbol>
+<symbol id="i-export" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M4 20h16"/></symbol>
+<symbol id="i-fill" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 14l10-10"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+<symbol id="i-gap" viewBox="0 0 24 24"><path d="M4 4h16M4 20h16M12 8v8M9 10l3-2 3 2M9 14l3 2 3-2"/></symbol>
+<symbol id="i-pad" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><rect x="8" y="8" width="8" height="8"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+</svg>
+<div class="app">
+  <header class="top">
+    <div class="brand"><svg class="i" aria-hidden="true"><use href="#i-frame"/></svg><b>CANVAS</b><span>Website redesign / Home v3</span></div>
+    <div class="tools" role="toolbar" aria-label="Tools">
+      <button class="tool" aria-pressed="true" aria-label="Move, V"><svg class="i"><use href="#i-move"/></svg><kbd>V</kbd></button>
+      <button class="tool" aria-pressed="false" aria-label="Frame, F"><svg class="i"><use href="#i-frame"/></svg><kbd>F</kbd></button>
+      <button class="tool" aria-pressed="false" aria-label="Rectangle, R"><svg class="i"><use href="#i-rect"/></svg><kbd>R</kbd></button>
+      <button class="tool" aria-pressed="false" aria-label="Text, T"><svg class="i"><use href="#i-text"/></svg><kbd>T</kbd></button>
+      <button class="tool" aria-pressed="false" aria-label="Pen, P"><svg class="i"><use href="#i-pen"/></svg><kbd>P</kbd></button>
+      <button class="tool" aria-pressed="false" aria-label="Hand, H"><svg class="i"><use href="#i-hand"/></svg><kbd>H</kbd></button>
+    </div>
+    <div class="zoombox"><span class="cap">Zoom</span><span style="font-family:var(--mono)">66%</span></div>
+    <div class="grow"></div>
+    <div role="group" aria-label="In this file: Priya Nair, Mara Okafor, Aiko Tanaka" style="gap:6px"><span class="av p" title="Priya Nair">PN</span><span class="av m" title="Mara Okafor">MO</span><span class="av a" title="Aiko Tanaka">AT</span></div>
+    <div class="acts"><button class="btn pres"><svg class="i sm" aria-hidden="true"><use href="#i-play"/></svg>Present</button><button class="btn primary"><svg class="i sm" aria-hidden="true"><use href="#i-share"/></svg>Share</button></div>
+  </header>
+
+  <main class="box canvas" aria-label="Canvas">
+    <div class="ruler corner"></div>
+    <div class="ruler rx" aria-hidden="true"><span>0</span><span>240</span><span>480</span><span>720</span><span>960</span><span>1200</span><span>1440</span><span>1680</span></div>
+    <div class="ruler ry"></div>
+    <div class="stage">
+      <div class="mode"><span class="cap"><b>Hero</b> · Frame · 1440 × 820</span><span class="cap">Outline view</span></div>
+      <div class="fwrap">
+        <div class="frame" role="img" aria-label="Hero frame in outline view, 1440 by 820, selected. Headline Every project, on one calm page, a subline, a primary button and a product screenshot placeholder, with a 32 pixel spacing guide above the button.">
+          <p class="h">Every project, on one calm page</p>
+          <p class="s">Plans, files and reviews for small teams, in one place.</p>
+          <span class="b">Get started<span class="guide"><i>32</i></span></span>
+          <span class="shot"><span>Product screenshot</span></span>
+        </div>
+        <span class="hd htl"></span><span class="hd htr"></span><span class="hd hbl"></span><span class="hd hbr"></span>
+        <div class="pin"><span class="dot" aria-hidden="true">PN</span><div class="bub" role="note"><b><svg class="i sm" aria-hidden="true"><use href="#i-comment"/></svg>Priya Nair</b><p>Try the button in brand green?</p></div></div>
+      </div>
+    </div>
+  </main>
+
+  <div class="side">
+    <section aria-labelledby="ih">
+      <h2 id="ih" class="cap"><span>Inspector</span><span>Hero</span></h2>
+      <div class="props">
+        <label class="prop"><span>X</span><input value="0" aria-label="X"></label>
+        <label class="prop"><span>Y</span><input value="0" aria-label="Y"></label>
+        <label class="prop"><span>W</span><input value="1440" aria-label="Width"></label>
+        <label class="prop"><span>H</span><input value="820" aria-label="Height"></label>
+        <label class="prop full"><span>Fill</span><i class="sw" aria-hidden="true"></i><input value="#FFFFFF" aria-label="Fill colour"></label>
+        <div class="prop full"><span>Layout</span><svg class="i sm" aria-hidden="true"><use href="#i-down"/></svg>Auto, vertical</div>
+        <label class="prop"><span>Gap</span><input value="32" aria-label="Gap"></label>
+        <label class="prop"><span>Pad</span><input value="96" aria-label="Padding"></label>
+        <label class="prop full"><span>Radius</span><input value="0" aria-label="Corner radius"></label>
+        <div class="prop full last"><span>Export</span>PNG · 2x<button class="btn" style="margin-left:auto;height:28px;padding:0 10px">Export</button></div>
+      </div>
+    </section>
+    <nav aria-labelledby="lh" style="border:1px solid var(--line)">
+      <h2 id="lh" class="cap" style="margin:0;padding:10px 12px;border-bottom:1px solid var(--faint)">Layers</h2>
+      <ul class="tree">
+        <li class="sel" aria-current="true"><svg class="i sm ty" aria-label="Frame"><use href="#i-frame"/></svg><span class="nm">Hero</span><span class="flag"><svg class="i" aria-hidden="true"><use href="#i-sel"/></svg>Selected</span></li>
+        <li style="--d:1"><svg class="i sm ty" aria-label="Text"><use href="#i-text"/></svg><span class="nm">Every project, on one calm page</span></li>
+        <li style="--d:1"><svg class="i sm ty" aria-label="Text"><use href="#i-text"/></svg><span class="nm">Subline</span></li>
+        <li style="--d:1"><svg class="i sm ty" aria-label="Component instance"><use href="#i-comp"/></svg><span class="nm">Primary button</span><span class="flag co">Instance</span></li>
+        <li style="--d:1"><svg class="i sm ty" aria-label="Image"><use href="#i-image"/></svg><span class="nm">Product screenshot</span></li>
+        <li><svg class="i sm ty" aria-label="Frame"><use href="#i-frame"/></svg><span class="nm">Logo strip</span></li>
+        <li><svg class="i sm ty" aria-label="Frame"><use href="#i-frame"/></svg><span class="nm">Features</span><span class="flag co"><svg class="i" aria-hidden="true"><use href="#i-chev-r"/></svg>Collapsed</span></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="mtools" role="toolbar" aria-label="Tools">
+    <button class="tool" aria-pressed="true" aria-label="Move"><svg class="i"><use href="#i-move"/></svg><kbd>V</kbd></button>
+    <button class="tool" aria-pressed="false" aria-label="Frame"><svg class="i"><use href="#i-frame"/></svg><kbd>F</kbd></button>
+    <button class="tool" aria-pressed="false" aria-label="Rectangle"><svg class="i"><use href="#i-rect"/></svg><kbd>R</kbd></button>
+    <button class="tool" aria-pressed="false" aria-label="Text"><svg class="i"><use href="#i-text"/></svg><kbd>T</kbd></button>
+    <button class="tool" aria-pressed="false" aria-label="Pen"><svg class="i"><use href="#i-pen"/></svg><kbd>P</kbd></button>
+    <button class="tool" aria-pressed="false" aria-label="Hand"><svg class="i"><use href="#i-hand"/></svg><kbd>H</kbd></button>
+  </div>
+
+  <footer class="status" aria-label="File status">
+    <span class="ok"><svg class="i sm" aria-hidden="true"><use href="#i-saved"/></svg>Saved 2 minutes ago</span>
+    <span><svg class="i sm" aria-hidden="true"><use href="#i-users"/></svg>3 people editing</span>
+    <span><svg class="i sm" aria-hidden="true"><use href="#i-tag"/></svg>Version 41</span>
+  </footer>
+</div>
+
+<section class="sheet" aria-labelledby="sh">
+  <h2 id="sh">Style 246 · Outline dark</h2>
+  <p class="idea">Every panel, control and even the canvas preview is a thin line drawing on pure black with no fills, so structure shows as wireframe and one mint line marks what is active.</p>
+  <h3 class="cap">Palette</h3>
+  <ul class="sws">
+    <li><i style="background:#000000"></i><div><b>Black</b><code>#000000</code> every surface</div></li>
+    <li><i style="background:#7a7a7a"></i><div><b>Line</b><code>#7a7a7a</code> panel and control outlines</div></li>
+    <li><i style="background:#3a3a3a"></i><div><b>Faint</b><code>#3a3a3a</code> inner dividers, rulers, never text</div></li>
+    <li><i style="background:#ededed"></i><div><b>Ink</b><code>#ededed</code> text</div></li>
+    <li><i style="background:#a8a8a8"></i><div><b>Muted</b><code>#a8a8a8</code> labels, type icons</div></li>
+    <li><i style="background:#5ef0c0"></i><div><b>Mint</b><code>#5ef0c0</code> active, selected, primary, focus</div></li>
+    <li><i style="background:#ff8fc8"></i><div><b>Pink</b><code>#ff8fc8</code> spacing guides, one avatar</div></li>
+    <li><i style="background:#ffc46b"></i><div><b>Amber</b><code>#ffc46b</code> comment pins</div></li>
+  </ul>
+  <h3 class="cap">Type · system-ui for text · ui-monospace for labels and values</h3>
+  <div class="trow"><code>24 / 600 title</code><span style="font-size:24px;font-weight:600">Style 246 · Outline dark</span></div>
+  <div class="trow"><code>13 / 400 body</code><span>Try the button in brand green?</span></div>
+  <div class="trow"><code>13 mono values</code><span style="font-family:var(--mono)">1440 · 820 · #FFFFFF</span></div>
+  <div class="trow"><code>11 mono caps tracked</code><span class="cap">Inspector</span></div>
+  <h3 class="cap">System</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>12px gutters between outlined boxes, 38px property rows, 32px layer rows.</dd>
+    <dt>Density</dt><dd>Medium. Canvas left, inspector over layers on the right.</dd>
+    <dt>Corners</dt><dd>Square everywhere. Only avatars are round.</dd>
+    <dt>Borders</dt><dd>1px #7a7a7a outlines on every box and control, #3a3a3a dividers inside.</dd>
+    <dt>Shadows</dt><dd>None, and no fills. Active items get a mint outline instead.</dd>
+    <dt>Icons</dt><dd>18px line icons at 1.25px stroke with square caps and mitred joins.</dd>
+    <dt>Focus</dt><dd>1px dashed mint outline offset 3px, a mint inset line on fields.</dd>
+    <dt>Tone</dt><dd>Technical mono caps, such as Inspector, Outline view and Export.</dd>
+  </dl>
+  <h3 class="cap">Controls · normal and focus</h3>
+  <div class="ctls">
+    <div><span class="cap">Primary</span><button class="btn primary">Share</button><button class="btn primary is-focus">Share</button></div>
+    <div><span class="cap">Secondary</span><button class="btn">Present</button><button class="btn is-focus">Present</button></div>
+    <div><label class="fld">Layer name<input value="Hero"></label><label class="fld">Layer name, focused<input class="is-focus" value="Hero"></label></div>
+    <div><span class="cap">List row</span><div class="rowd"><svg class="i sm" aria-hidden="true"><use href="#i-image"/></svg>Product screenshot</div><div class="rowd is-focus"><svg class="i sm" aria-hidden="true"><use href="#i-image"/></svg>Product screenshot</div></div>
+  </div>
+</section>
+</body>
+</html>

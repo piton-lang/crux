@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 159 · Web 2.0 beta · Brightwork</title>
+<style>
+:root {
+  --sky: #e8f2fb;
+  --white: #ffffff;
+  --ice: #f4f9fe;
+  --line: #b9d3ea;
+  --blue: #1f6fc0;
+  --blueDeep: #154f8c;
+  --lime: #8fd13f;
+  --green: #2f7a0f;
+  --orange: #ff8a1c;
+  --rust: #b54700;
+  --red: #c4202b;
+  --text: #2b3540;
+  --muted: #56636f;
+  --ui: "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", Verdana, Arial, sans-serif;
+  --logo: "Trebuchet MS", "Lucida Grande", Verdana, sans-serif;
+}
+* { box-sizing: border-box; }
+html { background: var(--sky); }
+body { margin: 0; color: var(--text); font: 13px/1.5 var(--ui); background: linear-gradient(#cfe4f7, var(--sky) 320px) no-repeat, var(--sky); }
+a { color: var(--blue); }
+:focus-visible, .is-focus { outline: none !important; box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--blue), 0 0 10px 4px rgba(31,111,192,0.55) !important; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.page { max-width: 1060px; margin: 0 auto; padding: 20px 20px 40px; }
+
+/* header with glossy logo and beta starburst */
+.top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+.brand { position: relative; text-decoration: none; display: inline-block; padding-right: 64px; }
+.wm { font: bold 44px/1 var(--logo); letter-spacing: -0.04em; color: var(--blueDeep); display: block; }
+.wm span { color: var(--green); }
+.reflect { font: bold 44px/1 var(--logo); letter-spacing: -0.04em; display: block; transform: scaleY(-1); height: 20px; overflow: hidden; color: var(--blueDeep); opacity: 0.18; -webkit-mask-image: linear-gradient(to top, #000, transparent 70%); mask-image: linear-gradient(to top, #000, transparent 70%); margin-top: -2px; }
+.reflect span { color: var(--green); }
+.burst { position: absolute; right: -4px; top: -14px; width: 72px; height: 72px; transform: rotate(14deg); }
+.acct { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 12px; margin-top: 8px; }
+.acct .av { width: 28px; height: 28px; border-radius: 4px; background: linear-gradient(#ffd9a8, #f0a95c); border: 1px solid #c98a44; display: grid; place-items: center; font-weight: bold; font-size: 11px; color: #4a2a05; }
+.notif { position: relative; border: 1px solid var(--line); background: linear-gradient(var(--white), #e3eef9); border-radius: 14px; padding: 4px 10px 4px 8px; font: bold 12px var(--ui); color: var(--blueDeep); cursor: pointer; display: inline-flex; gap: 6px; align-items: center; }
+.notif b { background: var(--red); color: #fff; border-radius: 9px; padding: 0 6px; font-size: 11px; }
+
+/* rounded tabs attached to the content box */
+.tabbar { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
+.tabs ul { list-style: none; margin: 0; padding: 0 0 0 12px; display: flex; flex-wrap: wrap; gap: 4px; }
+.tabs a { display: block; padding: 8px 16px 7px; border: 1px solid var(--line); border-bottom: 0; border-radius: 10px 10px 0 0; background: linear-gradient(#ffffff, #dbe9f6); color: var(--blueDeep); text-decoration: none; font-weight: bold; font-size: 13px; }
+.tabs a[aria-current="page"] { background: var(--white); position: relative; top: 1px; padding-bottom: 8px; color: var(--text); }
+.search { display: flex; align-items: center; margin-bottom: 6px; }
+.search input { font: 13px var(--ui); padding: 6px 12px; border: 1px solid #9fbedc; border-right: 0; border-radius: 14px 0 0 14px; width: 210px; box-shadow: inset 0 2px 3px rgba(0,0,0,0.08); color: var(--text); }
+.search button { font: bold 12px var(--ui); padding: 6px 12px; border: 1px solid #9fbedc; border-radius: 0 14px 14px 0; background: linear-gradient(#ffffff, #d5e6f6); color: var(--blueDeep); cursor: pointer; }
+.box { background: var(--white); border: 1px solid var(--line); border-radius: 0 12px 12px 12px; padding: 22px; box-shadow: 0 2px 8px rgba(31,111,192,0.12); }
+
+/* glossy buttons */
+.gel { position: relative; overflow: hidden; font: bold 14px/1 var(--ui); padding: 10px 18px; border-radius: 16px; border: 1px solid #23610a; color: #fff; background: linear-gradient(#3a8519, #2a6e0c); box-shadow: 0 1px 2px rgba(0,0,0,0.25); text-shadow: 0 -1px 0 rgba(0,0,0,0.3); cursor: pointer; }
+.gel::before { content: ""; position: absolute; left: 2px; right: 2px; top: 1px; height: 48%; border-radius: 14px 14px 8px 8px; background: linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.1)); }
+.gel.blue { border-color: #134a85; background: linear-gradient(#2a72c0, #1a5fa8); }
+.gel.silver { color: var(--blueDeep); text-shadow: 0 1px 0 #fff; border-color: #9fbedc; background: linear-gradient(#ffffff, #d2e3f3); }
+
+/* welcome */
+.welcome { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-bottom: 16px; border-bottom: 1px dotted var(--line); }
+.welcome h1 { margin: 0; font: bold 26px/1.2 var(--logo); letter-spacing: -0.02em; color: var(--blueDeep); }
+.welcome .d { margin: 2px 0 0; color: var(--muted); }
+.alert { margin: 14px 0 0; display: flex; align-items: center; gap: 10px; padding: 9px 14px; border: 1px solid #f0b97a; background: linear-gradient(#fff6d9, #ffe9b0); border-radius: 8px; font-weight: bold; color: #5a3000; font-size: 14px; }
+
+.cols { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 24px; margin-top: 20px; }
+.cols > * { min-width: 0; }
+
+/* stat gel tiles */
+.stats { list-style: none; margin: 0 0 22px; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.stats li { position: relative; overflow: hidden; border-radius: 12px; padding: 14px 12px 12px; text-align: center; border: 1px solid #9fbedc; background: linear-gradient(#ffffff, #dcebf8); }
+.stats li::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 50%; background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.2)); }
+.stats .n { position: relative; display: block; font: bold 34px/1 var(--logo); letter-spacing: -0.03em; color: var(--blueDeep); }
+.stats .l { position: relative; display: block; font-size: 11px; color: var(--muted); margin-top: 4px; }
+.stats li.hot { border-color: #a31620; background: linear-gradient(#d23a44, #b01822); }
+.stats li.hot .n, .stats li.hot .l { color: #fff; }
+
+h2 { font: bold 16px var(--logo); color: var(--blueDeep); margin: 0 0 8px; display: flex; align-items: center; gap: 8px; }
+h2 .new { font: bold 10px var(--ui); text-transform: uppercase; background: var(--orange); color: #3a1d00; border-radius: 3px; padding: 1px 5px; }
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; min-width: 560px; }
+th { text-align: left; font-size: 11px; color: var(--muted); font-weight: bold; padding: 8px 10px; background: linear-gradient(#f9fcff, #e4eff9); border-bottom: 1px solid var(--line); }
+td { padding: 9px 10px; border-bottom: 1px solid #e3edf6; vertical-align: middle; }
+tr:nth-child(even) td { background: var(--ice); }
+tr:last-child td { border-bottom: 0; }
+td.pn a { font-weight: bold; font-size: 14px; color: var(--blue); }
+td.pn span { display: block; color: var(--muted); font-size: 11px; }
+.pill { width: 110px; height: 12px; border-radius: 6px; background: #e1e8ef; border: 1px solid #b6c4d2; overflow: hidden; display: inline-block; vertical-align: middle; margin-right: 6px; }
+.pill i { display: block; height: 100%; border-radius: 6px; background: linear-gradient(#a6e06a 0 45%, #6fb52c 55%); }
+.tag { display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px 3px 5px; border-radius: 11px; font-weight: bold; font-size: 11px; white-space: nowrap; border: 1px solid; }
+.tag.ok { color: #24600a; border-color: #8dc95a; background: linear-gradient(#f2ffe5, #dcf5c3); }
+.tag.risk { color: #7a3300; border-color: #f0b064; background: linear-gradient(#fff6e6, #ffe1b5); }
+.tag.late { color: #fff; border-color: #a31620; background: linear-gradient(#d23a44, #b01822); }
+
+/* sidebar */
+.side .panel { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-bottom: 18px; }
+.side .ph { background: linear-gradient(#2a72c0, #1a5fa8); color: #fff; padding: 8px 12px; font: bold 14px var(--logo); position: relative; }
+.side .ph::before { content: ""; position: absolute; inset: 0 0 50% 0; background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.08)); }
+.side .ph span { position: relative; }
+.feed { list-style: none; margin: 0; padding: 0; }
+.feed li { display: grid; grid-template-columns: 30px 1fr; gap: 8px; padding: 9px 12px; border-top: 1px solid #e3edf6; font-size: 12px; }
+.feed li:first-child { border-top: 0; }
+.feed .a { width: 28px; height: 28px; border-radius: 4px; display: grid; place-items: center; font-weight: bold; font-size: 10px; color: #fff; }
+.feed .t { display: block; color: var(--muted); font-size: 11px; }
+.chartp { padding: 12px; }
+.chartp svg { width: 100%; height: auto; display: block; }
+.chartp p { margin: 6px 0 0; font-size: 11px; color: var(--muted); }
+.foot { text-align: center; font-size: 11px; color: var(--muted); margin-top: 18px; }
+
+/* style sheet */
+.ss { margin-top: 40px; background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 26px; box-shadow: 0 2px 8px rgba(31,111,192,0.12); }
+.ss h2 { font-size: 26px; letter-spacing: -0.02em; }
+.ss .idea { font-size: 15px; max-width: 760px; }
+.ss h3 { font: bold 15px var(--logo); color: #fff; margin: 26px 0 12px; padding: 7px 12px; border-radius: 8px; background: linear-gradient(#2a72c0, #1a5fa8); }
+.sw { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.sw li { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; font-size: 11px; }
+.sw .c { height: 56px; position: relative; }
+.sw .c::after { content: ""; position: absolute; inset: 0 0 50% 0; background: linear-gradient(rgba(255,255,255,0.45), rgba(255,255,255,0.05)); }
+.sw div:last-child { padding: 6px 8px; }
+.sw b { display: block; font-size: 12px; }
+.types p { margin: 0 0 10px; border-bottom: 1px dotted var(--line); padding-bottom: 8px; }
+.types small { display: block; font: 11px var(--ui); color: var(--muted); letter-spacing: 0; }
+.sys { margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.sys div { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; background: var(--ice); }
+.sys dt { font-weight: bold; color: var(--blueDeep); }
+.sys dd { margin: 2px 0 0; font-size: 12px; }
+.ctrls { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+.ctrls figure { margin: 0; display: grid; gap: 12px; justify-items: start; }
+.ctrls figcaption { font-weight: bold; color: var(--muted); font-size: 12px; }
+.field { display: grid; gap: 4px; width: 100%; font-size: 12px; font-weight: bold; }
+.field input { font: 13px var(--ui); padding: 7px 12px; border: 1px solid #9fbedc; border-radius: 14px; box-shadow: inset 0 2px 3px rgba(0,0,0,0.08); width: 100%; color: var(--text); }
+.row { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 10px; border: 1px solid #e3edf6; border-radius: 8px; background: var(--ice); font-weight: bold; color: var(--blue); }
+
+@media (max-width: 900px) {
+  .cols { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .page { padding: 16px; }
+  .box { padding: 14px; border-radius: 0 0 12px 12px; }
+  .tabs ul { padding: 0; }
+  .tabs a { padding: 7px 10px 6px; font-size: 12px; }
+  .search { width: 100%; }
+  .search input { width: 100%; flex: 1; }
+  .wm, .reflect { font-size: 34px; }
+  .ss { padding: 16px; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="chk" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7.5" fill="#3e9a14"/><path d="M4.3 8.3l2.4 2.4 5-5.2" fill="none" stroke="#fff" stroke-width="2"/></symbol>
+    <symbol id="tri" viewBox="0 0 16 16"><path d="M8 .8l7.5 14H.5z" fill="#e57400"/><path d="M7.2 5h1.6l-.2 5H7.4zM7.2 11.2h1.6v1.6H7.2z" fill="#fff"/></symbol>
+    <symbol id="stop" viewBox="0 0 16 16"><path d="M5 .5h6L15.5 5v6L11 15.5H5L.5 11V5z" fill="#fff"/><path d="M5.6 4.2l6.2 7.6M11.8 4.2l-6.2 7.6" stroke="#c4202b" stroke-width="2"/></symbol>
+    <symbol id="clock" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="#fff" stroke="#b54700" stroke-width="1.5"/><path d="M8 4v4.5l3 2" fill="none" stroke="#b54700" stroke-width="1.8"/></symbol>
+  </defs>
+</svg>
+<div class="page">
+<header>
+  <div class="top">
+    <a class="brand" href="#" aria-label="Brightwork home, beta">
+      <span class="wm">bright<span>work</span></span>
+      <span class="reflect" aria-hidden="true">bright<span>work</span></span>
+      <svg class="burst" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M50 2l7 14 15-8 1 16 16-2-6 15 15 6-12 10 12 10-15 6 6 15-16-2-1 16-15-8-7 14-7-14-15 8-1-16-16 2 6-15-15-6 12-10L4 36l15-6-6-15 16 2 1-16 15 8z" fill="#ff8a1c" stroke="#b54700" stroke-width="2"/>
+        <path d="M50 10l5 10 11-6 1 12 12-2-5 11 11 5-9 7 9 7-11 5 5 11-12-2-1 12-11-6-5 10z" fill="#fff" opacity=".25"/>
+        <text x="50" y="58" text-anchor="middle" font-family="Trebuchet MS, Verdana, sans-serif" font-weight="bold" font-size="24" fill="#3a1d00">BETA</text>
+      </svg>
+    </a>
+    <div class="acct">
+      <span class="av" aria-hidden="true">MO</span>
+      <span>Signed in as <b>Mara Okafor</b></span>
+      <button class="notif" type="button" aria-label="Notifications, 4 unread"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 12h10l-1.5-2.5V6.5a3.5 3.5 0 0 0-7 0v3z" fill="#ffc94d" stroke="#b07a00"/><circle cx="8" cy="13.5" r="1.6" fill="#b07a00"/></svg>Alerts <b>4</b></button>
+      <button class="gel" type="button">+ New project</button>
+    </div>
+  </div>
+  <div class="tabbar">
+    <nav class="tabs" aria-label="Main"><ul>
+      <li><a href="#" aria-current="page">Home</a></li><li><a href="#">Projects</a></li><li><a href="#">Tasks</a></li><li><a href="#">Team</a></li><li><a href="#">Reports</a></li><li><a href="#">Settings</a></li>
+    </ul></nav>
+    <form class="search" role="search"><label class="sr" for="q">Search projects and tasks</label><input id="q" type="search" placeholder="Search projects and tasks"><button type="submit">Go</button></form>
+  </div>
+</header>
+
+<main class="box">
+  <div class="welcome">
+    <div>
+      <h1>Welcome back, Mara!</h1>
+      <p class="d">It’s Saturday 31 October 2026</p>
+    </div>
+    <button class="gel silver" type="button">Customize this page</button>
+  </div>
+  <p class="alert"><svg width="18" height="18" aria-hidden="true"><use href="#clock"/></svg>Heads up! 4 tasks are overdue.</p>
+
+  <div class="cols">
+    <div>
+      <ul class="stats" aria-label="This week">
+        <li><span class="n">6</span><span class="l">active projects</span></li>
+        <li><span class="n">23</span><span class="l">tasks due this week</span></li>
+        <li class="hot"><span class="n">4</span><span class="l">overdue tasks</span></li>
+        <li><span class="n">186</span><span class="l">hours logged this week</span></li>
+      </ul>
+
+      <section aria-labelledby="pj">
+        <h2 id="pj">Your projects <span class="new">6 active</span></h2>
+        <div class="tablewrap" tabindex="0" role="region" aria-labelledby="pj">
+        <table>
+          <thead><tr><th scope="col">Project</th><th scope="col">Progress</th><th scope="col">Tasks</th><th scope="col">Due</th><th scope="col">Status</th></tr></thead>
+          <tbody>
+            <tr><td class="pn"><a href="#">Website redesign</a><span>Design</span></td><td><span class="pill" aria-hidden="true"><i style="width:72%"></i></span>72%</td><td>18 of 25</td><td>14 Nov</td><td><span class="tag ok"><svg width="14" height="14" aria-hidden="true"><use href="#chk"/></svg>On track</span></td></tr>
+            <tr><td class="pn"><a href="#">Mobile app 2.0</a><span>Engineering</span></td><td><span class="pill" aria-hidden="true"><i style="width:45%"></i></span>45%</td><td>27 of 60</td><td>2 Dec</td><td><span class="tag risk"><svg width="14" height="14" aria-hidden="true"><use href="#tri"/></svg>At risk</span></td></tr>
+            <tr><td class="pn"><a href="#">Q4 customer survey</a><span>Research</span></td><td><span class="pill" aria-hidden="true"><i style="width:90%"></i></span>90%</td><td>9 of 10</td><td>7 Nov</td><td><span class="tag ok"><svg width="14" height="14" aria-hidden="true"><use href="#chk"/></svg>On track</span></td></tr>
+            <tr><td class="pn"><a href="#">Billing migration</a><span>Engineering</span></td><td><span class="pill" aria-hidden="true"><i style="width:30%"></i></span>30%</td><td>12 of 40</td><td>20 Nov</td><td><span class="tag late"><svg width="14" height="14" aria-hidden="true"><use href="#stop"/></svg>Behind</span></td></tr>
+            <tr><td class="pn"><a href="#">Spring catalogue</a><span>Marketing</span></td><td><span class="pill" aria-hidden="true"><i style="width:15%"></i></span>15%</td><td>3 of 20</td><td>15 Jan</td><td><span class="tag ok"><svg width="14" height="14" aria-hidden="true"><use href="#chk"/></svg>On track</span></td></tr>
+            <tr><td class="pn"><a href="#">Onboarding emails</a><span>Marketing</span></td><td><span class="pill" aria-hidden="true"><i style="width:60%"></i></span>60%</td><td>9 of 15</td><td>21 Nov</td><td><span class="tag ok"><svg width="14" height="14" aria-hidden="true"><use href="#chk"/></svg>On track</span></td></tr>
+          </tbody>
+        </table>
+        </div>
+      </section>
+    </div>
+
+    <aside class="side">
+      <section class="panel" aria-labelledby="act">
+        <div class="ph"><span id="act">Recent activity</span></div>
+        <ul class="feed">
+          <li><span class="a" style="background:#1f6fc0" aria-hidden="true">JW</span><span>Jonas Weber completed <a href="#">“Export invoices as CSV”</a> in Billing migration<span class="t">12 min ago</span></span></li>
+          <li><span class="a" style="background:#2f7a0f" aria-hidden="true">PN</span><span>Priya Nair commented on <a href="#">“Hero image options”</a> in Website redesign<span class="t">40 min ago</span></span></li>
+          <li><span class="a" style="background:#b54700" aria-hidden="true">SO</span><span>Sam Ortiz moved <a href="#">“Push notifications”</a> to Review in Mobile app 2.0<span class="t">1 h ago</span></span></li>
+          <li><span class="a" style="background:#7a3fa8" aria-hidden="true">LF</span><span>Lena Fischer added 3 tasks to Spring catalogue<span class="t">2 h ago</span></span></li>
+          <li><span class="a" style="background:#154f8c" aria-hidden="true">TR</span><span>Tomás Ruiz logged 6 h on Mobile app 2.0<span class="t">3 h ago</span></span></li>
+          <li><span class="a" style="background:#c4202b" aria-hidden="true">AT</span><span>Aiko Tanaka uploaded survey-results-v2.pdf to Q4 customer survey<span class="t">yesterday</span></span></li>
+        </ul>
+      </section>
+      <section class="panel" aria-labelledby="ch">
+        <div class="ph"><span id="ch">Tasks completed</span></div>
+        <div class="chartp">
+          <svg viewBox="0 0 280 170" role="img" aria-label="Tasks completed per day, Sunday 18 to Saturday 31 October: 3, 12, 9, 14, 11, 8, 2, then 4, 15, 13, 17, 12, 10, 2. Last week 59, this week 73.">
+            <defs>
+              <linearGradient id="gA" x1="0" x2="1"><stop offset="0" stop-color="#8bbbe8"/><stop offset=".5" stop-color="#5b9bd8"/><stop offset="1" stop-color="#3f82c6"/></linearGradient>
+              <linearGradient id="gB" x1="0" x2="1"><stop offset="0" stop-color="#a6e06a"/><stop offset=".5" stop-color="#6fb52c"/><stop offset="1" stop-color="#4f921a"/></linearGradient>
+              <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".2"/><stop offset="1" stop-color="#fff" stop-opacity="1"/></linearGradient>
+            </defs>
+            <g fill="url(#gA)">
+              <rect x="4" y="111" width="14" height="15" rx="3"/><rect x="22" y="66" width="14" height="60" rx="3"/><rect x="40" y="81" width="14" height="45" rx="3"/><rect x="58" y="56" width="14" height="70" rx="3"/><rect x="76" y="71" width="14" height="55" rx="3"/><rect x="94" y="86" width="14" height="40" rx="3"/><rect x="112" y="116" width="14" height="10" rx="3"/>
+            </g>
+            <g fill="url(#gB)">
+              <rect x="148" y="106" width="14" height="20" rx="3"/><rect x="166" y="51" width="14" height="75" rx="3"/><rect x="184" y="61" width="14" height="65" rx="3"/><rect x="202" y="41" width="14" height="85" rx="3"/><rect x="220" y="66" width="14" height="60" rx="3"/><rect x="238" y="76" width="14" height="50" rx="3"/><rect x="256" y="116" width="14" height="10" rx="3"/>
+            </g>
+            <g opacity=".35" transform="translate(0 252) scale(1 -1)">
+              <rect x="4" y="111" width="14" height="15" fill="#5b9bd8"/><rect x="22" y="96" width="14" height="30" fill="#5b9bd8"/><rect x="40" y="101" width="14" height="25" fill="#5b9bd8"/><rect x="58" y="96" width="14" height="30" fill="#5b9bd8"/><rect x="76" y="99" width="14" height="27" fill="#5b9bd8"/><rect x="94" y="104" width="14" height="22" fill="#5b9bd8"/><rect x="112" y="116" width="14" height="10" fill="#5b9bd8"/>
+              <rect x="148" y="106" width="14" height="20" fill="#6fb52c"/><rect x="166" y="96" width="14" height="30" fill="#6fb52c"/><rect x="184" y="98" width="14" height="28" fill="#6fb52c"/><rect x="202" y="96" width="14" height="30" fill="#6fb52c"/><rect x="220" y="98" width="14" height="28" fill="#6fb52c"/><rect x="238" y="102" width="14" height="24" fill="#6fb52c"/><rect x="256" y="116" width="14" height="10" fill="#6fb52c"/>
+            </g>
+            <rect x="0" y="127" width="280" height="30" fill="url(#fade)"/>
+            <path d="M0 126.5h280" stroke="#b9d3ea"/>
+            <g font-family="Lucida Grande, Verdana, sans-serif" font-size="10" fill="#56636f" text-anchor="middle"><text x="65" y="166">18–24 Oct · 59</text><text x="209" y="166">25–31 Oct · 73</text><text x="209" y="34" font-weight="bold" fill="#2f7a0f">peak 17</text></g>
+          </svg>
+          <p>Blue is last week, green is this week. Up 14 tasks!</p>
+        </div>
+      </section>
+    </aside>
+  </div>
+</main>
+<p class="foot">Brightwork beta · © 2026 · Made for small teams</p>
+
+<section class="ss" aria-labelledby="ssh">
+  <h2 id="ssh">Style 159 · Web 2.0 beta</h2>
+  <p class="idea">A 2006 web 2.0 app, with a lowercase two-tone logo and its mirror reflection, an orange Beta starburst, rounded tabs attached to a white content box, and glossy gel buttons and tiles over soft sky gradients.</p>
+  <h3>Palette</h3>
+  <ul class="sw">
+    <li><div class="c" style="background:#e8f2fb"></div><div><b>Sky</b>#e8f2fb · page gradient end</div></li>
+    <li><div class="c" style="background:#ffffff;border-bottom:1px solid #b9d3ea"></div><div><b>White</b>#ffffff · content box, active tab</div></li>
+    <li><div class="c" style="background:#f4f9fe"></div><div><b>Ice</b>#f4f9fe · zebra rows, list rows</div></li>
+    <li><div class="c" style="background:#b9d3ea"></div><div><b>Line</b>#b9d3ea · 1px borders, decorative</div></li>
+    <li><div class="c" style="background:#1f6fc0"></div><div><b>Blue</b>#1f6fc0 · links, panel heads, focus glow</div></li>
+    <li><div class="c" style="background:#154f8c"></div><div><b>Deep blue</b>#154f8c · logo, headings, numbers</div></li>
+    <li><div class="c" style="background:#2f7a0f"></div><div><b>Green</b>#2f7a0f · primary gel, logo half, On track</div></li>
+    <li><div class="c" style="background:#8fd13f"></div><div><b>Lime</b>#8fd13f · progress gloss, this week, never text</div></li>
+    <li><div class="c" style="background:#ff8a1c"></div><div><b>Orange</b>#ff8a1c · Beta burst, badges with dark text</div></li>
+    <li><div class="c" style="background:#b54700"></div><div><b>Rust</b>#b54700 · At risk text, burst edge</div></li>
+    <li><div class="c" style="background:#c4202b"></div><div><b>Red</b>#c4202b · Behind, overdue tile, counts</div></li>
+    <li><div class="c" style="background:#2b3540"></div><div><b>Text</b>#2b3540 · body copy; muted #56636f</div></li>
+  </ul>
+  <h3>Type</h3>
+  <div class="types">
+    <p style="font:bold 44px/1 var(--logo);letter-spacing:-.04em;color:#154f8c">bright<span style="color:#2f7a0f">work</span><small>Logo · Trebuchet MS, Lucida Grande, Verdana, sans-serif · bold 44px, minus 0.04em, lowercase, mirrored below at 18 percent</small></p>
+    <p style="font:bold 26px var(--logo);color:#154f8c">Welcome back, Mara!<small>Headings · Trebuchet MS bold · 26px page title, 16px section titles, 34px stat numbers</small></p>
+    <p style="font:13px/1.5 var(--ui)">Sam Ortiz moved “Push notifications” to Review.<small>Body · Lucida Grande, Lucida Sans Unicode, Trebuchet MS, Verdana, Arial, sans-serif · 13px at 1.5, meta 11px</small></p>
+  </div>
+  <h3>System</h3>
+  <dl class="sys">
+    <div><dt>Spacing</dt><dd>Compact 4px base, 8 to 12px inside, 20 to 24px between blocks. Fixed-feel 1060px column.</dd></div>
+    <div><dt>Density</dt><dd>Medium. Table plus a 300px sidebar of boxed widgets.</dd></div>
+    <div><dt>Corners</dt><dd>Generous. 10 to 12px panels, 16px gel buttons, 10px top corners on tabs.</dd></div>
+    <div><dt>Borders</dt><dd>1px pale blue on everything, darker 1px edges on gels.</dd></div>
+    <div><dt>Shadows</dt><dd>Soft blue 8px drop under the box. Gloss is a white top half on gels, tiles and panel heads. Reflections under logo and chart.</dd></div>
+    <div><dt>Icons</dt><dd>Small colourful filled 14px icons. Green circle tick On track, orange triangle bang At risk, red octagon cross Behind, clock for overdue.</dd></div>
+    <div><dt>Tone</dt><dd>Friendly and exclaiming. Welcome back, Mara! Heads up! Customize this page.</dd></div>
+  </dl>
+  <h3>Controls</h3>
+  <div class="ctrls">
+    <figure><figcaption>Primary button</figcaption><button class="gel" type="button">+ New project</button><button class="gel is-focus" type="button">+ New project · focus</button></figure>
+    <figure><figcaption>Secondary button</figcaption><button class="gel silver" type="button">Cancel</button><button class="gel silver is-focus" type="button">Cancel · focus</button></figure>
+    <figure><figcaption>Text field</figcaption><label class="field">Project name<input type="text" value="Spring catalogue"></label><label class="field">Project name · focus<input class="is-focus" type="text" value="Spring catalogue"></label></figure>
+    <figure><figcaption>List row</figcaption><div class="row">Mobile app 2.0 <span class="tag risk"><svg width="14" height="14" aria-hidden="true"><use href="#tri"/></svg>At risk</span></div><div class="row is-focus">Mobile app 2.0 <span class="tag risk"><svg width="14" height="14" aria-hidden="true"><use href="#tri"/></svg>At risk</span></div></figure>
+  </div>
+</section>
+</div>
+</body>
+</html>

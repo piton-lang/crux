@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 96 · Theatre playbill · Brightwork</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;overflow-x:hidden}
+img,svg{max-width:100%}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sheet .swatches{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.sheet .sw{display:flex;gap:12px;align-items:flex-start}
+.sheet .chip{flex:none;width:44px;height:44px}
+.sheet .type-row{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:16px;align-items:baseline;padding:8px 0}
+.sheet .type-row span{overflow-wrap:anywhere}
+.sheet .facts{display:grid;grid-template-columns:140px minmax(0,1fr);gap:8px 16px;margin:0}
+.sheet .facts dd{margin:0}
+.sheet .controls{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.sheet .ctl-label{display:block;margin-bottom:6px}
+.sheet .field input{width:100%}
+.sheet .row-demo{display:flex;justify-content:space-between;align-items:center;gap:12px;text-decoration:none}
+@media (max-width:640px){
+.sheet .type-row{grid-template-columns:1fr;gap:4px}
+.sheet .facts{grid-template-columns:1fr;gap:2px}
+.sheet .facts dd{margin-bottom:10px}
+}
+
+:root{--ivory:#fbf7ef;--foyer:#efe7da;--crimson:#8e1b2b;--ink:#1c1a1f;--grey:#4d4650;--brass:#7a6328;--lamp:#e8c66a;--laurel:#2d5a3a;--amber:#83500a;
+--serif:Baskerville,"Baskerville Old Face","Libre Baskerville","Hoefler Text",Georgia,serif;--label:Optima,Candara,"Segoe UI","Noto Sans",sans-serif}
+body{background:var(--foyer);color:var(--ink);font:16px/1.55 var(--serif)}
+a{color:var(--crimson)}
+.sym{width:.85em;height:.85em;flex:none}
+.valance{background:var(--crimson);color:var(--ivory);position:relative;padding-bottom:28px}
+.swag{position:absolute;left:0;right:0;bottom:-30px;width:100%;height:40px;display:block}
+.val-in{max-width:1180px;margin:0 auto;padding:12px 24px 0;position:relative}
+.val-top{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{margin:0;font:italic 34px var(--serif);letter-spacing:.02em}
+.tools{margin-left:auto;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.search input{width:240px;font:15px var(--serif);padding:7px 10px;border:1px solid var(--ivory);background:transparent;color:var(--ivory);border-radius:0}
+.search input::placeholder{color:#f1dfe0}
+.bell{color:var(--ivory);display:inline-flex;align-items:center;gap:2px;text-decoration:none;font:600 13px var(--label);min-height:40px}
+.bell svg{width:22px;height:22px}
+.user{font:600 12px var(--label);letter-spacing:.16em;text-transform:uppercase}
+.btn{font:600 12px var(--label);letter-spacing:.2em;text-transform:uppercase;padding:10px 18px;cursor:pointer;border-radius:0}
+.btn.primary{background:var(--crimson);color:var(--ivory);border:1px solid var(--crimson);box-shadow:inset 0 0 0 2px var(--ivory),inset 0 0 0 3px var(--crimson)}
+.btn.primary.on-red{background:var(--ivory);color:var(--crimson);box-shadow:none;border-color:var(--ivory)}
+.btn.secondary{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.nav{list-style:none;margin:8px 0 0;padding:0;display:flex;gap:4px 28px;flex-wrap:wrap}
+.nav a{color:var(--ivory);text-decoration:none;font:600 12px var(--label);letter-spacing:.2em;text-transform:uppercase;padding:6px 0;display:inline-block}
+.nav a[aria-current]{border-bottom:1px solid var(--lamp)}
+.wrap{max-width:1180px;margin:0 auto;padding:56px 24px 64px}
+.spread{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);background:var(--ivory);box-shadow:0 2px 0 #d8ccb9,0 12px 28px rgba(60,40,20,.12)}
+.pg{padding:40px;position:relative;text-align:center}
+.pg::before{content:"";position:absolute;inset:14px;border:1px solid var(--ink);outline:3px solid var(--brass);outline-offset:-8px;pointer-events:none}
+.pg-l{box-shadow:inset -18px 0 22px -18px rgba(60,40,20,.35)}
+.pg-r{box-shadow:inset 18px 0 22px -18px rgba(60,40,20,.35)}
+.pg section{position:relative;margin:0 0 32px}
+.kicker,.sc-no{font:600 11px var(--label);letter-spacing:.24em;text-transform:uppercase;color:var(--brass);margin:8px 0}
+h1{font:italic 400 44px/1.1 var(--serif);margin:8px 0}
+.orn{width:200px;height:16px;color:var(--brass);display:block;margin:12px auto}
+.notice{display:flex;gap:10px;align-items:baseline;justify-content:center;margin:0 auto;max-width:30ch;color:var(--crimson);font-style:italic}
+h2{font:400 28px var(--serif);font-variant:small-caps;letter-spacing:.06em;margin:0 0 4px}
+.act{display:block;font:600 12px var(--label);letter-spacing:.3em;text-transform:uppercase;color:var(--crimson);font-variant:normal}
+.sub{margin:0 0 16px;font-style:italic;color:var(--grey)}
+.figs{margin:16px auto 0;max-width:340px}
+.figs div{display:flex;align-items:baseline;gap:8px;border-bottom:1px dotted var(--grey);padding:6px 0}
+.figs dt{flex:1;text-align:left;display:flex;gap:6px;align-items:baseline}
+.figs dd{margin:0;font:italic 30px/1 var(--serif)}
+.figs .ov{color:var(--crimson)}
+.company{list-style:none;padding:0;margin:0 auto;max-width:360px;text-align:left}
+.company li{display:grid;grid-template-columns:auto 1fr;gap:0 8px;padding:6px 0}
+.company .nm{font-variant:small-caps;letter-spacing:.04em;font-size:18px}
+.company .dots{border-bottom:1px dotted var(--grey);margin-bottom:6px}
+.company .role{grid-column:1/-1;font:italic 14px var(--serif);color:var(--grey)}
+.scenes{list-style:none;padding:0;margin:16px 0 0;text-align:left}
+.scene{padding:10px 0;border-bottom:1px solid #ded4c4}
+.scene .sc-no{margin:0}
+.sc-line{display:flex;align-items:baseline;gap:8px;margin:0}
+.sc-name{font:20px var(--serif);color:var(--ink);text-decoration:none}
+.sc-name:hover{text-decoration:underline}
+.sc-line .dots{flex:1;border-bottom:1px dotted var(--grey)}
+.sc-pct{font:italic 22px var(--serif)}
+.sc-meta{margin:2px 0 6px;font-size:14px;color:var(--grey)}
+.sc-bar{height:3px;background:#e6dccb}
+.sc-bar span{display:block;height:100%;background:var(--brass)}
+.st{display:inline-flex;align-items:baseline;gap:5px;font:600 11px var(--label);letter-spacing:.16em;text-transform:uppercase}
+.st-on{color:var(--laurel)}.st-risk{color:var(--amber)}.st-behind{color:var(--crimson)}
+.interval{position:relative;margin:0 0 32px;font:600 11px var(--label);letter-spacing:.4em;text-transform:uppercase;color:var(--brass)}
+.chart{width:100%;height:auto;display:block;font-family:var(--serif)}
+.wings{list-style:none;padding:0;margin:16px 0 0;text-align:left}
+.wings li{padding:8px 0;border-bottom:1px solid #ded4c4}
+.dir{margin:0;font-style:italic}
+.dir b{font-style:normal;font-weight:400;font-variant:small-caps;letter-spacing:.04em}
+.dir q{font-style:normal}
+.cue{margin:2px 0 0;font:600 10.5px var(--label);letter-spacing:.2em;text-transform:uppercase;color:var(--grey)}
+:focus-visible,.is-focus{outline:2px solid var(--ink)!important;outline-offset:3px;box-shadow:0 0 0 6px var(--lamp)!important}
+.valance :focus-visible{outline-color:var(--ivory)!important}
+.sheet{margin-top:64px;background:var(--ivory);padding:40px;border:1px solid var(--ink);outline:3px solid var(--brass);outline-offset:-10px}
+.sheet h2{font-size:38px}
+.sheet h3{font:600 12px var(--label);letter-spacing:.28em;text-transform:uppercase;color:var(--crimson);margin:32px 0 12px;border-top:1px solid var(--ink);padding-top:12px}
+.sheet .idea{font:italic 19px/1.5 var(--serif);max-width:62ch}
+.sheet .chip{border:1px solid var(--ink)}
+.sheet code{font:13px ui-monospace,Menlo,monospace;color:var(--grey)}
+.sheet .ctl-label{font:600 11px var(--label);letter-spacing:.2em;text-transform:uppercase;color:var(--grey)}
+.sheet .field input{font:16px var(--serif);padding:8px 10px;border:1px solid var(--ink);background:var(--ivory);color:var(--ink);border-radius:0}
+.sheet .row-demo{border-bottom:1px dotted var(--grey);padding:10px 4px;color:var(--ink);font-size:18px}
+@media (max-width:900px){.spread{grid-template-columns:minmax(0,1fr)}.pg-l,.pg-r{box-shadow:none}.pg-r{border-top:1px solid #ded4c4}}
+@media (max-width:640px){
+.val-in{padding:12px 16px 0}.tools{margin-left:0;width:100%}.search{flex:1 1 100%}.search input{width:100%}
+.user{margin-left:auto}
+.nav{gap:2px 16px}
+.wrap{padding:24px 12px 48px}
+.pg{padding:32px 24px}
+.pg::before{inset:8px}
+h1{font-size:36px}
+.sheet{padding:28px 20px}
+}
+
+</style>
+</head>
+<body>
+<header class="valance">
+<svg class="swag" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1200V10Q1140 46 1080 10Q1020 46 960 10Q900 46 840 10Q780 46 720 10Q660 46 600 10Q540 46 480 10Q420 46 360 10Q300 46 240 10Q180 46 120 10Q60 46 0 10z" fill="#8e1b2b"/></svg>
+<div class="val-in">
+<div class="val-top">
+<p class="brand">Brightwork</p>
+<div class="tools">
+<label class="search"><span class="vh">Search projects and tasks</span><input type="search" placeholder="Search projects and tasks"></label>
+<a href="#" class="bell" aria-label="Notifications, 3 new"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0-6 6v4l-2 3h16l-2-3V9a6 6 0 0 0-6-6zM9.5 19a2.5 2.5 0 0 0 5 0" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>3</a>
+<button class="btn primary on-red">New project</button>
+<span class="user">Mara Okafor</span>
+</div>
+</div>
+<nav aria-label="Main"><ul class="nav"><li><a href="#" aria-current="page">Home</a></li>
+<li><a href="#">Projects</a></li>
+<li><a href="#">Tasks</a></li>
+<li><a href="#">Team</a></li>
+<li><a href="#">Reports</a></li>
+<li><a href="#">Settings</a></li></ul></nav>
+</div>
+</header>
+<main class="wrap">
+<div class="spread">
+<div class="pg pg-l">
+<section class="cover" aria-labelledby="hello-h">
+<p class="kicker">The programme for Saturday 31 October 2026</p>
+<h1 id="hello-h">Good morning, Mara</h1>
+<svg class="orn" viewBox="0 0 240 16" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1"><line x1="0" y1="8" x2="96" y2="8"/><line x1="144" y1="8" x2="240" y2="8"/><path d="M104 8q8-10 16 0q8 10 16 0q-8-10-16 0q-8 10-16 0z"/></g><circle cx="120" cy="8" r="2.4" fill="currentColor"/><circle cx="100" cy="8" r="1.4" fill="currentColor"/><circle cx="140" cy="8" r="1.4" fill="currentColor"/></svg>
+<p class="notice"><svg class="sym" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 3h14L8 14z" fill="currentColor"/></svg><span>A notice from the stage manager. <b>4 tasks are overdue.</b></span></p>
+</section>
+<section aria-labelledby="fig-h">
+<h2 id="fig-h">Tonight's figures</h2>
+<dl class="figs">
+<div><dt>Active projects</dt><dd>6</dd></div>
+<div><dt>Tasks due this week</dt><dd>23</dd></div>
+<div class="ov"><dt><svg class="sym" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 3h14L8 14z" fill="currentColor"/></svg> Overdue tasks</dt><dd>4</dd></div>
+<div><dt>Hours logged this week</dt><dd>186</dd></div>
+</dl>
+</section>
+<section aria-labelledby="co-h">
+<h2 id="co-h">The company</h2>
+<p class="sub">in order of appearance</p>
+<ul class="company"><li><span class="nm">Mara Okafor</span><span class="dots" aria-hidden="true"></span><span class="role">Website redesign, Q4 customer survey, Onboarding emails</span></li>
+<li><span class="nm">Priya Nair</span><span class="dots" aria-hidden="true"></span><span class="role">Website redesign, Spring catalogue</span></li>
+<li><span class="nm">Sam Ortiz</span><span class="dots" aria-hidden="true"></span><span class="role">Mobile app 2.0, Billing migration</span></li>
+<li><span class="nm">Jonas Weber</span><span class="dots" aria-hidden="true"></span><span class="role">Billing migration, Mobile app 2.0</span></li>
+<li><span class="nm">Tomás Ruiz</span><span class="dots" aria-hidden="true"></span><span class="role">Mobile app 2.0</span></li>
+<li><span class="nm">Lena Fischer</span><span class="dots" aria-hidden="true"></span><span class="role">Spring catalogue, Onboarding emails</span></li>
+<li><span class="nm">Aiko Tanaka</span><span class="dots" aria-hidden="true"></span><span class="role">Q4 customer survey, Website redesign</span></li></ul>
+</section>
+</div>
+<div class="pg pg-r">
+<section aria-labelledby="a1-h">
+<h2 id="a1-h"><span class="act">Act I</span>The projects</h2>
+<ol class="scenes"><li class="scene">
+<p class="sc-no">Scene 1</p>
+<p class="sc-line"><a href="#" class="sc-name">Website redesign</a><span class="dots" aria-hidden="true"></span><span class="sc-pct">72%</span></p>
+<p class="sc-meta">Design · 18 of 25 tasks · due 14 Nov · <span class="st st-on"><svg class="sym" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0 9.8 6.2 16 8 9.8 9.8 8 16 6.2 9.8 0 8 6.2 6.2z" fill="currentColor"/></svg>On track</span></p>
+<div class="sc-bar" aria-hidden="true"><span style="width:72%"></span></div>
+</li>
+<li class="scene">
+<p class="sc-no">Scene 2</p>
+<p class="sc-line"><a href="#" class="sc-name">Mobile app 2.0</a><span class="dots" aria-hidden="true"></span><span class="sc-pct">45%</span></p>
+<p class="sc-meta">Engineering · 27 of 60 tasks · due 2 Dec · <span class="st st-risk"><svg class="sym" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1a7 7 0 1 0 0 14z" fill="currentColor"/><circle cx="8" cy="8" r="6.3" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>At risk</span></p>
+<div class="sc-bar" aria-hidden="true"><span style="width:45%"></span></div>
+</li>
+<li class="scene">
+<p class="sc-no">Scene 3</p>
+<p class="sc-line"><a href="#" class="sc-name">Q4 customer survey</a><span class="dots" aria-hidden="true"></span><span class="sc-pct">90%</span></p>
+<p class="sc-meta">Research · 9 of 10 tasks · due 7 Nov · <span class="st st-on"><svg class="sym" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0 9.8 6.2 16 8 9.8 9.8 8 16 6.2 9.8 0 8 6.2 6.2z" fill="currentColor"/></svg>On track</span></p>
+<div class="sc-bar" aria-hidden="true"><span style="width:90%"></span></div>
+</li>
+<li class="scene">
+<p class="sc-no">Scene 4</p>
+<p class="sc-line"><a href="#" class="sc-name">Billing migration</a><span class="dots" aria-hidden="true"></span><span class="sc-pct">30%</span></p>
+<p class="sc-meta">Engineering · 12 of 40 tasks · due 20 Nov · <span class="st st-behind"><svg class="sym" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 3h14L8 14z" fill="currentColor"/></svg>Behind</span></p>
+<div class="sc-bar" aria-hidden="true"><span style="width:30%"></span></div>
+</li>
+<li class="scene">
+<p class="sc-no">Scene 5</p>
+<p class="sc-line"><a href="#" class="sc-name">Spring catalogue</a><span class="dots" aria-hidden="true"></span><span class="sc-pct">15%</span></p>
+<p class="sc-meta">Marketing · 3 of 20 tasks · due 15 Jan · <span class="st st-on"><svg class="sym" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0 9.8 6.2 16 8 9.8 9.8 8 16 6.2 9.8 0 8 6.2 6.2z" fill="currentColor"/></svg>On track</span></p>
+<div class="sc-bar" aria-hidden="true"><span style="width:15%"></span></div>
+</li>
+<li class="scene">
+<p class="sc-no">Scene 6</p>
+<p class="sc-line"><a href="#" class="sc-name">Onboarding emails</a><span class="dots" aria-hidden="true"></span><span class="sc-pct">60%</span></p>
+<p class="sc-meta">Marketing · 9 of 15 tasks · due 21 Nov · <span class="st st-on"><svg class="sym" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0 9.8 6.2 16 8 9.8 9.8 8 16 6.2 9.8 0 8 6.2 6.2z" fill="currentColor"/></svg>On track</span></p>
+<div class="sc-bar" aria-hidden="true"><span style="width:60%"></span></div>
+</li></ol>
+</section>
+<p class="interval"><svg class="orn" viewBox="0 0 240 16" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1"><line x1="0" y1="8" x2="96" y2="8"/><line x1="144" y1="8" x2="240" y2="8"/><path d="M104 8q8-10 16 0q8 10 16 0q-8-10-16 0q-8 10-16 0z"/></g><circle cx="120" cy="8" r="2.4" fill="currentColor"/><circle cx="100" cy="8" r="1.4" fill="currentColor"/><circle cx="140" cy="8" r="1.4" fill="currentColor"/></svg><span>Interval</span></p>
+<section aria-labelledby="a2-h">
+<h2 id="a2-h"><span class="act">Act II</span>The fortnight</h2>
+<p class="sub">tasks completed each day</p>
+<svg class="chart" viewBox="0 0 420 190" role="img" aria-label="Tasks completed per day from Sunday 18 October to Saturday 31 October: 3, 12, 9, 14, 11, 8, 2, then 4, 15, 13, 17, 12, 10, 2. Last week 59, this week 73.">
+<line x1="14" x2="406" y1="150" y2="150" stroke="#1c1a1f"/>
+<rect x="26" y="127.8" width="9" height="22.2" fill="#7a6328"/><path d="M30.5 118.8l4 4-4 4-4-4z" fill="#7a6328"/><text x="30.5" y="114.8" text-anchor="middle" font-size="10" fill="#1c1a1f">3</text><text x="30.5" y="164" text-anchor="middle" font-size="9.5" fill="#4d4650">18</text><rect x="53" y="61.2" width="9" height="88.8" fill="#7a6328"/><path d="M57.5 52.2l4 4-4 4-4-4z" fill="#7a6328"/><text x="57.5" y="48.2" text-anchor="middle" font-size="10" fill="#1c1a1f">12</text><text x="57.5" y="164" text-anchor="middle" font-size="9.5" fill="#4d4650">19</text><rect x="80" y="83.4" width="9" height="66.6" fill="#7a6328"/><path d="M84.5 74.4l4 4-4 4-4-4z" fill="#7a6328"/><text x="84.5" y="70.4" text-anchor="middle" font-size="10" fill="#1c1a1f">9</text><text x="84.5" y="164" text-anchor="middle" font-size="9.5" fill="#4d4650">20</text><rect x="107" y="46.4" width="9" height="103.6" fill="#7a6328"/><path d="M111.5 37.4l4 4-4 4-4-4z" fill="#7a6328"/><text x="111.5" y="33.4" text-anchor="middle" font-size="10" fill="#1c1a1f">14</text><text x="111.5" y="164" text-anchor="middle" font-size="9.5" fill="#4d4650">21</text><rect x="134" y="68.6" width="9" height="81.4" fill="#7a6328"/><path d="M138.5 59.6l4 4-4 4-4-4z" fill="#7a6328"/><text x="138.5" y="55.6" text-anchor="middle" font-size="10" fill="#1c1a1f">11</text><text x="138.5" y="164" text-anchor="middle" font-size="9.5" fill="#4d4650">22</text><rect x="161" y="90.8" width="9" height="59.2" fill="#7a6328"/><path d="M165.5 81.8l4 4-4 4-4-4z" fill="#7a6328"/><text x="165.5" y="77.8" text-anchor="middle" font-size="10" fill="#1c1a1f">8</text><text x="165.5" y="164" text-anchor="middle" font-size="9.5" fill="#4d4650">23</text><rect x="188" y="135.2" width="9" height="14.8" fill="#7a6328"/><path d="M192.5 126.2l4 4-4 4-4-4z" fill="#7a6328"/><text x="192.5" y="122.2" text-anchor="middle" font-size="10" fill="#1c1a1f">2</text><text x="192.5" y="164" text-anchor="middle" font-size="9.5" fill="#4d4650">24</text><rect x="227" y="120.4" width="9" height="29.6" fill="#8e1b2b"/><path d="M231.5 111.4l4 4-4 4-4-4z" fill="#8e1b2b"/><text x="231.5" y="107.4" text-anchor="middle" font-size="10" fill="#1c1a1f">4</text><text x="231.5" y="164" text-anchor="middle" font-size="9.5" fill="#4d4650">25</text><rect x="254" y="39.0" width="9" height="111.0" fill="#8e1b2b"/><path d="M258.5 30.0l4 4-4 4-4-4z" fill="#8e1b2b"/><text x="258.5" y="26.0" text-anchor="middle" font-size="10" fill="#1c1a1f">15</text><text x="258.5" y="164" text-anchor="middle" font-size="9.5" fill="#4d4650">26</text><rect x="281" y="53.8" width="9" height="96.2" fill="#8e1b2b"/><path d="M285.5 44.8l4 4-4 4-4-4z" fill="#8e1b2b"/><text x="285.5" y="40.8" text-anchor="middle" font-size="10" fill="#1c1a1f">13</text><text x="285.5" y="164" text-anchor="middle" font-size="9.5" fill="#4d4650">27</text><rect x="308" y="24.2" width="9" height="125.8" fill="#8e1b2b"/><path d="M312.5 15.2l4 4-4 4-4-4z" fill="#8e1b2b"/><text x="312.5" y="11.2" text-anchor="middle" font-size="10" fill="#1c1a1f">17</text><text x="312.5" y="164" text-anchor="middle" font-size="9.5" fill="#4d4650">28</text><rect x="335" y="61.2" width="9" height="88.8" fill="#8e1b2b"/><path d="M339.5 52.2l4 4-4 4-4-4z" fill="#8e1b2b"/><text x="339.5" y="48.2" text-anchor="middle" font-size="10" fill="#1c1a1f">12</text><text x="339.5" y="164" text-anchor="middle" font-size="9.5" fill="#4d4650">29</text><rect x="362" y="76.0" width="9" height="74.0" fill="#8e1b2b"/><path d="M366.5 67.0l4 4-4 4-4-4z" fill="#8e1b2b"/><text x="366.5" y="63.0" text-anchor="middle" font-size="10" fill="#1c1a1f">10</text><text x="366.5" y="164" text-anchor="middle" font-size="9.5" fill="#4d4650">30</text><rect x="389" y="135.2" width="9" height="14.8" fill="#8e1b2b"/><path d="M393.5 126.2l4 4-4 4-4-4z" fill="#8e1b2b"/><text x="393.5" y="122.2" text-anchor="middle" font-size="10" fill="#1c1a1f">2</text><text x="393.5" y="164" text-anchor="middle" font-size="9.5" fill="#4d4650">31</text>
+<text x="113" y="182" text-anchor="middle" font-size="11" font-style="italic" fill="#4d4650">The first week, 18 to 24 Oct · 59</text>
+<text x="314" y="182" text-anchor="middle" font-size="11" font-style="italic" fill="#1c1a1f">The second week, 25 to 31 Oct · 73</text>
+</svg>
+</section>
+<section aria-labelledby="a3-h">
+<h2 id="a3-h"><span class="act">Act III</span>From the wings</h2>
+<ol class="wings"><li><p class="dir">Enter <b>Jonas Weber</b>, who completes <q>Export invoices as CSV</q> in <a href="#">Billing migration</a>.</p><p class="cue">12 min ago</p></li>
+<li><p class="dir">Enter <b>Priya Nair</b>, who comments on <q>Hero image options</q> in <a href="#">Website redesign</a>.</p><p class="cue">40 min ago</p></li>
+<li><p class="dir">Enter <b>Sam Ortiz</b>, who moves <q>Push notifications</q> to Review in <a href="#">Mobile app 2.0</a>.</p><p class="cue">1 h ago</p></li>
+<li><p class="dir">Enter <b>Lena Fischer</b>, who adds 3 tasks to <a href="#">Spring catalogue</a>.</p><p class="cue">2 h ago</p></li>
+<li><p class="dir">Enter <b>Tomás Ruiz</b>, who logs 6 h on <a href="#">Mobile app 2.0</a>.</p><p class="cue">3 h ago</p></li>
+<li><p class="dir">Enter <b>Aiko Tanaka</b>, who uploads <q>survey-results-v2.pdf</q> to <a href="#">Q4 customer survey</a>.</p><p class="cue">yesterday</p></li></ol>
+</section>
+</div>
+</div>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 96 · Theatre playbill</h2>
+<p class="idea">The dashboard as an open theatre programme, two framed pages under a crimson valance, with the team as the company, projects as scenes in Act I, the fortnight as Act II and activity written as stage directions.</p>
+<h3>Palette</h3>
+<ul class="swatches">
+<li class="sw"><span class="chip" style="background:#fbf7ef"></span><span><b>Programme ivory</b> <code>#fbf7ef</code><br>both pages, fields and the style sheet</span></li>
+<li class="sw"><span class="chip" style="background:#efe7da"></span><span><b>Foyer</b> <code>#efe7da</code><br>the table behind the open programme</span></li>
+<li class="sw"><span class="chip" style="background:#8e1b2b"></span><span><b>Crimson</b> <code>#8e1b2b</code><br>the valance, act numbers, week two bars, Behind and overdue</span></li>
+<li class="sw"><span class="chip" style="background:#1c1a1f"></span><span><b>House ink</b> <code>#1c1a1f</code><br>text, rules and frames</span></li>
+<li class="sw"><span class="chip" style="background:#4d4650"></span><span><b>Usher grey</b> <code>#4d4650</code><br>subtitles, roles, cues</span></li>
+<li class="sw"><span class="chip" style="background:#7a6328"></span><span><b>Brass</b> <code>#7a6328</code><br>ornaments, scene numbers, week one bars</span></li>
+<li class="sw"><span class="chip" style="background:#e8c66a"></span><span><b>Lamp gold</b> <code>#e8c66a</code><br>focus halo on the valance, never text</span></li>
+<li class="sw"><span class="chip" style="background:#2d5a3a"></span><span><b>Laurel</b> <code>#2d5a3a</code><br>On track</span></li>
+<li class="sw"><span class="chip" style="background:#83500a"></span><span><b>Amber</b> <code>#83500a</code><br>At risk</span></li>
+</ul>
+<h3>Type</h3>
+<p class="type-note">Titles and body use Baskerville, Baskerville Old Face, Libre Baskerville, Georgia, serif. Labels use Optima, Candara, Segoe UI, sans-serif in spaced small capitals.</p>
+<div class="type-row"><code>44 Baskerville italic</code><span style="font:italic 40px/1.1 var(--serif)">Good morning, Mara</span></div>
+<div class="type-row"><code>30 small caps act head</code><span style="font:30px var(--serif);font-variant:small-caps;letter-spacing:.06em">The projects</span></div>
+<div class="type-row"><code>26 italic figures</code><span style="font:italic 30px var(--serif)">186</span></div>
+<div class="type-row"><code>18 scene name</code><span style="font:18px var(--serif)">Website redesign</span></div>
+<div class="type-row"><code>16 italic stage direction</code><span style="font:italic 16px var(--serif)">Enter Jonas Weber, who completes Export invoices as CSV</span></div>
+<div class="type-row"><code>11 Optima caps +0.24em</code><span style="font:600 11px var(--label);letter-spacing:.24em;text-transform:uppercase">Act I · Scene 2</span></div>
+<h3>Spacing, density and finish</h3>
+<dl class="facts">
+<dt>Spacing</dt><dd>8px unit. Pages have 40px inner margins and 32px between sections. Everything is centred on the page axis.</dd>
+<dt>Density</dt><dd>Medium. Leader dots let names and values share long lines, as in a cast list.</dd>
+<dt>Corners</dt><dd>Square pages. The valance hangs in soft scallops.</dd>
+<dt>Borders</dt><dd>Each page has a 1px ink frame with a 3px brass rule inside it and a gap between. Ornamental rules with a looped centre divide sections.</dd>
+<dt>Shadows</dt><dd>Only the spine, a soft inner shadow where the two pages meet.</dd>
+<dt>Icons</dt><dd>Small solid emblems. A four pointed spark for On track, a half moon for At risk, a falling curtain triangle for Behind and overdue.</dd>
+<dt>Tone</dt><dd>Front of house voice, such as Tonight's figures, The company and Enter Sam Ortiz.</dd>
+</dl>
+<h3>Controls, normal and focus</h3>
+<div class="controls">
+<div class="ctl"><span class="ctl-label">Primary button</span><button class="btn primary">New project</button> <button class="btn primary is-focus">New project</button></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><button class="btn secondary">Cancel</button> <button class="btn secondary is-focus">Cancel</button></div>
+<div class="ctl"><label class="field"><span class="ctl-label">Text field</span><input type="text" value="Website redesign"></label></div>
+<div class="ctl"><label class="field"><span class="ctl-label">Text field, focused</span><input type="text" class="is-focus" value="Mobile app 2.0"></label></div>
+<div class="ctl"><span class="ctl-label">List row</span><a href="#" class="row-demo"><span>Billing migration</span><span class="st st-behind"><svg class="sym" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 3h14L8 14z" fill="currentColor"/></svg>Behind</span></a></div>
+<div class="ctl"><span class="ctl-label">List row, focused</span><a href="#" class="row-demo is-focus"><span>Billing migration</span><span class="st st-behind"><svg class="sym" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 3h14L8 14z" fill="currentColor"/></svg>Behind</span></a></div>
+</div>
+</section>
+</main>
+</body>
+</html>

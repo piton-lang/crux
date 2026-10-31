@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 407 · Mainframe · Brightwork</title>
+<style>
+:root {
+  color-scheme: dark;
+  --case: #1b1d20;
+  --case-edge: #2c2f34;
+  --screen: #030506;
+  --blue: #74b6ff;
+  --turq: #5fe3e0;
+  --green: #66f08a;
+  --white: #f4f4f0;
+  --red: #ff7a72;
+  --yellow: #ffe27a;
+  --pink: #ff9ee0;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, "Courier New", monospace;
+}
+* { box-sizing: border-box; }
+html { background: var(--case); }
+body { margin: 0; background: var(--case); color: var(--blue); font: 15px/1.55 var(--mono); }
+:focus-visible, .is-focus { outline: 2px solid var(--white); outline-offset: 1px; background-color: #1d2a3a; }
+h1, h2, h3, p { margin: 0; font: inherit; }
+
+.bezel { margin: 24px; padding: 20px; border-radius: 22px; background: var(--case); border: 2px solid var(--case-edge); box-shadow: inset 0 0 0 6px #121416; }
+.crt { background: var(--screen); border-radius: 10px; padding: 16px 20px; text-shadow: 0 0 6px rgba(120, 190, 255, 0.25); }
+.row { display: flex; flex-wrap: wrap; gap: 0 2ch; }
+.sp { flex: 1; }
+.w { color: var(--white); } .t { color: var(--turq); } .g { color: var(--green); } .r { color: var(--red); } .y { color: var(--yellow); } .p { color: var(--pink); }
+.up { text-transform: uppercase; }
+.fld { color: var(--green); border-bottom: 2px solid var(--green); padding: 0 0.5ch; min-width: 18ch; display: inline-block; background: transparent; font: inherit; }
+input.fld { border-top: 0; border-left: 0; border-right: 0; outline-offset: 2px; }
+.cmd { margin: 4px 0 16px; align-items: baseline; }
+
+.split { display: grid; grid-template-columns: 34ch minmax(0, 1fr); gap: 0 4ch; }
+.panel { margin-bottom: 18px; min-width: 0; }
+.panel h2 { color: var(--turq); }
+.panel h2::after { content: ""; display: block; border-bottom: 1px dashed #2d5c66; margin: 2px 0 4px; }
+.lines { list-style: none; margin: 0; padding: 0; }
+.lines li { display: grid; grid-template-columns: 3ch minmax(0, 1fr); gap: 0 1ch; }
+.lines .sub { grid-template-columns: 3ch 13ch 5ch 3ch; }
+.lines .sel { color: var(--green); }
+.lines .open { color: var(--white); }
+pre.q { margin: 0; font: inherit; white-space: pre; overflow-x: auto; color: var(--green); }
+pre.q .k { color: var(--white); }
+table.tab { border-collapse: collapse; width: 100%; max-width: 46ch; }
+.tab th, .tab td { padding: 0 1ch 0 0; text-align: left; font-weight: 400; vertical-align: top; }
+.tab th { color: var(--turq); }
+.tab td.n, .tab th.n { text-align: right; padding-right: 0; }
+.tab td { color: var(--white); }
+.hist td { color: var(--blue); }
+.hist .ok { color: var(--green); white-space: nowrap; }
+.hist .err { color: var(--red); white-space: nowrap; }
+.hist .msg { color: var(--red); }
+
+.msgline { color: var(--white); margin: 8px 0 6px; }
+.pf { display: flex; flex-wrap: wrap; gap: 4px 2ch; margin: 0; padding: 0; list-style: none; }
+.pf button { font: inherit; background: transparent; color: var(--pink); border: 0; padding: 0; cursor: pointer; }
+.pf button b { color: var(--turq); font-weight: 400; }
+.oia { display: flex; flex-wrap: wrap; gap: 0 3ch; border-top: 1px solid #3a4350; margin-top: 10px; padding-top: 4px; color: var(--white); font-size: 14px; }
+.oia .lock { color: var(--yellow); }
+
+/* Style sheet */
+.sheet { margin: 0 24px 48px; background: var(--screen); border: 2px solid var(--case-edge); border-radius: 10px; padding: 24px; }
+.sheet h2 { color: var(--white); font-size: 20px; }
+.sheet h3 { color: var(--turq); margin: 28px 0 10px; }
+.sheet h3::before { content: "== "; } .sheet h3::after { content: " =="; }
+.idea { color: var(--blue); max-width: 72ch; margin-top: 4px; }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 6px 24px; }
+.sw { display: flex; gap: 10px; align-items: center; color: var(--blue); font-size: 14px; }
+.sw i { width: 4ch; height: 1.3em; flex: none; border: 1px solid #3a4350; }
+.sw b { color: var(--white); font-weight: 400; }
+.type-row { display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: baseline; padding: 4px 0; border-bottom: 1px dashed #26323e; }
+.type-row code { font: inherit; font-size: 13px; color: var(--blue); min-width: 24ch; }
+.facts { margin: 0; display: grid; grid-template-columns: 11ch 1fr; gap: 4px 2ch; }
+.facts dt { color: var(--turq); }
+.facts dd { margin: 0; color: var(--blue); }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+.ctl-label { display: block; color: var(--turq); margin-bottom: 6px; }
+.btn { font: inherit; cursor: pointer; padding: 2px 10px; border: 0; }
+.btn.pri { background: var(--green); color: #031a0a; }
+.btn.sec { background: transparent; color: var(--pink); border: 1px solid var(--pink); }
+.field { display: block; color: var(--blue); }
+.field .fld { display: block; width: 100%; margin-top: 4px; }
+.row-demo { display: flex; justify-content: space-between; padding: 0 1ch; color: var(--white); }
+.row-demo .s { color: var(--green); margin-right: 1ch; }
+
+@media (max-width: 900px) { .split { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 600px) {
+  body { font-size: 13px; }
+  .bezel { margin: 10px; padding: 8px; border-radius: 14px; box-shadow: none; }
+  .crt { padding: 12px 10px; }
+  .fld { min-width: 10ch; }
+  header.row h1 { flex-basis: 100%; order: 3; text-align: left !important; }
+  .sheet { margin: 0 10px 32px; padding: 14px 12px; }
+  .facts { grid-template-columns: 1fr; gap: 0; }
+  .facts dd { margin-bottom: 6px; }
+}
+</style>
+</head>
+<body>
+<div class="bezel">
+  <div class="crt">
+    <header class="row">
+      <span class="w">BWDATA01</span>
+      <h1 class="w sp" style="text-align:center">BRIGHTWORK DATA &#8212; QUERY CONSOLE</h1>
+      <span class="y">PRODUCTION-REPLICA</span>
+    </header>
+    <div class="row cmd">
+      <label for="cmd" class="t">COMMAND ===&gt;</label>
+      <input id="cmd" class="fld" value="RUN" aria-label="Command">
+      <span class="sp"></span>
+      <span class="t">SCROLL ===&gt; <span class="g">PAGE</span></span>
+    </div>
+
+    <div class="split">
+      <section class="panel" aria-labelledby="h-s">
+        <h2 id="h-s">SCHEMA PUBLIC</h2>
+        <p class="t" aria-hidden="true">S  TABLE</p>
+        <ul class="lines" aria-label="Tables, X marks the open table">
+          <li><span class="sel">_</span><span>PROJECTS</span></li>
+          <li class="open"><span class="sel">X</span><span>TASKS</span></li>
+          <li class="sub"><span></span><span class="w">ID</span><span>UUID</span><span class="y">PK</span></li>
+          <li class="sub"><span></span><span class="w">PROJECT_ID</span><span>UUID</span><span class="y">FK</span></li>
+          <li class="sub"><span></span><span class="w">TITLE</span><span>TEXT</span><span></span></li>
+          <li class="sub"><span></span><span class="w">ASSIGNEE_ID</span><span>UUID</span><span class="y">FK</span></li>
+          <li class="sub"><span></span><span class="w">DUE_ON</span><span>DATE</span><span></span></li>
+          <li class="sub"><span></span><span class="w">STATUS</span><span>TEXT</span><span></span></li>
+          <li><span class="sel">_</span><span>MEMBERS</span></li>
+          <li><span class="sel">_</span><span>ACTIVITY</span></li>
+          <li><span class="sel">_</span><span>INVOICES</span></li>
+        </ul>
+      </section>
+
+      <div>
+        <section class="panel" aria-labelledby="h-q">
+          <h2 id="h-q">QUERY OVERDUE-BY-PROJECT</h2>
+<pre class="q" data-scroll tabindex="0" aria-label="Query text"><span class="k">SELECT</span> P.NAME <span class="k">AS</span> PROJECT,
+       COUNT(*) <span class="k">AS</span> OPEN_OVERDUE
+  <span class="k">FROM</span> TASKS T
+  <span class="k">JOIN</span> PROJECTS P <span class="k">ON</span> P.ID = T.PROJECT_ID
+ <span class="k">WHERE</span> T.STATUS &lt;&gt; 'DONE'
+   <span class="k">AND</span> T.DUE_ON &lt; CURRENT_DATE
+ <span class="k">GROUP BY</span> P.NAME
+ <span class="k">ORDER BY</span> OPEN_OVERDUE <span class="k">DESC</span>;</pre>
+        </section>
+        <section class="panel" aria-labelledby="h-r">
+          <h2 id="h-r">RESULT <span class="w">3 ROWS</span>  <span class="w">38 MS</span></h2>
+          <table class="tab">
+            <thead><tr><th scope="col">PROJECT</th><th scope="col" class="n">OPEN_OVERDUE</th></tr></thead>
+            <tbody>
+              <tr><td>BILLING MIGRATION</td><td class="n">2</td></tr>
+              <tr><td>MOBILE APP 2.0</td><td class="n">1</td></tr>
+              <tr><td>WEBSITE REDESIGN</td><td class="n">1</td></tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="panel" aria-labelledby="h-h">
+          <h2 id="h-h">HISTORY TODAY</h2>
+          <table class="tab hist" style="max-width:none">
+            <thead><tr><th scope="col">TIME</th><th scope="col">RC</th><th scope="col">QUERY</th><th scope="col" class="n">MS</th></tr></thead>
+            <tbody>
+              <tr><td>09:41</td><td class="ok">OK</td><td>COUNT OVERDUE TASKS</td><td class="n">38</td></tr>
+              <tr><td>09:30</td><td class="ok">OK</td><td>MEMBERS WITHOUT TASKS</td><td class="n">12</td></tr>
+              <tr><td>09:12</td><td class="err">*ERR*</td><td class="msg">COLUMN "ASSIGNEE" DOES NOT EXIST</td><td class="n">&#8212;</td></tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+
+    <p class="msgline" role="status">BWD0001I QUERY COMPLETE. 3 ROWS. 38 MS.</p>
+    <ul class="pf" aria-label="Function keys">
+      <li><button><b>PF1</b>=HELP</button></li>
+      <li><button><b>PF3</b>=EXIT</button></li>
+      <li><button><b>PF5</b>=RUN</button></li>
+      <li><button><b>PF7</b>=UP</button></li>
+      <li><button><b>PF8</b>=DOWN</button></li>
+      <li><button><b>PF10</b>=HISTORY</button></li>
+      <li><button><b>PF12</b>=CANCEL</button></li>
+    </ul>
+    <footer class="oia" aria-label="Status line">
+      <span class="lock">[RO] READ-ONLY REPLICA</span>
+      <span>LAG 2S</span>
+      <span>CONN 14 ACTIVE</span>
+      <span class="sp"></span>
+      <span>024/011</span>
+    </footer>
+  </div>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-title">
+  <h2 id="sheet-title">Style 407 · Mainframe</h2>
+  <p class="idea">The console is a block mode terminal screen in seven field colours, with a command line on top, selection letters beside the tables, a message line and a row of PF keys, all in caps inside a dark grey bezel.</p>
+
+  <h3>PALETTE</h3>
+  <ul class="swatches">
+    <li class="sw"><i style="background:#1b1d20"></i><span><b>CASE</b> #1b1d20 page and bezel</span></li>
+    <li class="sw"><i style="background:#030506"></i><span><b>SCREEN</b> #030506 screen, sheet</span></li>
+    <li class="sw"><i style="background:#74b6ff"></i><span><b>BLUE</b> #74b6ff protected text</span></li>
+    <li class="sw"><i style="background:#5fe3e0"></i><span><b>TURQUOISE</b> #5fe3e0 headings, labels</span></li>
+    <li class="sw"><i style="background:#66f08a"></i><span><b>GREEN</b> #66f08a input fields, OK</span></li>
+    <li class="sw"><i style="background:#f4f4f0"></i><span><b>WHITE</b> #f4f4f0 data, messages, focus</span></li>
+    <li class="sw"><i style="background:#ffe27a"></i><span><b>YELLOW</b> #ffe27a keys, read-only lock</span></li>
+    <li class="sw"><i style="background:#ff9ee0"></i><span><b>PINK</b> #ff9ee0 PF key actions</span></li>
+    <li class="sw"><i style="background:#ff7a72"></i><span><b>RED</b> #ff7a72 *ERR* and error text</span></li>
+  </ul>
+
+  <h3>TYPE</h3>
+  <div class="type-row"><code>MONO, IBM Plex Mono, ui-monospace, Menlo, Consolas, Courier New</code></div>
+  <div class="type-row"><code>20 WHITE SHEET TITLE</code><span class="w" style="font-size:20px">STYLE 407</span></div>
+  <div class="type-row"><code>15 / 1.55 SCREEN</code><span class="w">BILLING MIGRATION</span></div>
+  <div class="type-row"><code>15 TURQUOISE HEAD</code><span class="t">RESULT</span></div>
+  <div class="type-row"><code>14 OIA LINE</code><span class="w" style="font-size:14px">LAG 2S</span></div>
+
+  <h3>SPACING AND DEPTH</h3>
+  <dl class="facts">
+    <dt>SPACING</dt><dd>Character cells. Gaps are 1 to 4ch, panels end with one blank line.</dd>
+    <dt>DENSITY</dt><dd>High. Four panels, a message line and twelve PF keys on one screen.</dd>
+    <dt>CORNERS</dt><dd>22px bezel, 10px screen glass, square fields and buttons.</dd>
+    <dt>BORDERS</dt><dd>Underscored input fields, dashed teal rules under headings.</dd>
+    <dt>SHADOWS</dt><dd>An inner bezel ring and a faint blue text glow on the screen.</dd>
+    <dt>ICONS</dt><dd>None. X selects, OK and *ERR* mark results, [RO] marks the lock.</dd>
+    <dt>TONE</dt><dd>Operator caps, such as COMMAND ===&gt;, PF5=RUN, QUERY COMPLETE.</dd>
+  </dl>
+
+  <h3>CONTROLS</h3>
+  <div class="controls">
+    <div><span class="ctl-label">PRIMARY</span><button class="btn pri">PF5 RUN</button> <button class="btn pri is-focus">PF5 RUN</button></div>
+    <div><span class="ctl-label">SECONDARY</span><button class="btn sec">PF12 CANCEL</button> <button class="btn sec is-focus">PF12 CANCEL</button></div>
+    <div><label class="field">TABLE ===&gt;<input class="fld" value="TASKS"></label></div>
+    <div><label class="field">TABLE ===&gt; FOCUSED<input class="fld is-focus" value="TASKS"></label></div>
+    <div><span class="ctl-label">LIST ROW</span><div class="row-demo"><span><span class="s">_</span>BILLING MIGRATION</span><span>2</span></div></div>
+    <div><span class="ctl-label">LIST ROW FOCUSED</span><div class="row-demo is-focus"><span><span class="s">X</span>BILLING MIGRATION</span><span>2</span></div></div>
+  </div>
+</section>
+</body>
+</html>

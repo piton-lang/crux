@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 60 · Watercolour · Brightwork</title>
+<style>
+:root {
+  --paper: #fdfbf7;
+  --text: #2f3640;
+  --muted: #545c68;
+  --indigo: #2e4a7a;
+  --line: #e8e1d6;
+  --blue: 110, 160, 210;
+  --rose: 226, 140, 150;
+  --sage: 140, 182, 140;
+  --ochre: 228, 184, 96;
+  --lilac: 170, 150, 210;
+  --hand: "Segoe Print", "Bradley Hand", "Chalkboard SE", "Marker Felt", "Comic Sans MS", cursive;
+  --sans: "Avenir Next", Avenir, "Segoe UI", Nunito, Ubuntu, system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { background: var(--paper); }
+body { margin: 0; color: var(--text); font: 15px/1.55 var(--sans); background:
+  radial-gradient(60% 40% at 8% 0%, rgba(var(--blue), 0.16), transparent 70%),
+  radial-gradient(40% 30% at 100% 12%, rgba(var(--rose), 0.14), transparent 70%),
+  radial-gradient(50% 30% at 50% 100%, rgba(var(--sage), 0.14), transparent 70%), var(--paper);
+  min-height: 100vh; }
+svg.i { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+button, input { font: inherit; color: inherit; }
+:focus-visible, .is-focus { outline: 3px solid rgba(46, 74, 122, 0.55) !important; outline-offset: 3px; border-radius: 14px; }
+
+.top { display: flex; align-items: center; gap: 16px 28px; padding: 20px 32px; flex-wrap: wrap; }
+.brand { font: 700 26px/1 var(--hand); color: var(--indigo); text-decoration: none; position: relative; padding: 6px 4px; }
+.brand::before { content: ""; position: absolute; inset: 0 -10px; z-index: -1; background: radial-gradient(closest-side, rgba(var(--ochre), 0.5), rgba(var(--ochre), 0.15) 70%, transparent); filter: url(#wc); }
+.nav { display: flex; gap: 6px; list-style: none; padding: 0; margin: 0; }
+.nav a { display: block; padding: 6px 12px; color: var(--muted); text-decoration: none; border-radius: 40% 60% 50% 50% / 60% 40% 60% 40%; }
+.nav a[aria-current="page"] { color: var(--text); font-weight: 600; background: radial-gradient(closest-side, rgba(var(--blue), 0.38), rgba(var(--blue), 0.1) 75%, transparent); }
+.me { margin-left: auto; display: flex; align-items: center; gap: 10px; color: var(--muted); }
+.av { width: 38px; height: 38px; display: grid; place-items: center; font-weight: 700; font-size: 13px; color: var(--text); border-radius: 48% 52% 45% 55% / 55% 45% 55% 45%; background: radial-gradient(circle at 40% 40%, rgba(var(--lilac), 0.7), rgba(var(--lilac), 0.3)); }
+
+.wrap { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 32px; padding: 0 32px 48px; }
+.title-row { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+h1 { font: 400 36px/1.15 var(--hand); margin: 0; }
+h1 small { display: block; font: 15px var(--sans); color: var(--muted); }
+.ctl { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-left: auto; }
+.btn { border: 0; cursor: pointer; padding: 9px 18px; font-weight: 600; font-size: 14px; display: inline-flex; gap: 6px; align-items: center; border-radius: 22px 18px 24px 16px / 18px 24px 16px 22px; background: rgba(var(--blue), 0.16); }
+.btn.icon { padding: 9px 11px; }
+.btn-primary { background: var(--indigo); color: #fff; box-shadow: 0 6px 14px -8px rgba(46, 74, 122, 0.8); }
+.seg { display: inline-flex; gap: 2px; padding: 3px; border-radius: 24px 20px 26px 18px; background: rgba(var(--blue), 0.12); }
+.seg button { border: 0; background: transparent; padding: 6px 14px; cursor: pointer; border-radius: 20px; font-size: 14px; color: var(--muted); }
+.seg button[aria-pressed="true"] { background: #fff; color: var(--text); font-weight: 700; box-shadow: 0 2px 8px -4px rgba(47, 54, 64, 0.5); }
+.seg button[aria-pressed="true"]::before { content: "\2713 "; color: var(--indigo); }
+
+/* Side */
+.side { display: grid; gap: 28px; align-content: start; }
+.side h2 { font: 400 20px var(--hand); margin: 0 0 8px; }
+.mini { position: relative; padding: 18px; isolation: isolate; }
+.mini::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(70% 60% at 50% 45%, rgba(var(--sage), 0.32), rgba(var(--sage), 0.1) 70%, transparent 90%); filter: url(#wc); }
+table { width: 100%; border-collapse: collapse; text-align: center; font-size: 13px; font-variant-numeric: tabular-nums; }
+caption { text-align: left; font-weight: 600; padding-bottom: 6px; }
+th { font-weight: 600; color: var(--muted); padding: 4px 0; font-size: 12px; }
+td { padding: 3px 0; height: 30px; }
+td.out { color: #6b7280; }
+td[aria-current] span { display: inline-grid; place-items: center; width: 28px; height: 28px; font-weight: 800; border: 2px solid var(--indigo); border-radius: 46% 54% 50% 50% / 55% 45% 55% 45%; }
+.wkrow td { background: rgba(255, 255, 255, 0.55); }
+.cap { font-size: 13px; color: var(--muted); margin: 6px 0 0; }
+.cals { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.cals label { display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 6px 10px; border-radius: 18px 14px 20px 12px; }
+.cals input { width: 18px; height: 18px; margin: 0; accent-color: var(--indigo); }
+.k-team { background: radial-gradient(closest-side, rgba(var(--blue), 0.3), transparent); }
+.k-due { background: radial-gradient(closest-side, rgba(var(--ochre), 0.35), transparent); }
+.k-ooo { background: radial-gradient(closest-side, rgba(var(--lilac), 0.32), transparent); }
+.away { font-size: 14px; margin: 0; padding: 12px 14px; border-left: 3px dotted var(--muted); }
+
+/* Week grid */
+.week { display: grid; grid-template-columns: 52px repeat(7, minmax(0, 1fr)); grid-template-rows: auto auto repeat(16, 44px); column-gap: 6px; position: relative; }
+.week > * { grid-column: var(--c); grid-row: var(--r) / span var(--s, 1); }
+.lines { grid-column: 2 / -1; grid-row: 3 / span 16; background: repeating-linear-gradient(to bottom, var(--line) 0 1px, transparent 1px 88px); border-bottom: 1px solid var(--line); }
+.dh { padding: 4px 6px 10px; font-size: 13px; color: var(--muted); text-align: center; }
+.dh b { display: block; font: 400 24px/1.1 var(--hand); color: var(--text); }
+.dh.today b span { display: inline-grid; place-items: center; min-width: 40px; padding: 0 4px; border: 2px solid var(--indigo); border-radius: 46% 54% 50% 50% / 55% 45% 55% 45%; }
+.dh .tag { display: block; font-size: 12px; font-weight: 700; color: var(--indigo); letter-spacing: 0.04em; }
+.hr { font-size: 12px; color: var(--muted); text-align: right; padding-right: 6px; transform: translateY(-9px); font-variant-numeric: tabular-nums; }
+.ad-label { font-size: 12px; color: var(--muted); text-align: right; padding: 8px 6px 0 0; }
+.ev { position: relative; isolation: isolate; padding: 6px 10px; font-size: 13px; line-height: 1.3; margin: 2px 0; align-self: start; min-height: calc(var(--s, 1) * 44px - 4px); }
+.ev::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(120% 90% at 30% 35%, rgba(var(--w), 0.6), rgba(var(--w), 0.34) 55%, rgba(var(--w), 0.12) 85%); border-radius: 30% 40% 36% 44% / 44% 36% 46% 34%; filter: url(#wc); }
+.ev b { display: block; font-weight: 700; font-size: 13.5px; }
+.ev .m { display: flex; align-items: center; gap: 4px; font-size: 12px; }
+.ev .m svg { width: 13px; height: 13px; }
+.ev .d { display: none; }
+.team { --w: var(--blue); }
+.due { --w: var(--ochre); }
+.ooo { --w: var(--lilac); }
+.ret { --w: var(--sage); }
+.allday { min-height: 54px; margin: 0 0 10px; align-self: stretch; }
+.short { align-self: start; overflow: visible; z-index: 1; }
+.short b { display: inline; }
+.short .m { display: inline-flex; margin-left: 4px; }
+.empty-day { display: none; }
+
+/* Style sheet */
+.ss { padding: 56px 32px 72px; position: relative; isolation: isolate; }
+.ss::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(60% 40% at 80% 10%, rgba(var(--blue), 0.12), transparent 70%), rgba(255, 255, 255, 0.6); }
+.ss-in { max-width: 1180px; margin: 0 auto; }
+.ss h2 { font: 400 34px var(--hand); margin: 0 0 6px; }
+.ss h3 { font: 400 22px var(--hand); margin: 40px 0 14px; }
+.idea { color: var(--muted); font-size: 17px; margin: 0; max-width: 760px; }
+.sws { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 18px; }
+.sws li { font-size: 13px; }
+.sws i { display: block; height: 64px; margin-bottom: 8px; border-radius: 42% 58% 50% 50% / 55% 45% 55% 45%; filter: url(#wc); }
+.sws b { display: block; font-size: 14px; }
+.sws code { color: var(--muted); }
+.tr { display: flex; flex-wrap: wrap; gap: 6px 24px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.tr code { font-size: 12px; color: var(--muted); min-width: 260px; }
+.facts { display: grid; grid-template-columns: 130px 1fr; gap: 10px 20px; margin: 0; }
+.facts dt { font-weight: 700; }
+.facts dd { margin: 0; }
+.cg { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
+.cc { display: block; font-size: 12px; color: var(--muted); margin-bottom: 8px; font-weight: 600; }
+.field { display: block; font-weight: 600; font-size: 13px; }
+.field input { display: block; width: 100%; margin-top: 6px; padding: 10px 14px; border: 0; border-radius: 18px 14px 20px 12px; background: rgba(var(--blue), 0.1); font-size: 15px; font-weight: 400; }
+.field input.is-focus { background: #fff; box-shadow: 0 0 0 2px var(--indigo); }
+.rowd { position: relative; isolation: isolate; display: flex; justify-content: space-between; padding: 10px 14px; font-size: 14px; }
+.rowd::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(100% 90% at 30% 40%, rgba(var(--blue), 0.4), rgba(var(--blue), 0.1)); border-radius: 30% 40% 36% 44% / 44% 36% 46% 34%; filter: url(#wc); }
+
+@media (max-width: 1100px) {
+  .wrap { grid-template-columns: 1fr; }
+  .side { order: 3; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+}
+@media (max-width: 820px) {
+  .top { padding: 16px; gap: 12px 16px; }
+  .nav { order: 3; width: 100%; overflow-x: auto; }
+  .wrap { padding: 0 16px 40px; gap: 24px; }
+  h1 { font-size: 30px; }
+  .ctl { margin-left: 0; }
+  .week { display: flex; flex-direction: column; gap: 6px; }
+  .week > * { order: var(--o); }
+  .lines, .hr, .ad-label { display: none; }
+  .dh { text-align: left; padding: 18px 0 2px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .dh b { display: inline; }
+  .dh .tag { display: inline; }
+  .ev { padding: 10px 14px; font-size: 14px; }
+  .ev .d { display: inline; }
+  .allday { min-height: 0; margin: 0; }
+  .empty-day { display: block; color: var(--muted); font-size: 14px; padding: 4px 0; }
+  .ss { padding: 40px 16px 56px; }
+  .facts { grid-template-columns: 1fr; gap: 2px; }
+  .facts dd { margin-bottom: 10px; }
+  .tr code { min-width: 0; width: 100%; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="wc" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="7"/><feDisplacementMap in="SourceGraphic" scale="9"/></filter>
+  <symbol id="i-prev" viewBox="0 0 24 24"><path d="M15 5c-3 3-5 5-7 7 2 2 4 4 7 7"/></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24"><path d="M9 5c3 3 5 5 7 7-2 2-4 4-7 7"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5c.3 5 .1 9 0 14M5 12c5-.3 9-.1 14 0"/></symbol>
+  <symbol id="k-team" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/></symbol>
+  <symbol id="k-due" viewBox="0 0 24 24"><path d="M7 3h10M7 21h10M8 3c0 5 8 6 8 9s-8 4-8 9M16 3c0 5-8 6-8 9s8 4 8 9"/></symbol>
+  <symbol id="k-ooo" viewBox="0 0 24 24"><path d="M19 15A8 8 0 0 1 9 5a8 8 0 1 0 10 10z"/></symbol>
+</svg>
+
+<header class="top">
+  <a class="brand" href="#">Brightwork</a>
+  <nav aria-label="Main">
+    <ul class="nav">
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Tasks</a></li>
+      <li><a href="#" aria-current="page">Calendar</a></li>
+      <li><a href="#">Team</a></li>
+    </ul>
+  </nav>
+  <div class="me"><span class="av" aria-hidden="true">MO</span><span>Mara Okafor</span></div>
+</header>
+
+<div class="wrap">
+  <div class="title-row">
+    <h1>November, week one<small>Monday 2 to Sunday 8 November 2026</small></h1>
+    <div class="ctl" role="group" aria-label="Calendar controls">
+      <button class="btn icon" aria-label="Previous week"><svg class="i" aria-hidden="true"><use href="#i-prev"/></svg></button>
+      <button class="btn">Today</button>
+      <button class="btn icon" aria-label="Next week"><svg class="i" aria-hidden="true"><use href="#i-next"/></svg></button>
+      <div class="seg" role="group" aria-label="View"><button aria-pressed="false">Day</button><button aria-pressed="true">Week</button><button aria-pressed="false">Month</button></div>
+      <button class="btn btn-primary"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>New event</button>
+    </div>
+  </div>
+
+  <aside class="side" aria-label="Calendar options">
+    <div class="mini">
+      <table>
+        <caption>November 2026</caption>
+        <thead><tr><th scope="col" abbr="Monday">Mo</th><th scope="col" abbr="Tuesday">Tu</th><th scope="col" abbr="Wednesday">We</th><th scope="col" abbr="Thursday">Th</th><th scope="col" abbr="Friday">Fr</th><th scope="col" abbr="Saturday">Sa</th><th scope="col" abbr="Sunday">Su</th></tr></thead>
+        <tbody>
+          <tr><td class="out">26</td><td class="out">27</td><td class="out">28</td><td class="out">29</td><td class="out">30</td><td class="out">31</td><td>1</td></tr>
+          <tr class="wkrow"><td aria-current="date"><span>2</span><b class="sr"> today</b></td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+          <tr><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td></tr>
+          <tr><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td></tr>
+          <tr><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td></tr>
+          <tr><td>30</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+      <p class="cap">The ringed date is today, 2 November.</p>
+    </div>
+    <div>
+      <h2>Show calendars</h2>
+      <ul class="cals">
+        <li><label class="k-team"><input type="checkbox" checked><svg class="i" aria-hidden="true"><use href="#k-team"/></svg>Team</label></li>
+        <li><label class="k-due"><input type="checkbox" checked><svg class="i" aria-hidden="true"><use href="#k-due"/></svg>Deadlines</label></li>
+        <li><label class="k-ooo"><input type="checkbox" checked><svg class="i" aria-hidden="true"><use href="#k-ooo"/></svg>Out of office</label></li>
+      </ul>
+    </div>
+    <p class="away">Lena Fischer is out of office on Friday 6 November.</p>
+  </aside>
+
+  <section aria-label="Week of 2 November 2026">
+    <div class="week">
+      <div class="lines" style="--c:2;--r:3" aria-hidden="true"></div>
+      <span class="ad-label" style="--c:1;--r:2" aria-hidden="true">all day</span>
+      <span class="hr" style="--c:1;--r:3" aria-hidden="true">09:00</span>
+      <span class="hr" style="--c:1;--r:5" aria-hidden="true">10:00</span>
+      <span class="hr" style="--c:1;--r:7" aria-hidden="true">11:00</span>
+      <span class="hr" style="--c:1;--r:9" aria-hidden="true">12:00</span>
+      <span class="hr" style="--c:1;--r:11" aria-hidden="true">13:00</span>
+      <span class="hr" style="--c:1;--r:13" aria-hidden="true">14:00</span>
+      <span class="hr" style="--c:1;--r:15" aria-hidden="true">15:00</span>
+      <span class="hr" style="--c:1;--r:17" aria-hidden="true">16:00</span>
+
+      <h2 class="dh today" style="--c:2;--r:1;--o:10" aria-current="date">Mon <b><span>2</span></b><span class="tag">Today</span></h2>
+      <h2 class="dh" style="--c:3;--r:1;--o:20">Tue <b>3</b></h2>
+      <h2 class="dh" style="--c:4;--r:1;--o:30">Wed <b>4</b></h2>
+      <h2 class="dh" style="--c:5;--r:1;--o:40">Thu <b>5</b></h2>
+      <h2 class="dh" style="--c:6;--r:1;--o:50">Fri <b>6</b></h2>
+      <h2 class="dh" style="--c:7;--r:1;--o:60">Sat <b>7</b></h2>
+      <h2 class="dh" style="--c:8;--r:1;--o:70">Sun <b>8</b></h2>
+
+      <div class="ev due allday" style="--c:2;--r:2;--o:11"><b>Hero image options due</b><span class="m"><svg class="i" aria-hidden="true"><use href="#k-due"/></svg>Deadline · all day</span></div>
+      <div class="ev team short" style="--c:2;--r:4;--o:12"><b>Weekly planning</b><span class="m"><svg class="i" aria-hidden="true"><use href="#k-team"/></svg>09:30 to 10:00 · Whole team</span></div>
+
+      <div class="ev team" style="--c:3;--r:13;--s:2;--o:21"><b>Billing migration review</b><span class="m"><svg class="i" aria-hidden="true"><use href="#k-team"/></svg>14:00 to 15:00</span>Jonas Weber and Sam Ortiz</div>
+
+      <div class="ev ret" style="--c:4;--r:7;--s:3;--o:31"><b>Survey readout</b><span class="m"><svg class="i" aria-hidden="true"><use href="#k-team"/></svg>11:00 to 12:30</span>Aiko Tanaka</div>
+
+      <div class="ev team short" style="--c:5;--r:5;--o:41"><b>Design critique</b><span class="m"><svg class="i" aria-hidden="true"><use href="#k-team"/></svg>10:00 to 10:30 · Priya Nair</span></div>
+      <div class="ev team" style="--c:5;--r:17;--s:2;--o:42"><b>Mobile release go or no-go</b><span class="m"><svg class="i" aria-hidden="true"><use href="#k-team"/></svg>16:00 to 17:00</span>Sam Ortiz</div>
+
+      <div class="ev ooo allday" style="--c:6;--r:2;--o:51"><b>Lena Fischer away</b><span class="m"><svg class="i" aria-hidden="true"><use href="#k-ooo"/></svg>Out of office · all day</span></div>
+      <div class="ev ret" style="--c:6;--r:15;--s:2;--o:52"><b>Team retro</b><span class="m"><svg class="i" aria-hidden="true"><use href="#k-team"/></svg>15:00 to 16:00</span></div>
+
+      <div class="ev due allday" style="--c:7;--r:2;--o:61"><b>Q4 customer survey due</b><span class="m"><svg class="i" aria-hidden="true"><use href="#k-due"/></svg>Deadline · all day</span></div>
+      <p class="empty-day" style="--o:71">A blank page today. Nothing scheduled.</p>
+    </div>
+  </section>
+</div>
+
+<section class="ss" aria-labelledby="ss-h">
+  <div class="ss-in">
+    <h2 id="ss-h">Style 60 · Watercolour</h2>
+    <p class="idea">Events bloom as soft watercolour washes on warm paper, with handwritten headings and no hard lines, so the week feels painted rather than ruled.</p>
+
+    <h3>Palette</h3>
+    <ul class="sws">
+      <li><i style="background:#fdfbf7;box-shadow:inset 0 0 0 1px #e8e1d6"></i><b>Paper</b><code>#fdfbf7</code><br>page</li>
+      <li><i style="background:#2f3640"></i><b>Ink</b><code>#2f3640</code><br>text and event titles</li>
+      <li><i style="background:#545c68"></i><b>Wash grey</b><code>#545c68</code><br>meta, hour labels</li>
+      <li><i style="background:#2e4a7a"></i><b>Indigo</b><code>#2e4a7a</code><br>primary button, today ring, focus</li>
+      <li><i style="background:#6ea0d2"></i><b>Cerulean wash</b><code>#6ea0d2</code><br>Team events, at 35 to 60 percent</li>
+      <li><i style="background:#8cb68c"></i><b>Sage wash</b><code>#8cb68c</code><br>longer team sessions, month card</li>
+      <li><i style="background:#e4b860"></i><b>Ochre wash</b><code>#e4b860</code><br>Deadlines, brand blot</li>
+      <li><i style="background:#aa96d2"></i><b>Lilac wash</b><code>#aa96d2</code><br>Out of office, avatar</li>
+      <li><i style="background:#e28c96"></i><b>Rose wash</b><code>#e28c96</code><br>page corner bloom only</li>
+      <li><i style="background:#e8e1d6"></i><b>Pencil line</b><code>#e8e1d6</code><br>faint hour rules</li>
+    </ul>
+
+    <h3>Type</h3>
+    <div class="tr"><code>Hand 36 · Segoe Print, Bradley Hand, Chalkboard SE, cursive</code><span style="font:36px var(--hand)">November, week one</span></div>
+    <div class="tr"><code>Hand 24 · day number</code><span style="font:24px var(--hand)">Thu 5</span></div>
+    <div class="tr"><code>Sans 13.5 / 700 · Avenir Next, Segoe UI, system-ui</code><span style="font-weight:700;font-size:13.5px">Billing migration review</span></div>
+    <div class="tr"><code>Sans 15 / 400 · body</code><span>Lena Fischer is out of office on Friday 6 November.</span></div>
+    <div class="tr"><code>Sans 12 · meta</code><span style="font-size:12px;color:var(--muted)">14:00 to 15:00</span></div>
+
+    <h3>Form and finish</h3>
+    <dl class="facts">
+      <dt>Spacing</dt><dd>8px unit. 6px between day columns, 44px per half hour, 28 to 32px between areas.</dd>
+      <dt>Density</dt><dd>Relaxed. A 09:00 to 17:00 grid shown in full, events sized by their length.</dd>
+      <dt>Corners</dt><dd>Irregular blob radii such as 30% 40% 36% 44%, never a perfect circle or rectangle.</dd>
+      <dt>Borders</dt><dd>None. Edges come from a turbulence displacement filter on the wash layer only.</dd>
+      <dt>Shadows</dt><dd>Only under the primary button and the selected view, soft and pooled below.</dd>
+      <dt>Icons</dt><dd>Hand-drawn 1.8 stroke shapes at 13 to 18px. Circle for Team, hourglass for Deadline, crescent for Out of office.</dd>
+      <dt>Focus</dt><dd>3px indigo outline at 55 percent, offset 3px, softly rounded.</dd>
+      <dt>Tone</dt><dd>Gentle and personal: November, week one. A blank page today.</dd>
+    </dl>
+
+    <h3>Controls · normal and focus</h3>
+    <div class="cg">
+      <div><span class="cc">Primary</span><button class="btn btn-primary">New event</button> <button class="btn btn-primary is-focus">Focused</button></div>
+      <div><span class="cc">Secondary</span><button class="btn">Today</button> <button class="btn is-focus">Focused</button></div>
+      <div><label class="field">Event title<input value="Survey readout"></label></div>
+      <div><label class="field">Event title, focused<input class="is-focus" value="Team retro"></label></div>
+      <div><span class="cc">List row</span><div class="rowd"><span>Design critique</span><span>10:00</span></div></div>
+      <div><span class="cc">List row, focused</span><div class="rowd is-focus"><span>Design critique</span><span>10:00</span></div></div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Style 272 · Midnight garden · Brightwork</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+:root { --night: #0c1611; --bed: #12201a; --bed2: #182a21; --ink: #edf1e6; --muted: #a9baa7; --vine: #3d5c48; --leaf: #8fd0a2; --moon: #f3e9c6; --petal: #eeb0ca; --leafink: #0b2214;
+  --font: "Optima", "Candara", "Segoe UI", "Noto Sans", system-ui, sans-serif; --leafr: 16px 3px 16px 3px;
+  --s-bg: #0c1611; --s-ink: #edf1e6; --s-muted: #a9baa7; --s-line: #2a4234; --s-font: var(--font); --s-h2: italic 500 32px/1.2 var(--font); --s-chip: 16px 3px 16px 3px; }
+body { margin: 0; background: var(--night); color: var(--ink); font: 15.5px/1.55 var(--font); }
+a { color: inherit; text-decoration: none; }
+.i { width: 18px; height: 18px; flex: none; }
+:focus-visible, .is-focus { outline: 2px dashed var(--moon); outline-offset: 3px; }
+.garden { position: relative; overflow: clip; }
+.border { display: block; width: 100%; height: 64px; }
+.top { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; padding: 0 36px 8px; max-width: 1360px; margin: -40px auto 0; position: relative; }
+.mark { display: flex; align-items: center; gap: 12px; font-size: 20px; font-style: italic; }
+.mark svg { width: 40px; height: 40px; }
+.mark span { color: var(--muted); }
+.search { margin-left: auto; display: flex; align-items: center; gap: 10px; padding: 0 16px; height: 42px; border-radius: var(--leafr); background: var(--bed); border: 1px solid var(--vine); color: var(--muted); width: min(340px, 100%); }
+.search input { background: none; border: 0; color: var(--ink); font: 15.5px var(--font); width: 100%; }
+.search input::placeholder { color: var(--muted); }
+.search input:focus-visible { outline: none; }
+.search:focus-within { outline: 2px dashed var(--moon); outline-offset: 3px; }
+.wrap { display: grid; grid-template-columns: 210px minmax(0, 1fr) 330px; gap: 36px; padding: 24px 36px 64px; max-width: 1360px; margin: 0 auto; }
+.wrap > * { min-width: 0; }
+.stem { position: relative; padding-left: 26px; }
+.stem::before { content: ""; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2px; background: var(--vine); border-radius: 2px; }
+.nav ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.nav li { position: relative; }
+.nav li::before { content: ""; position: absolute; left: -22px; top: 13px; width: 14px; height: 8px; border-radius: 8px 0 8px 0; background: var(--vine); }
+.nav li.cur::before { background: var(--leaf); }
+.nav a { display: flex; gap: 10px; align-items: center; padding: 6px 12px; border-radius: var(--leafr); color: var(--muted); }
+.nav a[aria-current] { color: var(--ink); background: var(--bed2); }
+.nav a[aria-current] .i { color: var(--leaf); }
+.bed { margin-top: 36px; padding: 14px; border-radius: var(--leafr); background: var(--bed); border: 1px solid var(--vine); font-size: 13.5px; color: var(--muted); }
+.bed b { color: var(--ink); font-size: 18px; font-weight: 600; }
+.bed svg { display: block; width: 100%; max-width: 220px; height: 26px; margin: 8px 0 2px; }
+.crumb { display: flex; gap: 8px; align-items: center; list-style: none; margin: 0 0 6px; padding: 0; color: var(--muted); font-size: 14px; }
+.crumb .i { width: 13px; height: 13px; }
+h1 { font-size: 40px; line-height: 1.1; margin: 0 0 20px; font-weight: 500; font-style: italic; }
+.tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 26px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 18px; border-radius: var(--leafr); font: 600 14.5px var(--font); cursor: pointer; }
+.pri { background: var(--leaf); color: var(--leafink); border: 1px solid var(--leaf); }
+.sec { background: transparent; color: var(--ink); border: 1px solid #5b7f66; }
+.vw { margin-left: auto; display: flex; gap: 4px; }
+.vw a { display: flex; gap: 6px; align-items: center; height: 38px; padding: 0 12px; border-radius: var(--leafr); color: var(--muted); border: 1px solid transparent; }
+.vw a[aria-pressed="true"] { color: var(--ink); border-color: var(--leaf); background: var(--bed); }
+.vinelist { list-style: none; margin: 0; padding: 0 0 0 44px; position: relative; }
+.vinelist::before { content: ""; position: absolute; left: 15px; top: 0; bottom: 0; width: 2px; background: var(--vine); }
+.lf { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 150px 80px; gap: 16px; align-items: center; padding: 14px 16px; margin-bottom: 8px; background: var(--bed); border-radius: var(--leafr); border: 1px solid #22382b; }
+.lf .bud { position: absolute; left: -44px; top: 50%; width: 32px; height: 32px; margin-top: -16px; }
+.lf .nm { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.lf .nm .i { color: var(--leaf); }
+.lf b { font-weight: 600; overflow-wrap: anywhere; }
+.lf .m { font-size: 13.5px; color: var(--muted); line-height: 1.4; }
+.lf .r { text-align: right; font-size: 14px; color: var(--ink); font-variant-numeric: tabular-nums; }
+.lf.sel { background: var(--bed2); border-color: var(--petal); }
+.tag { display: inline-flex; gap: 6px; align-items: center; font-size: 13px; font-style: italic; margin-left: 10px; white-space: nowrap; }
+.tag .i { width: 14px; height: 14px; }
+.tag.star { color: var(--moon); }
+.tag.shr { color: var(--petal); }
+.tag.up { color: var(--leaf); }
+.grow { display: block; height: 4px; border-radius: 2px; background: #22382b; margin-top: 8px; max-width: 280px; }
+.grow i { display: block; height: 100%; width: 62%; background: var(--leaf); border-radius: 2px; }
+.arch { background: var(--bed); border: 1px solid var(--vine); border-radius: 170px 170px 18px 18px; padding: 28px 24px 24px; text-align: center; }
+.arch .win { border-radius: 140px 140px 8px 8px; overflow: hidden; border: 1px solid var(--vine); margin-bottom: 18px; }
+.arch .win svg { display: block; width: 100%; height: auto; }
+.arch h2 { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; font-weight: 600; }
+.arch h3 { font-size: 21px; font-style: italic; font-weight: 500; margin: 0 0 6px; overflow-wrap: anywhere; }
+.arch dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; text-align: left; margin: 18px 0; padding: 14px 0 0; border-top: 1px dashed var(--vine); font-size: 14.5px; }
+.arch dt { color: var(--muted); }
+.arch dd { margin: 0; }
+.acts { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.field { display: grid; gap: 6px; font-size: 13px; color: var(--muted); }
+.field input { background: var(--bed); border: 1px solid #5b7f66; color: var(--ink); height: 42px; padding: 0 14px; border-radius: var(--leafr); font: 15.5px var(--font); max-width: 300px; }
+.samp .lf { grid-template-columns: minmax(0,1fr) auto; max-width: 420px; margin: 0; }
+@media (max-width: 1180px) { .wrap { grid-template-columns: 200px minmax(0, 1fr); } .arch { grid-column: 2; max-width: 460px; } }
+@media (max-width: 760px) {
+  .top { padding: 0 16px 8px; margin-top: -36px; }
+  .search { width: 100%; margin: 0; }
+  .wrap { grid-template-columns: 1fr; padding: 16px 16px 48px; gap: 28px; }
+  .arch { grid-column: auto; }
+  .nav ul { gap: 0; }
+  .bed { margin-top: 16px; }
+  h1 { font-size: 32px; }
+  .vw { margin-left: 0; }
+  .vinelist { padding-left: 34px; }
+  .vinelist::before { left: 11px; }
+  .lf .bud { left: -34px; width: 24px; height: 24px; margin-top: -12px; }
+  .lf { grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; padding: 12px; }
+  .lf .m { grid-column: 1; padding-left: 30px; }
+  .lf .r { grid-row: 1; grid-column: 2; }
+  .tag { display: flex; margin: 2px 0 0; }
+}
+
+
+.sheet { background: var(--s-bg); color: var(--s-ink); border-top: 1px solid var(--s-line); padding: 56px 32px 72px; font-family: var(--s-font); }
+.sheet-in { max-width: 1120px; margin: 0 auto; }
+.sheet h2 { font: var(--s-h2); margin: 0 0 8px; color: var(--s-ink); }
+.sheet h3 { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--s-muted); margin: 40px 0 16px; font-weight: 600; font-family: var(--s-font); }
+.sheet .idea { font-size: 17px; line-height: 1.55; max-width: 64ch; color: var(--s-ink); margin: 0; }
+.sheet code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; font-size: 12.5px; color: var(--s-muted); }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px 24px; }
+.swatches li { display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: center; font-size: 13px; line-height: 1.4; color: var(--s-muted); }
+.swatches i { width: 44px; height: 44px; border-radius: var(--s-chip, 6px); border: 1px solid var(--s-line); display: block; }
+.swatches b { display: block; color: var(--s-ink); font-size: 14px; }
+.swatches code { color: var(--s-ink); }
+.tscale { display: grid; gap: 14px; }
+.trow { display: grid; grid-template-columns: 240px 1fr; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--s-line); padding-bottom: 12px; }
+.trow > span { min-width: 0; overflow-wrap: anywhere; color: var(--s-ink); }
+.facts { display: grid; grid-template-columns: 140px 1fr; gap: 10px 24px; margin: 0; font-size: 14.5px; line-height: 1.55; }
+.facts dt { color: var(--s-muted); font-weight: 600; }
+.facts dd { margin: 0; color: var(--s-ink); }
+.ctls { display: grid; grid-template-columns: 160px 1fr 1fr; gap: 20px 24px; align-items: center; }
+.ctls .h { font-size: 12px; color: var(--s-muted); text-transform: uppercase; letter-spacing: .08em; }
+.ctls .lab { color: var(--s-muted); font-size: 14px; }
+.ctls > div { min-width: 0; }
+@media (max-width: 760px) {
+  .sheet { padding: 40px 16px 56px; }
+  .trow { grid-template-columns: 1fr; gap: 4px; }
+  .facts { grid-template-columns: 1fr; gap: 2px; }
+  .facts dd { margin-bottom: 10px; }
+  .ctls { grid-template-columns: 1fr; gap: 10px; }
+  .ctls .h { display: none; }
+  .ctls .lab { margin-top: 14px; }
+}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol><symbol id="i-myfiles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 10h18"/></symbol><symbol id="i-pdf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M8.5 16.5h7M8.5 13h4"/></symbol><symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><circle cx="9" cy="9.5" r="1.6"/><path d="M4 17l5-5 4 4 2.5-2.5L20 18"/></symbol><symbol id="i-sheet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9.5h16M4 14.5h16M10 9.5V20"/></symbol><symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M8.5 12h7M8.5 15h7M8.5 18h4"/></symbol><symbol id="i-archive" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M11 4v1.5M11 7.5v1.5M11 11v1.5"/><rect x="9.5" y="14" width="3" height="4" rx="1"/></symbol><symbol id="i-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="2"/><path d="M10 9.5v5l4.5-2.5z"/></symbol><symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></symbol><symbol id="i-starfill" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M12 3.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></symbol><symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.2"/><path d="M3 19.5c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><circle cx="17" cy="9.5" r="2.4"/><path d="M16.5 14.2c2.6.3 4.5 2.3 4.5 5.3"/></symbol><symbol id="i-uploading" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 16.5v-9M8.5 11 12 7.5l3.5 3.5"/></symbol><symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></symbol><symbol id="i-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4.5M7.5 9 12 4.5 16.5 9M5 19.5h14"/></symbol><symbol id="i-newfolder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M12 10.5v5M9.5 13h5"/></symbol><symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6.5h11M9 12h11M9 17.5h11M4.5 6.5h.01M4.5 12h.01M4.5 17.5h.01"/></symbol><symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.2"/></symbol><symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol><symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7h15M10 11v6M14 11v6M6.5 7l1 13h9l1-13M9.5 7V4.5h5V7"/></symbol><symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.5" cy="12" r="2.5"/><circle cx="17.5" cy="6" r="2.5"/><circle cx="17.5" cy="18" r="2.5"/><path d="M8.7 10.8l6.6-3.6M8.7 13.2l6.6 3.6"/></symbol><symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5V15M7.5 10.5 12 15l4.5-4.5M5 19.5h14"/></symbol><symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol><symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></symbol><symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5l6 6 6-6"/></symbol><symbol id="i-more" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="18.5" cy="12" r="1.2"/></symbol><symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18.5a4.2 4.2 0 0 1-.6-8.4A6 6 0 0 1 17.8 9a4.8 4.8 0 0 1-.8 9.5z"/></symbol><symbol id="i-sortup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18.5v-13M7 10.5l5-5 5 5"/></symbol><symbol id="i-sort" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9.5l4-4 4 4M8 14.5l4 4 4-4"/></symbol><symbol id="i-disk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6.5" rx="7.5" ry="2.8"/><path d="M4.5 6.5v11c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-11M4.5 12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8"/></symbol><symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol><symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol></defs></svg>
+
+<div class="garden">
+  <svg class="border" viewBox="0 0 1280 64" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><g fill="none" stroke="#3d5c48" stroke-width="1.6" stroke-linecap="round"><path d="M0 10 C 120 30, 220 0, 340 16 S 560 34, 700 12 S 980 2, 1100 22 S 1240 18, 1280 8"/><path d="M80 18 q 10 14 26 12 q -6 -14 -26 -12z M260 10 q 14 12 28 6 q -10 -12 -28 -6z M470 22 q 8 16 26 14 q -4 -16 -26 -14z M640 16 q 14 12 30 4 q -12 -12 -30 -4z M860 8 q 12 14 28 10 q -8 -14 -28 -10z M1040 18 q 10 14 26 12 q -6 -14 -26 -12z M1190 16 q 12 12 28 6 q -10 -12 -28 -6z"/></g><g fill="#f3e9c6" opacity=".85"><circle cx="1180" cy="40" r="14"/></g><circle cx="1186" cy="36" r="12" fill="#0c1611"/><g fill="#eeb0ca"><circle cx="560" cy="34" r="2.2"/><circle cx="930" cy="10" r="2"/><circle cx="170" cy="28" r="2"/></g></svg>
+  <header class="top">
+    <div class="mark"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#12201a" stroke="#3d5c48"/><path d="M20 31V15" stroke="#8fd0a2" stroke-width="1.8" fill="none"/><path d="M20 22c-6 0-8-4-8-7 5 0 8 3 8 7zM20 18c5 0 8-3 8-7-5 0-8 3-8 7z" fill="#8fd0a2"/><circle cx="20" cy="11" r="3" fill="#f3e9c6"/></svg>Brightwork <span>Drive</span></div>
+    <label class="search"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search files</span><input type="search" placeholder="Search files"></label>
+  </header>
+</div>
+<div class="wrap">
+  <nav class="nav stem" aria-label="Drive">
+    <ul><li class="cur"><a href="#" aria-current="page"><svg class="i" aria-hidden="true"><use href="#i-myfiles"/></svg>My files</a></li><li><a href="#"><svg class="i" aria-hidden="true"><use href="#i-users"/></svg>Shared with me</a></li><li><a href="#"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Recent</a></li><li><a href="#"><svg class="i" aria-hidden="true"><use href="#i-star"/></svg>Starred</a></li><li><a href="#"><svg class="i" aria-hidden="true"><use href="#i-trash"/></svg>Trash</a></li></ul>
+    <div class="bed"><b>64.2 GB</b> of 100 GB used<svg role="img" aria-label="Storage used, 64.2 percent" viewBox="0 0 180 26"><path d="M2 18 H178" stroke="#2a4234" stroke-width="4" stroke-linecap="round"/><path d="M2 18 H115.5" stroke="#8fd0a2" stroke-width="4" stroke-linecap="round"/><path d="M115 18c2-8 10-12 16-12-2 7-8 12-16 12z" fill="#8fd0a2"/><path d="M40 18c-1-6 3-10 8-11 0 6-3 9-8 11zM80 18c1-6-3-10-8-11 0 6 3 9 8 11z" fill="#5b9a6e"/></svg></div>
+  </nav>
+  <main>
+    <ol class="crumb" aria-label="Breadcrumb"><li><a href="#">Fernhill Studio</a></li><li><svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></li><li aria-current="page">Website redesign</li></ol>
+    <h1>Website redesign</h1>
+    <div class="tools">
+      <button class="btn pri" type="button"><svg class="i" aria-hidden="true"><use href="#i-upload"/></svg>Upload</button>
+      <button class="btn sec" type="button"><svg class="i" aria-hidden="true"><use href="#i-newfolder"/></svg>New folder</button>
+      <div class="vw" role="group" aria-label="View"><a href="#" role="button" aria-pressed="true"><svg class="i" aria-hidden="true"><use href="#i-list"/></svg>List</a><a href="#" role="button" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-grid"/></svg>Grid</a></div>
+    </div>
+    <ul class="vinelist" aria-label="Files in Website redesign"><li class="lf"><svg class="bud" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 16h10" stroke="#3d5c48" stroke-width="2"/><circle cx="20" cy="16" r="8" fill="#2c4a37" stroke="#8fd0a2" stroke-width="1.4"/><path d="M14 16c3-6 9-6 12 0" stroke="#8fd0a2" stroke-width="1.2" fill="none"/></svg><div class="nm"><svg class="i" aria-hidden="true"><use href="#i-folder"/></svg><div><b><a href="#">Brand assets</a></b></div></div><span class="m">28 Oct<br>Priya Nair</span><span class="r">24 items</span></li><li class="lf"><svg class="bud" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 16h10" stroke="#3d5c48" stroke-width="2"/><circle cx="20" cy="16" r="8" fill="#2c4a37" stroke="#8fd0a2" stroke-width="1.4"/><path d="M14 16c3-6 9-6 12 0" stroke="#8fd0a2" stroke-width="1.2" fill="none"/></svg><div class="nm"><svg class="i" aria-hidden="true"><use href="#i-folder"/></svg><div><b><a href="#">Wireframes</a></b></div></div><span class="m">30 Oct<br>Aiko Tanaka</span><span class="r">9 items</span></li><li class="lf sel"><svg class="bud" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 16h8" stroke="#3d5c48" stroke-width="2"/><g fill="#eeb0ca" stroke="#0c1611" stroke-width=".8"><ellipse cx="20" cy="9" rx="4" ry="6"/><ellipse cx="20" cy="23" rx="4" ry="6"/><ellipse cx="13" cy="16" rx="6" ry="4"/><ellipse cx="27" cy="16" rx="6" ry="4"/></g><circle cx="20" cy="16" r="3.4" fill="#f3e9c6"/></svg><div class="nm"><svg class="i" aria-hidden="true"><use href="#i-pdf"/></svg><div><b><a href="#">brand-guide-v3.pdf</a></b><span class="sr">, selected</span><span class="tag star"><svg class="i" aria-hidden="true"><use href="#i-starfill"/></svg>Starred</span></div></div><span class="m">27 Oct<br>Priya Nair</span><span class="r">4.2 MB</span></li><li class="lf"><svg class="bud" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 16h8" stroke="#3d5c48" stroke-width="2"/><path d="M10 16c4-8 14-9 20-8-2 8-10 13-20 8z" fill="#2c4a37" stroke="#8fd0a2" stroke-width="1.4"/><path d="M12 16c5-2 10-4 15-7" stroke="#8fd0a2" stroke-width="1" fill="none"/></svg><div class="nm"><svg class="i" aria-hidden="true"><use href="#i-image"/></svg><div><b><a href="#">homepage-hero-B.png</a></b></div></div><span class="m">Today 08:12<br>Priya Nair</span><span class="r">2.8 MB</span></li><li class="lf"><svg class="bud" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 16h8" stroke="#3d5c48" stroke-width="2"/><path d="M10 16c4-8 14-9 20-8-2 8-10 13-20 8z" fill="#2c4a37" stroke="#8fd0a2" stroke-width="1.4"/><path d="M12 16c5-2 10-4 15-7" stroke="#8fd0a2" stroke-width="1" fill="none"/></svg><div class="nm"><svg class="i" aria-hidden="true"><use href="#i-sheet"/></svg><div><b><a href="#">content-audit.xlsx</a></b></div></div><span class="m">19 Sep<br>Mara Okafor</span><span class="r">86 KB</span></li><li class="lf"><svg class="bud" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 16h8" stroke="#3d5c48" stroke-width="2"/><path d="M10 16c4-8 14-9 20-8-2 8-10 13-20 8z" fill="#2c4a37" stroke="#8fd0a2" stroke-width="1.4"/><path d="M12 16c5-2 10-4 15-7" stroke="#8fd0a2" stroke-width="1" fill="none"/></svg><div class="nm"><svg class="i" aria-hidden="true"><use href="#i-doc"/></svg><div><b><a href="#">launch-plan.docx</a></b><span class="tag shr"><svg class="i" aria-hidden="true"><use href="#i-users"/></svg>Shared with 4 people</span></div></div><span class="m">Yesterday<br>Mara Okafor</span><span class="r">140 KB</span></li><li class="lf"><svg class="bud" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 16h8" stroke="#3d5c48" stroke-width="2"/><path d="M10 16c4-8 14-9 20-8-2 8-10 13-20 8z" fill="#2c4a37" stroke="#8fd0a2" stroke-width="1.4"/><path d="M12 16c5-2 10-4 15-7" stroke="#8fd0a2" stroke-width="1" fill="none"/></svg><div class="nm"><svg class="i" aria-hidden="true"><use href="#i-archive"/></svg><div><b><a href="#">customer-interviews.zip</a></b></div></div><span class="m">12 Oct<br>Aiko Tanaka</span><span class="r">312 MB</span></li><li class="lf"><svg class="bud" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 16h8" stroke="#3d5c48" stroke-width="2"/><path d="M10 16c4-8 14-9 20-8-2 8-10 13-20 8z" fill="#2c4a37" stroke="#8fd0a2" stroke-width="1.4"/><path d="M12 16c5-2 10-4 15-7" stroke="#8fd0a2" stroke-width="1" fill="none"/></svg><div class="nm"><svg class="i" aria-hidden="true"><use href="#i-video"/></svg><div><b><a href="#">hero-motion.mp4</a></b><span class="tag up"><svg class="i" aria-hidden="true"><use href="#i-uploading"/></svg>Uploading, 62%</span><span class="grow" role="progressbar" aria-label="hero-motion.mp4 upload" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"><i></i></span></div></div><span class="m">29 Oct<br>Priya Nair</span><span class="r">48.6 MB</span></li></ul>
+  </main>
+  <aside class="arch" aria-labelledby="det-h">
+    <h2 id="det-h">Details</h2>
+    <div class="win"><svg viewBox="0 0 280 210" role="img" aria-label="Preview of brand-guide-v3.pdf under a crescent moon, cover with a leaf B mark"><rect width="280" height="210" fill="#0a130e"/><circle cx="226" cy="44" r="20" fill="#f3e9c6"/><circle cx="234" cy="38" r="17" fill="#0a130e"/><g fill="none" stroke="#3d5c48" stroke-width="1.4"><path d="M0 190 C 40 150, 60 170, 80 130"/><path d="M280 196 C 250 160, 230 180, 214 140"/><path d="M60 160 q 14 -2 18 -16 q -14 2 -18 16z M240 172 q -14 -2 -18 -16 q 14 2 18 16z"/></g><rect x="96" y="40" width="88" height="132" rx="4" fill="#edf1e6"/><circle cx="120" cy="66" r="12" fill="#12201a"/><text x="120" y="71" text-anchor="middle" font-family="Optima, Candara, sans-serif" font-style="italic" font-size="14" fill="#8fd0a2">B</text><rect x="108" y="92" width="52" height="5" rx="2" fill="#12201a"/><rect x="108" y="104" width="64" height="3" rx="1.5" fill="#6f806f"/><rect x="108" y="112" width="58" height="3" rx="1.5" fill="#6f806f"/><rect x="108" y="120" width="62" height="3" rx="1.5" fill="#6f806f"/><g fill="#eeb0ca"><circle cx="186" cy="176" r="4"/><circle cx="192" cy="182" r="4"/><circle cx="182" cy="184" r="4"/></g><circle cx="187" cy="181" r="2" fill="#f3e9c6"/></svg></div>
+    <h3>brand-guide-v3.pdf</h3>
+    <span class="tag star" style="margin:0"><svg class="i" aria-hidden="true"><use href="#i-starfill"/></svg>Starred</span>
+    <dl><dt>Owner</dt><dd>Priya Nair</dd><dt>Size</dt><dd>4.2 MB</dd><dt>Version</dt><dd>3</dd><dt>Shared with</dt><dd>Design team</dd></dl>
+    <div class="acts"><button class="btn pri" type="button"><svg class="i" aria-hidden="true"><use href="#i-share"/></svg>Share</button><button class="btn sec" type="button"><svg class="i" aria-hidden="true"><use href="#i-download"/></svg>Download</button><button class="btn sec" type="button"><svg class="i" aria-hidden="true"><use href="#i-link"/></svg>Get link</button></div>
+  </aside>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h"><div class="sheet-in">
+<h2 id="sheet-h">Style 272 · Midnight garden</h2>
+<p class="idea">Files hang like leaves along a drawn vine on deep night green, the selected file blooms as a moonlit flower, and its details open in an arched garden window.</p>
+<h3>Palette</h3><ul class="swatches"><li><i style="background:#0c1611"></i><div><b>Night</b><code>#0c1611</code> · page and style sheet</div></li><li><i style="background:#12201a"></i><div><b>Bed</b><code>#12201a</code> · leaf rows, storage bed, arch panel, search</div></li><li><i style="background:#182a21"></i><div><b>Bed lit</b><code>#182a21</code> · selected row and current nav</div></li><li><i style="background:#3d5c48"></i><div><b>Vine</b><code>#3d5c48</code> · stems, borders, line art</div></li><li><i style="background:#edf1e6"></i><div><b>Ink</b><code>#edf1e6</code> · text</div></li><li><i style="background:#a9baa7"></i><div><b>Muted</b><code>#a9baa7</code> · meta and inactive nav</div></li><li><i style="background:#8fd0a2"></i><div><b>Leaf</b><code>#8fd0a2</code> · primary button, file icons, leaf markers, upload and storage growth</div></li><li><i style="background:#f3e9c6"></i><div><b>Moon</b><code>#f3e9c6</code> · moon, Starred word and dashed focus</div></li><li><i style="background:#eeb0ca"></i><div><b>Petal</b><code>#eeb0ca</code> · selected flower, selected edge, Shared word</div></li><li><i style="background:#0b2214"></i><div><b>Leaf ink</b><code>#0b2214</code> · text on leaf</div></li></ul>
+<h3>Type scale</h3><div class="tscale"><div class="trow"><code>40 / 500 italic Optima, Candara stack</code><span style="font:italic 500 40px/1.1 "Optima", "Candara", "Segoe UI", "Noto Sans", system-ui, sans-serif">Website redesign</span></div><div class="trow"><code>21 / 500 italic detail title</code><span style="font:italic 500 21px "Optima", "Candara", "Segoe UI", "Noto Sans", system-ui, sans-serif">brand-guide-v3.pdf</span></div><div class="trow"><code>15.5 / 600 file name</code><span style="font:600 15.5px "Optima", "Candara", "Segoe UI", "Noto Sans", system-ui, sans-serif">content-audit.xlsx</span></div><div class="trow"><code>13.5 / 400 muted meta</code><span style="font:13.5px "Optima", "Candara", "Segoe UI", "Noto Sans", system-ui, sans-serif;color:#a9baa7">19 Sep · Mara Okafor</span></div><div class="trow"><code>13 / italic status word</code><span style="font:italic 13px "Optima", "Candara", "Segoe UI", "Noto Sans", system-ui, sans-serif;color:#eeb0ca">Shared with 4 people</span></div></div>
+<h3>Spacing, density and surface</h3><dl class="facts"><dt>Spacing</dt><dd>8px unit. 36px gutters and column gaps, 8px between leaf rows, 14 by 16px row padding.</dd><dt>Density</dt><dd>Medium. Eight rows hang from one vine with room for the line art.</dd><dt>Corners</dt><dd>Leaf shaped, 16px on two opposite corners and 3px on the others. The details panel is a 170px arch over 18px feet.</dd><dt>Borders</dt><dd>1px vine green on panels and rows, a 2px vine line down the list and the nav, a petal edge on the selected row.</dd><dt>Shadows</dt><dd>None. Light comes from the moon, cream and petal accents.</dd><dt>Icons</dt><dd>18px line icons in leaf green. Each row hangs from a leaf, folders from a bud, the selected file from a flower. Status pairs a filled star, two people or an up arrow ring with an italic word.</dd><dt>Focus</dt><dd>2px dashed moon cream outline, 3px offset.</dd><dt>Tone</dt><dd>Gentle and plain, such as Details and 64.2 GB of 100 GB used.</dd></dl>
+<h3>Basic controls</h3><div class="ctls"><div class="h">Control</div><div class="h">Normal</div><div class="h">Focus</div><div class="lab">Primary button</div><div><button class="btn pri" type="button"><svg class="i" aria-hidden="true"><use href="#i-upload"/></svg>Upload</button></div><div><button class="btn pri is-focus" type="button"><svg class="i" aria-hidden="true"><use href="#i-upload"/></svg>Upload</button></div><div class="lab">Secondary button</div><div><button class="btn sec" type="button"><svg class="i" aria-hidden="true"><use href="#i-newfolder"/></svg>New folder</button></div><div><button class="btn sec is-focus" type="button"><svg class="i" aria-hidden="true"><use href="#i-newfolder"/></svg>New folder</button></div><div class="lab">Text field</div><div><label class="field">Folder name<input class="" value="Website redesign"></label></div><div><label class="field">Folder name<input class="is-focus" value="Website redesign"></label></div><div class="lab">List row</div><div><div class="samp"><div class="lf"><div class="nm"><svg class="i" aria-hidden="true"><use href="#i-doc"/></svg><div><b>launch-plan.docx</b><span class="tag shr"><svg class="i" aria-hidden="true"><use href="#i-users"/></svg>Shared with 4 people</span></div></div><span class="r">140 KB</span></div></div></div><div><div class="samp"><div class="lf is-focus"><div class="nm"><svg class="i" aria-hidden="true"><use href="#i-doc"/></svg><div><b>launch-plan.docx</b><span class="tag shr"><svg class="i" aria-hidden="true"><use href="#i-users"/></svg>Shared with 4 people</span></div></div><span class="r">140 KB</span></div></div></div></div>
+</div></section>
+</body>
+</html>

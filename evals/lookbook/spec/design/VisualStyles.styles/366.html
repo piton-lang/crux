@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 366 · Ledger night · Brightwork</title>
+<style>
+
+:root { color-scheme: dark; --bg:#08120d; --page:#0d1c15; --rule:#24402f; --col:#3b6a4f; --ink:#e4ecd3; --faded:#a7b9a0; --red:#ff9d91; --green:#9ed9a8;
+ --mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; --serif: Georgia, "Times New Roman", Cambria, serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.6 var(--serif); }
+a { color: var(--ink); text-decoration-color: var(--col); text-underline-offset: 3px; }
+:focus-visible, .is-focus { outline: 2px dashed var(--ink) !important; outline-offset: 2px; background-color: #1b3326 !important; }
+.si { width: 1em; height: 1em; vertical-align: -2px; flex: none; }
+.book { max-width: 1240px; margin: 0 auto; padding: 24px 24px 0; }
+.title { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; border-bottom: 3px double var(--col); padding: 8px 4px 12px; }
+.title h1 { margin: 0; font-weight: 400; font-size: 30px; font-style: italic; letter-spacing: .01em; }
+.title .meta { font-family: var(--mono); font-size: 12px; color: var(--faded); text-transform: uppercase; letter-spacing: .12em; }
+.title nav { margin-left: auto; font-family: var(--mono); font-size: 13px; }
+.title nav ul { list-style: none; display: flex; gap: 16px; margin: 0; padding: 0; flex-wrap: wrap; }
+.title nav a[aria-current] { text-decoration: underline double; }
+.title nav a:not([aria-current]) { color: var(--faded); text-decoration: none; }
+.spread { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 20px; background: var(--page); border: 1px solid var(--rule); }
+.leaf { padding: 20px 24px 28px; min-width: 0; background-color: var(--page); background-image: repeating-linear-gradient(180deg, transparent 0 31px, rgba(59,106,79,.35) 31px 32px); }
+.leaf + .leaf { border-left: 4px double var(--col); }
+.folio { font-family: var(--mono); font-size: 11px; color: var(--faded); letter-spacing: .12em; text-transform: uppercase; display: flex; justify-content: space-between; margin-bottom: 8px; }
+h2 { margin: 16px 0 4px; font-weight: 400; font-size: 20px; font-style: italic; }
+h2 small { font-style: normal; font-family: var(--mono); font-size: 11px; color: var(--faded); letter-spacing: .12em; text-transform: uppercase; margin-left: 8px; }
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 480px; }
+th { font-family: var(--mono); font-weight: 400; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--faded); text-align: left; padding: 6px 8px; border-bottom: 2px solid var(--col); height: 32px; }
+td { padding: 0 8px; height: 32px; line-height: 32px; white-space: nowrap; }
+th + th, td + td { border-left: 1px solid var(--col); }
+th.n, td.n { text-align: right; width: 96px; }
+td.n { font-family: var(--mono); font-size: 14px; font-variant-numeric: tabular-nums; }
+td.p { font-style: italic; font-size: 16px; }
+td.d { font-family: var(--mono); font-size: 13px; color: var(--faded); width: 70px; }
+td.fo { font-family: var(--mono); font-size: 12px; color: var(--faded); width: 44px; text-align: center; }
+.red { color: var(--red); }
+.grn { color: var(--green); }
+tr.tot td { border-top: 1px solid var(--ink); }
+tr.tot td.n { border-bottom: 3px double var(--ink); }
+tr.tot td.p { font-style: normal; font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--faded); }
+.mark { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; display: inline-flex; gap: 6px; align-items: center; }
+.mark.over { color: var(--red); border: 1px solid var(--red); padding: 0 6px; line-height: 20px; transform: rotate(-3deg); }
+.mark.full { color: var(--ink); }
+.mark.ok { color: var(--green); }
+.note { font-size: 14px; color: var(--faded); font-style: italic; margin: 8px 0 0; line-height: 1.6; white-space: normal; }
+.fund { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: start; margin-top: 8px; }
+.cells { display: grid; grid-template-columns: repeat(5, 28px); grid-auto-rows: 28px; gap: 4px; }
+.cells i { border: 1px solid var(--col); position: relative; display: block; }
+.cells i.f { background: var(--green); border-color: var(--green); }
+.cells i.p { background: linear-gradient(90deg, var(--green) 40%, transparent 40%); border-color: var(--green); }
+.fund dl { margin: 0; display: grid; grid-template-columns: auto auto; gap: 0 16px; font-family: var(--mono); font-size: 14px; justify-content: start; }
+.fund dt { color: var(--faded); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; line-height: 32px; }
+.fund dd { margin: 0; text-align: right; line-height: 32px; }
+.legend { font-family: var(--mono); font-size: 12px; color: var(--faded); margin-top: 16px; display: flex; flex-wrap: wrap; gap: 4px 20px; }
+@media (max-width: 900px) {
+ .spread { grid-template-columns: 1fr; }
+ .leaf + .leaf { border-left: 0; border-top: 4px double var(--col); }
+}
+@media (max-width: 600px) {
+ .book { padding: 16px 12px 0; } .leaf { padding: 16px 12px 24px; }
+ .title h1 { font-size: 24px; } .title nav { margin-left: 0; width: 100%; }
+ .fund { grid-template-columns: 1fr; }
+ table { min-width: 0; } th, td { padding: 0 4px !important; } th.n, td.n { width: auto; } td.n { font-size: 13px; } td.p { font-size: 14px !important; white-space: normal; line-height: 1.2; } td.fo, th.fo { display: none; } td.d { width: auto; font-size: 12px; } th { font-size: 10px; letter-spacing: .04em; } .mark { font-size: 11px; gap: 3px; } .mark.over { padding: 0 3px; }
+ tr.tot td.p { font-size: 11px !important; }
+ table.acc { min-width: 0; } table.acc td, table.acc th { padding: 0 6px; } table.acc td.p { font-size: 15px; }
+}
+
+.sheet { max-width: 1120px; margin: 0 auto; padding: 48px 24px 64px; }
+.sheet .swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.sheet .sw { display: flex; gap: 12px; align-items: flex-start; }
+.sheet .sw i { flex: none; width: 44px; height: 44px; }
+.sheet .sw span { font-size: 13px; }
+.sheet .type-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding: 8px 0; }
+.sheet .type-row code { flex: none; width: 200px; font-size: 12px; }
+.sheet .type-row span { min-width: 0; overflow-wrap: anywhere; }
+.sheet .facts { display: grid; grid-template-columns: 140px minmax(0,1fr); gap: 8px 24px; margin: 0; }
+.sheet .facts dd { margin: 0; }
+.sheet .controls { display: grid; gap: 20px; }
+.sheet .ctl-label { display: block; font-size: 13px; margin-bottom: 8px; }
+.sheet .ctl-pair { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
+.sheet .fld { display: grid; gap: 6px; font-size: 13px; }
+.sheet .lrow { min-width: 0; width: min(340px, 100%); }
+@media (max-width: 600px) { .sheet .facts { grid-template-columns: minmax(0,1fr); } .sheet .facts dd { margin-bottom: 8px; } .sheet .type-row code { width: auto; } .sheet { padding: 40px 16px 48px; } }
+
+.sheet { margin-top: 32px; border-top: 3px double var(--col); background: var(--bg); }
+.sheet h2 { font-size: 32px; font-style: italic; margin: 0 0 8px; }
+.sheet .idea { font-size: 18px; font-style: italic; max-width: 780px; }
+.sheet h3 { font-family: var(--mono); font-weight: 400; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--faded); border-bottom: 2px solid var(--col); padding-bottom: 6px; margin: 40px 0 16px; }
+.sheet .sw i { border: 1px solid var(--col); }
+.sheet .sw span, .sheet code, .sheet .ctl-label, .sheet .fld span, .sheet dt { color: var(--faded); }
+.sheet code, .sheet dt, .sheet .ctl-label { font-family: var(--mono); }
+.sheet dt { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; }
+.btn-p { font: 14px var(--mono); letter-spacing: .08em; text-transform: uppercase; background: var(--ink); color: #0d1c15; border: 1px solid var(--ink); padding: 8px 18px; border-radius: 0; cursor: pointer; }
+.btn-p:focus-visible, .btn-p.is-focus { background-color: var(--ink) !important; outline-offset: 3px; }
+.btn-s { font: 14px var(--mono); letter-spacing: .08em; text-transform: uppercase; background: transparent; color: var(--ink); border: 1px solid var(--col); padding: 8px 18px; border-radius: 0; cursor: pointer; }
+.fld input { font: italic 16px var(--serif); background: var(--page); color: var(--ink); border: 0; border-bottom: 1px solid var(--col); padding: 6px 4px; width: 240px; max-width: 100%; }
+.lrow { display: grid; grid-template-columns: 64px 1fr auto; gap: 12px; height: 32px; line-height: 32px; padding: 0 8px; border-bottom: 1px solid var(--col); color: var(--ink); text-decoration: none; background: var(--page); }
+.lrow .d { font-family: var(--mono); font-size: 13px; color: var(--faded); } .lrow .n { font-family: var(--mono); color: var(--red); }
+
+</style>
+</head>
+<body>
+<div class="book">
+<header class="title">
+ <h1>Brightwork Money · Ledger</h1>
+ <span class="meta">Mara Okafor · October · euros</span>
+ <nav aria-label="Books"><ul><li><a href="#" aria-current="page">Overview</a></li><li><a href="#">Journal</a></li><li><a href="#">Budget</a></li><li><a href="#">Funds</a></li></ul></nav>
+</header>
+<main class="spread">
+ <div class="leaf">
+  <div class="folio"><span>Folio 10</span><span>October</span></div>
+  <section aria-labelledby="h-acc"><h2 id="h-acc">Accounts <small>balances carried</small></h2>
+   <div class="scroll"><table class="acc"><thead><tr><th>Account</th><th>Note</th><th class="n">Balance</th></tr></thead><tbody>
+    <tr><td class="p">Everyday account</td><td class="d" style="width:auto">current</td><td class="n">2,184.60</td></tr>
+    <tr><td class="p">Savings</td><td class="d" style="width:auto">held</td><td class="n">11,420.00</td></tr>
+    <tr><td class="p">Credit card</td><td class="d red" style="width:auto"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> due 12 Nov</td><td class="n red" aria-label="minus 342.18">(342.18)</td></tr>
+   </tbody></table></div>
+  </section>
+  <section aria-labelledby="h-bud"><h2 id="h-bud">Budget ledger <small>October</small></h2>
+   <div class="scroll"><table><thead><tr><th>Category</th><th class="n">Allowed</th><th class="n">Spent</th><th class="n">Remains</th><th>Mark</th></tr></thead><tbody><tr><td class="p">Rent</td><td class="n">1,150</td><td class="n">1,150</td><td class="n">—</td><td><span class="mark full"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10h8M8 14h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>closed</span></td></tr><tr><td class="p">Groceries</td><td class="n">450</td><td class="n">386</td><td class="n">64</td><td><span class="mark ok"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.8 12.3l2.8 2.8 5.6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>within</span></td></tr><tr><td class="p">Eating out</td><td class="n">150</td><td class="n">212</td><td class="n"><span class="red">(62)</span></td><td><span class="mark over"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3L22 20H2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9.5v4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2" fill="currentColor"/></svg>OVER 62</span></td></tr><tr><td class="p">Transport</td><td class="n">120</td><td class="n">74</td><td class="n">46</td><td><span class="mark ok"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.8 12.3l2.8 2.8 5.6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>within</span></td></tr><tr><td class="p">Subscriptions</td><td class="n">60</td><td class="n">48</td><td class="n">12</td><td><span class="mark ok"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.8 12.3l2.8 2.8 5.6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>within</span></td></tr><tr class="tot"><td class="p">Totals</td><td class="n">1,930</td><td class="n">1,870</td><td class="n">60</td><td></td></tr></tbody></table></div>
+   <p class="note">Eating out ran 62 past its allowance. Figures in brackets and red ink are overdrawn or owed.</p>
+  </section>
+ </div>
+ <div class="leaf">
+  <div class="folio"><span>Folio 11</span><span>October</span></div>
+  <section id="tx" aria-labelledby="h-j"><h2 id="h-j">Journal <small>latest five entries</small></h2>
+   <div class="scroll"><table><thead><tr><th>Date</th><th>Particulars</th><th class="fo" style="text-align:center">Fo.</th><th class="n">Out</th><th class="n">In</th></tr></thead><tbody><tr><td class="d">31 Oct</td><td class="p">Fernhill Studio salary</td><td class="fo">E1</td><td class="n"></td><td class="n grn" aria-label="in, plus 3,850.00">+3,850.00</td></tr><tr><td class="d">30 Oct</td><td class="p">Corner Market</td><td class="fo">E1</td><td class="n red" aria-label="out, minus 42.15">(42.15)</td><td class="n"></td></tr><tr><td class="d">29 Oct</td><td class="p">Night train tickets</td><td class="fo">E1</td><td class="n red" aria-label="out, minus 118.00">(118.00)</td><td class="n"></td></tr><tr><td class="d">28 Oct</td><td class="p">Lumen Bakery</td><td class="fo">E1</td><td class="n red" aria-label="out, minus 9.40">(9.40)</td><td class="n"></td></tr><tr><td class="d">27 Oct</td><td class="p">Music subscription</td><td class="fo">E1</td><td class="n red" aria-label="out, minus 10.99">(10.99)</td><td class="n"></td></tr><tr class="tot"><td class="d"></td><td class="p">Five entries</td><td class="fo"></td><td class="n red">(180.54)</td><td class="n grn">+3,850.00</td></tr></tbody></table></div>
+  </section>
+  <section aria-labelledby="h-f"><h2 id="h-f">Sinking fund <small>Japan trip</small></h2>
+   <div class="fund"><div class="cells" role="img" aria-label="Ten cells of 500 euros, six and two fifths filled, 3,200 of 5,000 saved"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="p"></i><i></i><i></i><i></i></div>
+    <dl><dt>Saved</dt><dd>3,200.00</dd><dt>Target</dt><dd>5,000.00</dd><dt>To go</dt><dd>1,800.00</dd><dt>Due</dt><dd>1 Apr 2027</dd></dl></div>
+   <div class="legend"><span>Each cell 500</span><span>■ filled</span><span>□ to save</span></div>
+  </section>
+ </div>
+</main>
+</div>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 366 · Ledger night</h2>
+<p class="idea">The month kept as a bound ledger at night, a two page spread on green black with ruled lines and green column rules, monospace figures in pale ink, red ink in brackets for anything overdrawn or owed, and double underlined totals.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><i style="background:#08120d"></i><div><b>Desk</b> #08120d<br><span>page behind the book and the style sheet</span></div></li><li class="sw"><i style="background:#0d1c15"></i><div><b>Leaf</b> #0d1c15<br><span>ledger pages, fields and rows</span></div></li><li class="sw"><i style="background:#24402f"></i><div><b>Rule</b> #24402f<br><span>the outer book edge</span></div></li><li class="sw"><i style="background:#3b6a4f"></i><div><b>Column</b> #3b6a4f<br><span>ruled lines, column rules, double rules, field underlines</span></div></li><li class="sw"><i style="background:#e4ecd3"></i><div><b>Pale ink</b> #e4ecd3<br><span>text, figures, totals and primary button</span></div></li><li class="sw"><i style="background:#a7b9a0"></i><div><b>Faded ink</b> #a7b9a0<br><span>dates, folios, column heads and notes</span></div></li><li class="sw"><i style="background:#ff9d91"></i><div><b>Red ink</b> #ff9d91<br><span>bracketed overspend, owed and money out, the OVER stamp</span></div></li><li class="sw"><i style="background:#9ed9a8"></i><div><b>Green ink</b> #9ed9a8<br><span>money in, within marks and saved cells</span></div></li></ul>
+<h3>Type · Georgia, Times New Roman, Cambria for particulars; ui-monospace, Cascadia Mono, SF Mono, Menlo, Consolas for figures and heads</h3>
+<div class="type-row"><code>30 / italic serif title</code><span style="font-family:var(--serif);font-style:italic;font-size:30px">Brightwork Money · Ledger</span></div><div class="type-row"><code>20 / italic section</code><span style="font-style:italic;font-size:20px">Budget ledger</span></div><div class="type-row"><code>16 / italic particulars</code><span style="font-style:italic;font-size:16px">Night train tickets</span></div><div class="type-row"><code>14 / mono figures</code><span style="font-family:var(--mono);font-size:14px">(118.00)  3,850.00</span></div><div class="type-row"><code>11 / mono caps .1em heads</code><span style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--faded)">ALLOWED  SPENT  REMAINS</span></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3>
+<dl class="facts"><dt>Spacing</dt><dd>A 32px ruled line drives every row. 24px page padding, two equal leaves.</dd><dt>Density</dt><dd>High and tabular. Three accounts, five budget lines with totals, five journal entries with totals and a ten cell fund.</dd><dt>Corners</dt><dd>None.</dd><dt>Borders</dt><dd>Green column rules between every column, a 2px rule under heads, double rules for the gutter and title, a thin rule and double underline on totals.</dd><dt>Shadows</dt><dd>None. The book lies flat.</dd><dt>Icons</dt><dd>Very few, small outline marks beside words. Circle check within, ruled square closed, triangle inside a tilted red OVER stamp, a clock on the card due date. Brackets mark negatives.</dd><dt>Focus</dt><dd>A 2px dashed pale ink outline with a slightly lighter green wash.</dd><dt>Tone</dt><dd>Bookkeeping words, Accounts, Budget ledger, Journal, Particulars, Remains, Sinking fund, OVER 62.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls">
+<div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-p" type="button">Post entry</button><button class="btn-p is-focus" type="button">Post entry</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-s" type="button">Open journal</button><button class="btn-s is-focus" type="button">Open journal</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="fld"><span>Particulars</span><input type="text" value="Lumen"></label><label class="fld"><span>Particulars, focused</span><input type="text" class="is-focus" value="Lumen"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><a class="lrow" href="#tx"><span class="d">28 Oct</span><span style="font-style:italic">Lumen Bakery</span><span class="n">(9.40)</span></a><a class="lrow is-focus" href="#tx"><span class="d">28 Oct</span><span style="font-style:italic">Lumen Bakery</span><span class="n">(9.40)</span></a></div></div>
+</div>
+</section>
+</body>
+</html>

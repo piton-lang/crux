@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 212 · Progress led · Brightwork</title>
+<style>
+:root {
+  --page: #fbfaf7;
+  --raised: #ffffff;
+  --ink: #22201c;
+  --sub: #5e5a52;
+  --hair: #e4dfd4;
+  --track: #ebe6dc;
+  --fill: #3730a3;
+  --fill-soft: #c7c4ee;
+  --ok: #1f6f43;
+  --risk: #8a4f00;
+  --behind: #b3261e;
+  --ok-bg: #e6f2ea;
+  --risk-bg: #fbefdc;
+  --behind-bg: #fbe5e3;
+  --focus: #3730a3;
+  --font: "Avenir Next", Avenir, "Nunito Sans", "Segoe UI", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 16px/1.55 var(--font); }
+svg.i { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.sym { width: 14px; height: 14px; flex: none; }
+:focus-visible, .is-focus { outline: 3px solid var(--focus); outline-offset: 3px; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+.top { display: flex; align-items: center; gap: 12px; padding: 20px 0 12px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; color: var(--ink); text-decoration: none; margin-right: auto; }
+.brand-mark { width: 34px; height: 12px; border-radius: 6px; background: var(--track); overflow: hidden; }
+.brand-mark i { display: block; width: 64%; height: 100%; background: var(--fill); border-radius: 6px; }
+.search { display: flex; align-items: center; gap: 8px; height: 42px; border-radius: 21px; border: 1px solid var(--hair); background: var(--raised); padding: 0 16px; color: var(--sub); width: 280px; }
+.search input { border: 0; outline: 0; background: transparent; font: inherit; font-size: 15px; color: var(--ink); width: 100%; }
+.search:focus-within { outline: 3px solid var(--focus); outline-offset: 3px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 20px; border-radius: 21px; font: 600 15px var(--font); cursor: pointer; border: 1px solid var(--hair); background: var(--raised); color: var(--ink); white-space: nowrap; }
+.btn.primary { background: var(--fill); border-color: var(--fill); color: #fff; }
+.circ { width: 42px; padding: 0; justify-content: center; position: relative; }
+.circ i { position: absolute; top: 9px; right: 10px; width: 8px; height: 8px; border-radius: 50%; background: var(--behind); }
+.av { width: 42px; height: 42px; border-radius: 50%; background: #5b3a1e; color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 14px; flex: none; }
+
+.seg { display: flex; gap: 4px; padding: 4px; background: var(--track); border-radius: 999px; list-style: none; margin: 8px 0 0; width: max-content; max-width: 100%; overflow-x: auto; }
+.seg a { display: block; padding: 6px 16px; border-radius: 999px; color: var(--sub); text-decoration: none; font-weight: 600; font-size: 14px; white-space: nowrap; }
+.seg a[aria-current="page"] { background: var(--raised); color: var(--ink); box-shadow: 0 1px 2px rgba(34, 32, 28, 0.15); }
+
+.hero { padding: 48px 0 24px; }
+.hero .date { margin: 0; color: var(--sub); font-weight: 600; }
+.hero h1 { font-size: 44px; line-height: 1.1; margin: 4px 0 12px; letter-spacing: -0.02em; font-weight: 700; }
+.hero .urgent { display: inline-flex; align-items: center; gap: 8px; color: var(--behind); background: var(--behind-bg); padding: 6px 14px; border-radius: 999px; font-weight: 700; margin: 0; }
+.figs { display: flex; flex-wrap: wrap; margin: 28px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
+.figs li { flex: 1 1 0; padding: 16px 20px 16px 0; min-width: 140px; }
+.figs li + li { padding-left: 20px; border-left: 1px solid var(--hair); }
+.figs b { display: block; font-size: 30px; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.figs span { color: var(--sub); font-size: 14px; }
+.figs .bad b { color: var(--behind); }
+
+.sec { padding: 40px 0 0; }
+.sec-h { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+.sec-h h2 { margin: 0; font-size: 22px; letter-spacing: -0.01em; }
+.sec-h p { margin: 0; color: var(--sub); font-size: 14px; }
+.plist { list-style: none; margin: 0; padding: 0; }
+.p { padding: 24px 0; border-bottom: 1px solid var(--hair); }
+.p-top { display: flex; align-items: flex-end; gap: 16px; }
+.p-name { font-size: 20px; font-weight: 700; line-height: 1.25; margin: 0; }
+.p-team { color: var(--sub); font-size: 14px; font-weight: 600; }
+.p-pct { margin-left: auto; font-size: 40px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.p-pct small { font-size: 20px; }
+.big-bar { height: 36px; border-radius: 18px; background: var(--track); margin: 12px 0 10px; overflow: hidden; position: relative; }
+.big-bar span { display: block; height: 100%; background: var(--fill); border-radius: 18px; }
+.p-foot { display: flex; flex-wrap: wrap; gap: 6px 20px; align-items: center; font-size: 14px; color: var(--sub); }
+.p-foot b { color: var(--ink); }
+.pill { display: inline-flex; align-items: center; gap: 6px; padding: 3px 12px 3px 10px; border-radius: 999px; font-weight: 700; font-size: 13px; }
+.pill.ok { color: var(--ok); background: var(--ok-bg); }
+.pill.risk { color: var(--risk); background: var(--risk-bg); }
+.pill.behind { color: var(--behind); background: var(--behind-bg); }
+.soon { margin-left: auto; font-weight: 600; color: var(--ink); }
+.total { margin-top: 24px; padding: 20px 24px; background: var(--raised); border-radius: 20px; border: 1px solid var(--hair); }
+.total .big-bar { height: 16px; margin: 10px 0 6px; }
+.total .big-bar span { background: var(--ink); }
+.total-row { display: flex; justify-content: space-between; gap: 12px; font-weight: 700; flex-wrap: wrap; }
+.total p { margin: 0; color: var(--sub); font-size: 14px; }
+
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; }
+.chart svg { width: 100%; height: auto; display: block; }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 14px; color: var(--sub); margin: 8px 0 0; padding: 0; list-style: none; }
+.legend li { display: flex; align-items: center; gap: 6px; }
+.legend i { width: 14px; height: 14px; border-radius: 7px; }
+.feed { list-style: none; margin: 0; padding: 0; }
+.feed li { padding: 12px 0; border-bottom: 1px solid var(--hair); font-size: 15px; display: grid; grid-template-columns: 34px 1fr; gap: 12px; }
+.feed .ini { width: 34px; height: 34px; border-radius: 50%; background: var(--track); color: var(--ink); font-weight: 700; font-size: 12px; display: grid; place-items: center; }
+.feed time { display: block; color: var(--sub); font-size: 13px; }
+footer.pad { height: 64px; }
+
+/* sheet */
+.ss { background: var(--raised); border-top: 1px solid var(--hair); }
+.ss-in { max-width: 920px; margin: 0 auto; padding: 56px 24px 72px; }
+.ss-title { font-size: 32px; margin: 0; letter-spacing: -0.02em; }
+.ss-idea { font-size: 18px; color: var(--sub); margin: 8px 0 32px; }
+.ss h3 { font-size: 18px; margin: 40px 0 12px; }
+.ss-sw { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px 24px; }
+.ss-sw li { display: flex; gap: 12px; align-items: center; font-size: 14px; }
+.ss-chip { width: 64px; height: 24px; border-radius: 12px; flex: none; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1); }
+.ss-sw code { color: var(--sub); font-size: 13px; }
+.ss-type { list-style: none; margin: 0; padding: 0; }
+.ss-type li { display: grid; grid-template-columns: 220px 1fr; gap: 16px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--hair); }
+.ss-lab { color: var(--sub); font-size: 14px; }
+.ss-facts { margin: 0; }
+.ss-facts div { padding: 12px 0; border-bottom: 1px solid var(--hair); }
+.ss-facts dt { font-weight: 700; }
+.ss-facts dd { margin: 0; color: var(--sub); }
+.ss-ctl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.ss-box { background: var(--page); border-radius: 20px; padding: 20px; }
+.ss-box .ss-lab { margin: 0 0 12px; font-weight: 600; }
+.ss-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.field input { font: inherit; height: 42px; border-radius: 21px; border: 1px solid #8f897c; padding: 0 16px; width: 180px; max-width: 100%; background: #fff; color: var(--ink); }
+.trow { width: 100%; padding: 10px 16px; border-radius: 14px; display: flex; justify-content: space-between; background: var(--raised); }
+.trow.is-focus { background: #eceafb; }
+
+@media (max-width: 760px) {
+  .wrap, .ss-in { padding-left: 16px; padding-right: 16px; }
+  .top { flex-wrap: wrap; }
+  .search { order: 5; width: 100%; }
+  .btn.primary .lbl { display: none; }
+  .btn.primary { width: 42px; padding: 0; justify-content: center; }
+  .hero { padding-top: 32px; }
+  .hero h1 { font-size: 34px; }
+  .figs li { flex: 1 1 50%; min-width: 0; padding: 12px 0 !important; border-left: 0 !important; }
+  .figs li:nth-child(even) { padding-left: 16px !important; border-left: 1px solid var(--hair) !important; }
+  .figs li:nth-child(n+3) { border-top: 1px solid var(--hair); }
+  .p-name { font-size: 18px; }
+  .p-pct { font-size: 32px; }
+  .two { grid-template-columns: 1fr; gap: 8px; }
+  .ss-type li { grid-template-columns: 1fr; gap: 2px; }
+  .ss-ctl { grid-template-columns: 1fr; }
+  .soon { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-tasks" viewBox="0 0 24 24"><path d="M10 6h10M10 12h10M10 18h10M3.5 6l1.5 1.5 2.5-3M3.5 12l1.5 1.5 2.5-3M3.5 18l1.5 1.5 2.5-3"/></symbol>
+  <symbol id="i-team" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5a5 5 0 0 1 3.5 5.5"/></symbol>
+  <symbol id="i-reports" viewBox="0 0 24 24"><path d="M4 20V11M10 20V5M16 20v-6M2 20h20"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4zM10 21h4"/></symbol>
+
+  <symbol id="s-ok" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6.5" fill="currentColor"/><path d="M4 7.2l2 2 4-4.2" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="s-risk" viewBox="0 0 14 14"><path d="M7 .8l6.6 12.2H.4z" fill="currentColor"/><path d="M7 5v3.6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><circle cx="7" cy="10.8" r=".9" fill="#fff"/></symbol>
+  <symbol id="s-behind" viewBox="0 0 14 14"><rect x=".5" y=".5" width="13" height="13" rx="2" fill="currentColor"/><path d="M4 7h6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></symbol>
+</svg>
+
+<div class="wrap">
+  <header>
+    <div class="top">
+      <a class="brand" href="#"><span class="brand-mark" aria-hidden="true"><i></i></span>Brightwork</a>
+      <label class="search"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span class="vh">Search projects and tasks</span><input type="search" placeholder="Search projects and tasks"></label>
+      <button class="btn primary" type="button" aria-label="New project"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg><span class="lbl">New project</span></button>
+      <button class="btn circ" type="button" aria-label="Notifications, 3 unread"><svg class="i" aria-hidden="true"><use href="#i-bell"/></svg><i aria-hidden="true"></i></button>
+      <span class="av" role="img" aria-label="Mara Okafor">MO</span>
+    </div>
+    <nav aria-label="Main">
+      <ul class="seg">
+        <li><a href="#" aria-current="page">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Tasks</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <p class="date">Saturday 31 October 2026</p>
+      <h1>Hi Mara, here is how far everything has come.</h1>
+      <p class="urgent"><svg class="sym" aria-hidden="true"><use href="#s-behind"/></svg>4 tasks are overdue</p>
+      <ul class="figs" aria-label="This week">
+        <li><b>6</b><span>active projects</span></li>
+        <li><b>23</b><span>tasks due this week</span></li>
+        <li class="bad"><b>4</b><span>overdue tasks</span></li>
+        <li><b>186 h</b><span>logged this week</span></li>
+      </ul>
+    </div>
+
+    <section class="sec" aria-labelledby="h-p">
+      <div class="sec-h"><h2 id="h-p">Projects, soonest due first</h2><p>Days left counted from today</p></div>
+      <ol class="plist">
+<li class="p"><div class="p-top"><div><p class="p-name">Q4 customer survey</p><span class="p-team">Research</span></div><span class="p-pct">90<small>%</small></span></div>
+<div class="big-bar" role="img" aria-label="Q4 customer survey: 90 percent done, 9 of 10 tasks"><span style="width:90%"></span></div>
+<div class="p-foot"><span class="pill ok"><svg class="sym" aria-hidden="true"><use href="#s-ok"/></svg>On track</span><span><b>9 of 10</b> tasks done</span><span><b>1</b> to go</span><span class="soon">Due 7 Nov · in 7 days</span></div></li>
+<li class="p"><div class="p-top"><div><p class="p-name">Website redesign</p><span class="p-team">Design</span></div><span class="p-pct">72<small>%</small></span></div>
+<div class="big-bar" role="img" aria-label="Website redesign: 72 percent done, 18 of 25 tasks"><span style="width:72%"></span></div>
+<div class="p-foot"><span class="pill ok"><svg class="sym" aria-hidden="true"><use href="#s-ok"/></svg>On track</span><span><b>18 of 25</b> tasks done</span><span><b>7</b> to go</span><span class="soon">Due 14 Nov · in 14 days</span></div></li>
+<li class="p"><div class="p-top"><div><p class="p-name">Billing migration</p><span class="p-team">Engineering</span></div><span class="p-pct">30<small>%</small></span></div>
+<div class="big-bar" role="img" aria-label="Billing migration: 30 percent done, 12 of 40 tasks"><span style="width:30%"></span></div>
+<div class="p-foot"><span class="pill behind"><svg class="sym" aria-hidden="true"><use href="#s-behind"/></svg>Behind</span><span><b>12 of 40</b> tasks done</span><span><b>28</b> to go</span><span class="soon">Due 20 Nov · in 20 days</span></div></li>
+<li class="p"><div class="p-top"><div><p class="p-name">Onboarding emails</p><span class="p-team">Marketing</span></div><span class="p-pct">60<small>%</small></span></div>
+<div class="big-bar" role="img" aria-label="Onboarding emails: 60 percent done, 9 of 15 tasks"><span style="width:60%"></span></div>
+<div class="p-foot"><span class="pill ok"><svg class="sym" aria-hidden="true"><use href="#s-ok"/></svg>On track</span><span><b>9 of 15</b> tasks done</span><span><b>6</b> to go</span><span class="soon">Due 21 Nov · in 21 days</span></div></li>
+<li class="p"><div class="p-top"><div><p class="p-name">Mobile app 2.0</p><span class="p-team">Engineering</span></div><span class="p-pct">45<small>%</small></span></div>
+<div class="big-bar" role="img" aria-label="Mobile app 2.0: 45 percent done, 27 of 60 tasks"><span style="width:45%"></span></div>
+<div class="p-foot"><span class="pill risk"><svg class="sym" aria-hidden="true"><use href="#s-risk"/></svg>At risk</span><span><b>27 of 60</b> tasks done</span><span><b>33</b> to go</span><span class="soon">Due 2 Dec · in 32 days</span></div></li>
+<li class="p"><div class="p-top"><div><p class="p-name">Spring catalogue</p><span class="p-team">Marketing</span></div><span class="p-pct">15<small>%</small></span></div>
+<div class="big-bar" role="img" aria-label="Spring catalogue: 15 percent done, 3 of 20 tasks"><span style="width:15%"></span></div>
+<div class="p-foot"><span class="pill ok"><svg class="sym" aria-hidden="true"><use href="#s-ok"/></svg>On track</span><span><b>3 of 20</b> tasks done</span><span><b>17</b> to go</span><span class="soon">Due 15 Jan · in 76 days</span></div></li>
+
+      </ol>
+      <div class="total">
+        <div class="total-row"><span>All projects together</span><span>46%</span></div>
+        <div class="big-bar" role="img" aria-label="All projects: 78 of 170 tasks done, 46 percent"><span style="width:46%"></span></div>
+        <p>78 of 170 tasks done across 6 projects</p>
+      </div>
+    </section>
+
+    <div class="two">
+      <section class="sec chart" aria-labelledby="h-c">
+        <div class="sec-h"><h2 id="h-c">Daily pace</h2><p>Tasks completed, 18 to 31 Oct</p></div>
+<svg viewBox="0 0 432 176" role="img" aria-label="Rounded columns of tasks completed per day: 18 Oct 3; 19 Oct 12; 20 Oct 9; 21 Oct 14; 22 Oct 11; 23 Oct 8; 24 Oct 2; 25 Oct 4; 26 Oct 15; 27 Oct 13; 28 Oct 17; 29 Oct 12; 30 Oct 10; 31 Oct 2. Last week 59, this week 73."><rect x="10" y="128.3" width="22" height="21.7" rx="11" fill="var(--fill-soft)"/><text x="21" y="122.3" text-anchor="middle" font-size="11" fill="var(--sub)">3</text><rect x="40" y="63.3" width="22" height="86.7" rx="11" fill="var(--fill-soft)"/><text x="51" y="57.3" text-anchor="middle" font-size="11" fill="var(--sub)">12</text><rect x="70" y="85.0" width="22" height="65.0" rx="11" fill="var(--fill-soft)"/><text x="81" y="79.0" text-anchor="middle" font-size="11" fill="var(--sub)">9</text><rect x="100" y="48.9" width="22" height="101.1" rx="11" fill="var(--fill-soft)"/><text x="111" y="42.9" text-anchor="middle" font-size="11" fill="var(--sub)">14</text><rect x="130" y="70.6" width="22" height="79.4" rx="11" fill="var(--fill-soft)"/><text x="141" y="64.6" text-anchor="middle" font-size="11" fill="var(--sub)">11</text><rect x="160" y="92.2" width="22" height="57.8" rx="11" fill="var(--fill-soft)"/><text x="171" y="86.2" text-anchor="middle" font-size="11" fill="var(--sub)">8</text><rect x="190" y="135.6" width="22" height="14.4" rx="11" fill="var(--fill-soft)"/><text x="201" y="129.6" text-anchor="middle" font-size="11" fill="var(--sub)">2</text><rect x="220" y="121.1" width="22" height="28.9" rx="11" fill="var(--fill)"/><text x="231" y="115.1" text-anchor="middle" font-size="11" fill="var(--sub)">4</text><rect x="250" y="41.7" width="22" height="108.3" rx="11" fill="var(--fill)"/><text x="261" y="35.7" text-anchor="middle" font-size="11" fill="var(--sub)">15</text><rect x="280" y="56.1" width="22" height="93.9" rx="11" fill="var(--fill)"/><text x="291" y="50.1" text-anchor="middle" font-size="11" fill="var(--sub)">13</text><rect x="310" y="27.2" width="22" height="122.8" rx="11" fill="var(--fill)"/><text x="321" y="21.2" text-anchor="middle" font-size="11" fill="var(--sub)">17</text><rect x="340" y="63.3" width="22" height="86.7" rx="11" fill="var(--fill)"/><text x="351" y="57.3" text-anchor="middle" font-size="11" fill="var(--sub)">12</text><rect x="370" y="77.8" width="22" height="72.2" rx="11" fill="var(--fill)"/><text x="381" y="71.8" text-anchor="middle" font-size="11" fill="var(--sub)">10</text><rect x="400" y="135.6" width="22" height="14.4" rx="11" fill="var(--fill)"/><text x="411" y="129.6" text-anchor="middle" font-size="11" fill="var(--sub)">2</text><text x="10" y="170" font-size="12" fill="var(--sub)">18 Oct</text><text x="220" y="170" font-size="12" fill="var(--sub)">25 Oct</text><text x="432" y="170" text-anchor="end" font-size="12" fill="var(--sub)">31 Oct</text></svg>
+        <ul class="legend"><li><i style="background:var(--fill-soft)"></i>Last week, 59</li><li><i style="background:var(--fill)"></i>This week, 73</li></ul>
+      </section>
+      <section class="sec" aria-labelledby="h-a">
+        <div class="sec-h"><h2 id="h-a">Recent activity</h2></div>
+        <ul class="feed">
+<li><span class="ini" aria-hidden="true">JW</span><div><b>Jonas Weber</b> completed <b>“Export invoices as CSV”</b> in Billing migration<time>12 min ago</time></div></li>
+<li><span class="ini" aria-hidden="true">PN</span><div><b>Priya Nair</b> commented on <b>“Hero image options”</b> in Website redesign<time>40 min ago</time></div></li>
+<li><span class="ini" aria-hidden="true">SO</span><div><b>Sam Ortiz</b> moved <b>“Push notifications”</b> to Review in Mobile app 2.0<time>1 h ago</time></div></li>
+<li><span class="ini" aria-hidden="true">LF</span><div><b>Lena Fischer</b> added 3 tasks to Spring catalogue<time>2 h ago</time></div></li>
+<li><span class="ini" aria-hidden="true">TR</span><div><b>Tomás Ruiz</b> logged 6 h on Mobile app 2.0<time>3 h ago</time></div></li>
+<li><span class="ini" aria-hidden="true">AT</span><div><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to Q4 customer survey<time>yesterday</time></div></li>
+
+        </ul>
+      </section>
+    </div>
+    <footer class="pad"></footer>
+  </main>
+</div>
+<section class="ss" aria-labelledby="ss-title"><div class="ss-in">
+<h2 class="ss-title" id="ss-title">Style 212 · Progress led</h2>
+<p class="ss-idea">Huge pill shaped progress bars are the page, one full width row per project in order of due date, each with a large percentage, so how far along everything is reads from across the room.</p>
+<h3>Palette</h3><ul class="ss-sw">
+<li><span class="ss-chip" style="background:#fbfaf7"></span><span><b>Linen</b> <code>#fbfaf7</code><br>The page and control panels</span></li>
+<li><span class="ss-chip" style="background:#ffffff"></span><span><b>White</b> <code>#ffffff</code><br>Totals card, fields and the style sheet</span></li>
+<li><span class="ss-chip" style="background:#22201c"></span><span><b>Ink</b> <code>#22201c</code><br>Text, big percentages, the all projects bar</span></li>
+<li><span class="ss-chip" style="background:#5e5a52"></span><span><b>Stone</b> <code>#5e5a52</code><br>Team names, dates, captions</span></li>
+<li><span class="ss-chip" style="background:#e4dfd4"></span><span><b>Hairline</b> <code>#e4dfd4</code><br>Dividers between projects, never text</span></li>
+<li><span class="ss-chip" style="background:#ebe6dc"></span><span><b>Track</b> <code>#ebe6dc</code><br>Empty part of every bar, nav pill track, initials</span></li>
+<li><span class="ss-chip" style="background:#3730a3"></span><span><b>Indigo</b> <code>#3730a3</code><br>Progress fill, this week columns, primary button, focus</span></li>
+<li><span class="ss-chip" style="background:#c7c4ee"></span><span><b>Indigo light</b> <code>#c7c4ee</code><br>Last week columns, never text</span></li>
+<li><span class="ss-chip" style="background:#1f6f43"></span><span><b>Green</b> <code>#1f6f43</code><br>On track pill text and check circle</span></li>
+<li><span class="ss-chip" style="background:#e6f2ea"></span><span><b>Green wash</b> <code>#e6f2ea</code><br>On track pill fill</span></li>
+<li><span class="ss-chip" style="background:#8a4f00"></span><span><b>Amber</b> <code>#8a4f00</code><br>At risk pill text and triangle</span></li>
+<li><span class="ss-chip" style="background:#fbefdc"></span><span><b>Amber wash</b> <code>#fbefdc</code><br>At risk pill fill</span></li>
+<li><span class="ss-chip" style="background:#b3261e"></span><span><b>Red</b> <code>#b3261e</code><br>Behind pill, overdue figure and badge</span></li>
+<li><span class="ss-chip" style="background:#fbe5e3"></span><span><b>Red wash</b> <code>#fbe5e3</code><br>Behind pill and overdue banner fill</span></li>
+</ul>
+<h3>Type scale</h3><ul class="ss-type">
+<li><span class="ss-lab">Stack</span><span style="">Avenir Next, Avenir, Nunito Sans, Segoe UI, system-ui, sans-serif</span></li>
+<li><span class="ss-lab">Greeting 44px bold</span><span style="font-size:44px;font-weight:700;letter-spacing:-.02em;line-height:1.1">Hi Mara</span></li>
+<li><span class="ss-lab">Percent 40px bold</span><span style="font-size:40px;font-weight:700">72%</span></li>
+<li><span class="ss-lab">Figure 30px bold</span><span style="font-size:30px;font-weight:700">186 h</span></li>
+<li><span class="ss-lab">Section 22px bold</span><span style="font-size:22px;font-weight:700">Projects, soonest due first</span></li>
+<li><span class="ss-lab">Project 20px bold</span><span style="font-size:20px;font-weight:700">Q4 customer survey</span></li>
+<li><span class="ss-lab">Body 16px</span><span style="font-size:16px">9 of 10 tasks done</span></li>
+<li><span class="ss-lab">Caption 14px</span><span style="font-size:14px;color:var(--sub)">Due 7 Nov · in 7 days</span></li>
+</ul>
+<h3>System</h3><dl class="ss-facts">
+<div><dt>Spacing</dt><dd>8px unit, generous. 24px above and below each project, 40px between sections, a 920px centred column.</dd></div>
+<div><dt>Density</dt><dd>Low. One project per full width row, the bar is the hero of each row.</dd></div>
+<div><dt>Corners</dt><dd>Fully round. Bars, buttons, fields, pills and the nav track are pills, the totals card 20px.</dd></div>
+<div><dt>Borders</dt><dd>1px warm hairlines between projects and around the figure strip. No boxes around projects.</dd></div>
+<div><dt>Shadows</dt><dd>Only the selected nav pill has a 1px soft shadow.</dd></div>
+<div><dt>Icons</dt><dd>Rounded 1.8px line icons at 20px. Status marks are a white check in a circle for On track, a white bang in a triangle for At risk and a white bar in a square for Behind.</dd></div>
+<div><dt>Tone</dt><dd>Warm and plain, such as Hi Mara, here is how far everything has come, and Due 7 Nov, in 7 days.</dd></div>
+</dl>
+<h3>Controls</h3><div class="ss-ctl">
+<div class="ss-box"><p class="ss-lab">Primary button, normal and focus</p><div class="ss-row"><button class="btn primary" type="button">New project</button><button class="btn primary is-focus" type="button">New project</button></div></div>
+<div class="ss-box"><p class="ss-lab">Secondary button, normal and focus</p><div class="ss-row"><button class="btn" type="button">See all projects</button><button class="btn is-focus" type="button">See all projects</button></div></div>
+<div class="ss-box"><p class="ss-lab">Text field, normal and focus</p><div class="ss-row"><label class="field"><span class="vh">Search</span><input type="text" placeholder="Search"></label><label class="field"><span class="vh">Search, focused</span><input class="is-focus" type="text" value="Billing"></label></div></div>
+<div class="ss-box"><p class="ss-lab">List row, normal and focus</p><div class="ss-row"><div class="trow"><span>Onboarding emails</span><b>60%</b></div><div class="trow is-focus" tabindex="0"><span>Onboarding emails</span><b>60%</b></div></div></div>
+</div></div></section>
+</body>
+</html>

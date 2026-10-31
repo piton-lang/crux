@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 58 · Clinical · Brightwork</title>
+<style>
+:root{
+  --page:#eef6f5; --surface:#ffffff; --band:#f6fbfa; --head:#e2f0ee;
+  --text:#17302e; --label:#4a6563; --line:#c8dcd9; --lineSoft:#e1ecea;
+  --teal:#0e6763; --tealSoft:#d9eeeb;
+  --info:#1d5a8c; --infoBg:#e8f1f9; --ok:#1f6b3d; --okBg:#e6f3ea; --notice:#7a5100; --noticeBg:#fbf3df;
+  --sans:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--text);font:15px/1.5 var(--sans)}
+button,input,textarea{font:inherit;color:inherit}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.i{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:-3px}
+a{color:var(--teal)}
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px;box-shadow:0 0 0 5px rgba(14,103,99,.15)}
+
+.bar{background:var(--surface);border-bottom:1px solid var(--line)}
+.bar .in{max-width:1280px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:16px}
+.mark{width:28px;height:28px;border-radius:6px;border:2px solid var(--teal);color:var(--teal);display:grid;place-items:center}
+.nav{display:flex;gap:4px;margin-left:16px}
+.nav a{padding:6px 12px;border-radius:6px;text-decoration:none;color:var(--label);font-size:14px}
+.nav a[aria-current]{background:var(--tealSoft);color:var(--teal);font-weight:600}
+.user{margin-left:auto;font-size:14px;color:var(--label);text-align:right;line-height:1.3}
+.user b{color:var(--text);font-weight:600;display:block}
+
+.wrap{max-width:1280px;margin:0 auto;padding:24px}
+.ph{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.ph h1{font-size:24px;font-weight:600;margin:0}
+.ph p{margin:0;color:var(--label);font-size:14px}
+.summary{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.chipline{font-size:13px;border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:4px 10px;color:var(--label)}
+.chipline b{color:var(--text)}
+
+.grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:24px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.panel>header{padding:12px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.panel h2{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--label);margin:0}
+
+.seg{display:flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-left:auto}
+.seg a{padding:5px 12px;font-size:13px;text-decoration:none;color:var(--text);border-left:1px solid var(--line)}
+.seg a:first-child{border-left:0}
+.seg a[aria-current]{background:var(--teal);color:#fff;font-weight:600}
+.seg .n{display:inline-block;min-width:18px;text-align:center;border-radius:4px;background:var(--noticeBg);color:var(--notice);font-weight:700;margin-left:4px}
+.seg a[aria-current] .n{background:#fff;color:var(--teal)}
+
+.rec{list-style:none;margin:0;padding:0}
+.rec a{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:4px 12px;padding:12px 16px;border-bottom:1px solid var(--lineSoft);text-decoration:none;color:inherit}
+.rec li:last-child a{border-bottom:0}
+.rec a:hover{background:var(--band)}
+.rec a[aria-current]{background:var(--tealSoft);box-shadow:inset 4px 0 0 var(--teal)}
+.sym{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;border:1.5px solid;grid-row:span 2}
+.sym.info{color:var(--info);background:var(--infoBg)}
+.sym.ok{color:var(--ok);background:var(--okBg)}
+.sym.rev{color:var(--notice);background:var(--noticeBg);border-radius:4px}
+.sym.plain{color:var(--label);background:var(--band)}
+.rec .what{font-weight:500}
+.rec .unread .what{font-weight:700}
+.rec .meta{grid-column:2;font-size:13px;color:var(--label)}
+.rec .when{font-size:13px;color:var(--label);text-align:right;white-space:nowrap}
+.status{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;border-radius:4px;padding:1px 6px;margin-left:6px}
+.status.new{color:var(--info);background:var(--infoBg)}
+.status.view{color:var(--teal);background:#fff;border:1px solid var(--teal)}
+.status.done{color:var(--ok);background:var(--okBg)}
+
+/* open record */
+.fields{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:0;border-bottom:1px solid var(--line)}
+.fields div{padding:12px 16px;border-right:1px solid var(--lineSoft)}
+.fields div:last-child{border-right:0}
+.fields dt{font-size:12px;font-weight:600;color:var(--label);text-transform:uppercase;letter-spacing:.05em}
+.fields dd{margin:2px 0 0;font-weight:600;overflow-wrap:anywhere}
+.rbody{padding:16px}
+.alert{display:flex;gap:10px;align-items:flex-start;border:1px solid #e8d6a6;background:var(--noticeBg);color:var(--notice);border-radius:6px;padding:10px 12px;font-size:14px;margin-bottom:16px}
+.alert b{color:#5c3d00}
+.lbl{font-size:12px;font-weight:600;color:var(--label);text-transform:uppercase;letter-spacing:.05em;margin:0 0 6px}
+blockquote{margin:0 0 20px;padding:12px 16px;background:var(--band);border:1px solid var(--lineSoft);border-left:4px solid var(--teal);border-radius:0 6px 6px 0;font-size:17px;line-height:1.55}
+.mention{color:var(--teal);font-weight:700}
+.thumbs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 20px}
+.thumbs figure{margin:0;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.thumbs svg{display:block;width:100%;height:auto}
+.thumbs figcaption{font-size:13px;font-weight:600;padding:6px 10px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:0 4px}
+.thumbs figcaption span{font-weight:400;color:var(--label)}
+.reply label{display:block}
+.reply textarea{display:block;width:100%;min-height:96px;border:1px solid #9fbcb8;border-radius:6px;padding:10px 12px;resize:vertical;background:#fff}
+.reply textarea:focus{outline:2px solid var(--teal);outline-offset:0;border-color:var(--teal);box-shadow:0 0 0 5px rgba(14,103,99,.15)}
+.hint{font-size:13px;color:var(--label);margin:6px 0 0}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;padding-top:16px;border-top:1px solid var(--lineSoft)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:6px;border:1px solid var(--teal);font-weight:600;font-size:14px;cursor:pointer;text-decoration:none;background:#fff;color:var(--teal)}
+.btn.pri{background:var(--teal);color:#fff}
+.btn.quiet{border-color:transparent;margin-left:auto}
+
+@media (max-width:960px){.grid{grid-template-columns:minmax(0,1fr)}.fields{grid-template-columns:repeat(2,minmax(0,1fr))}.fields div:nth-child(2){border-right:0}.fields div:nth-child(-n+2){border-bottom:1px solid var(--lineSoft)}}
+@media (max-width:600px){
+  .wrap{padding:16px}
+  .bar .in{padding:10px 16px}
+  .nav{display:none}
+  .summary{margin-left:0}
+  .seg{margin-left:0;width:100%}
+  .seg a{flex:1;text-align:center;padding:6px 4px}
+  .btn.quiet{margin-left:0}
+}
+
+/* sheet */
+.sheet{max-width:1280px;margin:8px auto 64px;padding:0 24px}
+.sheet .panel{padding:24px}
+.sheet h2{font-size:22px;font-weight:600;margin:0 0 4px}
+.sheet h3{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--label);margin:28px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.sheet .idea{margin:0;color:var(--label);max-width:760px}
+.sw{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+.sw li{display:flex;gap:10px;align-items:center;font-size:13px;border:1px solid var(--lineSoft);border-radius:6px;padding:8px}
+.sw i{width:36px;height:36px;flex:none;border-radius:6px;border:1px solid rgba(0,0,0,.12)}
+.sw b{display:block;font-size:14px;font-weight:600}
+.ty{display:flex;flex-wrap:wrap;gap:16px;align-items:baseline;border-bottom:1px solid var(--lineSoft);padding:8px 0}
+.ty code{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--label);min-width:170px}
+.facts{display:grid;grid-template-columns:130px minmax(0,1fr);gap:6px 16px;margin:0}
+.facts dt{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--label);padding-top:2px}.facts dd{margin:0}
+.ctls{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.cl{display:block;font-size:12px;font-weight:600;color:var(--label);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.is-focus{outline:2px solid var(--teal);outline-offset:2px;box-shadow:0 0 0 5px rgba(14,103,99,.15)}
+.fld{display:block;font-size:12px;font-weight:600;color:var(--label);text-transform:uppercase;letter-spacing:.05em}
+.fld input{display:block;width:100%;margin-top:6px;border:1px solid #9fbcb8;border-radius:6px;padding:8px 12px;font-size:15px;text-transform:none;letter-spacing:0;font-weight:400;color:var(--text)}
+.fld input.is-focus{border-color:var(--teal);outline-offset:0}
+.demo{display:flex;gap:10px;align-items:center;border:1px solid var(--lineSoft);border-radius:6px;padding:8px 12px}
+@media (max-width:600px){.sheet{padding:0 16px}.sheet .panel{padding:16px}.facts{grid-template-columns:minmax(0,1fr)}.facts dd{margin-bottom:8px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-at" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M16 12v1.5a2.5 2.5 0 0 0 5 0V12a9 9 0 1 0-3.5 7.1"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h4"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V5M16 20v-6M3 20h18"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="currentColor"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></symbol>
+  <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M3 12h4l2-5 4 10 2-5h6"/></symbol>
+</svg>
+
+<header class="bar"><div class="in">
+  <div class="brand"><span class="mark" aria-hidden="true"><svg class="i" style="vertical-align:0"><use href="#i-pulse"/></svg></span>Brightwork</div>
+  <nav class="nav" aria-label="Main">
+    <a href="#">Projects</a><a href="#" aria-current="page">Inbox</a><a href="#">Reports</a>
+  </nav>
+  <div class="user"><b>Mara Okafor</b>Signed in</div>
+</div></header>
+
+<main class="wrap">
+  <div class="ph">
+    <div><h1>Inbox</h1><p>Notifications for Mara Okafor, newest first.</p></div>
+    <div class="summary">
+      <span class="chipline"><b>6</b> items</span>
+      <span class="chipline"><b>3</b> unread</span>
+      <span class="chipline"><b>1</b> reply requested by Monday</span>
+    </div>
+  </div>
+
+  <div class="grid">
+    <section class="panel" aria-labelledby="list-h">
+      <header>
+        <h2 id="list-h">Notifications</h2>
+        <nav class="seg" aria-label="Filter notifications">
+          <a href="#" aria-current="page">All</a><a href="#">Mentions</a><a href="#">Assigned</a><a href="#">Unread<span class="n" aria-label="3 unread">3</span></a>
+        </nav>
+      </header>
+      <ul class="rec">
+        <li class="unread"><a href="#" aria-current="true">
+          <span class="sym info" aria-hidden="true"><svg class="i" style="vertical-align:0"><use href="#i-at"/></svg></span>
+          <span class="what">Priya Nair mentioned you in Hero image options <span class="status new"><svg class="i" style="width:10px;height:10px;vertical-align:0" aria-hidden="true"><use href="#i-dot"/></svg>Unread</span></span>
+          <span class="when">40 min ago</span>
+          <span class="meta">Mention · Website redesign <span class="status view"><svg class="i" style="width:12px;height:12px;vertical-align:-1px" aria-hidden="true"><use href="#i-eye"/></svg>Viewing</span></span></a></li>
+        <li class="unread"><a href="#">
+          <span class="sym ok" aria-hidden="true"><svg class="i" style="vertical-align:0"><use href="#i-check"/></svg></span>
+          <span class="what">Jonas Weber completed Export invoices as CSV <span class="status new"><svg class="i" style="width:10px;height:10px;vertical-align:0" aria-hidden="true"><use href="#i-dot"/></svg>Unread</span></span>
+          <span class="when">12 min ago</span>
+          <span class="meta">Task completed · Billing migration <span class="status done"><svg class="i" style="width:12px;height:12px;vertical-align:-1px" aria-hidden="true"><use href="#i-check"/></svg>Done</span></span></a></li>
+        <li class="unread"><a href="#">
+          <span class="sym rev" aria-hidden="true"><svg class="i" style="vertical-align:0"><use href="#i-eye"/></svg></span>
+          <span class="what">Sam Ortiz asked for review on Push notifications <span class="status new"><svg class="i" style="width:10px;height:10px;vertical-align:0" aria-hidden="true"><use href="#i-dot"/></svg>Unread</span></span>
+          <span class="when">1 h ago</span>
+          <span class="meta">Review request · Mobile app 2.0</span></a></li>
+        <li><a href="#">
+          <span class="sym plain" aria-hidden="true"><svg class="i" style="vertical-align:0"><use href="#i-plus"/></svg></span>
+          <span class="what">Lena Fischer assigned you Write welcome email 2</span>
+          <span class="when">2 h ago</span>
+          <span class="meta">Assignment · Onboarding emails</span></a></li>
+        <li><a href="#">
+          <span class="sym plain" aria-hidden="true"><svg class="i" style="vertical-align:0"><use href="#i-chart"/></svg></span>
+          <span class="what">Weekly report for 19 to 25 October is ready</span>
+          <span class="when">Yesterday</span>
+          <span class="meta">Report</span></a></li>
+        <li><a href="#">
+          <span class="sym plain" aria-hidden="true"><svg class="i" style="vertical-align:0"><use href="#i-doc"/></svg></span>
+          <span class="what">Aiko Tanaka shared survey-results-v2.pdf</span>
+          <span class="when">Yesterday</span>
+          <span class="meta">File shared · Q4 customer survey</span></a></li>
+      </ul>
+    </section>
+
+    <article class="panel" aria-labelledby="rec-h">
+      <header><h2 id="rec-h">Open notification · Mention</h2></header>
+      <dl class="fields">
+        <div><dt>From</dt><dd>Priya Nair</dd></div>
+        <div><dt>Task</dt><dd>Hero image options</dd></div>
+        <div><dt>Project</dt><dd>Website redesign</dd></div>
+        <div><dt>Received</dt><dd>40 min ago</dd></div>
+      </dl>
+      <div class="rbody">
+        <p class="alert" role="note"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg><span><b>Note.</b> Priya asks for a choice by Monday.</span></p>
+        <p class="lbl">Message</p>
+        <blockquote><span class="mention">@Mara</span> can you pick between A, B and C by Monday? I lean to B, it reads best on phones.</blockquote>
+        <p class="lbl">Attachments, 3 images</p>
+        <div class="thumbs">
+          <figure><svg viewBox="0 0 120 76" role="img" aria-label="Option A, landscape photo with headline top left"><rect width="120" height="76" fill="#e3f0ee"/><path d="M0 76 36 42l20 16 18-10 46 28z" fill="#7fb0a8"/><circle cx="92" cy="22" r="9" fill="#bcd9d5"/><rect x="10" y="12" width="40" height="6" rx="2" fill="#17302e"/></svg><figcaption>Option A</figcaption></figure>
+          <figure><svg viewBox="0 0 120 76" role="img" aria-label="Option B, centred phone shot under a headline"><rect width="120" height="76" fill="#e8f1f9"/><rect x="44" y="24" width="32" height="48" rx="5" fill="#1d5a8c"/><rect x="49" y="30" width="22" height="34" fill="#fff"/><rect x="32" y="9" width="56" height="6" rx="2" fill="#17302e"/></svg><figcaption>Option B <span>Priya's pick</span></figcaption></figure>
+          <figure><svg viewBox="0 0 120 76" role="img" aria-label="Option C, text left and team photo right"><rect width="120" height="76" fill="#f2f6f5"/><rect x="64" width="56" height="76" fill="#9fbcb8"/><circle cx="83" cy="34" r="8" fill="#f2f6f5"/><circle cx="102" cy="37" r="8" fill="#f2f6f5"/><rect x="8" y="26" width="44" height="6" rx="2" fill="#17302e"/><rect x="8" y="37" width="30" height="4" rx="2" fill="#4a6563"/></svg><figcaption>Option C</figcaption></figure>
+        </div>
+        <form class="reply" onsubmit="return false">
+          <label for="rep" class="lbl">Your reply</label>
+          <textarea id="rep" aria-describedby="rep-hint" placeholder="Write a reply to Priya Nair"></textarea>
+          <p class="hint" id="rep-hint">Your reply is added to the task Hero image options.</p>
+          <div class="acts">
+            <button class="btn pri" type="submit">Reply</button>
+            <button class="btn" type="button"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Mark as done</button>
+            <a class="btn quiet" href="#">Open task <svg class="i" aria-hidden="true"><use href="#i-ext"/></svg></a>
+          </div>
+        </form>
+      </div>
+    </article>
+  </div>
+</main>
+
+<section class="sheet" aria-labelledby="sheet-h"><div class="panel">
+  <h2 id="sheet-h">Style 58 · Clinical</h2>
+  <p class="idea">A calm records system in pale blue-green, where every fact sits under a careful small-caps label and every alert is gentle, boxed and marked by a symbol.</p>
+
+  <h3>Palette</h3>
+  <ul class="sw">
+    <li><i style="background:#eef6f5"></i><div><b>Page</b>#eef6f5 · background</div></li>
+    <li><i style="background:#ffffff"></i><div><b>Surface</b>#ffffff · panels, fields</div></li>
+    <li><i style="background:#f6fbfa"></i><div><b>Band</b>#f6fbfa · quoted message, hover</div></li>
+    <li><i style="background:#17302e"></i><div><b>Text</b>#17302e · body and values</div></li>
+    <li><i style="background:#4a6563"></i><div><b>Label</b>#4a6563 · field labels, meta</div></li>
+    <li><i style="background:#c8dcd9"></i><div><b>Line</b>#c8dcd9 · panel borders</div></li>
+    <li><i style="background:#0e6763"></i><div><b>Teal</b>#0e6763 · primary, selection, focus</div></li>
+    <li><i style="background:#d9eeeb"></i><div><b>Teal soft</b>#d9eeeb · selected row, active nav</div></li>
+    <li><i style="background:#1d5a8c"></i><div><b>Info</b>#1d5a8c on #e8f1f9 · Unread, mention</div></li>
+    <li><i style="background:#1f6b3d"></i><div><b>OK</b>#1f6b3d on #e6f3ea · Done</div></li>
+    <li><i style="background:#7a5100"></i><div><b>Notice</b>#7a5100 on #fbf3df · gentle alerts, review</div></li>
+  </ul>
+
+  <h3>Type · "Segoe UI", system-ui, -apple-system, Roboto, sans-serif</h3>
+  <div class="ty"><code>24 / 600</code><span style="font-size:24px;font-weight:600">Inbox</span></div>
+  <div class="ty"><code>17 / 400 / 1.55 message</code><span style="font-size:17px">I lean to B, it reads best on phones.</span></div>
+  <div class="ty"><code>15 / 700 unread row</code><span style="font-weight:700">Sam Ortiz asked for review on Push notifications</span></div>
+  <div class="ty"><code>13 / 400 meta</code><span style="font-size:13px;color:var(--label)">Review request · Mobile app 2.0</span></div>
+  <div class="ty"><code>12 / 600 caps .05em label</code><span style="font-size:12px;font-weight:600;letter-spacing:.05em;color:var(--label)">RECEIVED</span></div>
+
+  <h3>Spacing, shape and tone</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>8px unit · 12 by 16px row and field padding · 24px panel gaps</dd>
+    <dt>Density</dt><dd>Medium. Two lines per notification, a four-cell fact strip for the open item.</dd>
+    <dt>Corners</dt><dd>8px panels · 6px buttons, fields, alerts · 4px status tags · round symbol discs</dd>
+    <dt>Borders</dt><dd>1px #c8dcd9 on panels · #e1ecea inside · 4px teal left bar on the selected row and the quote</dd>
+    <dt>Shadows</dt><dd>None. Structure comes from borders and labels.</dd>
+    <dt>Icons</dt><dd>16px line icons, 1.8 stroke, in 28px discs: @ in a circle for mentions, tick for done, eye in a square for review. Tags pair a dot with Unread, a tick with Done, an eye with Viewing.</dd>
+    <dt>Tone</dt><dd>Careful and factual: Received, Your reply, Note. Priya asks for a choice by Monday.</dd>
+  </dl>
+
+  <h3>Controls · normal and focus</h3>
+  <div class="ctls">
+    <div><span class="cl">Primary</span><button class="btn pri">Reply</button> <button class="btn pri is-focus">Focused</button></div>
+    <div><span class="cl">Secondary</span><button class="btn">Mark as done</button> <button class="btn is-focus">Focused</button></div>
+    <div><label class="fld">Task name<input value="Hero image options"></label></div>
+    <div><label class="fld">Task name, focused<input class="is-focus" value="Hero image options"></label></div>
+    <div><span class="cl">List row</span><div class="demo"><span class="sym rev" style="grid-row:auto" aria-hidden="true"><svg class="i" style="vertical-align:0"><use href="#i-eye"/></svg></span>Sam Ortiz <span class="status new">Unread</span></div></div>
+    <div><span class="cl">List row, focused</span><div class="demo is-focus"><span class="sym rev" style="grid-row:auto" aria-hidden="true"><svg class="i" style="vertical-align:0"><use href="#i-eye"/></svg></span>Sam Ortiz <span class="status new">Unread</span></div></div>
+  </div>
+</div></section>
+</body>
+</html>

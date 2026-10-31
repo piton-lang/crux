@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 145 · Roman inscription · Brightwork</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;overflow-x:hidden}
+img,svg{max-width:100%}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+button,input{font:inherit;color:inherit}
+
+:root{--m:#f4f2ec;--v:#dedad0;--tab:#ebe7dd;--cut:#2f2b25;--sl:#57514a;--por:#7a2626;--br:#73541a;--lau:#3d5a33;--gr:#c9c2b2;
+--ins:Optima,"Optima Nova",Candara,"Trajan Pro","Palatino Linotype","Book Antiqua",serif;--txt:"Palatino Linotype","Book Antiqua",Palatino,Georgia,serif}
+body{background:var(--m) url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22%3E%3Cfilter id=%22f%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%22.006 .02%22 numOctaves=%224%22 seed=%227%22 stitchTiles=%22stitch%22/%3E%3CfeColorMatrix values=%220 0 0 0 .55 0 0 0 0 .53 0 0 0 0 .49 0 0 0 -2.2 1.2%22/%3E%3C/filter%3E%3Crect width=%22600%22 height=%22400%22 filter=%22url(%23f)%22 opacity=%22.22%22/%3E%3C/svg%3E");color:var(--cut);font:16px/1.55 var(--txt)}
+.cap{font-family:var(--ins);text-transform:uppercase;letter-spacing:.16em}
+.carved{color:var(--cut);text-shadow:0 1px 0 #fff,0 -1px 0 rgba(0,0,0,.18)}
+.temple{max-width:1240px;margin:0 auto;padding:0 32px 40px}
+.pediment{position:relative;margin:24px 0 0;filter:drop-shadow(0 2px 0 rgba(0,0,0,.08))}
+.pediment svg{display:block;width:100%;height:110px}
+.pediment .brand{position:absolute;left:0;right:0;top:52px;text-align:center;font-size:30px;margin:0;letter-spacing:.42em}
+.architrave{background:var(--tab);border-top:2px solid var(--gr);border-bottom:6px double var(--gr);display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;padding:10px 20px;box-shadow:inset 0 2px 3px rgba(0,0,0,.08)}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap}
+.nav li+li::before{content:"·";padding:0 10px;color:var(--sl);font-size:20px;line-height:1}
+.nav a{color:var(--sl);text-decoration:none;font-size:14px;padding:6px 0;display:inline-block}
+.nav a[aria-current]{color:var(--por);border-bottom:2px solid var(--por)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--por);outline-offset:3px}
+.tools{margin-left:auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.search{display:flex;align-items:center;gap:8px;background:var(--m);box-shadow:inset 0 2px 3px rgba(0,0,0,.18),inset 0 -1px 0 #fff;padding:8px 12px;min-width:220px}
+.search input{border:0;background:transparent;outline:none;width:100%;font-family:var(--txt)}
+.search input::placeholder{color:var(--sl)}
+.search:focus-within{outline:2px solid var(--por);outline-offset:2px}
+.btn{font-family:var(--ins);text-transform:uppercase;letter-spacing:.16em;font-size:13px;padding:11px 18px;border:0;cursor:pointer}
+.btn-p{background:var(--por);color:#fff;box-shadow:0 2px 0 #4e1616}
+.btn-s{background:var(--tab);color:var(--cut);box-shadow:inset 0 0 0 1px var(--sl)}
+.btn.is-focus{outline:2px solid var(--por);outline-offset:3px}
+.iconbtn{background:none;border:1px solid var(--gr);width:40px;height:40px;display:grid;place-items:center;cursor:pointer;color:var(--cut)}
+.who{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--cut)}
+.medal{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#a88a4c,#73541a);color:#fff;display:grid;place-items:center;font:700 13px var(--ins);letter-spacing:.05em;box-shadow:0 0 0 2px var(--m),0 0 0 3px var(--br)}
+.greet{text-align:center;padding:40px 0 24px}
+.laurel{width:160px;height:80px;display:block;margin:0 auto -8px}
+.greet h1{font-size:56px;font-weight:400;margin:0;line-height:1.05;letter-spacing:.18em}
+.greet .date{margin:8px 0 20px;font-size:15px;color:var(--sl)}
+.ansata{--h:14px;display:inline-block;background:var(--tab);padding:14px 56px;position:relative;box-shadow:inset 0 0 0 1px var(--gr),inset 0 2px 4px rgba(0,0,0,.1)}
+.ansata::before,.ansata::after{content:"";position:absolute;top:50%;width:28px;height:44px;transform:translateY(-50%);background:var(--tab);box-shadow:inset 0 0 0 1px var(--gr)}
+.ansata::before{left:-26px;clip-path:polygon(0 0,100% 30%,100% 70%,0 100%)}
+.ansata::after{right:-26px;clip-path:polygon(0 30%,100% 0,100% 100%,0 70%)}
+.urgent{margin:0;color:var(--por);font-size:18px;text-shadow:0 1px 0 #fff}
+.colonnade{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:24px 0 48px;align-items:end}
+.col{display:flex;flex-direction:column;align-items:center;text-align:center}
+.col .capital{width:100%;height:28px;background:var(--tab);border-bottom:3px solid var(--gr);position:relative;box-shadow:0 1px 0 #fff inset}
+.col .capital::before,.col .capital::after{content:"";position:absolute;top:6px;width:22px;height:22px;border-radius:50%;border:3px solid var(--gr);background:var(--m)}
+.col .capital::before{left:-6px}.col .capital::after{right:-6px}
+.col .shaft{width:78%;padding:20px 8px 18px;background:repeating-linear-gradient(90deg,#e9e5da 0 10px,#d8d2c4 10px 12px,#f6f4ee 12px 14px);display:flex;flex-direction:column;align-items:center;gap:10px;min-height:190px;justify-content:center}
+.col .plaque{display:block;background:var(--m);padding:10px 12px;box-shadow:inset 0 0 0 1px var(--gr),0 2px 6px rgba(0,0,0,.12);width:100%}
+.col .num{font:400 54px/1 var(--ins);letter-spacing:.02em;display:block}
+.col .roman{display:block;font-size:12px;color:var(--br);letter-spacing:.2em;margin-top:4px}
+.col .lbl{font-size:12px;color:var(--cut);line-height:1.4;background:var(--m);padding:6px 6px;box-shadow:inset 0 0 0 1px var(--gr)}
+.col .base{width:100%;height:22px;background:var(--tab);border-top:3px solid var(--gr);box-shadow:0 8px 12px -6px rgba(0,0,0,.25)}
+.col.od .num{color:var(--por)}
+.sec-h{text-align:center;font-size:20px;font-weight:400;margin:0 0 4px;letter-spacing:.3em}
+.sec-s{text-align:center;color:var(--sl);margin:0 0 24px;font-style:italic}
+.tablets{list-style:none;margin:0 0 56px;padding:0 26px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px 60px}
+.tablet{background:var(--tab);padding:20px 20px 18px;position:relative;box-shadow:inset 0 0 0 1px var(--gr),inset 0 0 0 8px var(--tab),inset 0 0 0 9px var(--gr),0 3px 8px rgba(0,0,0,.1)}
+.tablet::before,.tablet::after{content:"";position:absolute;top:50%;width:30px;height:56px;transform:translateY(-50%);background:var(--tab);box-shadow:inset 0 0 0 1px var(--gr)}
+.tablet::before{left:-29px;clip-path:polygon(0 0,100% 28%,100% 72%,0 100%)}
+.tablet::after{right:-29px;clip-path:polygon(0 28%,100% 0,100% 100%,0 72%)}
+.tablet h3{margin:4px 0 2px;font-size:17px;font-weight:600;text-align:center;letter-spacing:.14em}
+.tablet .cat{text-align:center;margin:0;color:var(--sl);font-size:12px;letter-spacing:.24em}
+.tablet .groove{height:10px;margin:14px 6px 6px;background:var(--m);box-shadow:inset 0 2px 3px rgba(0,0,0,.28),inset 0 -1px 0 #fff;position:relative}
+.tablet .groove i{position:absolute;inset:2px auto 2px 2px;background:linear-gradient(#9c7a37,#73541a)}
+.tablet .facts{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 12px;margin:0 6px;font-size:14px;color:var(--sl)}
+.tablet .facts b{color:var(--cut);font-family:var(--ins)}
+.tablet .stl{text-align:center;margin:12px 0 0;border-top:1px solid var(--gr);padding-top:10px}
+.st{display:inline-flex;align-items:center;gap:8px;font-family:var(--ins);text-transform:uppercase;letter-spacing:.2em;font-size:13px;font-weight:700}
+.st-on{color:var(--lau)}.st-risk{color:var(--br)}.st-behind{color:var(--por)}
+.lower{display:grid;grid-template-columns:1.1fr 1fr;gap:40px}
+.slab{background:var(--tab);padding:24px;box-shadow:inset 0 0 0 1px var(--gr),inset 0 0 0 6px var(--tab),inset 0 0 0 7px var(--gr)}
+.slab h2{margin:0 0 4px;text-align:center;font-weight:400;font-size:17px;letter-spacing:.3em}
+.slab .sub{text-align:center;color:var(--sl);font-size:14px;margin:0 0 16px;font-style:italic}
+.slab svg{display:block;width:100%;height:auto}
+.tot{display:flex;justify-content:space-around;margin-top:10px;font-size:13px;color:var(--sl)}
+.tot b{font:400 22px var(--ins);color:var(--cut);display:block;text-align:center}
+.acta{list-style:none;margin:0;padding:0}
+.acta li{display:grid;grid-template-columns:1fr auto;gap:12px;padding:10px 0;border-bottom:1px solid var(--gr);font-size:15px}
+.acta li:last-child{border:0}
+.acta b{font-family:var(--ins);text-transform:uppercase;letter-spacing:.1em;font-size:13px}
+.acta time{font-size:12px;color:var(--sl);text-transform:uppercase;letter-spacing:.14em;white-space:nowrap;font-family:var(--ins)}
+.acta .pj{font-style:italic}
+/* sheet */
+.sheet{max-width:1240px;margin:0 auto 48px;padding:40px 32px;background:var(--tab);box-shadow:inset 0 0 0 1px var(--gr),inset 0 0 0 8px var(--tab),inset 0 0 0 9px var(--gr)}
+.sheet h2{font:400 32px/1.2 var(--ins);text-transform:uppercase;letter-spacing:.16em;margin:0 0 8px;text-shadow:0 1px 0 #fff}
+.sheet h3{font:400 14px var(--ins);text-transform:uppercase;letter-spacing:.3em;color:var(--sl);margin:32px 0 12px;padding-bottom:6px;border-bottom:3px double var(--gr)}
+.idea{font-size:18px;font-style:italic;max-width:64ch;margin:0}
+.sws{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:20px}
+.sw{display:flex;flex-direction:column;gap:2px;font-size:14px}
+.chip{height:64px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2),inset 0 3px 5px rgba(0,0,0,.15);margin-bottom:6px}
+.swn{font-family:var(--ins);text-transform:uppercase;letter-spacing:.12em;font-size:13px} .sw code{font-size:13px;color:var(--sl)} .swu{color:var(--sl);font-size:13px}
+.tys-l{list-style:none;margin:0;padding:0} .ty{display:flex;flex-wrap:wrap;gap:4px 24px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--gr)} .tym{font-size:13px;color:var(--sl)}
+.facts-l,.sheet .facts{display:grid;grid-template-columns:160px 1fr;gap:10px 24px;margin:0}
+.sheet .facts dt{font-family:var(--ins);text-transform:uppercase;letter-spacing:.16em;font-size:13px;color:var(--por)} .sheet .facts dd{margin:0}
+.ctls{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.ctl{display:flex;flex-direction:column;gap:14px;align-items:flex-start;padding:20px;background:var(--m);box-shadow:inset 0 0 0 1px var(--gr)}
+.ctlh{font-family:var(--ins);text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--sl)}
+.fld{display:flex;flex-direction:column;gap:6px;font-size:12px;font-family:var(--ins);text-transform:uppercase;letter-spacing:.16em;width:100%;max-width:320px}
+.fld input{font-family:var(--txt);font-size:16px;text-transform:none;letter-spacing:0;border:0;background:var(--tab);padding:10px 12px;box-shadow:inset 0 2px 3px rgba(0,0,0,.18),inset 0 -1px 0 #fff;outline:none}
+.fld input:focus,.fld input.is-focus{outline:2px solid var(--por);outline-offset:2px}
+.lrow{display:flex;justify-content:space-between;width:100%;max-width:320px;padding:10px 12px;border-bottom:1px solid var(--gr);font-family:var(--ins);text-transform:uppercase;letter-spacing:.1em;font-size:13px}
+.lrow:focus,.lrow.is-focus{outline:2px solid var(--por);outline-offset:2px;background:var(--tab)}
+@media (max-width:980px){.tablets{grid-template-columns:repeat(2,1fr)} .lower{grid-template-columns:1fr}}
+@media (max-width:700px){
+ .temple{padding:0 16px 32px} .pediment svg{height:76px} .pediment .brand{top:38px;font-size:18px;letter-spacing:.3em}
+ .architrave{padding:10px 12px} .tools{margin-left:0;width:100%} .search{flex:1 1 100%;min-width:0}
+ .greet h1{font-size:34px;letter-spacing:.12em} .ansata{padding:12px 20px;margin:0 26px}
+ .colonnade{grid-template-columns:1fr 1fr;gap:16px} .col .shaft{min-height:150px} .col .num{font-size:40px}
+ .tablets{grid-template-columns:1fr;padding:0 28px}
+ .sheet{padding:28px 16px} .ctls,.sheet .facts{grid-template-columns:1fr} .sheet .facts dd{margin-bottom:8px} .sheet h2{font-size:24px}
+}
+
+</style>
+</head>
+<body>
+
+<div class="temple">
+ <header>
+  <div class="pediment"><svg viewBox="0 0 1000 110" preserveAspectRatio="none" aria-hidden="true">
+<polygon points="0,108 500,4 1000,108" fill="#ebe7dd" stroke="#c9c2b2" stroke-width="3"/>
+<polygon points="70,98 500,18 930,98" fill="#f4f2ec" stroke="#c9c2b2" stroke-width="1.5"/></svg><p class="brand cap carved">Brightwork</p></div>
+  <div class="architrave">
+   <nav class="nav" aria-label="Main"><ul><li><a class="cap" href="#" aria-current=page>Home</a></li><li><a class="cap" href="#">Projects</a></li><li><a class="cap" href="#">Tasks</a></li><li><a class="cap" href="#">Team</a></li><li><a class="cap" href="#">Reports</a></li><li><a class="cap" href="#">Settings</a></li></ul></nav>
+   <div class="tools">
+    <label class="search"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M15 15l6 6"/></svg><span class="vh">Search projects and tasks</span><input type="search" placeholder="Search projects and tasks"></label>
+    <button class="btn btn-p" type="button">New project</button>
+    <button class="iconbtn" type="button" aria-label="Notifications"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 17V11a6 6 0 0 1 12 0v6l2 2H4z"/><path d="M10 21h4"/></svg></button>
+    <span class="who cap"><span class="medal" aria-hidden="true">MO</span>Mara Okafor</span>
+   </div>
+  </div>
+ </header>
+ <main>
+  <section class="greet" aria-labelledby="g-h">
+   <svg viewBox="0 0 120 60" aria-hidden="true" class="laurel" width="160" height="80"><g fill="#3d5a33"><ellipse cx="14" cy="40" rx="7" ry="3" transform="rotate(-50 14 40)"/><ellipse cx="22" cy="30" rx="7" ry="3" transform="rotate(-40 22 30)"/><ellipse cx="32" cy="22" rx="7" ry="3" transform="rotate(-30 32 22)"/><ellipse cx="44" cy="17" rx="7" ry="3" transform="rotate(-15 44 17)"/><ellipse cx="24" cy="46" rx="7" ry="3" transform="rotate(10 24 46)"/><ellipse cx="34" cy="40" rx="7" ry="3" transform="rotate(20 34 40)"/><ellipse cx="46" cy="34" rx="7" ry="3" transform="rotate(25 46 34)"/><ellipse cx="106" cy="40" rx="7" ry="3" transform="rotate(50 106 40)"/><ellipse cx="98" cy="30" rx="7" ry="3" transform="rotate(40 98 30)"/><ellipse cx="88" cy="22" rx="7" ry="3" transform="rotate(30 88 22)"/><ellipse cx="76" cy="17" rx="7" ry="3" transform="rotate(15 76 17)"/><ellipse cx="96" cy="46" rx="7" ry="3" transform="rotate(-10 96 46)"/><ellipse cx="86" cy="40" rx="7" ry="3" transform="rotate(-20 86 40)"/><ellipse cx="74" cy="34" rx="7" ry="3" transform="rotate(-25 74 34)"/></g><path d="M10 50 Q30 10 58 12 M110 50 Q90 10 62 12" fill="none" stroke="#3d5a33" stroke-width="1.6"/></svg>
+   <h1 id="g-h" class="cap carved">Salve, Mara</h1>
+   <p class="date cap">Saturday · 31 October · 2026</p>
+   <div class="ansata"><p class="urgent cap">4 tasks are overdue</p></div>
+  </section>
+  <h2 class="vh">Summary</h2>
+  <ul class="colonnade" role="list" style="list-style:none;padding:0"><li class="col"><div class="capital" aria-hidden="true"></div><div class="shaft"><span class="plaque"><span class="num carved">6</span><span class="roman cap" aria-hidden="true">VI</span></span><span class="lbl cap">Active projects</span></div><div class="base" aria-hidden="true"></div></li><li class="col"><div class="capital" aria-hidden="true"></div><div class="shaft"><span class="plaque"><span class="num carved">23</span><span class="roman cap" aria-hidden="true">XXIII</span></span><span class="lbl cap">Tasks due this week</span></div><div class="base" aria-hidden="true"></div></li><li class="col od"><div class="capital" aria-hidden="true"></div><div class="shaft"><span class="plaque"><span class="num carved">4</span><span class="roman cap" aria-hidden="true">IV</span></span><span class="lbl cap">Overdue tasks</span></div><div class="base" aria-hidden="true"></div></li><li class="col"><div class="capital" aria-hidden="true"></div><div class="shaft"><span class="plaque"><span class="num carved">186</span><span class="roman cap" aria-hidden="true">CLXXXVI</span></span><span class="lbl cap">Hours logged this week</span></div><div class="base" aria-hidden="true"></div></li></ul>
+  <section aria-labelledby="p-h">
+   <h2 class="sec-h cap carved" id="p-h">Projects</h2><p class="sec-s">Six works in progress, each cut in its own tablet</p>
+   <ul class="tablets"><li class="tablet"><p class="cat cap">Design</p><h3 class="cap carved">Website redesign</h3>
+<div class="groove" role="img" aria-label="72 percent complete"><i style="width:calc(72% - 4px)"></i></div>
+<div class="facts"><span><b>72%</b> done</span><span>18 of 25 tasks</span><span>Due <b>14 Nov</b></span></div>
+<p class="stl"><span class="st st-on"><svg viewBox="0 0 12 12" width=".7em" height=".7em" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="currentColor"/></svg>On track</span></p></li><li class="tablet"><p class="cat cap">Engineering</p><h3 class="cap carved">Mobile app 2.0</h3>
+<div class="groove" role="img" aria-label="45 percent complete"><i style="width:calc(45% - 4px)"></i></div>
+<div class="facts"><span><b>45%</b> done</span><span>27 of 60 tasks</span><span>Due <b>2 Dec</b></span></div>
+<p class="stl"><span class="st st-risk"><svg viewBox="0 0 12 12" width=".7em" height=".7em" aria-hidden="true"><path d="M6 .5L11.5 11H.5z" fill="currentColor"/></svg>At risk</span></p></li><li class="tablet"><p class="cat cap">Research</p><h3 class="cap carved">Q4 customer survey</h3>
+<div class="groove" role="img" aria-label="90 percent complete"><i style="width:calc(90% - 4px)"></i></div>
+<div class="facts"><span><b>90%</b> done</span><span>9 of 10 tasks</span><span>Due <b>7 Nov</b></span></div>
+<p class="stl"><span class="st st-on"><svg viewBox="0 0 12 12" width=".7em" height=".7em" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="currentColor"/></svg>On track</span></p></li><li class="tablet"><p class="cat cap">Engineering</p><h3 class="cap carved">Billing migration</h3>
+<div class="groove" role="img" aria-label="30 percent complete"><i style="width:calc(30% - 4px)"></i></div>
+<div class="facts"><span><b>30%</b> done</span><span>12 of 40 tasks</span><span>Due <b>20 Nov</b></span></div>
+<p class="stl"><span class="st st-behind"><svg viewBox="0 0 12 12" width=".7em" height=".7em" aria-hidden="true"><rect x="1" y="1" width="10" height="10" fill="currentColor"/></svg>Behind</span></p></li><li class="tablet"><p class="cat cap">Marketing</p><h3 class="cap carved">Spring catalogue</h3>
+<div class="groove" role="img" aria-label="15 percent complete"><i style="width:calc(15% - 4px)"></i></div>
+<div class="facts"><span><b>15%</b> done</span><span>3 of 20 tasks</span><span>Due <b>15 Jan</b></span></div>
+<p class="stl"><span class="st st-on"><svg viewBox="0 0 12 12" width=".7em" height=".7em" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="currentColor"/></svg>On track</span></p></li><li class="tablet"><p class="cat cap">Marketing</p><h3 class="cap carved">Onboarding emails</h3>
+<div class="groove" role="img" aria-label="60 percent complete"><i style="width:calc(60% - 4px)"></i></div>
+<div class="facts"><span><b>60%</b> done</span><span>9 of 15 tasks</span><span>Due <b>21 Nov</b></span></div>
+<p class="stl"><span class="st st-on"><svg viewBox="0 0 12 12" width=".7em" height=".7em" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="currentColor"/></svg>On track</span></p></li></ul>
+  </section>
+  <div class="lower">
+   <section class="slab" aria-labelledby="c-h"><h2 class="cap carved" id="c-h">Tasks completed</h2><p class="sub">Each day from 18 to 31 October</p><svg viewBox="0 0 460 210" role="img" aria-label="Tasks completed per day from Sunday 18 to Saturday 31 October: Sun 18 3, Mon 19 12, Tue 20 9, Wed 21 14, Thu 22 11, Fri 23 8, Sat 24 2, Sun 25 4, Mon 26 15, Tue 27 13, Wed 28 17, Thu 29 12, Fri 30 10, Sat 31 2. Last week 59, this week 73."><rect x="222" y="10" width="16" height="166" fill="#dedad0" stroke="#c9c2b2"/><rect x="14" y="149.2" width="20" height="26.8" fill="#c9c2b2"/><rect x="16" y="151.2" width="16" height="24.8" fill="#57514a"/><text x="24.0" y="143.2" text-anchor="middle" font-size="13" fill="#2f2b25" font-family="Optima,Candara,serif">3</text><text x="24.0" y="191" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif" letter-spacing="1">SU</text><text x="24.0" y="204" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif">18</text><rect x="43" y="68.7" width="20" height="107.3" fill="#c9c2b2"/><rect x="45" y="70.7" width="16" height="105.3" fill="#57514a"/><text x="53.0" y="62.7" text-anchor="middle" font-size="13" fill="#2f2b25" font-family="Optima,Candara,serif">12</text><text x="53.0" y="191" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif" letter-spacing="1">MO</text><text x="53.0" y="204" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif">19</text><rect x="72" y="95.5" width="20" height="80.5" fill="#c9c2b2"/><rect x="74" y="97.5" width="16" height="78.5" fill="#57514a"/><text x="82.0" y="89.5" text-anchor="middle" font-size="13" fill="#2f2b25" font-family="Optima,Candara,serif">9</text><text x="82.0" y="191" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif" letter-spacing="1">TU</text><text x="82.0" y="204" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif">20</text><rect x="101" y="50.8" width="20" height="125.2" fill="#c9c2b2"/><rect x="103" y="52.8" width="16" height="123.2" fill="#57514a"/><text x="111.0" y="44.8" text-anchor="middle" font-size="13" fill="#2f2b25" font-family="Optima,Candara,serif">14</text><text x="111.0" y="191" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif" letter-spacing="1">WE</text><text x="111.0" y="204" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif">21</text><rect x="130" y="77.6" width="20" height="98.4" fill="#c9c2b2"/><rect x="132" y="79.6" width="16" height="96.4" fill="#57514a"/><text x="140.0" y="71.6" text-anchor="middle" font-size="13" fill="#2f2b25" font-family="Optima,Candara,serif">11</text><text x="140.0" y="191" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif" letter-spacing="1">TH</text><text x="140.0" y="204" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif">22</text><rect x="159" y="104.5" width="20" height="71.5" fill="#c9c2b2"/><rect x="161" y="106.5" width="16" height="69.5" fill="#57514a"/><text x="169.0" y="98.5" text-anchor="middle" font-size="13" fill="#2f2b25" font-family="Optima,Candara,serif">8</text><text x="169.0" y="191" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif" letter-spacing="1">FR</text><text x="169.0" y="204" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif">23</text><rect x="188" y="158.1" width="20" height="17.9" fill="#c9c2b2"/><rect x="190" y="160.1" width="16" height="15.9" fill="#57514a"/><text x="198.0" y="152.1" text-anchor="middle" font-size="13" fill="#2f2b25" font-family="Optima,Candara,serif">2</text><text x="198.0" y="191" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif" letter-spacing="1">SA</text><text x="198.0" y="204" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif">24</text><rect x="247" y="140.2" width="20" height="35.8" fill="#c9c2b2"/><rect x="249" y="142.2" width="16" height="33.8" fill="#73541a"/><text x="257.0" y="134.2" text-anchor="middle" font-size="13" fill="#2f2b25" font-family="Optima,Candara,serif">4</text><text x="257.0" y="191" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif" letter-spacing="1">SU</text><text x="257.0" y="204" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif">25</text><rect x="276" y="41.9" width="20" height="134.1" fill="#c9c2b2"/><rect x="278" y="43.9" width="16" height="132.1" fill="#73541a"/><text x="286.0" y="35.9" text-anchor="middle" font-size="13" fill="#2f2b25" font-family="Optima,Candara,serif">15</text><text x="286.0" y="191" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif" letter-spacing="1">MO</text><text x="286.0" y="204" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif">26</text><rect x="305" y="59.8" width="20" height="116.2" fill="#c9c2b2"/><rect x="307" y="61.8" width="16" height="114.2" fill="#73541a"/><text x="315.0" y="53.8" text-anchor="middle" font-size="13" fill="#2f2b25" font-family="Optima,Candara,serif">13</text><text x="315.0" y="191" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif" letter-spacing="1">TU</text><text x="315.0" y="204" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif">27</text><rect x="334" y="24.0" width="20" height="152.0" fill="#c9c2b2"/><rect x="336" y="26.0" width="16" height="150.0" fill="#73541a"/><text x="344.0" y="18.0" text-anchor="middle" font-size="13" fill="#2f2b25" font-family="Optima,Candara,serif">17</text><text x="344.0" y="191" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif" letter-spacing="1">WE</text><text x="344.0" y="204" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif">28</text><rect x="363" y="68.7" width="20" height="107.3" fill="#c9c2b2"/><rect x="365" y="70.7" width="16" height="105.3" fill="#73541a"/><text x="373.0" y="62.7" text-anchor="middle" font-size="13" fill="#2f2b25" font-family="Optima,Candara,serif">12</text><text x="373.0" y="191" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif" letter-spacing="1">TH</text><text x="373.0" y="204" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif">29</text><rect x="392" y="86.6" width="20" height="89.4" fill="#c9c2b2"/><rect x="394" y="88.6" width="16" height="87.4" fill="#73541a"/><text x="402.0" y="80.6" text-anchor="middle" font-size="13" fill="#2f2b25" font-family="Optima,Candara,serif">10</text><text x="402.0" y="191" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif" letter-spacing="1">FR</text><text x="402.0" y="204" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif">30</text><rect x="421" y="158.1" width="20" height="17.9" fill="#c9c2b2"/><rect x="423" y="160.1" width="16" height="15.9" fill="#73541a"/><text x="431.0" y="152.1" text-anchor="middle" font-size="13" fill="#2f2b25" font-family="Optima,Candara,serif">2</text><text x="431.0" y="191" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif" letter-spacing="1">SA</text><text x="431.0" y="204" text-anchor="middle" font-size="10" fill="#57514a" font-family="Optima,Candara,serif">31</text><line x1="6" x2="454" y1="176" y2="176" stroke="#2f2b25"/></svg>
+    <div class="tot"><span><b>59</b>LAST WEEK</span><span><b>73</b>THIS WEEK</span></div></section>
+   <section class="slab" aria-labelledby="a-h"><h2 class="cap carved" id="a-h">Acta diurna</h2><p class="sub">The day's record of work</p><ul class="acta"><li><span><b>Jonas Weber</b> completed &ldquo;Export invoices as CSV&rdquo; in <span class=pj>Billing migration</span></span><time>12 min ago</time></li><li><span><b>Priya Nair</b> commented on &ldquo;Hero image options&rdquo; in <span class=pj>Website redesign</span></span><time>40 min ago</time></li><li><span><b>Sam Ortiz</b> moved &ldquo;Push notifications&rdquo; to Review in <span class=pj>Mobile app 2.0</span></span><time>1 h ago</time></li><li><span><b>Lena Fischer</b> added 3 tasks to <span class=pj>Spring catalogue</span></span><time>2 h ago</time></li><li><span><b>Tomás Ruiz</b> logged 6 h on <span class=pj>Mobile app 2.0</span></span><time>3 h ago</time></li><li><span><b>Aiko Tanaka</b> uploaded &ldquo;survey-results-v2.pdf&rdquo; to <span class=pj>Q4 customer survey</span></span><time>yesterday</time></li></ul></section>
+  </div>
+ </main>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h">
+ <h2 id="sheet-h">Style 145 · Roman inscription</h2>
+ <p class="idea">The dashboard is a marble temple front, with the brand carved in a pediment, the four totals on fluted columns and each project cut into an inscribed tablet with dovetail handles.</p>
+ <h3>Palette</h3><ul class="sws"><li class="sw"><span class="chip" style="background:#f4f2ec"></span><span class="swn">marble</span><code>#f4f2ec</code><span class="swu">the page, with faint grey veining</span></li><li class="sw"><span class="chip" style="background:#dedad0"></span><span class="swn">vein</span><code>#dedad0</code><span class="swu">veins, the chart&#x27;s dividing column</span></li><li class="sw"><span class="chip" style="background:#ebe7dd"></span><span class="swn">tablet</span><code>#ebe7dd</code><span class="swu">tablets, slabs, the architrave and fields</span></li><li class="sw"><span class="chip" style="background:#2f2b25"></span><span class="swn">cutStone</span><code>#2f2b25</code><span class="swu">carved lettering and body text</span></li><li class="sw"><span class="chip" style="background:#57514a"></span><span class="swn">slate</span><code>#57514a</code><span class="swu">secondary text, last week bars, nav</span></li><li class="sw"><span class="chip" style="background:#7a2626"></span><span class="swn">porphyry</span><code>#7a2626</code><span class="swu">the primary button, overdue, Behind and focus</span></li><li class="sw"><span class="chip" style="background:#73541a"></span><span class="swn">bronze</span><code>#73541a</code><span class="swu">progress fills, this week bars, roman numerals and At risk</span></li><li class="sw"><span class="chip" style="background:#3d5a33"></span><span class="swn">laurel</span><code>#3d5a33</code><span class="swu">the wreath and On track</span></li><li class="sw"><span class="chip" style="background:#c9c2b2"></span><span class="swn">groove</span><code>#c9c2b2</code><span class="swu">frames, mouldings and grooves, never text</span></li></ul>
+ <h3>Type scale</h3><ul class="tys-l"><li class="ty"><span class="tys" style="font:400 30px var(--ins);letter-spacing:.42em">BRIGHTWORK</span><span class="tym">Pediment · Optima, Candara, Trajan Pro, Palatino · 30px caps tracked 0.42em</span></li><li class="ty"><span class="tys" style="font:400 56px/1.05 var(--ins);letter-spacing:.18em">SALVE, MARA</span><span class="tym">Greeting · 56px caps</span></li><li class="ty"><span class="tys" style="font:400 54px var(--ins)">186</span><span class="tym">Column figures · 54px</span></li><li class="ty"><span class="tys" style="font:600 17px var(--ins);letter-spacing:.14em">WEBSITE REDESIGN</span><span class="tym">Tablet title · 17px caps tracked 0.14em</span></li><li class="ty"><span class="tys" style="font:700 13px var(--ins);letter-spacing:.2em">ON TRACK · DUE 14 NOV</span><span class="tym">Labels · 12 to 14px caps tracked 0.16 to 0.24em</span></li><li class="ty"><span class="tys" style="font:16px/1.55 var(--txt)">Body text in a book face</span><span class="tym">Body · Palatino Linotype, Book Antiqua, Georgia · 16px at 1.55, italic for subtitles</span></li></ul>
+ <h3>Spacing, density, corners, borders, shadows, icons, tone</h3><dl class="facts"><dt>Spacing</dt><dd>An 8px unit. 24px between columns, 28 by 60px between tablets to leave room for their handles, 48px between bands.</dd><dt>Density</dt><dd>Sparse and monumental. Everything is centred on one axis.</dd><dt>Corners</dt><dd>Square stone. Tablets carry dovetail handles on both sides, column capitals carry round volutes.</dd><dt>Borders</dt><dd>Mouldings as inner frames, a 1px groove line, an 8px gap, then another groove. Double rules under the architrave.</dd><dt>Shadows</dt><dd>Inset shadows for carved text, grooves and fields, and a soft cast shadow under column bases.</dd><dt>Icons</dt><dd>Plain line icons for tools. Status uses Roman interpuncts, a round dot for On track, a triangle for At risk and a square for Behind, beside the caps word.</dd><dt>Tone</dt><dd>Inscriptional and brief in spaced capitals, such as Salve, Mara and Acta diurna, with plain English for the facts.</dd></dl>
+ 
+ <h3>Controls · normal and focus</h3>
+<div class="ctls">
+ <div class="ctl"><span class="ctlh">Normal</span>
+  <button type="button" class="btn btn-p">New project</button>
+  <button type="button" class="btn btn-s">Export report</button>
+  <label class="fld"><span>Project name</span><input type="text" value="Website redesign"></label>
+  <div class="lrow"><span>Q4 customer survey</span><span>90%</span></div>
+ </div>
+ <div class="ctl"><span class="ctlh">Focus</span>
+  <button type="button" class="btn btn-p is-focus">New project</button>
+  <button type="button" class="btn btn-s is-focus">Export report</button>
+  <label class="fld"><span>Project name</span><input type="text" class="is-focus" value="Website redesign"></label>
+  <div class="lrow is-focus" tabindex="0"><span>Q4 customer survey</span><span>90%</span></div>
+ </div>
+</div>
+</section>
+</body>
+</html>

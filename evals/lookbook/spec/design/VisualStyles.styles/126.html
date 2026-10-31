@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 126 · Circuit board · Brightwork</title>
+<style>
+:root{
+  --mask:#e4efe0; --mask2:#d3e4cd; --trace:#9cc396; --copper:#b8732f; --cu-ink:#7a4612; --silk:#163521; --silk2:#3c5c45;
+  --chip:#26302a; --chiptext:#eef3ea; --body:#f7faf4; --ok:#1d7337; --risk:#8f4f00; --behind:#b42318;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono","Roboto Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#cfd8cc;color:var(--silk);font:14px/1.5 var(--mono)}
+svg{display:block}
+a{color:inherit}
+.is-focus,a:focus-visible,button:focus-visible,input:focus-visible{outline:2px dashed var(--silk);outline-offset:3px;box-shadow:0 0 0 6px rgba(184,115,47,.35)}
+.board{position:relative;max-width:1280px;margin:24px auto;background:var(--mask);border-radius:14px;padding:32px 40px 40px;
+  box-shadow:0 0 0 2px #b9cdb3,0 2px 0 4px #a9bea2;
+  background-image:linear-gradient(var(--mask2) 1px,transparent 1px),linear-gradient(90deg,var(--mask2) 1px,transparent 1px);background-size:32px 32px}
+.hole{position:absolute;width:22px;height:22px;border-radius:50%;background:#cfd8cc;box-shadow:0 0 0 5px var(--copper),0 0 0 7px var(--mask)}
+.hole.a{top:14px;left:14px}.hole.b{top:14px;right:14px}.hole.c{bottom:14px;left:14px}.hole.d{bottom:14px;right:14px}
+.silk-t{font-size:12px;letter-spacing:.12em;color:var(--silk2);text-transform:uppercase}
+/* header */
+.hdr{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{width:44px;height:44px}
+.brand b{font-size:22px;letter-spacing:.18em;display:block}
+.tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.slot{display:flex;align-items:center;gap:8px;background:var(--body);border:1.5px solid var(--silk);padding:0 10px;height:40px;position:relative;border-radius:4px}
+.slot svg{width:16px;height:16px}
+.slot input{border:0;outline:0;background:transparent;font:13px var(--mono);color:var(--silk);width:220px}
+.sw{display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 14px 0 8px;font:700 13px var(--mono);letter-spacing:.06em;cursor:pointer;border-radius:4px}
+.sw .cap{width:24px;height:24px;border-radius:50%;background:var(--chip);box-shadow:0 0 0 3px #7c857d,inset 0 -2px 0 #000}
+.sw-p{background:var(--copper);color:#1c1003;border:1.5px solid var(--cu-ink)}
+.sw-p{background:#d39a5c}
+.sw-s{background:var(--body);color:var(--silk);border:1.5px solid var(--silk)}
+.sw-s .cap{background:#e9ede6;box-shadow:0 0 0 3px #9aa69b}
+.bz{width:40px;height:40px;border-radius:50%;background:var(--chip);color:var(--chiptext);border:0;display:grid;place-items:center;cursor:pointer;box-shadow:0 0 0 3px var(--copper)}
+.bz svg{width:18px;height:18px}
+.u0{display:flex;align-items:center;gap:8px;font-weight:700}
+.u0 .u0c{background:var(--chip);color:var(--chiptext);padding:6px 8px;border-radius:3px;font-size:12px}
+/* nav pin header */
+.j1{margin:24px 16px 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.j1 .lbl{font-weight:700;font-size:13px;letter-spacing:.1em}
+.j1 ul{list-style:none;margin:0;padding:6px 10px;display:flex;flex-wrap:wrap;gap:6px 4px;background:var(--chip);border-radius:3px}
+.j1 a{display:flex;align-items:center;gap:8px;padding:6px 10px;text-decoration:none;color:var(--chiptext);font-size:13px;letter-spacing:.06em;border-radius:2px}
+.j1 a::before{content:"";width:12px;height:12px;border-radius:50%;background:#e2a868;box-shadow:inset 0 0 0 3px #8a5520}
+.j1 a[aria-current=page]{background:#e2a868;color:#1c1003;font-weight:700}
+.j1 a[aria-current=page]::before{border-radius:1px;background:#1c1003;box-shadow:none}
+.trace{height:24px;margin:8px 0;background:linear-gradient(var(--trace),var(--trace)) 0 50%/100% 4px no-repeat;position:relative}
+.trace::before,.trace::after{content:"";position:absolute;top:50%;width:14px;height:14px;margin-top:-7px;border-radius:50%;background:var(--mask);box-shadow:0 0 0 4px var(--copper)}
+.trace::before{left:18%}.trace::after{right:22%}
+/* greeting */
+.greet{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;margin:0 16px}
+.greet h1{margin:0;font:700 34px/1.15 var(--mono);letter-spacing:.02em}
+.greet .date{margin:4px 0 0;font-size:15px;color:var(--silk2);letter-spacing:.1em}
+.d1{display:flex;align-items:center;gap:12px;background:var(--body);border:1.5px solid var(--silk);padding:10px 14px;border-radius:4px;font-weight:700}
+.d1 .led{width:18px;height:18px;background:var(--behind);box-shadow:0 0 0 3px #f3c9c3}
+/* ICs */
+.ics{list-style:none;margin:8px 16px 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.ic{position:relative;padding:14px 0}
+.ic::before,.ic::after{content:"";position:absolute;left:12px;right:12px;height:12px;background:repeating-linear-gradient(90deg,#c9cfc8 0 8px,transparent 8px 18px)}
+.ic::before{top:2px}.ic::after{bottom:2px}
+.ic .body{background:var(--chip);color:var(--chiptext);border-radius:3px;padding:12px 16px;position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:8px}
+.ic .body::before{content:"";position:absolute;left:10px;top:10px;width:8px;height:8px;border-radius:50%;background:#5c665e}
+.ic .des{font-size:12px;color:#b9c4b6;letter-spacing:.1em;padding-left:16px}
+.ic .lab{display:block;font-size:13px;margin-top:2px;padding-left:16px}
+.ic b{font-size:40px;line-height:1;font-weight:700}
+.ic.alarm .body{box-shadow:inset 0 -5px 0 var(--behind)}
+/* modules */
+.secg{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:32px;margin:0 16px}
+h2{margin:0 0 12px;font:700 15px var(--mono);letter-spacing:.14em;display:flex;align-items:center;gap:10px}
+h2::before{content:"";width:14px;height:14px;background:var(--copper);border-radius:2px}
+.mods{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.mod{position:relative;border:1.5px dashed var(--silk2);border-radius:6px;padding:16px 16px 14px;background:rgba(247,250,244,.75)}
+.ref{position:absolute;top:-11px;left:12px;background:var(--mask);padding:0 6px;font-weight:700;font-size:13px;letter-spacing:.08em}
+.mh{display:flex;justify-content:space-between;gap:8px;align-items:baseline;flex-wrap:wrap}
+.pn{font-weight:700;font-size:16px}
+.val{font-size:12px;color:var(--silk2);letter-spacing:.1em}
+.ledbar{display:flex;align-items:center;gap:10px;margin:12px 0 10px}
+.segs{display:flex;gap:3px;flex:1;background:var(--chip);padding:4px;border-radius:2px}
+.segs i{flex:1;height:14px;background:#4a554c;border-radius:1px}
+.segs i.on{background:#7fe08e;box-shadow:0 0 4px #7fe08e}
+.ledbar b{font-size:15px;width:44px;text-align:right}
+.specs{display:flex;gap:20px;margin:0 0 10px}
+.specs div{display:flex;gap:6px}
+.specs dt{color:var(--silk2);font-size:12px;letter-spacing:.08em;padding-top:1px}
+.specs dd{margin:0;font-weight:700}
+.st{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13px;letter-spacing:.08em;padding:3px 10px 3px 6px;border:1.5px solid currentColor;border-radius:3px;background:var(--body)}
+.st svg{width:16px;height:16px;flex:none}
+.st-ok{color:var(--ok)}.st-risk{color:var(--risk)}.st-behind{color:var(--behind)}
+.tps{list-style:none;margin:0;padding:0;border-left:4px solid var(--trace);margin-left:9px}
+.tps li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 10px;align-items:start;padding:8px 0 10px;position:relative;padding-left:22px}
+.tp{position:absolute;left:-13px;top:10px;width:18px;height:18px;border-radius:50%;background:var(--copper);box-shadow:inset 0 0 0 5px #d39a5c}
+.tpn{font-weight:700;font-size:12px;background:var(--silk);color:var(--mask);padding:1px 6px;border-radius:2px;margin-top:2px}
+.tps p{margin:0;font-size:13.5px;line-height:1.45}
+.when{font-size:12px;color:var(--silk2);white-space:nowrap;margin-top:2px}
+.chartbox{margin:0 16px;background:rgba(247,250,244,.75);border:1.5px solid var(--silk);border-radius:6px;padding:16px 20px}
+.chart{width:100%;height:auto;max-height:300px}
+.chart .pads rect{fill:#d39a5c;stroke:var(--cu-ink);stroke-width:.8}
+.chart .tr{stroke:var(--trace);stroke-width:4;fill:none}
+.chart .sep{stroke:var(--silk2);stroke-dasharray:3 4;stroke-width:1.2}
+.chart .v{font:700 13px var(--mono);fill:var(--silk);text-anchor:middle}
+.chart .d{font:12px var(--mono);fill:var(--silk2);text-anchor:middle}
+.chart .wk{font:700 13px var(--mono);fill:var(--silk);text-anchor:middle;letter-spacing:.08em}
+.note{margin:6px 0 0;color:var(--silk2);font-size:12.5px}
+/* sheet */
+.sheet{max-width:1280px;margin:0 auto 48px;background:var(--body);border:1.5px solid var(--silk);border-radius:14px;padding:32px 40px}
+.sheet h2{font-size:24px;letter-spacing:.06em}
+.sheet h3{font:700 14px var(--mono);letter-spacing:.14em;margin:32px 0 12px;padding-bottom:6px;border-bottom:4px solid var(--trace)}
+.idea{font-size:15px;margin:4px 0 0;max-width:860px}
+.sws{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.sws li{display:flex;gap:10px;align-items:center;font-size:12.5px;line-height:1.4}
+.sws i{width:40px;height:40px;border-radius:4px;border:1.5px solid var(--silk);flex:none}
+.sws b{display:block;font-size:13px}
+.trow{display:flex;gap:20px;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--mask2);flex-wrap:wrap}
+.trow code{font:12px var(--mono);color:var(--silk2);width:180px;flex:none}
+dl.facts{display:grid;grid-template-columns:120px 1fr;gap:8px 20px;margin:0}
+dl.facts dt{font-weight:700;letter-spacing:.08em}
+dl.facts dd{margin:0}
+.ctls{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:24px}
+.cl{display:block;font-size:12px;color:var(--silk2);letter-spacing:.1em;margin-bottom:8px}
+.field{display:block;font-weight:700;font-size:13px;letter-spacing:.06em}
+.field input{display:block;width:100%;margin-top:6px;height:40px;border:1.5px solid var(--silk);border-radius:4px;background:#fff;padding:0 10px;font:14px var(--mono);color:var(--silk)}
+.rowdemo{display:flex;align-items:center;gap:12px;justify-content:space-between;padding:10px 12px;border:1.5px dashed var(--silk2);border-radius:6px;background:#fff}
+@media (max-width:1000px){
+  .ics{grid-template-columns:repeat(2,1fr)}
+  .secg{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  body{background:var(--mask)}
+  .board{margin:0;border-radius:0;padding:28px 12px 32px;box-shadow:none}
+  .hole{width:14px;height:14px;box-shadow:0 0 0 3px var(--copper),0 0 0 5px var(--mask)}
+  .hole.a{top:8px;left:8px}.hole.b{top:8px;right:8px}.hole.c{bottom:8px;left:8px}.hole.d{bottom:8px;right:8px}
+  .hdr,.greet,.ics,.secg,.chartbox,.j1{margin-left:4px;margin-right:4px}
+  .slot{flex:1 1 100%}.slot input{width:100%}
+  .greet{grid-template-columns:1fr}
+  .greet h1{font-size:26px}
+  .ics{gap:16px}
+  .ic b{font-size:30px}
+  .ic .body{flex-direction:column;align-items:flex-start}
+  .mods{grid-template-columns:1fr}
+  .chartbox{padding:10px}
+  .chart .v{font-size:20px}.chart .d{font-size:17px}.chart .wk{font-size:20px}
+  .sheet{border-radius:0;padding:24px 16px;margin:0}
+  dl.facts{grid-template-columns:1fr;gap:2px}
+  dl.facts dd{margin-bottom:10px}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="s-ok" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="currentColor"/><circle cx="8" cy="8" r="3" fill="#f7faf4"/></symbol>
+  <symbol id="s-risk" viewBox="0 0 16 16"><path d="M8 1l7.5 13.5H.5z" fill="currentColor"/><path d="M8 6v4.2M8 11.6v1.4" stroke="#f7faf4" stroke-width="1.8"/></symbol>
+  <symbol id="s-behind" viewBox="0 0 16 16"><rect x="1" y="1" width="14" height="14" fill="currentColor"/><rect x="5" y="5" width="6" height="6" fill="#f7faf4"/></symbol>
+</svg>
+<div class="board">
+  <span class="hole a" aria-hidden="true"></span><span class="hole b" aria-hidden="true"></span><span class="hole c" aria-hidden="true"></span><span class="hole d" aria-hidden="true"></span>
+  <header>
+    <div class="hdr">
+      <a class="brand" href="#"><svg viewBox="0 0 44 44" aria-hidden="true"><rect x="8" y="8" width="28" height="28" rx="2" fill="#26302a"/><path d="M14 2v6M22 2v6M30 2v6M14 36v6M22 36v6M30 36v6M2 14h6M2 22h6M2 30h6M36 14h6M36 22h6M36 30h6" stroke="#b8732f" stroke-width="3"/><path d="M15 26l5-8 4 6 5-9" stroke="#7fe08e" stroke-width="2.4" fill="none"/></svg><span><b>BRIGHTWORK</b><span class="silk-t">PCB-01 · REV 2026.10</span></span></a>
+      <div class="tools">
+        <label class="slot"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l4 4" stroke="currentColor" stroke-width="1.6"/></svg><input type="search" placeholder="Search projects and tasks" aria-label="Search projects and tasks"></label>
+        <button class="sw sw-p" type="button"><span class="cap" aria-hidden="true"></span>NEW PROJECT</button>
+        <button class="bz" type="button" aria-label="Notifications"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 13V8a5 5 0 0110 0v5l1.5 1.5h-13zM7 16.5h4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+        <span class="u0"><span class="u0c" aria-hidden="true">U0</span>MARA OKAFOR</span>
+      </div>
+    </div>
+    <nav class="j1" aria-label="Main"><span class="lbl" aria-hidden="true">J1</span><ul>
+      <li><a href="#" aria-current="page">1 HOME</a></li><li><a href="#">2 PROJECTS</a></li><li><a href="#">3 TASKS</a></li><li><a href="#">4 TEAM</a></li><li><a href="#">5 REPORTS</a></li><li><a href="#">6 SETTINGS</a></li>
+    </ul></nav>
+  </header>
+  <div class="trace" aria-hidden="true"></div>
+  <main>
+    <section class="greet" aria-labelledby="hi">
+      <div><h1 id="hi">Good afternoon, Mara</h1><p class="date">SATURDAY 31 OCTOBER 2026</p></div>
+      <p class="d1"><span class="led" aria-hidden="true"></span>D1 · 4 tasks are overdue</p>
+    </section>
+    <h2 style="position:absolute;left:-9999px">Summary</h2>
+    <ul class="ics">
+      <li class="ic"><div class="body"><div><span class="des">U1</span><span class="lab">Active projects</span></div><b>6</b></div></li>
+      <li class="ic"><div class="body"><div><span class="des">U2</span><span class="lab">Tasks due this week</span></div><b>23</b></div></li>
+      <li class="ic alarm"><div class="body"><div><span class="des">U3 · ALARM</span><span class="lab">Overdue tasks</span></div><b>4</b></div></li>
+      <li class="ic"><div class="body"><div><span class="des">U4</span><span class="lab">Hours logged this week</span></div><b>186</b></div></li>
+    </ul>
+    <div class="trace" aria-hidden="true"></div>
+    <div class="secg">
+      <section aria-labelledby="pr-h"><h2 id="pr-h">PROJECTS · R1–R6</h2><ul class="mods"><li class="mod"><span class="ref">R1</span><div class="mh"><span class="pn">Website redesign</span><span class="val">DESIGN</span></div>
+<div class="ledbar" role="img" aria-label="72 percent complete"><span class="segs"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span><b>72%</b></div>
+<dl class="specs"><div><dt>TASKS</dt><dd>18/25</dd></div><div><dt>DUE</dt><dd>14 NOV</dd></div></dl><span class="st st-ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>ON TRACK</span></li>
+<li class="mod"><span class="ref">R2</span><div class="mh"><span class="pn">Mobile app 2.0</span><span class="val">ENGINEERING</span></div>
+<div class="ledbar" role="img" aria-label="45 percent complete"><span class="segs"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><b>45%</b></div>
+<dl class="specs"><div><dt>TASKS</dt><dd>27/60</dd></div><div><dt>DUE</dt><dd>2 DEC</dd></div></dl><span class="st st-risk"><svg aria-hidden="true"><use href="#s-risk"/></svg>AT RISK</span></li>
+<li class="mod"><span class="ref">R3</span><div class="mh"><span class="pn">Q4 customer survey</span><span class="val">RESEARCH</span></div>
+<div class="ledbar" role="img" aria-label="90 percent complete"><span class="segs"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><b>90%</b></div>
+<dl class="specs"><div><dt>TASKS</dt><dd>9/10</dd></div><div><dt>DUE</dt><dd>7 NOV</dd></div></dl><span class="st st-ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>ON TRACK</span></li>
+<li class="mod"><span class="ref">R4</span><div class="mh"><span class="pn">Billing migration</span><span class="val">ENGINEERING</span></div>
+<div class="ledbar" role="img" aria-label="30 percent complete"><span class="segs"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><b>30%</b></div>
+<dl class="specs"><div><dt>TASKS</dt><dd>12/40</dd></div><div><dt>DUE</dt><dd>20 NOV</dd></div></dl><span class="st st-behind"><svg aria-hidden="true"><use href="#s-behind"/></svg>BEHIND</span></li>
+<li class="mod"><span class="ref">R5</span><div class="mh"><span class="pn">Spring catalogue</span><span class="val">MARKETING</span></div>
+<div class="ledbar" role="img" aria-label="15 percent complete"><span class="segs"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><b>15%</b></div>
+<dl class="specs"><div><dt>TASKS</dt><dd>3/20</dd></div><div><dt>DUE</dt><dd>15 JAN</dd></div></dl><span class="st st-ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>ON TRACK</span></li>
+<li class="mod"><span class="ref">R6</span><div class="mh"><span class="pn">Onboarding emails</span><span class="val">MARKETING</span></div>
+<div class="ledbar" role="img" aria-label="60 percent complete"><span class="segs"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><b>60%</b></div>
+<dl class="specs"><div><dt>TASKS</dt><dd>9/15</dd></div><div><dt>DUE</dt><dd>21 NOV</dd></div></dl><span class="st st-ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>ON TRACK</span></li>
+</ul></section>
+      <section aria-labelledby="tp-h"><h2 id="tp-h">ACTIVITY · TEST POINTS</h2><ul class="tps"><li><span class="tp" aria-hidden="true"></span><span class="tpn">TP1</span><p><b>Jonas Weber</b> completed &ldquo;Export invoices as CSV&rdquo; in Billing migration</p><span class="when">12 min ago</span></li>
+<li><span class="tp" aria-hidden="true"></span><span class="tpn">TP2</span><p><b>Priya Nair</b> commented on &ldquo;Hero image options&rdquo; in Website redesign</p><span class="when">40 min ago</span></li>
+<li><span class="tp" aria-hidden="true"></span><span class="tpn">TP3</span><p><b>Sam Ortiz</b> moved &ldquo;Push notifications&rdquo; to Review in Mobile app 2.0</p><span class="when">1 h ago</span></li>
+<li><span class="tp" aria-hidden="true"></span><span class="tpn">TP4</span><p><b>Lena Fischer</b> added 3 tasks to Spring catalogue</p><span class="when">2 h ago</span></li>
+<li><span class="tp" aria-hidden="true"></span><span class="tpn">TP5</span><p><b>Tom&aacute;s Ruiz</b> logged 6 h on Mobile app 2.0</p><span class="when">3 h ago</span></li>
+<li><span class="tp" aria-hidden="true"></span><span class="tpn">TP6</span><p><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to Q4 customer survey</p><span class="when">yesterday</span></li>
+</ul></section>
+    </div>
+    <div class="trace" aria-hidden="true"></div>
+    <section class="chartbox" aria-labelledby="ch-h"><h2 id="ch-h">TASKS COMPLETED PER DAY · 18–31 OCT</h2><svg class="chart" viewBox="0 0 640 236" role="img" aria-label="Tasks completed per day from Sunday 18 October to Saturday 31 October: 3, 12, 9, 14, 11, 8, 2, then 4, 15, 13, 17, 12, 10, 2. Last week 59, this week 73.">
+<path d="M30 206H620" class="tr"/><path d="M30 210V226M318 210V226M620 210V226" class="tr"/>
+<path d="M318 28V206" class="sep"/>
+<text x="170" y="18" class="wk">LAST WK = 59</text><text x="470" y="18" class="wk">THIS WK = 73</text><g class="pads"><rect x="34" y="196" width="22" height="5.4" rx="1"/><rect x="34" y="188" width="22" height="5.4" rx="1"/><rect x="34" y="180" width="22" height="5.4" rx="1"/></g><text x="45" y="166" class="v">3</text><text x="45" y="222" class="d">18</text><g class="pads"><rect x="76" y="196" width="22" height="5.4" rx="1"/><rect x="76" y="188" width="22" height="5.4" rx="1"/><rect x="76" y="180" width="22" height="5.4" rx="1"/><rect x="76" y="172" width="22" height="5.4" rx="1"/><rect x="76" y="164" width="22" height="5.4" rx="1"/><rect x="76" y="156" width="22" height="5.4" rx="1"/><rect x="76" y="148" width="22" height="5.4" rx="1"/><rect x="76" y="140" width="22" height="5.4" rx="1"/><rect x="76" y="132" width="22" height="5.4" rx="1"/><rect x="76" y="124" width="22" height="5.4" rx="1"/><rect x="76" y="116" width="22" height="5.4" rx="1"/><rect x="76" y="108" width="22" height="5.4" rx="1"/></g><text x="87" y="94" class="v">12</text><text x="87" y="222" class="d">19</text><g class="pads"><rect x="118" y="196" width="22" height="5.4" rx="1"/><rect x="118" y="188" width="22" height="5.4" rx="1"/><rect x="118" y="180" width="22" height="5.4" rx="1"/><rect x="118" y="172" width="22" height="5.4" rx="1"/><rect x="118" y="164" width="22" height="5.4" rx="1"/><rect x="118" y="156" width="22" height="5.4" rx="1"/><rect x="118" y="148" width="22" height="5.4" rx="1"/><rect x="118" y="140" width="22" height="5.4" rx="1"/><rect x="118" y="132" width="22" height="5.4" rx="1"/></g><text x="129" y="118" class="v">9</text><text x="129" y="222" class="d">20</text><g class="pads"><rect x="160" y="196" width="22" height="5.4" rx="1"/><rect x="160" y="188" width="22" height="5.4" rx="1"/><rect x="160" y="180" width="22" height="5.4" rx="1"/><rect x="160" y="172" width="22" height="5.4" rx="1"/><rect x="160" y="164" width="22" height="5.4" rx="1"/><rect x="160" y="156" width="22" height="5.4" rx="1"/><rect x="160" y="148" width="22" height="5.4" rx="1"/><rect x="160" y="140" width="22" height="5.4" rx="1"/><rect x="160" y="132" width="22" height="5.4" rx="1"/><rect x="160" y="124" width="22" height="5.4" rx="1"/><rect x="160" y="116" width="22" height="5.4" rx="1"/><rect x="160" y="108" width="22" height="5.4" rx="1"/><rect x="160" y="100" width="22" height="5.4" rx="1"/><rect x="160" y="92" width="22" height="5.4" rx="1"/></g><text x="171" y="78" class="v">14</text><text x="171" y="222" class="d">21</text><g class="pads"><rect x="202" y="196" width="22" height="5.4" rx="1"/><rect x="202" y="188" width="22" height="5.4" rx="1"/><rect x="202" y="180" width="22" height="5.4" rx="1"/><rect x="202" y="172" width="22" height="5.4" rx="1"/><rect x="202" y="164" width="22" height="5.4" rx="1"/><rect x="202" y="156" width="22" height="5.4" rx="1"/><rect x="202" y="148" width="22" height="5.4" rx="1"/><rect x="202" y="140" width="22" height="5.4" rx="1"/><rect x="202" y="132" width="22" height="5.4" rx="1"/><rect x="202" y="124" width="22" height="5.4" rx="1"/><rect x="202" y="116" width="22" height="5.4" rx="1"/></g><text x="213" y="102" class="v">11</text><text x="213" y="222" class="d">22</text><g class="pads"><rect x="244" y="196" width="22" height="5.4" rx="1"/><rect x="244" y="188" width="22" height="5.4" rx="1"/><rect x="244" y="180" width="22" height="5.4" rx="1"/><rect x="244" y="172" width="22" height="5.4" rx="1"/><rect x="244" y="164" width="22" height="5.4" rx="1"/><rect x="244" y="156" width="22" height="5.4" rx="1"/><rect x="244" y="148" width="22" height="5.4" rx="1"/><rect x="244" y="140" width="22" height="5.4" rx="1"/></g><text x="255" y="126" class="v">8</text><text x="255" y="222" class="d">23</text><g class="pads"><rect x="286" y="196" width="22" height="5.4" rx="1"/><rect x="286" y="188" width="22" height="5.4" rx="1"/></g><text x="297" y="174" class="v">2</text><text x="297" y="222" class="d">24</text><g class="pads"><rect x="328" y="196" width="22" height="5.4" rx="1"/><rect x="328" y="188" width="22" height="5.4" rx="1"/><rect x="328" y="180" width="22" height="5.4" rx="1"/><rect x="328" y="172" width="22" height="5.4" rx="1"/></g><text x="339" y="158" class="v">4</text><text x="339" y="222" class="d">25</text><g class="pads"><rect x="370" y="196" width="22" height="5.4" rx="1"/><rect x="370" y="188" width="22" height="5.4" rx="1"/><rect x="370" y="180" width="22" height="5.4" rx="1"/><rect x="370" y="172" width="22" height="5.4" rx="1"/><rect x="370" y="164" width="22" height="5.4" rx="1"/><rect x="370" y="156" width="22" height="5.4" rx="1"/><rect x="370" y="148" width="22" height="5.4" rx="1"/><rect x="370" y="140" width="22" height="5.4" rx="1"/><rect x="370" y="132" width="22" height="5.4" rx="1"/><rect x="370" y="124" width="22" height="5.4" rx="1"/><rect x="370" y="116" width="22" height="5.4" rx="1"/><rect x="370" y="108" width="22" height="5.4" rx="1"/><rect x="370" y="100" width="22" height="5.4" rx="1"/><rect x="370" y="92" width="22" height="5.4" rx="1"/><rect x="370" y="84" width="22" height="5.4" rx="1"/></g><text x="381" y="70" class="v">15</text><text x="381" y="222" class="d">26</text><g class="pads"><rect x="412" y="196" width="22" height="5.4" rx="1"/><rect x="412" y="188" width="22" height="5.4" rx="1"/><rect x="412" y="180" width="22" height="5.4" rx="1"/><rect x="412" y="172" width="22" height="5.4" rx="1"/><rect x="412" y="164" width="22" height="5.4" rx="1"/><rect x="412" y="156" width="22" height="5.4" rx="1"/><rect x="412" y="148" width="22" height="5.4" rx="1"/><rect x="412" y="140" width="22" height="5.4" rx="1"/><rect x="412" y="132" width="22" height="5.4" rx="1"/><rect x="412" y="124" width="22" height="5.4" rx="1"/><rect x="412" y="116" width="22" height="5.4" rx="1"/><rect x="412" y="108" width="22" height="5.4" rx="1"/><rect x="412" y="100" width="22" height="5.4" rx="1"/></g><text x="423" y="86" class="v">13</text><text x="423" y="222" class="d">27</text><g class="pads"><rect x="454" y="196" width="22" height="5.4" rx="1"/><rect x="454" y="188" width="22" height="5.4" rx="1"/><rect x="454" y="180" width="22" height="5.4" rx="1"/><rect x="454" y="172" width="22" height="5.4" rx="1"/><rect x="454" y="164" width="22" height="5.4" rx="1"/><rect x="454" y="156" width="22" height="5.4" rx="1"/><rect x="454" y="148" width="22" height="5.4" rx="1"/><rect x="454" y="140" width="22" height="5.4" rx="1"/><rect x="454" y="132" width="22" height="5.4" rx="1"/><rect x="454" y="124" width="22" height="5.4" rx="1"/><rect x="454" y="116" width="22" height="5.4" rx="1"/><rect x="454" y="108" width="22" height="5.4" rx="1"/><rect x="454" y="100" width="22" height="5.4" rx="1"/><rect x="454" y="92" width="22" height="5.4" rx="1"/><rect x="454" y="84" width="22" height="5.4" rx="1"/><rect x="454" y="76" width="22" height="5.4" rx="1"/><rect x="454" y="68" width="22" height="5.4" rx="1"/></g><text x="465" y="54" class="v">17</text><text x="465" y="222" class="d">28</text><g class="pads"><rect x="496" y="196" width="22" height="5.4" rx="1"/><rect x="496" y="188" width="22" height="5.4" rx="1"/><rect x="496" y="180" width="22" height="5.4" rx="1"/><rect x="496" y="172" width="22" height="5.4" rx="1"/><rect x="496" y="164" width="22" height="5.4" rx="1"/><rect x="496" y="156" width="22" height="5.4" rx="1"/><rect x="496" y="148" width="22" height="5.4" rx="1"/><rect x="496" y="140" width="22" height="5.4" rx="1"/><rect x="496" y="132" width="22" height="5.4" rx="1"/><rect x="496" y="124" width="22" height="5.4" rx="1"/><rect x="496" y="116" width="22" height="5.4" rx="1"/><rect x="496" y="108" width="22" height="5.4" rx="1"/></g><text x="507" y="94" class="v">12</text><text x="507" y="222" class="d">29</text><g class="pads"><rect x="538" y="196" width="22" height="5.4" rx="1"/><rect x="538" y="188" width="22" height="5.4" rx="1"/><rect x="538" y="180" width="22" height="5.4" rx="1"/><rect x="538" y="172" width="22" height="5.4" rx="1"/><rect x="538" y="164" width="22" height="5.4" rx="1"/><rect x="538" y="156" width="22" height="5.4" rx="1"/><rect x="538" y="148" width="22" height="5.4" rx="1"/><rect x="538" y="140" width="22" height="5.4" rx="1"/><rect x="538" y="132" width="22" height="5.4" rx="1"/><rect x="538" y="124" width="22" height="5.4" rx="1"/></g><text x="549" y="110" class="v">10</text><text x="549" y="222" class="d">30</text><g class="pads"><rect x="580" y="196" width="22" height="5.4" rx="1"/><rect x="580" y="188" width="22" height="5.4" rx="1"/></g><text x="591" y="174" class="v">2</text><text x="591" y="222" class="d">31</text></svg><p class="note">One copper pad per completed task. Dates run Sunday 18 to Saturday 31 October.</p></section>
+  </main>
+</div>
+<section class="sheet" aria-labelledby="sheet-h">
+  <h2 id="sheet-h">Style 126 · Circuit board</h2>
+  <p class="idea">The dashboard laid out as a light green circuit board, with numbers on chips, projects as dashed component footprints carrying LED bar graphs, activity as test points on a trace, and the chart built from stacked copper pads.</p>
+  <h3>PALETTE</h3>
+  <ul class="sws">
+    <li><i style="background:#e4efe0"></i><div><b>Solder mask</b>#e4efe0 · the board, with a #d3e4cd 32px grid</div></li>
+    <li><i style="background:#f7faf4"></i><div><b>Component body</b>#f7faf4 · fields, footprints, chips labels, sheet</div></li>
+    <li><i style="background:#163521"></i><div><b>Silkscreen</b>#163521 · all main text and outlines</div></li>
+    <li><i style="background:#3c5c45"></i><div><b>Silk muted</b>#3c5c45 · designators, meta, dashed courtyards</div></li>
+    <li><i style="background:#9cc396"></i><div><b>Trace</b>#9cc396 · 4px traces and rules, decoration only</div></li>
+    <li><i style="background:#b8732f"></i><div><b>Copper</b>#b8732f · pads, vias, mounting rings</div></li>
+    <li><i style="background:#d39a5c"></i><div><b>Tinned pad</b>#d39a5c · chart pads and the primary switch</div></li>
+    <li><i style="background:#26302a"></i><div><b>Chip</b>#26302a · IC bodies, nav header, LED bar housing</div></li>
+    <li><i style="background:#7fe08e"></i><div><b>LED green</b>#7fe08e · lit segments on dark only</div></li>
+    <li><i style="background:#1d7337"></i><div><b>On track</b>#1d7337 · ring LED, ON TRACK</div></li>
+    <li><i style="background:#8f4f00"></i><div><b>At risk</b>#8f4f00 · triangle LED, AT RISK</div></li>
+    <li><i style="background:#b42318"></i><div><b>Behind</b>#b42318 · square LED, BEHIND, overdue</div></li>
+  </ul>
+  <h3>TYPE · ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas</h3>
+  <div class="trow"><code>34 / 700 / 1.15</code><span style="font-size:30px;font-weight:700">Good afternoon, Mara</span></div>
+  <div class="trow"><code>40 / 700 chip value</code><span style="font-size:40px;font-weight:700;line-height:1">186</span></div>
+  <div class="trow"><code>15 / 700 caps 0.14em</code><span style="font-weight:700;font-size:15px;letter-spacing:.14em">PROJECTS · R1–R6</span></div>
+  <div class="trow"><code>16 / 700 name</code><span style="font-weight:700;font-size:16px">Website redesign</span></div>
+  <div class="trow"><code>14 / 1.5 body</code><span><b>Priya Nair</b> commented on “Hero image options”</span></div>
+  <div class="trow"><code>12 caps 0.1em silk</code><span style="font-size:12px;letter-spacing:.1em;color:var(--silk2)">DESIGN · DUE 14 NOV</span></div>
+  <h3>SYSTEM</h3>
+  <dl class="facts">
+    <dt>SPACING</dt><dd>8px unit on a 32px board grid; 16px between footprints, 24px between chips, traces split sections.</dd>
+    <dt>DENSITY</dt><dd>Medium-dense, like a populated board. Two columns of modules beside a test point rail.</dd>
+    <dt>CORNERS</dt><dd>14px board, 6px footprints, 2 to 4px chips and controls, round pads and holes.</dd>
+    <dt>BORDERS</dt><dd>1.5px silkscreen lines; dashed courtyards round modules; 4px trace rules.</dd>
+    <dt>SHADOWS</dt><dd>Only LED glow on lit segments and the board edge ring. Nothing floats.</dd>
+    <dt>ICONS</dt><dd>16px solid LEDs with a hole: ring, triangle, square. Line tools at 1.6 stroke. Pads, vias and pins as ornament.</dd>
+    <dt>TONE</dt><dd>Terse engineering labels in caps: U1, R3, TP2, D1 · 4 tasks are overdue, LAST WK = 59.</dd>
+  </dl>
+  <h3>CONTROLS · NORMAL AND FOCUS</h3>
+  <div class="ctls">
+    <div><span class="cl">PRIMARY · SW1</span><button class="sw sw-p" type="button"><span class="cap" aria-hidden="true"></span>NEW PROJECT</button> <button class="sw sw-p is-focus" type="button"><span class="cap" aria-hidden="true"></span>FOCUSED</button></div>
+    <div><span class="cl">SECONDARY · SW2</span><button class="sw sw-s" type="button"><span class="cap" aria-hidden="true"></span>CANCEL</button> <button class="sw sw-s is-focus" type="button"><span class="cap" aria-hidden="true"></span>FOCUSED</button></div>
+    <label class="field">PROJECT NAME<input value="Website redesign"></label>
+    <label class="field">PROJECT NAME, FOCUSED<input class="is-focus" value="Mobile app 2.0"></label>
+    <div><span class="cl">LIST ROW</span><div class="rowdemo"><b>R4 Billing migration</b><span class="st st-behind"><svg aria-hidden="true"><use href="#s-behind"/></svg>BEHIND</span></div></div>
+    <div><span class="cl">LIST ROW, FOCUSED</span><div class="rowdemo is-focus"><b>R4 Billing migration</b><span class="st st-behind"><svg aria-hidden="true"><use href="#s-behind"/></svg>BEHIND</span></div></div>
+  </div>
+</section>
+</body>
+</html>

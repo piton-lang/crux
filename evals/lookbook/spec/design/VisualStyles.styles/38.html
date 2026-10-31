@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 38 · Comic book · Brightwork</title>
+<style>
+:root {
+  --paper: #fffdf5;
+  --ink: #111111;
+  --grey: #4a4a4a;
+  --yellow: #ffd60a;
+  --cream: #fff6c2;
+  --red: #d1221d;
+  --blue: #1858c4;
+  --sky: #e6f0ff;
+  --skyDot: #a9c8f5;
+  --rose: #ffe4e1;
+  --roseDot: #f4a8a0;
+  --mint: #e3f6e3;
+  --mintDot: #9fd59f;
+  --cap: #ffe98a;
+  --head: Impact, Haettenschweiler, "Arial Narrow Bold", "Franklin Gothic Bold", "Arial Black", sans-serif;
+  --letter: "Comic Sans MS", "Comic Neue", "Chalkboard SE", "Trebuchet MS", sans-serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 14px/1.45 var(--letter); }
+svg.i { width: 1.2em; height: 1.2em; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible, .is-focus { outline: 4px solid var(--blue); outline-offset: 3px; }
+
+.page { max-width: 1320px; margin: 0 auto; padding: 16px 16px 64px; }
+.grid { display: grid; gap: 12px; }
+.panel { position: relative; border: 4px solid var(--ink); background: #fff; }
+.dots-sky { background-color: var(--sky); background-image: radial-gradient(var(--skyDot) 2.2px, transparent 2.6px); background-size: 10px 10px; }
+.dots-rose { background-color: var(--rose); background-image: radial-gradient(var(--roseDot) 2.2px, transparent 2.6px); background-size: 10px 10px; }
+.dots-mint { background-color: var(--mint); background-image: radial-gradient(var(--mintDot) 2.2px, transparent 2.6px); background-size: 10px 10px; }
+.dots-yel { background-color: var(--cream); background-image: radial-gradient(#f2c94c 2.2px, transparent 2.6px); background-size: 10px 10px; }
+
+/* masthead row */
+.mast { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; margin-bottom: 12px; }
+.logo { background: var(--yellow); padding: 8px 16px; display: flex; align-items: center; font: 400 30px/1 var(--head); letter-spacing: .03em; text-transform: uppercase; }
+.issue { display: flex; align-items: center; padding: 8px 16px; font: 700 13px var(--letter); text-transform: uppercase; letter-spacing: .06em; }
+.me { display: flex; align-items: center; gap: 10px; padding: 6px 14px 6px 8px; font-weight: 700; }
+.face { width: 40px; height: 40px; border: 3px solid var(--ink); border-radius: 50%; display: grid; place-items: center; font: 400 16px var(--head); background: #ffcfa8; flex: none; }
+
+/* title panel with speed lines */
+.title-panel { padding: 28px 28px 24px; overflow: hidden;
+  background: repeating-conic-gradient(from 0deg at 85% 40%, #fff 0deg 4deg, #f1f1f1 4deg 8deg); }
+.caption { display: inline-block; background: var(--cap); border: 3px solid var(--ink); padding: 4px 12px; font: 700 13px var(--letter); text-transform: uppercase; letter-spacing: .04em; }
+.title-panel .caption { position: absolute; top: -4px; left: -4px; }
+h1 { margin: 16px 0 8px; font: 400 64px/1 var(--head); text-transform: uppercase; letter-spacing: .01em; color: var(--yellow);
+  -webkit-text-stroke: 3px var(--ink); paint-order: stroke fill; text-shadow: 4px 4px 0 var(--ink); }
+@supports not (-webkit-text-stroke: 3px black) { h1 { color: var(--ink); text-shadow: none; } }
+.risk { display: inline-flex; align-items: center; gap: 8px; background: var(--red); color: #fff; border: 3px solid var(--ink); padding: 4px 14px; font: 400 22px/1.2 var(--head); text-transform: uppercase; letter-spacing: .04em; transform: rotate(-3deg); }
+
+.tools { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px 16px; padding: 20px 20px 18px; }
+.tools .caption { position: absolute; top: -4px; left: -4px; }
+.f { display: flex; flex-direction: column; gap: 4px; font: 700 12px var(--letter); text-transform: uppercase; letter-spacing: .06em; padding-top: 18px; }
+.f select, .f input, .field input {
+  appearance: none; -webkit-appearance: none; border: 3px solid var(--ink); background: #fff; border-radius: 20px; padding: 8px 36px 8px 14px; font: 700 15px var(--letter); text-transform: none; letter-spacing: 0; min-height: 44px;
+}
+.f select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9'%3E%3Cpath d='M1.5 1.5l5.5 6 5.5-6' fill='none' stroke='%23111' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
+.f select:focus-visible, .f input:focus-visible, .field input:focus-visible, .field input.is-focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue), 0 0 0 7px var(--cream); }
+.f.search { flex: 1 1 220px; max-width: 360px; }
+.f.search input { width: 100%; padding-right: 14px; }
+.f input::placeholder { color: var(--grey); }
+.grow { flex: 1; }
+.act { position: relative; display: inline-flex; align-items: center; }
+.pow { position: absolute; right: -6px; top: -30px; font: 400 22px/1 var(--head); color: var(--red); -webkit-text-stroke: 1px var(--ink); transform: rotate(10deg); pointer-events: none; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 4px solid var(--ink); cursor: pointer; padding: 8px 20px; min-height: 48px; font: 400 21px/1 var(--head); text-transform: uppercase; letter-spacing: .05em; }
+.btn-red { background: var(--red); color: #fff; }
+.btn-red:hover { background: #b51b17; }
+.btn-white { background: #fff; color: var(--ink); }
+
+/* board */
+.board { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+.col { padding: 44px 14px 18px; min-height: 260px; }
+.col h2 { position: absolute; top: -4px; left: -4px; margin: 0; background: var(--cap); border: 3px solid var(--ink); padding: 4px 12px; font: 400 20px/1.15 var(--head); text-transform: uppercase; letter-spacing: .05em; display: flex; gap: 10px; align-items: center; }
+.col h2 .n { display: inline-grid; place-items: center; min-width: 28px; height: 28px; border-radius: 50%; background: var(--ink); color: var(--yellow); font-size: 16px; }
+.col:nth-child(2) { transform: none; }
+.cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 26px; }
+.bubble { position: relative; background: #fff; border: 3px solid var(--ink); border-radius: 26px; padding: 12px 16px 12px; margin-bottom: 30px; }
+.bubble::before, .bubble::after { content: ""; position: absolute; left: 30px; width: 0; height: 0; border-style: solid; }
+.bubble::before { bottom: -22px; border-width: 22px 14px 0 0; border-color: var(--ink) transparent transparent transparent; }
+.bubble::after { bottom: -15px; left: 33px; border-width: 15px 9px 0 0; border-color: #fff transparent transparent transparent; }
+.card { position: relative; }
+.card.shout { margin-top: 60px; }
+.speaker .nm { background: #fff; padding: 0 6px; border: 2px solid var(--ink); }
+.card h3 { margin: 0 0 6px; font: 700 15px/1.25 var(--letter); text-transform: uppercase; letter-spacing: .02em; }
+.meta { margin: 0; display: flex; flex-wrap: wrap; gap: 2px 12px; font-size: 13px; }
+.meta div { display: inline-flex; gap: 4px; align-items: center; }
+.meta dt { font-weight: 700; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.meta dd { margin: 0; }
+.speaker { display: flex; align-items: center; gap: 8px; font: 700 13px var(--letter); text-transform: uppercase; letter-spacing: .03em; margin-top: -14px; padding-left: 8px; }
+.speaker .face { width: 36px; height: 36px; font-size: 14px; }
+.f-tr { background: #a7e3c4; } .f-pn { background: #ffc0dc; } .f-jw { background: #b3d1ff; } .f-so { background: #ffe066; } .f-at { background: #d8c6ff; } .f-un { background: #fff; border-style: dashed; }
+.pts { margin-left: auto; background: var(--ink); color: #fff; padding: 2px 8px; font: 400 15px/1.3 var(--head); letter-spacing: .05em; }
+.tag { display: inline-block; padding: 0 6px; border: 2px solid var(--ink); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; background: var(--cream); }
+.tag.des { background: #ffd9ef; }
+
+.burst { position: absolute; right: -8px; top: -66px; width: 150px; height: 76px; display: grid; place-items: center; z-index: 2; transform: rotate(-8deg);
+  clip-path: polygon(50% 0, 58% 22%, 75% 4%, 74% 28%, 98% 18%, 86% 42%, 100% 56%, 82% 64%, 92% 92%, 68% 76%, 58% 100%, 46% 78%, 26% 96%, 26% 72%, 2% 82%, 14% 58%, 0 40%, 18% 34%, 8% 8%, 34% 22%); background: var(--ink); }
+.burst span { position: absolute; inset: 4px; display: grid; place-items: center; background: var(--yellow);
+  clip-path: inherit; font: 400 15px/1 var(--head); color: var(--red); letter-spacing: .03em; text-transform: uppercase; }
+.burst b { display: flex; gap: 2px; align-items: center; color: #9e130f; font-weight: 400; }
+.late { border-width: 4px; border-color: var(--red); }
+.late::before { border-color: var(--red) transparent transparent transparent; }
+.done-tag { display: inline-flex; align-items: center; gap: 4px; background: var(--ink); color: #fff; padding: 1px 8px; font: 400 15px/1.3 var(--head); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; }
+.whoosh { position: absolute; right: 12px; bottom: 8px; font: 400 26px/1 var(--head); color: var(--blue); transform: rotate(-6deg); -webkit-text-stroke: 1px var(--ink); pointer-events: none; opacity: .9; }
+
+/* sheet */
+.sheet { margin-top: 56px; padding: 48px 28px 32px; }
+.sheet > h2 { position: absolute; top: -4px; left: -4px; margin: 0; background: var(--yellow); border: 3px solid var(--ink); padding: 6px 16px; font: 400 28px/1.1 var(--head); text-transform: uppercase; letter-spacing: .03em; max-width: calc(100% + 4px); }
+.sheet h3 { font: 400 22px var(--head); text-transform: uppercase; letter-spacing: .05em; margin: 36px 0 14px; }
+.idea { font-size: 17px; font-weight: 700; max-width: 62ch; margin: 16px 0 0; }
+.swatches { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.sw { display: flex; gap: 12px; align-items: center; font-size: 13px; }
+.sw i { width: 52px; height: 52px; flex: none; border: 3px solid var(--ink); }
+.sw b { display: block; font: 400 17px var(--head); letter-spacing: .04em; text-transform: uppercase; }
+.type-row { display: flex; gap: 18px; align-items: baseline; flex-wrap: wrap; padding: 10px 0; border-bottom: 2px solid var(--ink); }
+.type-row code { font: 12px ui-monospace, Menlo, Consolas, monospace; color: var(--grey); min-width: 150px; }
+.facts { display: grid; grid-template-columns: 120px 1fr; gap: 8px 18px; margin: 0; }
+.facts dt { font: 400 17px var(--head); letter-spacing: .05em; text-transform: uppercase; }
+.facts dd { margin: 0; }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 30px; align-items: end; }
+.ctl-label { display: block; font: 700 12px var(--letter); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+.field { display: flex; flex-direction: column; gap: 4px; font: 700 12px var(--letter); text-transform: uppercase; letter-spacing: .06em; }
+.field input { padding-right: 14px; }
+.row-demo { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 8px 12px; border: 3px solid var(--ink); background: #fff; font-weight: 700; text-transform: uppercase; }
+.row-demo.is-focus { outline: 4px solid var(--blue); outline-offset: 3px; background: var(--cream); }
+
+@media (max-width: 1080px) { .board { grid-template-columns: repeat(2, minmax(0, 1fr)); } h1 { font-size: 52px; } }
+@media (max-width: 640px) {
+  .mast { grid-template-columns: 1fr auto; }
+  .issue { display: none; }
+  .logo { font-size: 24px; }
+  .me > span:last-child { display: none; }
+  .pow { display: none; }
+  h1 { font-size: 40px; -webkit-text-stroke-width: 2px; text-shadow: 3px 3px 0 var(--ink); }
+  .title-panel { padding: 28px 16px 20px; }
+  .board { grid-template-columns: 1fr; }
+  .f.search { max-width: none; flex-basis: 100%; }
+  .act, .act .btn { width: 100%; }
+  .sheet { padding: 64px 16px 28px; }
+  .sheet > h2 { font-size: 22px; }
+  .facts { grid-template-columns: 1fr; gap: 0; }
+  .facts dd { margin-bottom: 10px; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></symbol>
+    <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 3 22 20H2z"/><path d="M12 9.5v4.5M12 17v.4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M12 4c5 0 9 3 9 7s-4 7-9 7c-1 0-2 0-3-.3L4 20l1.4-4C4 14.8 3 13 3 11c0-4 4-7 9-7z"/></symbol>
+  </defs>
+</svg>
+
+<div class="page">
+  <header class="mast">
+    <div class="panel logo">Brightwork</div>
+    <div class="panel issue dots-yel">Task board · Mobile app 2.0</div>
+    <div class="panel me"><span class="face f-mo" style="background:#ffcfa8" aria-hidden="true">MO</span><span>Mara Okafor</span></div>
+  </header>
+
+  <main>
+    <div class="grid">
+      <div class="panel title-panel">
+        <span class="caption">Meanwhile, on the board</span>
+        <h1>Mobile app 2.0</h1>
+        <span class="risk"><svg class="i" aria-hidden="true"><use href="#i-warn"/></svg>At risk</span>
+      </div>
+
+      <form class="panel tools dots-sky" aria-label="Board filters">
+        <span class="caption" aria-hidden="true">Filters</span>
+        <label class="f">Assignee
+          <select><option>Anyone</option><option>Mara Okafor</option><option>Tomás Ruiz</option><option>Priya Nair</option><option>Jonas Weber</option><option>Sam Ortiz</option><option>Aiko Tanaka</option></select>
+        </label>
+        <label class="f">Label
+          <select><option>Any label</option><option>Engineering</option><option>Design</option></select>
+        </label>
+        <label class="f">Due
+          <select><option>Any time</option><option>Overdue</option><option>This week</option><option>No due date</option></select>
+        </label>
+        <label class="f search">Search tasks
+          <input type="search" placeholder="Search tasks…">
+        </label>
+        <span class="grow"></span>
+        <span class="act"><span class="pow" aria-hidden="true">POW!</span><button class="btn btn-red" type="button"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>Add task</button></span>
+      </form>
+    </div>
+
+    <div class="board">
+      <section class="panel col dots-yel" aria-labelledby="c1">
+        <h2 id="c1">To do <span class="n" aria-label="3 tasks">3</span></h2>
+        <ul class="cards">
+          <li class="card">
+            <div class="bubble">
+              <h3>Offline mode for task list</h3>
+              <dl class="meta"><div><dt>Due</dt><dd>6 Nov</dd></div><div><dt class="vh">Label</dt><dd><span class="tag">Engineering</span></dd></div></dl>
+            </div>
+            <div class="speaker"><span class="face f-tr" aria-hidden="true">TR</span><span class="nm">Tomás Ruiz</span><span class="pts" aria-label="5 points">5 PTS</span></div>
+          </li>
+          <li class="card">
+            <div class="bubble">
+              <h3>App store screenshots</h3>
+              <dl class="meta"><div><dt>Due</dt><dd>12 Nov</dd></div><div><dt class="vh">Label</dt><dd><span class="tag des">Design</span></dd></div></dl>
+            </div>
+            <div class="speaker"><span class="face f-pn" aria-hidden="true">PN</span><span class="nm">Priya Nair</span><span class="pts" aria-label="2 points">2 PTS</span></div>
+          </li>
+          <li class="card">
+            <div class="bubble">
+              <h3>Crash report triage</h3>
+              <dl class="meta"><div><dt>Due</dt><dd>No due date</dd></div><div><dt class="vh">Label</dt><dd><span class="tag">Engineering</span></dd></div></dl>
+            </div>
+            <div class="speaker"><span class="face f-un" aria-hidden="true">?</span><span class="nm">Unassigned</span><span class="pts" aria-label="3 points">3 PTS</span></div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="panel col dots-rose" aria-labelledby="c2">
+        <h2 id="c2">In progress <span class="n" aria-label="2 tasks">2</span></h2>
+        <ul class="cards">
+          <li class="card shout">
+            <div class="burst" role="img" aria-label="Overdue"><span><b><svg class="i" aria-hidden="true"><use href="#i-warn"/></svg>Overdue!</b></span></div>
+            <div class="bubble late">
+              <h3>Sign in with Apple</h3>
+              <dl class="meta"><div><dt>Due</dt><dd><strong>3 Nov</strong></dd></div><div><dt class="vh">Label</dt><dd><span class="tag">Engineering</span></dd></div></dl>
+            </div>
+            <div class="speaker"><span class="face f-jw" aria-hidden="true">JW</span><span class="nm">Jonas Weber</span><span class="pts" aria-label="3 points">3 PTS</span></div>
+          </li>
+          <li class="card">
+            <div class="bubble">
+              <h3>Dark icon set</h3>
+              <dl class="meta"><div><dt>Due</dt><dd>7 Nov</dd></div><div><dt class="vh">Label</dt><dd><span class="tag des">Design</span></dd></div></dl>
+            </div>
+            <div class="speaker"><span class="face f-pn" aria-hidden="true">PN</span><span class="nm">Priya Nair</span><span class="pts" aria-label="2 points">2 PTS</span></div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="panel col dots-sky" aria-labelledby="c3">
+        <h2 id="c3">Review <span class="n" aria-label="1 task">1</span></h2>
+        <ul class="cards">
+          <li class="card">
+            <div class="bubble">
+              <h3>Push notifications</h3>
+              <dl class="meta"><div><dt>Due</dt><dd>4 Nov</dd></div><div><dt class="vh">Label</dt><dd><span class="tag">Engineering</span></dd></div><div><dt class="vh">Comments</dt><dd style="display:inline-flex;gap:4px;align-items:center"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg>3 comments</dd></div></dl>
+            </div>
+            <div class="speaker"><span class="face f-so" aria-hidden="true">SO</span><span class="nm">Sam Ortiz</span><span class="pts" aria-label="8 points">8 PTS</span></div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="panel col dots-mint" aria-labelledby="c4">
+        <h2 id="c4">Done <span class="n" aria-label="2 tasks">2</span></h2>
+        <ul class="cards">
+          <li class="card">
+            <div class="bubble">
+              <span class="done-tag"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Done</span>
+              <h3>Task detail redesign</h3>
+              <dl class="meta"><div><dt class="vh">Label</dt><dd><span class="tag des">Design</span></dd></div></dl>
+            </div>
+            <div class="speaker"><span class="face f-at" aria-hidden="true">AT</span><span class="nm">Aiko Tanaka</span><span class="pts" aria-label="3 points">3 PTS</span></div>
+          </li>
+          <li class="card">
+            <div class="bubble">
+              <span class="done-tag"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Done</span>
+              <h3>Login rate limiting</h3>
+              <dl class="meta"><div><dt class="vh">Label</dt><dd><span class="tag">Engineering</span></dd></div></dl>
+            </div>
+            <div class="speaker"><span class="face f-jw" aria-hidden="true">JW</span><span class="nm">Jonas Weber</span><span class="pts" aria-label="2 points">2 PTS</span></div>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <section class="panel sheet" aria-labelledby="sheet-h">
+    <h2 id="sheet-h">Style 38 · Comic book</h2>
+    <p class="idea">The board as a comic page, with inked panels on white gutters, halftone dot skies, task cards spoken in speech bubbles and a starburst that shouts what is overdue.</p>
+
+    <h3>Palette</h3>
+    <ul class="swatches">
+      <li class="sw"><i style="background:#fffdf5"></i><div><b>Paper</b>#fffdf5 · page and gutters</div></li>
+      <li class="sw"><i style="background:#111111"></i><div><b>Ink</b>#111111 · outlines, text, points chips</div></li>
+      <li class="sw"><i style="background:#ffd60a"></i><div><b>Yellow</b>#ffd60a · logo, title fill, burst fill</div></li>
+      <li class="sw"><i style="background:#ffe98a"></i><div><b>Caption</b>#ffe98a · caption boxes</div></li>
+      <li class="sw"><i style="background:#d1221d"></i><div><b>Red</b>#d1221d · Add task, At risk, overdue outline</div></li>
+      <li class="sw"><i style="background:#1858c4"></i><div><b>Blue</b>#1858c4 · focus ring, sound effects</div></li>
+      <li class="sw"><i style="background:#fff6c2"></i><div><b>Yellow dots</b>#fff6c2 with #f2c94c · To do panel</div></li>
+      <li class="sw"><i style="background:#ffe4e1"></i><div><b>Rose dots</b>#ffe4e1 with #f4a8a0 · In progress panel</div></li>
+      <li class="sw"><i style="background:#e6f0ff"></i><div><b>Sky dots</b>#e6f0ff with #a9c8f5 · Review, filters</div></li>
+      <li class="sw"><i style="background:#e3f6e3"></i><div><b>Mint dots</b>#e3f6e3 with #9fd59f · Done panel</div></li>
+      <li class="sw"><i style="background:#4a4a4a"></i><div><b>Grey</b>#4a4a4a · placeholders, small notes</div></li>
+    </ul>
+
+    <h3>Type · Impact headings, Comic Sans MS lettering</h3>
+    <div class="type-row"><code>64 Impact, stroked</code><span style="font:400 44px/1 Impact,Haettenschweiler,'Arial Black',sans-serif;text-transform:uppercase;color:#ffd60a;-webkit-text-stroke:2px #111;paint-order:stroke fill;text-shadow:3px 3px 0 #111">Mobile app 2.0</span></div>
+    <div class="type-row"><code>20 Impact caps</code><span style="font:400 20px Impact,'Arial Black',sans-serif;text-transform:uppercase;letter-spacing:.05em">In progress</span></div>
+    <div class="type-row"><code>15 / 700 caps lettering</code><span style="font-weight:700;font-size:15px;text-transform:uppercase">Push notifications</span></div>
+    <div class="type-row"><code>13 / 400 lettering</code><span style="font-size:13px"><b>Due</b> 4 Nov · 3 comments</span></div>
+    <div class="type-row"><code>13 / 700 caption</code><span class="caption">Meanwhile, on the board</span></div>
+
+    <h3>Spacing, corners and depth</h3>
+    <dl class="facts">
+      <dt>Spacing</dt><dd>12px white gutters between every panel · 26px between bubbles to leave room for tails and speakers</dd>
+      <dt>Density</dt><dd>Medium. One bubble and one speaker per task.</dd>
+      <dt>Corners</dt><dd>Square panels and caption boxes · 26px speech bubbles · 20px fields · round faces</dd>
+      <dt>Borders</dt><dd>4px ink on panels and buttons, 3px on bubbles, captions and fields. The overdue bubble turns 4px red.</dd>
+      <dt>Shadows</dt><dd>None on boxes. Only the title lettering gets a solid 4px ink drop.</dd>
+      <dt>Icons</dt><dd>Heavy 2.6 stroke glyphs. Overdue is a starburst with a triangle and the word Overdue. Done is an ink tag with a tick. Sound words such as POW are decoration only.</dd>
+      <dt>Tone</dt><dd>Comic narration in captions such as Meanwhile, on the board. Task text stays plain, in caps lettering.</dd>
+    </dl>
+
+    <h3>Controls · normal and focus</h3>
+    <div class="controls">
+      <div><span class="ctl-label">Primary</span><button class="btn btn-red" type="button">Save task</button> <button class="btn btn-red is-focus" type="button">Focused</button></div>
+      <div><span class="ctl-label">Secondary</span><button class="btn btn-white" type="button">Cancel</button> <button class="btn btn-white is-focus" type="button">Focused</button></div>
+      <div><label class="field">Task title<input value="Dark icon set"></label></div>
+      <div><label class="field">Focused field<input class="is-focus" value="Crash report triage"></label></div>
+      <div><span class="ctl-label">List row</span><div class="row-demo"><span>Sign in with Apple</span><span class="risk" style="font-size:16px;transform:none"><svg class="i" aria-hidden="true"><use href="#i-warn"/></svg>Overdue</span></div></div>
+      <div><span class="ctl-label">List row, focused</span><div class="row-demo is-focus"><span>Login rate limiting</span><span class="done-tag" style="margin:0"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Done</span></div></div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

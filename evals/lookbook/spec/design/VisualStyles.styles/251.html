@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 251 · Dark brutalist · Brightwork</title>
+<style>
+:root{
+  color-scheme:dark;
+  --black:#000000; --slab:#111111; --white:#ffffff; --acid:#d4ff3a; --hot:#ff5ce1; --grey:#bdbdbd;
+  --mono:"Courier New",Courier,ui-monospace,Menlo,monospace;
+  --grot:"Arial Black","Helvetica Neue",Arial,system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--black);color:var(--white);font:15px/1.4 var(--mono)}
+.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.75;stroke-linecap:square;stroke-linejoin:miter;flex:none}
+.i.sm{width:16px;height:16px;stroke-width:2.5}
+button,input{font:inherit;color:inherit}
+:focus-visible,.is-focus{outline:4px solid var(--hot);outline-offset:4px}
+.slab{border:4px solid var(--white);background:var(--slab);box-shadow:8px 8px 0 var(--acid)}
+.up{text-transform:uppercase;font-weight:700;letter-spacing:.02em}
+
+.app{padding:16px 24px 28px 16px;display:grid;grid-template-columns:268px minmax(0,1fr) 288px;gap:24px;grid-template-areas:"top top top" "left canvas insp" "status status status"}
+.top{grid-area:top;display:flex;flex-wrap:wrap;align-items:stretch;gap:16px}
+.title{flex:1 1 420px;padding:10px 16px;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.title h1{margin:0;font:900 40px/1 var(--grot);text-transform:uppercase;letter-spacing:-.02em}
+.title span{color:var(--grey);font-weight:700}
+.peep{display:flex;align-items:center;gap:0;padding:0}
+.av{width:56px;height:100%;min-height:56px;display:grid;place-items:center;font-weight:700;border-right:4px solid var(--white)}
+.av:last-child{border-right:0}
+.av.p{background:var(--acid);color:#000}.av.a{background:var(--hot);color:#000}
+.btn{min-height:56px;padding:0 22px;border:4px solid var(--white);background:var(--black);box-shadow:6px 6px 0 var(--white);display:inline-flex;align-items:center;gap:10px;font:700 16px var(--mono);text-transform:uppercase;cursor:pointer}
+.btn:active{transform:translate(6px,6px);box-shadow:none}
+.btn.primary{background:var(--acid);color:#000;border-color:var(--acid);box-shadow:6px 6px 0 var(--white)}
+
+.left{grid-area:left;display:flex;flex-direction:column;gap:24px;min-width:0}
+.tools{display:grid;grid-template-columns:repeat(3,1fr);padding:0;box-shadow:8px 8px 0 var(--white)}
+.tool{min-height:76px;border:0;border-right:4px solid var(--white);border-bottom:4px solid var(--white);background:var(--black);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font:700 13px var(--mono);text-transform:uppercase;cursor:pointer}
+.tool:nth-child(3n){border-right:0}
+.tool:nth-child(n+4){border-bottom:0}
+.tool[aria-pressed=true]{background:var(--acid);color:#000}
+.tool[aria-pressed=true]::after{content:"ON";font-size:11px;background:#000;color:var(--acid);padding:0 4px}
+.zoom{display:flex;justify-content:space-between;align-items:center;padding:8px 14px;border:4px solid var(--white);font-weight:700}
+.zoom b{font:900 28px var(--grot)}
+.lay{padding:0}
+.lay h2,.insp h2{margin:0;padding:8px 12px;background:var(--white);color:#000;font:900 20px var(--grot);text-transform:uppercase}
+.tree{list-style:none;margin:0;padding:0}
+.tree li{display:flex;align-items:center;gap:10px;min-height:44px;padding:4px 12px 4px calc(12px + var(--d,0)*22px);border-top:2px solid var(--white);font-weight:700}
+.tree li:first-child{border-top:0}
+.tree li .nm{flex:1;min-width:0;overflow-wrap:anywhere}
+.tree li.sel{background:var(--acid);color:#000}
+.tree .tg{font-size:12px;border:2px solid currentColor;padding:0 4px;display:inline-flex;align-items:center;gap:3px;text-transform:uppercase}
+.tree .tg .i{width:10px;height:10px;fill:currentColor;stroke:none}
+.tree .d1{color:var(--grey)}
+
+.canvas{grid-area:canvas;min-width:0;padding:16px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:stretch;background:var(--black);background-image:linear-gradient(var(--slab) 2px,transparent 2px),linear-gradient(90deg,var(--slab) 2px,transparent 2px);background-size:48px 48px}
+.flabel{align-self:flex-start;display:inline-flex;gap:12px;background:var(--white);color:#000;padding:4px 10px;font-weight:700;margin-bottom:12px;text-transform:uppercase}
+.fwrap{position:relative;margin-right:8px}
+.frame{container-type:inline-size;aspect-ratio:1440/820;background:#fff;color:#000;border:4px solid var(--acid);display:flex;flex-direction:column;align-items:flex-start;padding:6.67cqw;gap:2.22cqw}
+.frame .h{margin:0;font:900 4.6cqw/1 var(--grot);letter-spacing:-.02em}
+.frame .s{margin:0;font:1.6cqw var(--mono);color:#333}
+.frame .b{position:relative;background:#000;color:#fff;font:700 1.3cqw var(--mono);padding:1.1cqw 2.4cqw;text-transform:uppercase;box-shadow:.5cqw .5cqw 0 #555}
+.frame .shot{align-self:stretch;flex:1;border:.35cqw solid #000;display:grid;place-items:center;font:700 1.4cqw var(--mono);text-transform:uppercase;background:#f0f0f0}
+.guide{position:absolute;left:calc(100% + 1.5cqw);top:-2.22cqw;height:2.22cqw;border-left:.4cqw solid #c400a6;padding-left:.8cqw;display:flex;align-items:center;font:700 1.3cqw var(--mono);color:#8f0079;background:#fff}
+.hd{position:absolute;width:16px;height:16px;background:var(--acid);border:3px solid #000}
+.htl{left:-8px;top:-8px}.htr{right:-8px;top:-8px}.hbl{left:-8px;bottom:-8px}.hbr{right:-8px;bottom:-8px}
+.pin{position:absolute;left:32%;top:42%;display:flex;align-items:flex-start;gap:0}
+.pin .dot{width:40px;height:40px;background:var(--hot);color:#000;border:4px solid #000;font-weight:700;display:grid;place-items:center}
+.pin .bub{background:var(--black);border:4px solid var(--hot);box-shadow:6px 6px 0 var(--hot);padding:8px 12px;width:230px;transform:rotate(-2deg)}
+.pin .bub b{text-transform:uppercase;color:var(--hot);display:flex;gap:6px;align-items:center}
+.pin .bub p{margin:4px 0 0;font-weight:700}
+
+.insp{grid-area:insp;padding:0;min-width:0;align-self:start}
+.cells{display:grid;grid-template-columns:1fr 1fr}
+.cell{border-top:4px solid var(--white);padding:8px 12px;display:flex;flex-direction:column}
+.cell:nth-child(odd){border-right:4px solid var(--white)}
+.cell.full{grid-column:1/-1;border-right:0}
+.cell span{font-size:12px;font-weight:700;color:var(--grey);text-transform:uppercase}
+.cell input{border:0;background:none;font:900 30px/1.1 var(--grot);width:100%;min-width:0;padding:0}
+.cell input:focus{outline:none}
+.cell:focus-within{background:#222;box-shadow:inset 0 0 0 4px var(--hot)}
+.cell b{font:900 22px/1.2 var(--grot)}
+.sw{display:inline-block;width:20px;height:20px;background:#fff;border:3px solid var(--acid);vertical-align:-3px;margin-right:6px}
+
+.status{grid-area:status;display:flex;flex-wrap:wrap;background:var(--acid);color:#000;border:4px solid var(--acid);box-shadow:8px 8px 0 var(--white)}
+.status span{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;font-weight:700;text-transform:uppercase;border-right:4px solid #000}
+.status span:last-child{border-right:0}
+.mtools{display:none}
+
+@media (max-width:1180px){.app{grid-template-columns:240px minmax(0,1fr)}.insp{grid-column:1/-1;grid-area:auto}.app{grid-template-areas:"top top" "left canvas" "insp insp" "status status"}.insp{grid-area:insp}}
+@media (max-width:760px){
+  .app{padding:12px 20px 24px 12px;gap:20px;grid-template-columns:minmax(0,1fr);grid-template-areas:"top" "canvas" "mtools" "status"}
+  .left,.insp,.btn.pres{display:none}
+  .title{flex-basis:100%}.title h1{font-size:28px}
+  .peep{flex:1}.av{flex:1;width:auto}
+  .canvas{padding:12px}
+  .pin{left:6%;top:40%}.pin .bub{width:180px}
+  .guide{display:none}
+  .mtools{grid-area:mtools;display:grid}
+  .status span{flex:1 1 100%;border-right:0;border-bottom:4px solid #000}
+  .status span:last-child{border-bottom:0}
+}
+
+.sheet{max-width:1180px;margin:24px auto 0;padding:40px 24px 72px 16px;border-top:12px solid var(--white)}
+.sheet h2{font:900 44px/1 var(--grot);text-transform:uppercase;margin:0 0 12px;letter-spacing:-.02em}
+.idea{font-size:17px;max-width:760px;margin:0 0 32px;font-weight:700}
+.sheet h3{display:inline-block;margin:40px 0 16px;background:var(--white);color:#000;padding:4px 10px;font:900 18px var(--grot);text-transform:uppercase}
+.sws{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.sws li{border:4px solid var(--white);display:flex;align-items:stretch;font-size:13px;background:var(--slab)}
+.sws i{width:64px;flex:none;border-right:4px solid var(--white)}
+.sws li div{padding:8px 10px}
+.sws b{display:block;text-transform:uppercase}
+.trow{display:flex;flex-wrap:wrap;gap:16px;align-items:baseline;padding:10px 0;border-bottom:4px solid var(--white)}
+.trow code{width:220px;flex:none;font:700 13px var(--mono);color:var(--grey)}
+.facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;margin:0}
+.facts div{border:4px solid var(--white);padding:12px;background:var(--slab)}
+.facts dt{font-weight:700;text-transform:uppercase;color:var(--acid)}
+.facts dd{margin:4px 0 0}
+.ctls{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px}
+.ctls>div{display:flex;flex-direction:column;gap:18px;align-items:flex-start;padding:16px;border:4px solid var(--white);background:var(--slab)}
+.ctls .lb{font-weight:700;text-transform:uppercase}
+.fld{display:flex;flex-direction:column;gap:6px;width:100%;font-weight:700;text-transform:uppercase;font-size:13px}
+.fld input{min-height:48px;border:4px solid var(--white);background:var(--black);padding:0 12px;font:700 16px var(--mono);text-transform:none}
+.rowd{display:flex;align-items:center;gap:10px;min-height:44px;width:100%;padding:0 12px;border:4px solid var(--white);font-weight:700}
+@media (max-width:760px){.sheet{padding:32px 20px 56px 12px}.sheet h2{font-size:32px}.trow code{width:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<symbol id="i-move" viewBox="0 0 24 24"><path d="M5 3l14 7-6.5 2L10 19z"/></symbol>
+<symbol id="i-frame" viewBox="0 0 24 24"><path d="M8 3v18M16 3v18M3 8h18M3 16h18"/></symbol>
+<symbol id="i-rect" viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12"/></symbol>
+<symbol id="i-text" viewBox="0 0 24 24"><path d="M5 5h14M12 5v14M9 19h6"/></symbol>
+<symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l1.5-5L16 4.5l3.5 3.5L9 18.5zM14 6.5l3.5 3.5"/></symbol>
+<symbol id="i-hand" viewBox="0 0 24 24"><path d="M8 13V6a1.5 1.5 0 013 0v5M11 11V4.5a1.5 1.5 0 013 0V11M14 11V6.5a1.5 1.5 0 013 0V14a7 7 0 01-7 7h-.5a6 6 0 01-5-2.7L3 15a1.5 1.5 0 012.5-1.6L8 16"/></symbol>
+<symbol id="i-zoom" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21M8 10.5h5M10.5 8v5"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24"><path d="M5 12v8h14v-8M12 3v12M8 7l4-4 4 4"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5l12 7.5-12 7.5z"/></symbol>
+<symbol id="i-comp" viewBox="0 0 24 24"><path d="M12 3l9 9-9 9-9-9z"/><path d="M12 8.5l3.5 3.5-3.5 3.5-3.5-3.5z"/></symbol>
+<symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="15.5" cy="9.5" r="1.5"/></symbol>
+<symbol id="i-chev-r" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+<symbol id="i-chev-d" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+<symbol id="i-saved" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0113 0M16 4.6a3.5 3.5 0 010 6.8M18 14.2a6.5 6.5 0 013.5 5.8"/></symbol>
+<symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V3h9l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/></symbol>
+<symbol id="i-comment" viewBox="0 0 24 24"><path d="M4 4h16v12H10l-6 5z"/></symbol>
+<symbol id="i-sel" viewBox="0 0 24 24"><path d="M7 5l11 7-11 7z"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v16M6 14l6 6 6-6"/></symbol>
+<symbol id="i-radius" viewBox="0 0 24 24"><path d="M4 20V11a7 7 0 017-7h9"/></symbol>
+<symbol id="i-export" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M4 20h16"/></symbol>
+<symbol id="i-fill" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 14l10-10"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+<symbol id="i-gap" viewBox="0 0 24 24"><path d="M4 4h16M4 20h16M12 8v8M9 10l3-2 3 2M9 14l3 2 3-2"/></symbol>
+<symbol id="i-pad" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><rect x="8" y="8" width="8" height="8"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+</svg>
+<div class="app">
+  <header class="top">
+    <div class="slab title"><h1>Home v3</h1><span>WEBSITE REDESIGN // CANVAS</span></div>
+    <div class="slab peep" role="group" aria-label="In this file: Priya Nair, Mara Okafor, Aiko Tanaka"><span class="av p" title="Priya Nair">PN</span><span class="av" title="Mara Okafor">MO</span><span class="av a" title="Aiko Tanaka">AT</span></div>
+    <button class="btn pres"><svg class="i sm" aria-hidden="true"><use href="#i-play"/></svg>Present</button>
+    <button class="btn primary"><svg class="i sm" aria-hidden="true"><use href="#i-share"/></svg>Share</button>
+  </header>
+
+  <div class="left">
+    <div class="slab tools" role="toolbar" aria-label="Tools">
+      <button class="tool" aria-pressed="true"><svg class="i" aria-hidden="true"><use href="#i-move"/></svg>Move</button>
+      <button class="tool" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-frame"/></svg>Frame</button>
+      <button class="tool" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-rect"/></svg>Rect</button>
+      <button class="tool" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-text"/></svg>Text</button>
+      <button class="tool" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-pen"/></svg>Pen</button>
+      <button class="tool" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-hand"/></svg>Hand</button>
+    </div>
+    <div class="zoom"><span>ZOOM</span><b>66%</b></div>
+    <nav class="slab lay" aria-labelledby="lh">
+      <h2 id="lh">Layers</h2>
+      <ul class="tree">
+        <li class="sel" aria-current="true"><svg class="i sm" aria-hidden="true"><use href="#i-frame"/></svg><span class="nm">Hero</span><span class="tg"><svg class="i" aria-hidden="true"><use href="#i-sel"/></svg>Selected</span></li>
+        <li style="--d:1"><svg class="i sm d1" aria-label="Text"><use href="#i-text"/></svg><span class="nm">“Every project, on one calm page”</span></li>
+        <li style="--d:1"><svg class="i sm d1" aria-label="Text"><use href="#i-text"/></svg><span class="nm">Subline</span></li>
+        <li style="--d:1"><svg class="i sm d1" aria-label="Component instance"><use href="#i-comp"/></svg><span class="nm">Primary button</span><span class="tg">Instance</span></li>
+        <li style="--d:1"><svg class="i sm d1" aria-label="Image"><use href="#i-image"/></svg><span class="nm">Product screenshot</span></li>
+        <li><svg class="i sm" aria-label="Frame"><use href="#i-frame"/></svg><span class="nm">Logo strip</span></li>
+        <li><svg class="i sm" aria-label="Frame"><use href="#i-frame"/></svg><span class="nm">Features</span><span class="tg"><svg class="i" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:4"><use href="#i-chev-r"/></svg>Collapsed</span></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="slab canvas" aria-label="Canvas">
+    <div class="flabel"><span>Hero</span><span>1440 × 820</span></div>
+    <div class="fwrap">
+      <div class="frame" role="img" aria-label="Hero frame, 1440 by 820, selected. Headline Every project, on one calm page, a subline, a primary button and a product screenshot placeholder, with a 32 pixel spacing guide above the button.">
+        <p class="h">Every project, on one calm page</p>
+        <p class="s">Plans, files and reviews for small teams, in one place.</p>
+        <span class="b">Get started<span class="guide">32</span></span>
+        <span class="shot">Product screenshot</span>
+      </div>
+      <span class="hd htl"></span><span class="hd htr"></span><span class="hd hbl"></span><span class="hd hbr"></span>
+      <div class="pin"><span class="dot" aria-hidden="true">PN</span><div class="bub" role="note"><b><svg class="i sm" aria-hidden="true"><use href="#i-comment"/></svg>Priya Nair</b><p>Try the button in brand green?</p></div></div>
+    </div>
+  </main>
+
+  <aside class="slab insp" aria-labelledby="ih">
+    <h2 id="ih">Hero / Frame</h2>
+    <div class="cells">
+      <label class="cell"><span>X</span><input value="0"></label>
+      <label class="cell"><span>Y</span><input value="0"></label>
+      <label class="cell"><span>W</span><input value="1440"></label>
+      <label class="cell"><span>H</span><input value="820"></label>
+      <div class="cell full"><span>Fill</span><b><i class="sw" aria-hidden="true"></i>#FFFFFF</b></div>
+      <div class="cell full"><span>Auto layout</span><b><svg class="i" aria-hidden="true" style="vertical-align:-4px"><use href="#i-down"/></svg> Vertical</b></div>
+      <label class="cell"><span>Gap</span><input value="32"></label>
+      <label class="cell"><span>Padding</span><input value="96"></label>
+      <label class="cell full"><span>Corner radius</span><input value="0"></label>
+      <div class="cell full"><span>Export</span><b>PNG @ 2x</b><button class="btn" style="margin-top:10px;min-height:44px;box-shadow:4px 4px 0 var(--white)"><svg class="i sm" aria-hidden="true"><use href="#i-export"/></svg>Export</button></div>
+    </div>
+  </aside>
+
+  <div class="slab tools mtools" role="toolbar" aria-label="Tools">
+    <button class="tool" aria-pressed="true"><svg class="i" aria-hidden="true"><use href="#i-move"/></svg>Move</button>
+    <button class="tool" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-frame"/></svg>Frame</button>
+    <button class="tool" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-rect"/></svg>Rect</button>
+    <button class="tool" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-text"/></svg>Text</button>
+    <button class="tool" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-pen"/></svg>Pen</button>
+    <button class="tool" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-hand"/></svg>Hand</button>
+  </div>
+
+  <footer class="status" aria-label="File status">
+    <span><svg class="i sm" aria-hidden="true"><use href="#i-saved"/></svg>Saved 2 minutes ago</span>
+    <span><svg class="i sm" aria-hidden="true"><use href="#i-users"/></svg>3 people editing</span>
+    <span><svg class="i sm" aria-hidden="true"><use href="#i-tag"/></svg>Version 41</span>
+  </footer>
+</div>
+
+<section class="sheet" aria-labelledby="sh">
+  <h2 id="sh">Style 251 · Dark brutalist</h2>
+  <p class="idea">Raw slabs on black with thick white borders, hard lime offset shadows, typewriter text and giant numbers, so the editor feels like a poster bolted together.</p>
+  <h3>Palette</h3>
+  <ul class="sws">
+    <li><i style="background:#000000"></i><div><b>Black</b>#000000 · page, buttons, canvas</div></li>
+    <li><i style="background:#111111"></i><div><b>Slab</b>#111111 · panel fill, canvas grid</div></li>
+    <li><i style="background:#ffffff"></i><div><b>White</b>#ffffff · text, 4px borders, panel titles</div></li>
+    <li><i style="background:#bdbdbd"></i><div><b>Grey</b>#bdbdbd · small labels</div></li>
+    <li><i style="background:#d4ff3a"></i><div><b>Acid</b>#d4ff3a · shadows, active tool, selected row, primary, status band</div></li>
+    <li><i style="background:#ff5ce1"></i><div><b>Hot</b>#ff5ce1 · comments, focus</div></li>
+  </ul>
+  <h3>Type</h3>
+  <div class="trow"><code>44 / 900 Arial Black caps</code><span style="font:900 40px/1 var(--grot);text-transform:uppercase">Home v3</span></div>
+  <div class="trow"><code>30 / 900 values</code><span style="font:900 30px var(--grot)">1440</span></div>
+  <div class="trow"><code>15 / 700 Courier caps</code><span class="up">Saved 2 minutes ago</span></div>
+  <div class="trow"><code>15 / 400 Courier body</code><span>Try the button in brand green?</span></div>
+  <h3>System</h3>
+  <dl class="facts">
+    <div><dt>Spacing</dt><dd>8px unit. 24px between slabs, 12px inside cells.</dd></div>
+    <div><dt>Density</dt><dd>Low to medium. Big targets of 56 to 76px, values at 30px.</dd></div>
+    <div><dt>Corners</dt><dd>None. Every edge is square.</dd></div>
+    <div><dt>Borders</dt><dd>4px white on every slab and cell, 12px over the sheet.</dd></div>
+    <div><dt>Shadows</dt><dd>Hard 8px 8px lime on slabs, 6px white on buttons, no blur ever.</dd></div>
+    <div><dt>Icons</dt><dd>22px line icons at 2.75px stroke, square caps, under caps labels.</dd></div>
+    <div><dt>Focus</dt><dd>4px hot pink outline offset 4px, a pink inset on cells.</dd></div>
+    <div><dt>Tone</dt><dd>Blunt caps, such as HOME V3, ON and COLLAPSED.</dd></div>
+  </dl>
+  <h3>Controls · normal and focus</h3>
+  <div class="ctls">
+    <div><span class="lb">Primary</span><button class="btn primary">Share</button><button class="btn primary is-focus">Share</button></div>
+    <div><span class="lb">Secondary</span><button class="btn">Present</button><button class="btn is-focus">Present</button></div>
+    <div><label class="fld">Layer name<input value="Hero"></label><label class="fld">Layer name, focused<input class="is-focus" value="Hero"></label></div>
+    <div><span class="lb">List row</span><div class="rowd"><svg class="i sm" aria-hidden="true"><use href="#i-image"/></svg>Product screenshot</div><div class="rowd is-focus"><svg class="i sm" aria-hidden="true"><use href="#i-image"/></svg>Product screenshot</div></div>
+  </div>
+</section>
+</body>
+</html>

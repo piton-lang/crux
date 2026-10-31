@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 336 · Executive navy · Brightwork</title>
+<style>
+
+:root { color-scheme: dark; --bg:#0d1628; --panel:#13203a; --line:#2c3d5e; --ink:#ece6d6; --muted:#a9b3c7; --gold:#e2c47a; --goldl:#7a6538; --coral:#f2a08f; --sage:#a8d5a2; --on:#1a1404;
+ --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif; --sans: "Gill Sans", "Gill Sans MT", Optima, Candara, "Segoe UI", sans-serif;
+ --s-bg:#0d1628; --s-ink:#ece6d6; --s-muted:#a9b3c7; --s-line:#2c3d5e; --s-font: var(--serif); --s-sw-r: 0; --s-top: 3px double #7a6538; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 var(--serif); }
+.ic { width: 1em; height: 1em; vertical-align: -.12em; flex: none; }
+:focus-visible, .is-focus { outline: 1px solid var(--gold) !important; outline-offset: 3px; box-shadow: 0 0 0 4px var(--bg), 0 0 0 5px var(--gold) !important; }
+.paper { max-width: 1120px; margin: 0 auto; padding: 36px 40px 56px; }
+.mast { text-align: center; padding-bottom: 20px; border-bottom: 1px solid var(--goldl); position: relative; }
+.mono { width: 44px; height: 44px; border: 1px solid var(--gold); border-radius: 50%; display: inline-grid; place-items: center; color: var(--gold); font-size: 22px; font-style: italic; }
+.house { font-family: var(--sans); font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); margin: 10px 0 0; }
+h1 { font-size: 38px; font-weight: 400; margin: 6px 0 0; letter-spacing: .01em; }
+.sub { font-style: italic; color: var(--muted); margin: 2px 0 0; }
+.acts { position: absolute; right: 0; top: 0; display: flex; gap: 8px; }
+.btn-p { font: 600 13px var(--sans); letter-spacing: .14em; text-transform: uppercase; background: var(--gold); color: var(--on); border: 1px solid var(--gold); padding: 9px 16px; border-radius: 0; cursor: pointer; display: inline-flex; gap: 8px; align-items: center; }
+.btn-s { font: 600 13px var(--sans); letter-spacing: .14em; text-transform: uppercase; background: transparent; color: var(--gold); border: 1px solid var(--goldl); padding: 9px 16px; border-radius: 0; cursor: pointer; display: inline-flex; gap: 8px; align-items: center; }
+.figs { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); border-top: 3px double var(--goldl); border-bottom: 3px double var(--goldl); margin: 28px 0 36px; }
+.figs > div { padding: 20px 16px; text-align: center; border-left: 1px solid var(--line); min-width: 0; }
+.figs > div:first-child { border-left: 0; }
+.figs dt { font-family: var(--sans); font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); }
+.figs dd { margin: 6px 0 0; font-size: 40px; line-height: 1.1; color: var(--gold); font-variant-numeric: oldstyle-nums proportional-nums; }
+.figs dd small { display: block; font-size: 14px; color: var(--muted); font-style: italic; margin-top: 4px; font-variant-numeric: lining-nums; }
+.attain { margin-top: 10px; height: 4px; background: var(--line); position: relative; }
+.attain i { position: absolute; inset: 0 36% 0 0; background: var(--gold); }
+.cols { display: grid; grid-template-columns: minmax(0,1fr) 320px; gap: 48px; }
+h2 { font-family: var(--sans); font-size: 13px; letter-spacing: .26em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin: 0 0 4px; padding-bottom: 8px; border-bottom: 1px solid var(--goldl); }
+.ledger { list-style: none; margin: 0; padding: 0; counter-reset: st; }
+.stage { padding: 18px 0 14px; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 56px minmax(0,1fr); }
+.rn { font-size: 26px; color: var(--gold); font-style: italic; line-height: 1; padding-top: 2px; }
+.stage h3 { font-size: 20px; font-weight: 400; margin: 0; display: flex; align-items: baseline; gap: 12px; }
+.stage h3 span { margin-left: auto; font-size: 18px; color: var(--muted); font-variant-numeric: oldstyle-nums; }
+.stage h3 em { font-size: 14px; color: var(--muted); }
+.stage ul { list-style: none; margin: 8px 0 0; padding: 0; }
+.stage li { padding: 6px 0; }
+.row { display: flex; align-items: baseline; gap: 8px; color: var(--ink); text-decoration: none; }
+.row .lead { flex: 1; border-bottom: 1px dotted var(--goldl); transform: translateY(-4px); min-width: 16px; }
+.row .v { font-size: 19px; font-variant-numeric: oldstyle-nums tabular-nums; }
+.rem { font-size: 14px; color: var(--muted); font-style: italic; display: flex; gap: 6px; align-items: baseline; flex-wrap: wrap; }
+.rem .ic { color: var(--gold); }
+.rem.bad { color: var(--coral); } .rem.bad .ic { color: var(--coral); }
+.rem.good { color: var(--sage); } .rem.good .ic { color: var(--sage); }
+.notes { background: var(--panel); border-top: 3px solid var(--gold); padding: 20px 22px 8px; align-self: start; }
+.notes h2 { border-bottom-color: var(--line); }
+.notes ol { margin: 12px 0 0; padding: 0 0 0 22px; }
+.notes li { padding: 0 0 14px 6px; }
+.notes li::marker { color: var(--gold); font-style: italic; }
+.notes .flag { color: var(--coral); display: block; font-family: var(--sans); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; }
+.sign { font-style: italic; color: var(--muted); border-top: 1px solid var(--line); padding: 12px 0; margin: 4px 0 0; font-size: 14px; }
+@media (max-width: 960px) { .cols { grid-template-columns: minmax(0,1fr); } .figs { grid-template-columns: repeat(3, minmax(0,1fr)); } .figs > div:nth-child(4) { border-left: 0; } .figs > div:nth-child(n+4) { border-top: 1px solid var(--line); } .acts { position: static; justify-content: center; margin-top: 16px; } }
+@media (max-width: 600px) {
+ .paper { padding: 24px 16px 40px; }
+ h1 { font-size: 28px; }
+ .figs { grid-template-columns: repeat(2, minmax(0,1fr)); }
+ .figs > div { border-left: 0 !important; border-top: 1px solid var(--line); }
+ .figs > div:first-child { grid-column: 1 / -1; border-top: 0; }
+ .figs > div:nth-child(2) { grid-column: 1 / -1; }
+ .figs dd { font-size: 32px; }
+ .stage { grid-template-columns: 36px minmax(0,1fr); }
+ .rn { font-size: 20px; }
+}
+.fld { display: grid; gap: 4px; font: 11px var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.fld input { background: var(--panel); border: 0; border-bottom: 1px solid var(--gold); color: var(--ink); font: 17px var(--serif); padding: 8px 6px; width: 240px; max-width: 100%; letter-spacing: 0; }
+.lrow { display: flex; align-items: baseline; gap: 8px; color: var(--ink); text-decoration: none; width: 300px; max-width: 100%; padding: 8px 6px; border-bottom: 1px solid var(--line); }
+.lrow .lead { flex: 1; border-bottom: 1px dotted var(--goldl); transform: translateY(-4px); }
+
+
+.sheet { background: var(--s-bg); color: var(--s-ink); font-family: var(--s-font); padding: 48px 28px 72px; border-top: var(--s-top, 1px solid var(--s-line)); }
+.sheet > * { max-width: 1120px; margin-left: auto; margin-right: auto; }
+.sheet h2 { font-family: var(--s-hfont, inherit); font-size: 30px; line-height: 1.2; margin-top: 0; margin-bottom: 8px; font-weight: 700; }
+.sheet .idea { font-size: 17px; line-height: 1.55; color: var(--s-ink); margin-top: 0; margin-bottom: 8px; }
+.sheet h3 { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--s-muted); margin-top: 36px; margin-bottom: 14px; padding-top: 12px; border-top: 1px solid var(--s-line); font-weight: 700; }
+.swatches { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.sw { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; line-height: 1.45; min-width: 0; }
+.sw i { flex: none; width: 44px; height: 44px; border-radius: var(--s-sw-r, 6px); border: 1px solid var(--s-line); }
+.sw b { font-weight: 700; } .sw code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; color: var(--s-ink); }
+.sw span { color: var(--s-muted); }
+.type-row { display: flex; align-items: baseline; gap: 20px; padding: 10px 0; border-bottom: 1px solid var(--s-line); flex-wrap: wrap; min-width: 0; }
+.type-row code { flex: 0 0 220px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12.5px; color: var(--s-muted); }
+.type-row > span { min-width: 0; overflow-wrap: anywhere; }
+.stack { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; color: var(--s-muted); margin: 0 auto 6px; overflow-wrap: anywhere; }
+.facts { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 8px 20px; margin: 0 auto; font-size: 15px; line-height: 1.55; }
+.facts dt { font-weight: 700; } .facts dd { margin: 0; color: var(--s-ink); }
+.controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.ctl-label { display: block; font-size: 13px; color: var(--s-muted); margin-bottom: 10px; }
+.ctl-pair { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.ctl-pair > * { min-width: 0; }
+@media (max-width: 700px) {
+ .sheet { padding: 36px 16px 56px; }
+ .sheet h2 { font-size: 24px; }
+ .facts, .controls { grid-template-columns: minmax(0, 1fr); }
+ .facts dd { margin-bottom: 8px; }
+ .type-row code { flex-basis: 100%; }
+ .ctl-pair > .fld, .ctl-pair > .lrow { flex: 1 1 100%; }
+}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5L21.5 20h-19z"/><path d="M12 10v4"/><path d="M12 17.2v.1"/></symbol><symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol><symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14.5" rx="1.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></symbol><symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 3.5L3.5 10.5l7 3 3 7z"/><path d="M20.5 3.5l-10 10"/></symbol><symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V4"/><path d="M6 4.5h11l-2.5 4 2.5 4H6"/></symbol><symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol><symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></symbol><symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></symbol><symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16l-6 7.5V19l-4 1.5v-8z"/></symbol><symbol id="i-sortd" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 5v14M3.5 15.5L7 19l3.5-3.5"/><path d="M13 7h8M13 12h6M13 17h4"/></symbol><symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></symbol><symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol><symbol id="i-dot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/></symbol><symbol id="i-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H4.5a3 3 0 0 0 3.5 4M16 6h3.5a3 3 0 0 1-3.5 4M12 13v4M8.5 20h7M10 17h4"/></symbol><symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8-4.3-4.1 5.9-.8z"/></symbol><symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/></symbol><symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol><symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></symbol><symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15z"/><path d="M10 20.5h4"/></symbol><symbol id="i-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4 0-6.5-2.6-6.5-6.2 0-3.6 3-5.6 4-9.3 2 1.6 2.5 3.6 2.4 5 1-.6 1.7-1.7 2-3 2.4 2.1 4.6 4.7 4.6 7.3 0 3.6-2.5 6.2-6.5 6.2z"/></symbol><symbol id="i-hex" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/></symbol><symbol id="i-square" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12"/></symbol><symbol id="i-diamond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l8 8-8 8-8-8z"/></symbol><symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></symbol><symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol></defs></svg>
+<div class="paper">
+<header class="mast"><span class="mono" aria-hidden="true">B</span><p class="house">Brightwork Sales</p><h1>Quarterly Pipeline Review</h1><p class="sub">Fourth quarter, deal pipeline</p>
+<div class="acts"><button class="btn-s" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-filter"/></svg>Owners</button><button class="btn-p" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>New deal</button></div></header>
+<main>
+<dl class="figs">
+<div><dt>Pipeline value</dt><dd>412,000</dd></div>
+<div><dt>Won this quarter</dt><dd>128,500<small>64% of target</small></dd><div class="attain" role="img" aria-label="128,500 won of 200,000 target, 64 percent"><i></i></div></div>
+<div><dt>Target</dt><dd>200,000</dd></div>
+<div><dt>Win rate</dt><dd>31%</dd></div>
+<div><dt>Open deals</dt><dd>18</dd></div>
+</dl>
+<div class="cols">
+<section aria-labelledby="lh"><h2 id="lh">Pipeline by stage</h2><ol class="ledger"><li class="stage"><span class="rn" aria-hidden="true">I</span><div><h3>Lead <em>2 deals</em><span>30,000</span></h3><ul><li><a class="row" href="#"><span>Lumen Bakery</span><span class="lead" aria-hidden="true"></span><span class="v">6,000</span></a><div class="rem"><span>Owner Lena Fischer</span></div></li><li><a class="row" href="#"><span>Orbit Labs</span><span class="lead" aria-hidden="true"></span><span class="v">24,000</span></a><div class="rem"><span>Owner Sam Ortiz</span></div></li></ul></div></li><li class="stage"><span class="rn" aria-hidden="true">II</span><div><h3>Qualified <em>1 deal</em><span>48,000</span></h3><ul><li><a class="row" href="#"><span>Northpass</span><span class="lead" aria-hidden="true"></span><span class="v">48,000</span></a><div class="rem"><span>Owner Mara Okafor</span> · <span class="rem "><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Next step, demo on 4 Nov</span></div></li></ul></div></li><li class="stage"><span class="rn" aria-hidden="true">III</span><div><h3>Proposal <em>2 deals</em><span>122,500</span></h3><ul><li><a class="row" href="#"><span>Kettle &amp; Co</span><span class="lead" aria-hidden="true"></span><span class="v">32,500</span></a><div class="rem"><span>Owner Lena Fischer</span> · <span class="rem "><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-send"/></svg>Proposal sent 28 Oct</span></div></li><li><a class="row" href="#"><span>Saltwater Freight</span><span class="lead" aria-hidden="true"></span><span class="v">90,000</span></a><div class="rem"><span>Owner Mara Okafor</span> · <span class="rem bad"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-warn"/></svg>Stalled 12 days</span></div></li></ul></div></li><li class="stage"><span class="rn" aria-hidden="true">IV</span><div><h3>Negotiation <em>1 deal</em><span>18,000</span></h3><ul><li><a class="row" href="#"><span>Fernhill Studio</span><span class="lead" aria-hidden="true"></span><span class="v">18,000</span></a><div class="rem"><span>Owner Sam Ortiz</span> · <span class="rem "><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-flag"/></svg>Closing 7 Nov</span></div></li></ul></div></li><li class="stage"><span class="rn" aria-hidden="true">V</span><div><h3>Won <em>1 deal</em><span>64,000</span></h3><ul><li><a class="row" href="#"><span>Bluewater Clinics</span><span class="lead" aria-hidden="true"></span><span class="v">64,000</span></a><div class="rem"><span class="rem good"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Closed 22 Oct</span></div></li></ul></div></li></ol></section>
+<aside class="notes" aria-labelledby="nh"><h2 id="nh">Notes for the board</h2><ol>
+<li>Call with Northpass booked for 4 Nov 10:00</li>
+<li>Kettle &amp; Co opened the proposal 3 times</li>
+<li><span class="flag"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-warn"/></svg> Attention</span>Saltwater Freight has had no reply for 12 days</li>
+</ol></aside>
+</div>
+</main></div>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 336 · Executive navy</h2>
+<p class="idea">The pipeline as a formal quarterly board paper in deep navy and gold, with large serif figures between double gold rules, a numbered ledger of stages with leader lines, and notes for the board set apart.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><i style="background:#0d1628"></i><div><b>Navy</b> <code>#0d1628</code><br><span>page and style sheet</span></div></li><li class="sw"><i style="background:#13203a"></i><div><b>Panel</b> <code>#13203a</code><br><span>notes panel and fields</span></div></li><li class="sw"><i style="background:#2c3d5e"></i><div><b>Rule</b> <code>#2c3d5e</code><br><span>single rules between stages and figures</span></div></li><li class="sw"><i style="background:#ece6d6"></i><div><b>Ink</b> <code>#ece6d6</code><br><span>ivory text</span></div></li><li class="sw"><i style="background:#a9b3c7"></i><div><b>Muted</b> <code>#a9b3c7</code><br><span>small caps labels, owners, remarks</span></div></li><li class="sw"><i style="background:#e2c47a"></i><div><b>Gold</b> <code>#e2c47a</code><br><span>figures, numerals, headings, primary button, focus</span></div></li><li class="sw"><i style="background:#7a6538"></i><div><b>Gold rule</b> <code>#7a6538</code><br><span>double rules, leaders, secondary border</span></div></li><li class="sw"><i style="background:#1a1404"></i><div><b>On gold</b> <code>#1a1404</code><br><span>text on gold</span></div></li><li class="sw"><i style="background:#f2a08f"></i><div><b>Coral</b> <code>#f2a08f</code><br><span>Stalled and Attention, with a triangle</span></div></li><li class="sw"><i style="background:#a8d5a2"></i><div><b>Sage</b> <code>#a8d5a2</code><br><span>Closed, with a check</span></div></li></ul>
+<h3>Type</h3>
+<p class="stack">Iowan Old Style, Palatino Linotype, Palatino, Book Antiqua, Georgia · labels in Gill Sans, Optima, Candara, Segoe UI</p>
+<div class="type-row"><code>40 / 400 oldstyle figure</code><span style="font-size:40px;color:#e2c47a;font-variant-numeric:oldstyle-nums">412,000</span></div><div class="type-row"><code>38 / 400 title</code><span style="font-size:38px">Quarterly Pipeline Review</span></div><div class="type-row"><code>20 / 400 stage</code><span style="font-size:20px">Proposal</span></div><div class="type-row"><code>13 / 600 sans caps .26em</code><span style="font:600 13px Gill Sans,Optima,Segoe UI,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:#e2c47a">Pipeline by stage</span></div><div class="type-row"><code>14 / italic remark</code><span style="font-size:14px;font-style:italic;color:#a9b3c7">Proposal sent 28 Oct</span></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3>
+<dl class="facts"><dt>Spacing</dt><dd>8px unit. 40px page gutter, 48px between ledger and notes, 18px stage padding, 16px gutter on phones.</dd><dt>Density</dt><dd>Low. A board paper read top to bottom, one line per deal.</dd><dt>Corners</dt><dd>None. Square everywhere except the round monogram.</dd><dt>Borders</dt><dd>Double gold rules above and below the figures and on the sheet, single navy rules between stages, dotted gold leaders, a 3px gold top bar on the notes.</dd><dt>Shadows</dt><dd>None.</dd><dt>Icons</dt><dd>Few, fine line icons at 1.6 stroke, in gold before italic remarks. Coral triangle for stalled, sage check for closed.</dd><dt>Focus</dt><dd>A 1px gold outline with a navy gap and a second gold ring.</dd><dt>Tone</dt><dd>Formal and measured. Quarterly Pipeline Review, Notes for the board, Attention.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls">
+<div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-p" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>New deal</button><button class="btn-p is-focus" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>New deal</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-s" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-filter"/></svg>Owners</button><button class="btn-s is-focus" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-filter"/></svg>Owners</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="fld"><span>Deal name</span><input type="text" value="Fernhill Studio"></label><label class="fld"><span>Deal name, focused</span><input type="text" class="is-focus" value="Fernhill Studio"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><a class="lrow" href="#"><span>Northpass</span><span class="lead" aria-hidden="true"></span><span>48,000</span></a><a class="lrow is-focus" href="#"><span>Northpass</span><span class="lead" aria-hidden="true"></span><span>48,000</span></a></div></div>
+</div>
+</section>
+</body>
+</html>

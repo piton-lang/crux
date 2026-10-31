@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 30 · Leather skeuomorphic · Brightwork</title>
+<style>
+:root {
+  --leather: #c99c6b;
+  --leatherDeep: #a97a4b;
+  --stitch: #f6e7c8;
+  --paper: #fbf6ea;
+  --paperLine: #e7dcc4;
+  --ink: #2f2216;
+  --muted: #6b5640;
+  --brand: #3b2615;
+  --green: #2f6b3a;
+  --greenDark: #1f4a27;
+  --red: #a3271c;
+  --brass: #b88a2e;
+  --focus: #3d7bc4;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .25 0 0 0 0 .15 0 0 0 0 .05 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { color: var(--ink); font: 15px/1.5 var(--sans); background: #e9dfcc var(--grain); }
+a { color: #6a3e17; text-decoration: underline; text-underline-offset: 2px; }
+:focus-visible, .is-focus { outline: 0; box-shadow: 0 0 0 2px #fff, 0 0 0 5px var(--focus) !important; }
+
+.desk { padding: 48px 16px; }
+.folio { max-width: 920px; margin: 0 auto; display: grid; grid-template-columns: 300px 1fr; border-radius: 14px; background: var(--leather) var(--grain); box-shadow: 0 2px 0 #8a6038, 0 18px 40px rgba(60,35,10,.35), inset 0 1px 0 rgba(255,255,255,.35); padding: 18px; position: relative; }
+.folio::before { content: ""; position: absolute; inset: 8px; border: 2px dashed var(--stitch); border-radius: 9px; pointer-events: none; opacity: .9; }
+
+.flap { padding: 40px 28px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; position: relative; }
+.badge { width: 104px; height: 104px; border-radius: 50%; background: var(--leatherDeep) var(--grain); box-shadow: inset 0 3px 6px rgba(50,25,5,.55), 0 1px 0 rgba(255,255,255,.45); display: grid; place-items: center; }
+.badge svg { width: 56px; height: 56px; filter: drop-shadow(0 1px 0 rgba(255,255,255,.35)); }
+.brand { font: italic 700 34px/1.1 var(--serif); color: var(--brand); text-shadow: 0 1px 0 rgba(255,235,205,.7), 0 -1px 0 rgba(60,30,5,.35); margin: 0; }
+.motto { font: 13px/1.5 var(--sans); color: #3b2615; text-shadow: 0 1px 0 rgba(255,235,205,.6); margin: 0; max-width: 200px; }
+.strap { margin-top: auto; width: 100%; height: 44px; border-radius: 8px; background: linear-gradient(#b5844f, #9b6c3d) ; box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 2px 3px rgba(50,25,5,.4); position: relative; }
+.strap::before { content: ""; position: absolute; inset: 5px; border: 1.5px dashed var(--stitch); border-radius: 5px; }
+.strap::after { content: ""; position: absolute; right: 18px; top: 9px; width: 26px; height: 26px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #f6dc9a, #b88a2e 55%, #7a5a1c); box-shadow: 0 1px 2px rgba(0,0,0,.5); }
+
+.paper { background: var(--paper); border-radius: 4px; padding: 36px 40px 28px; position: relative; box-shadow: 0 1px 1px rgba(0,0,0,.15), 0 6px 14px rgba(60,35,10,.3);
+  background-image: linear-gradient(90deg, transparent 31px, #e9b9a8 31px 32px, transparent 32px), repeating-linear-gradient(transparent 0 27px, var(--paperLine) 27px 28px); }
+.paper::after { content: ""; position: absolute; left: 6px; right: 6px; bottom: -5px; height: 6px; background: #f2ead8; border-radius: 0 0 4px 4px; box-shadow: 0 2px 3px rgba(60,35,10,.3); z-index: -1; }
+.corner { position: absolute; top: -6px; width: 70px; height: 30px; background: var(--leatherDeep) var(--grain); border-radius: 0 0 6px 6px; box-shadow: 0 2px 3px rgba(60,35,10,.4); }
+.corner::before { content: ""; position: absolute; inset: 4px 5px; border: 1.5px dashed var(--stitch); border-top: 0; border-radius: 0 0 4px 4px; }
+.corner.l { left: 24px; } .corner.r { right: 24px; }
+
+h1 { font: 700 26px/1.25 var(--serif); margin: 8px 0 22px; color: var(--ink); text-shadow: 0 1px 0 #fff; }
+.emb { font: 700 12px/1.3 var(--sans); letter-spacing: .06em; text-transform: uppercase; color: #5a4430; text-shadow: 0 1px 0 #fff; }
+
+.gloss { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; font: 700 15px/1 var(--sans); padding: 13px 16px; border-radius: 8px; cursor: pointer; color: var(--ink); border: 1px solid #a8916e;
+  background: linear-gradient(#fffdf8, #f1e6cf 50%, #e6d6b6 51%, #efe3c9); box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(60,35,10,.25); text-shadow: 0 1px 0 #fff; margin-bottom: 12px; }
+.gloss .ico { width: 22px; height: 22px; border-radius: 50%; display: inline-grid; place-items: center; font: 700 12px var(--serif); background: linear-gradient(#fff, #ddd0b5); border: 1px solid #a8916e; color: var(--ink); }
+.gloss:active { background: linear-gradient(#e6d6b6, #f1e6cf); box-shadow: inset 0 2px 4px rgba(60,35,10,.3); }
+.gloss.primary { color: #fff; border-color: var(--greenDark); text-shadow: 0 -1px 0 rgba(0,0,0,.4); font-size: 16px; padding: 15px 16px;
+  background: linear-gradient(#4f8f59, #367443 50%, #2a6234 51%, #2f6b3a); box-shadow: inset 0 1px 0 rgba(255,255,255,.4), 0 2px 3px rgba(30,40,20,.35); }
+
+.or { display: flex; align-items: center; gap: 12px; margin: 10px 0 18px; font: italic 15px var(--serif); color: var(--muted); }
+.or::before, .or::after { content: ""; flex: 1; height: 2px; background: linear-gradient(#d4c5a6 50%, #fff 50%); }
+
+.field { display: block; margin-bottom: 18px; }
+.field .emb { display: block; margin-bottom: 6px; }
+.well { display: flex; align-items: stretch; background: #fffefb; border: 1px solid #b9a582; border-radius: 6px; box-shadow: inset 0 2px 3px rgba(60,35,10,.18), 0 1px 0 #fff; }
+.well input { flex: 1; min-width: 0; border: 0; background: transparent; padding: 11px 12px; font: 16px var(--sans); color: var(--ink); outline: 0; border-radius: 6px; }
+.well:focus-within, .well.is-focus { border-color: var(--focus); box-shadow: inset 0 2px 3px rgba(60,35,10,.18), 0 0 0 3px rgba(61,123,196,.45) !important; }
+.well input:focus-visible { box-shadow: none !important; }
+.well.bad { border-color: var(--red); background: #fff7f4; }
+.show { margin: 4px; border: 1px solid #a8916e; border-radius: 5px; background: linear-gradient(#fffdf8, #e6d6b6); font: 700 12px var(--sans); color: var(--ink); padding: 0 12px; cursor: pointer; text-shadow: 0 1px 0 #fff; box-shadow: inset 0 1px 0 #fff; }
+.err { display: flex; gap: 8px; margin: 8px 0 0; padding: 8px 10px; border-radius: 6px; background: #fbe9e3; border: 1px solid #e3b6a8; color: var(--red); font-size: 14px; box-shadow: inset 0 1px 0 #fff; }
+.err svg { flex: none; width: 18px; height: 18px; margin-top: 1px; }
+
+.row { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin: 4px 0 22px; font-size: 14px; }
+.check { display: inline-flex; gap: 10px; align-items: center; cursor: pointer; }
+.check input { appearance: none; -webkit-appearance: none; margin: 0; width: 20px; height: 20px; border-radius: 4px; border: 1px solid #8f7856; background: linear-gradient(#fff, #e9dcc0); box-shadow: inset 0 1px 0 #fff, 0 1px 1px rgba(60,35,10,.2); display: grid; place-items: center; cursor: pointer; }
+.check input:checked::after { content: "✓"; font: 700 15px/1 var(--sans); color: var(--greenDark); }
+
+.new { text-align: center; margin: 22px 0 0; font: italic 16px var(--serif); }
+.legal { display: flex; justify-content: center; gap: 22px; margin: 22px 0 0; font-size: 13px; }
+.legal a { color: #3b2615; text-shadow: 0 1px 0 rgba(255,235,205,.6); }
+
+/* Style sheet */
+.sheet { background: var(--paper); border-top: 6px solid var(--leatherDeep); padding: 48px 16px 64px; box-shadow: inset 0 6px 8px -6px rgba(60,35,10,.4); }
+.sheet .wrap { max-width: 1060px; margin: 0 auto; }
+.sheet h2 { font: italic 700 30px/1.2 var(--serif); margin: 0; text-shadow: 0 1px 0 #fff; }
+.sheet .idea { font: italic 18px/1.5 var(--serif); margin: 10px 0 0; max-width: 760px; color: #4b3826; }
+.sheet h3 { display: inline-block; margin: 40px 0 16px; padding: 8px 18px; border-radius: 6px; background: var(--leather) var(--grain); color: var(--brand); font: 700 13px var(--sans); letter-spacing: .08em; text-transform: uppercase; text-shadow: 0 1px 0 rgba(255,235,205,.7); box-shadow: inset 0 0 0 3px var(--leather), inset 0 0 0 4.5px var(--stitch), 0 2px 3px rgba(60,35,10,.3); }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 16px; }
+.sw { background: #fff; border-radius: 6px; padding: 10px; font-size: 13px; box-shadow: 0 1px 3px rgba(60,35,10,.25); }
+.sw i { display: block; height: 50px; border-radius: 4px; margin-bottom: 8px; box-shadow: inset 0 1px 3px rgba(0,0,0,.25); }
+.sw b { display: block; font-size: 14px; }
+.type-row { display: flex; flex-wrap: wrap; gap: 6px 20px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--paperLine); }
+.type-row code { font: 12px ui-monospace, Menlo, Consolas, monospace; color: var(--muted); min-width: 220px; }
+.facts { display: grid; grid-template-columns: 150px 1fr; gap: 10px 20px; margin: 0; }
+.facts dt { font: 700 12px/1.9 var(--sans); text-transform: uppercase; letter-spacing: .06em; color: #5a4430; text-shadow: 0 1px 0 #fff; }
+.facts dd { margin: 0; }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 24px; }
+.controls .gloss { margin: 0; }
+.ctl-label { display: block; margin-bottom: 8px; }
+.list-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 6px; background: linear-gradient(#fffdf8, #f5ecd8); border: 1px solid #d4c4a2; box-shadow: inset 0 1px 0 #fff; }
+.list-row .st { color: var(--greenDark); font-weight: 700; font-size: 13px; }
+
+@media (max-width: 760px) {
+  .desk { padding: 24px 12px; }
+  .folio { grid-template-columns: minmax(0, 1fr); padding: 14px; }
+  .flap { padding: 24px 16px 20px; flex-direction: row; text-align: left; flex-wrap: wrap; }
+  .badge { width: 64px; height: 64px; } .badge svg { width: 36px; height: 36px; }
+  .brand { font-size: 28px; }
+  .strap, .motto { display: none; }
+  .paper { padding: 32px 18px 22px; background-image: repeating-linear-gradient(transparent 0 27px, var(--paperLine) 27px 28px); }
+  h1 { font-size: 22px; }
+  .facts { grid-template-columns: 1fr; gap: 2px; } .facts dd { margin-bottom: 10px; }
+}
+</style>
+</head>
+<body>
+<main class="desk">
+  <div class="folio">
+    <div class="flap">
+      <div class="badge" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><g fill="none" stroke="#3b2615" stroke-width="3" stroke-linecap="round"><circle cx="24" cy="24" r="9"/><path d="M24 5v6M24 37v6M5 24h6M37 24h6M10.5 10.5l4.2 4.2M33.3 33.3l4.2 4.2M10.5 37.5l4.2-4.2M33.3 14.7l4.2-4.2"/></g></svg>
+      </div>
+      <p class="brand">Brightwork</p>
+      <p class="motto">Projects for small teams, kept in one well-worn folio.</p>
+      <div class="strap" aria-hidden="true"></div>
+    </div>
+
+    <section class="paper" aria-labelledby="h">
+      <span class="corner l" aria-hidden="true"></span><span class="corner r" aria-hidden="true"></span>
+      <h1 id="h">Sign in to Brightwork</h1>
+      <button class="gloss" type="button"><span class="ico" aria-hidden="true">G</span>Continue with Google</button>
+      <button class="gloss" type="button"><span class="ico" aria-hidden="true">M</span>Continue with Microsoft</button>
+      <div class="or" role="separator" aria-label="or">or</div>
+
+      <form action="#">
+        <label class="field"><span class="emb">Email</span>
+          <span class="well"><input type="email" value="mara@fernhill.studio" autocomplete="email"></span>
+        </label>
+        <div class="field">
+          <label class="emb" for="pw" style="display:block;margin-bottom:6px">Password</label>
+          <span class="well bad"><input id="pw" type="password" value="lanterns42" aria-invalid="true" aria-describedby="pw-err" autocomplete="current-password"><button class="show" type="button" aria-label="Show password" aria-pressed="false">Show</button></span>
+          <p class="err" id="pw-err"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M9 1.5 17 16H1z" fill="#a3271c"/><path d="M9 6.5v4.5M9 12.8v.6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>That password does not match. Try again or reset it.</span></p>
+        </div>
+        <div class="row">
+          <label class="check"><input type="checkbox" checked>Keep me signed in</label>
+          <a href="#">Forgot password</a>
+        </div>
+        <button class="gloss primary" type="submit">Sign in</button>
+      </form>
+      <p class="new">New to Brightwork? <a href="#">Create an account</a></p>
+    </section>
+  </div>
+  <nav class="legal" aria-label="Legal"><a href="#">Privacy</a><a href="#">Terms</a></nav>
+</main>
+
+<section class="sheet" aria-labelledby="sheet-h">
+  <div class="wrap">
+    <h2 id="sheet-h">Style 30 · Leather skeuomorphic</h2>
+    <p class="idea">A 2010-era desk object, a stitched tan leather folio holding a cream ruled paper card, with embossed labels and glossy buttons you want to press.</p>
+
+    <h3>Palette</h3>
+    <ul class="swatches">
+      <li class="sw"><i style="background:#e9dfcc"></i><b>Desk</b>#e9dfcc · page behind the folio</li>
+      <li class="sw"><i style="background:#c99c6b"></i><b>Tan leather</b>#c99c6b · folio cover and section tabs</li>
+      <li class="sw"><i style="background:#a97a4b"></i><b>Deep leather</b>#a97a4b · debossed badge, paper corners</li>
+      <li class="sw"><i style="background:#f6e7c8"></i><b>Stitch</b>#f6e7c8 · dashed stitching</li>
+      <li class="sw"><i style="background:#fbf6ea"></i><b>Cream paper</b>#fbf6ea · the card and the sheet</li>
+      <li class="sw"><i style="background:#e7dcc4"></i><b>Ruled line</b>#e7dcc4 · paper rules and dividers</li>
+      <li class="sw"><i style="background:#2f2216"></i><b>Ink</b>#2f2216 · text and headings</li>
+      <li class="sw"><i style="background:#3b2615"></i><b>Embossed brown</b>#3b2615 · brand and text on leather</li>
+      <li class="sw"><i style="background:#6b5640"></i><b>Muted</b>#6b5640 · the or divider, meta</li>
+      <li class="sw"><i style="background:#2f6b3a"></i><b>Felt green</b>#2f6b3a · primary glossy button, done tick</li>
+      <li class="sw"><i style="background:#a3271c"></i><b>Wax red</b>#a3271c · error text and border</li>
+      <li class="sw"><i style="background:#3d7bc4"></i><b>Focus blue</b>#3d7bc4 · focus glow</li>
+    </ul>
+
+    <h3>Type</h3>
+    <div class="type-row"><code>Georgia 34 / 700 italic, embossed</code><span style="font:italic 700 34px var(--serif);text-shadow:0 1px 0 #fff">Brightwork</span></div>
+    <div class="type-row"><code>Georgia 26 / 700 heading</code><span style="font:700 26px var(--serif)">Sign in to Brightwork</span></div>
+    <div class="type-row"><code>Helvetica Neue 16 / 700 buttons</code><span style="font-weight:700;font-size:16px">Continue with Google</span></div>
+    <div class="type-row"><code>Helvetica Neue 15 / 1.5 body</code><span>Keep me signed in</span></div>
+    <div class="type-row"><code>Georgia 16 italic, asides</code><span style="font:italic 16px var(--serif)">New to Brightwork? Create an account</span></div>
+    <div class="type-row"><code>Helvetica Neue 12 / 700 caps +0.06em, white 1px emboss</code><span class="emb">Password</span></div>
+
+    <h3>Spacing, corners and depth</h3>
+    <dl class="facts">
+      <dt>Spacing</dt><dd>An 8px base with a 28px ruled paper rhythm. 12px between sign-in buttons, 18px between fields, 36 to 40px paper padding.</dd>
+      <dt>Density</dt><dd>Medium. A two-panel folio with comfortable controls.</dd>
+      <dt>Corners</dt><dd>14px on the folio, 8px on buttons, 6px on fields and notes, 4px on paper.</dd>
+      <dt>Borders</dt><dd>Dashed 2px cream stitching inset 8px on leather. 1px tan borders on buttons and wells. A pink margin rule on the paper.</dd>
+      <dt>Shadows</dt><dd>Everything is lit from above. Inset shadows on wells and the badge, a soft drop under the paper and folio, and 1px white highlights on top edges.</dd>
+      <dt>Icons</dt><dd>Line icons debossed into leather, letter coins on sign-in buttons, a filled triangle with ! for errors, a ✓ in the checkbox.</dd>
+      <dt>Tone</dt><dd>Warm and personal, a little old-fashioned. Projects kept in one well-worn folio.</dd>
+    </dl>
+
+    <h3>Controls · normal and focus</h3>
+    <div class="controls">
+      <div><span class="emb ctl-label">Primary</span><button class="gloss primary" type="button">Sign in</button></div>
+      <div><span class="emb ctl-label">Primary, focused</span><button class="gloss primary is-focus" type="button">Sign in</button></div>
+      <div><span class="emb ctl-label">Secondary</span><button class="gloss" type="button">Cancel</button></div>
+      <div><span class="emb ctl-label">Secondary, focused</span><button class="gloss is-focus" type="button">Cancel</button></div>
+      <div><label class="field" style="margin:0"><span class="emb">Email</span><span class="well"><input value="mara@fernhill.studio"></span></label></div>
+      <div><label class="field" style="margin:0"><span class="emb">Email, focused</span><span class="well is-focus"><input value="mara@fernhill.studio"></span></label></div>
+      <div><span class="emb ctl-label">List row</span><div class="list-row"><span>Website redesign</span><span class="st">✓ On track</span></div></div>
+      <div><span class="emb ctl-label">List row, focused</span><div class="list-row is-focus"><span>Website redesign</span><span class="st">✓ On track</span></div></div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

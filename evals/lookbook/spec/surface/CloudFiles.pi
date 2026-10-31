@@ -1,0 +1,27 @@
+export anchor CloudFiles:
+    description:
+        Brightwork Drive, the suite's file storage, showing the folder
+        Fernhill Studio, then Website redesign.
+
+    sidebar:
+        My files, Shared with me, Recent, Starred and Trash, plus storage use
+        of 64.2 GB of 100 GB.
+
+    toolbar:
+        Breadcrumbs, a Search files field, Upload and New folder buttons, and a
+        List or Grid switch with List selected.
+
+    files:
+        - Brand assets, folder, 24 items, modified 28 Oct by Priya Nair
+        - Wireframes, folder, 9 items, modified 30 Oct by Aiko Tanaka
+        - brand-guide-v3.pdf, 4.2 MB, modified 27 Oct by Priya Nair, starred
+        - homepage-hero-B.png, 2.8 MB, modified today 08:12 by Priya Nair
+        - content-audit.xlsx, 86 KB, modified 19 Sep by Mara Okafor
+        - launch-plan.docx, 140 KB, modified yesterday by Mara Okafor, shared with 4 people
+        - customer-interviews.zip, 312 MB, modified 12 Oct by Aiko Tanaka
+        - hero-motion.mp4, 48.6 MB, modified 29 Oct by Priya Nair, uploading 62 percent
+
+    details:
+        brand-guide-v3.pdf is selected. A details panel shows a preview,
+        owner Priya Nair, size 4.2 MB, version 3, shared with the Design team,
+        and buttons for Share, Download and Get link.

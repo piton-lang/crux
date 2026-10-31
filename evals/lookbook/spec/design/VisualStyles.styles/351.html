@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 351 · Pager LCD · Brightwork</title>
+<style>
+:root{color-scheme:dark;--page:#0e1013;--shell:#1d2126;--shell2:#262b31;--bezel:#05070a;--lcd:#0a1a26;--lcdhi:#12293b;--seg:#a8dcff;--segdim:#6f9fc0;--segoff:#17344a;--key:#3a4048;--keyhi:#4a515b;--label:#b5bcc6;--cyan:#7fd4ff;--mono:"Lucida Console","DejaVu Sans Mono",ui-monospace,Menlo,Consolas,monospace;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--label);font:14px/1.45 var(--sans)}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+:focus-visible,.is-focus{outline:2px dashed var(--seg);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 16px}
+.lcd{background-color:var(--lcd);background-image:repeating-linear-gradient(0deg,transparent 0 2px,rgba(0,0,0,.18) 2px 3px);color:var(--seg);font:700 14px/1.35 var(--mono);text-transform:uppercase;letter-spacing:.06em;border-radius:6px;box-shadow:inset 0 0 0 2px var(--bezel),inset 0 0 18px rgba(127,212,255,.08);padding:10px 12px}
+.unit{background:linear-gradient(180deg,var(--shell2),var(--shell));border-radius:22px 22px 30px 30px;padding:14px 14px 12px;box-shadow:0 1px 0 #3a4048 inset,0 10px 24px #000;border:1px solid #33393f}
+.unit .cap{display:flex;justify-content:space-between;align-items:center;font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--label);margin:0 4px 8px}
+.unit .cap i{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 6px var(--cyan)}
+.top{display:grid;grid-template-columns:280px minmax(0,1fr);gap:20px}
+.statline{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px}
+.statline h1{font:inherit;margin:0;font-size:18px}
+.ticker{margin:6px 0 0;border-top:1px dashed var(--segoff);padding-top:6px;color:var(--seg)}
+.ticker .cur{display:inline-block;width:.6em;height:1em;background:var(--seg);vertical-align:-2px;margin-left:4px}
+.icons{display:flex;gap:10px;align-items:center}
+.fold{list-style:none;margin:0;padding:0}
+.fold a{display:grid;grid-template-columns:1.2em 1fr auto;gap:4px;padding:2px 4px}
+.fold a[aria-current]{background:var(--seg);color:var(--lcd)}
+.fold .tg{color:var(--seg)}
+.fold a[aria-current] .tg{color:var(--lcd)}
+.sec{margin:8px 0 4px;color:var(--segdim);font-size:12px;border-bottom:1px dashed var(--segoff)}
+.frames{list-style:none;margin:20px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
+.frame .lcd{min-height:132px;display:flex;flex-direction:column;gap:2px}
+.fh{display:flex;justify-content:space-between;gap:8px;color:var(--segdim);font-size:12px;border-bottom:1px dashed var(--segoff);padding-bottom:3px;margin-bottom:3px}
+.fh b{color:var(--seg);font-weight:700}
+.fr{color:var(--seg)}
+.fr::before{content:"FR ";color:var(--segdim)}
+.frame p{margin:0;text-transform:none;font-weight:700;letter-spacing:.02em;font-size:15px}
+.frame .meta{margin-top:auto;display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;border-top:1px dashed var(--segoff);padding-top:4px}
+.frame .meta a{background:var(--seg);color:var(--lcd);padding:0 4px}
+.pix{display:flex;gap:10px;align-items:center;margin-top:4px}
+.pix svg{width:96px;height:auto;flex:none;image-rendering:pixelated}
+.pix a{text-transform:none;text-decoration:underline;text-underline-offset:3px}
+.keys{display:flex;justify-content:center;gap:10px;margin-top:10px}
+.kb{min-width:44px;height:22px;border-radius:11px;background:linear-gradient(var(--keyhi),var(--key));border:1px solid #111;box-shadow:0 2px 0 #08090b;font:700 10px var(--sans);letter-spacing:.14em;color:var(--label);text-transform:uppercase;padding:0 10px;cursor:pointer}
+.reply{margin-top:20px}
+.reply form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center}
+.reply .lcd{display:flex;align-items:center;gap:8px}
+.reply label{color:var(--segdim)}
+.reply input{flex:1;min-width:0;background:transparent;border:0;outline:none;color:var(--seg);font:700 15px var(--mono);letter-spacing:.04em}
+.reply input::placeholder{color:var(--segdim)}
+.reply .lcd:focus-within{outline:2px dashed var(--seg);outline-offset:3px}
+.hard{display:flex;gap:10px;flex-wrap:wrap}
+.hk{display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:0;cursor:pointer;padding:2px;font:700 10px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--label)}
+.hk span{width:64px;height:30px;border-radius:15px;background:linear-gradient(var(--keyhi),var(--key));border:1px solid #111;box-shadow:0 3px 0 #08090b;display:grid;place-items:center;color:var(--seg)}
+.hk.go span{background:linear-gradient(#5fbde8,#3a9fd0);color:#04192a}
+/* sheet */
+.sheet{max-width:1180px;margin:0 auto;padding:32px 16px 72px}
+.sheet h2{margin:0 0 8px;font:700 26px var(--mono);color:var(--seg);text-transform:uppercase;letter-spacing:.06em}
+.idea{margin:0;max-width:66ch;color:var(--label);font-size:15px}
+.sheet h3{margin:36px 0 12px;font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--label)}
+.sw{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.sw li{background:var(--shell);border:1px solid #33393f;border-radius:14px;padding:10px;display:grid;grid-template-columns:34px 1fr;gap:2px 10px}
+.sw i{grid-row:span 2;border-radius:6px;border:2px solid var(--bezel)}
+.sw b{color:#e6ebf0}.sw code{font:12px var(--mono);color:var(--label);margin-left:6px}.sw span{font-size:12px;color:var(--label)}
+.ts div{display:grid;grid-template-columns:190px 1fr;gap:12px;align-items:baseline;margin-bottom:8px}
+.ts code,.facts dt{font:12px var(--mono);color:var(--label)}
+.facts{display:grid;grid-template-columns:130px 1fr;gap:8px 16px;margin:0;color:#e6ebf0}
+.facts dd{margin:0}
+.ctrls{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.ctrls>div{background:var(--shell);border:1px solid #33393f;border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.ctrls h4{margin:0;font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase}
+.fld{display:grid;gap:6px;font:600 11px var(--sans);letter-spacing:.16em;text-transform:uppercase;width:100%}
+.fld input{background:var(--lcd);border:0;box-shadow:inset 0 0 0 2px var(--bezel);border-radius:6px;padding:8px 10px;font:700 15px var(--mono);color:var(--seg);width:100%;min-width:0}
+.ctrls .lcd{width:100%;padding:4px}
+@media (max-width:820px){
+ .top{grid-template-columns:minmax(0,1fr)}
+ .frames{grid-template-columns:minmax(0,1fr)}
+ .reply form{grid-template-columns:minmax(0,1fr)}
+ .hard{justify-content:space-between}
+ .ts div,.facts{grid-template-columns:1fr;gap:2px}.facts dd{margin-bottom:8px}
+}
+.top>section{align-self:start}
+.ctrls .fold{display:grid;gap:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <div class="top">
+  <nav class="unit" aria-label="Folders">
+   <p class="cap">Folders <i aria-hidden="true"></i></p>
+   <div class="lcd">
+    <p class="sec" style="margin-top:0">Channels</p>
+    <ul class="fold">
+     <li><a href="#"><span aria-hidden="true"></span>general<span></span></a></li>
+     <li><a href="#" aria-current="page"><span aria-hidden="true">▶</span>design-crit<span class="tg">OPEN</span></a></li>
+     <li><a href="#"><span aria-hidden="true">✉</span>mobile-release<span class="tg">4 NEW</span></a></li>
+     <li><a href="#"><span aria-hidden="true">!</span>billing-war-room<span class="tg">@1</span></a></li>
+     <li><a href="#"><span aria-hidden="true"></span>random<span></span></a></li>
+    </ul>
+    <p class="sec">Direct</p>
+    <ul class="fold">
+     <li><a href="#"><span aria-hidden="true">●</span>Priya Nair<span class="tg">ON</span></a></li>
+     <li><a href="#"><span aria-hidden="true">◐</span>Jonas Weber<span class="tg">AWAY</span></a></li>
+     <li><a href="#"><span aria-hidden="true">○</span>Aiko Tanaka<span class="tg">OFF</span></a></li>
+    </ul>
+   </div>
+  </nav>
+  <section class="unit" aria-label="Pager status">
+   <p class="cap">Brightwork Chat · two-way <i aria-hidden="true"></i></p>
+   <div class="lcd">
+    <div class="statline"><h1>#design-crit</h1><span class="icons"><span>5 MSG</span><svg width="22" height="12" viewBox="0 0 22 12" aria-label="Battery full" role="img"><rect x="1" y="1" width="18" height="10" fill="none" stroke="#a8dcff" stroke-width="1.5"/><rect x="19" y="4" width="2" height="4" fill="#a8dcff"/><rect x="3" y="3" width="14" height="6" fill="#a8dcff"/></svg><svg width="16" height="12" viewBox="0 0 16 12" role="img" aria-label="Signal strong"><rect x="0" y="8" width="3" height="4" fill="#a8dcff"/><rect x="4" y="6" width="3" height="6" fill="#a8dcff"/><rect x="8" y="3" width="3" height="9" fill="#a8dcff"/><rect x="12" y="0" width="3" height="12" fill="#a8dcff"/></svg><span>09:21</span></span></div>
+    <p class="ticker" role="status">Priya is typing<span class="cur" aria-hidden="true"></span></p>
+    <p class="ticker" style="color:var(--segdim)">User Mara Okafor · folder design-crit · 1 thread</p>
+   </div>
+   <div class="keys"><button class="kb" aria-label="Previous message">◀</button><button class="kb">Read</button><button class="kb" aria-label="Next message">▶</button></div>
+  </section>
+ </div>
+
+ <main>
+  <ol class="frames" aria-label="Messages in design-crit">
+   <li class="unit frame"><div class="lcd"><div class="fh"><b>MSG 1/5</b><span>09:02</span></div><span class="fr">Priya Nair</span><p>Three hero options are up in Canvas. Thoughts by Monday?</p></div></li>
+   <li class="unit frame"><div class="lcd"><div class="fh"><b>MSG 2/5</b><span>09:05</span></div><span class="fr">Aiko Tanaka</span><p>B reads best on phones. A feels busy.</p><div class="meta"><a href="#">↳ Thread 3 RE</a><span>+1 thumbs ×3</span><span>◉◉ eyes ×1</span></div></div></li>
+   <li class="unit frame"><div class="lcd"><div class="fh"><b>MSG 3/5</b><span>09:11 · sent</span></div><span class="fr">Mara Okafor</span><p>Agree on B. Can we try the button in brand green?</p></div></li>
+   <li class="unit frame"><div class="lcd"><div class="fh"><b>MSG 4/5</b><span>09:12</span></div><span class="fr">Priya Nair</span><div class="pix"><svg viewBox="0 0 24 14" shape-rendering="crispEdges" role="img" aria-label="Pixel preview of homepage-hero-B.png, a headline and a button"><rect width="24" height="14" fill="#12293b"/><rect x="2" y="2" width="11" height="2" fill="#a8dcff"/><rect x="2" y="5" width="8" height="1" fill="#6f9fc0"/><rect x="2" y="8" width="6" height="3" fill="#a8dcff"/><rect x="16" y="2" width="6" height="10" fill="#6f9fc0"/></svg><span>IMG ATTACHED<br><a href="#">homepage-hero-B.png</a></span></div></div></li>
+   <li class="unit frame"><div class="lcd"><div class="fh"><b>MSG 5/5</b><span>09:20</span></div><span class="fr">Jonas Weber</span><p>Unrelated, billing deploy is at 11:00, heads up</p></div></li>
+  </ol>
+  <section class="unit reply" aria-label="Reply">
+   <p class="cap">Reply <i aria-hidden="true"></i></p>
+   <form action="#">
+    <div class="lcd"><label for="m">TX&gt;</label><input id="m" placeholder="Message #design-crit"></div>
+    <div class="hard">
+     <button type="button" class="hk"><span aria-hidden="true">▣</span>Attach</button>
+     <button type="button" class="hk"><span aria-hidden="true">☺</span>Emoji</button>
+     <button type="submit" class="hk go"><span aria-hidden="true">➤</span>Send</button>
+    </div>
+   </form>
+  </section>
+ </main>
+</div>
+
+<section class="sheet" aria-labelledby="sh">
+ <h2 id="sh">Style 351 · Pager LCD</h2>
+ <p class="idea">The chat as a stack of two-way pagers, where every message is its own small backlit LCD frame counted MSG 1/5 in a moulded shell, folders replace the sidebar, and pill shaped hardware keys stand in for buttons.</p>
+ <h3>Palette</h3>
+ <ul class="sw">
+  <li><i style="background:#0e1013"></i><b>page<code>#0e1013</code></b><span>Desk behind the pagers, sheet</span></li>
+  <li><i style="background:#1d2126"></i><b>shell<code>#1d2126</code></b><span>Pager housings, sheet cards</span></li>
+  <li><i style="background:#05070a"></i><b>bezel<code>#05070a</code></b><span>Ring around each LCD</span></li>
+  <li><i style="background:#0a1a26"></i><b>lcd<code>#0a1a26</code></b><span>Backlit screen ground</span></li>
+  <li><i style="background:#a8dcff"></i><b>seg<code>#a8dcff</code></b><span>Lit segments, selection block, focus</span></li>
+  <li><i style="background:#6f9fc0"></i><b>segDim<code>#6f9fc0</code></b><span>Frame headers, FR, hints</span></li>
+  <li><i style="background:#17344a"></i><b>segOff<code>#17344a</code></b><span>Unlit dashed separators only</span></li>
+  <li><i style="background:#3a4048"></i><b>key<code>#3a4048</code></b><span>Rubber keys</span></li>
+  <li><i style="background:#b5bcc6"></i><b>label<code>#b5bcc6</code></b><span>Printed shell labels</span></li>
+  <li><i style="background:#5fbde8"></i><b>sendKey<code>#5fbde8</code></b><span>Send key, dark text #04192a</span></li>
+ </ul>
+ <h3>Type</h3>
+ <div class="ts">
+  <div><code>mono 18 / 700 caps</code><span class="lcd" style="font-size:18px;padding:2px 8px">#design-crit</span></div>
+  <div><code>mono 15 / 700</code><span class="lcd" style="text-transform:none;font-size:15px;padding:2px 8px">B reads best on phones.</span></div>
+  <div><code>mono 12 caps</code><span class="lcd" style="font-size:12px;padding:2px 8px">MSG 2/5 · 09:05</span></div>
+  <div><code>sans 11 / 600 .2em</code><span style="font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase">Folders</span></div>
+  <div><code>stacks</code><span>Lucida Console, DejaVu Sans Mono, ui-monospace, Menlo, Consolas · system-ui, Segoe UI, Roboto, Arial for shell print</span></div>
+ </div>
+ <h3>Spacing, density and depth</h3>
+ <dl class="facts">
+  <dt>Spacing</dt><dd>8px unit. 16px between pagers, 10px 12px inside each LCD.</dd>
+  <dt>Density</dt><dd>Low per frame. One message per screen, frames tiled three across.</dd>
+  <dt>Corners</dt><dd>22px top and 30px bottom on shells, 6px on LCDs, full pills on keys.</dd>
+  <dt>Borders</dt><dd>A 2px black inset bezel on every LCD, dashed unlit lines inside.</dd>
+  <dt>Shadows</dt><dd>A soft 10px drop under shells and 2px to 3px ledges under keys. Faint scan lines on the LCD.</dd>
+  <dt>Icons</dt><dd>LCD glyphs, ▶ open, ✉ new, ! mention, ● ◐ ○ presence, each beside a word.</dd>
+  <dt>Focus</dt><dd>2px dashed lit blue outline offset 3px.</dd>
+  <dt>Tone</dt><dd>Clipped pager words, such as MSG 2/5, FR, 4 NEW, 3 RE, IMG ATTACHED and TX&gt;.</dd>
+ </dl>
+ <h3>Controls · normal and focus</h3>
+ <div class="ctrls">
+  <div><h4>Primary</h4><button class="hk go"><span aria-hidden="true">➤</span>Send</button><button class="hk go is-focus"><span aria-hidden="true">➤</span>Send</button></div>
+  <div><h4>Secondary</h4><button class="hk"><span aria-hidden="true">▣</span>Attach</button><button class="hk is-focus"><span aria-hidden="true">▣</span>Attach</button></div>
+  <div><h4>Text field</h4><label class="fld">Folder<input value="design-crit"></label><label class="fld">Folder<input class="is-focus" value="design-crit"></label></div>
+  <div><h4>List row</h4><div class="lcd"><ul class="fold"><li><a href="#"><span></span>general<span></span></a></li><li><a href="#" class="is-focus"><span></span>general<span></span></a></li></ul></div></div>
+ </div>
+</section>
+</body>
+</html>

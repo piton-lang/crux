@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Style 235 · Aubergine · Brightwork</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{color-scheme:dark;-webkit-text-size-adjust:100%}
+body{margin:0}
+a{color:inherit}
+button,input{font:inherit;color:inherit}
+input{min-width:0;max-width:100%}
+.vh{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.i{width:1.15em;height:1.15em;flex:none;vertical-align:-0.2em}
+.si{width:1.1em;height:1.1em;flex:none;vertical-align:-0.18em}
+.sheet{overflow-wrap:break-word}
+.sheet .swatches{list-style:none;padding:0;margin:0 0 8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:16px}
+.sheet .sw{display:flex;gap:12px;align-items:flex-start;min-width:0}
+.sheet .chip{flex:none;width:48px;height:48px;border:1px solid var(--sh-line)}
+.sheet .swt{display:flex;flex-direction:column;gap:2px;font-size:13px;min-width:0}
+.sheet .swt span{color:var(--sh-muted)}
+.sheet .swt code{font-size:12px}
+.sheet .types{list-style:none;padding:0;margin:0}
+.sheet .ty{display:flex;flex-direction:column;gap:4px;padding:12px 0;border-bottom:1px solid var(--sh-line)}
+.sheet .tys{overflow-wrap:anywhere}
+.sheet .tym{font-size:13px;color:var(--sh-muted)}
+.sheet .facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px 24px;margin:0}
+.sheet .fact dt{font-weight:700}
+.sheet .fact dd{margin:4px 0 0;color:var(--sh-muted);font-size:14px;line-height:1.5}
+.sheet .ctl{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--sh-line)}
+.sheet .ctl-l{font-size:13px;color:var(--sh-muted)}
+.sheet .ctl-r{display:flex;flex-wrap:wrap;gap:16px;align-items:center;min-width:0}
+.sheet .ctl-r.rows{flex-direction:column;align-items:stretch}
+.sheet .field input{width:240px}
+.sheet .srow{display:flex;gap:12px;align-items:center;flex-wrap:wrap;text-decoration:none}
+.sheet .note{font-size:13px;color:var(--sh-muted)}
+@media (max-width:600px){.sheet .ctl{grid-template-columns:1fr;gap:8px}.sheet .field input{width:100%}.sheet .field{width:100%}}
+
+:root{--night:#1a1020;--plum:#221528;--skin:#2a1a31;--flesh:#36223f;--line:#4d3557;--ink:#f3e8f5;--mauve:#c9b2cf;--violet:#b9a0ec;--rose:#f4a3c0;--roseInk:#2b0f1d;--ok:#93e0c0;--risk:#f3d27a;--bad:#ffab91;
+--geo:"Avenir Next","Century Gothic",Futura,"URW Gothic","Trebuchet MS",sans-serif;--sh-line:#4d3557;--sh-muted:#c9b2cf}
+body{background:var(--night);color:var(--ink);font:14px/1.5 var(--geo)}
+:focus-visible,.is-focus{outline:2px solid var(--rose)!important;outline-offset:3px}
+.top{background:var(--plum);display:flex;align-items:center;gap:24px;padding:12px 24px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;text-decoration:none}
+.mark{width:32px;height:32px;border-radius:50%;background:var(--rose);color:var(--roseInk);display:grid;place-items:center;font-weight:800}
+.nav{list-style:none;margin:0;padding:0;display:flex;gap:4px;flex-wrap:wrap}
+.nav a{display:block;padding:7px 14px;border-radius:999px;text-decoration:none;color:var(--mauve);font-weight:600}
+.nav a:hover{color:var(--ink)}
+.nav a[aria-current]{background:var(--flesh);color:var(--ink);box-shadow:inset 0 0 0 1px var(--violet)}
+.tr{margin-left:auto;display:flex;align-items:center;gap:10px}
+.search{display:flex;align-items:center;gap:8px;background:var(--flesh);border-radius:999px;padding:7px 14px;color:var(--mauve);width:260px}
+.search input{border:0;background:transparent;outline:0;flex:1;color:var(--ink)}
+.search input::placeholder{color:var(--mauve)}
+.search:focus-within{outline:2px solid var(--rose);outline-offset:3px}
+.bell{width:38px;height:38px;border-radius:50%;background:var(--flesh);border:0;display:grid;place-items:center;cursor:pointer}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 18px;font-weight:700;cursor:pointer;border:2px solid transparent;text-decoration:none;font-size:14px}
+.btn.primary{background:var(--rose);color:var(--roseInk)}
+.btn.secondary{background:transparent;color:var(--ink);border-color:var(--violet)}
+.user{display:flex;align-items:center;gap:8px}
+.av{width:34px;height:34px;border-radius:50%;background:var(--violet);color:var(--roseInk);display:grid;place-items:center;font-weight:700;font-size:13px;flex:none}
+.av.sm{width:30px;height:30px;font-size:12px}
+main{max-width:1232px;margin:0 auto;padding:24px}
+.hero{border-radius:28px;background:linear-gradient(180deg,#3b2449,#2a1a31);border:1px solid var(--line);padding:32px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:24px;align-items:center;box-shadow:0 16px 40px rgba(0,0,0,.45)}
+.hero h1{margin:0;font-size:40px;line-height:1.1;font-weight:700}
+.date{margin:6px 0 16px;color:var(--mauve)}
+.od-pill{display:inline-flex;align-items:center;gap:8px;margin:0;padding:8px 16px;border-radius:999px;border:2px solid var(--bad);color:var(--bad);font-weight:700}
+.pills{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.pill{background:var(--flesh);border-radius:999px;padding:12px 20px;display:flex;align-items:center;gap:14px}
+.pill b{font-size:32px;line-height:1;font-variant-numeric:tabular-nums}
+.pill span{color:var(--mauve);font-size:13px;line-height:1.3}
+.pill.od{box-shadow:inset 0 0 0 2px var(--bad)}
+.pill.od b,.pill.od span{color:var(--bad)}
+.cols{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:24px;margin-top:24px;align-items:start}
+.side{display:flex;flex-direction:column;gap:24px;min-width:0}
+.panel{background:var(--skin);border:1px solid var(--line);border-radius:22px;padding:24px;min-width:0}
+.ph{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.ph h2{margin:0;font-size:20px}
+.plist{list-style:none;margin:0;padding:0}
+.prow{display:grid;grid-template-columns:40px minmax(0,1.4fr) 112px minmax(0,1.3fr) 76px;gap:16px;align-items:center;padding:14px 0;border-top:1px solid var(--line)}
+.bub{width:40px;height:40px;border-radius:50%;border:2px solid var(--violet);color:var(--violet);display:grid;place-items:center;font-weight:700}
+.pn{display:flex;flex-direction:column;min-width:0}
+.pn a{font-weight:600;font-size:16px;text-decoration:none}
+.pn a:hover{text-decoration:underline}
+.pn span{color:var(--mauve);font-size:13px}
+.st{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:13px;padding:4px 10px;border-radius:999px;background:var(--flesh);justify-self:start;white-space:nowrap}
+.st-ok{color:var(--ok)}.st-risk{color:var(--risk)}.st-bad{color:var(--bad)}
+.pm{display:flex;align-items:center;gap:10px}
+.seg{display:flex;gap:3px;flex:1}
+.seg i{flex:1;height:10px;border-radius:999px;background:var(--flesh)}
+.seg i.on{background:var(--rose)}
+.pm b{font-variant-numeric:tabular-nums;width:3.2em;text-align:right}
+.pt{font-size:13px;text-align:right}
+.pt span{color:var(--mauve)}
+.tots{display:flex;gap:16px;flex-wrap:wrap;margin:0 0 8px;color:var(--mauve)}
+.tots b{color:var(--ink);font-size:18px}
+.k{display:inline-block;width:10px;height:18px;border-radius:5px;vertical-align:-4px;margin-right:6px}
+.k.lw{border:2px solid var(--violet)}.k.tw{background:var(--rose)}
+.chart{width:100%;height:auto;display:block}
+.chart .base{stroke:var(--line)}
+.chart .lw{fill:none;stroke:var(--violet);stroke-width:2}
+.chart .tw{fill:var(--rose)}
+.chart .vl{fill:var(--ink);font:700 11px var(--geo)}
+.chart .ax{fill:var(--mauve);font:12px var(--geo)}
+.acts{list-style:none;margin:0;padding:0}
+.acts li{display:flex;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.acts li:first-child{border-top:0}
+.acts p{margin:0}
+.acts b{font-weight:600}
+.when{display:block;color:var(--mauve);font-size:12px}
+.sheet{background:var(--night);border-top:1px solid var(--line);padding:56px 24px}
+.sheet-in{max-width:1184px;margin:0 auto}
+.sheet h2{font-size:28px;margin:0}
+.sheet h3{font-size:18px;margin:32px 0 12px;color:var(--rose)}
+.sheet .idea{color:var(--mauve);max-width:70ch}
+.sheet .chip{border-radius:50%}
+.sheet .field input{background:var(--flesh);border:1px solid var(--line);border-radius:999px;padding:9px 16px;color:var(--ink)}
+.sheet .field input::placeholder{color:var(--mauve)}
+.sheet .srow{background:var(--skin);border:1px solid var(--line);border-radius:999px;padding:10px 18px}
+.sheet .srow-m{color:var(--mauve);font-size:13px}
+.sheet .srow .st{margin-left:auto}
+@media (max-width:1320px){.search{width:180px}.top{gap:16px}.nav a{padding:7px 12px}}
+@media (max-width:980px){.cols{grid-template-columns:1fr}.hero{grid-template-columns:1fr}.tr{margin-left:0;flex-wrap:wrap;width:100%}.search{flex:1;width:auto}}
+@media (max-width:640px){
+.top{padding:12px 16px;gap:12px}
+main{padding:16px}
+.hero{padding:24px 20px;border-radius:22px}
+.hero h1{font-size:32px}
+.pills{grid-template-columns:1fr 1fr}
+.pill{flex-direction:column;align-items:flex-start;gap:4px;border-radius:20px;padding:12px 16px}
+.prow{grid-template-columns:40px minmax(0,1fr) auto;gap:8px 12px}
+.prow .pm{grid-column:2 / 4}
+.prow .pt{grid-column:2 / 4;text-align:left}
+.prow .pt br{display:none}
+.panel{padding:20px 16px}
+.search{flex-basis:100%;order:5}
+.un{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sheet{padding:40px 16px}
+.sheet .srow{border-radius:20px}}
+</style>
+</head>
+<body>
+
+<header class="top">
+<a class="brand" href="#"><span class="mark" aria-hidden="true">B</span>Brightwork</a>
+<nav aria-label="Main"><ul class="nav"><li><a href="#" aria-current=page>Home</a></li><li><a href="#">Projects</a></li><li><a href="#">Tasks</a></li><li><a href="#">Team</a></li><li><a href="#">Reports</a></li><li><a href="#">Settings</a></li></ul></nav>
+<div class="tr">
+<label class="search"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg><span class="vh">Search projects and tasks</span><input type="search" placeholder="Search"></label>
+<button type="button" class="bell" aria-label="Notifications"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.8 1.8H4.2z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg></button>
+<button type="button" class="btn primary"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>New project</button>
+<span class="user"><span class="av" aria-hidden="true">MO</span><span class="un">Mara Okafor</span></span>
+</div>
+</header>
+<main>
+<section class="hero" aria-label="Today">
+<div class="hl">
+<h1>Hello, Mara</h1>
+<p class="date">Saturday 31 October 2026</p>
+<p class="od-pill"><svg class="si" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>4 tasks are overdue</p>
+</div>
+<ul class="pills" aria-label="Summary"><li class="pill"><b>6</b><span>Active projects</span></li><li class="pill"><b>23</b><span>Tasks due this week</span></li><li class="pill od"><b>4</b><span>Overdue tasks</span></li><li class="pill"><b>186</b><span>Hours logged this week</span></li></ul>
+</section>
+<div class="cols">
+<section class="panel" aria-labelledby="ph">
+<div class="ph"><h2 id="ph">Projects</h2><a href="#" class="btn secondary">View all</a></div>
+<ul class="plist"><li class="prow"><span class="bub" aria-hidden="true">D</span><div class="pn"><a href="#">Website redesign</a><span>Design</span></div><span class="st st-ok"><svg class="si" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m7.8 12.3 2.9 2.9 5.6-6"/></svg>On track</span><div class="pm"><span class="seg" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span><b>72%</b></div><span class="pt">18 of 25<br><span>due 14 Nov</span></span></li><li class="prow"><span class="bub" aria-hidden="true">E</span><div class="pn"><a href="#">Mobile app 2.0</a><span>Engineering</span></div><span class="st st-risk"><svg class="si" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 21.3 20H2.7z"/><path d="M12 9.5V14"/><circle cx="12" cy="17" r="1.1" fill="currentColor" stroke="none"/></svg>At risk</span><div class="pm"><span class="seg" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><b>45%</b></div><span class="pt">27 of 60<br><span>due 2 Dec</span></span></li><li class="prow"><span class="bub" aria-hidden="true">R</span><div class="pn"><a href="#">Q4 customer survey</a><span>Research</span></div><span class="st st-ok"><svg class="si" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m7.8 12.3 2.9 2.9 5.6-6"/></svg>On track</span><div class="pm"><span class="seg" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><b>90%</b></div><span class="pt">9 of 10<br><span>due 7 Nov</span></span></li><li class="prow"><span class="bub" aria-hidden="true">E</span><div class="pn"><a href="#">Billing migration</a><span>Engineering</span></div><span class="st st-bad"><svg class="si" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5"/><path d="m8.5 8.5 7 7M15.5 8.5l-7 7"/></svg>Behind</span><div class="pm"><span class="seg" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><b>30%</b></div><span class="pt">12 of 40<br><span>due 20 Nov</span></span></li><li class="prow"><span class="bub" aria-hidden="true">M</span><div class="pn"><a href="#">Spring catalogue</a><span>Marketing</span></div><span class="st st-ok"><svg class="si" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m7.8 12.3 2.9 2.9 5.6-6"/></svg>On track</span><div class="pm"><span class="seg" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><b>15%</b></div><span class="pt">3 of 20<br><span>due 15 Jan</span></span></li><li class="prow"><span class="bub" aria-hidden="true">M</span><div class="pn"><a href="#">Onboarding emails</a><span>Marketing</span></div><span class="st st-ok"><svg class="si" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m7.8 12.3 2.9 2.9 5.6-6"/></svg>On track</span><div class="pm"><span class="seg" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><b>60%</b></div><span class="pt">9 of 15<br><span>due 21 Nov</span></span></li></ul>
+</section>
+<div class="side">
+<section class="panel" aria-labelledby="ch">
+<div class="ph"><h2 id="ch">Tasks done</h2></div>
+<p class="tots"><span><i class="k lw"></i>Last week <b>59</b></span><span><i class="k tw"></i>This week <b>73</b></span></p>
+<svg class="chart" viewBox="0 0 320 210" role="img" aria-label="Tasks completed per day from Sunday 18 October to Saturday 31 October. Last week, Sunday to Saturday, 3, 12, 9, 14, 11, 8 and 2, totalling 59. This week 4, 15, 13, 17, 12, 10 and 2, totalling 73."><line x1="6" x2="314" y1="170.5" y2="170.5" class="base"/><rect x="16.0" y="143.2" width="12" height="26.8" rx="6" class="lw"/><rect x="31.0" y="134.2" width="12" height="35.8" rx="6" class="tw"/><text x="37.0" y="128.2" text-anchor="middle" class="vl">4</text><text x="29.5" y="190" text-anchor="middle" class="ax">Su</text><rect x="58.9" y="62.7" width="12" height="107.3" rx="6" class="lw"/><rect x="73.9" y="35.9" width="12" height="134.1" rx="6" class="tw"/><text x="79.9" y="29.9" text-anchor="middle" class="vl">15</text><text x="72.4" y="190" text-anchor="middle" class="ax">Mo</text><rect x="101.7" y="89.5" width="12" height="80.5" rx="6" class="lw"/><rect x="116.7" y="53.8" width="12" height="116.2" rx="6" class="tw"/><text x="122.7" y="47.8" text-anchor="middle" class="vl">13</text><text x="115.2" y="190" text-anchor="middle" class="ax">Tu</text><rect x="144.6" y="44.8" width="12" height="125.2" rx="6" class="lw"/><rect x="159.6" y="18.0" width="12" height="152.0" rx="6" class="tw"/><text x="165.6" y="12.0" text-anchor="middle" class="vl">17</text><text x="158.1" y="190" text-anchor="middle" class="ax">We</text><rect x="187.4" y="71.6" width="12" height="98.4" rx="6" class="lw"/><rect x="202.4" y="62.7" width="12" height="107.3" rx="6" class="tw"/><text x="208.4" y="56.7" text-anchor="middle" class="vl">12</text><text x="200.9" y="190" text-anchor="middle" class="ax">Th</text><rect x="230.3" y="98.5" width="12" height="71.5" rx="6" class="lw"/><rect x="245.3" y="80.6" width="12" height="89.4" rx="6" class="tw"/><text x="251.3" y="74.6" text-anchor="middle" class="vl">10</text><text x="243.8" y="190" text-anchor="middle" class="ax">Fr</text><rect x="273.1" y="152.1" width="12" height="17.9" rx="6" class="lw"/><rect x="288.1" y="152.1" width="12" height="17.9" rx="6" class="tw"/><text x="294.1" y="146.1" text-anchor="middle" class="vl">2</text><text x="286.6" y="190" text-anchor="middle" class="ax">Sa</text></svg>
+</section>
+<section class="panel" aria-labelledby="ah">
+<div class="ph"><h2 id="ah">Lately</h2></div>
+<ul class="acts"><li><span class="av sm" aria-hidden="true">JW</span><p><b>Jonas Weber</b> completed “Export invoices as CSV” in <b>Billing migration</b><span class="when">12 min ago</span></p></li><li><span class="av sm" aria-hidden="true">PN</span><p><b>Priya Nair</b> commented on “Hero image options” in <b>Website redesign</b><span class="when">40 min ago</span></p></li><li><span class="av sm" aria-hidden="true">SO</span><p><b>Sam Ortiz</b> moved “Push notifications” to Review in <b>Mobile app 2.0</b><span class="when">1 h ago</span></p></li><li><span class="av sm" aria-hidden="true">LF</span><p><b>Lena Fischer</b> added 3 tasks to <b>Spring catalogue</b><span class="when">2 h ago</span></p></li><li><span class="av sm" aria-hidden="true">TR</span><p><b>Tomás Ruiz</b> logged 6 h on <b>Mobile app 2.0</b><span class="when">3 h ago</span></p></li><li><span class="av sm" aria-hidden="true">AT</span><p><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to <b>Q4 customer survey</b><span class="when">yesterday</span></p></li></ul>
+</section>
+</div>
+</div>
+</main>
+
+<section class="sheet" aria-labelledby="sheet-h">
+<div class="sheet-in">
+<h2 id="sheet-h">Style 235 · Aubergine</h2>
+<p class="idea">A plush plum workspace of rounded capsules, with a violet hero that holds the greeting and four pill figures, projects as rows with segmented pill meters, and rose as the single warm accent.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><span class="chip" style="background:#1a1020"></span><span class="swt"><b>night</b> <code>#1a1020</code><span>the page and the style sheet</span></span></li><li class="sw"><span class="chip" style="background:#221528"></span><span class="swt"><b>plum</b> <code>#221528</code><span>the top bar</span></span></li><li class="sw"><span class="chip" style="background:#2a1a31"></span><span class="swt"><b>skin</b> <code>#2a1a31</code><span>panels and project rows</span></span></li><li class="sw"><span class="chip" style="background:#36223f"></span><span class="swt"><b>flesh</b> <code>#36223f</code><span>pill figures, the search field, empty meter segments and the current nav pill</span></span></li><li class="sw"><span class="chip" style="background:#3b2449"></span><span class="swt"><b>heroTop</b> <code>#3b2449</code><span>the top of the hero gradient</span></span></li><li class="sw"><span class="chip" style="background:#4d3557"></span><span class="swt"><b>line</b> <code>#4d3557</code><span>panel borders and row dividers</span></span></li><li class="sw"><span class="chip" style="background:#f3e8f5"></span><span class="swt"><b>ink</b> <code>#f3e8f5</code><span>text and figures</span></span></li><li class="sw"><span class="chip" style="background:#c9b2cf"></span><span class="swt"><b>mauve</b> <code>#c9b2cf</code><span>meta, labels and axis text</span></span></li><li class="sw"><span class="chip" style="background:#b9a0ec"></span><span class="swt"><b>violet</b> <code>#b9a0ec</code><span>last week capsules, category bubbles and secondary outlines</span></span></li><li class="sw"><span class="chip" style="background:#f4a3c0"></span><span class="swt"><b>rose</b> <code>#f4a3c0</code><span>the primary button, filled meter segments, this week capsules, links and focus</span></span></li><li class="sw"><span class="chip" style="background:#2b0f1d"></span><span class="swt"><b>roseInk</b> <code>#2b0f1d</code><span>text on rose</span></span></li><li class="sw"><span class="chip" style="background:#93e0c0"></span><span class="swt"><b>ok</b> <code>#93e0c0</code><span>On track text and check circle</span></span></li><li class="sw"><span class="chip" style="background:#f3d27a"></span><span class="swt"><b>risk</b> <code>#f3d27a</code><span>At risk text and triangle</span></span></li><li class="sw"><span class="chip" style="background:#ffab91"></span><span class="swt"><b>bad</b> <code>#ffab91</code><span>Behind and overdue text, crossed square and clock</span></span></li></ul>
+<h3>Type scale</h3>
+<ul class="types"><li class="ty"><span class="tys" style="font:700 40px/1.1 var(--geo)">Hello, Mara</span><span class="tym">40px 700 · Avenir Next, Century Gothic, Futura, URW Gothic, sans-serif</span></li><li class="ty"><span class="tys" style="font:700 32px/1 var(--geo)">23</span><span class="tym">32px 700 tabular · pill figures</span></li><li class="ty"><span class="tys" style="font:700 20px var(--geo)">Projects</span><span class="tym">20px 700 · panel titles</span></li><li class="ty"><span class="tys" style="font:600 16px var(--geo)">Mobile app 2.0</span><span class="tym">16px 600 · project names</span></li><li class="ty"><span class="tys" style="font:14px/1.5 var(--geo)">Sam Ortiz moved “Push notifications” to Review</span><span class="tym">14px 400 · body</span></li><li class="ty"><span class="tys" style="font:13px var(--geo)">27 of 60 · due 2 Dec</span><span class="tym">13px 400 · meta in mauve</span></li></ul>
+<h3>Spacing, density and surfaces</h3>
+<dl class="facts"><div class="fact"><dt>Spacing</dt><dd>An 8px unit. 24px panel padding, 16px row padding, 24px between panels.</dd></div><div class="fact"><dt>Density</dt><dd>Medium. Generous hero, compact project rows.</dd></div><div class="fact"><dt>Corners</dt><dd>Very round. 28px hero, 22px panels, pills on every button, field, chip, meter and bar.</dd></div><div class="fact"><dt>Borders</dt><dd>1px line on panels and between rows. Last week capsules are 2px violet outlines.</dd></div><div class="fact"><dt>Shadows</dt><dd>A soft plum glow under the hero, 0 16px 40px of near-black at 45 percent, none elsewhere.</dd></div><div class="fact"><dt>Icons</dt><dd>Rounded line icons at 1.8px stroke. Status uses a check circle, a triangle with a bang and a crossed square inside a pill with the word, overdue a clock.</dd></div><div class="fact"><dt>Focus</dt><dd>A 2px rose outline offset 3px.</dd></div><div class="fact"><dt>Tone</dt><dd>Warm and personal, such as Hello, Mara and This week feels busier.</dd></div></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls">
+<div class="ctl"><span class="ctl-l">Primary button</span><div class="ctl-r"><button type="button" class="btn primary"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>New project</button><button type="button" class="btn primary is-focus"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>New project</button></div></div>
+<div class="ctl"><span class="ctl-l">Secondary button</span><div class="ctl-r"><button type="button" class="btn secondary">View all</button><button type="button" class="btn secondary is-focus">View all</button></div></div>
+<div class="ctl"><span class="ctl-l">Text field</span><div class="ctl-r"><label class="field"><span class="vh">Search projects, normal</span><input type="text" placeholder="Search projects and tasks"></label><label class="field"><span class="vh">Search projects, focus</span><input type="text" class="is-focus" value="Billing"></label></div></div>
+<div class="ctl"><span class="ctl-l">List row</span><div class="ctl-r rows"><a href="#" class="srow"><b>Mobile app 2.0</b><span class="srow-m">Engineering · 45%</span><span class="st st-risk"><svg class="si" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 21.3 20H2.7z"/><path d="M12 9.5V14"/><circle cx="12" cy="17" r="1.1" fill="currentColor" stroke="none"/></svg>At risk</span></a><a href="#" class="srow is-focus"><b>Mobile app 2.0</b><span class="srow-m">Engineering · 45%</span><span class="st st-risk"><svg class="si" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 21.3 20H2.7z"/><path d="M12 9.5V14"/><circle cx="12" cy="17" r="1.1" fill="currentColor" stroke="none"/></svg>At risk</span></a></div></div>
+</div>
+<p class="note">The second sample in each pair shows the focus state, drawn statically with the class is-focus. It matches the real :focus-visible rule.</p>
+</div>
+</section>
+</body>
+</html>

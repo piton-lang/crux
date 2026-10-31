@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 175 · Top nav hub · Brightwork</title>
+<style>
+:root {
+  --navy: #1d2c54;
+  --navy-ink: #c9d1e6;
+  --page: #f3f1ed;
+  --paper: #ffffff;
+  --band: #e8e4dc;
+  --ink: #25262b;
+  --muted: #5e5a53;
+  --line: #d9d4cb;
+  --strong-line: #858077;
+  --ok: #2d6a3e;
+  --risk: #8a4d00;
+  --bad: #a8261e;
+  --sans: "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 15px/1.5 var(--sans); }
+h1, h2, h3, p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+a { color: var(--navy); text-underline-offset: 2px; }
+svg.i { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+:focus-visible, .is-focus { outline: 3px solid var(--navy); outline-offset: 2px; box-shadow: 0 0 0 2px var(--paper); }
+.wrap { max-width: 1232px; margin: 0 auto; padding: 0 24px; }
+
+/* navy top bar with horizontal nav */
+.bar { background: var(--navy); color: #fff; }
+.bar .wrap { display: flex; align-items: center; gap: 24px; min-height: 60px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; letter-spacing: 0.01em; white-space: nowrap; }
+.brand i { width: 22px; height: 22px; border: 2px solid #fff; border-radius: 2px; position: relative; }
+.brand i::after { content: ""; position: absolute; inset: 4px; background: #fff; }
+.nav { display: flex; align-self: stretch; }
+.nav a { display: flex; align-items: center; padding: 0 14px; color: var(--navy-ink); text-decoration: none; font-weight: 600; font-size: 14px; border-bottom: 3px solid transparent; border-top: 3px solid transparent; }
+.nav a:hover { color: #fff; }
+.nav a[aria-current="page"] { color: #fff; border-bottom-color: #fff; }
+.bar :focus-visible { outline-color: #fff; box-shadow: none; outline-offset: -3px; }
+.tools { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+.search { display: flex; align-items: center; gap: 8px; width: 260px; height: 36px; padding: 0 10px; background: #fff; color: var(--muted); border-radius: 3px; }
+.search input { flex: 1; min-width: 0; border: 0; font: inherit; font-size: 14px; color: var(--ink); background: transparent; outline: none; }
+.search:focus-within { outline: 3px solid #fff; outline-offset: 2px; }
+.btn { display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 16px; border-radius: 3px; font: 600 14px/1 var(--sans); cursor: pointer; white-space: nowrap; }
+.btn.primary { background: var(--navy); color: #fff; border: 1px solid var(--navy); }
+.bar .btn.primary { background: #fff; color: var(--navy); border-color: #fff; }
+.btn.secondary { background: var(--paper); color: var(--navy); border: 1px solid var(--navy); }
+.iconbtn { width: 36px; height: 36px; display: grid; place-items: center; background: transparent; border: 1px solid #4a5a82; border-radius: 3px; color: #fff; cursor: pointer; }
+.user { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; white-space: nowrap; }
+.user .av { width: 32px; height: 32px; border-radius: 50%; background: #e8e4dc; color: var(--navy); display: grid; place-items: center; font-size: 12px; font-weight: 700; }
+
+/* sub tabs */
+.sub { background: var(--paper); border-bottom: 1px solid var(--line); }
+.sub .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.subtabs { display: flex; gap: 4px; }
+.subtabs a { display: block; padding: 12px 12px 10px; color: var(--muted); text-decoration: none; font-weight: 600; font-size: 14px; border-bottom: 3px solid transparent; }
+.subtabs a[aria-current="page"] { color: var(--navy); border-bottom-color: var(--navy); }
+.sub .date { color: var(--muted); font-size: 14px; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+
+/* greeting */
+.greet { padding: 28px 0 24px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px; }
+.greet h1 { font-size: 30px; font-weight: 700; letter-spacing: -0.01em; color: var(--navy); }
+.greet .urgent { display: flex; align-items: center; gap: 8px; margin-top: 4px; color: var(--bad); font-weight: 600; }
+.greet .urgent a { color: var(--bad); }
+
+/* full width KPI band */
+.band { background: var(--band); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.kpi { padding: 20px 24px; border-left: 1px solid var(--strong-line); }
+.kpi:first-child { border-left: 0; padding-left: 0; }
+.kpi .lab { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.kpi .num { display: flex; align-items: center; gap: 8px; font-size: 44px; line-height: 1.1; font-weight: 600; color: var(--navy); font-variant-numeric: tabular-nums; margin: 4px 0 2px; }
+.kpi .num svg.i { width: 26px; height: 26px; }
+.kpi .note { font-size: 13px; color: var(--muted); }
+.kpi.over .num { color: var(--bad); }
+
+/* three equal columns */
+.cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding: 28px 0 8px; align-items: start; }
+.panel { background: var(--paper); border: 1px solid var(--line); border-top: 3px solid var(--navy); border-radius: 3px; }
+.panel-h { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+.panel-h h2 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--navy); }
+.panel-h a { font-size: 13px; font-weight: 600; }
+.prow { padding: 12px 18px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; }
+.prow + .prow { border-top: 1px solid var(--line); }
+.prow .name { font-weight: 700; color: var(--ink); text-decoration: none; }
+.prow .name:hover { text-decoration: underline; }
+.prow .meta { grid-column: 1 / -1; color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; gap: 8px; }
+.prow .track { grid-column: 1 / -1; height: 6px; background: #ece8e1; margin-top: 6px; }
+.prow .track span { display: block; height: 100%; background: var(--navy); }
+.st { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 700; white-space: nowrap; }
+.st svg.i { width: 16px; height: 16px; }
+.st.ok { color: var(--ok); }
+.st.risk { color: var(--risk); }
+.st.behind { color: var(--bad); }
+.chart-b { padding: 18px; }
+.bars { display: flex; align-items: flex-end; gap: 3px; height: 190px; }
+.col { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; gap: 3px; }
+.col.wk2 { margin-left: 8px; }
+.col .val { font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.col .bar { width: 100%; height: calc(var(--v) * 8px); }
+.col.lw .bar { background: repeating-linear-gradient(135deg, #fff 0 3px, #c9c3b8 3px 4px); border: 1.5px solid var(--strong-line); border-bottom: 0; }
+.col.tw .bar { background: var(--navy); }
+.col .day { font-size: 11px; color: var(--muted); border-top: 1px solid var(--strong-line); width: 100%; text-align: center; padding-top: 3px; line-height: 1.25; }
+.weeks { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 14px; }
+.weeks th, .weeks td { padding: 7px 0; border-top: 1px solid var(--line); text-align: left; font-weight: 400; }
+.weeks td { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+.weeks .key { display: inline-block; width: 12px; height: 12px; margin-right: 8px; vertical-align: -1px; }
+.weeks .key.lw { background: repeating-linear-gradient(135deg, #fff 0 3px, #c9c3b8 3px 4px); border: 1.5px solid var(--strong-line); }
+.weeks .key.tw { background: var(--navy); }
+.feed li { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 12px; padding: 12px 18px; }
+.feed li + li { border-top: 1px solid var(--line); }
+.feed .av { width: 32px; height: 32px; border-radius: 2px; background: var(--band); color: var(--navy); display: grid; place-items: center; font-size: 12px; font-weight: 700; }
+.feed p { font-size: 14px; }
+.feed .when { display: block; color: var(--muted); font-size: 13px; }
+
+/* style sheet */
+.sheet { max-width: 1232px; margin: 48px auto 64px; padding: 32px 24px; background: var(--paper); border: 1px solid var(--line); border-top: 3px solid var(--navy); }
+.sheet h2 { font-size: 26px; color: var(--navy); }
+.sheet h3 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--navy); margin: 32px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+.idea { margin-top: 8px; max-width: 70ch; font-size: 16px; }
+.swatches { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.swatches li { display: grid; gap: 8px; align-content: start; }
+.sw { height: 56px; border: 1px solid rgba(0,0,0,.15); }
+.sw-t { display: grid; font-size: 13px; }
+.sw-t code { color: var(--muted); }
+.sw-t span { color: var(--muted); }
+.tscale li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.ts-m { color: var(--muted); font-size: 13px; }
+.stack { margin-top: 10px; color: var(--muted); font-size: 14px; max-width: 80ch; }
+.sys { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 24px; margin: 0; }
+.sys div { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.sys div:first-child { grid-column: 1 / -1; }
+.sys div:first-child dd { max-width: 90ch; }
+.sys dt { font-weight: 700; font-size: 14px; color: var(--navy); }
+.sys dd { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
+.ctls { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.ctl { border: 1px solid var(--line); padding: 14px; min-width: 0; }
+.ctl-l { font-weight: 700; margin-bottom: 10px; }
+.ctl-p { display: grid; gap: 14px; }
+.ctl-p > div { min-width: 0; }
+.state { display: block; font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+.field { display: grid; gap: 4px; font-size: 13px; font-weight: 700; }
+.input { height: 36px; width: 100%; padding: 0 10px; border: 1px solid var(--strong-line); border-radius: 3px; font: 15px var(--sans); color: var(--ink); background: #fff; }
+.ctl .prow { border: 1px solid var(--line); }
+
+@media (max-width: 1180px) {
+  .search { width: 200px; }
+  .user .name { display: none; }
+}
+@media (max-width: 1040px) {
+  .bar .wrap { flex-wrap: wrap; padding-top: 10px; gap: 12px; }
+  .nav { order: 3; flex-basis: 100%; }
+  .nav a { padding: 10px 14px; }
+  .nav a:first-child { padding-left: 0; }
+  .cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cols .feedp { grid-column: 1 / -1; }
+  .swatches, .ctls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .wrap { padding: 0 16px; }
+  .tools { gap: 8px; }
+  .search { order: 4; width: 100%; }
+  .tools { flex-wrap: wrap; flex-basis: 100%; margin: 0; padding-bottom: 4px; }
+  .tools .btn { flex: 1; justify-content: center; }
+  .nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #3a4a72; }
+  .nav a, .nav a:first-child { padding: 10px 4px; justify-content: center; }
+  .sub .date { display: none; }
+  .subtabs { overflow-x: auto; }
+  .subtabs a { white-space: nowrap; }
+  .wrap.greet { padding: 20px 16px 20px; }
+  .greet h1 { font-size: 26px; }
+  .swatches li { grid-template-columns: 56px minmax(0, 1fr); }
+  .sw { height: 48px; }
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpi, .kpi:first-child { padding: 16px 0 16px 16px; border-left: 1px solid var(--strong-line); }
+  .kpi:nth-child(odd) { border-left: 0; padding-left: 0; }
+  .kpi:nth-child(-n+2) { border-bottom: 1px solid var(--strong-line); }
+  .kpi .num { font-size: 34px; }
+  .cols { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .sheet { margin: 32px 0 0; padding: 24px 16px; border-left: 0; border-right: 0; }
+  .swatches, .ctls, .sys { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></symbol>
+<symbol id="i-proj" viewBox="0 0 24 24"><path d="M3 6.5a1.5 1.5 0 0 1 1.5-1.5h4.5l2 2h8.5a1.5 1.5 0 0 1 1.5 1.5v9.5a1.5 1.5 0 0 1-1.5 1.5h-15a1.5 1.5 0 0 1-1.5-1.5z"/></symbol>
+<symbol id="i-task" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 12.5l2.8 2.8L16 9.5"/></symbol>
+<symbol id="i-team" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.5-3.5 3.2-5.5 6.5-5.5s6 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14c2.6.2 4.5 2 5 5"/></symbol>
+<symbol id="i-rep" viewBox="0 0 24 24"><path d="M4 4v16h16"/><path d="M8 16v-4M12 16V8M16 16v-6M20 16V5"/></symbol>
+<symbol id="i-set" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></symbol>
+<symbol id="i-time" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+<symbol id="i-cmd" viewBox="0 0 24 24"><path d="M9 6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3z"/></symbol>
+<symbol id="s-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.8 2.8L16.2 9.5"/></symbol>
+<symbol id="s-risk" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.4v.2"/></symbol>
+<symbol id="s-behind" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M9 9l6 6M15 9l-6 6"/></symbol>
+<symbol id="s-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+</svg>
+<header class="bar">
+  <div class="wrap">
+    <span class="brand"><i aria-hidden="true"></i>Brightwork</span>
+    <nav class="nav" aria-label="Main">
+      <a href="#" aria-current="page">Home</a><a href="#">Projects</a><a href="#">Tasks</a><a href="#">Team</a><a href="#">Reports</a><a href="#">Settings</a>
+    </nav>
+    <div class="tools">
+      <label class="search"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span class="vh">Search projects and tasks</span><input type="search" placeholder="Search projects and tasks"></label>
+      <button class="btn primary" type="button"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>New project</button>
+      <button class="iconbtn" type="button" aria-label="Notifications"><svg class="i" aria-hidden="true"><use href="#i-bell"/></svg></button>
+      <span class="user"><span class="av" aria-hidden="true">MO</span><span class="name">Mara Okafor</span><span class="vh">Signed in as Mara Okafor</span></span>
+    </div>
+  </div>
+</header>
+<div class="sub">
+  <div class="wrap">
+    <nav class="subtabs" aria-label="Home views">
+      <a href="#" aria-current="page">Overview</a><a href="#">My tasks</a><a href="#">Timeline</a><a href="#">Workload</a>
+    </nav>
+    <p class="date"><svg class="i" aria-hidden="true"><use href="#i-cal"/></svg>Saturday 31 October 2026</p>
+  </div>
+</div>
+<main>
+  <div class="wrap greet">
+    <div>
+      <h1>Good morning, Mara</h1>
+      <p class="urgent"><svg class="i" aria-hidden="true"><use href="#s-clock"/></svg>4 tasks are overdue. <a href="#">Review them</a></p>
+    </div>
+  </div>
+  <section class="band" aria-label="This week in numbers">
+    <div class="wrap kpis">
+      <div class="kpi"><p class="lab">Active projects</p><p class="num">6</p><p class="note">1 behind, 1 at risk</p></div>
+      <div class="kpi"><p class="lab">Due this week</p><p class="num">23</p><p class="note">Tasks, week of 25 to 31 Oct</p></div>
+      <div class="kpi over"><p class="lab">Overdue</p><p class="num"><svg class="i" aria-hidden="true"><use href="#s-clock"/></svg>4</p><p class="note">Tasks past their due date</p></div>
+      <div class="kpi"><p class="lab">Hours logged</p><p class="num">186</p><p class="note">This week, whole team</p></div>
+    </div>
+  </section>
+  <div class="wrap cols">
+    <section class="panel" aria-labelledby="p-h">
+      <div class="panel-h"><h2 id="p-h">Projects</h2><a href="#">All projects</a></div>
+      <ul>
+<li class="prow"><a class="name" href="#">Website redesign</a><span class="st ok"><svg class="i" aria-hidden="true"><use href="#s-ok"/></svg>On track</span><span class="meta"><span>Design · 18 of 25 tasks</span><span>Due 14 Nov</span></span><span class="track" aria-hidden="true"><span style="width:72%"></span></span><span class="meta"><span>72% complete</span><span>14 days left</span></span></li>
+<li class="prow"><a class="name" href="#">Mobile app 2.0</a><span class="st risk"><svg class="i" aria-hidden="true"><use href="#s-risk"/></svg>At risk</span><span class="meta"><span>Engineering · 27 of 60 tasks</span><span>Due 2 Dec</span></span><span class="track" aria-hidden="true"><span style="width:45%"></span></span><span class="meta"><span>45% complete</span><span>32 days left</span></span></li>
+<li class="prow"><a class="name" href="#">Q4 customer survey</a><span class="st ok"><svg class="i" aria-hidden="true"><use href="#s-ok"/></svg>On track</span><span class="meta"><span>Research · 9 of 10 tasks</span><span>Due 7 Nov</span></span><span class="track" aria-hidden="true"><span style="width:90%"></span></span><span class="meta"><span>90% complete</span><span>7 days left</span></span></li>
+<li class="prow"><a class="name" href="#">Billing migration</a><span class="st behind"><svg class="i" aria-hidden="true"><use href="#s-behind"/></svg>Behind</span><span class="meta"><span>Engineering · 12 of 40 tasks</span><span>Due 20 Nov</span></span><span class="track" aria-hidden="true"><span style="width:30%"></span></span><span class="meta"><span>30% complete</span><span>20 days left</span></span></li>
+<li class="prow"><a class="name" href="#">Spring catalogue</a><span class="st ok"><svg class="i" aria-hidden="true"><use href="#s-ok"/></svg>On track</span><span class="meta"><span>Marketing · 3 of 20 tasks</span><span>Due 15 Jan</span></span><span class="track" aria-hidden="true"><span style="width:15%"></span></span><span class="meta"><span>15% complete</span><span>76 days left</span></span></li>
+<li class="prow"><a class="name" href="#">Onboarding emails</a><span class="st ok"><svg class="i" aria-hidden="true"><use href="#s-ok"/></svg>On track</span><span class="meta"><span>Marketing · 9 of 15 tasks</span><span>Due 21 Nov</span></span><span class="track" aria-hidden="true"><span style="width:60%"></span></span><span class="meta"><span>60% complete</span><span>21 days left</span></span></li>
+      </ul>
+    </section>
+    <section class="panel" aria-labelledby="c-h">
+      <div class="panel-h"><h2 id="c-h">Tasks completed</h2><span class="note" style="font-size:13px;color:var(--muted)">Last 14 days</span></div>
+      <div class="chart-b">
+<div class="bars" role="img" aria-label="Tasks completed per day, 18 to 31 October. Last week, Sunday 18 to Saturday 24: 3, 12, 9, 14, 11, 8, 2, total 59. This week, Sunday 25 to Saturday 31: 4, 15, 13, 17, 12, 10, 2, total 73.">
+<div class="col lw" style="--v:3" aria-hidden="true"><span class="val">3</span><span class="bar"></span><span class="day">18</span></div>
+<div class="col lw" style="--v:12" aria-hidden="true"><span class="val">12</span><span class="bar"></span><span class="day">19</span></div>
+<div class="col lw" style="--v:9" aria-hidden="true"><span class="val">9</span><span class="bar"></span><span class="day">20</span></div>
+<div class="col lw" style="--v:14" aria-hidden="true"><span class="val">14</span><span class="bar"></span><span class="day">21</span></div>
+<div class="col lw" style="--v:11" aria-hidden="true"><span class="val">11</span><span class="bar"></span><span class="day">22</span></div>
+<div class="col lw" style="--v:8" aria-hidden="true"><span class="val">8</span><span class="bar"></span><span class="day">23</span></div>
+<div class="col lw" style="--v:2" aria-hidden="true"><span class="val">2</span><span class="bar"></span><span class="day">24</span></div>
+<div class="col tw wk2" style="--v:4" aria-hidden="true"><span class="val">4</span><span class="bar"></span><span class="day">25</span></div>
+<div class="col tw" style="--v:15" aria-hidden="true"><span class="val">15</span><span class="bar"></span><span class="day">26</span></div>
+<div class="col tw" style="--v:13" aria-hidden="true"><span class="val">13</span><span class="bar"></span><span class="day">27</span></div>
+<div class="col tw" style="--v:17" aria-hidden="true"><span class="val">17</span><span class="bar"></span><span class="day">28</span></div>
+<div class="col tw" style="--v:12" aria-hidden="true"><span class="val">12</span><span class="bar"></span><span class="day">29</span></div>
+<div class="col tw" style="--v:10" aria-hidden="true"><span class="val">10</span><span class="bar"></span><span class="day">30</span></div>
+<div class="col tw" style="--v:2" aria-hidden="true"><span class="val">2</span><span class="bar"></span><span class="day">31</span></div>
+</div>
+        <table class="weeks">
+          <tr><th scope="row"><span class="key lw" aria-hidden="true"></span>Last week, 18 to 24 Oct</th><td>59</td></tr>
+          <tr><th scope="row"><span class="key tw" aria-hidden="true"></span>This week, 25 to 31 Oct</th><td>73</td></tr>
+          <tr><th scope="row">Change</th><td>14 more, 24%</td></tr>
+        </table>
+      </div>
+    </section>
+    <section class="panel feedp" aria-labelledby="a-h">
+      <div class="panel-h"><h2 id="a-h">Activity</h2><a href="#">See all</a></div>
+      <ul class="feed">
+<li><span class="av" aria-hidden="true">JW</span><p><b>Jonas Weber</b> completed “Export invoices as CSV” in <a href="#">Billing migration</a><span class="when">12 min ago</span></p></li>
+<li><span class="av" aria-hidden="true">PN</span><p><b>Priya Nair</b> commented on “Hero image options” in <a href="#">Website redesign</a><span class="when">40 min ago</span></p></li>
+<li><span class="av" aria-hidden="true">SO</span><p><b>Sam Ortiz</b> moved “Push notifications” to Review in <a href="#">Mobile app 2.0</a><span class="when">1 h ago</span></p></li>
+<li><span class="av" aria-hidden="true">LF</span><p><b>Lena Fischer</b> added 3 tasks to <a href="#">Spring catalogue</a><span class="when">2 h ago</span></p></li>
+<li><span class="av" aria-hidden="true">TR</span><p><b>Tomás Ruiz</b> logged 6 h on <a href="#">Mobile app 2.0</a><span class="when">3 h ago</span></p></li>
+<li><span class="av" aria-hidden="true">AT</span><p><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to <a href="#">Q4 customer survey</a><span class="when">yesterday</span></p></li>
+      </ul>
+    </section>
+  </div>
+</main>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 175 · Top nav hub</h2>
+<p class="idea">A classic hub page with a navy bar of horizontal navigation and sub-tabs on top, a full-width stone band of four large figures, and three equal ruled columns for projects, the chart and activity, on warm grey paper.</p>
+<h3>Palette</h3><ul class="swatches">
+<li><span class="sw" style="background:#1d2c54"></span><span class="sw-t"><b>navy</b> <code>#1d2c54</code><span>the top bar, headings, figures, panel top rules, the primary button, this week bars and focus</span></span></li>
+<li><span class="sw" style="background:#c9d1e6"></span><span class="sw-t"><b>navyInk</b> <code>#c9d1e6</code><span>nav links that are not current on navy</span></span></li>
+<li><span class="sw" style="background:#f3f1ed"></span><span class="sw-t"><b>page</b> <code>#f3f1ed</code><span>the warm grey page</span></span></li>
+<li><span class="sw" style="background:#ffffff"></span><span class="sw-t"><b>paper</b> <code>#ffffff</code><span>panels, the sub-tab bar, fields and the style sheet</span></span></li>
+<li><span class="sw" style="background:#e8e4dc"></span><span class="sw-t"><b>band</b> <code>#e8e4dc</code><span>the full-width figures band and initials squares</span></span></li>
+<li><span class="sw" style="background:#25262b"></span><span class="sw-t"><b>ink</b> <code>#25262b</code><span>body text and project names</span></span></li>
+<li><span class="sw" style="background:#5e5a53"></span><span class="sw-t"><b>muted</b> <code>#5e5a53</code><span>labels, notes, meta and day numbers</span></span></li>
+<li><span class="sw" style="background:#d9d4cb"></span><span class="sw-t"><b>line</b> <code>#d9d4cb</code><span>panel borders and row rules</span></span></li>
+<li><span class="sw" style="background:#858077"></span><span class="sw-t"><b>strongLine</b> <code>#858077</code><span>dividers inside the figures band, field borders and last week bar outlines</span></span></li>
+<li><span class="sw" style="background:#2d6a3e"></span><span class="sw-t"><b>ok</b> <code>#2d6a3e</code><span>On track text and check circle</span></span></li>
+<li><span class="sw" style="background:#8a4d00"></span><span class="sw-t"><b>risk</b> <code>#8a4d00</code><span>At risk text and triangle</span></span></li>
+<li><span class="sw" style="background:#a8261e"></span><span class="sw-t"><b>bad</b> <code>#a8261e</code><span>Behind and overdue text, crossed square and clock</span></span></li>
+</ul><h3>Type</h3><ul class="tscale">
+<li><span class="ts-s" style="font:600 44px/1.1 Avenir Next, Avenir, Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif;color:#1d2c54;font-variant-numeric:tabular-nums">186</span><span class="ts-m">Band figure, 44px, 600, tabular</span></li>
+<li><span class="ts-s" style="font:700 30px/1.2 Avenir Next, Avenir, Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif;color:#1d2c54">Good morning, Mara</span><span class="ts-m">Greeting, 30px, 700</span></li>
+<li><span class="ts-s" style="font:700 13px/1.4 Avenir Next, Avenir, Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif;text-transform:uppercase;letter-spacing:.1em;color:#1d2c54">Tasks completed</span><span class="ts-m">Panel title, 13px caps, 700, tracked</span></li>
+<li><span class="ts-s" style="font:400 15px/1.5 Avenir Next, Avenir, Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif">Priya Nair commented on “Hero image options”</span><span class="ts-m">Body, 15px, 400</span></li>
+<li><span class="ts-s" style="font:400 13px/1.4 Avenir Next, Avenir, Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif;color:#5e5a53">Engineering · Due 20 Nov</span><span class="ts-m">Meta, 13px, 400</span></li>
+</ul><p class="stack">One humanist stack, Avenir Next, Avenir, Segoe UI, Helvetica Neue, Helvetica, Arial. Base 15px at 1.5. Band figures are 44px at 600 with tabular numbers, the greeting 30px bold navy, panel titles and band labels 12 to 13px bold caps tracked 0.1em, project names 15px bold, meta 13px.</p>
+<h3>System</h3><dl class="sys">
+<div><dt>Layout</dt><dd>Stacked full-width bands inside a 1232px container. A navy top bar holds a square outline mark and the Brightwork wordmark, the six nav items as horizontal tabs with a white underline on Home, then a white search field, a white New project button, an outlined bell and Mara Okafor at right. A white sub-tab bar beneath holds Overview, My tasks, Timeline and Workload with a navy underline on Overview, and the date with a calendar icon at right. The greeting sits on the page with the overdue line and a Review them link. A full-width stone band runs edge to edge with four figures split by vertical rules, each a caps label, a 44px navy number and a short note, overdue in red with a clock. Then three equal columns of white panels with a 3px navy top rule. Projects lists six rows of name, status, category and due, and a 6px bar. The chart panel shows fourteen bars, hatched outlined last week and solid navy this week, over a small table of week totals and change. Activity lists six entries with square initials. Below 1040px the nav wraps under the brand and activity spans two columns. Below 760px the nav becomes a three by two grid, figures go two by two and panels stack.</dd></div>
+<div><dt>Spacing</dt><dd>An 8px unit. 24px gutters between columns, 20px figure padding, 12 to 18px row padding, 28px above the columns.</dd></div>
+<div><dt>Density</dt><dd>Medium. Figures are large and airy, the columns beneath are compact.</dd></div>
+<div><dt>Corners</dt><dd>Nearly square. 3px panels, buttons and fields, round avatar, square initials.</dd></div>
+<div><dt>Borders</dt><dd>1px warm grey panel borders and row rules, a 3px navy top rule on panels, darker vertical rules in the band.</dd></div>
+<div><dt>Shadows</dt><dd>None. Hierarchy comes from the navy bar, the stone band and rules.</dd></div>
+<div><dt>Icons</dt><dd>Line icons at 2px stroke, 18px. Status is text with a check circle for On track, a triangle for At risk, a crossed square for Behind and a clock for overdue.</dd></div>
+<div><dt>Focus</dt><dd>A 3px navy outline offset 2px with a white gap, white and inset on the navy bar.</dd></div>
+<div><dt>Tone</dt><dd>Formal and businesslike, with caps labels such as Due this week and Hours logged and plain links such as All projects.</dd></div>
+</dl><h3>Controls</h3><div class="ctls">
+<div class="ctl"><p class="ctl-l">Primary button</p><div class="ctl-p"><div><span class="state">Normal</span><button class="btn primary" type="button"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>New project</button></div><div><span class="state">Focus</span><button class="btn primary is-focus" type="button"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>New project</button></div></div></div>
+<div class="ctl"><p class="ctl-l">Secondary button</p><div class="ctl-p"><div><span class="state">Normal</span><button class="btn secondary" type="button">All projects</button></div><div><span class="state">Focus</span><button class="btn secondary is-focus" type="button">All projects</button></div></div></div>
+<div class="ctl"><p class="ctl-l">Text field</p><div class="ctl-p"><div><span class="state">Normal</span><label class="field"><span>Project name</span><input class="input" type="text" value="Mobile app 2.0"></label></div><div><span class="state">Focus</span><label class="field"><span>Project name</span><input class="input is-focus" type="text" value="Mobile app 2.0"></label></div></div></div>
+<div class="ctl"><p class="ctl-l">List row</p><div class="ctl-p"><div><span class="state">Normal</span><ul><li class="prow"><a class="name" href="#">Website redesign</a><span class="st ok"><svg class="i" aria-hidden="true"><use href="#s-ok"/></svg>On track</span><span class="meta"><span>Design · 18 of 25 tasks</span><span>Due 14 Nov</span></span></li></ul></div><div><span class="state">Focus</span><ul><li class="prow"><a class="name is-focus" href="#">Website redesign</a><span class="st ok"><svg class="i" aria-hidden="true"><use href="#s-ok"/></svg>On track</span><span class="meta"><span>Design · 18 of 25 tasks</span><span>Due 14 Nov</span></span></li></ul></div></div></div>
+</div></section>
+</body>
+</html>

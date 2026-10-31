@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 370 · Bullion · Brightwork</title>
+<style>
+
+:root { color-scheme: dark; --velvet:#1a0910; --plush:#2a1019; --plush2:#3a1724; --seam:#5c2a3a; --ink:#f6e9e0; --muted:#d0b3ad; --gold:#d8aa3e; --goldhi:#f4d67e; --goldlo:#a87a22; --ongold:#2a1600; --rose:#ff9fa8; --ok:#e9d58a;
+ --display: Optima, Candara, "Segoe UI", "Gill Sans", "Trebuchet MS", sans-serif; --fig: Rockwell, "Roboto Slab", "DejaVu Serif", Georgia, serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background-color: var(--velvet); background-image: radial-gradient(ellipse at 20% 10%, #2c0f1a 0, transparent 50%), radial-gradient(ellipse at 90% 60%, #25101a 0, transparent 45%); color: var(--ink); font: 16px/1.5 var(--display); }
+a { color: var(--goldhi); }
+:focus-visible, .is-focus { outline: 3px double var(--goldhi) !important; outline-offset: 4px; }
+.si { width: 1em; height: 1em; vertical-align: -2px; flex: none; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 28px 24px 0; }
+.top { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding-bottom: 20px; border-bottom: 2px solid var(--seam); }
+.seal { width: 48px; height: 48px; }
+.top .nm { font-size: 20px; letter-spacing: .28em; text-transform: uppercase; font-weight: 700; color: var(--goldhi); }
+.top .who { margin-left: auto; text-align: right; font-size: 14px; color: var(--muted); letter-spacing: .06em; }
+.top .who b { display: block; color: var(--ink); font-size: 16px; letter-spacing: .02em; }
+nav ul { list-style: none; display: flex; gap: 8px; margin: 16px 0 0; padding: 0; flex-wrap: wrap; }
+nav a { display: block; padding: 6px 14px; color: var(--muted); text-decoration: none; letter-spacing: .14em; text-transform: uppercase; font-size: 13px; border: 1px solid transparent; }
+nav a[aria-current] { color: var(--ongold); background: var(--gold); border-color: var(--goldhi); }
+h1 { font-size: 15px; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); font-weight: 400; margin: 32px 0 16px; text-align: center; }
+h2 { font-size: 16px; letter-spacing: .24em; text-transform: uppercase; color: var(--goldhi); margin: 0 0 16px; font-weight: 700; }
+.ingots { list-style: none; margin: 0 0 40px; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.ingot { clip-path: polygon(8% 0, 92% 0, 100% 100%, 0 100%); background-color: var(--gold); background-image: linear-gradient(180deg, var(--goldhi) 0, var(--gold) 45%, var(--goldlo) 100%); color: var(--ongold); padding: 18px 14% 16px; text-align: center; }
+.ingot .k { font-size: 13px; letter-spacing: .24em; text-transform: uppercase; font-weight: 700; }
+.ingot .v { font-family: var(--fig); font-weight: 700; font-size: 32px; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.ingot .s { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; }
+.ingot.iou { background: var(--plush2); background-image: none; color: var(--ink); box-shadow: none; position: relative; }
+.ingot.iou .v { color: var(--rose); }
+.ingot.iou .s { color: var(--muted); display: inline-flex; gap: 6px; align-items: center; }
+.cols { display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 32px; align-items: start; }
+.panel { background: var(--plush); border-radius: 4px; padding: 24px; box-shadow: inset 0 0 0 1px var(--seam), 0 20px 40px rgba(0,0,0,.45); }
+.tiers { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.tier { display: grid; grid-template-columns: 140px minmax(0, 1fr) 150px; gap: 16px; align-items: center; }
+.tier .n { font-size: 17px; letter-spacing: .04em; }
+.tbar { height: 26px; background: var(--velvet); clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 100%, 0 100%); position: relative; }
+.tbar i { position: absolute; left: 0; top: 0; bottom: 0; background-color: var(--gold); background-image: linear-gradient(180deg, var(--goldhi), var(--gold) 50%, var(--goldlo)); }
+.tbar.over i { background: repeating-linear-gradient(115deg, var(--rose) 0 8px, #c8707a 8px 12px); }
+.tier .f { font-family: var(--fig); font-variant-numeric: tabular-nums; text-align: right; font-size: 15px; }
+.tier .f b { font-size: 18px; }
+.tier .st { grid-column: 2 / -1; margin-top: -10px; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; display: flex; gap: 6px; align-items: center; }
+.st.ok { color: var(--ok); } .st.full { color: var(--goldhi); } .st.over { color: var(--rose); }
+.total { margin: 24px 0 0; padding-top: 16px; border-top: 1px solid var(--seam); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 15px; color: var(--muted); }
+.total b { font-family: var(--fig); color: var(--ink); font-size: 18px; }
+.vault { text-align: center; }
+.vault svg { width: 100%; max-width: 360px; height: auto; display: block; margin: 8px auto 12px; }
+.vault .big { font-family: var(--fig); font-size: 40px; font-weight: 700; color: var(--goldhi); line-height: 1.1; }
+.vault .big span { font-size: 18px; color: var(--muted); font-weight: 400; }
+.vault p { margin: 6px 0 0; color: var(--muted); letter-spacing: .04em; }
+.ledger { list-style: none; margin: 0; padding: 0; }
+.ledger li { display: grid; grid-template-columns: 70px minmax(0, 1fr) auto; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--seam); align-items: baseline; }
+.ledger .d { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.ledger .a { font-family: var(--fig); font-variant-numeric: tabular-nums; white-space: nowrap; display: inline-flex; gap: 6px; align-items: center; }
+.ledger .in .a { color: var(--goldhi); font-weight: 700; }
+.mt { margin-top: 32px; }
+@media (max-width: 1000px) { .cols { grid-template-columns: 1fr; } }
+@media (max-width: 680px) {
+ .wrap { padding: 20px 16px 0; } .top .who { margin-left: 0; text-align: left; width: 100%; } .top .nm { font-size: 16px; letter-spacing: .2em; }
+ .ingots { grid-template-columns: 1fr; gap: 12px; } .ingot .v { font-size: 28px; }
+ .tier { grid-template-columns: minmax(0,1fr) auto; gap: 8px 12px; } .tier .tbar { grid-column: 1 / -1; order: 3; } .tier .st { grid-column: 1 / -1; order: 4; margin-top: 0; }
+ .panel { padding: 20px 16px; }
+ .ledger li { grid-template-columns: 56px minmax(0,1fr) auto; }
+}
+
+.sheet { max-width: 1120px; margin: 0 auto; padding: 48px 24px 64px; }
+.sheet .swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.sheet .sw { display: flex; gap: 12px; align-items: flex-start; }
+.sheet .sw i { flex: none; width: 44px; height: 44px; }
+.sheet .sw span { font-size: 13px; }
+.sheet .type-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding: 8px 0; }
+.sheet .type-row code { flex: none; width: 200px; font-size: 12px; }
+.sheet .type-row span { min-width: 0; overflow-wrap: anywhere; }
+.sheet .facts { display: grid; grid-template-columns: 140px minmax(0,1fr); gap: 8px 24px; margin: 0; }
+.sheet .facts dd { margin: 0; }
+.sheet .controls { display: grid; gap: 20px; }
+.sheet .ctl-label { display: block; font-size: 13px; margin-bottom: 8px; }
+.sheet .ctl-pair { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
+.sheet .fld { display: grid; gap: 6px; font-size: 13px; }
+.sheet .lrow { min-width: 0; width: min(340px, 100%); }
+@media (max-width: 600px) { .sheet .facts { grid-template-columns: minmax(0,1fr); } .sheet .facts dd { margin-bottom: 8px; } .sheet .type-row code { width: auto; } .sheet { padding: 40px 16px 48px; } }
+
+.sheet { margin-top: 48px; border-top: 2px solid var(--seam); }
+.sheet h2 { font-size: 28px; letter-spacing: .14em; margin-bottom: 8px; }
+.sheet .idea { font-size: 18px; max-width: 780px; }
+.sheet h3 { font-size: 14px; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--seam); font-weight: 400; }
+.sheet .sw i { clip-path: polygon(14% 0, 86% 0, 100% 100%, 0 100%); width: 56px; height: 36px; }
+.sheet .sw span, .sheet code, .sheet .ctl-label, .sheet .fld span, .sheet dt { color: var(--muted); }
+.sheet dt { letter-spacing: .14em; text-transform: uppercase; font-size: 13px; }
+.btn-p { font: 700 14px var(--display); letter-spacing: .2em; text-transform: uppercase; color: var(--ongold); background-color: var(--gold); background-image: linear-gradient(180deg, var(--goldhi), var(--gold) 50%, var(--goldlo)); border: 0; padding: 13px 26px; border-radius: 2px; cursor: pointer; }
+.btn-s { font: 700 14px var(--display); letter-spacing: .2em; text-transform: uppercase; color: var(--goldhi); background: var(--plush2); border: 1px solid var(--gold); padding: 12px 25px; border-radius: 2px; cursor: pointer; }
+.fld input { font: 17px var(--fig); background: var(--plush); color: var(--ink); border: 1px solid var(--seam); border-bottom: 2px solid var(--gold); padding: 10px 12px; border-radius: 2px; width: 240px; max-width: 100%; }
+.lrow { display: grid; grid-template-columns: 56px 1fr auto; gap: 12px; padding: 12px 8px; border-bottom: 1px solid var(--seam); color: var(--ink); text-decoration: none; background: var(--plush); }
+.lrow .d { font-size: 13px; color: var(--muted); letter-spacing: .1em; }
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><svg class="seal" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#d8aa3e" stroke="#f4d67e" stroke-width="2"/><circle cx="24" cy="24" r="16" fill="none" stroke="#2a1600" stroke-width="1.5" stroke-dasharray="2 2"/><polygon points="16,28 20,20 28,20 32,28" fill="#2a1600"/></svg><span class="nm">Brightwork Money</span><div class="who"><b>Mara Okafor</b>October holdings in euros</div></header>
+<nav aria-label="Main"><ul><li><a href="#" aria-current="page">Overview</a></li><li><a href="#">Bars</a></li><li><a href="#">Spending</a></li><li><a href="#">Movements</a></li></ul></nav>
+<main>
+ <h1>October · what you hold</h1>
+ <ul class="ingots" aria-label="Balances">
+  <li class="ingot"><div class="k">Everyday account</div><div class="v">€2,184.60</div><div class="s">Fine · ready</div></li>
+  <li class="ingot"><div class="k">Savings</div><div class="v">€11,420.00</div><div class="s">Fine · held</div></li>
+  <li class="ingot iou"><div class="k">Credit card</div><div class="v">−€342.18</div><div class="s"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Owed · due 12 Nov</div></li>
+ </ul>
+ <div class="cols">
+  <section class="panel" aria-labelledby="h-sp"><h2 id="h-sp">October spending</h2>
+   <ul class="tiers"><li class="tier"><span class="n">Rent</span><span class="tbar" role="img" aria-label="1,150 of 1,150"><i style="width:100%"></i></span><span class="f"><b>1,150</b> of 1,150</span><span class="st full"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10h8M8 14h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Fully spent</span></li><li class="tier"><span class="n">Groceries</span><span class="tbar" role="img" aria-label="386 of 450"><i style="width:86%"></i></span><span class="f"><b>386</b> of 450</span><span class="st ok"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.8 12.3l2.8 2.8 5.6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>64 in reserve</span></li><li class="tier"><span class="n">Eating out</span><span class="tbar over" role="img" aria-label="212 of 150"><i style="width:100%"></i></span><span class="f"><b>212</b> of 150</span><span class="st over"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3L22 20H2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9.5v4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2" fill="currentColor"/></svg>Over by 62</span></li><li class="tier"><span class="n">Transport</span><span class="tbar" role="img" aria-label="74 of 120"><i style="width:62%"></i></span><span class="f"><b>74</b> of 120</span><span class="st ok"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.8 12.3l2.8 2.8 5.6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>46 in reserve</span></li><li class="tier"><span class="n">Subscriptions</span><span class="tbar" role="img" aria-label="48 of 60"><i style="width:80%"></i></span><span class="f"><b>48</b> of 60</span><span class="st ok"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.8 12.3l2.8 2.8 5.6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>12 in reserve</span></li></ul>
+   <div class="total"><span>Spent <b>1,870</b> of <b>1,930</b></span><span><b>60</b> still in reserve</span></div>
+  </section>
+  <section class="panel vault" aria-labelledby="h-g"><h2 id="h-g">Japan trip bars</h2><svg viewBox="0 96 360 156" role="img" aria-label="Ten gold bars of 500 euros stacked in a pyramid. Six are solid, the seventh is two fifths gold and three are outlines, 3,200 of 5,000 saved">
+<defs><linearGradient id="gg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4d67e"/><stop offset=".5" stop-color="#d8aa3e"/><stop offset="1" stop-color="#a87a22"/></linearGradient></defs>
+<ellipse cx="180" cy="244" rx="170" ry="6" fill="#0d0408"/>
+<polygon points="30,210 90,210 98,240 22,240" fill="url(#gg)" stroke="#f4d67e" stroke-width="1"/><text x="60" y="230" text-anchor="middle" font-family="Rockwell, Georgia, serif" font-size="11" font-weight="700" fill="#2a1600">500</text><polygon points="110,210 170,210 178,240 102,240" fill="url(#gg)" stroke="#f4d67e" stroke-width="1"/><text x="140" y="230" text-anchor="middle" font-family="Rockwell, Georgia, serif" font-size="11" font-weight="700" fill="#2a1600">500</text><polygon points="190,210 250,210 258,240 182,240" fill="url(#gg)" stroke="#f4d67e" stroke-width="1"/><text x="220" y="230" text-anchor="middle" font-family="Rockwell, Georgia, serif" font-size="11" font-weight="700" fill="#2a1600">500</text><polygon points="270,210 330,210 338,240 262,240" fill="url(#gg)" stroke="#f4d67e" stroke-width="1"/><text x="300" y="230" text-anchor="middle" font-family="Rockwell, Georgia, serif" font-size="11" font-weight="700" fill="#2a1600">500</text><polygon points="70,176 130,176 138,206 62,206" fill="url(#gg)" stroke="#f4d67e" stroke-width="1"/><text x="100" y="196" text-anchor="middle" font-family="Rockwell, Georgia, serif" font-size="11" font-weight="700" fill="#2a1600">500</text><polygon points="150,176 210,176 218,206 142,206" fill="url(#gg)" stroke="#f4d67e" stroke-width="1"/><text x="180" y="196" text-anchor="middle" font-family="Rockwell, Georgia, serif" font-size="11" font-weight="700" fill="#2a1600">500</text><clipPath id="pc"><rect x="222.0" y="176" width="30" height="30"/></clipPath><polygon points="230,176 290,176 298,206 222,206" fill="#3a1724" stroke="#d8aa3e" stroke-width="1.5" stroke-dasharray="4 3"/><polygon points="230,176 290,176 298,206 222,206" fill="url(#gg)" clip-path="url(#pc)"/><polygon points="110,142 170,142 178,172 102,172" fill="none" stroke="#d0b3ad" stroke-width="1.5" stroke-dasharray="4 3"/><polygon points="190,142 250,142 258,172 182,172" fill="none" stroke="#d0b3ad" stroke-width="1.5" stroke-dasharray="4 3"/><polygon points="150,108 210,108 218,138 142,138" fill="none" stroke="#d0b3ad" stroke-width="1.5" stroke-dasharray="4 3"/></svg>
+   <div class="big">€3,200 <span>of €5,000</span></div><p>1,800 to go, three and three fifths bars</p><p>Target 1 April 2027</p></section>
+ </div>
+ <section class="panel mt" id="tx" aria-labelledby="h-mv"><h2 id="h-mv">Deposits and withdrawals</h2><ul class="ledger"><li class="in"><span class="d">31 Oct</span><span>Fernhill Studio salary</span><span class="a"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>+3,850.00</span></li><li class="out"><span class="d">30 Oct</span><span>Corner Market</span><span class="a"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>−42.15</span></li><li class="out"><span class="d">29 Oct</span><span>Night train tickets</span><span class="a"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>−118.00</span></li><li class="out"><span class="d">28 Oct</span><span>Lumen Bakery</span><span class="a"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>−9.40</span></li><li class="out"><span class="d">27 Oct</span><span>Music subscription</span><span class="a"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>−10.99</span></li></ul></section>
+</main>
+</div>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 370 · Bullion</h2>
+<p class="idea">Savings shown as real weight, gold ingots on deep burgundy velvet, balances stamped on trapezoid bars, the goal as a pyramid of ten 500 euro bars filling from the bottom, and budget lines as ingot shaped meters.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><i style="background:#1a0910"></i><div><b>Velvet</b> #1a0910<br><span>page and style sheet, with faint plush glows</span></div></li><li class="sw"><i style="background:#2a1019"></i><div><b>Plush</b> #2a1019<br><span>panels, fields and rows</span></div></li><li class="sw"><i style="background:#3a1724"></i><div><b>Plush two</b> #3a1724<br><span>the owed card bar, the partly filled ingot and the secondary button</span></div></li><li class="sw"><i style="background:#5c2a3a"></i><div><b>Seam</b> #5c2a3a<br><span>panel edges and row rules</span></div></li><li class="sw"><i style="background:#f6e9e0"></i><div><b>Ink</b> #f6e9e0<br><span>text</span></div></li><li class="sw"><i style="background:#d0b3ad"></i><div><b>Muted</b> #d0b3ad<br><span>labels, dates and empty bar outlines</span></div></li><li class="sw"><i style="background:#d8aa3e"></i><div><b>Gold</b> #d8aa3e<br><span>ingot body, meters, current nav and primary button</span></div></li><li class="sw"><i style="background:#f4d67e"></i><div><b>Gold high</b> #f4d67e<br><span>ingot shine, headings, focus, money in</span></div></li><li class="sw"><i style="background:#a87a22"></i><div><b>Gold low</b> #a87a22<br><span>ingot shadow edge</span></div></li><li class="sw"><i style="background:#2a1600"></i><div><b>On gold</b> #2a1600<br><span>text stamped on gold</span></div></li><li class="sw"><i style="background:#ff9fa8"></i><div><b>Rose</b> #ff9fa8<br><span>over budget hatching, owed balance</span></div></li><li class="sw"><i style="background:#e9d58a"></i><div><b>Pale gold</b> #e9d58a<br><span>in reserve status</span></div></li></ul>
+<h3>Type · Optima, Candara, Segoe UI, Gill Sans, Trebuchet MS for labels; Rockwell, Roboto Slab, DejaVu Serif, Georgia for figures</h3>
+<div class="type-row"><code>40 / 700 slab goal</code><span style="font-family:var(--fig);font-size:40px;font-weight:700;color:var(--goldhi)">€3,200</span></div><div class="type-row"><code>32 / 700 slab on gold</code><span style="font-family:var(--fig);font-size:32px;font-weight:700;background-color:#d8aa3e;background-image:linear-gradient(180deg,#f4d67e,#d8aa3e 50%,#a87a22);color:#2a1600;padding:4px 16px">€11,420.00</span></div><div class="type-row"><code>16 / 700 caps .24em heading</code><span style="letter-spacing:.24em;font-weight:700;color:var(--goldhi)">OCTOBER SPENDING</span></div><div class="type-row"><code>17 / body</code><span style="font-size:17px">Groceries</span></div><div class="type-row"><code>13 / caps .1em status</code><span style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--rose)">Over by 62</span></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3>
+<dl class="facts"><dt>Spacing</dt><dd>8px unit. 24px panel padding, 20px between ingots, 32px between panels.</dd><dt>Density</dt><dd>Medium. Three ingots, five tiers, a ten bar pyramid and five movements.</dd><dt>Corners</dt><dd>Trapezoid ingot cuts on balances, meters and swatches. 4px panels, 2px buttons.</dd><dt>Borders</dt><dd>A 1px inset seam round panels and between rows, a double gold focus ring.</dd><dt>Shadows</dt><dd>Deep, 0 20px 40px black under panels so they sit on the velvet.</dd><dt>Icons</dt><dd>Gold bars are the main icon. Status pairs an outline circle check, ruled square or triangle with words, and the over meter swaps gold for rose hatching. Arrows mark deposits and withdrawals.</dd><dt>Focus</dt><dd>A 3px double pale gold outline offset 4px.</dd><dt>Tone</dt><dd>Weighty and proud, What you hold, Fine, in reserve, Fully spent, Over by 62, 1,800 to go.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls">
+<div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-p" type="button">Add a bar</button><button class="btn-p is-focus" type="button">Add a bar</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-s" type="button">View bars</button><button class="btn-s is-focus" type="button">View bars</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="fld"><span>Search movements</span><input type="text" value="Night train"></label><label class="fld"><span>Search movements, focused</span><input type="text" class="is-focus" value="Night train"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><a class="lrow" href="#tx"><span class="d">29 OCT</span><span>Night train tickets</span><span style="font-family:var(--fig)">−118.00</span></a><a class="lrow is-focus" href="#tx"><span class="d">29 OCT</span><span>Night train tickets</span><span style="font-family:var(--fig)">−118.00</span></a></div></div>
+</div>
+</section>
+</body>
+</html>

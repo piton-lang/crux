@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 202 · Outline only · Brightwork</title>
+<style>
+* { box-sizing: border-box; }
+.vh { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+svg.i { width: 1.15em; height: 1.15em; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; vertical-align: -0.2em; }
+img, svg { max-width: 100%; }
+button, input { font: inherit; color: inherit; }
+
+:root {
+  --paper: #ffffff; --black: #111111; --gray: #585858; --rule: #bdbdbd; --blue: #1546c4;
+  --font: "Helvetica Neue", Helvetica, Arial, sans-serif; --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --s-bg: #ffffff; --s-line: #111111; --s-muted: #585858; --s-r: 0; --s-max: 1280px; --s-pad: 24px;
+}
+body { margin: 0; background: var(--paper); color: var(--black); font: 15px/1.5 var(--font); }
+a { color: var(--blue); }
+:focus-visible, .is-focus { outline: 2px solid var(--blue); outline-offset: 2px; }
+.frame { max-width: 1280px; margin: 0 auto; padding: 24px; }
+.mono { font-family: var(--mono); }
+.cap { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray); }
+
+.top { display: flex; align-items: stretch; border: 1px solid var(--black); min-height: 54px; }
+.top > * { border-left: 1px solid var(--black); display: flex; align-items: center; }
+.top > *:first-child { border-left: 0; }
+.brand { gap: 10px; padding: 0 18px; font-weight: 700; font-size: 16px; color: var(--black); text-decoration: none; letter-spacing: -0.01em; }
+.mark { width: 24px; height: 24px; border: 1px solid var(--black); display: grid; place-items: center; font: 700 12px/1 var(--mono); }
+.search { flex: 1; gap: 10px; padding: 0 16px; color: var(--black); min-width: 0; }
+.search input { border: 0; outline: 0; background: transparent; width: 100%; min-width: 0; font-size: 14px; padding: 14px 0; }
+.search input::placeholder { color: var(--gray); opacity: 1; }
+.search:focus-within { outline: 2px solid var(--blue); outline-offset: -3px; }
+.cell { padding: 0 10px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; font-size: 14px; font-weight: 500; cursor: pointer; background: transparent; border-radius: 0; white-space: nowrap; line-height: 1.3; }
+.btn-primary { border: 1px solid var(--blue); color: var(--blue); }
+.btn-secondary { border: 1px solid var(--black); color: var(--black); }
+.icon-btn { width: 54px; justify-content: center; background: transparent; border: 0; border-left: 1px solid var(--black); cursor: pointer; color: var(--black); }
+.icon-btn:focus-visible { outline-offset: -4px; }
+.user { gap: 10px; padding: 0 16px; font-size: 14px; white-space: nowrap; }
+.av { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--black); display: grid; place-items: center; font: 600 11px/1 var(--mono); flex: none; }
+
+.layout { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; margin-top: 24px; align-items: start; }
+.nav ul { list-style: none; margin: 0; padding: 0; border: 1px solid var(--black); }
+.nav li + li { border-top: 1px solid var(--black); }
+.nav a { display: flex; align-items: center; gap: 10px; padding: 12px 14px; color: var(--black); text-decoration: none; font-size: 14px; }
+.nav a[aria-current="page"] { color: var(--blue); outline: 1px solid var(--blue); outline-offset: -5px; font-weight: 600; }
+.nav a[aria-current="page"]::after { content: "→"; margin-left: auto; font-family: var(--mono); }
+.nav a:focus-visible { outline: 2px solid var(--blue); outline-offset: -4px; }
+
+.main { min-width: 0; display: grid; gap: 32px; }
+.greet .cap { margin: 0; }
+h1 { font-size: 36px; font-weight: 400; line-height: 1.15; margin: 6px 0 10px; letter-spacing: -0.02em; }
+.urgent { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0; font-size: 15px; }
+.urgent svg.i { color: var(--blue); }
+.urgent a { font-family: var(--mono); font-size: 13px; margin-left: 8px; }
+
+.kgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--black); border-left: 1px solid var(--black); margin: 0; padding: 0; list-style: none; }
+.kgrid li { border-right: 1px solid var(--black); border-bottom: 1px solid var(--black); padding: 14px 16px 16px; }
+.kv { display: flex; align-items: center; gap: 10px; font-size: 44px; font-weight: 300; line-height: 1.1; font-variant-numeric: tabular-nums; margin-top: 8px; letter-spacing: -0.02em; }
+.kgrid .alert { outline: 1px solid var(--blue); outline-offset: -6px; }
+.kgrid .alert .kv, .kgrid .alert .cap { color: var(--blue); }
+.kv svg.i { width: 26px; height: 26px; stroke-width: 1.5; }
+
+.sh { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+h2 { font: 600 12px/1.4 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; margin: 0; }
+.sh span { font-family: var(--mono); font-size: 12px; color: var(--gray); }
+table.pt { width: 100%; border-collapse: collapse; border: 1px solid var(--black); font-size: 14px; }
+.pt th { text-align: left; font: 500 11px/1.4 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray); padding: 10px 14px; border-bottom: 1px solid var(--black); }
+.pt td { padding: 12px 14px; border-top: 1px solid var(--rule); vertical-align: middle; }
+.pt tr:first-child td { border-top: 0; }
+.pname { font-weight: 600; }
+.pteam { color: var(--gray); font-size: 13px; }
+.prog { display: flex; align-items: center; gap: 10px; min-width: 140px; }
+.track { flex: 1; height: 12px; border: 1px solid var(--black); position: relative; }
+.track i { position: absolute; left: 2px; top: 2px; bottom: 2px; background: repeating-linear-gradient(135deg, var(--blue) 0 1px, transparent 1px 4px); outline: 1px solid var(--blue); }
+.pct, .num { font-family: var(--mono); font-size: 13px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.left { display: block; font-family: var(--mono); font-size: 12px; color: var(--gray); }
+.st { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 2px 9px 2px 7px; border: 1px solid var(--black); white-space: nowrap; }
+.st svg.i { width: 15px; height: 15px; stroke-width: 1.6; }
+.st.behind { border-color: var(--blue); color: var(--blue); outline: 1px solid var(--blue); outline-offset: 1px; }
+
+.duo { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.box { border: 1px solid var(--black); padding: 16px; min-width: 0; }
+.tot { display: flex; gap: 0; margin: 0 0 16px; border: 1px solid var(--black); }
+.tot div { flex: 1; padding: 8px 12px; }
+.tot div + div { border-left: 1px solid var(--black); }
+.tot b { display: block; font-size: 26px; font-weight: 300; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.tot .tw b { color: var(--blue); }
+.plot { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 6px; }
+.yax { position: relative; height: 180px; font: 11px/1 var(--mono); color: var(--gray); }
+.yax span { position: absolute; right: 0; transform: translateY(50%); }
+.bars { position: relative; height: 180px; display: grid; grid-template-columns: repeat(14, minmax(0, 1fr)); gap: 5px; align-items: end; border-bottom: 1px solid var(--black); border-left: 1px solid var(--black); padding: 0 4px; background: linear-gradient(var(--rule), var(--rule)) 0 calc(100% - 50.3px) / 100% 1px no-repeat, linear-gradient(var(--rule), var(--rule)) 0 calc(100% - 100.6px) / 100% 1px no-repeat, linear-gradient(var(--rule), var(--rule)) 0 calc(100% - 150.9px) / 100% 1px no-repeat; }
+.bars i { display: block; border: 1px solid var(--black); border-bottom: 0; position: relative; }
+.bars i.t { border-color: var(--blue); background: repeating-linear-gradient(135deg, var(--blue) 0 1px, transparent 1px 4px); }
+.xl { display: grid; grid-template-columns: repeat(14, minmax(0, 1fr)); gap: 5px; padding: 0 4px; margin: 6px 0 0 35px; font: 11px/1 var(--mono); color: var(--gray); text-align: center; }
+.lg { display: flex; gap: 20px; flex-wrap: wrap; margin: 14px 0 0; padding: 0; list-style: none; font-size: 13px; }
+.lg i { display: inline-block; width: 14px; height: 14px; border: 1px solid var(--black); vertical-align: -2px; margin-right: 8px; }
+.lg i.t { border-color: var(--blue); background: repeating-linear-gradient(135deg, var(--blue) 0 1px, transparent 1px 4px); }
+
+.tl { list-style: none; margin: 0; padding: 0; position: relative; }
+.tl::before { content: ""; position: absolute; left: 15px; top: 8px; bottom: 8px; border-left: 1px solid var(--black); }
+.tl li { position: relative; padding: 0 0 16px 44px; font-size: 14px; }
+.tl li:last-child { padding-bottom: 0; }
+.tl .av { position: absolute; left: 0; top: 0; background: var(--paper); }
+.tl time { display: block; font: 12px/1.5 var(--mono); color: var(--gray); }
+
+.sheet { border-top: 1px solid var(--black); }
+.sheet h2 { font: 400 28px/1.2 var(--font); letter-spacing: -0.01em; text-transform: none; }
+.sheet h3 { font-family: var(--mono); font-weight: 500; }
+.sw { border-radius: 0; }
+.field input { font-size: 15px; padding: 9px 12px; border: 1px solid var(--black); border-radius: 0; background: transparent; }
+.field input.is-focus { border-color: var(--blue); outline: 2px solid var(--blue); outline-offset: 2px; }
+.row-demo { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid var(--black); color: var(--black); text-decoration: none; }
+.row-demo small { display: block; font: 12px/1.5 var(--mono); color: var(--gray); }
+
+@media (max-width: 960px) {
+  .layout { grid-template-columns: minmax(0, 1fr); }
+  .nav ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-right: 0; border-bottom: 0; }
+  .nav li, .nav li + li { border-top: 0; border-right: 1px solid var(--black); border-bottom: 1px solid var(--black); }
+  .duo { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 720px) {
+  .frame { padding: 16px; }
+  .top { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; }
+  .top .search { grid-column: 1 / -1; grid-row: 2; border-left: 0; border-top: 1px solid var(--black); }
+  .top .cell { grid-column: 1 / -1; grid-row: 3; border-left: 0; border-top: 1px solid var(--black); padding: 8px; }
+  .top .cell .btn { width: 100%; justify-content: center; }
+  .top .brand { grid-row: 1; }
+  .top .icon-btn { grid-row: 1; height: 54px; }
+  .user { grid-row: 1; padding: 0 12px; }
+  .user .name { display: none; }
+  .nav a { padding: 10px; font-size: 13px; gap: 6px; }
+  .nav a[aria-current="page"]::after { display: none; }
+  h1 { font-size: 28px; }
+  .kgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kv { font-size: 34px; }
+  .pt thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .pt, .pt tbody { display: block; }
+  .pt tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 12px; padding: 12px; }
+  .pt tr + tr { border-top: 1px solid var(--rule); }
+  .pt td { display: block; padding: 0; border: 0; }
+  .pt .c-status { grid-column: 2; grid-row: 1; }
+  .pt .c-prog { grid-column: 1 / -1; }
+  .pt .c-due { text-align: right; }
+  .bars, .xl { gap: 2px; padding: 0 2px; }
+  .xl { margin-left: 33px; }
+}
+
+.sheet { background: var(--s-bg); }
+.sheet-in { max-width: var(--s-max, 1216px); margin: 0 auto; padding: 48px var(--s-pad, 32px) 64px; }
+.sheet h2 { font-size: 24px; margin: 0 0 6px; }
+.sheet h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--s-muted); margin: 36px 0 12px; }
+.idea { color: var(--s-muted); margin: 0; max-width: 720px; }
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; list-style: none; margin: 0; padding: 0; }
+.sw { border: 1px solid var(--s-line); border-radius: var(--s-r); overflow: hidden; font-size: 12px; background: #fff; }
+.sw i { display: block; height: 48px; border-bottom: 1px solid var(--s-line); }
+.sw div { padding: 8px 10px; }
+.sw b { display: block; font-size: 13px; }
+.sw code, .sw span { display: block; color: var(--s-muted); }
+.type-row { display: flex; gap: 16px; align-items: baseline; flex-wrap: wrap; border-bottom: 1px solid var(--s-line); padding: 10px 0; }
+.type-row code { color: var(--s-muted); font-size: 12px; min-width: 210px; }
+.facts { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 10px 16px; margin: 0; font-size: 14px; }
+.facts dt { color: var(--s-muted); font-weight: 600; }
+.facts dd { margin: 0; }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
+.ctl-label { display: block; font-size: 12px; color: var(--s-muted); margin-bottom: 8px; }
+.ctl-pair { display: flex; gap: 12px; flex-wrap: wrap; }
+.field { display: block; font-size: 13px; font-weight: 600; }
+.field input { display: block; width: 100%; margin-top: 6px; }
+@media (max-width: 680px) {
+  .sheet-in { padding-left: 16px; padding-right: 16px; }
+  .facts { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .facts dd { margin-bottom: 10px; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+<symbol id="i-projects" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+<symbol id="i-tasks" viewBox="0 0 24 24"><path d="M10 6h10M10 12h10M10 18h10M3.5 6 5 7.5 8 4.5M3.5 12 5 13.5 8 10.5M3.5 18 5 19.5 8 16.5"/></symbol>
+<symbol id="i-team" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M21.5 20a5.5 5.5 0 0 0-3.5-5.1"/></symbol>
+<symbol id="i-reports" viewBox="0 0 24 24"><path d="M3 21h18M6 17v-6M11 17V6M16 17v-4M20 17V9"/></symbol>
+<symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4zM10 21h4"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 3 3 5-6"/></symbol>
+<symbol id="i-risk" viewBox="0 0 24 24"><path d="M12 3 22 20H2z"/><path d="M12 10v4.5M12 17.2v.3"/></symbol>
+<symbol id="i-behind" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="m9 9 6 6M15 9l-6 6"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3 5 13h6l-1 8 8-10h-6z"/></symbol>
+<symbol id="i-hours" viewBox="0 0 24 24"><path d="M7 3h10M7 21h10M8 3c0 5 8 5 8 9s-8 4-8 9M16 3c0 5-8 5-8 9s8 4 8 9"/></symbol>
+<symbol id="i-due" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+</defs></svg>
+
+<div class="frame">
+ <header class="top">
+  <a class="brand" href="#"><span class="mark" aria-hidden="true">B</span>Brightwork</a>
+  <label class="search"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-search"/></svg><span class="vh">Search projects and tasks</span><input type="search" placeholder="Search projects and tasks"></label>
+  <div class="cell"><button class="btn btn-primary" type="button"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>New project</button></div>
+  <button class="icon-btn" type="button" aria-label="Notifications"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-bell"/></svg></button>
+  <span class="user"><span class="av" aria-hidden="true">MO</span><span class="name">Mara Okafor</span><span class="vh">Signed in as Mara Okafor</span></span>
+ </header>
+ <div class="layout">
+  <nav class="nav" aria-label="Main"><ul><li><a href="#" aria-current="page"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-home"/></svg>Home</a></li><li><a href="#"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-projects"/></svg>Projects</a></li><li><a href="#"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tasks"/></svg>Tasks</a></li><li><a href="#"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-team"/></svg>Team</a></li><li><a href="#"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-reports"/></svg>Reports</a></li><li><a href="#"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-settings"/></svg>Settings</a></li></ul></nav>
+  <main class="main">
+   <div class="greet">
+    <p class="cap">Saturday 31 October 2026</p>
+    <h1>Good morning, Mara</h1>
+    <p class="urgent"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg><b>4 tasks are overdue.</b> <a href="#">Show overdue →</a></p>
+   </div>
+   <section aria-labelledby="sum-h">
+    <h2 id="sum-h" class="vh">Summary</h2>
+    <ul class="kgrid">
+     <li><span class="cap">Active projects</span><span class="kv">6</span></li>
+     <li><span class="cap">Due this week</span><span class="kv">23</span></li>
+     <li class="alert"><span class="cap">Overdue</span><span class="kv"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>4</span></li>
+     <li><span class="cap">Hours this week</span><span class="kv">186</span></li>
+    </ul>
+   </section>
+   <section aria-labelledby="proj-h">
+    <div class="sh"><h2 id="proj-h">Projects</h2><span>6 active · 78/170 tasks done</span></div>
+    <table class="pt">
+     <thead><tr><th scope="col">Project</th><th scope="col">Progress</th><th scope="col">Tasks</th><th scope="col">Due</th><th scope="col">Status</th></tr></thead>
+     <tbody><tr>
+<td class="c-name"><div class="pname">Website redesign</div><div class="pteam">Design</div></td>
+<td class="c-prog"><div class="prog"><div class="track" role="img" aria-label="72 percent complete"><i style="width:calc(72% - 4px)"></i></div><span class="pct">72%</span></div></td>
+<td class="c-tasks num">18/25 tasks</td>
+<td class="c-due"><span class="num">14 Nov</span><span class="left">14 d left</span></td>
+<td class="c-status"><span class="st ok"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>On track</span></td>
+</tr><tr>
+<td class="c-name"><div class="pname">Mobile app 2.0</div><div class="pteam">Engineering</div></td>
+<td class="c-prog"><div class="prog"><div class="track" role="img" aria-label="45 percent complete"><i style="width:calc(45% - 4px)"></i></div><span class="pct">45%</span></div></td>
+<td class="c-tasks num">27/60 tasks</td>
+<td class="c-due"><span class="num">2 Dec</span><span class="left">32 d left</span></td>
+<td class="c-status"><span class="st risk"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-risk"/></svg>At risk</span></td>
+</tr><tr>
+<td class="c-name"><div class="pname">Q4 customer survey</div><div class="pteam">Research</div></td>
+<td class="c-prog"><div class="prog"><div class="track" role="img" aria-label="90 percent complete"><i style="width:calc(90% - 4px)"></i></div><span class="pct">90%</span></div></td>
+<td class="c-tasks num">9/10 tasks</td>
+<td class="c-due"><span class="num">7 Nov</span><span class="left">7 d left</span></td>
+<td class="c-status"><span class="st ok"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>On track</span></td>
+</tr><tr>
+<td class="c-name"><div class="pname">Billing migration</div><div class="pteam">Engineering</div></td>
+<td class="c-prog"><div class="prog"><div class="track" role="img" aria-label="30 percent complete"><i style="width:calc(30% - 4px)"></i></div><span class="pct">30%</span></div></td>
+<td class="c-tasks num">12/40 tasks</td>
+<td class="c-due"><span class="num">20 Nov</span><span class="left">20 d left</span></td>
+<td class="c-status"><span class="st behind"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-behind"/></svg>Behind</span></td>
+</tr><tr>
+<td class="c-name"><div class="pname">Spring catalogue</div><div class="pteam">Marketing</div></td>
+<td class="c-prog"><div class="prog"><div class="track" role="img" aria-label="15 percent complete"><i style="width:calc(15% - 4px)"></i></div><span class="pct">15%</span></div></td>
+<td class="c-tasks num">3/20 tasks</td>
+<td class="c-due"><span class="num">15 Jan</span><span class="left">76 d left</span></td>
+<td class="c-status"><span class="st ok"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>On track</span></td>
+</tr><tr>
+<td class="c-name"><div class="pname">Onboarding emails</div><div class="pteam">Marketing</div></td>
+<td class="c-prog"><div class="prog"><div class="track" role="img" aria-label="60 percent complete"><i style="width:calc(60% - 4px)"></i></div><span class="pct">60%</span></div></td>
+<td class="c-tasks num">9/15 tasks</td>
+<td class="c-due"><span class="num">21 Nov</span><span class="left">21 d left</span></td>
+<td class="c-status"><span class="st ok"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg>On track</span></td>
+</tr></tbody>
+    </table>
+   </section>
+   <div class="duo">
+    <section class="box" aria-labelledby="chart-h">
+     <div class="sh"><h2 id="chart-h">Tasks completed / day</h2><span>18–31 Oct</span></div>
+     <div class="tot"><div><span class="cap">Last week</span><b>59</b></div><div class="tw"><span class="cap">This week</span><b>73</b></div><div><span class="cap">Change</span><b>+14</b></div></div>
+     <div role="img" aria-label="Bar chart of tasks completed per day over the last 14 days. Last week, Sunday 18 to Saturday 24 October: 3, 12, 9, 14, 11, 8 and 2, total 59. This week, Sunday 25 to Saturday 31 October: 4, 15, 13, 17, 12, 10 and 2, total 73.">
+      <div class="plot"><div class="yax" aria-hidden="true"><span style="bottom:0.0%">0</span><span style="bottom:27.9%">5</span><span style="bottom:55.9%">10</span><span style="bottom:83.8%">15</span></div><div class="bars"><i class="l" style="height:16.8%"></i><i class="l" style="height:67.1%"></i><i class="l" style="height:50.3%"></i><i class="l" style="height:78.2%"></i><i class="l" style="height:61.5%"></i><i class="l" style="height:44.7%"></i><i class="l" style="height:11.2%"></i><i class="t" style="height:22.4%"></i><i class="t" style="height:83.8%"></i><i class="t" style="height:72.6%"></i><i class="t" style="height:95.0%"></i><i class="t" style="height:67.1%"></i><i class="t" style="height:55.9%"></i><i class="t" style="height:11.2%"></i></div></div>
+      <div class="xl" aria-hidden="true"><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span></div>
+     </div>
+     <ul class="lg"><li><i></i>Last week, open bars</li><li><i class="t"></i>This week, hatched blue bars</li></ul>
+    </section>
+    <section class="box" aria-labelledby="act-h">
+     <div class="sh"><h2 id="act-h">Activity</h2><a class="mono" href="#" style="font-size:12px">All →</a></div>
+     <ul class="tl"><li><span class="av" aria-hidden="true">JW</span><b>Jonas Weber</b> completed “Export invoices as CSV” in Billing migration<time>12 min ago</time></li><li><span class="av" aria-hidden="true">PN</span><b>Priya Nair</b> commented on “Hero image options” in Website redesign<time>40 min ago</time></li><li><span class="av" aria-hidden="true">SO</span><b>Sam Ortiz</b> moved “Push notifications” to Review in Mobile app 2.0<time>1 h ago</time></li><li><span class="av" aria-hidden="true">LF</span><b>Lena Fischer</b> added 3 tasks to Spring catalogue<time>2 h ago</time></li><li><span class="av" aria-hidden="true">TR</span><b>Tomás Ruiz</b> logged 6 h on Mobile app 2.0<time>3 h ago</time></li><li><span class="av" aria-hidden="true">AT</span><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to Q4 customer survey<time>yesterday</time></li></ul>
+    </section>
+   </div>
+  </main>
+ </div>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h">
+<div class="sheet-in">
+  <h2 id="sheet-h">Style 202 · Outline only</h2>
+  <p class="idea">Every component is drawn as a crisp 1px outline in black or blue on white paper, with no fills and no shadows, so structure comes from line alone.</p>
+  <h3>Palette</h3>
+  <ul class="swatches">
+<li class="sw"><i style="background:#ffffff"></i><div><b>paper</b><code>#ffffff</code><span>the page; nothing is ever filled</span></div></li>
+<li class="sw"><i style="background:#111111"></i><div><b>black</b><code>#111111</code><span>text, every outline, last week bars</span></div></li>
+<li class="sw"><i style="background:#585858"></i><div><b>gray</b><code>#585858</code><span>mono captions, axis labels and meta</span></div></li>
+<li class="sw"><i style="background:#bdbdbd"></i><div><b>rule</b><code>#bdbdbd</code><span>row rules inside tables and chart gridlines</span></div></li>
+<li class="sw"><i style="background:#1546c4"></i><div><b>blue</b><code>#1546c4</code><span>current nav, primary button, overdue, Behind, this week hatch, focus</span></div></li>
+  </ul>
+  <h3>Type · "Helvetica Neue", Helvetica, Arial, sans-serif; figures and captions in ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace</h3>
+  <div class="types">
+<div class="type-row"><code>36 / 300-400 / -0.02em</code><span style="font-size:36px;font-weight:400;letter-spacing:-0.02em;line-height:1.15">Good morning, Mara</span></div>
+<div class="type-row"><code>44 / 300 tabular figure</code><span style="font-size:44px;font-weight:300;font-variant-numeric:tabular-nums;line-height:1.1">186</span></div>
+<div class="type-row"><code>15 / 600 row name</code><span style="font-size:15px;font-weight:600">Website redesign</span></div>
+<div class="type-row"><code>15 / 400 / 1.5 body</code><span style="font-size:15px">Tomás Ruiz logged 6 h on Mobile app 2.0</span></div>
+<div class="type-row"><code>mono 12 / 600 caps 0.1em</code><span style="font:600 12px/1.4 ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;letter-spacing:0.1em;text-transform:uppercase">Projects</span></div>
+<div class="type-row"><code>mono 11 caps gray</code><span style="font:11px/1.4 ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;letter-spacing:0.08em;text-transform:uppercase;color:#585858">Hours this week</span></div>
+<div class="type-row"><code>mono 13 figures</code><span style="font:13px/1.4 ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace">18/25 tasks · 14 Nov · 72%</span></div>
+  </div>
+  <h3>Spacing, density and surface</h3>
+  <dl class="facts">
+<dt>Spacing</dt><dd>8px unit. 24px page padding and section gaps, 32px between main blocks, 12 to 16px inside cells.</dd>
+<dt>Density</dt><dd>Medium. A full width ruled table, values set in mono.</dd>
+<dt>Corners</dt><dd>Square everywhere. Only avatars and the timeline dots are circles.</dd>
+<dt>Borders</dt><dd>1px #111 on every component, shared edges collapsed into one rule. 1px #bdbdbd between rows. Blue 1px for the current or urgent thing, drawn as an inset second outline.</dd>
+<dt>Shadows</dt><dd>None. No fills either; progress and this week bars use a 1px blue diagonal hatch.</dd>
+<dt>Icons</dt><dd>Line icons at 1.6 to 1.8 stroke in currentColor. Status tags use a check circle, a triangle and a crossed square, Behind doubled in blue.</dd>
+<dt>Tone</dt><dd>Terse and technical, such as Due this week, 14 d left and Show overdue →.</dd>
+  </dl>
+  <h3>Controls · normal and focus</h3>
+  <div class="controls">
+    <div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn btn-primary" type="button"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>New project</button><button class="btn btn-primary is-focus" type="button"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>New project</button></div></div>
+    <div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn btn-secondary" type="button">View all</button><button class="btn btn-secondary is-focus" type="button">View all</button></div></div>
+    <div class="ctl"><span class="ctl-label">Text field</span><label class="field"><span>Project name</span><input type="text" value="Website redesign"></label></div>
+    <div class="ctl"><span class="ctl-label">Text field, focused</span><label class="field"><span>Project name</span><input class="is-focus" type="text" value="Mobile app 2.0"></label></div>
+    <div class="ctl"><span class="ctl-label">List row</span><a class="row-demo" href="#"><span><b>Billing migration</b><small>Engineering · 20 Nov</small></span><span class="st behind"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-behind"/></svg>Behind</span></a></div>
+    <div class="ctl"><span class="ctl-label">List row, focused</span><a class="row-demo is-focus" href="#"><span><b>Billing migration</b><small>Engineering · 20 Nov</small></span><span class="st behind"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-behind"/></svg>Behind</span></a></div>
+  </div>
+</div>
+</section>
+</body>
+</html>

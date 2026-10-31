@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 335 · Neon swimlanes · Brightwork</title>
+<style>
+
+:root { color-scheme: dark; --bg:#09080f; --lane:#100e1a; --chip:#16131f; --line:#2a2540; --ink:#f1eefb; --muted:#aca5c4;
+ --cy:#5ef2ff; --mg:#ff7ad9; --li:#c4ff6b; --am:#ffcf6b; --vi:#c2adff; --warn:#ffb36b;
+ --font: "Avenir Next", Avenir, Futura, "Century Gothic", "Trebuchet MS", system-ui, sans-serif;
+ --s-bg:#09080f; --s-ink:#f1eefb; --s-muted:#aca5c4; --s-line:#2a2540; --s-font: var(--font); --s-sw-r: 0; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 var(--font); }
+.ic { width: 1.1em; height: 1.1em; vertical-align: -.18em; flex: none; }
+:focus-visible, .is-focus { outline: 2px solid var(--cy) !important; outline-offset: 3px; box-shadow: 0 0 0 5px rgba(94,242,255,.18), 0 0 18px rgba(94,242,255,.45) !important; }
+.glow { text-shadow: 0 0 8px currentColor, 0 0 22px color-mix(in srgb, currentColor 45%, transparent); }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 28px 28px 48px; }
+.top { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
+.brand { font-size: 12px; letter-spacing: .32em; text-transform: uppercase; color: var(--muted); }
+.brand b { color: var(--cy); font-weight: 600; }
+.top nav { margin-left: auto; display: flex; gap: 8px; flex-wrap: wrap; }
+.btn-p { font: 600 13px var(--font); letter-spacing: .14em; text-transform: uppercase; color: var(--bg); background: var(--cy); border: 0; padding: 10px 18px; border-radius: 999px; box-shadow: 0 0 16px rgba(94,242,255,.55); cursor: pointer; display: inline-flex; gap: 8px; align-items: center; }
+.btn-s { font: 600 13px var(--font); letter-spacing: .14em; text-transform: uppercase; color: var(--mg); background: transparent; border: 1px solid var(--mg); padding: 9px 18px; border-radius: 999px; cursor: pointer; display: inline-flex; gap: 8px; align-items: center; }
+h1 { font-size: 15px; letter-spacing: .3em; text-transform: uppercase; font-weight: 500; margin: 28px 0 12px; color: var(--muted); }
+h1 span { color: var(--ink); }
+.figs { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 0; margin: 0 0 36px; }
+.figs div { padding: 4px 20px 4px 0; min-width: 0; }
+.figs dd { margin: 0; font-size: 44px; line-height: 1.1; font-weight: 300; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+.figs dt { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+.track { position: relative; height: 2px; background: var(--line); margin-top: 12px; max-width: 220px; }
+.track i { position: absolute; inset: 0 36% 0 0; background: var(--li); box-shadow: 0 0 10px var(--li); }
+.track b { position: absolute; left: 64%; top: -5px; width: 2px; height: 12px; background: var(--li); }
+.lanes { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.lane { display: grid; grid-template-columns: 220px minmax(0,1fr); background: var(--lane); border-left: 2px solid var(--c); box-shadow: inset 6px 0 14px -10px var(--c); position: relative; }
+.lane::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: linear-gradient(90deg, var(--c), transparent 70%); opacity: .55; }
+.lab { padding: 16px 20px; border-right: 1px dashed var(--line); }
+.lab h2 { margin: 0; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--c); font-weight: 600; }
+.lab .tot { font-size: 30px; font-weight: 300; color: var(--c); line-height: 1.15; margin-top: 4px; font-variant-numeric: tabular-nums; }
+.lab .cnt { font-size: 12px; color: var(--muted); letter-spacing: .08em; }
+.deals { list-style: none; margin: 0; padding: 14px 16px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.cap { display: grid; grid-template-columns: auto auto; gap: 2px 18px; padding: 10px 18px; border: 1px solid color-mix(in srgb, var(--c) 55%, transparent); border-radius: 999px; background: var(--chip); color: var(--ink); text-decoration: none; min-width: 0; }
+.cap b { font-weight: 600; }
+.cap .v { color: var(--c); font-size: 18px; font-weight: 400; text-align: right; font-variant-numeric: tabular-nums; grid-row: span 2; align-self: center; }
+.cap .o { font-size: 12px; color: var(--muted); }
+.cap .s { grid-column: 1 / -1; font-size: 12px; display: flex; gap: 6px; align-items: center; color: var(--ink); border-top: 1px solid var(--line); padding-top: 4px; margin-top: 4px; }
+.cap .s.warn { color: var(--warn); }
+.cap.alert { border-style: dashed; border-color: var(--warn); }
+.feed { margin-top: 36px; border-top: 1px solid var(--line); padding-top: 16px; }
+.feed h2 { font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 0 0 12px; }
+.feed ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+.feed li { display: flex; gap: 10px; padding-left: 14px; border-left: 1px solid var(--c); }
+.feed .ic { color: var(--c); margin-top: 3px; }
+@media (max-width: 900px) { .figs { grid-template-columns: repeat(3, minmax(0,1fr)); row-gap: 20px; } .feed ol { grid-template-columns: minmax(0,1fr); } }
+@media (max-width: 640px) {
+ .wrap { padding: 20px 16px 40px; }
+ .top nav { margin-left: 0; }
+ .figs { grid-template-columns: repeat(2, minmax(0,1fr)); }
+ .figs div:first-child { grid-column: 1 / -1; }
+ .figs dd { font-size: 34px; }
+ .lane { grid-template-columns: minmax(0,1fr); }
+ .lab { border-right: 0; border-bottom: 1px dashed var(--line); display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; padding: 12px 16px; }
+ .lab .tot { font-size: 24px; margin: 0; margin-left: auto; }
+ .deals { padding: 12px; }
+ .deals > li { flex: 1 1 100%; } .cap { border-radius: 18px; width: 100%; }
+}
+.fld { display: grid; gap: 6px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.fld input { background: var(--chip); border: 0; border-bottom: 1px solid var(--cy); color: var(--ink); font: 15px var(--font); padding: 8px 4px; width: 240px; max-width: 100%; letter-spacing: 0; text-transform: none; }
+.lrow { --c: var(--am); display: flex; gap: 16px; align-items: center; padding: 10px 18px; border: 1px solid color-mix(in srgb, var(--c) 55%, transparent); border-radius: 999px; background: var(--chip); color: var(--ink); text-decoration: none; width: 280px; max-width: 100%; }
+.lrow .v { margin-left: auto; color: var(--c); }
+
+
+.sheet { background: var(--s-bg); color: var(--s-ink); font-family: var(--s-font); padding: 48px 28px 72px; border-top: var(--s-top, 1px solid var(--s-line)); }
+.sheet > * { max-width: 1120px; margin-left: auto; margin-right: auto; }
+.sheet h2 { font-family: var(--s-hfont, inherit); font-size: 30px; line-height: 1.2; margin-top: 0; margin-bottom: 8px; font-weight: 700; }
+.sheet .idea { font-size: 17px; line-height: 1.55; color: var(--s-ink); margin-top: 0; margin-bottom: 8px; }
+.sheet h3 { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--s-muted); margin-top: 36px; margin-bottom: 14px; padding-top: 12px; border-top: 1px solid var(--s-line); font-weight: 700; }
+.swatches { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.sw { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; line-height: 1.45; min-width: 0; }
+.sw i { flex: none; width: 44px; height: 44px; border-radius: var(--s-sw-r, 6px); border: 1px solid var(--s-line); }
+.sw b { font-weight: 700; } .sw code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; color: var(--s-ink); }
+.sw span { color: var(--s-muted); }
+.type-row { display: flex; align-items: baseline; gap: 20px; padding: 10px 0; border-bottom: 1px solid var(--s-line); flex-wrap: wrap; min-width: 0; }
+.type-row code { flex: 0 0 220px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12.5px; color: var(--s-muted); }
+.type-row > span { min-width: 0; overflow-wrap: anywhere; }
+.stack { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; color: var(--s-muted); margin: 0 auto 6px; overflow-wrap: anywhere; }
+.facts { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 8px 20px; margin: 0 auto; font-size: 15px; line-height: 1.55; }
+.facts dt { font-weight: 700; } .facts dd { margin: 0; color: var(--s-ink); }
+.controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.ctl-label { display: block; font-size: 13px; color: var(--s-muted); margin-bottom: 10px; }
+.ctl-pair { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.ctl-pair > * { min-width: 0; }
+@media (max-width: 700px) {
+ .sheet { padding: 36px 16px 56px; }
+ .sheet h2 { font-size: 24px; }
+ .facts, .controls { grid-template-columns: minmax(0, 1fr); }
+ .facts dd { margin-bottom: 8px; }
+ .type-row code { flex-basis: 100%; }
+ .ctl-pair > .fld, .ctl-pair > .lrow { flex: 1 1 100%; }
+}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5L21.5 20h-19z"/><path d="M12 10v4"/><path d="M12 17.2v.1"/></symbol><symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol><symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14.5" rx="1.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></symbol><symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 3.5L3.5 10.5l7 3 3 7z"/><path d="M20.5 3.5l-10 10"/></symbol><symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V4"/><path d="M6 4.5h11l-2.5 4 2.5 4H6"/></symbol><symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol><symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></symbol><symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></symbol><symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16l-6 7.5V19l-4 1.5v-8z"/></symbol><symbol id="i-sortd" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 5v14M3.5 15.5L7 19l3.5-3.5"/><path d="M13 7h8M13 12h6M13 17h4"/></symbol><symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></symbol><symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol><symbol id="i-dot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/></symbol><symbol id="i-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H4.5a3 3 0 0 0 3.5 4M16 6h3.5a3 3 0 0 1-3.5 4M12 13v4M8.5 20h7M10 17h4"/></symbol><symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8-4.3-4.1 5.9-.8z"/></symbol><symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/></symbol><symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol><symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></symbol><symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15z"/><path d="M10 20.5h4"/></symbol><symbol id="i-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4 0-6.5-2.6-6.5-6.2 0-3.6 3-5.6 4-9.3 2 1.6 2.5 3.6 2.4 5 1-.6 1.7-1.7 2-3 2.4 2.1 4.6 4.7 4.6 7.3 0 3.6-2.5 6.2-6.5 6.2z"/></symbol><symbol id="i-hex" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/></symbol><symbol id="i-square" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12"/></symbol><symbol id="i-diamond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l8 8-8 8-8-8z"/></symbol><symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></symbol><symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol></defs></svg>
+<div class="wrap">
+<header class="top"><div class="brand"><b>Brightwork</b> · Sales</div>
+<nav aria-label="Actions"><button class="btn-s" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-filter"/></svg>Filter</button><button class="btn-p" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>New deal</button></nav></header>
+<main>
+<h1>Pipeline · <span>Q4</span></h1>
+<dl class="figs">
+<div><dd class="glow" style="color:var(--cy)">412,000</dd><dt>Pipeline value</dt></div>
+<div><dd class="glow" style="color:var(--li)">128,500</dd><dt>Won this quarter</dt><div class="track" role="img" aria-label="64 percent of target"><i></i><b></b></div></div>
+<div><dd class="glow" style="color:var(--ink)">200,000</dd><dt>Target</dt></div>
+<div><dd class="glow" style="color:var(--mg)">31%</dd><dt>Win rate</dt></div>
+<div><dd class="glow" style="color:var(--am)">18</dd><dt>Open deals</dt></div>
+</dl>
+<ol class="lanes" aria-label="Stage lanes"><li class="lane" style="--c:var(--cy)"><div class="lab"><h2 id="l0">Lead</h2><div class="cnt">2 deals</div><div class="tot glow" aria-label="Lane total 30,000">30,000</div></div><ul class="deals" aria-labelledby="l0"><li><a class="cap" href="#"><b>Lumen Bakery</b><span class="v glow">6,000</span><span class="o">Lena Fischer</span></a></li><li><a class="cap" href="#"><b>Orbit Labs</b><span class="v glow">24,000</span><span class="o">Sam Ortiz</span></a></li></ul></li><li class="lane" style="--c:var(--vi)"><div class="lab"><h2 id="l1">Qualified</h2><div class="cnt">1 deal</div><div class="tot glow" aria-label="Lane total 48,000">48,000</div></div><ul class="deals" aria-labelledby="l1"><li><a class="cap" href="#"><b>Northpass</b><span class="v glow">48,000</span><span class="o">Mara Okafor</span><span class="s "><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Demo 4 Nov</span></a></li></ul></li><li class="lane" style="--c:var(--mg)"><div class="lab"><h2 id="l2">Proposal</h2><div class="cnt">2 deals</div><div class="tot glow" aria-label="Lane total 122,500">122,500</div></div><ul class="deals" aria-labelledby="l2"><li><a class="cap" href="#"><b>Kettle &amp; Co</b><span class="v glow">32,500</span><span class="o">Lena Fischer</span><span class="s "><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-send"/></svg>Proposal sent 28 Oct</span></a></li><li><a class="cap alert" href="#"><b>Saltwater Freight</b><span class="v glow">90,000</span><span class="o">Mara Okafor</span><span class="s warn"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-warn"/></svg>Stalled 12 days</span></a></li></ul></li><li class="lane" style="--c:var(--am)"><div class="lab"><h2 id="l3">Negotiation</h2><div class="cnt">1 deal</div><div class="tot glow" aria-label="Lane total 18,000">18,000</div></div><ul class="deals" aria-labelledby="l3"><li><a class="cap" href="#"><b>Fernhill Studio</b><span class="v glow">18,000</span><span class="o">Sam Ortiz</span><span class="s "><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-flag"/></svg>Closing 7 Nov</span></a></li></ul></li><li class="lane" style="--c:var(--li)"><div class="lab"><h2 id="l4">Won</h2><div class="cnt">1 deal</div><div class="tot glow" aria-label="Lane total 64,000">64,000</div></div><ul class="deals" aria-labelledby="l4"><li><a class="cap" href="#"><b>Bluewater Clinics</b><span class="v glow">64,000</span><span class="o"></span><span class="s "><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Closed 22 Oct</span></a></li></ul></li></ol>
+<section class="feed" aria-labelledby="fh"><h2 id="fh">Activity</h2><ol>
+<li style="--c:var(--vi)"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>Call with Northpass booked for 4 Nov 10:00</span></li>
+<li style="--c:var(--mg)"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-eye"/></svg><span>Kettle &amp; Co opened the proposal 3 times</span></li>
+<li style="--c:var(--warn)"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-warn"/></svg><span>Saltwater Freight has had no reply for 12 days</span></li>
+</ol></section>
+</main></div>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 335 · Neon swimlanes</h2>
+<p class="idea">The pipeline as five horizontal lanes on near black, each edged by one thin neon line in its own colour, with every value shown as a glowing figure and the deals riding the lane as outlined capsules.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><i style="background:#09080f"></i><div><b>Void</b> <code>#09080f</code><br><span>page and style sheet</span></div></li><li class="sw"><i style="background:#100e1a"></i><div><b>Lane</b> <code>#100e1a</code><br><span>lane bodies</span></div></li><li class="sw"><i style="background:#16131f"></i><div><b>Capsule</b> <code>#16131f</code><br><span>deal capsules and fields</span></div></li><li class="sw"><i style="background:#2a2540"></i><div><b>Grid</b> <code>#2a2540</code><br><span>dividers, dashed lane splits, meter track</span></div></li><li class="sw"><i style="background:#f1eefb"></i><div><b>Ink</b> <code>#f1eefb</code><br><span>names and text</span></div></li><li class="sw"><i style="background:#aca5c4"></i><div><b>Haze</b> <code>#aca5c4</code><br><span>labels, owners, counts</span></div></li><li class="sw"><i style="background:#5ef2ff"></i><div><b>Cyan</b> <code>#5ef2ff</code><br><span>Lead lane, pipeline figure, primary button, focus</span></div></li><li class="sw"><i style="background:#c2adff"></i><div><b>Violet</b> <code>#c2adff</code><br><span>Qualified lane</span></div></li><li class="sw"><i style="background:#ff7ad9"></i><div><b>Magenta</b> <code>#ff7ad9</code><br><span>Proposal lane, win rate, secondary button</span></div></li><li class="sw"><i style="background:#ffcf6b"></i><div><b>Amber</b> <code>#ffcf6b</code><br><span>Negotiation lane, open deals</span></div></li><li class="sw"><i style="background:#c4ff6b"></i><div><b>Lime</b> <code>#c4ff6b</code><br><span>Won lane, won figure and target line</span></div></li><li class="sw"><i style="background:#ffb36b"></i><div><b>Ember</b> <code>#ffb36b</code><br><span>Stalled, dashed capsule and triangle</span></div></li></ul>
+<h3>Type</h3>
+<p class="stack">Avenir Next, Avenir, Futura, Century Gothic, Trebuchet MS, system-ui, sans-serif</p>
+<div class="type-row"><code>44 / 300 glowing figure</code><span style="font-size:44px;font-weight:300;color:#5ef2ff;text-shadow:0 0 8px #5ef2ff">412,000</span></div><div class="type-row"><code>30 / 300 lane total</code><span style="font-size:30px;font-weight:300;color:#ff7ad9">122,500</span></div><div class="type-row"><code>15 / 600 deal name</code><span style="font-weight:600">Saltwater Freight</span></div><div class="type-row"><code>12 / 600 caps .3em label</code><span style="font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:600">Proposal</span></div><div class="type-row"><code>12 / 400 meta</code><span style="font-size:12px;color:#aca5c4">Mara Okafor</span></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3>
+<dl class="facts"><dt>Spacing</dt><dd>8px unit. 10px between lanes, 12px between capsules, 16px lane padding, 28px gutter, 16px on phones.</dd><dt>Density</dt><dd>Low to medium. One lane per stage with lots of black between.</dd><dt>Corners</dt><dd>Square lanes. Pill capsules and buttons, 18px capsules on phones.</dd><dt>Borders</dt><dd>A 2px neon left edge per lane, a fading 1px neon underline, 1px capsule outlines at 55 percent of the lane colour, dashed splits.</dd><dt>Shadows</dt><dd>No drop shadows. Glow only, a soft colour halo on figures, lane edges and the primary button.</dd><dt>Icons</dt><dd>Thin line icons at 1.9 stroke in the text colour. Stalled gets a triangle, a dashed ember outline and the word.</dd><dt>Focus</dt><dd>A 2px cyan outline offset 3px with a cyan halo.</dd><dt>Tone</dt><dd> Terse uppercase labels. Pipeline, Activity, New deal, Filter.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls">
+<div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-p" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>New deal</button><button class="btn-p is-focus" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>New deal</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-s" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-filter"/></svg>Filter</button><button class="btn-s is-focus" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-filter"/></svg>Filter</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="fld"><span>Find a deal</span><input type="text" value="Orbit Labs"></label><label class="fld"><span>Find a deal, focused</span><input type="text" class="is-focus" value="Orbit Labs"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><a class="lrow" href="#"><b>Fernhill Studio</b><span class="v glow">18,000</span></a><a class="lrow is-focus" href="#"><b>Fernhill Studio</b><span class="v glow">18,000</span></a></div></div>
+</div>
+</section>
+</body>
+</html>

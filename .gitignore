@@ -5,3 +5,5 @@
 .codex/
 .agents/
 .opencode/
+evals/lookbook/dist/
+evals/lookbook/.piton/

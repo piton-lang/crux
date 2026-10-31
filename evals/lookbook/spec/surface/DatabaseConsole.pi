@@ -1,0 +1,27 @@
+export anchor DatabaseConsole:
+    description:
+        Brightwork Data, a made-up database console, connected to
+        production-replica, a read-only Postgres-style database.
+
+    schemaTree:
+        Tables projects, tasks, members, activity and invoices, with tasks
+        expanded to show id, project_id, title, assignee_id, due_on and status.
+
+    query:
+        A query editor holding a SELECT that counts open tasks per project
+        where due_on is before today, grouped by project and ordered by the
+        count, descending.
+
+    results:
+        - Billing migration, 2
+        - Mobile app 2.0, 1
+        - Website redesign, 1
+        The run took 38 ms and returned 3 rows.
+
+    history:
+        - 09:41, count overdue tasks, 38 ms
+        - 09:30, members without tasks, 12 ms
+        - 09:12, a failed query with the error column assignee does not exist
+
+    status:
+        Read-only replica, lag 2 seconds, 14 active connections.

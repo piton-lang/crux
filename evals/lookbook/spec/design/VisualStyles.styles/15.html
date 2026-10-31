@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 15 · Document workspace · Brightwork</title>
+<style>
+:root {
+  --page: #ffffff;
+  --side: #f6f5f2;
+  --hover: #ecebe7;
+  --text: #2a2a28;
+  --muted: #6b6a66;
+  --line: #e9e8e4;
+  --link: #2f5fa7;
+  --callout: #fbf3e4;
+  --calloutLine: #ead9b5;
+  --okText: #25613a; --okBg: #e6f1e8;
+  --warnText: #8a5300; --warnBg: #fbeed5;
+  --badText: #a32b1f; --badBg: #fbe4e1;
+  --tagText: #4d5c70; --tagBg: #eef2f7;
+  --focus: #2f5fa7;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--text); font: 16px/1.6 var(--sans); }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible, .is-focus { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+svg.g { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: none; vertical-align: -0.125em; }
+
+.shell { display: grid; grid-template-columns: 240px minmax(0, 1fr); min-height: 100vh; }
+
+/* Sidebar of pages */
+.side { background: var(--side); border-right: 1px solid var(--line); padding: 12px 8px; font-size: 14px; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+.ws { display: flex; align-items: center; gap: 8px; padding: 4px 8px; font-weight: 600; margin-bottom: 12px; }
+.ws .mark { width: 22px; height: 22px; border-radius: 4px; background: var(--text); color: #fff; display: grid; place-items: center; font-size: 12px; font-weight: 700; }
+.side h2 { font-size: 12px; font-weight: 500; color: var(--muted); margin: 16px 8px 4px; }
+.pages { list-style: none; margin: 0; padding: 0; }
+.pages a { display: flex; align-items: center; gap: 8px; padding: 4px 8px; border-radius: 4px; text-decoration: none; color: var(--text); }
+.pages a:hover { background: var(--hover); }
+.pages a[aria-current="page"] { background: var(--hover); font-weight: 600; }
+.pages .g { color: var(--muted); }
+.sub a { padding-left: 28px; color: var(--muted); }
+
+/* Top bar */
+.top { display: flex; align-items: center; gap: 12px; padding: 8px 16px; font-size: 14px; position: sticky; top: 0; background: rgba(255,255,255,0.96); z-index: 2; }
+.crumbs { color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.crumbs b { color: var(--text); font-weight: 500; }
+.top .grow { flex: 1; }
+.find { display: flex; align-items: center; gap: 6px; color: var(--muted); padding: 0 8px; height: 32px; border-radius: 4px; background: var(--side); width: 240px; }
+.find input { border: 0; background: transparent; font: inherit; color: var(--text); width: 100%; min-width: 0; outline: 0; }
+.find input::placeholder { color: var(--muted); }
+.find:focus-within { box-shadow: 0 0 0 2px var(--focus); }
+.iconbtn { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 4px; color: var(--muted); text-decoration: none; position: relative; }
+.iconbtn:hover { background: var(--side); }
+.iconbtn .dot { position: absolute; top: 5px; right: 5px; min-width: 14px; height: 14px; border-radius: 7px; background: var(--badText); color: #fff; font-size: 10px; line-height: 14px; text-align: center; font-weight: 600; }
+.avatar { width: 28px; height: 28px; border-radius: 50%; background: #d9e3f0; color: #23426e; font-size: 12px; font-weight: 600; display: grid; place-items: center; }
+.btn { font: 500 14px/1 var(--sans); height: 32px; padding: 0 12px; border-radius: 4px; border: 1px solid var(--line); background: #fff; color: var(--text); display: inline-flex; align-items: center; gap: 6px; cursor: pointer; white-space: nowrap; }
+.btn:hover { background: var(--side); }
+.btn-primary { background: var(--link); color: #fff; border-color: var(--link); }
+.btn-primary:hover { background: #274f8c; }
+
+/* Document column */
+.doc { max-width: 760px; margin: 0 auto; padding: 48px 24px 64px; }
+svg.pageicon { width: 64px; height: 64px; color: var(--text); margin-bottom: 8px; }
+h1 { font-size: 40px; line-height: 1.2; margin: 0 0 16px; font-weight: 700; letter-spacing: -0.01em; }
+.props { margin: 0 0 24px; font-size: 14px; }
+.props div { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 8px; padding: 4px 0; align-items: center; }
+.props dt { color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.props dd { margin: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.props .warn { color: var(--badText); font-weight: 600; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 16px 0; }
+.lead { margin: 16px 0; }
+
+.callout { display: flex; gap: 12px; background: var(--callout); border: 1px solid var(--calloutLine); border-radius: 4px; padding: 16px; margin: 16px 0 24px; }
+.callout .g { width: 22px; height: 22px; color: var(--badText); margin-top: 1px; }
+.callout p { margin: 0; }
+.callout a { color: var(--link); }
+
+h2.block { font-size: 24px; line-height: 1.3; margin: 32px 0 8px; font-weight: 700; }
+.figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 8px 0 8px; padding: 0; list-style: none; }
+.figures li { padding: 12px 12px 12px 0; }
+.figures li + li { padding-left: 12px; border-left: 1px solid var(--line); }
+.figures .n { display: block; font-size: 28px; font-weight: 600; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.figures .l { font-size: 14px; color: var(--muted); }
+.figures .bad .n { color: var(--badText); }
+
+/* Toggles */
+details { margin: 8px 0; }
+summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 20px; font-weight: 600; padding: 4px 0; border-radius: 4px; }
+summary::-webkit-details-marker { display: none; }
+summary .tri { width: 20px; height: 20px; display: grid; place-items: center; color: var(--muted); transition: transform .12s; }
+details[open] > summary .tri { transform: rotate(90deg); }
+summary .count { font-size: 14px; color: var(--muted); font-weight: 400; }
+.inner { padding-left: 26px; }
+
+/* Database table */
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { font-weight: 400; color: var(--muted); }
+th svg { margin-right: 4px; }
+td:first-child, th:first-child { padding-left: 0; }
+td.name a { font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border-bottom: 1px solid var(--line); }
+td.name a:hover { border-color: var(--text); }
+.tag { display: inline-flex; align-items: center; gap: 4px; padding: 0 6px; border-radius: 4px; font-size: 13px; line-height: 22px; background: var(--tagBg); color: var(--tagText); }
+.tag.ok { background: var(--okBg); color: var(--okText); }
+.tag.warn { background: var(--warnBg); color: var(--warnText); }
+.tag.bad { background: var(--badBg); color: var(--badText); }
+.prog { display: inline-flex; align-items: center; gap: 8px; }
+.prog i { display: block; width: 64px; height: 4px; border-radius: 2px; background: var(--line); overflow: hidden; }
+.prog i b { display: block; height: 100%; background: var(--text); }
+.newrow { color: var(--muted); font-size: 14px; padding: 8px 0; display: flex; gap: 6px; align-items: center; }
+
+.chart svg { width: 100%; height: auto; display: block; font-family: var(--sans); }
+.chart .cap { font-size: 14px; color: var(--muted); display: flex; gap: 24px; flex-wrap: wrap; margin: 4px 0 0; }
+.chart .key { display: inline-flex; align-items: center; gap: 6px; }
+.chart .key i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+
+.acts { margin: 0; padding-left: 20px; }
+.acts li { padding: 4px 0; }
+.acts li::marker { color: var(--muted); }
+.acts .when { color: var(--muted); font-size: 14px; }
+.acts a { text-decoration: underline; text-decoration-color: #b9b7b0; text-underline-offset: 3px; }
+
+/* Style sheet */
+.sheet { border-top: 1px solid var(--line); }
+.sheet .doc { padding-top: 40px; }
+.sheet h3 { font-size: 20px; margin: 32px 0 8px; }
+.swatches { list-style: none; margin: 0; padding: 0; }
+.swatches li { display: grid; grid-template-columns: 28px 120px minmax(0, 1fr); gap: 12px; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.swatches i { width: 28px; height: 28px; border-radius: 4px; border: 1px solid rgba(0,0,0,.12); }
+.swatches code { font: 13px ui-monospace, Menlo, Consolas, monospace; color: var(--muted); }
+.typerow { display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.typerow code { font: 13px ui-monospace, Menlo, Consolas, monospace; color: var(--muted); min-width: 170px; }
+.controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.clabel { display: block; font-size: 14px; color: var(--muted); margin-bottom: 6px; }
+.field { display: block; font-size: 14px; color: var(--muted); }
+.field input { display: block; width: 100%; margin-top: 6px; height: 36px; border: 1px solid var(--line); border-radius: 4px; padding: 0 10px; font: 15px var(--sans); color: var(--text); background: #fff; }
+.field input.is-focus { border-color: var(--focus); box-shadow: 0 0 0 1px var(--focus); outline: 0; }
+.ctl { display: flex; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 860px) {
+  .shell { grid-template-columns: minmax(0, 1fr); }
+  .side { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--line); padding: 8px 12px; }
+  .side h2, .sub { display: none; }
+  .ws { margin-bottom: 4px; }
+  .pages { display: flex; flex-wrap: wrap; gap: 2px 4px; }
+  .find { width: auto; flex: 1; }
+  .top .grow { display: none; }
+  .crumbs { display: none; }
+}
+@media (max-width: 560px) {
+  .doc { padding: 24px 16px 48px; }
+  h1 { font-size: 32px; }
+  svg.pageicon { width: 48px; height: 48px; }
+  .props div { grid-template-columns: 120px minmax(0, 1fr); }
+  .figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .figures li:nth-child(3) { border-left: 0; padding-left: 0; }
+  .figures li:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .inner { padding-left: 0; }
+  .btn-primary .lbl { display: none; }
+  .controls { grid-template-columns: minmax(0, 1fr); }
+  .swatches li { grid-template-columns: 28px minmax(0, 1fr); }
+  .swatches li code { grid-column: 2; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="g-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></symbol>
+  <symbol id="g-folder" viewBox="0 0 24 24"><path d="M3 7a1 1 0 0 1 1-1h5l2 2h9a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="g-check" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12l3 3 5-6"/></symbol>
+  <symbol id="g-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 19c0-3 3-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14c3 0 5 2 5 4"/></symbol>
+  <symbol id="g-chart" viewBox="0 0 24 24"><path d="M4 20V4"/><path d="M4 20h16"/><path d="M8 16v-5M12 16V8M16 16v-3"/></symbol>
+  <symbol id="g-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></symbol>
+  <symbol id="g-page" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></symbol>
+  <symbol id="g-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></symbol>
+  <symbol id="g-bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 20a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="g-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="g-tri" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="g-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></symbol>
+  <symbol id="g-cal" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="1"/><path d="M4 10h16M9 3v4M15 3v4"/></symbol>
+  <symbol id="g-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></symbol>
+  <symbol id="g-flag" viewBox="0 0 24 24"><path d="M5 21V4h11l-2 4 2 4H5"/></symbol>
+  <symbol id="g-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4 6h.5M4 12h.5M4 18h.5"/></symbol>
+  <symbol id="g-pct" viewBox="0 0 24 24"><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/><path d="M18 6L6 18"/></symbol>
+  <symbol id="s-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></symbol>
+  <symbol id="s-warn" viewBox="0 0 24 24"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.3"/></symbol>
+  <symbol id="s-bad" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/></symbol>
+</svg>
+
+<div class="shell">
+  <nav class="side" aria-label="Pages">
+    <div class="ws"><span class="mark" aria-hidden="true">B</span>Brightwork</div>
+    <h2>Workspace</h2>
+    <ul class="pages">
+      <li><a href="#" aria-current="page"><svg class="g" aria-hidden="true"><use href="#g-home"/></svg>Home</a></li>
+      <li><a href="#"><svg class="g" aria-hidden="true"><use href="#g-folder"/></svg>Projects</a></li>
+      <li class="sub"><a href="#"><svg class="g" aria-hidden="true"><use href="#g-page"/></svg>Website redesign</a></li>
+      <li class="sub"><a href="#"><svg class="g" aria-hidden="true"><use href="#g-page"/></svg>Mobile app 2.0</a></li>
+      <li><a href="#"><svg class="g" aria-hidden="true"><use href="#g-check"/></svg>Tasks</a></li>
+      <li><a href="#"><svg class="g" aria-hidden="true"><use href="#g-people"/></svg>Team</a></li>
+      <li><a href="#"><svg class="g" aria-hidden="true"><use href="#g-chart"/></svg>Reports</a></li>
+      <li><a href="#"><svg class="g" aria-hidden="true"><use href="#g-gear"/></svg>Settings</a></li>
+    </ul>
+  </nav>
+
+  <div>
+    <header class="top">
+      <span class="crumbs">Brightwork / <b>Home</b></span>
+      <span class="grow"></span>
+      <label class="find"><svg class="g" aria-hidden="true"><use href="#g-search"/></svg><input type="search" placeholder="Search projects and tasks" aria-label="Search projects and tasks"></label>
+      <a href="#" class="iconbtn" aria-label="Notifications, 3 unread"><svg class="g" aria-hidden="true" style="width:18px;height:18px"><use href="#g-bell"/></svg><span class="dot" aria-hidden="true">3</span></a>
+      <button class="btn btn-primary" type="button" aria-label="New project"><svg class="g" aria-hidden="true"><use href="#g-plus"/></svg><span class="lbl">New project</span></button>
+      <span class="avatar" role="img" aria-label="Signed in as Mara Okafor">MO</span>
+    </header>
+
+    <main class="doc">
+      <svg class="g pageicon" aria-hidden="true" style="stroke-width:1.2"><use href="#g-home"/></svg>
+      <h1>Home</h1>
+      <dl class="props">
+        <div><dt><svg class="g" aria-hidden="true"><use href="#g-user"/></svg>Signed in</dt><dd><span class="avatar" aria-hidden="true" style="width:22px;height:22px;font-size:10px">MO</span>Mara Okafor</dd></div>
+        <div><dt><svg class="g" aria-hidden="true"><use href="#g-cal"/></svg>Date</dt><dd>Saturday 31 October 2026</dd></div>
+        <div><dt><svg class="g" aria-hidden="true"><use href="#g-flag"/></svg>Needs attention</dt><dd class="warn">4 tasks overdue</dd></div>
+      </dl>
+      <hr>
+      <p class="lead">Good afternoon, Mara. Here is where your projects stand this Saturday.</p>
+
+      <aside class="callout" aria-label="Most urgent">
+        <svg class="g" aria-hidden="true"><use href="#g-alert"/></svg>
+        <p><strong>4 tasks are overdue.</strong> They are the first thing to look at today. <a href="#">Open overdue tasks</a></p>
+      </aside>
+
+      <h2 class="block">This week</h2>
+      <ul class="figures">
+        <li><span class="n">6</span><span class="l">Active projects</span></li>
+        <li><span class="n">23</span><span class="l">Tasks due this week</span></li>
+        <li class="bad"><span class="n">4</span><span class="l">Overdue tasks</span></li>
+        <li><span class="n">186</span><span class="l">Hours logged</span></li>
+      </ul>
+
+      <details open>
+        <summary><span class="tri"><svg class="g" aria-hidden="true"><use href="#g-tri"/></svg></span>Projects <span class="count">6</span></summary>
+        <div class="inner">
+          <div class="scroll">
+            <table>
+              <thead><tr><th scope="col"><svg class="g" aria-hidden="true"><use href="#g-page"/></svg>Name</th><th scope="col"><svg class="g" aria-hidden="true"><use href="#g-list"/></svg>Team</th><th scope="col"><svg class="g" aria-hidden="true"><use href="#g-flag"/></svg>Status</th><th scope="col"><svg class="g" aria-hidden="true"><use href="#g-pct"/></svg>Progress</th><th scope="col">Tasks</th><th scope="col"><svg class="g" aria-hidden="true"><use href="#g-cal"/></svg>Due</th></tr></thead>
+              <tbody>
+                <tr><td class="name"><a href="#"><svg class="g" aria-hidden="true"><use href="#g-page"/></svg>Website redesign</a></td><td><span class="tag">Design</span></td><td><span class="tag ok"><svg class="g" aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td><td><span class="prog"><i aria-hidden="true"><b style="width:72%"></b></i>72%</span></td><td>18 of 25</td><td>14 Nov</td></tr>
+                <tr><td class="name"><a href="#"><svg class="g" aria-hidden="true"><use href="#g-page"/></svg>Mobile app 2.0</a></td><td><span class="tag">Engineering</span></td><td><span class="tag warn"><svg class="g" aria-hidden="true"><use href="#s-warn"/></svg>At risk</span></td><td><span class="prog"><i aria-hidden="true"><b style="width:45%"></b></i>45%</span></td><td>27 of 60</td><td>2 Dec</td></tr>
+                <tr><td class="name"><a href="#"><svg class="g" aria-hidden="true"><use href="#g-page"/></svg>Q4 customer survey</a></td><td><span class="tag">Research</span></td><td><span class="tag ok"><svg class="g" aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td><td><span class="prog"><i aria-hidden="true"><b style="width:90%"></b></i>90%</span></td><td>9 of 10</td><td>7 Nov</td></tr>
+                <tr><td class="name"><a href="#"><svg class="g" aria-hidden="true"><use href="#g-page"/></svg>Billing migration</a></td><td><span class="tag">Engineering</span></td><td><span class="tag bad"><svg class="g" aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></td><td><span class="prog"><i aria-hidden="true"><b style="width:30%"></b></i>30%</span></td><td>12 of 40</td><td>20 Nov</td></tr>
+                <tr><td class="name"><a href="#"><svg class="g" aria-hidden="true"><use href="#g-page"/></svg>Spring catalogue</a></td><td><span class="tag">Marketing</span></td><td><span class="tag ok"><svg class="g" aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td><td><span class="prog"><i aria-hidden="true"><b style="width:15%"></b></i>15%</span></td><td>3 of 20</td><td>15 Jan</td></tr>
+                <tr><td class="name"><a href="#"><svg class="g" aria-hidden="true"><use href="#g-page"/></svg>Onboarding emails</a></td><td><span class="tag">Marketing</span></td><td><span class="tag ok"><svg class="g" aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td><td><span class="prog"><i aria-hidden="true"><b style="width:60%"></b></i>60%</span></td><td>9 of 15</td><td>21 Nov</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="newrow"><svg class="g" aria-hidden="true"><use href="#g-plus"/></svg>New project</div>
+        </div>
+      </details>
+
+      <details open class="chart">
+        <summary><span class="tri"><svg class="g" aria-hidden="true"><use href="#g-tri"/></svg></span>Tasks completed <span class="count">last 14 days</span></summary>
+        <div class="inner">
+          <svg viewBox="0 0 560 200" role="img" aria-label="Tasks completed per day, Sunday 18 October to Saturday 31 October: 3, 12, 9, 14, 11, 8, 2, then 4, 15, 13, 17, 12, 10, 2. Last week totals 59, this week totals 73.">
+<line x1="0" x2="560" y1="170.5" y2="170.5" stroke="#e9e8e4"/>
+<line x1="0" x2="560" y1="128.0" y2="128.0" stroke="#e9e8e4"/>
+<line x1="0" x2="560" y1="85.5" y2="85.5" stroke="#e9e8e4"/>
+<line x1="0" x2="560" y1="43.0" y2="43.0" stroke="#e9e8e4"/>
+<rect x="7.0" y="144.5" width="26" height="25.5" rx="3" fill="#8f8d86"/>
+<text x="20.0" y="138.5" text-anchor="middle" font-size="12" fill="#2a2a28">3</text>
+<text x="20.0" y="190" text-anchor="middle" font-size="12" fill="#6b6a66">18</text>
+<rect x="47.0" y="68.0" width="26" height="102.0" rx="3" fill="#8f8d86"/>
+<text x="60.0" y="62.0" text-anchor="middle" font-size="12" fill="#2a2a28">12</text>
+<text x="60.0" y="190" text-anchor="middle" font-size="12" fill="#6b6a66">19</text>
+<rect x="87.0" y="93.5" width="26" height="76.5" rx="3" fill="#8f8d86"/>
+<text x="100.0" y="87.5" text-anchor="middle" font-size="12" fill="#2a2a28">9</text>
+<text x="100.0" y="190" text-anchor="middle" font-size="12" fill="#6b6a66">20</text>
+<rect x="127.0" y="51.0" width="26" height="119.0" rx="3" fill="#8f8d86"/>
+<text x="140.0" y="45.0" text-anchor="middle" font-size="12" fill="#2a2a28">14</text>
+<text x="140.0" y="190" text-anchor="middle" font-size="12" fill="#6b6a66">21</text>
+<rect x="167.0" y="76.5" width="26" height="93.5" rx="3" fill="#8f8d86"/>
+<text x="180.0" y="70.5" text-anchor="middle" font-size="12" fill="#2a2a28">11</text>
+<text x="180.0" y="190" text-anchor="middle" font-size="12" fill="#6b6a66">22</text>
+<rect x="207.0" y="102.0" width="26" height="68.0" rx="3" fill="#8f8d86"/>
+<text x="220.0" y="96.0" text-anchor="middle" font-size="12" fill="#2a2a28">8</text>
+<text x="220.0" y="190" text-anchor="middle" font-size="12" fill="#6b6a66">23</text>
+<rect x="247.0" y="153.0" width="26" height="17.0" rx="3" fill="#8f8d86"/>
+<text x="260.0" y="147.0" text-anchor="middle" font-size="12" fill="#2a2a28">2</text>
+<text x="260.0" y="190" text-anchor="middle" font-size="12" fill="#6b6a66">24</text>
+<rect x="287.0" y="136.0" width="26" height="34.0" rx="3" fill="#2f5fa7"/>
+<text x="300.0" y="130.0" text-anchor="middle" font-size="12" fill="#2a2a28">4</text>
+<text x="300.0" y="190" text-anchor="middle" font-size="12" fill="#6b6a66">25</text>
+<rect x="327.0" y="42.5" width="26" height="127.5" rx="3" fill="#2f5fa7"/>
+<text x="340.0" y="36.5" text-anchor="middle" font-size="12" fill="#2a2a28">15</text>
+<text x="340.0" y="190" text-anchor="middle" font-size="12" fill="#6b6a66">26</text>
+<rect x="367.0" y="59.5" width="26" height="110.5" rx="3" fill="#2f5fa7"/>
+<text x="380.0" y="53.5" text-anchor="middle" font-size="12" fill="#2a2a28">13</text>
+<text x="380.0" y="190" text-anchor="middle" font-size="12" fill="#6b6a66">27</text>
+<rect x="407.0" y="25.5" width="26" height="144.5" rx="3" fill="#2f5fa7"/>
+<text x="420.0" y="19.5" text-anchor="middle" font-size="12" fill="#2a2a28">17</text>
+<text x="420.0" y="190" text-anchor="middle" font-size="12" fill="#6b6a66">28</text>
+<rect x="447.0" y="68.0" width="26" height="102.0" rx="3" fill="#2f5fa7"/>
+<text x="460.0" y="62.0" text-anchor="middle" font-size="12" fill="#2a2a28">12</text>
+<text x="460.0" y="190" text-anchor="middle" font-size="12" fill="#6b6a66">29</text>
+<rect x="487.0" y="85.0" width="26" height="85.0" rx="3" fill="#2f5fa7"/>
+<text x="500.0" y="79.0" text-anchor="middle" font-size="12" fill="#2a2a28">10</text>
+<text x="500.0" y="190" text-anchor="middle" font-size="12" fill="#6b6a66">30</text>
+<rect x="527.0" y="153.0" width="26" height="17.0" rx="3" fill="#2f5fa7"/>
+<text x="540.0" y="147.0" text-anchor="middle" font-size="12" fill="#2a2a28">2</text>
+<text x="540.0" y="190" text-anchor="middle" font-size="12" fill="#6b6a66">31</text>
+</svg>
+          <p class="cap"><span class="key"><i style="background:#8f8d86"></i>18 to 24 Oct · 59</span><span class="key"><i style="background:#2f5fa7"></i>25 to 31 Oct · 73</span></p>
+        </div>
+      </details>
+
+      <details open>
+        <summary><span class="tri"><svg class="g" aria-hidden="true"><use href="#g-tri"/></svg></span>Recent activity <span class="count">6</span></summary>
+        <div class="inner">
+          <ul class="acts">
+            <li>Jonas Weber completed “Export invoices as CSV” in <a href="#">Billing migration</a> <span class="when">· 12 min ago</span></li>
+            <li>Priya Nair commented on “Hero image options” in <a href="#">Website redesign</a> <span class="when">· 40 min ago</span></li>
+            <li>Sam Ortiz moved “Push notifications” to Review in <a href="#">Mobile app 2.0</a> <span class="when">· 1 h ago</span></li>
+            <li>Lena Fischer added 3 tasks to <a href="#">Spring catalogue</a> <span class="when">· 2 h ago</span></li>
+            <li>Tomás Ruiz logged 6 h on <a href="#">Mobile app 2.0</a> <span class="when">· 3 h ago</span></li>
+            <li>Aiko Tanaka uploaded survey-results-v2.pdf to <a href="#">Q4 customer survey</a> <span class="when">· yesterday</span></li>
+          </ul>
+        </div>
+      </details>
+    </main>
+
+    <section class="sheet" aria-labelledby="sheet-h">
+      <div class="doc">
+        <svg class="g pageicon" aria-hidden="true" style="stroke-width:1.2;width:48px;height:48px"><use href="#g-page"/></svg>
+        <h1 id="sheet-h" style="font-size:32px">Style 15 · Document workspace</h1>
+        <aside class="callout" aria-label="Idea" style="background:#eef2f7;border-color:#d6dfeb">
+          <svg class="g" aria-hidden="true" style="color:#2f5fa7"><use href="#g-page"/></svg>
+          <p>The dashboard as one calm document page, with a narrow column, a big title, callouts, toggles and properties, beside a slim grey list of pages.</p>
+        </aside>
+
+        <h3>Palette</h3>
+        <ul class="swatches">
+          <li><i style="background:#ffffff"></i><span>Page</span><code>#ffffff · the document</code></li>
+          <li><i style="background:#f6f5f2"></i><span>Sidebar</span><code>#f6f5f2 · page list, search field</code></li>
+          <li><i style="background:#ecebe7"></i><span>Hover</span><code>#ecebe7 · current and hovered page</code></li>
+          <li><i style="background:#2a2a28"></i><span>Text</span><code>#2a2a28 · body, titles, progress fill</code></li>
+          <li><i style="background:#6b6a66"></i><span>Muted</span><code>#6b6a66 · property names, meta</code></li>
+          <li><i style="background:#e9e8e4"></i><span>Line</span><code>#e9e8e4 · row rules, dividers</code></li>
+          <li><i style="background:#2f5fa7"></i><span>Link blue</span><code>#2f5fa7 · primary button, focus, this week</code></li>
+          <li><i style="background:#fbf3e4"></i><span>Callout</span><code>#fbf3e4 on #ead9b5 border · callouts</code></li>
+          <li><i style="background:#e6f1e8"></i><span>On track</span><code>#25613a on #e6f1e8 · tag</code></li>
+          <li><i style="background:#fbeed5"></i><span>At risk</span><code>#8a5300 on #fbeed5 · tag</code></li>
+          <li><i style="background:#fbe4e1"></i><span>Behind</span><code>#a32b1f on #fbe4e1 · tag, overdue</code></li>
+          <li><i style="background:#eef2f7"></i><span>Neutral tag</span><code>#4d5c70 on #eef2f7 · team tags</code></li>
+          <li><i style="background:#8f8d86"></i><span>Last week</span><code>#8f8d86 · earlier chart bars</code></li>
+        </ul>
+
+        <h3>Type · -apple-system, Segoe UI, system-ui, Roboto, Helvetica Neue, Arial</h3>
+        <div class="typerow"><code>40 / 700 page title</code><span style="font-size:40px;font-weight:700;line-height:1.2">Home</span></div>
+        <div class="typerow"><code>24 / 700 heading</code><span style="font-size:24px;font-weight:700">This week</span></div>
+        <div class="typerow"><code>20 / 600 toggle</code><span style="font-size:20px;font-weight:600">Recent activity</span></div>
+        <div class="typerow"><code>28 / 600 figure</code><span style="font-size:28px;font-weight:600">186</span></div>
+        <div class="typerow"><code>16 / 400 body, 1.6</code><span>Good afternoon, Mara.</span></div>
+        <div class="typerow"><code>14 / 400 property, table</code><span style="font-size:14px;color:var(--muted)">Needs attention</span></div>
+        <div class="typerow"><code>13 / 400 tag</code><span class="tag bad"><svg class="g" aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></div>
+
+        <h3>System</h3>
+        <dl class="props">
+          <div><dt>Spacing</dt><dd>8px unit. 48px above the title, 32px above headings, 8px table cell padding.</dd></div>
+          <div><dt>Density</dt><dd>Calm. One 760px column, generous line height, toggles fold detail away.</dd></div>
+          <div><dt>Corners</dt><dd>4px on tags, buttons, fields, callouts and sidebar rows. Round avatars.</dd></div>
+          <div><dt>Borders</dt><dd>1px #e9e8e4 row rules and dividers only. No cards.</dd></div>
+          <div><dt>Shadows</dt><dd>None.</dd></div>
+          <div><dt>Icons</dt><dd>16px thin line glyphs, 1.6 stroke, before every page, property and column name. A 64px glyph sits above the page title. Status tags carry a circle tick, a triangle or a crossed square.</dd></div>
+          <div><dt>Tone</dt><dd>Plain and personal sentence case, such as Needs attention, Recent activity and Open overdue tasks.</dd></div>
+        </dl>
+
+        <h3>Controls · normal and focus</h3>
+        <div class="controls">
+          <div><span class="clabel">Primary button</span><div class="ctl"><button class="btn btn-primary" type="button">Create project</button><button class="btn btn-primary is-focus" type="button">Focused</button></div></div>
+          <div><span class="clabel">Secondary button</span><div class="ctl"><button class="btn" type="button">Cancel</button><button class="btn is-focus" type="button">Focused</button></div></div>
+          <div><label class="field">Project name<input value="Website redesign"></label></div>
+          <div><label class="field">Project name, focused<input class="is-focus" value="Mobile app 2.0"></label></div>
+          <div><span class="clabel">Table row</span><table><tbody><tr><td class="name"><a href="#"><svg class="g" aria-hidden="true"><use href="#g-page"/></svg>Billing migration</a></td><td><span class="tag bad"><svg class="g" aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></td></tr></tbody></table></div>
+          <div><span class="clabel">Table row, focused</span><table><tbody><tr style="background:#f6f5f2"><td class="name"><a href="#" class="is-focus"><svg class="g" aria-hidden="true"><use href="#g-page"/></svg>Billing migration</a></td><td><span class="tag bad"><svg class="g" aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></td></tr></tbody></table></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+</body>
+</html>

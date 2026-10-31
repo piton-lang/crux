@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Style 229 · Dark icon rail · Brightwork</title>
+<style>
+
+:root { color-scheme: dark; --font: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif; --mono: ui-monospace, Menlo, Consolas, monospace;
+  --line: #2e333d; --ink: #e4e6ec; --muted: #9ea4b2; --s-bg: #14161c; --s-surface: #21252e; --s-r: 6px; }
+* { box-sizing: border-box; }
+html, body { background: #1a1d24; }
+body { margin: 0; color: var(--ink); font: 13px/1.45 var(--font); }
+a { color: #b49cff; text-decoration: none; }
+svg.i { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+a:focus-visible, button:focus-visible, input:focus-visible, .is-focus { outline: 2px solid #b49cff; outline-offset: 2px; }
+.app { display: grid; grid-template-columns: 60px 340px minmax(0, 1fr); min-height: 100vh; }
+.rail { background: #0b0c10; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 14px 0; border-right: 1px solid #2e333d; }
+.mark { width: 32px; height: 32px; border-radius: 8px; background: #b49cff; color: #1b1036; display: grid; place-items: center; font-weight: 800; margin-bottom: 12px; }
+.rail ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.rail a { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 8px; color: #9aa0ad; position: relative; }
+.rail a svg.i { width: 20px; height: 20px; }
+.rail a[aria-current=page] { background: #2a2440; color: #fff; }
+.rail a[aria-current=page]::before { content: ""; position: absolute; left: -10px; top: 8px; bottom: 8px; width: 3px; border-radius: 2px; background: #b49cff; }
+.rail .me { margin-top: auto; }
+.av { width: 28px; height: 28px; border-radius: 50%; background: #3b3357; color: #fff; display: grid; place-items: center; font-size: 10.5px; font-weight: 700; flex: none; }
+.list { background: #14161c; border-right: 1px solid #2e333d; padding: 18px 16px; min-width: 0; }
+.date { color: var(--muted); font-size: 12px; margin: 0; }
+h1 { font-size: 18px; margin: 2px 0 6px; font-weight: 650; }
+.over { display: flex; gap: 6px; align-items: center; color: #ff9a8f; font-weight: 600; margin: 0 0 14px; }
+.figs { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #2e333d; border: 1px solid #2e333d; border-radius: 6px; overflow: hidden; margin: 0 0 18px; }
+.figs div { background: #14161c; padding: 8px 10px; }
+.figs dt { font-size: 11px; color: var(--muted); }
+.figs dd { margin: 0; font-size: 20px; font-weight: 650; font-variant-numeric: tabular-nums; }
+.figs .bad dd { color: #ff9a8f; }
+.lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 650; margin: 0 0 6px; display: flex; justify-content: space-between; }
+.plist { list-style: none; margin: 0 -8px; padding: 0; }
+.plist a.row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 8px; padding: 9px 8px 9px 10px; border-radius: 6px; color: var(--ink); border-left: 3px solid transparent; }
+.plist a.row:hover { background: #21252e; }
+.plist a.row[aria-current=true] { background: #2a2440; border-left-color: #b49cff; }
+.plist b { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.plist .meta { color: var(--muted); font-size: 12px; }
+.mini { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; font-size: 11.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.mini span { flex: 1; height: 3px; background: #2e333d; border-radius: 2px; }
+.mini i { display: block; height: 100%; background: #b49cff; border-radius: 2px; }
+.st { display: inline-flex; gap: 4px; align-items: center; font-size: 11.5px; font-weight: 650; padding: 1px 6px 1px 4px; border-radius: 4px; border: 1px solid currentColor; white-space: nowrap; }
+.st svg.i { width: 13px; height: 13px; stroke-width: 2; }
+.st.ok { color: #7fd8a6; } .st.risk { color: #f3c56a; } .st.bad { color: #ff9a8f; }
+.detail { min-width: 0; }
+.top { display: flex; gap: 10px; align-items: center; padding: 10px 20px; border-bottom: 1px solid #2e333d; background: #1a1d24; }
+.search { flex: 1; max-width: 360px; display: flex; gap: 8px; align-items: center; background: #14161c; border: 1px solid #2e333d; border-radius: 6px; padding: 0 8px; color: var(--muted); }
+.search input { flex: 1; min-width: 0; background: transparent; border: 0; color: var(--ink); font: inherit; padding: 6px 0; }
+.search input::placeholder { color: var(--muted); } .search input:focus-visible { outline: 0; }
+.search:focus-within { outline: 2px solid #b49cff; outline-offset: 2px; }
+kbd { font-family: var(--mono); font-size: 11px; color: var(--muted); border: 1px solid #2e333d; border-radius: 4px; padding: 0 5px; }
+.sp { flex: 1; }
+.btn { display: inline-flex; gap: 6px; align-items: center; border-radius: 6px; padding: 6px 12px; font: 600 13px/1.4 var(--font); cursor: pointer; border: 1px solid transparent; white-space: nowrap; }
+.btn-primary { background: #b49cff; color: #1b1036; }
+.btn-secondary { background: #21252e; color: var(--ink); border-color: #2e333d; }
+.iconbtn { width: 30px; height: 30px; border-radius: 6px; background: transparent; border: 1px solid #2e333d; color: var(--ink); display: grid; place-items: center; cursor: pointer; }
+.user { display: flex; gap: 8px; align-items: center; font-weight: 600; }
+.pane { padding: 18px 20px 32px; }
+.crumb { font-size: 12px; color: var(--muted); display: flex; gap: 6px; align-items: center; }
+.crumb svg.i { width: 12px; height: 12px; }
+.title { display: flex; flex-wrap: wrap; gap: 10px 12px; align-items: center; margin: 6px 0 4px; }
+.title h2 { font-size: 24px; margin: 0; font-weight: 650; letter-spacing: -.01em; }
+.title .btn { margin-left: auto; }
+.sub { color: var(--muted); margin: 0 0 16px; }
+.strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid #2e333d; border-radius: 6px; margin: 0 0 18px; background: #21252e; }
+.strip div { padding: 10px 14px; border-left: 1px solid #2e333d; } .strip div:first-child { border-left: 0; }
+.strip dt { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.strip dd { margin: 2px 0 0; font-size: 18px; font-weight: 650; font-variant-numeric: tabular-nums; }
+.cards { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 14px; }
+.card { background: #21252e; border: 1px solid #2e333d; border-radius: 6px; padding: 12px 14px; min-width: 0; }
+.card h3 { margin: 0 0 8px; font-size: 13px; font-weight: 650; display: flex; justify-content: space-between; }
+.card h3 span { color: var(--muted); font-weight: 400; font-size: 12px; }
+.chart { width: 100%; height: auto; display: block; }
+.leg { display: flex; gap: 14px; font-size: 12px; color: var(--muted); } .leg b { color: var(--ink); }
+.k1, .k2 { display: inline-block; width: 9px; height: 9px; margin-right: 5px; border-radius: 2px; } .k1 { border: 1.5px solid #7a8192; } .k2 { background: #b49cff; }
+.feed { list-style: none; margin: 0; padding: 0; }
+.feed li { display: flex; gap: 10px; padding: 7px 0; border-top: 1px solid #2e333d; color: var(--muted); font-size: 12.5px; }
+.feed li:first-child { border-top: 0; }
+.feed b { color: var(--ink); font-weight: 600; }
+.feed time { display: block; font-size: 11.5px; color: var(--muted); }
+.tag { display: inline-block; font-size: 10.5px; font-weight: 700; color: #b49cff; border: 1px solid #b49cff; border-radius: 3px; padding: 0 4px; margin-left: 4px; text-transform: uppercase; letter-spacing: .04em; }
+@media (max-width: 1180px) { .cards { grid-template-columns: 1fr; } .app { grid-template-columns: 60px 300px minmax(0, 1fr); } kbd { display: none; } }
+@media (max-width: 860px) {
+  .app { grid-template-columns: 1fr; }
+  .rail { flex-direction: row; position: sticky; top: 0; z-index: 2; padding: 8px 12px; border-right: 0; border-bottom: 1px solid #2e333d; overflow-x: auto; }
+  .rail ul { flex-direction: row; } .mark { margin: 0 8px 0 0; } .rail .me { margin: 0 0 0 auto; }
+  .rail a[aria-current=page]::before { left: 8px; right: 8px; top: auto; bottom: -8px; width: auto; height: 3px; }
+  .list { border-right: 0; border-bottom: 1px solid #2e333d; }
+  .detail { display: contents; } .top { grid-row: 2; } .list { grid-row: 3; } .pane { grid-row: 4; } .rail .me { display: none; }
+  .top { flex-wrap: wrap; padding: 10px 16px; } .search { order: 5; flex-basis: 100%; max-width: none; } .user span:not(.av) { display: none; }
+  .pane { padding: 16px 16px 24px; }
+  .strip { grid-template-columns: 1fr 1fr; } .strip div:nth-child(3) { border-left: 0; } .strip div:nth-child(n+3) { border-top: 1px solid #2e333d; }
+  .title .btn { margin-left: 0; }
+}
+.field input { width: 100%; background: #14161c; border: 1px solid #2e333d; border-radius: 6px; color: var(--ink); font: inherit; padding: 6px 8px; }
+.row-demo { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; padding: 9px 10px; border-radius: 6px; background: #14161c; border: 1px solid #2e333d; font-weight: 600; }
+
+
+.sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.sheet { background: var(--s-bg); color: var(--ink); border-top: 1px solid var(--line); padding: 48px 32px 64px; font-family: var(--font); }
+.sheet-in { max-width: 1120px; margin: 0 auto; }
+.sheet h2 { font-size: 26px; margin: 0 0 8px; color: var(--ink); }
+.sheet h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 40px 0 16px; font-weight: 650; }
+.sheet .idea { color: var(--ink); font-size: 16px; max-width: 70ch; margin: 0; }
+.sw-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.sw-list li { display: flex; gap: 12px; align-items: center; background: var(--s-surface); border: 1px solid var(--line); border-radius: var(--s-r, 6px); padding: 10px; font-size: 13px; color: var(--muted); min-width: 0; }
+.sw-list li i { width: 44px; height: 44px; border-radius: calc(var(--s-r, 6px) - 2px); flex: none; border: 1px solid var(--sw-edge, rgba(255,255,255,.28)); }
+.sw-list li b { display: block; color: var(--ink); font-size: 14px; }
+.sw-list code { font-family: var(--mono); color: var(--ink); }
+.type-list { display: grid; gap: 12px; }
+.type-row { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: 16px; align-items: baseline; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
+.type-row code { font-family: var(--mono); font-size: 12px; color: var(--muted); overflow-wrap: anywhere; }
+.type-row > span { min-width: 0; overflow-wrap: anywhere; }
+.facts { display: grid; grid-template-columns: 140px 1fr; gap: 10px 20px; margin: 0; font-size: 14px; }
+.facts dt { color: var(--muted); font-weight: 650; }
+.facts dd { margin: 0; color: var(--ink); }
+.ctl-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 32px; }
+.ctl-grid > div { min-width: 0; }
+.ctl-label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .06em; }
+.ctl-pair { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+@media (max-width: 720px) {
+  .sheet { padding: 32px 16px 48px; }
+  .type-row, .facts, .ctl-grid { grid-template-columns: 1fr; }
+  .facts dt { margin-top: 8px; }
+}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol><symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol><symbol id="i-tasks" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12l3 3 5-6"/></symbol><symbol id="i-team" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14.2c2.6.4 4.5 2.8 4.5 5.8"/></symbol><symbol id="i-reports" viewBox="0 0 24 24"><path d="M5 20V11M12 20V5M19 20v-6M3 20h18"/></symbol><symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></symbol><symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></symbol><symbol id="i-risk" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.1"/></symbol><symbol id="i-behind" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M9 9l6 6M15 9l-6 6"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-msg" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></symbol><symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol><symbol id="i-cmd" viewBox="0 0 24 24"><path d="M9 9V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V9"/></symbol><symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol><symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4h11l-2 4 2 4H5"/></symbol></svg>
+<div class="app">
+<nav class="rail" aria-label="Main"><span class="mark" aria-hidden="true">B</span><ul><li><a href="#" title="Home" aria-label="Home" aria-current=page><svg class="i" aria-hidden="true"><use href="#i-home"/></svg></a></li><li><a href="#" title="Projects" aria-label="Projects"><svg class="i" aria-hidden="true"><use href="#i-folder"/></svg></a></li><li><a href="#" title="Tasks" aria-label="Tasks"><svg class="i" aria-hidden="true"><use href="#i-tasks"/></svg></a></li><li><a href="#" title="Team" aria-label="Team"><svg class="i" aria-hidden="true"><use href="#i-team"/></svg></a></li><li><a href="#" title="Reports" aria-label="Reports"><svg class="i" aria-hidden="true"><use href="#i-reports"/></svg></a></li><li><a href="#" title="Settings" aria-label="Settings"><svg class="i" aria-hidden="true"><use href="#i-settings"/></svg></a></li></ul><span class="me"><span class="av" aria-hidden="true">MO</span></span></nav>
+<aside class="list" aria-label="Today and projects">
+<p class="date">Saturday 31 October 2026</p><h1>Good morning, Mara</h1>
+<p class="over"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>4 tasks are overdue</p>
+<dl class="figs"><div class=""><dt>Active projects</dt><dd>6</dd></div><div class=""><dt>Tasks due this week</dt><dd>23</dd></div><div class="bad"><dt>Overdue tasks</dt><dd>4</dd></div><div class=""><dt>Hours logged this week</dt><dd>186</dd></div></dl>
+<p class="lbl"><span>Projects</span><span>6</span></p>
+<ul class="plist"><li><a class="row" href="#"><b>Website redesign</b><span class="st ok"><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg>On track</span><span class="meta">Design · Due 14 Nov</span><span></span><span class="mini"><span><i style="width:72%"></i></span>72% · 18/25</span></a></li><li><a class="row" href="#" aria-current=true><b>Mobile app 2.0</b><span class="st risk"><svg class="i" aria-hidden="true"><use href="#i-risk"/></svg>At risk</span><span class="meta">Engineering · Due 2 Dec</span><span></span><span class="mini"><span><i style="width:45%"></i></span>45% · 27/60</span></a></li><li><a class="row" href="#"><b>Q4 customer survey</b><span class="st ok"><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg>On track</span><span class="meta">Research · Due 7 Nov</span><span></span><span class="mini"><span><i style="width:90%"></i></span>90% · 9/10</span></a></li><li><a class="row" href="#"><b>Billing migration</b><span class="st bad"><svg class="i" aria-hidden="true"><use href="#i-behind"/></svg>Behind</span><span class="meta">Engineering · Due 20 Nov</span><span></span><span class="mini"><span><i style="width:30%"></i></span>30% · 12/40</span></a></li><li><a class="row" href="#"><b>Spring catalogue</b><span class="st ok"><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg>On track</span><span class="meta">Marketing · Due 15 Jan</span><span></span><span class="mini"><span><i style="width:15%"></i></span>15% · 3/20</span></a></li><li><a class="row" href="#"><b>Onboarding emails</b><span class="st ok"><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg>On track</span><span class="meta">Marketing · Due 21 Nov</span><span></span><span class="mini"><span><i style="width:60%"></i></span>60% · 9/15</span></a></li></ul>
+</aside>
+<main class="detail">
+<header class="top"><label class="search"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search projects and tasks</span><input type="search" placeholder="Search projects and tasks"><kbd>/</kbd></label><span class="sp"></span>
+<button class="btn btn-primary" type="button"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>New project</button>
+<button class="iconbtn" type="button" aria-label="Notifications"><svg class="i" aria-hidden="true"><use href="#i-bell"/></svg></button>
+<div class="user"><span class="av" aria-hidden="true">MO</span><span>Mara Okafor</span></div></header>
+<div class="pane">
+<div class="crumb"><a href="#">Projects</a><svg class="i" aria-hidden="true"><use href="#i-chev"/></svg><span>Engineering</span><svg class="i" aria-hidden="true"><use href="#i-chev"/></svg><span>Mobile app 2.0</span></div>
+<div class="title"><h2>Mobile app 2.0</h2><span class="st risk"><svg class="i" aria-hidden="true"><use href="#i-risk"/></svg>At risk</span><button class="btn btn-secondary" type="button">Open project</button></div>
+<p class="sub">Engineering · due 2 Dec, 32 days left</p>
+<dl class="strip"><div><dt>Progress</dt><dd>45%</dd></div><div><dt>Tasks done</dt><dd>27 of 60</dd></div><div><dt>Due</dt><dd>2 Dec</dd></div><div><dt>Status</dt><dd style="font-size:14px;padding-top:3px"><span class="st risk"><svg class="i" aria-hidden="true"><use href="#i-risk"/></svg>At risk</span></dd></div></dl>
+<div class="cards">
+<section class="card" aria-labelledby="c-h"><h3 id="c-h">Tasks completed <span>All projects · 14 days</span></h3><svg class="chart" viewBox="0 0 420 170" role="img" aria-labelledby="c229-t c229-d" style="font-family:inherit"><title id="c229-t">Tasks completed, last 14 days</title><desc id="c229-d">Tasks completed per day, 18 to 31 October. Last week, Sunday to Saturday: 3, 12, 9, 14, 11, 8, 2, total 59. This week: 4, 15, 13, 17, 12, 10, 2, total 73.</desc><line x1="28" x2="416" y1="136.0" y2="136.0" stroke="#2e333d" stroke-width="1"/><text x="22" y="140.0" text-anchor="end" font-size="11" fill="#9ea4b2">0</text><line x1="28" x2="416" y1="76.0" y2="76.0" stroke="#2e333d" stroke-width="1"/><text x="22" y="80.0" text-anchor="end" font-size="11" fill="#9ea4b2">10</text><line x1="28" x2="416" y1="16.0" y2="16.0" stroke="#2e333d" stroke-width="1"/><text x="22" y="20.0" text-anchor="end" font-size="11" fill="#9ea4b2">20</text><rect x="32.9" y="118.8" width="17.7" height="16.5" rx="2" fill="none" stroke="#7a8192" stroke-width="1.5"/><text x="41.7" y="151.0" text-anchor="middle" font-size="11" fill="#9ea4b2">S</text><text x="41.7" y="164.0" text-anchor="middle" font-size="10" fill="#9ea4b2">18</text><rect x="60.3" y="64.8" width="17.7" height="70.5" rx="2" fill="none" stroke="#7a8192" stroke-width="1.5"/><text x="69.1" y="151.0" text-anchor="middle" font-size="11" fill="#9ea4b2">M</text><text x="69.1" y="164.0" text-anchor="middle" font-size="10" fill="#9ea4b2">19</text><rect x="87.7" y="82.8" width="17.7" height="52.5" rx="2" fill="none" stroke="#7a8192" stroke-width="1.5"/><text x="96.6" y="151.0" text-anchor="middle" font-size="11" fill="#9ea4b2">T</text><text x="96.6" y="164.0" text-anchor="middle" font-size="10" fill="#9ea4b2">20</text><rect x="115.1" y="52.8" width="17.7" height="82.5" rx="2" fill="none" stroke="#7a8192" stroke-width="1.5"/><text x="124.0" y="151.0" text-anchor="middle" font-size="11" fill="#9ea4b2">W</text><text x="124.0" y="164.0" text-anchor="middle" font-size="10" fill="#9ea4b2">21</text><rect x="142.6" y="70.8" width="17.7" height="64.5" rx="2" fill="none" stroke="#7a8192" stroke-width="1.5"/><text x="151.4" y="151.0" text-anchor="middle" font-size="11" fill="#9ea4b2">T</text><text x="151.4" y="164.0" text-anchor="middle" font-size="10" fill="#9ea4b2">22</text><rect x="170.0" y="88.8" width="17.7" height="46.5" rx="2" fill="none" stroke="#7a8192" stroke-width="1.5"/><text x="178.9" y="151.0" text-anchor="middle" font-size="11" fill="#9ea4b2">F</text><text x="178.9" y="164.0" text-anchor="middle" font-size="10" fill="#9ea4b2">23</text><rect x="197.4" y="124.8" width="17.7" height="10.5" rx="2" fill="none" stroke="#7a8192" stroke-width="1.5"/><text x="206.3" y="151.0" text-anchor="middle" font-size="11" fill="#9ea4b2">S</text><text x="206.3" y="164.0" text-anchor="middle" font-size="10" fill="#9ea4b2">24</text><rect x="224.1" y="112.0" width="19.2" height="24.0" rx="2" fill="#b49cff"/><text x="233.7" y="151.0" text-anchor="middle" font-size="11" fill="#9ea4b2">S</text><text x="233.7" y="164.0" text-anchor="middle" font-size="10" fill="#9ea4b2">25</text><rect x="251.5" y="46.0" width="19.2" height="90.0" rx="2" fill="#b49cff"/><text x="261.1" y="151.0" text-anchor="middle" font-size="11" fill="#9ea4b2">M</text><text x="261.1" y="164.0" text-anchor="middle" font-size="10" fill="#9ea4b2">26</text><rect x="279.0" y="58.0" width="19.2" height="78.0" rx="2" fill="#b49cff"/><text x="288.6" y="151.0" text-anchor="middle" font-size="11" fill="#9ea4b2">T</text><text x="288.6" y="164.0" text-anchor="middle" font-size="10" fill="#9ea4b2">27</text><rect x="306.4" y="34.0" width="19.2" height="102.0" rx="2" fill="#b49cff"/><text x="316.0" y="151.0" text-anchor="middle" font-size="11" fill="#9ea4b2">W</text><text x="316.0" y="164.0" text-anchor="middle" font-size="10" fill="#9ea4b2">28</text><rect x="333.8" y="64.0" width="19.2" height="72.0" rx="2" fill="#b49cff"/><text x="343.4" y="151.0" text-anchor="middle" font-size="11" fill="#9ea4b2">T</text><text x="343.4" y="164.0" text-anchor="middle" font-size="10" fill="#9ea4b2">29</text><rect x="361.3" y="76.0" width="19.2" height="60.0" rx="2" fill="#b49cff"/><text x="370.9" y="151.0" text-anchor="middle" font-size="11" fill="#9ea4b2">F</text><text x="370.9" y="164.0" text-anchor="middle" font-size="10" fill="#9ea4b2">30</text><rect x="388.7" y="124.0" width="19.2" height="12.0" rx="2" fill="#b49cff"/><text x="398.3" y="151.0" text-anchor="middle" font-size="11" fill="#9ea4b2">S</text><text x="398.3" y="164.0" text-anchor="middle" font-size="10" fill="#9ea4b2">31</text><line x1="220.0" x2="220.0" y1="16" y2="136" stroke="#2e333d" stroke-dasharray="3 3"/></svg>
+<div class="leg"><span><span class="k1"></span>Last week <b>59</b></span><span><span class="k2"></span>This week <b>73</b></span></div></section>
+<section class="card" aria-labelledby="a-h"><h3 id="a-h">Team activity <span>All projects</span></h3><ul class="feed"><li><span class="av" aria-hidden="true">JW</span><span><b>Jonas Weber</b> completed “Export invoices as CSV” in <b>Billing migration</b><time>12 min ago</time></span></li><li><span class="av" aria-hidden="true">PN</span><span><b>Priya Nair</b> commented on “Hero image options” in <b>Website redesign</b><time>40 min ago</time></span></li><li><span class="av" aria-hidden="true">SO</span><span><b>Sam Ortiz</b> moved “Push notifications” to Review in <b>Mobile app 2.0</b><span class=tag>This project</span><time>1 h ago</time></span></li><li><span class="av" aria-hidden="true">LF</span><span><b>Lena Fischer</b> added 3 tasks to <b>Spring catalogue</b><time>2 h ago</time></span></li><li><span class="av" aria-hidden="true">TR</span><span><b>Tomás Ruiz</b> logged 6 h on <b>Mobile app 2.0</b><span class=tag>This project</span><time>3 h ago</time></span></li><li><span class="av" aria-hidden="true">AT</span><span><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to <b>Q4 customer survey</b><time>yesterday</time></span></li></ul></section>
+</div></div></main></div>
+<section class="sheet" aria-labelledby="sheet-h"><div class="sheet-in">
+<h2 id="sheet-h">Style 229 · Dark icon rail</h2>
+<p class="idea">A dense three-pane dark work surface: a near-black icon rail, a list pane with the greeting, figures and projects, and a wider detail pane with Mobile app 2.0 open, all stepped in cool greys with one violet accent.</p>
+<h3>Palette</h3><ul class="sw-list"><li><i style="background:#0b0c10"></i><div><b>Rail</b><code>#0b0c10</code> · the 60px icon rail</div></li><li><i style="background:#14161c"></i><div><b>List pane</b><code>#14161c</code> · list pane, fields and the style sheet</div></li><li><i style="background:#1a1d24"></i><div><b>Detail pane</b><code>#1a1d24</code> · detail pane and top bar</div></li><li><i style="background:#21252e"></i><div><b>Card</b><code>#21252e</code> · cards and the facts strip</div></li><li><i style="background:#2e333d"></i><div><b>Line</b><code>#2e333d</code> · borders, dividers, meter tracks</div></li><li><i style="background:#e4e6ec"></i><div><b>Ink</b><code>#e4e6ec</code> · text</div></li><li><i style="background:#9ea4b2"></i><div><b>Muted</b><code>#9ea4b2</code> · meta, labels, axis text</div></li><li><i style="background:#9aa0ad"></i><div><b>Rail ink</b><code>#9aa0ad</code> · rail icons that are not current</div></li><li><i style="background:#b49cff"></i><div><b>Violet</b><code>#b49cff</code> · primary button, selected edge, meters, this week bars, tags, focus</div></li><li><i style="background:#1b1036"></i><div><b>On violet</b><code>#1b1036</code> · text on violet</div></li><li><i style="background:#2a2440"></i><div><b>Selected</b><code>#2a2440</code> · the selected project row and current rail item</div></li><li><i style="background:#7a8192"></i><div><b>Last week</b><code>#7a8192</code> · outlined last week bars</div></li><li><i style="background:#7fd8a6"></i><div><b>On track</b><code>#7fd8a6</code> · outlined On track tag</div></li><li><i style="background:#f3c56a"></i><div><b>At risk</b><code>#f3c56a</code> · outlined At risk tag</div></li><li><i style="background:#ff9a8f"></i><div><b>Behind</b><code>#ff9a8f</code> · outlined Behind tag and overdue</div></li></ul>
+<h3>Type</h3><div class="type-list"><div class="type-row"><code>system-ui · 24 / 650 · detail title</code><span style="font-size:24px;font-weight:650">Mobile app 2.0</span></div><div class="type-row"><code>18 / 650 · greeting</code><span style="font-size:18px;font-weight:650">Good morning, Mara</span></div><div class="type-row"><code>20 / 650 tabular · figures</code><span style="font-size:20px;font-weight:650">186</span></div><div class="type-row"><code>13 / 1.45 · body</code><span style="">Sam Ortiz moved “Push notifications” to Review</span></div><div class="type-row"><code>11 / 650 caps .08em · pane labels</code><span style="font-size:11px;font-weight:650;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Projects</span></div><div class="type-row"><code>11.5 / 650 · outlined tag</code><span style=""><span class="st risk"><svg class="i" aria-hidden="true"><use href="#i-risk"/></svg>At risk</span></span></div></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3><dl class="facts"><dt>Spacing</dt><dd>8px unit, tight. 16 to 20px pane padding, 9px row padding, 14px between cards.</dd><dt>Density</dt><dd>Dense. Three panes at once, 13px body, small figures.</dd><dt>Corners</dt><dd>6px panes, cards and buttons, 8px rail tiles, 4px tags, round avatars.</dd><dt>Borders</dt><dd>1px #2e333d between panes, rows and cells. A 3px violet edge on the selected row and current rail item.</dd><dt>Shadows</dt><dd>None. Panes separate by four stepped greys from #0b0c10 to #21252e.</dd><dt>Icons</dt><dd>16px line icons at 1.75 stroke, 20px in the rail. Status tags are outlined with a check circle, a triangle or a crossed square.</dd><dt>Tone</dt><dd>Plain and neutral. Team activity, Tasks completed, Open project, This project.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="ctl-grid">
+<div><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn btn-primary" type="button">Save changes</button><button class="btn btn-primary is-focus" type="button">Save changes</button></div></div>
+<div><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn btn-secondary" type="button">Cancel</button><button class="btn btn-secondary is-focus" type="button">Cancel</button></div></div>
+<div><label class="field"><span class="ctl-label">Text field</span><input type="text" value="Website redesign"></label></div>
+<div><label class="field"><span class="ctl-label">Text field, focused</span><input type="text" class="is-focus" value="Mobile app 2.0"></label></div>
+<div><span class="ctl-label">List row</span><div class="row-demo"><span>Billing migration</span><span class="st bad"><svg class="i" aria-hidden="true"><use href="#i-behind"/></svg>Behind</span></div></div>
+<div><span class="ctl-label">List row, focused</span><div class="row-demo is-focus"><span>Billing migration</span><span class="st bad"><svg class="i" aria-hidden="true"><use href="#i-behind"/></svg>Behind</span></div></div>
+</div></div></section>
+</body>
+</html>

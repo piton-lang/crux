@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Style 422 · Hotel noir · Brightwork</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{color-scheme:dark;-webkit-text-size-adjust:100%}
+body{margin:0}
+img,svg{max-width:100%}
+h1,h2,h3,h4,p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+button,input{font:inherit;color:inherit}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sheet{background:var(--s-bg);color:var(--s-ink);font-family:var(--s-font);padding:48px max(16px,calc((100% - 1160px)/2));border-top:var(--s-top)}
+.sheet h2{font-size:28px;line-height:1.2;margin-bottom:12px;font-weight:var(--s-hw,650)}
+.sheet h3{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--s-muted);margin:40px 0 16px;font-weight:700}
+.sheet .idea{font-size:18px;line-height:1.55;max-width:820px}
+.sheet code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.sw{display:flex;gap:12px;align-items:flex-start;padding:12px;border:1px solid var(--s-line);border-radius:var(--s-r,6px);background:var(--s-card)}
+.sw i{flex:none;width:44px;height:44px;border-radius:var(--s-r,6px);border:1px solid var(--s-line2)}
+.sw div{font-size:14px;line-height:1.45;min-width:0}
+.sw span{color:var(--s-muted)}
+.type-row{display:grid;grid-template-columns:240px 1fr;gap:16px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--s-line)}
+.type-row code{color:var(--s-muted)}
+.type-row span{min-width:0;overflow-wrap:anywhere}
+.facts{display:grid;grid-template-columns:150px 1fr;gap:0 24px}
+.facts dt,.facts dd{padding:12px 0;border-bottom:1px solid var(--s-line);line-height:1.55}
+.facts dt{font-weight:700}
+.controls{display:grid;gap:20px}
+.ctl{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center}
+.ctl-label{font-weight:700;font-size:14px}
+.ctl-pair{display:flex;flex-wrap:wrap;gap:16px;align-items:center;min-width:0}
+.ctl-pair>*{max-width:100%}
+@media (max-width:640px){.type-row,.facts,.ctl{grid-template-columns:1fr}.facts dt{border-bottom:0;padding-bottom:0}.type-row{gap:4px}}
+
+
+:root{--lobby:#0b0b0c;--panel:#151515;--cubby:#1c1b19;--line:#34312c;--ink:#f1ede4;--muted:#b3ada1;--brass:#c9a45c;--brasst:#e3c27e;--onbrass:#1a1305;--ok:#e3c27e;--no:#d6d0c4;
+--s-bg:#0b0b0c;--s-card:#151515;--s-ink:#f1ede4;--s-muted:#b3ada1;--s-line:#34312c;--s-line2:#5a554b;--s-font:Georgia,"Times New Roman",serif;--s-top:3px double #c9a45c;--s-r:0;--s-hw:400}
+body{background:var(--lobby);color:var(--ink);font-family:Georgia,"Times New Roman",serif;font-size:16px;line-height:1.55}
+.ic{width:1.1em;height:1.1em;flex:none;vertical-align:-.17em}
+a{color:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible,.is-focus{outline:2px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 5px var(--lobby),0 0 0 7px var(--brass)}
+.lobby{position:relative;overflow:clip;background:radial-gradient(70% 50% at 30% 0,#1d1a15,#0b0b0c 70%);background-color:var(--lobby);padding:0 max(16px,calc((100% - 1180px)/2)) 56px}
+.blinds{position:absolute;inset:-20% -10%;background:repeating-linear-gradient(-24deg,transparent 0 46px,rgba(255,240,210,.035) 46px 70px);pointer-events:none}
+.lobby>*:not(.blinds){position:relative}
+.marquee{display:flex;align-items:center;gap:20px;padding:28px 0 8px}
+.marquee p{font-family:Futura,"Century Gothic","Avenir Next",sans-serif;letter-spacing:.5em;text-transform:uppercase;font-size:14px;color:var(--brasst);white-space:nowrap;padding-left:.5em}
+.rule{flex:1;height:7px;border-top:1px solid var(--brass);border-bottom:3px double var(--brass)}
+.title{text-align:center;padding:40px 0 44px}
+.kick{font-style:italic;color:var(--muted);font-size:18px}
+.title h1{font-family:Didot,"Bodoni 72","Bodoni MT","Libre Bodoni",Georgia,serif;font-size:96px;line-height:1;font-weight:400;letter-spacing:-.01em;margin:8px 0 14px}
+.tag{font-family:Futura,"Century Gothic","Avenir Next",sans-serif;letter-spacing:.18em;text-transform:uppercase;font-size:13px;color:var(--muted)}
+.desk{display:grid;grid-template-columns:1fr 360px;gap:32px;align-items:start}
+.desk>*{min-width:0}
+.lab{font-family:Futura,"Century Gothic","Avenir Next",sans-serif;font-weight:400;letter-spacing:.3em;text-transform:uppercase;font-size:13px;color:var(--brasst);margin-bottom:14px}
+.lab.sm{margin:20px 0 6px}
+.boxes{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:6px solid #241f18;background:#241f18;box-shadow:0 20px 50px rgba(0,0,0,.7)}
+.cubby{position:relative;background:var(--cubby);border:6px solid #241f18;box-shadow:inset 0 14px 22px rgba(0,0,0,.75);padding:34px 16px 18px;min-height:250px}
+.plate{position:absolute;top:8px;left:50%;transform:translateX(-50%);background:var(--brass);color:var(--onbrass);font-family:Futura,"Century Gothic","Avenir Next",sans-serif;font-weight:700;font-size:12px;letter-spacing:.2em;padding:2px 10px 2px 12px;border-radius:2px}
+.in{display:grid;grid-template-columns:56px 1fr;gap:12px;align-items:start}
+.art{width:56px;height:auto}
+.d{font-family:Futura,"Century Gothic","Avenir Next",sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.cubby h3{font-family:Didot,"Bodoni 72","Bodoni MT",Georgia,serif;font-weight:400;font-size:26px;line-height:1.1;margin:2px 0 4px}
+.x{color:var(--muted);font-style:italic;font-size:15px}
+.st{display:inline-flex;gap:6px;align-items:center;margin-top:10px;font-family:Futura,"Century Gothic","Avenir Next",sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;border:1px solid currentColor}
+.st.ok{color:var(--ok)}.st.no{color:var(--no);border-style:dashed}.st.fl{color:var(--ink);border-color:transparent;padding-left:0}
+.cubby.no{background:#151412}
+.acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.side{display:grid;gap:24px}
+.ledger{background:var(--panel);border:1px solid var(--line);padding:22px 22px 18px;box-shadow:0 14px 30px rgba(0,0,0,.6)}
+.ledger dl div{display:grid;grid-template-columns:90px 1fr;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+.ledger dt{font-family:Futura,"Century Gothic","Avenir Next",sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.ledger dd{font-style:italic}
+.meter{height:4px;background:#000;margin:16px 0 6px}.meter i{display:block;height:100%;background:var(--brass)}
+.cap{font-size:14px;color:var(--muted);font-style:italic}
+.chk li{display:flex;align-items:baseline;gap:8px;padding:6px 0}
+.dots{flex:1;border-bottom:1px dotted #5a554b}
+.chk b{display:inline-flex;gap:6px;align-items:center;font-family:Futura,"Century Gothic","Avenir Next",sans-serif;font-weight:400;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.chk .ok b{color:var(--ok)}.chk .no b{color:var(--no)}
+.tele{background:#1a1813;border:1px solid var(--line);border-left:6px solid var(--brass);padding:16px 18px}
+.tele p{font-family:"Courier New",Courier,ui-monospace,monospace;letter-spacing:.06em;font-size:15px;color:var(--ink);line-height:1.6}
+.frame{margin:0}.map{display:block;width:100%;height:auto}
+figcaption{text-align:center;font-style:italic;color:var(--muted);font-size:14px;margin-top:6px}
+@media (max-width:1060px){.desk{grid-template-columns:1fr}.side{grid-template-columns:1fr 1fr}.frame{grid-column:1/-1;max-width:480px}}
+@media (max-width:820px){.boxes{grid-template-columns:repeat(2,1fr)}.title h1{font-size:68px}}
+@media (max-width:560px){.boxes{grid-template-columns:1fr}.cubby{min-height:0}.side{grid-template-columns:1fr}.title h1{font-size:52px}.marquee p{letter-spacing:.3em;font-size:12px}.marquee{gap:10px}}
+.btn-p,.btn-s{display:inline-flex;align-items:center;padding:11px 20px;text-decoration:none;font-family:Futura,"Century Gothic","Avenir Next",sans-serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;border-radius:0}
+.btn-p{background:var(--brass);color:var(--onbrass);border:1px solid var(--brass)}
+.btn-s{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.fld{display:grid;gap:6px;font-family:Futura,"Century Gothic","Avenir Next",sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.fld input{font-family:Georgia,serif;letter-spacing:0;text-transform:none;font-style:italic;background:transparent;border:0;border-bottom:1px solid var(--brass);padding:8px 2px;width:240px;max-width:100%;color:var(--ink);border-radius:0}
+.lrow{display:flex;gap:14px;align-items:center;padding:10px 14px;background:var(--cubby);box-shadow:inset 0 8px 14px rgba(0,0,0,.6);border:3px solid #241f18;text-decoration:none;flex-wrap:wrap}
+.lrow .st{margin-top:0}
+</style>
+</head>
+<body>
+<div class="lobby">
+<div class="blinds" aria-hidden="true"></div>
+<header class="marquee">
+<span class="rule" aria-hidden="true"></span><p>Brightwork Trips</p><span class="rule" aria-hidden="true"></span>
+</header>
+<main>
+<section class="title" aria-labelledby="h-t">
+<p class="kick">The front desk presents</p>
+<h1 id="h-t">Japan in April</h1>
+<p class="tag">Three cities, fourteen days, 1 to 14 April 2027.</p>
+</section>
+<div class="desk">
+<section class="wall" aria-labelledby="h-k">
+<h2 id="h-k" class="lab">Key boxes · the itinerary</h2>
+<ol class="boxes"><li class="cubby fl"><span class="plate">01</span><div class="in"><svg class="art" viewBox="0 0 80 110" aria-hidden="true"><rect x="12" y="40" width="56" height="40" fill="#24221e" stroke="#f1ede4" stroke-width="2"/><path d="M12 40l28 22 28-22" fill="none" stroke="#f1ede4" stroke-width="2"/></svg><div><p class="d">1 Apr</p><h3>Flight BW 284</h3><p class="x">Berlin to Tokyo. Departs 13:05, arrives 08:40 next day.</p><span class="st fl"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3.5c.8-.8 2.2-.8 3 0s.8 2.2 0 3L11 9l2 9-1.5 1.5L8 13l-3 3v2.5L3.5 20 3 16.5 0 16l1.5-1.5H4l3-3L.5 8 2 6.5l9 2z" transform="translate(2 1) scale(.9)"/></svg>Flight</span></div></div></li><li class="cubby ok"><span class="plate">02</span><div class="in"><svg class="art" viewBox="0 0 80 110" aria-hidden="true"><path d="M40 6v14" stroke="#8a7a5c" stroke-width="2"/><circle cx="40" cy="6" r="3" fill="#8a7a5c"/>
+<circle cx="40" cy="32" r="11" fill="none" stroke="#e3c27e" stroke-width="4"/><path d="M40 43v40M40 62h9M40 74h12" stroke="#e3c27e" stroke-width="4" stroke-linecap="square"/>
+<path d="M26 84h28l-4 22H30z" fill="#2a2620" stroke="#e3c27e" stroke-width="2"/></svg><div><p class="d">2 to 6 Apr</p><h3>Tokyo</h3><p class="x">Hotel Kinari, 4 nights.</p><span class="st ok"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M21 12v2"/></svg>Booked</span></div></div></li><li class="cubby no"><span class="plate">03</span><div class="in"><svg class="art" viewBox="0 0 80 110" aria-hidden="true"><path d="M40 6v14" stroke="#8a7a5c" stroke-width="2"/><circle cx="40" cy="6" r="3" fill="#8a7a5c"/>
+<path d="M40 20v10a7 7 0 1 1-7 7" fill="none" stroke="#8a7a5c" stroke-width="3" stroke-linecap="round"/>
+<rect x="18" y="56" width="44" height="44" fill="none" stroke="#b3ada1" stroke-width="2" stroke-dasharray="5 5"/></svg><div><p class="d">6 Apr</p><h3>Train to Kyoto</h3><p class="x">2 h 15 min.</p><span class="st no"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"/></svg>Not booked</span></div></div></li><li class="cubby ok"><span class="plate">04</span><div class="in"><svg class="art" viewBox="0 0 80 110" aria-hidden="true"><path d="M40 6v14" stroke="#8a7a5c" stroke-width="2"/><circle cx="40" cy="6" r="3" fill="#8a7a5c"/>
+<circle cx="40" cy="32" r="11" fill="none" stroke="#e3c27e" stroke-width="4"/><path d="M40 43v40M40 62h9M40 74h12" stroke="#e3c27e" stroke-width="4" stroke-linecap="square"/>
+<path d="M26 84h28l-4 22H30z" fill="#2a2620" stroke="#e3c27e" stroke-width="2"/></svg><div><p class="d">6 to 10 Apr</p><h3>Kyoto</h3><p class="x">Guest house Sora, 4 nights.</p><span class="st ok"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M21 12v2"/></svg>Booked</span></div></div></li><li class="cubby no"><span class="plate">05</span><div class="in"><svg class="art" viewBox="0 0 80 110" aria-hidden="true"><path d="M40 6v14" stroke="#8a7a5c" stroke-width="2"/><circle cx="40" cy="6" r="3" fill="#8a7a5c"/>
+<path d="M40 20v10a7 7 0 1 1-7 7" fill="none" stroke="#8a7a5c" stroke-width="3" stroke-linecap="round"/>
+<rect x="18" y="56" width="44" height="44" fill="none" stroke="#b3ada1" stroke-width="2" stroke-dasharray="5 5"/></svg><div><p class="d">10 to 13 Apr</p><h3>Osaka</h3><p class="x">3 nights.</p><span class="st no"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"/></svg>Not booked</span></div></div></li><li class="cubby fl"><span class="plate">06</span><div class="in"><svg class="art" viewBox="0 0 80 110" aria-hidden="true"><rect x="12" y="40" width="56" height="40" fill="#24221e" stroke="#f1ede4" stroke-width="2"/><path d="M12 40l28 22 28-22" fill="none" stroke="#f1ede4" stroke-width="2"/></svg><div><p class="d">14 Apr</p><h3>Flight home</h3><p class="x">Check out.</p><span class="st fl"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3.5c.8-.8 2.2-.8 3 0s.8 2.2 0 3L11 9l2 9-1.5 1.5L8 13l-3 3v2.5L3.5 20 3 16.5 0 16l1.5-1.5H4l3-3L.5 8 2 6.5l9 2z" transform="translate(2 1) scale(.9)"/></svg>Flight</span></div></div></li></ol>
+<div class="acts"><a class="btn-p" href="#h-k">Book train to Kyoto</a><a class="btn-s" href="#h-k">Find a room in Osaka</a></div>
+</section>
+<aside class="side">
+<section class="ledger" aria-labelledby="h-r">
+<h2 id="h-r" class="lab">Guest register</h2>
+<dl>
+<div><dt>Guest</dt><dd>Mara Okafor</dd></div>
+<div><dt>Party</dt><dd>One guest</dd></div>
+<div><dt>Stay</dt><dd>1 to 14 April 2027</dd></div>
+<div><dt>Account</dt><dd>3,200 of 5,000 euros saved</dd></div>
+</dl>
+<div class="meter" role="img" aria-label="64 percent saved, 1,800 euros to go"><i style="width:64%"></i></div>
+<p class="cap">64 percent settled · 1,800 euros outstanding</p>
+<h3 class="lab sm" id="h-c">Front desk checks</h3>
+<ul class="chk" aria-labelledby="h-c"><li class="ok"><span class="n">Passport valid</span><span class="dots" aria-hidden="true"></span><b><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Done</b></li><li class="no"><span class="n">Rail pass</span><span class="dots" aria-hidden="true"></span><b><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h12"/></svg>To do</b></li><li class="ok"><span class="n">Travel insurance</span><span class="dots" aria-hidden="true"></span><b><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Done</b></li><li class="no"><span class="n">Pocket wifi</span><span class="dots" aria-hidden="true"></span><b><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h12"/></svg>To do</b></li></ul>
+</section>
+<section class="tele" aria-labelledby="h-w">
+<h2 id="h-w" class="lab">Telegram · weather</h2>
+<p>TOKYO EARLY APRIL STOP HIGHS AROUND 17 DEGREES STOP CHERRY BLOSSOM LIKELY STOP</p>
+</section>
+<figure class="frame"><svg class="map" viewBox="0 0 320 200" role="img" aria-label="Framed route map. Tokyo in the east, a line west to Kyoto, then on to Osaka.">
+<rect x="6" y="6" width="308" height="188" fill="#121110" stroke="#c9a45c" stroke-width="2"/>
+<rect x="14" y="14" width="292" height="172" fill="none" stroke="#c9a45c" stroke-width=".8"/>
+<path d="M270 62L150 118L84 146" fill="none" stroke="#f1ede4" stroke-width="2"/>
+<g fill="#121110" stroke="#e3c27e" stroke-width="2.5"><rect x="262" y="54" width="16" height="16" transform="rotate(45 270 62)"/><rect x="143" y="111" width="14" height="14" transform="rotate(45 150 118)"/><rect x="77" y="139" width="14" height="14" transform="rotate(45 84 146)"/></g>
+<g font-family="Futura,Century Gothic,Avenir Next,sans-serif" font-size="15" letter-spacing="3" fill="#f1ede4"><text x="206" y="44" data-bg="#121110">TOKYO</text><text x="164" y="146" data-bg="#121110">KYOTO</text><text x="40" y="176" data-bg="#121110">OSAKA</text></g>
+</svg><figcaption>The route, as hung in the lobby</figcaption></figure>
+</aside>
+</div>
+</main>
+</div>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 422 · Hotel noir</h2>
+<p class="idea">The trip as a dim hotel lobby in black and brass, a wall of deep key boxes where booked legs hold a hanging key, unbooked legs show an empty hook and flights leave a letter, beside a guest register, a weather telegram and a deco framed map, all under slanted blind shadows.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><i style="background:#0b0b0c"></i><div><b>Lobby</b> <code>#0b0b0c</code><br><span>page and the style sheet</span></div></li><li class="sw"><i style="background:#151515"></i><div><b>Panel</b> <code>#151515</code><br><span>the guest register and swatch cards</span></div></li><li class="sw"><i style="background:#1c1b19"></i><div><b>Cubby</b> <code>#1c1b19</code><br><span>key box interiors and list rows</span></div></li><li class="sw"><i style="background:#241f18"></i><div><b>Wood</b> <code>#241f18</code><br><span>the key box frame</span></div></li><li class="sw"><i style="background:#34312c"></i><div><b>Line</b> <code>#34312c</code><br><span>register rules and panel edges</span></div></li><li class="sw"><i style="background:#f1ede4"></i><div><b>Ink</b> <code>#f1ede4</code><br><span>text, flight letters and focus</span></div></li><li class="sw"><i style="background:#b3ada1"></i><div><b>Muted</b> <code>#b3ada1</code><br><span>captions, labels and Vacant</span></div></li><li class="sw"><i style="background:#c9a45c"></i><div><b>Brass</b> <code>#c9a45c</code><br><span>number plates, rules, meter and primary button</span></div></li><li class="sw"><i style="background:#e3c27e"></i><div><b>Brass text</b> <code>#e3c27e</code><br><span>section labels, keys, Booked and Done</span></div></li><li class="sw"><i style="background:#1a1305"></i><div><b>On brass</b> <code>#1a1305</code><br><span>text on brass</span></div></li></ul>
+<h3>Type · Didot, Bodoni 72, Bodoni MT for display · Georgia body · Futura, Century Gothic, Avenir Next labels · Courier New telegram</h3>
+<div class="type-row"><code>96 / 400 Didone title</code><span style="font-family:Didot,'Bodoni 72','Bodoni MT',Georgia,serif;font-size:72px;line-height:1">Japan in April</span></div><div class="type-row"><code>26 / 400 Didone box title</code><span style="font-family:Didot,'Bodoni 72','Bodoni MT',Georgia,serif;font-size:26px">Kyoto</span></div><div class="type-row"><code>16 / Georgia italic</code><span style="font-style:italic;font-size:16px">Guest house Sora, 4 nights.</span></div><div class="type-row"><code>15 / Courier telegram</code><span style="font-family:'Courier New',Courier,monospace;font-size:15px;letter-spacing:.06em">HIGHS AROUND 17 DEGREES STOP</span></div><div class="type-row"><code>13 / Futura caps .3em</code><span style="font-family:Futura,'Century Gothic','Avenir Next',sans-serif;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:#e3c27e">Guest register</span></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3>
+<dl class="facts"><dt>Spacing</dt><dd>8px unit. 44px around the title, 32px between the key wall and the register, 6px wooden frame between boxes.</dd><dt>Density</dt><dd>Medium. Six key boxes, one register, a telegram and a small framed map.</dd><dt>Corners</dt><dd>Square throughout. Only the brass number plates round by 2px.</dd><dt>Borders</dt><dd>A thick dark wood frame round every box, double brass rules in the marquee, dotted leaders in the checks, a brass bar on the telegram.</dd><dt>Shadows</dt><dd>Deep inset shade at the top of each box, a long drop under the key wall and the register, diagonal light bands from blinds.</dd><dt>Icons</dt><dd>Drawn objects tell state. Booked is a brass key on its hook, Not booked an empty hook over a dashed square, a flight is a white letter. Done is a check, To do a dash.</dd><dt>Tone</dt><dd>Discreet concierge. The front desk presents, Key boxes, Vacant, Check out.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls">
+<div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-p" type="button">Book train</button><button class="btn-p is-focus" type="button">Book train</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-s" type="button">Find a room</button><button class="btn-s is-focus" type="button">Find a room</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="fld"><span>Search the register</span><input type="text" value="Kyoto"></label><label class="fld"><span>Search the register, focused</span><input type="text" class="is-focus" value="Kyoto"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><a class="lrow" href="#h-k"><span class="d">05</span><b>Osaka</b><span class="st no"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"/></svg>Not booked</span></a><a class="lrow is-focus" href="#h-k"><span class="d">05</span><b>Osaka</b><span class="st no"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"/></svg>Not booked</span></a></div></div>
+</div>
+</section>
+</body>
+</html>

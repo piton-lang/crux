@@ -1,0 +1,28 @@
+export anchor VideoEditor:
+    description:
+        Brightwork Cut, a made-up video editor, editing the project Launch
+        teaser at 1080p and 24 fps. On a phone it shows the viewer and a
+        simplified timeline.
+
+    viewer:
+        The program monitor at 00:00:18:12 of 00:01:30:00, showing a title card
+        "Every project, on one calm page", with play controls.
+
+    bin:
+        - hero-motion.mp4, 00:42
+        - office-broll-03.mov, 01:15
+        - voiceover-take4.wav, 01:22
+        - music-low-tide.wav, 02:40
+        - logo-sting.mov, 00:04
+
+    timeline:
+        Tracks V2 titles, V1 video, A1 voiceover and A2 music, with clips laid
+        along a ruler from 0 to 90 seconds, a playhead at 18 seconds, and a
+        marker named "cut to logo" at 84 seconds.
+
+    inspector:
+        For the selected title clip, position 960 by 540, scale 100 percent,
+        opacity 100 percent, and a cross dissolve of 12 frames.
+
+    export:
+        An Export button and a render bar at 0 percent.

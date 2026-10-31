@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 168 · Fax · Brightwork</title>
+<style>
+:root {
+  --tray: #e3e1da;
+  --sheet: #f5f4ef;
+  --toner: #141414;
+  --greyToner: #4a4a46;
+  --streak: #d8d6cf;
+  --halftone: #8a8a85;
+  --focus: #1748b0;
+  --head: "Lucida Console", "Courier New", "Liberation Mono", monospace;
+  --sans: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
+  --heavy: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--tray); color: var(--toner); font: 15px/1.45 var(--sans); }
+a { color: var(--toner); }
+button, input { font: inherit; color: inherit; }
+:focus-visible, .is-focus { outline: 3px solid var(--focus); outline-offset: 2px; }
+.page { max-width: 1120px; margin: 24px auto 0; background-color: var(--sheet); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .14 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E"), repeating-linear-gradient(90deg, transparent 0 337px, var(--streak) 337px 338px, transparent 338px 701px, rgba(0,0,0,.05) 701px 703px); box-shadow: 0 2px 6px rgba(0,0,0,.2); padding: 0 40px 40px; transform: rotate(-.35deg); text-shadow: 0 0 .7px rgba(20,20,20,.55); }
+.txline { font: 12px/1.3 var(--head); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 16px; padding: 8px 0 6px; border-bottom: 1px solid var(--toner); margin: 0 -24px; padding-left: 24px; padding-right: 24px; letter-spacing: .02em; }
+.cover { display: grid; grid-template-columns: auto minmax(0,1fr) auto; gap: 24px; align-items: end; padding: 24px 0 16px; border-bottom: 6px solid var(--toner); }
+.faxmark { background: var(--toner); color: var(--sheet); font: 900 64px/1 var(--heavy); padding: 6px 14px 2px; letter-spacing: .02em; }
+.cover h1 { margin: 0; font: 900 30px/1.05 var(--heavy); text-transform: uppercase; }
+.cover .sub { margin: 4px 0 0; font-weight: 700; }
+.who { text-align: right; font-size: 13px; }
+.who b { display: block; font-size: 16px; }
+.form { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); border: 2px solid var(--toner); border-top: 0; }
+.form > div { display: grid; grid-template-columns: 90px minmax(0,1fr); border-top: 2px solid var(--toner); }
+.form > div:nth-child(even) { border-left: 2px solid var(--toner); }
+.form .k { font: 700 12px/1.2 var(--sans); text-transform: uppercase; letter-spacing: .08em; padding: 10px; border-right: 1px solid var(--toner); }
+.form .v { padding: 8px 10px; font-size: 16px; font-weight: 700; min-width: 0; }
+.form .wide { grid-column: 1 / -1; border-left: 0 !important; }
+.form input { width: 100%; border: 0; border-bottom: 1px dashed var(--toner); background: transparent; padding: 2px 0; font-weight: 700; }
+.form input::placeholder { color: var(--greyToner); font-weight: 400; }
+.urgent { display: inline-flex; align-items: center; gap: 8px; }
+.urgent svg { width: 20px; height: 20px; }
+.route { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.route a { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; }
+.route a[aria-current="page"] { text-decoration: underline; text-underline-offset: 3px; }
+.cb { width: 18px; height: 18px; border: 2px solid var(--toner); display: inline-grid; place-items: center; font: 900 13px/1 var(--sans); }
+.acts { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.btn { border: 3px solid var(--toner); background: var(--toner); color: var(--sheet); font: 900 14px/1 var(--heavy); text-transform: uppercase; letter-spacing: .04em; padding: 9px 14px; cursor: pointer; border-radius: 0; }
+.btn.line { background: transparent; color: var(--toner); }
+h2 { font: 900 16px/1.2 var(--heavy); text-transform: uppercase; letter-spacing: .04em; margin: 28px 0 10px; display: flex; gap: 10px; align-items: baseline; }
+h2 small { font: 400 13px var(--sans); text-transform: none; letter-spacing: 0; }
+.boxes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; }
+.boxes li { border: 2px solid var(--toner); padding: 8px 12px; }
+.boxes .k { font: 700 12px/1.2 var(--sans); text-transform: uppercase; letter-spacing: .06em; display: flex; gap: 6px; align-items: center; }
+.boxes .k svg { width: 16px; height: 16px; }
+.boxes .v { font: 900 52px/1 var(--heavy); display: block; margin-top: 8px; }
+.boxes li.hot { border-width: 4px; border-style: double; border-width: 6px; }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; }
+.proj { min-width: 720px; border: 2px solid var(--toner); }
+.proj th { background: var(--toner); color: var(--sheet); text-align: left; font: 700 12px/1.2 var(--sans); text-transform: uppercase; letter-spacing: .08em; padding: 8px 10px; text-shadow: none; }
+.proj td { border-top: 1px solid var(--toner); padding: 10px; vertical-align: middle; }
+.proj td a { font-weight: 700; font-size: 16px; text-decoration: none; display: block; }
+.proj td a:hover { text-decoration: underline; }
+.dept { font-size: 13px; color: var(--greyToner); }
+.r { text-align: right; white-space: nowrap; }
+.ht { display: inline-block; vertical-align: middle; width: 120px; height: 14px; border: 1.5px solid var(--toner); margin-right: 8px; }
+.ht i { display: block; height: 100%; background: radial-gradient(circle, var(--toner) 1.1px, transparent 1.4px) 0 0 / 4px 4px; }
+.pct { font-weight: 700; }
+.stamp { display: inline-flex; align-items: center; gap: 6px; font: 900 12px/1 var(--heavy); text-transform: uppercase; letter-spacing: .06em; padding: 5px 9px; border: 2.5px solid var(--toner); transform: rotate(-2deg); white-space: nowrap; }
+.stamp svg { width: 15px; height: 15px; }
+.stamp.ok { border-radius: 999px; }
+.stamp.warn { border-style: dashed; }
+.stamp.bad { background: var(--toner); color: var(--sheet); text-shadow: none; }
+.cols { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 32px; }
+.chart svg { width: 100%; height: auto; display: block; border: 2px solid var(--toner); background: transparent; }
+.legend { display: flex; gap: 20px; font-size: 13px; margin-top: 6px; flex-wrap: wrap; }
+.legend i { display: inline-block; width: 14px; height: 14px; border: 1.5px solid var(--toner); vertical-align: -2px; margin-right: 6px; }
+.log { border-top: 2px solid var(--toner); border-bottom: 2px solid var(--toner); font-size: 14px; }
+.log th { text-align: left; font: 12px var(--head); text-transform: uppercase; padding: 6px 8px 6px 0; border-bottom: 1px solid var(--toner); }
+.log td { padding: 8px 8px 8px 0; border-bottom: 1px dotted var(--toner); vertical-align: top; }
+.log .no, .log .res { font: 12px/1.6 var(--head); }
+.log .when { font: 12px/1.6 var(--head); white-space: nowrap; }
+.foot { font: 12px var(--head); margin-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+@media (max-width: 860px) {
+  .page { transform: none; padding: 0 20px 32px; margin-top: 0; }
+  .txline { margin: 0 -12px; padding-left: 12px; padding-right: 12px; }
+  .cover { grid-template-columns: auto minmax(0,1fr); }
+  .who { grid-column: 1 / -1; text-align: left; }
+  .boxes { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .cols { grid-template-columns: minmax(0,1fr); }
+  .form { grid-template-columns: minmax(0,1fr); }
+  .form > div:nth-child(even) { border-left: 0; }
+}
+@media (max-width: 480px) {
+  .page { padding: 0 14px 28px; }
+  .faxmark { font-size: 40px; }
+  .cover h1 { font-size: 20px; }
+  .boxes .v { font-size: 38px; }
+  .form > div { grid-template-columns: 72px minmax(0,1fr); }
+}
+
+/* sheet */
+.page.ss { margin-top: 24px; margin-bottom: 48px; transform: rotate(.25deg); }
+.ss .idea { font-size: 17px; max-width: 70ch; margin: 0; }
+.sw { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px 20px; }
+.sw li { display: flex; gap: 10px; align-items: center; font-size: 14px; }
+.sw i { width: 44px; height: 44px; border: 2px solid var(--toner); flex: none; }
+.sw b { display: block; }
+.tr { display: grid; grid-template-columns: 260px minmax(0,1fr); gap: 12px; align-items: baseline; padding: 8px 0; border-bottom: 1px dotted var(--toner); }
+.tr code { font: 12px var(--head); }
+.facts { display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 0; margin: 0; border: 2px solid var(--toner); }
+.facts dt { font: 700 12px/1.2 var(--sans); text-transform: uppercase; letter-spacing: .08em; padding: 10px; border-top: 1px solid var(--toner); border-right: 1px solid var(--toner); }
+.facts dd { margin: 0; padding: 8px 10px; border-top: 1px solid var(--toner); }
+.facts dt:first-of-type, .facts dd:first-of-type { border-top: 0; }
+.ctl { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+.ctl .lb { display: block; font: 700 12px var(--sans); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
+.ctl .row { display: flex; gap: 14px; flex-wrap: wrap; }
+.field input { width: 100%; border: 2px solid var(--toner); background: var(--sheet); padding: 9px 10px; font-weight: 700; }
+.rowdemo { display: flex; justify-content: space-between; gap: 8px; align-items: center; padding: 10px; border-top: 1px solid var(--toner); border-bottom: 1px solid var(--toner); }
+.rowdemo + .rowdemo { margin-top: 12px; }
+@media (max-width: 640px) { .tr { grid-template-columns: minmax(0,1fr); } .facts { grid-template-columns: minmax(0,1fr); } .facts dt { border-right: 0; } .facts dd { border-top: 0; } .page.ss { transform: none; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="f-ok" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 8.3l2 2 4-4.3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="f-warn" viewBox="0 0 16 16"><path d="M8 1.5l7 13H1z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 6v4M8 11.3v1.4" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="f-bad" viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 5l6 6M11 5l-6 6" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="f-over" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.5" fill="currentColor"/><path d="M10 5v6M10 13.5v1.8" stroke="#f5f4ef" stroke-width="2.4"/></symbol>
+</svg>
+<div class="page">
+  <p class="txline"><span>OCT-31-2026 SAT 08:14</span><span>FROM: BRIGHTWORK</span><span>TO: MARA OKAFOR</span><span>P.01/01</span></p>
+  <header class="cover">
+    <span class="faxmark" aria-hidden="true">FAX</span>
+    <div><h1>Brightwork cover sheet</h1><p class="sub">Project office · home page</p></div>
+    <div class="who">Signed in<b>Mara Okafor</b></div>
+  </header>
+  <div class="form">
+    <div><span class="k">To</span><span class="v">Mara Okafor</span></div>
+    <div><span class="k">From</span><span class="v">Brightwork</span></div>
+    <div><span class="k">Date</span><span class="v">Saturday 31 October 2026</span></div>
+    <div><span class="k">Pages</span><span class="v">1 including cover</span></div>
+    <div class="wide"><span class="k">Re</span><span class="v">Good morning, Mara. <span class="urgent"><svg aria-hidden="true"><use href="#f-over"/></svg>Overdue: 4 tasks are overdue.</span></span></div>
+    <div class="wide"><span class="k">Route</span><nav class="v" aria-label="Main"><ul class="route"><li><a href="#" aria-current="page"><span class="cb" aria-hidden="true">✕</span>Home</a></li><li><a href="#"><span class="cb" aria-hidden="true"></span>Projects</a></li><li><a href="#"><span class="cb" aria-hidden="true"></span>Tasks</a></li><li><a href="#"><span class="cb" aria-hidden="true"></span>Team</a></li><li><a href="#"><span class="cb" aria-hidden="true"></span>Reports</a></li><li><a href="#"><span class="cb" aria-hidden="true"></span>Settings</a></li></ul></nav></div>
+    <div class="wide"><label class="k" for="q">Look up</label><span class="v acts"><input id="q" type="search" placeholder="Search projects and tasks" style="flex:1 1 200px"><button class="btn" type="button">New project</button><button class="btn line" type="button" aria-label="Notifications">Notices</button></span></div>
+  </div>
+
+  <main>
+    <h2>Summary <small>this week, as of transmission</small></h2>
+    <ul class="boxes">
+      <li><span class="k">Active projects</span><span class="v">6</span></li>
+      <li><span class="k">Tasks due this week</span><span class="v">23</span></li>
+      <li class="hot"><span class="k"><svg aria-hidden="true"><use href="#f-over"/></svg>Overdue tasks</span><span class="v">4</span></li>
+      <li><span class="k">Hours logged this week</span><span class="v">186</span></li>
+    </ul>
+
+    <h2>Comments · projects <small>6 open, status stamped at right</small></h2>
+    <div class="scroll" role="region" aria-label="Projects table, scrolls sideways" tabindex="0">
+    <table class="proj">
+      <thead><tr><th>Project</th><th class="r">Tasks</th><th>Progress</th><th>Due</th><th>Status</th></tr></thead>
+      <tbody>
+<tr><td><a href="#">Website redesign</a><span class="dept">Design</span></td><td class="r">18 of 25</td><td><span class="ht" aria-hidden="true"><i style="width:72%"></i></span><b class="pct">72%</b></td><td>14 Nov</td><td><span class="stamp ok"><svg aria-hidden="true"><use href="#f-ok"/></svg>On track</span></td></tr>
+<tr><td><a href="#">Mobile app 2.0</a><span class="dept">Engineering</span></td><td class="r">27 of 60</td><td><span class="ht" aria-hidden="true"><i style="width:45%"></i></span><b class="pct">45%</b></td><td>2 Dec</td><td><span class="stamp warn"><svg aria-hidden="true"><use href="#f-warn"/></svg>At risk</span></td></tr>
+<tr><td><a href="#">Q4 customer survey</a><span class="dept">Research</span></td><td class="r">9 of 10</td><td><span class="ht" aria-hidden="true"><i style="width:90%"></i></span><b class="pct">90%</b></td><td>7 Nov</td><td><span class="stamp ok"><svg aria-hidden="true"><use href="#f-ok"/></svg>On track</span></td></tr>
+<tr><td><a href="#">Billing migration</a><span class="dept">Engineering</span></td><td class="r">12 of 40</td><td><span class="ht" aria-hidden="true"><i style="width:30%"></i></span><b class="pct">30%</b></td><td>20 Nov</td><td><span class="stamp bad"><svg aria-hidden="true"><use href="#f-bad"/></svg>Behind</span></td></tr>
+<tr><td><a href="#">Spring catalogue</a><span class="dept">Marketing</span></td><td class="r">3 of 20</td><td><span class="ht" aria-hidden="true"><i style="width:15%"></i></span><b class="pct">15%</b></td><td>15 Jan</td><td><span class="stamp ok"><svg aria-hidden="true"><use href="#f-ok"/></svg>On track</span></td></tr>
+<tr><td><a href="#">Onboarding emails</a><span class="dept">Marketing</span></td><td class="r">9 of 15</td><td><span class="ht" aria-hidden="true"><i style="width:60%"></i></span><b class="pct">60%</b></td><td>21 Nov</td><td><span class="stamp ok"><svg aria-hidden="true"><use href="#f-ok"/></svg>On track</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="cols">
+      <section class="chart" aria-labelledby="c-h">
+        <h2 id="c-h">Tasks completed <small>18 to 31 October</small></h2>
+        <svg viewBox="0 0 580 220" role="img" aria-label="Tasks completed per day from Sunday 18 October to Saturday 31 October 2026. Last week: Sunday 3, Monday 12, Tuesday 9, Wednesday 14, Thursday 11, Friday 8, Saturday 2, total 59. This week: Sunday 4, Monday 15, Tuesday 13, Wednesday 17, Thursday 12, Friday 10, Saturday 2, total 73.">
+          <defs><pattern id="dots" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="1.3" fill="#141414"/></pattern></defs>
+          <g font-family="Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="700" fill="#141414" text-anchor="middle">
+            <line x1="10" y1="190" x2="570" y2="190" stroke="#141414" stroke-width="2"/>
+            <rect x="20" y="160" width="26" height="30" fill="url(#dots)" stroke="#141414" stroke-width="1.5"/><text x="33" y="154">3</text><text x="33" y="208" font-weight="400">S</text><rect x="58" y="70" width="26" height="120" fill="url(#dots)" stroke="#141414" stroke-width="1.5"/><text x="71" y="64">12</text><text x="71" y="208" font-weight="400">M</text><rect x="96" y="100" width="26" height="90" fill="url(#dots)" stroke="#141414" stroke-width="1.5"/><text x="109" y="94">9</text><text x="109" y="208" font-weight="400">T</text><rect x="134" y="50" width="26" height="140" fill="url(#dots)" stroke="#141414" stroke-width="1.5"/><text x="147" y="44">14</text><text x="147" y="208" font-weight="400">W</text><rect x="172" y="80" width="26" height="110" fill="url(#dots)" stroke="#141414" stroke-width="1.5"/><text x="185" y="74">11</text><text x="185" y="208" font-weight="400">T</text><rect x="210" y="110" width="26" height="80" fill="url(#dots)" stroke="#141414" stroke-width="1.5"/><text x="223" y="104">8</text><text x="223" y="208" font-weight="400">F</text><rect x="248" y="170" width="26" height="20" fill="url(#dots)" stroke="#141414" stroke-width="1.5"/><text x="261" y="164">2</text><text x="261" y="208" font-weight="400">S</text><rect x="300" y="150" width="26" height="40" fill="#141414" stroke="#141414" stroke-width="1.5"/><text x="313" y="144">4</text><text x="313" y="208" font-weight="400">S</text><rect x="338" y="40" width="26" height="150" fill="#141414" stroke="#141414" stroke-width="1.5"/><text x="351" y="34">15</text><text x="351" y="208" font-weight="400">M</text><rect x="376" y="60" width="26" height="130" fill="#141414" stroke="#141414" stroke-width="1.5"/><text x="389" y="54">13</text><text x="389" y="208" font-weight="400">T</text><rect x="414" y="20" width="26" height="170" fill="#141414" stroke="#141414" stroke-width="1.5"/><text x="427" y="14">17</text><text x="427" y="208" font-weight="400">W</text><rect x="452" y="70" width="26" height="120" fill="#141414" stroke="#141414" stroke-width="1.5"/><text x="465" y="64">12</text><text x="465" y="208" font-weight="400">T</text><rect x="490" y="90" width="26" height="100" fill="#141414" stroke="#141414" stroke-width="1.5"/><text x="503" y="84">10</text><text x="503" y="208" font-weight="400">F</text><rect x="528" y="170" width="26" height="20" fill="#141414" stroke="#141414" stroke-width="1.5"/><text x="541" y="164">2</text><text x="541" y="208" font-weight="400">S</text>
+          </g>
+        </svg>
+        <p class="legend"><span><i style="background:radial-gradient(circle,#141414 1.1px,transparent 1.4px) 0 0/4px 4px"></i>Last week, dotted · 59</span><span><i style="background:#141414"></i>This week, solid · 73</span></p>
+      </section>
+      <section aria-labelledby="a-h">
+        <h2 id="a-h">Activity report <small>newest first</small></h2>
+        <table class="log">
+          <thead><tr><th>No</th><th>Time</th><th>Activity</th><th>Result</th></tr></thead>
+          <tbody>
+<tr><td class="no">01</td><td class="when">12 min ago</td><td><b>Jonas Weber</b> completed “Export invoices as CSV” in Billing migration</td><td class="res">OK</td></tr>
+<tr><td class="no">02</td><td class="when">40 min ago</td><td><b>Priya Nair</b> commented on “Hero image options” in Website redesign</td><td class="res">OK</td></tr>
+<tr><td class="no">03</td><td class="when">1 h ago</td><td><b>Sam Ortiz</b> moved “Push notifications” to Review in Mobile app 2.0</td><td class="res">OK</td></tr>
+<tr><td class="no">04</td><td class="when">2 h ago</td><td><b>Lena Fischer</b> added 3 tasks to Spring catalogue</td><td class="res">OK</td></tr>
+<tr><td class="no">05</td><td class="when">3 h ago</td><td><b>Tomás Ruiz</b> logged 6 h on Mobile app 2.0</td><td class="res">OK</td></tr>
+<tr><td class="no">06</td><td class="when">yesterday</td><td><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to Q4 customer survey</td><td class="res">OK</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+    <p class="foot"><span>IF YOU DID NOT RECEIVE ALL PAGES, OPEN BRIGHTWORK</span><span>P.01/01</span></p>
+  </main>
+</div>
+
+<section class="page ss" aria-labelledby="sheet-h">
+  <p class="txline"><span>OCT-31-2026 SAT 08:15</span><span>STYLE SHEET</span><span>P.02/02</span></p>
+  <h2 id="sheet-h" style="font-size:28px;margin-top:24px">Style 168 · Fax</h2>
+  <p class="idea">The dashboard arrives as a faxed cover sheet: a transmission line across the top, a boxed To and From form, heavy black toner on slightly grainy paper, halftone bars and rubber-stamped statuses.</p>
+  <h2>Palette</h2>
+  <ul class="sw">
+    <li><i style="background:#e3e1da"></i><div><b>Tray</b>#e3e1da · page behind the sheet</div></li>
+    <li><i style="background:#f5f4ef"></i><div><b>Thermal sheet</b>#f5f4ef · paper, with 14% noise grain</div></li>
+    <li><i style="background:#141414"></i><div><b>Toner</b>#141414 · all text, rules, stamps, buttons</div></li>
+    <li><i style="background:#4a4a46"></i><div><b>Grey toner</b>#4a4a46 · departments and placeholders</div></li>
+    <li><i style="background:#d8d6cf"></i><div><b>Scan streak</b>#d8d6cf · vertical streaks, never text</div></li>
+    <li><i style="background:#8a8a85"></i><div><b>Halftone</b>#8a8a85 · how dotted fills read at a distance</div></li>
+    <li><i style="background:#1748b0"></i><div><b>Focus</b>#1748b0 · focus outline, the only colour</div></li>
+  </ul>
+  <h2>Type</h2>
+  <div class="tr"><code>Heavy 64 / 900 · Arial Black, Helvetica Neue, Arial</code><span style="font:900 52px/1 var(--heavy)">FAX 186</span></div>
+  <div class="tr"><code>Heavy 30 / 900 caps · title</code><span style="font:900 26px/1 var(--heavy);text-transform:uppercase">Brightwork cover sheet</span></div>
+  <div class="tr"><code>Sans 16 / 700 · Helvetica Neue, Helvetica, Arial · form values</code><span style="font-weight:700;font-size:16px">Website redesign</span></div>
+  <div class="tr"><code>Sans 15 / 1.45 · body</code><span>Priya Nair commented on “Hero image options”</span></div>
+  <div class="tr"><code>Sans 12 / 700 caps +0.08em · form keys</code><span style="font:700 12px var(--sans);text-transform:uppercase;letter-spacing:.08em">Tasks due this week</span></div>
+  <div class="tr"><code>Mono 12 · Lucida Console, Courier New · header line</code><span style="font:12px var(--head)">OCT-31-2026 SAT 08:14 · P.01/01</span></div>
+  <h2>Spacing, density and depth</h2>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>8px unit. 10px cell padding, 12px between boxes, 28px above section heads.</dd>
+    <dt>Density</dt><dd>Medium-dense office form. Boxed fields and tables fill the sheet edge to edge.</dd>
+    <dt>Corners</dt><dd>Square everywhere. Only the On track stamp is a full pill.</dd>
+    <dt>Borders</dt><dd>2px toner boxes, a 6px bar under the cover, a 6px double box on the overdue figure, dotted log rules.</dd>
+    <dt>Shadows</dt><dd>One soft shadow under the sheet. Text bleeds with a 0.7px blur, and the sheet is tilted 0.35 degrees.</dd>
+    <dt>Icons</dt><dd>Stamped outlines. Pill stamp with a ringed check for On track, dashed stamp with a triangle for At risk, solid black stamp with a crossed box for Behind, a filled circle with a bang for Overdue.</dd>
+    <dt>Tone</dt><dd>Office paperwork, such as Re, Route, Look up, Activity report and P.01/01.</dd>
+  </dl>
+  <h2>Controls · normal and focus</h2>
+  <div class="ctl">
+    <div><span class="lb">Primary button</span><div class="row"><button class="btn" type="button">Send</button><button class="btn is-focus" type="button">Focused</button></div></div>
+    <div><span class="lb">Secondary button</span><div class="row"><button class="btn line" type="button">Cancel</button><button class="btn line is-focus" type="button">Focused</button></div></div>
+    <div><label class="field"><span class="lb">Text field</span><input value="Website redesign"></label></div>
+    <div><label class="field"><span class="lb">Text field, focused</span><input class="is-focus" value="Mobile app 2.0"></label></div>
+    <div><span class="lb">List row, normal and focused</span><div class="rowdemo"><b>Billing migration</b><span class="stamp bad"><svg aria-hidden="true"><use href="#f-bad"/></svg>Behind</span></div><div class="rowdemo is-focus"><b>Billing migration</b><span class="stamp bad"><svg aria-hidden="true"><use href="#f-bad"/></svg>Behind</span></div></div>
+  </div>
+</section>
+</body>
+</html>

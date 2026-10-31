@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 340 · Sales leaderboard · Brightwork</title>
+<style>
+
+:root { color-scheme: dark; --bg:#15122b; --card:#211c40; --raise:#2c2552; --line:#3d3570; --ink:#f4f1ff; --muted:#b5addb; --gold:#ffd166; --silver:#cfd6e6; --bronze:#f0a875; --mint:#6ee7b7; --coral:#ff8fa3; --sky:#8ecbff; --on:#211400;
+ --font: "Trebuchet MS", "Segoe UI", system-ui, sans-serif; --disp: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Narrow Bold", "Arial Black", sans-serif;
+ --s-bg:#15122b; --s-ink:#f4f1ff; --s-muted:#b5addb; --s-line:#3d3570; --s-font: var(--font); --s-hfont: var(--disp); --s-sw-r: 12px; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 var(--font); font-synthesis: none; }
+.ic { width: 1.15em; height: 1.15em; vertical-align: -.2em; flex: none; }
+:focus-visible, .is-focus { outline: 3px solid var(--sky) !important; outline-offset: 3px; }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 22px 28px 48px; }
+.top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+.top .tag { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+h1 { font: 800 36px/1 var(--disp); letter-spacing: .02em; margin: 2px 0 0; }
+h1 span { color: var(--gold); }
+.top .sp { flex: 1; }
+.btn-p { background: var(--gold); color: var(--on); border: 0; border-radius: 14px; padding: 10px 18px; font: 700 15px var(--font); box-shadow: 0 4px 0 #b38a2a; display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
+.btn-s { background: var(--raise); color: var(--ink); border: 0; border-radius: 14px; padding: 10px 16px; font: 700 15px var(--font); box-shadow: 0 4px 0 #120f26; display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
+.hero { display: grid; grid-template-columns: minmax(0,1.35fr) minmax(0,1fr); gap: 20px; }
+.box { background: var(--card); border-radius: 20px; padding: 20px; box-shadow: 0 6px 0 #0d0b1d; }
+h2 { font: 800 22px/1.1 var(--disp); letter-spacing: .03em; margin: 0 0 14px; display: flex; gap: 8px; align-items: center; }
+h2 .ic { color: var(--gold); }
+.podium { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; align-items: end; }
+.podium li { text-align: center; display: grid; justify-items: center; gap: 6px; min-width: 0; }
+.hexav { width: 64px; height: 72px; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); background: var(--m); color: var(--on); display: grid; place-items: center; font: 700 20px var(--font); }
+.pname { font-weight: 700; } .pval { font: 800 26px/1 var(--disp); letter-spacing: .02em; font-variant-numeric: tabular-nums; }
+.pmeta { font-size: 13px; color: var(--muted); }
+.step { width: 100%; border-radius: 14px 14px 4px 4px; background: var(--raise); border-top: 6px solid var(--m); display: grid; place-items: center; font: 800 34px var(--disp); color: var(--m); }
+.badges { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+.badge { display: inline-flex; gap: 4px; align-items: center; font-size: 12px; font-weight: 700; background: var(--bg); border: 2px solid var(--b); color: var(--ink); border-radius: 999px; padding: 2px 8px 2px 4px; }
+.badge .ic { color: var(--b); }
+.quest .xp { height: 26px; border-radius: 13px; background: var(--bg); border: 2px solid var(--line); position: relative; overflow: hidden; margin: 10px 0 6px; }
+.quest .xp i { position: absolute; inset: 0 36% 0 0; background: repeating-linear-gradient(135deg, var(--gold) 0 14px, #ffdb85 14px 28px); border-radius: 11px; }
+.quest .xp b { position: absolute; left: 12px; top: 2px; font-size: 14px; color: var(--on); }
+.qrow { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; color: var(--muted); flex-wrap: wrap; }
+.big { font: 800 40px/1 var(--disp); letter-spacing: .02em; }
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin: 16px 0 0; }
+.tiles div { background: var(--raise); border-radius: 14px; padding: 10px 12px; }
+.tiles dd { margin: 0; font: 800 24px/1.1 var(--disp); letter-spacing: .02em; }
+.tiles dt { font-size: 12px; color: var(--muted); font-weight: 700; }
+.board { margin-top: 24px; }
+.levels { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 12px; }
+.lvl { background: var(--card); border-radius: 18px; padding: 12px; box-shadow: 0 5px 0 #0d0b1d; }
+.lvl h3 { margin: 0 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); display: flex; gap: 6px; align-items: center; }
+.lvl h3 b { background: var(--raise); color: var(--ink); border-radius: 8px; padding: 0 7px; font-size: 12px; }
+.lvl ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.tok { display: block; background: var(--raise); border-radius: 14px; padding: 10px 12px; color: var(--ink); text-decoration: none; border-left: 5px solid var(--m, var(--line)); }
+.tok b { display: block; }
+.tok .v { font: 800 20px/1.1 var(--disp); letter-spacing: .02em; }
+.tok .o { font-size: 12px; color: var(--muted); }
+.tok .s { display: flex; gap: 4px; align-items: center; font-size: 12px; font-weight: 700; margin-top: 4px; }
+.tok .s.bad { color: var(--coral); } .tok .s.ok { color: var(--mint); }
+.moves { margin-top: 24px; }
+.moves ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; }
+.moves li { background: var(--card); border-radius: 16px; padding: 14px; display: flex; gap: 10px; align-items: flex-start; }
+.moves .ico { width: 36px; height: 36px; border-radius: 12px; display: grid; place-items: center; background: var(--raise); flex: none; color: var(--c); }
+.moves .lbl { display: block; font-size: 12px; font-weight: 700; color: var(--c); text-transform: uppercase; letter-spacing: .08em; }
+@media (max-width: 1000px) { .hero { grid-template-columns: minmax(0,1fr); } .levels { grid-template-columns: repeat(2, minmax(0,1fr)); } .moves ul { grid-template-columns: minmax(0,1fr); } }
+@media (max-width: 600px) {
+ .wrap { padding: 16px 16px 40px; } h1 { font-size: 30px; }
+ .box { padding: 14px; }
+ .podium { gap: 6px; } .hexav { width: 48px; height: 54px; font-size: 16px; } .pval { font-size: 20px; } .pname { font-size: 13px; }
+ .badge { font-size: 11px; }
+ .levels { grid-template-columns: minmax(0,1fr); }
+ .tiles dd { font-size: 20px; }
+}
+.fld { display: grid; gap: 6px; font-size: 13px; font-weight: 700; color: var(--muted); }
+.fld input { background: var(--bg); border: 2px solid var(--line); border-radius: 14px; padding: 9px 14px; color: var(--ink); font: 15px var(--font); width: 230px; max-width: 100%; }
+.lrow { display: flex; gap: 10px; align-items: center; background: var(--card); border-radius: 14px; padding: 8px 12px; color: var(--ink); text-decoration: none; width: 280px; max-width: 100%; }
+.lrow .hexav { width: 32px; height: 36px; font-size: 12px; }
+.lrow .v { margin-left: auto; font: 800 20px var(--disp); }
+
+
+.sheet { background: var(--s-bg); color: var(--s-ink); font-family: var(--s-font); padding: 48px 28px 72px; border-top: var(--s-top, 1px solid var(--s-line)); }
+.sheet > * { max-width: 1120px; margin-left: auto; margin-right: auto; }
+.sheet h2 { font-family: var(--s-hfont, inherit); font-size: 30px; line-height: 1.2; margin-top: 0; margin-bottom: 8px; font-weight: 700; }
+.sheet .idea { font-size: 17px; line-height: 1.55; color: var(--s-ink); margin-top: 0; margin-bottom: 8px; }
+.sheet h3 { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--s-muted); margin-top: 36px; margin-bottom: 14px; padding-top: 12px; border-top: 1px solid var(--s-line); font-weight: 700; }
+.swatches { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.sw { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; line-height: 1.45; min-width: 0; }
+.sw i { flex: none; width: 44px; height: 44px; border-radius: var(--s-sw-r, 6px); border: 1px solid var(--s-line); }
+.sw b { font-weight: 700; } .sw code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; color: var(--s-ink); }
+.sw span { color: var(--s-muted); }
+.type-row { display: flex; align-items: baseline; gap: 20px; padding: 10px 0; border-bottom: 1px solid var(--s-line); flex-wrap: wrap; min-width: 0; }
+.type-row code { flex: 0 0 220px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12.5px; color: var(--s-muted); }
+.type-row > span { min-width: 0; overflow-wrap: anywhere; }
+.stack { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; color: var(--s-muted); margin: 0 auto 6px; overflow-wrap: anywhere; }
+.facts { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 8px 20px; margin: 0 auto; font-size: 15px; line-height: 1.55; }
+.facts dt { font-weight: 700; } .facts dd { margin: 0; color: var(--s-ink); }
+.controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.ctl-label { display: block; font-size: 13px; color: var(--s-muted); margin-bottom: 10px; }
+.ctl-pair { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.ctl-pair > * { min-width: 0; }
+@media (max-width: 700px) {
+ .sheet { padding: 36px 16px 56px; }
+ .sheet h2 { font-size: 24px; }
+ .facts, .controls { grid-template-columns: minmax(0, 1fr); }
+ .facts dd { margin-bottom: 8px; }
+ .type-row code { flex-basis: 100%; }
+ .ctl-pair > .fld, .ctl-pair > .lrow { flex: 1 1 100%; }
+}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5L21.5 20h-19z"/><path d="M12 10v4"/><path d="M12 17.2v.1"/></symbol><symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol><symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14.5" rx="1.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></symbol><symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 3.5L3.5 10.5l7 3 3 7z"/><path d="M20.5 3.5l-10 10"/></symbol><symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V4"/><path d="M6 4.5h11l-2.5 4 2.5 4H6"/></symbol><symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol><symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></symbol><symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></symbol><symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16l-6 7.5V19l-4 1.5v-8z"/></symbol><symbol id="i-sortd" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 5v14M3.5 15.5L7 19l3.5-3.5"/><path d="M13 7h8M13 12h6M13 17h4"/></symbol><symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></symbol><symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol><symbol id="i-dot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/></symbol><symbol id="i-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H4.5a3 3 0 0 0 3.5 4M16 6h3.5a3 3 0 0 1-3.5 4M12 13v4M8.5 20h7M10 17h4"/></symbol><symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8-4.3-4.1 5.9-.8z"/></symbol><symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/></symbol><symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol><symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></symbol><symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15z"/><path d="M10 20.5h4"/></symbol><symbol id="i-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4 0-6.5-2.6-6.5-6.2 0-3.6 3-5.6 4-9.3 2 1.6 2.5 3.6 2.4 5 1-.6 1.7-1.7 2-3 2.4 2.1 4.6 4.7 4.6 7.3 0 3.6-2.5 6.2-6.5 6.2z"/></symbol><symbol id="i-hex" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/></symbol><symbol id="i-square" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12"/></symbol><symbol id="i-diamond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l8 8-8 8-8-8z"/></symbol><symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></symbol><symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol></defs></svg>
+<div class="wrap">
+<header class="top"><div><span class="tag">Brightwork Sales · Deal pipeline</span><h1>Q4 Sales <span>League</span></h1></div><span class="sp"></span><button class="btn-s" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-user"/></svg>My deals</button><button class="btn-p" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>Log a deal</button></header>
+<main>
+<div class="hero">
+<section class="box" aria-labelledby="ph"><h2 id="ph"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-trophy"/></svg>Leaderboard · open value</h2><ol class="podium"><li style="--m:var(--silver)"><span class="hexav" aria-hidden="true">SO</span><span class="pname">Sam Ortiz</span><span class="pval">42,000</span><span class="pmeta">2 open deals</span><span class="badges"><span class="badge" style="--b:var(--sky)"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-flag"/></svg>Closer</span></span><span class="step" style="height:96px" aria-label="Rank 2">2</span></li><li style="--m:var(--gold)"><span class="hexav" aria-hidden="true">MO</span><span class="pname">Mara Okafor</span><span class="pval">138,000</span><span class="pmeta">2 open deals</span><span class="badges"><span class="badge" style="--b:var(--gold)"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-trophy"/></svg>Biggest deal</span><span class="badge" style="--b:var(--sky)"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Demo booked</span></span><span class="step" style="height:130px" aria-label="Rank 1">1</span></li><li style="--m:var(--bronze)"><span class="hexav" aria-hidden="true">LF</span><span class="pname">Lena Fischer</span><span class="pval">38,500</span><span class="pmeta">2 open deals</span><span class="badges"><span class="badge" style="--b:var(--bronze)"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-flame"/></svg>3 opens</span></span><span class="step" style="height:72px" aria-label="Rank 3">3</span></li></ol></section>
+<section class="box quest" aria-labelledby="qh"><h2 id="qh"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-star"/></svg>Quarter quest</h2>
+<div class="qrow"><span>Won this quarter</span><span>Target 200,000</span></div>
+<div class="big">128,500</div>
+<div class="xp" role="img" aria-label="64 percent of target reached"><i></i><b data-bg="#ffd166,#ffdb85">64%</b></div>
+<div class="qrow"><span>71,500 to go</span><span>Level 64 of 100</span></div>
+<dl class="tiles"><div><dd>412,000</dd><dt>Pipeline value</dt></div><div><dd>31%</dd><dt>Win rate</dt></div><div><dd>18</dd><dt>Open deals</dt></div></dl>
+</section>
+</div>
+<section class="board" aria-labelledby="bh"><h2 id="bh"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-hex"/></svg>Quest board</h2><ol class="levels"><li class="lvl"><h3><b>L1</b>Lead</h3><ul><li><a class="tok" href="#" style="--m:var(--bronze)"><b>Lumen Bakery</b><span class="v">6,000</span><br><span class="o">Lena Fischer</span></a></li><li><a class="tok" href="#" style="--m:var(--silver)"><b>Orbit Labs</b><span class="v">24,000</span><br><span class="o">Sam Ortiz</span></a></li></ul></li><li class="lvl"><h3><b>L2</b>Qualified</h3><ul><li><a class="tok" href="#" style="--m:var(--gold)"><b>Northpass</b><span class="v">48,000</span><br><span class="o">Mara Okafor</span><span class="s "><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Demo 4 Nov</span></a></li></ul></li><li class="lvl"><h3><b>L3</b>Proposal</h3><ul><li><a class="tok" href="#" style="--m:var(--bronze)"><b>Kettle &amp; Co</b><span class="v">32,500</span><br><span class="o">Lena Fischer</span><span class="s "><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-send"/></svg>Sent 28 Oct</span></a></li><li><a class="tok" href="#" style="--m:var(--gold)"><b>Saltwater Freight</b><span class="v">90,000</span><br><span class="o">Mara Okafor</span><span class="s bad"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-warn"/></svg>Stalled 12 days</span></a></li></ul></li><li class="lvl"><h3><b>L4</b>Negotiation</h3><ul><li><a class="tok" href="#" style="--m:var(--silver)"><b>Fernhill Studio</b><span class="v">18,000</span><br><span class="o">Sam Ortiz</span><span class="s "><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-flag"/></svg>Closing 7 Nov</span></a></li></ul></li><li class="lvl"><h3><b>L5</b>Won</h3><ul><li><a class="tok" href="#" style="--m:var(--mint)"><b>Bluewater Clinics</b><span class="v">64,000</span><br><span class="o">Team win</span><span class="s ok"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Closed 22 Oct</span></a></li></ul></li></ol></section>
+<section class="moves" aria-labelledby="mh"><h2 id="mh"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-bolt"/></svg>Latest moves</h2><ul>
+<li style="--c:var(--sky)"><span class="ico"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg></span><span><span class="lbl">Booked</span>Call with Northpass booked for 4 Nov 10:00</span></li>
+<li style="--c:var(--gold)"><span class="ico"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-flame"/></svg></span><span><span class="lbl">Streak · 3 opens</span>Kettle &amp; Co opened the proposal 3 times</span></li>
+<li style="--c:var(--coral)"><span class="ico"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-warn"/></svg></span><span><span class="lbl">Gone quiet</span>Saltwater Freight has had no reply for 12 days</span></li>
+</ul></section>
+</main></div>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 340 · Sales leaderboard</h2>
+<p class="idea">The pipeline as a friendly sales league on deep indigo, with an owner podium ranked by open value, earned badges and streaks drawn from real deal events, a quarter quest bar toward target and the stages as levels on a quest board.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><i style="background:#15122b"></i><div><b>Indigo</b> <code>#15122b</code><br><span>page and style sheet</span></div></li><li class="sw"><i style="background:#211c40"></i><div><b>Card</b> <code>#211c40</code><br><span>panels, levels, moves</span></div></li><li class="sw"><i style="background:#2c2552"></i><div><b>Raised</b> <code>#2c2552</code><br><span>tokens, tiles, podium steps, secondary buttons</span></div></li><li class="sw"><i style="background:#3d3570"></i><div><b>Line</b> <code>#3d3570</code><br><span>quest bar frame and field borders</span></div></li><li class="sw"><i style="background:#f4f1ff"></i><div><b>Ink</b> <code>#f4f1ff</code><br><span>text</span></div></li><li class="sw"><i style="background:#b5addb"></i><div><b>Muted</b> <code>#b5addb</code><br><span>labels and owners</span></div></li><li class="sw"><i style="background:#ffd166"></i><div><b>Gold</b> <code>#ffd166</code><br><span>rank 1, quest bar, primary button, Mara tokens</span></div></li><li class="sw"><i style="background:#cfd6e6"></i><div><b>Silver</b> <code>#cfd6e6</code><br><span>rank 2, Sam tokens</span></div></li><li class="sw"><i style="background:#f0a875"></i><div><b>Bronze</b> <code>#f0a875</code><br><span>rank 3, Lena tokens</span></div></li><li class="sw"><i style="background:#211400"></i><div><b>On gold</b> <code>#211400</code><br><span>text on gold, silver, bronze</span></div></li><li class="sw"><i style="background:#6ee7b7"></i><div><b>Mint</b> <code>#6ee7b7</code><br><span>Won and team win</span></div></li><li class="sw"><i style="background:#ff8fa3"></i><div><b>Coral</b> <code>#ff8fa3</code><br><span>Stalled and Gone quiet, with a triangle</span></div></li><li class="sw"><i style="background:#8ecbff"></i><div><b>Sky</b> <code>#8ecbff</code><br><span>Booked and Closer badges, focus</span></div></li></ul>
+<h3>Type</h3>
+<p class="stack">Display in Impact, Haettenschweiler, Franklin Gothic Bold, Arial Black · body in Trebuchet MS, Segoe UI, system-ui</p>
+<div class="type-row"><code>36 / Impact display</code><span style="font:36px Impact,Haettenschweiler,Arial Black,sans-serif;letter-spacing:.02em">Q4 Sales League</span></div><div class="type-row"><code>40 / Impact figure</code><span style="font:40px Impact,Haettenschweiler,Arial Black,sans-serif">128,500</span></div><div class="type-row"><code>15 / 700 name</code><span style="font-weight:700">Mara Okafor</span></div><div class="type-row"><code>12 / 700 caps label</code><span style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#b5addb">Streak · 3 opens</span></div><div class="type-row"><code>12 / 700 badge</code><span style="font-size:12px;font-weight:700">Biggest deal</span></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3>
+<dl class="facts"><dt>Spacing</dt><dd>8px unit. 20px panel padding, 12px between levels and moves, 28px gutter, 16px on phones.</dd><dt>Density</dt><dd>Medium. Big figures and a podium up top, compact tokens below.</dd><dt>Corners</dt><dd>Chunky. 20px panels, 18px levels, 14px tokens, buttons and fields, hexagon avatars, pill badges.</dd><dt>Borders</dt><dd>Few. A 5px left edge on each token in its owner&#x27;s medal colour, 2px badge rings, a 6px top edge on podium steps.</dd><dt>Shadows</dt><dd>Solid offset shadows with no blur, 0 4px to 0 6px, so buttons and panels look like game pieces.</dd><dt>Icons</dt><dd>Line icons at 2 stroke. Trophy, star, hexagon and bolt head sections. Flame for a streak, triangle for gone quiet, check for won.</dd><dt>Focus</dt><dd>A 3px sky outline offset 3px.</dd><dt>Tone</dt><dd>Playful but plain. Sales League, Quarter quest, Log a deal, 71,500 to go, Gone quiet.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls">
+<div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-p" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>Log a deal</button><button class="btn-p is-focus" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>Log a deal</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-s" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-user"/></svg>My deals</button><button class="btn-s is-focus" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-user"/></svg>My deals</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="fld"><span>Find a player</span><input type="text" value="Sam"></label><label class="fld"><span>Find a player, focused</span><input type="text" class="is-focus" value="Sam"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><a class="lrow" href="#" style="--m:var(--gold)"><span class="hexav" aria-hidden="true">MO</span><b>Mara Okafor</b><span class="v">138,000</span></a><a class="lrow is-focus" href="#" style="--m:var(--gold)"><span class="hexav" aria-hidden="true">MO</span><b>Mara Okafor</b><span class="v">138,000</span></a></div></div>
+</div>
+</section>
+</body>
+</html>

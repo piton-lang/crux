@@ -1,0 +1,24 @@
+export anchor TaskBoard:
+    description:
+        The task board for the project Mobile app 2.0, with four columns.
+
+    header:
+        The project name, the status At risk, filters for Assignee, Label and Due, a Search tasks field and an Add task button.
+
+    columns:
+        toDo:
+            - Offline mode for task list, Engineering, Tomás Ruiz, due 6 Nov, 5 points
+            - App store screenshots, Design, Priya Nair, due 12 Nov, 2 points
+            - Crash report triage, Engineering, unassigned, no due date, 3 points
+        inProgress:
+            - Sign in with Apple, Engineering, Jonas Weber, due 3 Nov, overdue, 3 points
+            - Dark icon set, Design, Priya Nair, due 7 Nov, 2 points
+        review:
+            - Push notifications, Engineering, Sam Ortiz, due 4 Nov, 8 points, 3 comments
+        done:
+            - Task detail redesign, Design, Aiko Tanaka, 3 points
+            - Login rate limiting, Engineering, Jonas Weber, 2 points
+
+    counts:
+        Each column shows its count, 3, 2, 1 and 2. The overdue card is marked
+        with the word Overdue and a symbol, not colour alone.

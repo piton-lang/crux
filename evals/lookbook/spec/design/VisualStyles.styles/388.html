@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 388 · Yoga dusk · Brightwork</title>
+<style>
+
+:root { color-scheme: dark; --s1:#16132e; --s2:#2b1f47; --s3:#45284f; --glass:#1a1530; --ink:#fbf1ee; --muted:#d9c7d6;
+ --peach:#ffb7a1; --sage:#b5dfc0; --lilac:#cbbcff; --onp:#2a1420; --line:#5b4a72; --trk:#3a2f55;
+ --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", "URW Palladio L", Georgia, serif;
+ --sans: Optima, Candara, "Segoe UI", "Gill Sans", "Noto Sans", system-ui, sans-serif; }
+* { box-sizing: border-box; }
+html { background: var(--s1); }
+body { margin: 0; color: var(--ink); font: 16px/1.65 var(--sans); background-color: var(--s2);
+ background-image: linear-gradient(180deg, var(--s1) 0, var(--s2) 700px, var(--s3) 1400px, #3a2240 2000px, var(--s2) 3200px); min-height: 100vh; }
+a { color: var(--peach); }
+:focus-visible, .is-focus { outline: 2px solid var(--ink) !important; outline-offset: 4px; box-shadow: 0 0 0 8px rgba(255,183,161,.28); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 32px 24px 48px; }
+.top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.top .brand { font: italic 20px var(--serif); letter-spacing: .01em; }
+.top nav { display: flex; gap: 6px; }
+.top nav a { padding: 4px 14px; border-radius: 999px; color: var(--muted); text-decoration: none; font-size: 14px; }
+.top nav a[aria-current="page"] { background: rgba(251,241,238,.1); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+.greet { text-align: center; margin: 40px 0 8px; }
+.greet p { margin: 0; color: var(--muted); letter-spacing: .12em; font-size: 13px; text-transform: lowercase; }
+.greet h1 { margin: 6px 0 0; font: 400 40px/1.2 var(--serif); }
+.breath { display: grid; place-items: center; margin: 24px auto 8px; width: min(380px, 100%); aspect-ratio: 1; position: relative; }
+.breath svg { width: 100%; height: 100%; overflow: visible; }
+.halo { transform-origin: 190px 190px; animation: breathe 10s ease-in-out infinite; }
+@keyframes breathe { 0%, 100% { transform: scale(.94); opacity: .55; } 40% { transform: scale(1.04); opacity: 1; } 55% { transform: scale(1.04); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .halo { animation: none; } }
+.mid { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
+.mid b { font: 400 44px/1 var(--serif); }
+.mid span { color: var(--muted); font-size: 14px; }
+.mid em { font: italic 15px var(--serif); color: var(--ink); margin-top: 6px; }
+.legend { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; padding: 0; margin: 8px 0 0; text-align: center; }
+.legend li { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.legend .k { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; }
+.legend .k svg { width: 16px; height: 16px; }
+.legend b { font: 400 24px var(--serif); }
+.legend small { color: var(--muted); font-size: 13px; }
+.card { background: rgba(22,18,44,.72); border-radius: 28px; padding: 28px 32px; margin-top: 28px; box-shadow: 0 0 0 1px rgba(203,188,255,.16), 0 20px 50px rgba(10,6,24,.45); }
+.card h2 { margin: 0 0 6px; font: 400 26px var(--serif); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.card h2 small { font: 14px var(--sans); color: var(--muted); }
+.prose { margin: 0; font: 19px/1.6 var(--serif); }
+.prose b { font-weight: 400; color: var(--peach); }
+.facts4 { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; margin: 20px 0 0; }
+.facts4 div { text-align: center; padding: 12px 4px; border-radius: 20px; background: rgba(251,241,238,.05); }
+.facts4 dt { color: var(--muted); font-size: 13px; }
+.facts4 dd { margin: 0; font: 400 26px/1.2 var(--serif); }
+.pebbles { display: flex; gap: 6px; margin: 18px 0 8px; }
+.pebbles span { height: 34px; border-radius: 999px; display: grid; place-items: center; font-size: 13px; color: var(--onp); min-width: 22px; }
+.zl { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: 14px; }
+.zl b { color: var(--ink); font-weight: 400; }
+.moons { display: grid; grid-template-columns: repeat(7, minmax(0,1fr)); gap: 6px; align-items: end; margin-top: 18px; text-align: center; }
+.moon { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.moon .o { border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff4ec, var(--peach) 70%); box-shadow: 0 0 18px rgba(255,183,161,.35); }
+.moon .o.rest { background: transparent; border: 1.5px dashed var(--muted); box-shadow: none; }
+.moon b { font: 400 17px var(--serif); }
+.moon small { color: var(--muted); font-size: 13px; }
+.moon.today small { color: var(--ink); }
+.duo { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 28px; }
+.duo .card { margin-top: 28px; }
+.big { font: 400 36px/1.15 var(--serif); margin: 4px 0; }
+.big small { font-size: 18px; color: var(--muted); }
+.beads { display: flex; gap: 6px; align-items: center; margin: 14px 0; position: relative; flex-wrap: nowrap; }
+.beads::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 1px solid var(--line); }
+.beads i { position: relative; width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid var(--muted); background: var(--glass); flex: none; }
+.beads i.d { background: var(--lilac); border-color: var(--lilac); }
+.beads i.c { width: 24px; height: 24px; background: var(--peach); border-color: var(--peach); box-shadow: 0 0 0 5px rgba(255,183,161,.2); }
+.soft { color: var(--muted); margin: 0; }
+.soft b { color: var(--ink); font-weight: 400; }
+.btn-p, .btn-s { font: 15px var(--sans); padding: 10px 22px; border-radius: 999px; cursor: pointer; }
+.btn-p { background: var(--peach); color: var(--onp); border: 0; }
+.btn-s { background: transparent; color: var(--ink); border: 1px solid var(--muted); }
+.sheet { max-width: 760px; margin: 24px auto 0; padding: 32px 24px 64px; }
+.sheet h2 { font: 400 34px var(--serif); margin: 0 0 8px; }
+.sheet h3 { font: italic 400 21px var(--serif); margin: 36px 0 12px; color: var(--peach); }
+.idea { font: 18px/1.6 var(--serif); margin: 0; }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px 20px; }
+.sw { display: flex; gap: 12px; font-size: 14px; align-items: flex-start; }
+.sw i { width: 36px; height: 36px; flex: none; border-radius: 50%; box-shadow: 0 0 0 1px rgba(251,241,238,.35); }
+.sw b { font-weight: 400; font-family: var(--serif); font-size: 16px; }
+.sw span { color: var(--muted); }
+.types { background: rgba(22,18,44,.72); border-radius: 28px; padding: 12px 24px; }
+.type-row { display: flex; gap: 16px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.type-row:last-child { border: 0; }
+.type-row code { font: 12px ui-monospace, Menlo, Consolas, monospace; color: var(--muted); min-width: 200px; }
+.facts { display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 8px 20px; margin: 0; background: rgba(22,18,44,.72); border-radius: 28px; padding: 20px 24px; }
+.facts dt { font: italic 16px var(--serif); color: var(--muted); }
+.facts dd { margin: 0; }
+.controls { display: grid; grid-template-columns: minmax(0,1fr); gap: 20px; background: rgba(22,18,44,.72); border-radius: 28px; padding: 24px; }
+.ctl-label { display: block; font: italic 15px var(--serif); color: var(--muted); margin-bottom: 8px; }
+.ctl-pair { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-end; }
+.fld { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); }
+.fld input { font: 16px var(--sans); color: var(--ink); background: rgba(251,241,238,.06); border: 1px solid var(--line); border-radius: 999px; padding: 9px 18px; width: 240px; }
+.lrow { display: flex; align-items: center; gap: 14px; min-width: 280px; padding: 10px 18px 10px 10px; border-radius: 999px; background: rgba(251,241,238,.06); color: var(--ink); text-decoration: none; }
+.lrow .dot { width: 32px; height: 32px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff4ec, var(--peach) 70%); flex: none; }
+.lrow span:last-child { margin-left: auto; color: var(--muted); font-size: 14px; }
+@media (max-width: 680px) {
+ .wrap { padding: 20px 16px 40px; }
+ .greet { margin-top: 28px; }
+ .greet h1 { font-size: 30px; }
+ .card { padding: 22px 18px; border-radius: 24px; }
+ .facts4 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+ .duo { grid-template-columns: minmax(0,1fr); gap: 0; }
+ .legend b { font-size: 20px; }
+ .mid b { font-size: 36px; }
+ .moon b { font-size: 14px; }
+ .moon small { font-size: 11px; }
+ .beads { gap: 3px; }
+ .beads i { width: 13px; height: 13px; }
+ .sheet { padding: 24px 16px 48px; }
+ .facts { grid-template-columns: minmax(0,1fr); padding: 18px; }
+ .fld input, .lrow { width: 100%; min-width: 0; }
+ .ctl-pair > * { flex: 1 1 100%; }
+}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><span class="brand">brightwork move</span>
+<nav aria-label="Move views"><a href="#today" aria-current="page">today</a><a href="#week">week</a><a href="#plan">plan</a></nav></header>
+<main id="today">
+<div class="greet"><p>saturday 31 october</p><h1>A gentle close to the day</h1></div>
+<section aria-labelledby="h-r"><h2 id="h-r" style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)">Rings</h2>
+<div class="breath"><svg viewBox="0 0 380 380" role="img" aria-label="Activity rings for today. Move 486 of 600 kcal, 81 percent. Exercise 38 of 45 minutes, 84 percent. Stand 9 of 12 hours, 75 percent. No ring closed yet. A soft halo grows and settles around them as a breathing guide."><circle class="halo" cx="190" cy="190" r="178" fill="none" stroke="#ffb7a1" stroke-opacity=".35" stroke-width="1.5"/><circle class="halo" cx="190" cy="190" r="172" fill="rgba(255,183,161,.05)"/><circle cx="190" cy="190" r="150" fill="none" stroke="#3a2f55" stroke-width="16"/><path d="M190.00,40.00 A150,150 0 1 1 50.53,134.78" fill="none" stroke="#ffb7a1" stroke-width="16" stroke-linecap="round"/><circle cx="190" cy="190" r="124" fill="none" stroke="#3a2f55" stroke-width="16"/><path d="M190.00,66.00 A124,124 0 1 1 87.20,120.66" fill="none" stroke="#b5dfc0" stroke-width="16" stroke-linecap="round"/><circle cx="190" cy="190" r="98" fill="none" stroke="#3a2f55" stroke-width="16"/><path d="M190.00,92.00 A98,98 0 1 1 92.00,190.00" fill="none" stroke="#cbbcff" stroke-width="16" stroke-linecap="round"/></svg><div class="mid" aria-hidden="true"><b>81%</b><span>of your move goal</span><em>breathe with the halo</em></div></div>
+<ul class="legend"><li><span class="k"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="#ffb7a1"/></svg>move</span><b>486<small style="font-size:14px;color:var(--muted)"> / 600 kcal</small></b><small>114 kcal more</small></li><li><span class="k"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l6.5 6.5L8 14.5 1.5 8z" fill="#b5dfc0"/></svg>exercise</span><b>38<small style="font-size:14px;color:var(--muted)"> / 45 min</small></b><small>7 min more</small></li><li><span class="k"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="2.5" width="11" height="11" rx="3" fill="#cbbcff"/></svg>stand</span><b>9<small style="font-size:14px;color:var(--muted)"> / 12 h</small></b><small>3 h more</small></li></ul></section>
+<section class="card" aria-labelledby="h-run" id="workout"><h2 id="h-run">An evening run <small>done</small></h2>
+<p class="prose">You ran <b>8.2 km</b> in <b>42:16</b>, about <b>5:09</b> for each kilometre, with your heart at <b>152</b> on average.</p>
+<dl class="facts4"><div><dt>distance</dt><dd>8.2 km</dd></div><div><dt>time</dt><dd>42:16</dd></div><div><dt>pace</dt><dd>5:09 /km</dd></div><div><dt>heart</dt><dd>152</dd></div></dl>
+<div class="pebbles" role="img" aria-label="Heart rate zones for the evening run. Zone 1, 3 minutes. Zone 2, 9 minutes. Zone 3, 18 minutes, the most. Zone 4, 10 minutes. Zone 5, 2 minutes. 42 minutes in all."><span style="flex:3;background:#cbbcff">1</span><span style="flex:9;background:#b5dfc0">2</span><span style="flex:18;background:#ffb7a1">3</span><span style="flex:10;background:#ffd0a8">4</span><span style="flex:2;background:#ffc2d4">5</span></div>
+<ul class="zl" aria-hidden="true"><li>zone 1, easy <b>3 min</b></li><li>zone 2, aerobic <b>9 min</b></li><li>zone 3, tempo <b>18 min</b></li><li>zone 4, threshold <b>10 min</b></li><li>zone 5, max <b>2 min</b></li></ul></section>
+<section class="card" aria-labelledby="h-w" id="week"><h2 id="h-w">This week <small>23.7 km over four runs</small></h2>
+<div class="moons" role="img" aria-label="Distance per day this week, Sunday to Saturday. Sunday rest, Monday 5.1 km, Tuesday rest, Wednesday 7.4 km, Thursday 3.0 km, Friday rest, Saturday today 8.2 km. 23.7 km in all over four runs."><div class="moon"><span class="o rest" style="width:16px;height:16px"></span><b style="color:var(--muted)">rest</b><small>sun</small></div><div class="moon"><span class="o" style="width:35px;height:35px"></span><b>5.1</b><small>mon</small></div><div class="moon"><span class="o rest" style="width:16px;height:16px"></span><b style="color:var(--muted)">rest</b><small>tue</small></div><div class="moon"><span class="o" style="width:43px;height:43px"></span><b>7.4</b><small>wed</small></div><div class="moon"><span class="o" style="width:27px;height:27px"></span><b>3.0</b><small>thu</small></div><div class="moon"><span class="o rest" style="width:16px;height:16px"></span><b style="color:var(--muted)">rest</b><small>fri</small></div><div class="moon today"><span class="o" style="width:46px;height:46px"></span><b>8.2</b><small>today</small></div></div></section>
+<div class="duo">
+<section class="card" aria-labelledby="h-s"><h2 id="h-s">Sleep</h2><p class="big">7 h 12 min</p><p class="soft">last night, with <b>1 h 34 min</b> of deep sleep.</p></section>
+<section class="card" aria-labelledby="h-p" id="plan"><h2 id="h-p">Half marathon</h2><p class="big">week 6 <small>of 12</small></p>
+<div class="beads" role="img" aria-label="Week 6 of 12, five weeks done"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="c"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+<p class="soft">tomorrow, <b>a long run of 14 km</b>.</p></section>
+</div>
+</main></div>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 388 · Yoga dusk</h2>
+<p class="idea">A calm single column under a dusk sky, where the three rings become one slowly breathing circle, every figure is told in a soft sentence, and weeks and plans are strung as beads.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><i style="background:#16132e"></i><div><b>Sky high</b> #16132e<br><span>the top of the dusk gradient</span></div></li><li class="sw"><i style="background:#2b1f47"></i><div><b>Sky mid</b> #2b1f47<br><span>the middle of the gradient and the page fallback</span></div></li><li class="sw"><i style="background:#45284f"></i><div><b>Sky low</b> #45284f<br><span>the warm horizon at the bottom</span></div></li><li class="sw"><i style="background:#1a1530"></i><div><b>Glass</b> #1a1530<br><span>cards at 72 percent over the sky, empty beads</span></div></li><li class="sw"><i style="background:#3a2f55"></i><div><b>Track</b> #3a2f55<br><span>unfilled ring tracks</span></div></li><li class="sw"><i style="background:#5b4a72"></i><div><b>Line</b> #5b4a72<br><span>hairlines, bead string and field borders</span></div></li><li class="sw"><i style="background:#fbf1ee"></i><div><b>Ink</b> #fbf1ee<br><span>text and figures</span></div></li><li class="sw"><i style="background:#d9c7d6"></i><div><b>Muted</b> #d9c7d6<br><span>labels and gentle meta</span></div></li><li class="sw"><i style="background:#ffb7a1"></i><div><b>Peach</b> #ffb7a1<br><span>the move ring, today, highlights in prose, the current bead and the primary button</span></div></li><li class="sw"><i style="background:#b5dfc0"></i><div><b>Sage</b> #b5dfc0<br><span>the exercise ring and zone 2</span></div></li><li class="sw"><i style="background:#cbbcff"></i><div><b>Lilac</b> #cbbcff<br><span>the stand ring, zone 1 and done beads</span></div></li><li class="sw"><i style="background:#2a1420"></i><div><b>On peach</b> #2a1420<br><span>text on peach and on zone pebbles</span></div></li></ul>
+<h3>Type · Iowan Old Style, Palatino Linotype, Palatino, Book Antiqua, Georgia for headings and figures; Optima, Candara, Segoe UI, Gill Sans, system-ui for text</h3>
+<div class="types"><div class="type-row"><code>44 / 400 Iowan Old Style stack</code><span style="font:400 44px var(--serif)">81%</span></div><div class="type-row"><code>40 / 400 serif greeting</code><span style="font:400 32px var(--serif)">A gentle close to the day</span></div><div class="type-row"><code>19 / 400 serif prose</code><span style="font:19px var(--serif)">You ran 8.2 km in 42:16</span></div><div class="type-row"><code>16 / 400 body, Optima Candara stack</code><span style="">last night, with 1 h 34 min of deep sleep.</span></div><div class="type-row"><code>13 / lowercase .12em label</code><span style="font-size:13px;letter-spacing:.12em;color:var(--muted)">saturday 31 october</span></div></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3>
+<dl class="facts"><dt>Spacing</dt><dd>8px unit, generous. 28px between cards, 28 to 32px card padding, a 760px column.</dd><dt>Density</dt><dd>Low. One thing at a time down a single column.</dd><dt>Corners</dt><dd>28px cards, pills for buttons, fields, nav and zone pebbles, round beads and moons.</dd><dt>Borders</dt><dd>Almost none. A faint lilac edge on cards and hairlines in tables.</dd><dt>Shadows</dt><dd>Soft 50px dusk shadows under cards and warm glows around moons and the current bead.</dd><dt>Icons</dt><dd>Ring legend shapes, a circle for move, a diamond for exercise and a rounded square for stand. Rest days are dashed hollow moons with the word rest. A slow halo paces breathing and stops when reduced motion is asked for.</dd><dt>Focus</dt><dd>A 2px light outline offset 4px with a wide soft peach glow.</dd><dt>Tone</dt><dd>Lowercase and gentle, A gentle close to the day, breathe with the halo, a long run of 14 km.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls"><div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-p" type="button">Begin a session</button><button class="btn-p is-focus" type="button">Begin a session</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-s" type="button">See the plan</button><button class="btn-s is-focus" type="button">See the plan</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="fld"><span>Search workouts</span><input type="text" value="run"></label><label class="fld"><span>Search workouts, focused</span><input type="text" class="is-focus" value="run"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><a class="lrow" href="#workout"><span class="dot" aria-hidden="true"></span><span>an evening run, 8.2 km</span><span>done</span></a><a class="lrow is-focus" href="#workout"><span class="dot" aria-hidden="true"></span><span>an evening run, 8.2 km</span><span>done</span></a></div></div></div>
+</section>
+</body>
+</html>

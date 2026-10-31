@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 170 · Pool tiles · Brightwork</title>
+<style>
+:root {
+  --tile: #f7fcfd;
+  --grout: #d3e6eb;
+  --coping: #efe9dd;
+  --pool: #c4ecf2;
+  --poolDeep: #9fdde8;
+  --navyTile: #0b4a6f;
+  --ink: #0d2f44;
+  --inkSoft: #355a6d;
+  --ropeRed: #c8312b;
+  --ropeWhite: #ffffff;
+  --ropeBlue: #1b6fa8;
+  --ok: #17663a;
+  --warn: #8a4b00;
+  --bad: #b02520;
+  --focus: #e0a100;
+  --stencil: Bahnschrift, "DIN Alternate", "DIN Condensed", "Roboto Condensed", "Arial Narrow", Arial, sans-serif;
+  --round: "Arial Rounded MT Bold", "Nunito", "Trebuchet MS", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); font: 15px/1.45 var(--round); background-color: var(--tile); background-image: linear-gradient(var(--grout) 2px, transparent 2px), linear-gradient(90deg, var(--grout) 2px, transparent 2px); background-size: 24px 24px; }
+a { color: var(--ink); }
+button, input { font: inherit; color: inherit; }
+:focus-visible, .is-focus { outline: 3px solid var(--ink); outline-offset: 2px; box-shadow: 0 0 0 6px var(--focus); }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 16px 48px; }
+
+/* coping header */
+.coping { background: var(--coping); border-bottom: 6px solid var(--navyTile); box-shadow: 0 3px 0 #fff, 0 6px 0 var(--navyTile); }
+.coping .wrap { display: grid; grid-template-columns: auto minmax(0,1fr) auto; gap: 16px 24px; align-items: center; padding-top: 14px; padding-bottom: 14px; }
+.brand { display: flex; gap: 3px; margin: 0; }
+.brand i { width: 26px; height: 30px; display: grid; place-items: center; background: var(--navyTile); color: #fff; font: 700 17px/1 var(--stencil); font-style: normal; border-radius: 3px; }
+.find { display: flex; align-items: center; gap: 8px; background: #fff; border: 2px solid var(--navyTile); border-radius: 999px; padding: 6px 14px; }
+.find svg { width: 18px; height: 18px; flex: none; }
+.find input { border: 0; width: 100%; background: transparent; padding: 2px 0; }
+.find input::placeholder { color: var(--inkSoft); }
+.find input:focus-visible { outline: 0; box-shadow: none; }
+.find:focus-within { outline: 3px solid var(--ink); box-shadow: 0 0 0 6px var(--focus); }
+.tools { display: flex; gap: 10px; align-items: center; }
+.btn { background: var(--navyTile); color: #fff; border: 2px solid var(--navyTile); border-radius: 12px; padding: 10px 16px; font: 700 15px/1 var(--round); cursor: pointer; }
+.btn.line { background: #fff; color: var(--navyTile); }
+.iconbtn { width: 42px; height: 42px; padding: 0; display: grid; place-items: center; }
+.iconbtn svg { width: 20px; height: 20px; }
+.who { display: flex; gap: 8px; align-items: center; font-weight: 700; }
+.who i { width: 36px; height: 36px; border-radius: 50%; background: #fff; border: 3px solid var(--ropeRed); display: grid; place-items: center; font: 700 13px var(--stencil); font-style: normal; color: var(--ink); }
+nav.lanesnav { background: var(--navyTile); }
+nav.lanesnav ul { list-style: none; margin: 0 auto; padding: 0 16px; max-width: 1240px; display: flex; flex-wrap: wrap; }
+nav.lanesnav a { display: block; color: #fff; text-decoration: none; font: 700 14px/1 var(--stencil); letter-spacing: .08em; text-transform: uppercase; padding: 13px 18px; border-right: 2px dashed rgba(255,255,255,.35); }
+nav.lanesnav a[aria-current="page"] { background: var(--pool); color: var(--ink); }
+
+/* deck: greeting + depth marks */
+.deck { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,2fr); gap: 24px; align-items: stretch; margin-top: 28px; }
+.sign { background: #fff; border: 3px solid var(--navyTile); border-radius: 6px; padding: 18px 20px; }
+.sign h1 { margin: 0; font: 700 34px/1.05 var(--stencil); text-transform: uppercase; letter-spacing: .02em; }
+.sign .date { margin: 6px 0 14px; font-weight: 700; color: var(--inkSoft); }
+.warnsign { display: flex; gap: 12px; align-items: center; border: 3px solid var(--bad); border-radius: 6px; padding: 10px 12px; color: var(--bad); font: 700 17px/1.2 var(--stencil); text-transform: uppercase; letter-spacing: .03em; }
+.warnsign svg { width: 30px; height: 30px; flex: none; }
+.depths { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; }
+.depths li { background: #fff; border: 3px solid var(--navyTile); border-radius: 6px; display: grid; grid-template-rows: 1fr auto; text-align: center; overflow: hidden; }
+.depths b { font: 700 64px/1 var(--stencil); padding: 18px 8px 10px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.depths b small { font-size: 20px; }
+.depths span { background: var(--navyTile); color: #fff; font: 700 13px/1.2 var(--stencil); letter-spacing: .08em; text-transform: uppercase; padding: 8px 6px; }
+.depths li.hot { border-color: var(--bad); }
+.depths li.hot span { background: var(--bad); }
+.depths li.hot b { color: var(--bad); }
+.depths li.hot svg { width: 26px; height: 26px; }
+
+h2 { font: 700 18px/1.2 var(--stencil); text-transform: uppercase; letter-spacing: .06em; margin: 36px 0 12px; display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+h2 small { font: 400 14px var(--round); text-transform: none; letter-spacing: 0; color: var(--inkSoft); }
+
+/* pool */
+.pool { list-style: none; margin: 0; padding: 0; background: var(--pool); border: 8px solid var(--coping); outline: 3px solid var(--navyTile); border-radius: 4px; }
+.lane { display: grid; grid-template-columns: 56px minmax(0,1fr) 150px; align-items: stretch; position: relative; }
+.lane + .lane { border-top: 10px solid transparent; border-image: repeating-linear-gradient(90deg, var(--ropeRed) 0 10px, var(--ropeWhite) 10px 20px, var(--ropeBlue) 20px 30px, var(--ropeWhite) 30px 40px) 10; }
+.laneno { display: grid; place-items: center; background: var(--navyTile); color: #fff; font: 700 26px/1 var(--stencil); }
+.lanebody { padding: 10px 16px 12px; min-width: 0; }
+.lanehead { display: flex; flex-wrap: wrap; gap: 2px 14px; align-items: baseline; }
+.lanehead a { font: 700 18px/1.2 var(--round); text-decoration: none; }
+.lanehead a:hover { text-decoration: underline; }
+.meta { color: var(--inkSoft); font-size: 14px; }
+.water { position: relative; height: 22px; margin-top: 8px; }
+.tline { position: absolute; left: 0; right: 14px; top: 9px; height: 4px; background: var(--navyTile); }
+.tline::after { content: ""; position: absolute; right: -14px; top: -7px; width: 4px; height: 18px; background: var(--navyTile); }
+.wake { position: absolute; left: 0; top: 3px; height: 16px; background: repeating-linear-gradient(90deg, rgba(255,255,255,.95) 0 6px, transparent 6px 12px); border-radius: 8px 0 0 8px; }
+.swim { position: absolute; top: 0; width: 22px; height: 22px; margin-left: -11px; border-radius: 50%; background: var(--ropeRed); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--navyTile); z-index: 1; }
+.wall { background: var(--coping); border-left: 4px solid var(--navyTile); padding: 10px 12px; display: flex; flex-direction: column; justify-content: center; gap: 6px; }
+.pct { font: 700 26px/1 var(--stencil); }
+.st { display: inline-flex; gap: 6px; align-items: center; font: 700 13px/1 var(--round); white-space: nowrap; }
+.st svg { width: 16px; height: 16px; flex: none; }
+.st.ok { color: var(--ok); } .st.warn { color: var(--warn); } .st.bad { color: var(--bad); }
+
+.cols { display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr); gap: 24px; }
+.board { background: #fff; border: 3px solid var(--navyTile); border-radius: 6px; padding: 12px 16px; }
+.board svg { width: 100%; height: auto; display: block; }
+.legend { display: flex; gap: 20px; flex-wrap: wrap; font-weight: 700; font-size: 14px; }
+.legend i { display: inline-block; width: 16px; height: 16px; border: 1.5px solid var(--navyTile); vertical-align: -3px; margin-right: 6px; }
+.log { list-style: none; margin: 0; padding: 0; }
+.log li { display: grid; grid-template-columns: 40px minmax(0,1fr) auto; gap: 10px; align-items: start; padding: 10px 0; border-bottom: 2px dashed var(--grout); }
+.log li:last-child { border-bottom: 0; }
+.ini { width: 36px; height: 36px; display: grid; place-items: center; background: var(--pool); border: 2px solid var(--navyTile); border-radius: 4px; font: 700 13px var(--stencil); }
+.log .when { font-size: 13px; color: var(--inkSoft); white-space: nowrap; }
+
+@media (max-width: 960px) {
+  .coping .wrap { grid-template-columns: minmax(0,1fr) auto; }
+  .find { grid-column: 1 / -1; grid-row: 2; }
+  .deck, .cols { grid-template-columns: minmax(0,1fr); }
+}
+@media (max-width: 600px) {
+  .brand i { width: 20px; height: 26px; font-size: 14px; }
+  .who span { display: none; }
+  .btn.np span { display: none; }
+  .depths { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .depths b { font-size: 48px; }
+  .lane { grid-template-columns: 40px minmax(0,1fr); }
+  .wall { grid-column: 2; border-left: 0; border-top: 3px solid var(--navyTile); flex-direction: row; align-items: center; justify-content: space-between; padding: 8px 16px; }
+  .laneno { grid-row: span 2; font-size: 20px; }
+  nav.lanesnav a { padding: 11px 12px; font-size: 13px; }
+  .sign h1 { font-size: 28px; }
+  .log li { grid-template-columns: 40px minmax(0,1fr); }
+  .board.chartb { overflow-x: auto; }
+  .board.chartb svg { min-width: 460px; }
+  .log .when { grid-column: 2; }
+}
+
+/* sheet */
+.sheet { margin-top: 48px; background: #fff; border: 3px solid var(--navyTile); border-radius: 6px; padding: 28px; }
+.sheet > h2:first-child { margin-top: 0; font-size: 30px; }
+.idea { font-size: 17px; max-width: 70ch; margin: 0; }
+.sw { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+.sw li { display: flex; gap: 10px; align-items: center; font-size: 13px; line-height: 1.35; }
+.sw i { width: 44px; height: 44px; border-radius: 4px; border: 2px solid var(--navyTile); flex: none; }
+.sw b { display: block; font-size: 14px; }
+.tr { display: grid; grid-template-columns: 280px minmax(0,1fr); gap: 12px; align-items: baseline; padding: 8px 0; border-bottom: 2px dashed var(--grout); }
+.tr code { font: 12px/1.35 ui-monospace, Menlo, Consolas, monospace; color: var(--inkSoft); }
+.facts { display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 8px 16px; margin: 0; }
+.facts dt { font: 700 13px/1.5 var(--stencil); text-transform: uppercase; letter-spacing: .08em; }
+.facts dd { margin: 0; }
+.ctl { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
+.ctl .lb { display: block; font: 700 12px var(--stencil); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
+.ctl .row { display: flex; gap: 14px; flex-wrap: wrap; }
+.fld input { width: 100%; border: 2px solid var(--navyTile); border-radius: 12px; padding: 10px 12px; background: var(--tile); }
+.rowdemo { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 12px; background: var(--pool); border-radius: 4px; font-weight: 700; }
+.rowdemo + .rowdemo { margin-top: 14px; }
+@media (max-width: 640px) { .tr, .facts { grid-template-columns: minmax(0,1fr); } .sheet { padding: 18px; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="p-ok" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="currentColor"/><circle cx="8" cy="8" r="3" fill="#fff"/></symbol>
+  <symbol id="p-warn" viewBox="0 0 16 16"><path d="M3 1v14M3 2l11 4.5L3 11z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="p-bad" viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="13" height="13" rx="1" fill="currentColor"/><path d="M5 8h6" stroke="#fff" stroke-width="2.4"/></symbol>
+  <symbol id="p-over" viewBox="0 0 24 24"><path d="M12 1l11 11-11 11L1 12z" fill="currentColor"/><path d="M12 6v8M12 16.5v2" stroke="#fff" stroke-width="2.6"/></symbol>
+  <symbol id="p-bell" viewBox="0 0 20 20"><path d="M10 2.5a5 5 0 0 0-5 5v3.5l-2 3h14l-2-3V7.5a5 5 0 0 0-5-5zM8 16.5a2 2 0 0 0 4 0" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="p-mag" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.5 12.5l5 5" stroke="currentColor" stroke-width="2"/></symbol>
+</svg>
+<header class="coping">
+  <div class="wrap">
+    <p class="brand"><span style="position:absolute;left:-9999px">Brightwork</span><span style="display:contents" aria-hidden="true"><i>B</i><i>R</i><i>I</i><i>G</i><i>H</i><i>T</i><i>W</i><i>O</i><i>R</i><i>K</i></span></p>
+    <label class="find"><svg aria-hidden="true"><use href="#p-mag"/></svg><input type="search" placeholder="Search projects and tasks" aria-label="Search projects and tasks"></label>
+    <div class="tools">
+      <button class="btn np" type="button" aria-label="New project">+ <span>New project</span></button>
+      <button class="btn line iconbtn" type="button" aria-label="Notifications"><svg aria-hidden="true"><use href="#p-bell"/></svg></button>
+      <span class="who"><i aria-hidden="true">MO</i><span>Mara Okafor</span></span>
+    </div>
+  </div>
+</header>
+<nav class="lanesnav" aria-label="Main"><ul><li><a href="#" aria-current="page">Home</a></li><li><a href="#">Projects</a></li><li><a href="#">Tasks</a></li><li><a href="#">Team</a></li><li><a href="#">Reports</a></li><li><a href="#">Settings</a></li></ul></nav>
+<div class="wrap">
+  <main>
+    <div class="deck">
+      <section class="sign" aria-labelledby="g-h">
+        <h1 id="g-h">Good morning, Mara</h1>
+        <p class="date">Saturday 31 October 2026</p>
+        <p class="warnsign"><svg aria-hidden="true"><use href="#p-over"/></svg>Overdue · 4 tasks are overdue</p>
+      </section>
+      <ul class="depths" aria-label="This week">
+        <li><b>6</b><span>Active projects</span></li>
+        <li><b>23</b><span>Tasks due this week</span></li>
+        <li class="hot"><b><svg aria-hidden="true"><use href="#p-over"/></svg>4</b><span>Overdue tasks</span></li>
+        <li><b>186<small>h</small></b><span>Hours this week</span></li>
+      </ul>
+    </div>
+
+    <h2 id="p-h">The pool · 6 projects <small>the swimmer marks the share of tasks done</small></h2>
+    <ol class="pool" aria-labelledby="p-h"><li class="lane">
+      <span class="laneno" aria-hidden="true">1</span>
+      <div class="lanebody">
+        <div class="lanehead"><a href="#">Website redesign</a><span class="meta">Design · 18 of 25 tasks · due 14 Nov</span></div>
+        <div class="water" aria-hidden="true"><span class="tline"></span><span class="swim" style="left:72%"></span><span class="wake" style="width:72%"></span></div>
+      </div>
+      <div class="wall"><b class="pct">72%</b><span class="st ok"><svg aria-hidden="true"><use href="#p-ok"/></svg>On track</span></div>
+    </li><li class="lane">
+      <span class="laneno" aria-hidden="true">2</span>
+      <div class="lanebody">
+        <div class="lanehead"><a href="#">Mobile app 2.0</a><span class="meta">Engineering · 27 of 60 tasks · due 2 Dec</span></div>
+        <div class="water" aria-hidden="true"><span class="tline"></span><span class="swim" style="left:45%"></span><span class="wake" style="width:45%"></span></div>
+      </div>
+      <div class="wall"><b class="pct">45%</b><span class="st warn"><svg aria-hidden="true"><use href="#p-warn"/></svg>At risk</span></div>
+    </li><li class="lane">
+      <span class="laneno" aria-hidden="true">3</span>
+      <div class="lanebody">
+        <div class="lanehead"><a href="#">Q4 customer survey</a><span class="meta">Research · 9 of 10 tasks · due 7 Nov</span></div>
+        <div class="water" aria-hidden="true"><span class="tline"></span><span class="swim" style="left:90%"></span><span class="wake" style="width:90%"></span></div>
+      </div>
+      <div class="wall"><b class="pct">90%</b><span class="st ok"><svg aria-hidden="true"><use href="#p-ok"/></svg>On track</span></div>
+    </li><li class="lane">
+      <span class="laneno" aria-hidden="true">4</span>
+      <div class="lanebody">
+        <div class="lanehead"><a href="#">Billing migration</a><span class="meta">Engineering · 12 of 40 tasks · due 20 Nov</span></div>
+        <div class="water" aria-hidden="true"><span class="tline"></span><span class="swim" style="left:30%"></span><span class="wake" style="width:30%"></span></div>
+      </div>
+      <div class="wall"><b class="pct">30%</b><span class="st bad"><svg aria-hidden="true"><use href="#p-bad"/></svg>Behind</span></div>
+    </li><li class="lane">
+      <span class="laneno" aria-hidden="true">5</span>
+      <div class="lanebody">
+        <div class="lanehead"><a href="#">Spring catalogue</a><span class="meta">Marketing · 3 of 20 tasks · due 15 Jan</span></div>
+        <div class="water" aria-hidden="true"><span class="tline"></span><span class="swim" style="left:15%"></span><span class="wake" style="width:15%"></span></div>
+      </div>
+      <div class="wall"><b class="pct">15%</b><span class="st ok"><svg aria-hidden="true"><use href="#p-ok"/></svg>On track</span></div>
+    </li><li class="lane">
+      <span class="laneno" aria-hidden="true">6</span>
+      <div class="lanebody">
+        <div class="lanehead"><a href="#">Onboarding emails</a><span class="meta">Marketing · 9 of 15 tasks · due 21 Nov</span></div>
+        <div class="water" aria-hidden="true"><span class="tline"></span><span class="swim" style="left:60%"></span><span class="wake" style="width:60%"></span></div>
+      </div>
+      <div class="wall"><b class="pct">60%</b><span class="st ok"><svg aria-hidden="true"><use href="#p-ok"/></svg>On track</span></div>
+    </li></ol>
+
+    <div class="cols">
+      <section aria-labelledby="c-h">
+        <h2 id="c-h">Tasks completed <small>18 to 31 October</small></h2>
+        <div class="board chartb">
+          <svg viewBox="0 0 660 240" role="img" aria-label="Tasks completed per day from Sunday 18 October to Saturday 31 October 2026. Last week: Sunday 3, Monday 12, Tuesday 9, Wednesday 14, Thursday 11, Friday 8, Saturday 2, total 59. This week: Sunday 4, Monday 15, Tuesday 13, Wednesday 17, Thursday 12, Friday 10, Saturday 2, total 73.">
+            <defs>
+              <pattern id="tileA" width="10" height="11" patternUnits="userSpaceOnUse"><rect width="10" height="11" fill="#fff"/><rect x="1" y="1" width="8" height="9" fill="#9fdde8"/></pattern>
+              <pattern id="tileB" width="10" height="11" patternUnits="userSpaceOnUse"><rect width="10" height="11" fill="#fff"/><rect x="1" y="1" width="8" height="9" fill="#0b4a6f"/></pattern>
+            </defs>
+            <g font-family="Bahnschrift, Arial Narrow, Arial, sans-serif" font-size="14" fill="#0d2f44" text-anchor="middle">
+              <line x1="30" y1="210" x2="640" y2="210" stroke="#0b4a6f" stroke-width="3"/>
+              <rect x="40" y="177" width="30" height="33" fill="url(#tileA)" stroke="#0b4a6f" stroke-width="1.5"/><text x="55" y="171" font-weight="700">3</text><text x="55" y="228">S</text><rect x="80" y="78" width="30" height="132" fill="url(#tileA)" stroke="#0b4a6f" stroke-width="1.5"/><text x="95" y="72" font-weight="700">12</text><text x="95" y="228">M</text><rect x="120" y="111" width="30" height="99" fill="url(#tileA)" stroke="#0b4a6f" stroke-width="1.5"/><text x="135" y="105" font-weight="700">9</text><text x="135" y="228">T</text><rect x="160" y="56" width="30" height="154" fill="url(#tileA)" stroke="#0b4a6f" stroke-width="1.5"/><text x="175" y="50" font-weight="700">14</text><text x="175" y="228">W</text><rect x="200" y="89" width="30" height="121" fill="url(#tileA)" stroke="#0b4a6f" stroke-width="1.5"/><text x="215" y="83" font-weight="700">11</text><text x="215" y="228">T</text><rect x="240" y="122" width="30" height="88" fill="url(#tileA)" stroke="#0b4a6f" stroke-width="1.5"/><text x="255" y="116" font-weight="700">8</text><text x="255" y="228">F</text><rect x="280" y="188" width="30" height="22" fill="url(#tileA)" stroke="#0b4a6f" stroke-width="1.5"/><text x="295" y="182" font-weight="700">2</text><text x="295" y="228">S</text><rect x="336" y="166" width="30" height="44" fill="url(#tileB)" stroke="#0b4a6f" stroke-width="1.5"/><text x="351" y="160" font-weight="700">4</text><text x="351" y="228">S</text><rect x="376" y="45" width="30" height="165" fill="url(#tileB)" stroke="#0b4a6f" stroke-width="1.5"/><text x="391" y="39" font-weight="700">15</text><text x="391" y="228">M</text><rect x="416" y="67" width="30" height="143" fill="url(#tileB)" stroke="#0b4a6f" stroke-width="1.5"/><text x="431" y="61" font-weight="700">13</text><text x="431" y="228">T</text><rect x="456" y="23" width="30" height="187" fill="url(#tileB)" stroke="#0b4a6f" stroke-width="1.5"/><text x="471" y="17" font-weight="700">17</text><text x="471" y="228">W</text><rect x="496" y="78" width="30" height="132" fill="url(#tileB)" stroke="#0b4a6f" stroke-width="1.5"/><text x="511" y="72" font-weight="700">12</text><text x="511" y="228">T</text><rect x="536" y="100" width="30" height="110" fill="url(#tileB)" stroke="#0b4a6f" stroke-width="1.5"/><text x="551" y="94" font-weight="700">10</text><text x="551" y="228">F</text><rect x="576" y="188" width="30" height="22" fill="url(#tileB)" stroke="#0b4a6f" stroke-width="1.5"/><text x="591" y="182" font-weight="700">2</text><text x="591" y="228">S</text><line x1="30" y1="155" x2="640" y2="155" stroke="#7fb4c4" stroke-dasharray="2 6"/><text x="16" y="159" fill="#3b5d6e">5</text><line x1="30" y1="100" x2="640" y2="100" stroke="#7fb4c4" stroke-dasharray="2 6"/><text x="16" y="104" fill="#3b5d6e">10</text><line x1="30" y1="45" x2="640" y2="45" stroke="#7fb4c4" stroke-dasharray="2 6"/><text x="16" y="49" fill="#3b5d6e">15</text>
+            </g>
+          </svg>
+          <p class="legend"><span><i style="background:#9fdde8"></i>Last week · 59</span><span><i style="background:#0b4a6f"></i>This week · 73</span></p>
+        </div>
+      </section>
+      <section aria-labelledby="a-h">
+        <h2 id="a-h">Poolside log</h2>
+        <div class="board"><ul class="log"><li><span class="ini" aria-hidden="true">JW</span><span class="txt"><b>Jonas Weber</b> completed “Export invoices as CSV” in Billing migration</span><span class="when">12 min ago</span></li><li><span class="ini" aria-hidden="true">PN</span><span class="txt"><b>Priya Nair</b> commented on “Hero image options” in Website redesign</span><span class="when">40 min ago</span></li><li><span class="ini" aria-hidden="true">SO</span><span class="txt"><b>Sam Ortiz</b> moved “Push notifications” to Review in Mobile app 2.0</span><span class="when">1 h ago</span></li><li><span class="ini" aria-hidden="true">LF</span><span class="txt"><b>Lena Fischer</b> added 3 tasks to Spring catalogue</span><span class="when">2 h ago</span></li><li><span class="ini" aria-hidden="true">TR</span><span class="txt"><b>Tomás Ruiz</b> logged 6 h on Mobile app 2.0</span><span class="when">3 h ago</span></li><li><span class="ini" aria-hidden="true">AT</span><span class="txt"><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to Q4 customer survey</span><span class="when">yesterday</span></li></ul></div>
+      </section>
+    </div>
+  </main>
+
+  <section class="sheet" aria-labelledby="sheet-h">
+    <h2 id="sheet-h">Style 170 · Pool tiles</h2>
+    <p class="idea">The dashboard is a lap pool seen from the deck: white grouted tiles, a stone coping header, depth-marker tiles for the totals and one swimming lane per project, divided by striped lane ropes.</p>
+    <h2>Palette</h2>
+    <ul class="sw">
+      <li><i style="background:#f7fcfd"></i><div><b>Tile white</b>#f7fcfd · page tiles, fields</div></li>
+      <li><i style="background:#d3e6eb"></i><div><b>Grout</b>#d3e6eb · 24px grout grid, dashed dividers</div></li>
+      <li><i style="background:#efe9dd"></i><div><b>Coping</b>#efe9dd · header, pool rim, lane end wall</div></li>
+      <li><i style="background:#c4ecf2"></i><div><b>Pool aqua</b>#c4ecf2 · lanes, current nav, rows</div></li>
+      <li><i style="background:#9fdde8"></i><div><b>Deep aqua</b>#9fdde8 · last-week tiles</div></li>
+      <li><i style="background:#0b4a6f"></i><div><b>Navy tile</b>#0b4a6f · brand tiles, nav, borders, T-lines</div></li>
+      <li><i style="background:#0d2f44"></i><div><b>Ink</b>#0d2f44 · text</div></li>
+      <li><i style="background:#355a6d"></i><div><b>Soft ink</b>#355a6d · meta and times</div></li>
+      <li><i style="background:#c8312b"></i><div><b>Rope red</b>#c8312b · lane rope, swimmer marker</div></li>
+      <li><i style="background:#1b6fa8"></i><div><b>Rope blue</b>#1b6fa8 · lane rope, never text</div></li>
+      <li><i style="background:#17663a"></i><div><b>Green</b>#17663a · On track buoy</div></li>
+      <li><i style="background:#8a4b00"></i><div><b>Amber</b>#8a4b00 · At risk flag</div></li>
+      <li><i style="background:#b02520"></i><div><b>Red</b>#b02520 · Behind block, overdue sign</div></li>
+      <li><i style="background:#e0a100"></i><div><b>Whistle yellow</b>#e0a100 · focus halo</div></li>
+    </ul>
+    <h2>Type</h2>
+    <div class="tr"><code>Stencil 64 / 700 · Bahnschrift, DIN Alternate, Roboto Condensed, Arial Narrow</code><span style="font:700 64px/1 var(--stencil)">186</span></div>
+    <div class="tr"><code>Stencil 34 / 700 caps · deck sign</code><span style="font:700 32px/1 var(--stencil);text-transform:uppercase">Good morning, Mara</span></div>
+    <div class="tr"><code>Stencil 13–18 / 700 caps +0.06em · labels, headings</code><span style="font:700 15px var(--stencil);text-transform:uppercase;letter-spacing:.08em">Tasks due this week</span></div>
+    <div class="tr"><code>Rounded 18 / 700 · Arial Rounded MT Bold, Nunito, Trebuchet MS</code><span style="font:700 18px var(--round)">Website redesign</span></div>
+    <div class="tr"><code>Rounded 15 / 400 · body</code><span>Priya Nair commented on “Hero image options”</span></div>
+    <h2>Spacing, density and depth</h2>
+    <dl class="facts">
+      <dt>Spacing</dt><dd>8px unit, 24px tile module. 24px between deck blocks, 36px above sections, 10px lane ropes.</dd>
+      <dt>Density</dt><dd>Medium and bold. Few large signs, one lane per project.</dd>
+      <dt>Corners</dt><dd>Tile corners of 3 to 6px, 12px buttons, pill search, round swimmer and avatar.</dd>
+      <dt>Borders</dt><dd>3px navy outlines on signs, an 8px coping rim round the pool, striped red white blue lane ropes, a 4px navy end wall.</dd>
+      <dt>Shadows</dt><dd>None. The header edge is a stacked navy, white, navy tile band.</dd>
+      <dt>Icons</dt><dd>Poolside shapes. A ringed buoy circle for On track, a pennant flag for At risk, a solid block with a bar for Behind, a diamond with a bang for Overdue.</dd>
+      <dt>Tone</dt><dd>Lifeguard-plain signage, such as The pool, Poolside log and Hours this week.</dd>
+    </dl>
+    <h2>Controls · normal and focus</h2>
+    <div class="ctl">
+      <div><span class="lb">Primary button</span><div class="row"><button class="btn" type="button">Dive in</button><button class="btn is-focus" type="button">Focused</button></div></div>
+      <div><span class="lb">Secondary button</span><div class="row"><button class="btn line" type="button">Cancel</button><button class="btn line is-focus" type="button">Focused</button></div></div>
+      <div><label class="fld"><span class="lb">Text field</span><input value="Website redesign"></label></div>
+      <div><label class="fld"><span class="lb">Text field, focused</span><input class="is-focus" value="Mobile app 2.0"></label></div>
+      <div><span class="lb">List row, normal and focused</span><div class="rowdemo"><span>4 · Billing migration</span><span class="st bad"><svg aria-hidden="true"><use href="#p-bad"/></svg>Behind</span></div><div class="rowdemo is-focus"><span>4 · Billing migration</span><span class="st bad"><svg aria-hidden="true"><use href="#p-bad"/></svg>Behind</span></div></div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

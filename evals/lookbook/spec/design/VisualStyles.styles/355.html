@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 355 · Colour grade suite · Brightwork</title>
+<style>
+:root { color-scheme: dark; }
+*, *::before, *::after { box-sizing: border-box; }
+
+.sheet { background: var(--sh-bg); color: var(--sh-ink); font: 15px/1.55 var(--sh-font); padding: 48px 32px 64px; border-top: var(--sh-top, 1px solid var(--sh-line)); }
+.sheet-in { max-width: 1120px; margin: 0 auto; }
+.sheet h2 { font: var(--sh-h2, 700 28px/1.2 var(--sh-head)); margin: 0 0 8px; color: var(--sh-ink); letter-spacing: var(--sh-h2-ls, 0); }
+.sheet .idea { color: var(--sh-ink); max-width: 760px; margin: 0 0 32px; font-size: 17px; }
+.sheet h3 { font: var(--sh-h3, 700 13px/1.3 var(--sh-head)); letter-spacing: .08em; text-transform: uppercase; color: var(--sh-muted); margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--sh-line); }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.sw { display: flex; gap: 12px; align-items: center; background: var(--sh-surface); border: 1px solid var(--sh-line); border-radius: var(--sh-r); padding: 10px; }
+.sw i { width: 44px; height: 44px; flex: none; border-radius: calc(var(--sh-r) / 2); border: 1px solid var(--sh-chip-line, rgba(255,255,255,.28)); }
+.sw b { display: block; font-size: 14px; }
+.sw span { display: block; font-size: 13px; color: var(--sh-muted); }
+.sw code { font: 13px var(--sh-mono, ui-monospace, Menlo, Consolas, monospace); color: var(--sh-ink); }
+.trow { display: grid; grid-template-columns: 260px 1fr; gap: 16px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--sh-line); }
+.trow code { font: 12px/1.4 var(--sh-mono, ui-monospace, Menlo, Consolas, monospace); color: var(--sh-muted); }
+.trow span { min-width: 0; overflow-wrap: anywhere; }
+.facts { display: grid; grid-template-columns: 160px 1fr; gap: 0 24px; margin: 0; }
+.facts dt { font-weight: 700; padding: 10px 0; border-bottom: 1px solid var(--sh-line); }
+.facts dd { margin: 0; padding: 10px 0; border-bottom: 1px solid var(--sh-line); color: var(--sh-ink); }
+.ctl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+.ctl { background: var(--sh-surface); border: 1px solid var(--sh-line); border-radius: var(--sh-r); padding: 16px; }
+.ctl-label { display: block; font-weight: 700; font-size: 14px; margin-bottom: 12px; }
+.ctl-pair { display: grid; gap: 14px; }
+.ctl-state { display: block; font-size: 12px; color: var(--sh-muted); margin-bottom: 4px; }
+.sf { display: grid; gap: 4px; font-size: 13px; color: var(--sh-muted); }
+.sf input { font: inherit; font-size: 14px; color: var(--sh-ink); width: 100%; }
+@media (max-width: 640px) {
+  .sheet { padding: 32px 16px 48px; }
+  .trow { grid-template-columns: 1fr; gap: 4px; }
+  .facts { grid-template-columns: 1fr; }
+  .facts dt { border-bottom: 0; padding-bottom: 0; }
+}
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+
+
+body { margin: 0; background: #1f1f1f; color: #dedede; font: 13px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+button { font: inherit; cursor: pointer; }
+:focus-visible, .is-focus { outline: 2px solid #f2b33d; outline-offset: 2px; }
+.top { display: flex; align-items: center; gap: 12px; padding: 10px 20px; background: #262626; border-bottom: 1px solid #3a3a3a; flex-wrap: wrap; }
+.mark { width: 18px; height: 18px; border-radius: 50%; background: conic-gradient(#ff7b7b, #f2d36b, #6fe08a, #6fd6e0, #7fb0ff, #d98bff, #ff7b7b); border: 2px solid #1f1f1f; box-shadow: 0 0 0 1px #6a6a6a; }
+.app { font-weight: 600; color: #f0f0f0; letter-spacing: .02em; }
+.sep { color: #a0a0a0; }
+.fmt { font: 12px ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; color: #b3b3b3; border: 1px solid #4a4a4a; padding: 1px 8px; border-radius: 999px; }
+.grow { flex: 1; }
+.rend { display: flex; align-items: center; gap: 8px; color: #c8c8c8; }
+.rend b { font-weight: 600; color: #f0f0f0; border: 1px dashed #8a8a8a; padding: 0 6px; border-radius: 3px; }
+.rbox { width: 90px; height: 4px; background: #3d3d3d; border-radius: 2px; display: block; }
+.rbox span { display: block; width: 0; height: 100%; }
+.exp { background: #d4d4d4; color: #141414; border: 0; border-radius: 6px; padding: 7px 18px; font-weight: 700; }
+.suite { display: grid; grid-template-columns: 1fr minmax(0, 1.7fr) 1fr; gap: 12px; padding: 12px 20px 24px; }
+.p { background: #2a2a2a; border-radius: 8px; border: 1px solid #383838; padding: 12px 14px 14px; min-width: 0; }
+.ph { margin: 0 0 10px; font: 600 11px/1.2 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #cfcfcf; }
+.ph i { font-style: normal; letter-spacing: .04em; text-transform: none; color: #a6a6a6; font-weight: 400; margin-left: 6px; }
+.scope { width: 100%; display: block; background: #121212; border-radius: 4px; }
+.grat line, .grat circle { stroke: #4c4c4c; stroke-width: 1; fill: none; }
+.grat rect { fill: none; stroke: #9a9a9a; }
+.grat text { fill: #a8a8a8; font: 9px ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; text-anchor: end; }
+.vec .grat text { text-anchor: middle; }
+.trace { stroke: #bff0b4; stroke-width: 1.2; opacity: .9; }
+.dot { fill: #f0f0f0; }
+.vec { max-width: 260px; margin: 0 auto; }
+.view { grid-row: span 1; }
+.pic { margin: 0; aspect-ratio: 16/9; background: #000; display: grid; place-items: center; border-radius: 2px; box-shadow: 0 0 0 1px #000, 0 0 0 6px #333; }
+.pic p { margin: 0; color: #f2f2f2; font: 500 clamp(15px, 2.2vw, 26px)/1.2 "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif; text-align: center; padding: 0 10%; }
+.trans { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 12px; }
+.tc { font: 500 17px ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; color: #f0f0f0; font-variant-numeric: tabular-nums; }
+.tcd { font: 12px ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; color: #b3b3b3; }
+.btns { display: flex; gap: 6px; }
+.btns button { width: 34px; height: 34px; border-radius: 50%; background: #353535; border: 1px solid #4d4d4d; color: #e6e6e6; display: grid; place-items: center; }
+.btns svg { width: 14px; height: 14px; fill: currentColor; stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
+.btns .play { background: #d4d4d4; color: #141414; border-color: #d4d4d4; }
+.wheels { grid-column: 1 / -1; }
+.wrow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.wheel { text-align: center; background: #242424; border-radius: 8px; padding: 12px 8px; }
+.wheel svg { width: 104px; height: 104px; display: block; margin: 0 auto 6px; filter: drop-shadow(0 2px 6px rgba(0,0,0,.6)); }
+.rbg { fill: #1a1a1a; stroke: #565656; stroke-width: 2; }
+.rfg { fill: none; stroke: #e0e0e0; stroke-width: 4; }
+.cross { stroke: #555; }
+.puck { fill: #1a1a1a; stroke: #f0f0f0; stroke-width: 2; }
+.wheel line.on { stroke: #f0f0f0; stroke-width: 3; stroke-linecap: round; }
+.wheel line.off { stroke: #5a5a5a; stroke-width: 2; stroke-linecap: round; }
+.wheel h3 { margin: 0; font: 600 11px system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #cfcfcf; }
+.val { margin: 4px 0 0; display: flex; justify-content: center; gap: 10px; font: 500 16px ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; color: #f5f5f5; }
+.note { margin: 2px 0 0; font-size: 12px; color: #a6a6a6; }
+.strip { grid-column: 1 / -1; }
+.thumbs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.th { background: #1c1c1c; border-radius: 6px; padding: 8px; display: grid; gap: 2px; position: relative; border: 1px solid #383838; }
+.th svg { width: 100%; height: 56px; background: #333; border-radius: 3px; fill: none; stroke: #bdbdbd; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.no { position: absolute; top: 12px; left: 12px; font: 600 11px ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; background: #111; color: #e6e6e6; padding: 0 4px; border-radius: 2px; }
+.nm { font-size: 12px; color: #ececec; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.du { font: 11px ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; color: #a6a6a6; }
+.tl { grid-column: 1 / -1; }
+.tlb { position: relative; --lh: 120px; }
+.ln { display: grid; grid-template-columns: var(--lh) 1fr; align-items: center; height: 24px; }
+.lh { font: 600 11px ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; color: #dcdcdc; }
+.lh i { font: 400 11px system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: #a6a6a6; font-style: normal; margin-left: 4px; }
+.lt { position: relative; height: 18px; background: #1d1d1d; border-left: 1px solid #4c4c4c; border-right: 1px solid #4c4c4c; background-image: repeating-linear-gradient(to right, #333 0 1px, transparent 1px calc(100% / 6)); }
+.c { position: absolute; top: 2px; bottom: 2px; background: #464646; border: 1px solid #8a8a8a; color: #f0f0f0; font-size: 10px; line-height: 12px; padding: 0 4px; border-radius: 2px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.c.sel { background: #d4d4d4; color: #141414; font-weight: 700; }
+.rl .lt { background: transparent; border: 0; background-image: none; }
+.rl .lt span { position: absolute; font: 10px ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; color: #a8a8a8; transform: translateX(-50%); top: 2px; }
+.rl .lt span:first-child { transform: none; }
+.rl .lt span:nth-last-child(2) { transform: translateX(-100%); }
+.mk { position: absolute; top: 1px; font: 600 10px system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: #f2b33d; transform: translateX(-100%); white-space: nowrap; background: #2a2a2a; padding: 0 2px; }
+.mk::after { content: ""; position: absolute; right: -1px; top: 14px; height: 100px; border-right: 1px dashed #f2b33d; }
+.ph18 { position: absolute; top: 0; bottom: -14px; left: calc(var(--lh) + (100% - var(--lh)) * .2); border-left: 2px solid #f5f5f5; }
+.ph18 span { position: absolute; bottom: -2px; left: -12px; font: 600 10px ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; color: #f5f5f5; }
+.tl { padding-bottom: 26px; }
+.sheet { --sh-bg: #1f1f1f; --sh-surface: #2a2a2a; --sh-ink: #e2e2e2; --sh-muted: #ababab; --sh-line: #3d3d3d; --sh-font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; --sh-head: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; --sh-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; --sh-r: 8px; --sh-h3: 600 11px/1.3 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+.sb { font: 700 13px system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; padding: 8px 18px; border-radius: 6px; }
+.sb-primary { background: #d4d4d4; color: #141414; border: 1px solid #d4d4d4; }
+.sb-secondary { background: #353535; color: #e6e6e6; border: 1px solid #555; }
+.sfi { background: #1a1a1a; border: 1px solid #4d4d4d; border-radius: 6px; padding: 7px 10px; }
+.srow { display: flex; justify-content: space-between; padding: 8px 10px; background: #1c1c1c; border-radius: 6px; border: 1px solid #383838; }
+.srow span:last-child { font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; color: #c8c8c8; }
+@media (max-width: 1000px) {
+  .suite { grid-template-columns: 1fr 1fr; }
+  .view { grid-column: 1 / -1; order: -1; }
+  .wrow { grid-template-columns: repeat(2, 1fr); }
+  .thumbs { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px) {
+  .top { padding: 10px 16px; }
+  .suite { grid-template-columns: minmax(0, 1fr); padding: 12px 16px; }
+  .wave, .vecp, .wheels, .strip { display: none; }
+  .p { padding: 10px; }
+  .tlb { --lh: 32px; }
+  .lh i { display: none; }
+  .tc { font-size: 15px; }
+  .tcd { display: none; }
+  .btns button { width: 44px; height: 44px; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="top">
+  <span class="mark" aria-hidden="true"></span>
+  <span class="app">Brightwork Cut</span><span class="sep" aria-hidden="true">/</span><span>Launch teaser</span>
+  <span class="fmt">1080p · 24 fps</span>
+  <span class="grow"></span>
+  <span class="rend"><span class="rbox" role="progressbar" aria-label="Render progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><span></span></span>Render 0% <b>idle</b></span>
+  <button type="button" class="exp">Export</button>
+</header>
+<main class="suite">
+  <section class="p wave" aria-labelledby="w-h"><h2 id="w-h" class="ph">Waveform <i>luma</i></h2><svg class="scope" viewBox="0 0 360 156" role="img" aria-label="Waveform scope. The black ground sits near 0 across the frame and the white title text peaks near 90 in the middle third."><g class="grat"><line x1="0" x2="360" y1="150.0" y2="150.0"/><text x="356" y="147.0">0</text><line x1="0" x2="360" y1="112.5" y2="112.5"/><text x="356" y="109.5">25</text><line x1="0" x2="360" y1="75.0" y2="75.0"/><text x="356" y="72.0">50</text><line x1="0" x2="360" y1="37.5" y2="37.5"/><text x="356" y="34.5">75</text><line x1="0" x2="360" y1="0.0" y2="0.0"/><text x="356" y="-3.0">100</text></g><path class="trace" d="M0 150V146.7 M2 150V147.4 M4 150V145.4 M6 150V147.7 M8 150V145.9 M10 150V146.5 M12 150V147.8 M14 150V146.0 M16 150V147.9 M18 150V146.3 M20 150V147.7 M22 150V147.6 M24 150V146.3 M26 150V144.7 M28 150V147.5 M30 150V147.1 M32 150V145.5 M34 150V144.2 M36 150V145.7 M38 150V146.4 M40 150V144.1 M42 150V147.8 M44 150V144.6 M46 150V146.8 M48 150V147.4 M50 150V147.5 M52 150V146.8 M54 150V144.7 M56 150V147.3 M58 150V145.7 M60 150V145.4 M62 150V146.5 M64 150V145.8 M66 150V147.7 M68 150V147.8 M70 150V147.2 M72 150V145.3 M74 150V146.3 M76 150V146.7 M78 150V145.7 M80 150V146.2 M82 150V146.8 M84 150V144.8 M86 150V145.2 M88 150V147.0 M90 150V145.7 M92 150V145.9 M94 150V144.5 M96 150V145.1 M98 150V146.8 M100 150V144.1 M102 150V147.5 M104 150V146.3 M106 150V145.0 M108 150V147.4 M110 150V146.0 M112 150V147.8 M114 150V145.3 M116 150V144.9 M118 150V145.7 M120 150V144.5 M122 150V146.7 M124 150V145.2 M126 150V145.6 M128 150V145.7 M130 150V146.2 M132 150V144.6 M134 150V144.2 M136 150V146.1 M138 150V145.3 M140 150V147.8 M142 150V145.2 M144 150V145.4 M146 150V144.0 M148 150V144.7 M150 150V146.9 M152 150V146.5 M154 150V145.3 M156 150V147.9 M158 150V146.2 M160 150V147.3 M162 150V147.5 M164 150V147.8 M166 150V144.9 M168 150V147.5 M170 150V147.0 M172 150V146.4 M174 150V144.5 M176 150V147.7 M178 150V146.2 M180 150V145.8 M182 150V144.5 M184 150V144.7 M186 150V144.5 M188 150V146.9 M190 150V146.3 M192 150V146.6 M194 150V144.5 M196 150V144.2 M198 150V147.4 M200 150V147.3 M202 150V147.1 M204 150V147.1 M206 150V146.1 M208 150V145.6 M210 150V146.9 M212 150V148.0 M214 150V146.3 M216 150V146.5 M218 150V145.7 M220 150V144.2 M222 150V145.2 M224 150V145.9 M226 150V145.5 M228 150V145.3 M230 150V147.8 M232 150V144.4 M234 150V144.9 M236 150V144.5 M238 150V144.8 M240 150V146.4 M242 150V146.4 M244 150V147.6 M246 150V145.5 M248 150V147.8 M250 150V147.7 M252 150V147.2 M254 150V147.4 M256 150V146.6 M258 150V147.8 M260 150V148.0 M262 150V147.4 M264 150V147.6 M266 150V146.5 M268 150V147.9 M270 150V144.5 M272 150V145.5 M274 150V147.4 M276 150V147.0 M278 150V146.6 M280 150V146.5 M282 150V147.5 M284 150V144.6 M286 150V144.0 M288 150V146.1 M290 150V146.1 M292 150V147.7 M294 150V147.6 M296 150V146.6 M298 150V146.9 M300 150V144.7 M302 150V147.4 M304 150V147.9 M306 150V144.2 M308 150V145.9 M310 150V147.4 M312 150V145.8 M314 150V147.9 M316 150V145.9 M318 150V144.1 M320 150V144.5 M322 150V145.2 M324 150V147.0 M326 150V146.5 M328 150V147.3 M330 150V144.9 M332 150V145.9 M334 150V144.9 M336 150V146.7 M338 150V147.1 M340 150V144.8 M342 150V144.1 M344 150V144.6 M346 150V144.8 M348 150V144.7 M350 150V145.0 M352 150V147.1 M354 150V145.9 M356 150V146.6 M358 150V147.9 M110 23.4V18.1 M113 17.2V11.0 M125 23.8V18.7 M128 26.0V18.9 M137 22.1V14.1 M140 22.6V14.1 M149 27.1V19.1 M152 21.4V12.6 M155 25.5V16.8 M161 24.4V19.7 M170 21.2V12.3 M173 24.1V17.3 M176 29.7V20.9 M179 24.1V15.5 M182 20.0V11.8 M185 23.8V18.4 M188 20.1V14.8 M191 28.2V19.6 M194 23.1V16.2 M200 17.9V11.4 M203 19.6V15.5 M206 23.1V19.1 M212 23.7V16.0 M215 24.2V17.6 M218 17.3V12.8 M221 23.8V18.4 M227 22.9V15.1 M233 21.1V14.6 M236 20.0V13.7 M239 24.7V16.0 M242 20.5V11.8 M245 23.8V15.1"/></svg></section>
+  <section class="p view" aria-labelledby="v-h">
+    <h2 id="v-h" class="ph">Viewer <i>program</i></h2>
+    <figure class="pic"><p>Every project, on one calm page</p><figcaption class="sr">Title card reading Every project, on one calm page, white on black.</figcaption></figure>
+    <div class="trans">
+      <span class="tc">00:00:18:12</span>
+      <span class="btns">
+        <button type="button" aria-label="Previous clip"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3v10M13 3 6 8l7 5z"/></svg></button>
+        <button type="button" aria-label="Play" class="play"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z"/></svg></button>
+        <button type="button" aria-label="Next clip"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M12 3v10M3 3l7 5-7 5z"/></svg></button>
+      </span>
+      <span class="tcd">of 00:01:30:00</span>
+    </div>
+  </section>
+  <section class="p vecp" aria-labelledby="vs-h"><h2 id="vs-h" class="ph">Vectorscope <i>chroma</i></h2><svg class="scope vec" viewBox="0 0 160 160" role="img" aria-label="Vectorscope. All chroma sits in a tight dot at the centre, so the title card is neutral."><g class="grat"><circle cx="80" cy="80" r="74"/><circle cx="80" cy="80" r="37"/><line x1="80" y1="6" x2="80" y2="154"/><line x1="6" y1="80" x2="154" y2="80"/><rect x="62.4" y="20.4" width="10" height="10"/><text x="64.7" y="17.7">R</text><rect x="102.1" y="26.0" width="10" height="10"/><text x="113.0" y="24.5">Mg</text><rect x="129.6" y="87.6" width="10" height="10"/><text x="146.3" y="99.3">B</text><rect x="87.6" y="129.6" width="10" height="10"/><text x="95.3" y="150.3">Cy</text><rect x="47.9" y="124.0" width="10" height="10"/><text x="47.0" y="143.5">G</text><rect x="20.4" y="62.4" width="10" height="10"/><text x="13.7" y="68.7">Yl</text></g><circle class="dot" cx="80" cy="80" r="4"/></svg></section>
+  <section class="p wheels" aria-labelledby="wh-h"><h2 id="wh-h" class="ph">Inspector <i>Title card, selected on V2</i></h2><div class="wrow">
+<div class="wheel"><svg viewBox="0 0 88 88" aria-hidden="true"><circle class="rbg" cx="44" cy="44" r="34"/><line class="cross" x1="10" y1="44" x2="78" y2="44"/><line class="cross" x1="44" y1="10" x2="44" y2="78"/><circle class="puck" cx="44" cy="44" r="6"/></svg>
+<h3>Position</h3><p class="val"><span>X 960</span><span>Y 540</span></p><p class="note">Puck centred, frame centre</p></div>
+<div class="wheel"><svg viewBox="0 0 88 88" aria-hidden="true"><circle class="rbg" cx="44" cy="44" r="34"/><circle class="rfg" cx="44" cy="44" r="34" stroke-dasharray="213.6 213.6" transform="rotate(-90 44 44)"/><circle class="puck" cx="44" cy="10" r="5"/></svg>
+<h3>Scale</h3><p class="val"><span>100 %</span></p><p class="note">Full ring</p></div>
+<div class="wheel"><svg viewBox="0 0 88 88" aria-hidden="true"><circle class="rbg" cx="44" cy="44" r="34"/><circle class="rfg" cx="44" cy="44" r="34" stroke-dasharray="213.6 213.6" transform="rotate(-90 44 44)"/><circle class="puck" cx="44" cy="10" r="5"/></svg>
+<h3>Opacity</h3><p class="val"><span>100 %</span></p><p class="note">Full ring</p></div>
+<div class="wheel"><svg viewBox="0 0 88 88" aria-hidden="true"><circle class="rbg" cx="44" cy="44" r="34" style="opacity:.35"/><line class="on" x1="44" y1="6" x2="44" y2="14" transform="rotate(0 44 44)"/><line class="on" x1="44" y1="6" x2="44" y2="11" transform="rotate(15 44 44)"/><line class="on" x1="44" y1="6" x2="44" y2="11" transform="rotate(30 44 44)"/><line class="on" x1="44" y1="6" x2="44" y2="11" transform="rotate(45 44 44)"/><line class="on" x1="44" y1="6" x2="44" y2="11" transform="rotate(60 44 44)"/><line class="on" x1="44" y1="6" x2="44" y2="11" transform="rotate(75 44 44)"/><line class="on" x1="44" y1="6" x2="44" y2="14" transform="rotate(90 44 44)"/><line class="on" x1="44" y1="6" x2="44" y2="11" transform="rotate(105 44 44)"/><line class="on" x1="44" y1="6" x2="44" y2="11" transform="rotate(120 44 44)"/><line class="on" x1="44" y1="6" x2="44" y2="11" transform="rotate(135 44 44)"/><line class="on" x1="44" y1="6" x2="44" y2="11" transform="rotate(150 44 44)"/><line class="on" x1="44" y1="6" x2="44" y2="11" transform="rotate(165 44 44)"/><line class="off" x1="44" y1="6" x2="44" y2="14" transform="rotate(180 44 44)"/><line class="off" x1="44" y1="6" x2="44" y2="11" transform="rotate(195 44 44)"/><line class="off" x1="44" y1="6" x2="44" y2="11" transform="rotate(210 44 44)"/><line class="off" x1="44" y1="6" x2="44" y2="11" transform="rotate(225 44 44)"/><line class="off" x1="44" y1="6" x2="44" y2="11" transform="rotate(240 44 44)"/><line class="off" x1="44" y1="6" x2="44" y2="11" transform="rotate(255 44 44)"/><line class="off" x1="44" y1="6" x2="44" y2="14" transform="rotate(270 44 44)"/><line class="off" x1="44" y1="6" x2="44" y2="11" transform="rotate(285 44 44)"/><line class="off" x1="44" y1="6" x2="44" y2="11" transform="rotate(300 44 44)"/><line class="off" x1="44" y1="6" x2="44" y2="11" transform="rotate(315 44 44)"/><line class="off" x1="44" y1="6" x2="44" y2="11" transform="rotate(330 44 44)"/><line class="off" x1="44" y1="6" x2="44" y2="11" transform="rotate(345 44 44)"/></svg>
+<h3>Cross dissolve</h3><p class="val"><span>12 frames</span></p><p class="note">12 of 24 ticks, half a second</p></div></div></section>
+  <section class="p strip" aria-labelledby="b-h"><h2 id="b-h" class="ph">Media <i>5 clips</i></h2><ol class="thumbs"><li class="th"><span class="no">01</span><svg viewBox="0 0 72 60" aria-hidden="true"><rect x="14" y="16" width="44" height="28" rx="2"/><path d="M14 38l12-10 9 7 8-6 15 11"/></svg><span class="nm">hero-motion.mp4</span><span class="du">00:42 · V</span></li><li class="th"><span class="no">02</span><svg viewBox="0 0 72 60" aria-hidden="true"><rect x="14" y="16" width="44" height="28" rx="2"/><path d="M14 38l12-10 9 7 8-6 15 11"/></svg><span class="nm">office-broll-03.mov</span><span class="du">01:15 · V</span></li><li class="th"><span class="no">03</span><svg viewBox="0 0 72 60" aria-hidden="true"><path d="M14 30h4M22 22v16M30 18v24M38 24v12M46 20v20M54 27v6" /></svg><span class="nm">voiceover-take4.wav</span><span class="du">01:22 · A</span></li><li class="th"><span class="no">04</span><svg viewBox="0 0 72 60" aria-hidden="true"><path d="M14 30h4M22 22v16M30 18v24M38 24v12M46 20v20M54 27v6" /></svg><span class="nm">music-low-tide.wav</span><span class="du">02:40 · A</span></li><li class="th"><span class="no">05</span><svg viewBox="0 0 72 60" aria-hidden="true"><rect x="14" y="16" width="44" height="28" rx="2"/><path d="M14 38l12-10 9 7 8-6 15 11"/></svg><span class="nm">logo-sting.mov</span><span class="du">00:04 · V</span></li></ol></section>
+  <section class="p tl" aria-labelledby="t-h">
+    <h2 id="t-h" class="ph">Timeline <i>0 to 90 s</i></h2>
+    <p class="sr">Timeline from 0 to 90 seconds. V2 titles holds the selected Title card from 14 to 26 seconds. V1 video holds hero-motion.mp4 from 0 to 42, office-broll-03.mov from 42 to 84 and logo-sting.mov from 84 to 88. A1 voiceover holds voiceover-take4.wav from 4 to 86. A2 music holds music-low-tide.wav from 0 to 90. The playhead is at 18 seconds and a marker named cut to logo sits at 84 seconds.</p>
+    <div class="tlb" aria-hidden="true">
+      <div class="ln rl"><span class="lh">sec</span><div class="lt"><span style="left:0.000%">0</span><span style="left:16.667%">15</span><span style="left:33.333%">30</span><span style="left:50.000%">45</span><span style="left:66.667%">60</span><span style="left:83.333%">75</span><span style="left:100.000%">90</span><b class="mk" style="left:93.333%">&#9660; cut to logo</b></div></div>
+      <div class="ln"><span class="lh">V2 <i>titles</i></span><div class="lt"><span class="c sel" style="left:15.556%;width:13.333%">&#9670; Title card</span></div></div><div class="ln"><span class="lh">V1 <i>video</i></span><div class="lt"><span class="c" style="left:0.000%;width:46.667%">hero-motion.mp4</span><span class="c" style="left:46.667%;width:46.667%">office-broll-03.mov</span><span class="c" style="left:93.333%;width:4.444%">logo-sting.mov</span></div></div><div class="ln"><span class="lh">A1 <i>voiceover</i></span><div class="lt"><span class="c" style="left:4.444%;width:91.111%">voiceover-take4.wav</span></div></div><div class="ln"><span class="lh">A2 <i>music</i></span><div class="lt"><span class="c" style="left:0.000%;width:100.000%">music-low-tide.wav</span></div></div>
+      <div class="ph18"><span>&#9650; 18</span></div>
+    </div>
+  </section>
+</main>
+
+<section class="sheet" aria-labelledby="sheet-h"><div class="sheet-in">
+<h2 id="sheet-h">Style 355 · Colour grade suite</h2>
+<p class="idea">A neutral eighteen percent grey grading room where scopes flank the picture, the inspector becomes a row of round wheels, and the bin is a strip of numbered thumbnails above a thin graticule timeline.</p>
+<h3>Palette</h3><ul class="swatches"><li class="sw"><i style="background:#1f1f1f" aria-hidden="true"></i><div><b>roomGrey</b><code>#1f1f1f</code><span>page and style sheet, kept neutral so colour judgement stays true</span></div></li><li class="sw"><i style="background:#2a2a2a" aria-hidden="true"></i><div><b>panel</b><code>#2a2a2a</code><span>scope, viewer and wheel panels</span></div></li><li class="sw"><i style="background:#242424" aria-hidden="true"></i><div><b>well</b><code>#242424</code><span>wheel wells and thumbnail cards</span></div></li><li class="sw"><i style="background:#121212" aria-hidden="true"></i><div><b>scopeBlack</b><code>#121212</code><span>scope screens and the picture surround</span></div></li><li class="sw"><i style="background:#4c4c4c" aria-hidden="true"></i><div><b>graticule</b><code>#4c4c4c</code><span>scope grid, wheel rims and lane edges</span></div></li><li class="sw"><i style="background:#e2e2e2" aria-hidden="true"></i><div><b>ink</b><code>#e2e2e2</code><span>text</span></div></li><li class="sw"><i style="background:#ababab" aria-hidden="true"></i><div><b>muted</b><code>#ababab</code><span>labels, units and notes</span></div></li><li class="sw"><i style="background:#f0f0f0" aria-hidden="true"></i><div><b>puck</b><code>#f0f0f0</code><span>wheel pucks, lit ticks, playhead and vectorscope dot</span></div></li><li class="sw"><i style="background:#bff0b4" aria-hidden="true"></i><div><b>trace</b><code>#bff0b4</code><span>the waveform luma trace</span></div></li><li class="sw"><i style="background:#d4d4d4" aria-hidden="true"></i><div><b>neutralButton</b><code>#d4d4d4</code><span>Export, play and the selected clip, never a hue</span></div></li><li class="sw"><i style="background:#f2b33d" aria-hidden="true"></i><div><b>focusAmber</b><code>#f2b33d</code><span>focus outline and the marker, the one warm note</span></div></li></ul>
+<h3>Type scale</h3><div class="trow"><code>Mono 17 / 500 timecode</code><span style="font:500 17px ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace">00:00:18:12</span></div><div class="trow"><code>Serif 26 / 500 picture title</code><span style="font:500 26px/1.2 "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif">Every project, on one calm page</span></div><div class="trow"><code>Mono 16 / 500 wheel values</code><span style="font:500 16px ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace">X 960  Y 540</span></div><div class="trow"><code>Sans 11 / 600 caps +0.14em panel heads</code><span style="font:600 11px system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;letter-spacing:.14em;text-transform:uppercase">Waveform</span></div><div class="trow"><code>Sans 13 / 400 body</code><span style="font:13px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif">office-broll-03.mov</span></div><div class="trow"><code>Mono 10 graticule and ruler</code><span style="font:10px ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;color:#a8a8a8">0  25  50  75  100</span></div>
+<h3>Spacing, density, corners, borders, shadows, icons and tone</h3><dl class="facts"><dt>Spacing</dt><dd>An 8px unit with 12px gaps between panels and 14px panel padding.</dd><dt>Density</dt><dd>Medium high. Scopes, picture, four wheels, a thumbnail strip and a thin timeline.</dd><dt>Corners</dt><dd>8px panels, 6px buttons and cards, round transport buttons and wheels.</dd><dt>Borders</dt><dd>1px #383838 panel edges and 1px #8a8a8a clip edges. Scopes sit borderless on black.</dd><dt>Shadows</dt><dd>A soft drop shadow under each wheel only, and a 6px grey surround on the picture.</dd><dt>Icons</dt><dd>Filled transport glyphs in round buttons. Wheels and rings carry meaning with a written value below.</dd><dt>Focus</dt><dd>2px amber outline offset 2px, the only warm colour on the screen.</dd><dt>Tone</dt><dd>Technical and calm, such as Waveform luma, Puck centred and 12 of 24 ticks.</dd></dl>
+<h3>Basic controls</h3><div class="ctl-grid"><div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><div><span class="ctl-state">Normal</span><button type="button" class="sb sb-primary">Export</button></div><div><span class="ctl-state">Focus</span><button type="button" class="sb sb-primary is-focus">Export</button></div></div></div><div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><div><span class="ctl-state">Normal</span><button type="button" class="sb sb-secondary">Add marker</button></div><div><span class="ctl-state">Focus</span><button type="button" class="sb sb-secondary is-focus">Add marker</button></div></div></div><div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><div><span class="ctl-state">Normal</span><label class="sf">Clip name<input class="sfi" type="text" value="Title card"></label></div><div><span class="ctl-state">Focus</span><label class="sf">Clip name<input class="sfi is-focus" type="text" value="Title card"></label></div></div></div><div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><div><span class="ctl-state">Normal</span><div class="srow" tabindex="0"><span>hero-motion.mp4</span><span>00:42</span></div></div><div><span class="ctl-state">Focus</span><div class="srow is-focus" tabindex="0"><span>hero-motion.mp4</span><span>00:42</span></div></div></div></div></div>
+</div></section>
+</body>
+</html>

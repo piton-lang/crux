@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 304 · Dark analytics · Brightwork</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1017;--panel:#121a24;--raise:#18222f;--line:#243243;--ink:#e6edf5;--muted:#9aa8ba;--req:#4cc9f0;--err:#ff7a93;--p50:#b19cff;--p95:#f2b84b;--ok:#5ad08e;--warn:#f2b84b;--rec:#7ab8ff;--focus:#ffe066;--font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 var(--font)}
+a{color:var(--req)}
+:focus-visible,.is-focus{outline:2px solid var(--focus);outline-offset:2px}
+.ic{width:16px;height:16px;flex:none;vertical-align:-3px}
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;padding:12px 24px;border-bottom:1px solid var(--line);background:var(--panel)}
+.brand{font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px}
+.brand i{width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,var(--req),var(--p50));display:inline-block}
+.apps{display:flex;gap:4px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.apps a{display:block;padding:6px 12px;border-radius:6px;color:var(--muted);text-decoration:none;font-weight:500}
+.apps a[aria-current]{background:var(--raise);color:var(--ink);box-shadow:inset 0 -2px 0 var(--req)}
+.tools{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{background:none;border:0;color:var(--muted);font:500 13px var(--font);padding:6px 10px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--raise);color:var(--ink)}
+.env{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:13px;color:var(--muted)}
+.env b{color:var(--ink);font-weight:600}
+main{padding:24px;max-width:1280px;margin:0 auto}
+h1{font-size:22px;margin:0;font-weight:650}
+.lede{color:var(--muted);margin:4px 0 24px}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;list-style:none;margin:0 0 16px;padding:0}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;grid-template-columns:1fr auto;gap:4px 8px;align-items:end}
+.kpi .k{grid-column:1/-1;color:var(--muted);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.kpi .v{font-size:28px;font-weight:650;font-variant-numeric:tabular-nums;line-height:1.1}
+.kpi .n{grid-column:1/-1;color:var(--muted);font-size:12px}
+.kpi svg{width:96px;height:28px;fill:none;stroke-width:2}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 16px 12px;min-width:0}
+.card.wide{grid-column:1/-1}
+.ch{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px;margin-bottom:12px}
+h2{font-size:15px;margin:0;font-weight:650}
+.legend{display:flex;gap:16px;list-style:none;margin:0 0 0 auto;padding:0;font-size:12px;color:var(--muted)}
+.legend li{display:flex;align-items:center;gap:6px}
+.legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+.legend i.dash{background:none;border-top:2px dashed var(--muted);height:0}
+.chart svg{display:block;width:100%;height:auto}
+.chart .g line{stroke:#1f2b3a;stroke-width:1}
+.axis{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;font-variant-numeric:tabular-nums;margin-top:6px}
+.yl{position:relative}
+.yl .y{position:absolute;left:0;font-size:11px;color:var(--muted);background:var(--panel);padding-right:4px;transform:translateY(-50%)}
+.note{font-size:12px;color:var(--muted);margin:8px 0 0}
+.note b{color:var(--ink)}
+.st{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;border-radius:999px;padding:2px 9px 2px 6px;white-space:nowrap}
+.st.healthy{color:var(--ok);background:#14281f}.st.degraded{color:var(--warn);background:#2c2312}.st.recovered{color:var(--rec);background:#13243a}.st.firing{color:var(--err);background:#33161d}.st.resolved{color:var(--ok);background:#14281f}.st.investigating{color:var(--warn);background:#2c2312}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th{text-align:left;font-size:12px;color:var(--muted);font-weight:600;padding:6px 8px;border-bottom:1px solid var(--line)}
+td{padding:10px 8px;border-bottom:1px solid #1c2735;vertical-align:middle}
+tr:last-child td{border-bottom:0}
+td.svc{font-weight:600;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.ub{display:flex;align-items:center;gap:8px}.ub span.bar{flex:1;min-width:40px;height:6px;border-radius:3px;background:#223040;position:relative;overflow:hidden}.ub span.bar i{position:absolute;inset:0 auto 0 0;background:var(--req);border-radius:3px}
+.tw{overflow-x:auto}
+.side{display:grid;gap:16px;align-content:start}
+.inc{border-color:#5a4520;background:linear-gradient(#1a1810,#151711) }
+.inc .id{font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--warn);font-weight:700}
+.inc h3{margin:4px 0 8px;font-size:17px}
+dl.f{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:0;font-size:13px}
+dl.f dt{color:var(--muted)}dl.f dd{margin:0}
+ul.list{list-style:none;margin:0;padding:0}
+ul.list li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid #1c2735}
+ul.list li:first-child{border-top:0}
+.t{font-variant-numeric:tabular-nums;color:var(--muted);font-size:12px;min-width:72px}
+.grow{flex:1;min-width:0}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+.bottom{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:16px;margin-top:16px}
+/* sheet */
+.sheet{max-width:1280px;margin:48px auto 0;padding:32px 24px 64px;border-top:1px solid var(--line)}
+.sheet h2{font-size:22px}.sheet h3{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:32px 0 12px}
+.idea{color:var(--muted);max-width:720px;margin:8px 0 0}
+.swatches{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.sw{display:flex;gap:12px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px}
+.sw i{width:40px;height:40px;border-radius:8px;flex:none;border:1px solid #2e3d50}
+.sw b{display:block}.sw code{display:block;font-size:12px;color:var(--muted)}.sw span{font-size:12px;color:var(--muted)}
+.stack code{color:var(--muted);font-size:12px}
+.type-row{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;padding:8px 0;border-bottom:1px solid #1c2735}
+.type-row code{width:150px;color:var(--muted);font-size:12px}
+.facts{display:grid;grid-template-columns:140px 1fr;gap:8px 16px;margin:0}
+.facts dt{color:var(--muted)}.facts dd{margin:0}
+.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ctl-label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
+.btn{font:600 14px var(--font);border-radius:8px;padding:8px 16px;cursor:pointer;margin:0 8px 8px 0}
+.btn.primary{background:var(--req);color:#062030;border:1px solid var(--req)}
+.btn.secondary{background:var(--raise);color:var(--ink);border:1px solid #33465c}
+.field span{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
+.field input{width:100%;background:var(--bg);color:var(--ink);border:1px solid #33465c;border-radius:8px;padding:8px 12px;font:inherit}
+.row-demo{display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 12px;color:var(--ink);text-decoration:none}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:980px){.grid,.bottom{grid-template-columns:minmax(0,1fr)}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.top{padding:12px 16px}main{padding:16px}.tools{margin-left:0}.kpis{grid-template-columns:minmax(0,1fr)}.controls{grid-template-columns:minmax(0,1fr)}.facts{grid-template-columns:minmax(0,1fr)}.facts dd{margin-bottom:8px}.sheet{padding:24px 16px 48px}.legend{margin-left:0}.axis span:nth-child(even){display:none}.chart svg text{display:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="s-healthy" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-degraded" viewBox="0 0 24 24"><path d="M12 3L22 20H2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9.5v5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17.3" r="1.2" fill="currentColor"/></symbol>
+<symbol id="s-down" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+<symbol id="s-recovered" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18.5 2.8v4.6h-4.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-firing" viewBox="0 0 24 24"><path d="M13.5 2L5 13.5h6L10 22l9-12h-6.2z" fill="currentColor"/></symbol>
+<symbol id="s-resolved" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-investigating" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15 15l5.5 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+<symbol id="s-deploy" viewBox="0 0 24 24"><path d="M12 3v12M7 8l5-5 5 5M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="s-bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15zM10 20.5h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+</defs></svg>
+<header class="top">
+  <div class="brand"><i aria-hidden="true"></i>Brightwork Ops</div>
+  <nav aria-label="Suite"><ul class="apps"><li><a href="#">Projects</a></li><li><a href="#">Canvas</a></li><li><a href="#">Drive</a></li><li><a href="#">Code</a></li><li><a href="#" aria-current="page">Ops</a></li></ul></nav>
+  <div class="tools">
+    <span class="env">Environment <b>Production</b></span>
+    <div class="seg" role="group" aria-label="Time range"><button type="button" aria-pressed="false">1h</button><button type="button" aria-pressed="false">6h</button><button type="button" aria-pressed="true">24h</button><button type="button" aria-pressed="false">7d</button></div>
+  </div>
+</header>
+<main>
+  <h1>Production overview</h1>
+  <p class="lede">Brightwork Ops, the suite's service monitor, showing production for the last 24 hours.</p>
+  <ul class="kpis">
+    <li class="kpi"><span class="k">Requests per minute</span><span class="v">9,400</span><svg role="img" aria-label="Requests trend, low 1,200 at night"><path d="M0 6.7 L4 4.8 L8 3.4 L12 2.5 L16 1.7 L20 2.8 L24 4.2 L28 6.4 L32 9.5 L36 12.6 L40 15.7 L44 18.5 L48 21 L52 22.7 L56 23.8 L60 24.4 L64 24.6 L68 24.6 L72 24.5 L76 23.5 L80 20.7 L84 16.2 L88 11.5 L92 8.4 L96 7" stroke="var(--req)"/></svg><span class="n">Peak at 14:00, low about 1,200 at night</span></li>
+    <li class="kpi"><span class="k">Error rate</span><span class="v">2.3%</span><svg role="img" aria-label="Error rate trend with one spike"><path d="M0 26.9 L4 27 L8 26.8 L12 26.9 L16 26.7 L20 26.9 L24 27 L28 26.9 L32 26.8 L36 26.9 L40 27 L44 26.9 L48 26.9 L52 27.1 L56 27 L60 26.9 L64 27 L68 26.9 L72 26.9 L76 26.8 L80 26.9 L84 26.8 L86.4 26.5 L87.2 2.2 L87.6 17.9 L88.4 26.2 L92 26.8 L96 26.9" stroke="var(--err)"/></svg><span class="n">Spike at 07:48, otherwise near 0.1%</span></li>
+    <li class="kpi"><span class="k">api p95 latency</span><span class="v">182 ms</span><svg role="img" aria-label="p95 latency trend"><path d="M0 14.9 L4 13.8 L8 12.3 L12 11.2 L16 9.7 L20 10.8 L24 11.9 L28 13.4 L32 15.3 L36 16.8 L40 18.3 L44 19 L48 19.6 L52 20.2 L56 20.5 L60 20.7 L64 20.9 L68 20.9 L72 20.5 L76 19.4 L80 17.2 L84 14.6 L88 4.5 L92 12.7 L96 13.1" stroke="var(--p95)"/></svg><span class="n">web p95 96 ms</span></li>
+    <li class="kpi"><span class="k">Open incident</span><span class="v">1</span><span></span><span class="n">INC-0427, severity 2, Investigating</span></li>
+  </ul>
+  <div class="grid">
+    <section class="card wide chart" aria-labelledby="c1">
+      <div class="ch"><h2 id="c1">Requests per minute</h2><span class="note" style="margin:0">Last 24 hours</span>
+        <ul class="legend"><li><i style="background:var(--req)"></i>Requests</li><li><i class="dash"></i>Deploys</li></ul></div>
+      <svg viewBox="0 0 800 224" role="img" aria-label="Requests per minute over 24 hours, from about 1,200 at night to a peak of 9,400 at 14:00. Deploys at 06:40, 08:30 and 09:12.">
+        <defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4cc9f0" stop-opacity=".35"/><stop offset="1" stop-color="#4cc9f0" stop-opacity="0"/></linearGradient></defs>
+        <g class="g"><line x1="0" x2="800" y1="0" y2="0"/><line x1="0" x2="800" y1="55" y2="55"/><line x1="0" x2="800" y1="110" y2="110"/><line x1="0" x2="800" y1="165" y2="165"/><line x1="0" x2="800" y1="220" y2="220"/></g>
+        <path d="M0 220 L0 52.8 L33.3 37.4 L66.7 26.4 L100 19.8 L133.3 13.2 L166.7 22 L200 33 L233.3 50.6 L266.7 74.8 L300 99 L333.3 123.2 L366.7 145.2 L400 165 L433.3 178.2 L466.7 187 L500 191.4 L533.3 193.6 L566.7 193.6 L600 192.5 L633.3 184.8 L666.7 162.8 L700 127.6 L733.3 90.2 L766.7 66 L800 55 L800 220 Z" fill="url(#ga)"/><path d="M0 52.8 L33.3 37.4 L66.7 26.4 L100 19.8 L133.3 13.2 L166.7 22 L200 33 L233.3 50.6 L266.7 74.8 L300 99 L333.3 123.2 L366.7 145.2 L400 165 L433.3 178.2 L466.7 187 L500 191.4 L533.3 193.6 L566.7 193.6 L600 192.5 L633.3 184.8 L666.7 162.8 L700 127.6 L733.3 90.2 L766.7 66 L800 55" fill="none" stroke="var(--req)" stroke-width="2.5"/>
+        <line x1="689.0" x2="689.0" y1="0" y2="220" stroke="#9aa8ba" stroke-dasharray="4 4"/><line x1="750.0" x2="750.0" y1="0" y2="220" stroke="#9aa8ba" stroke-dasharray="4 4"/><line x1="773.3" x2="773.3" y1="0" y2="220" stroke="#9aa8ba" stroke-dasharray="4 4"/>
+        <circle cx="133.33333333333331" cy="13.200000000000017" r="5" fill="var(--bg)" stroke="var(--req)" stroke-width="2.5"/>
+        <text x="143.33333333333331" y="17.200000000000017" fill="#e6edf5" font-size="13" font-family="system-ui,sans-serif">9,400 at 14:00</text>
+      </svg>
+      <div class="axis" aria-hidden="true"><span>10:00</span><span>14:00</span><span>18:00</span><span>22:00</span><span>02:00</span><span>06:00</span><span>10:00</span></div>
+      <p class="note">Peak <b>9,400</b> at 14:00, low about <b>1,200</b> at night. Dashed lines mark deploys at 06:40, 08:30 and 09:12.</p>
+    </section>
+    <section class="card chart" aria-labelledby="c2">
+      <div class="ch"><h2 id="c2">Error rate</h2><ul class="legend"><li><i style="background:var(--err)"></i>5xx share</li></ul></div>
+      <svg viewBox="0 0 400 144" role="img" aria-label="Error rate over 24 hours, near 0.1 percent with a spike to 2.3 percent at 07:48.">
+        <g class="g"><line x1="0" x2="400" y1="0" y2="0"/><line x1="0" x2="400" y1="35" y2="35"/><line x1="0" x2="400" y1="70" y2="70"/><line x1="0" x2="400" y1="105" y2="105"/><line x1="0" x2="400" y1="140" y2="140"/></g>
+        <path d="M0 134.4 L16.7 135 L33.3 133.8 L50 134.4 L66.7 133.3 L83.3 134.4 L100 135 L116.7 134.4 L133.3 133.8 L150 134.4 L166.7 135 L183.3 134.4 L200 134.4 L216.7 135.5 L233.3 135 L250 134.4 L266.7 135 L283.3 134.4 L300 134.4 L316.7 133.8 L333.3 134.4 L350 133.8 L360 132.7 L363.3 11.2 L365 89.6 L368.3 131 L383.3 133.8 L400 134.4" fill="none" stroke="var(--err)" stroke-width="2"/>
+        <polygon points="363,6 357,16 369,16" fill="var(--err)"/>
+        <text x="352" y="14" text-anchor="end" fill="#e6edf5" font-size="12" font-family="system-ui,sans-serif">2.3% at 07:48</text>
+      </svg>
+      <div class="axis" aria-hidden="true"><span>10:00</span><span>14:00</span><span>18:00</span><span>22:00</span><span>02:00</span><span>06:00</span><span>10:00</span></div>
+      <p class="note">Near <b>0.1%</b> all day, spike to <b>2.3%</b> at 07:48.</p>
+    </section>
+    <section class="card chart" aria-labelledby="c3">
+      <div class="ch"><h2 id="c3">Latency</h2><ul class="legend"><li><i style="background:var(--p50)"></i>p50</li><li><i style="background:var(--p95)"></i>p95</li></ul></div>
+      <svg viewBox="0 0 400 144" role="img" aria-label="Latency p50 and p95 over 24 hours. p50 sits between 55 and 84 ms, p95 between 138 and 226 ms with a bump near 08:00.">
+        <g class="g"><line x1="0" x2="400" y1="0" y2="0"/><line x1="0" x2="400" y1="35" y2="35"/><line x1="0" x2="400" y1="70" y2="70"/><line x1="0" x2="400" y1="105" y2="105"/><line x1="0" x2="400" y1="140" y2="140"/></g>
+        <path d="M0 44.8 L16.7 41.4 L33.3 37 L50 33.6 L66.7 29.1 L83.3 32.5 L100 35.8 L116.7 40.3 L133.3 45.9 L150 50.4 L166.7 54.9 L183.3 57.1 L200 58.8 L216.7 60.5 L233.3 61.6 L250 62.2 L266.7 62.7 L283.3 62.7 L300 61.6 L316.7 58.2 L333.3 51.5 L350 43.7 L366.7 13.4 L383.3 38.1 L400 39.2" fill="none" stroke="var(--p95)" stroke-width="2"/>
+        <path d="M0 99.7 L16.7 98 L33.3 96.3 L50 95.2 L66.7 93 L83.3 94.6 L100 96.3 L116.7 98.6 L133.3 100.8 L150 103 L166.7 105.3 L183.3 106.4 L200 107.5 L216.7 108.1 L233.3 108.6 L250 108.6 L266.7 109.2 L283.3 109.2 L300 108.6 L316.7 107.5 L333.3 104.7 L350 101.9 L366.7 94.1 L383.3 99.7 L400 100.2" fill="none" stroke="var(--p50)" stroke-width="2" stroke-dasharray="6 3"/>
+      </svg>
+      <div class="axis" aria-hidden="true"><span>10:00</span><span>14:00</span><span>18:00</span><span>22:00</span><span>02:00</span><span>06:00</span><span>10:00</span></div>
+      <p class="note">p50 dashed, 55 to 84 ms. p95 solid, 138 to 226 ms, highest near 08:00.</p>
+    </section>
+  </div>
+  <div class="bottom">
+    <section class="card" aria-labelledby="c4">
+      <div class="ch"><h2 id="c4">Services</h2><span class="note" style="margin:0">3 healthy, 1 degraded, 1 recovered</span></div>
+      <div class="tw"><table><thead><tr><th scope="col">Service</th><th scope="col">Status</th><th scope="col">Uptime</th><th scope="col">Signal</th></tr></thead><tbody><tr><td class="svc">api</td><td><span class="st healthy"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg>Healthy</span></td><td><div class="ub"><span>99.98%</span><span class="bar"><i style="width:98.0000000000004%"></i></span></div></td><td>p95 latency <b>182 ms</b></td></tr><tr><td class="svc">web</td><td><span class="st healthy"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg>Healthy</span></td><td><div class="ub"><span>99.99%</span><span class="bar"><i style="width:98.99999999999949%"></i></span></div></td><td>p95 latency <b>96 ms</b></td></tr><tr><td class="svc">sync-worker</td><td><span class="st degraded"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-degraded"/></svg>Degraded</span></td><td><div class="ub"><span>99.41%</span><span class="bar"><i style="width:40.99999999999966%"></i></span></div></td><td>Queue depth <b>4,812</b></td></tr><tr><td class="svc">notifications</td><td><span class="st healthy"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg>Healthy</span></td><td><div class="ub"><span>99.95%</span><span class="bar"><i style="width:95.00000000000028%"></i></span></div></td><td><span class="note" style="margin:0">No extra metric</span></td></tr><tr><td class="svc">billing</td><td><span class="st recovered"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-recovered"/></svg>Recovered</span></td><td><span class="note" style="margin:0">Down 6 min</span></td><td>Outage <b>Down 6 min, back 07:54</b></td></tr></tbody></table></div>
+    </section>
+    <div class="side">
+      <section class="card inc" aria-labelledby="c5">
+        <div class="ch"><span class="id">INC-0427</span><span class="st investigating"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-investigating"/></svg>Investigating</span></div>
+        <h3 id="c5">sync-worker queue backlog</h3>
+        <dl class="f"><dt>Severity</dt><dd>2</dd><dt>Opened</dt><dd>06:58</dd><dt>Owner</dt><dd>Jonas Weber</dd></dl>
+      </section>
+      <section class="card" aria-labelledby="c6">
+        <div class="ch"><h2 id="c6">Alerts</h2></div>
+        <ul class="list"><li><span class="t">07:48</span><span class="grow">billing 5xx rate above 2 percent</span><span class="st resolved"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-resolved"/></svg>Resolved</span></li><li><span class="t">06:58</span><span class="grow">sync-worker queue depth above 3,000</span><span class="st firing"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-firing"/></svg>Firing</span></li><li><span class="t">Yesterday 22:10</span><span class="grow">api disk 80 percent</span><span class="st resolved"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-resolved"/></svg>Resolved</span></li></ul>
+      </section>
+      <section class="card" aria-labelledby="c7">
+        <div class="ch"><h2 id="c7">Deploys</h2></div>
+        <ul class="list"><li><span class="t">09:12</span><span class="grow"><span class="mono">web v3.18.2</span><br><span class="note" style="margin:0">by Priya Nair</span></span></li><li><span class="t">08:30</span><span class="grow"><span class="mono">api v5.4.0</span><br><span class="note" style="margin:0">by Jonas Weber</span></span></li><li><span class="t">06:40</span><span class="grow"><span class="mono">sync-worker v1.9.1</span><br><span class="note" style="margin:0">by Sam Ortiz</span></span></li></ul>
+      </section>
+    </div>
+  </div>
+</main>
+<section class="sheet" aria-labelledby="sheet-h">
+  <h2 id="sheet-h">Style 304 · Dark analytics</h2>
+  <p class="idea">Charts lead on a dark slate canvas, a wide requests chart over two half charts, each series a crisp distinct colour, with tables and lists below.</p>
+  <h3>Palette</h3>
+  <ul class="swatches">
+    <li class="sw"><i style="background:#0b1017"></i><div><b>Canvas</b><code>#0b1017</code><span>page and style sheet background</span></div></li>
+    <li class="sw"><i style="background:#121a24"></i><div><b>Panel</b><code>#121a24</code><span>cards, top bar</span></div></li>
+    <li class="sw"><i style="background:#18222f"></i><div><b>Raise</b><code>#18222f</code><span>current tab, pressed range, secondary button</span></div></li>
+    <li class="sw"><i style="background:#243243"></i><div><b>Line</b><code>#243243</code><span>card borders and rules</span></div></li>
+    <li class="sw"><i style="background:#e6edf5"></i><div><b>Ink</b><code>#e6edf5</code><span>text and figures</span></div></li>
+    <li class="sw"><i style="background:#9aa8ba"></i><div><b>Muted</b><code>#9aa8ba</code><span>labels, axes, meta, deploy markers</span></div></li>
+    <li class="sw"><i style="background:#4cc9f0"></i><div><b>Requests</b><code>#4cc9f0</code><span>requests series, links, primary button</span></div></li>
+    <li class="sw"><i style="background:#ff7a93"></i><div><b>Errors</b><code>#ff7a93</code><span>error series and Firing</span></div></li>
+    <li class="sw"><i style="background:#b19cff"></i><div><b>p50</b><code>#b19cff</code><span>p50 latency, dashed</span></div></li>
+    <li class="sw"><i style="background:#f2b84b"></i><div><b>p95</b><code>#f2b84b</code><span>p95 latency, Degraded and Investigating</span></div></li>
+    <li class="sw"><i style="background:#5ad08e"></i><div><b>Healthy</b><code>#5ad08e</code><span>Healthy and Resolved</span></div></li>
+    <li class="sw"><i style="background:#7ab8ff"></i><div><b>Recovered</b><code>#7ab8ff</code><span>Recovered</span></div></li>
+    <li class="sw"><i style="background:#ffe066"></i><div><b>Focus</b><code>#ffe066</code><span>focus outline</span></div></li>
+  </ul>
+  <h3>Type</h3>
+  <p class="stack"><code>system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; ui-monospace, Menlo, Consolas for service names</code></p>
+  <div class="type-row"><code>28 / 650 tabular</code><span style="font-size:28px;font-weight:650">9,400</span></div>
+  <div class="type-row"><code>22 / 650</code><span style="font-size:22px;font-weight:650">Production overview</span></div>
+  <div class="type-row"><code>15 / 650</code><span style="font-size:15px;font-weight:650">Requests per minute</span></div>
+  <div class="type-row"><code>14 / 400</code><span style="">api disk 80 percent</span></div>
+  <div class="type-row"><code>13 mono</code><span style="font:13px ui-monospace,Menlo,Consolas,monospace">sync-worker v1.9.1</span></div>
+  <div class="type-row"><code>12 / 600 caps</code><span style="font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)">Error rate</span></div>
+  <h3>Spacing, density, corners and depth</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>8px unit, 16px card padding and gaps, 24px page padding</dd>
+    <dt>Density</dt><dd>Medium. Four figures, three charts and the tables fit about two screens</dd>
+    <dt>Corners</dt><dd>10px cards, 8px controls, full pills</dd>
+    <dt>Borders</dt><dd>1px #243243 on every card; inner rules #1c2735</dd>
+    <dt>Shadows</dt><dd>None. Depth from panel steps</dd>
+    <dt>Icons</dt><dd>16px status glyphs with distinct shapes beside the word in tinted pills</dd>
+    <dt>Tone</dt><dd>Neutral analytic labels such as Requests per minute and Signal</dd>
+  </dl>
+  <h3>Controls · normal and focus</h3>
+  <div class="controls">
+    <div class="ctl"><span class="ctl-label">Primary</span><button type="button" class="btn primary">Acknowledge</button> <button type="button" class="btn primary is-focus">Acknowledge</button></div>
+    <div class="ctl"><span class="ctl-label">Secondary</span><button type="button" class="btn secondary">Silence 1 h</button> <button type="button" class="btn secondary is-focus">Silence 1 h</button></div>
+    <div class="ctl"><label class="field"><span>Filter services</span><input value="sync-worker"></label></div>
+    <div class="ctl"><label class="field"><span>Filter services, focused</span><input class="is-focus" value="billing"></label></div>
+    <div class="ctl"><span class="ctl-label">List row</span><a href="#" class="row-demo"><span>sync-worker</span><span class="st degraded"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-degraded"/></svg>Degraded</span></a></div>
+    <div class="ctl"><span class="ctl-label">List row, focused</span><a href="#" class="row-demo is-focus"><span>sync-worker</span><span class="st degraded"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-degraded"/></svg>Degraded</span></a></div>
+  </div>
+</section>
+</body>
+</html>

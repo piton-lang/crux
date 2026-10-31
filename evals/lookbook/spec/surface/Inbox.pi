@@ -1,0 +1,21 @@
+export anchor Inbox:
+    description:
+        The notifications inbox, with a list on the left and the open item on
+        the right. On a phone the list shows first.
+
+    filters:
+        All, Mentions, Assigned and Unread. Unread shows the count 3.
+
+    items:
+        - Priya Nair mentioned you in Hero image options, Website redesign, 40 min ago, unread
+        - Jonas Weber completed Export invoices as CSV, Billing migration, 12 min ago, unread
+        - Sam Ortiz asked for review on Push notifications, Mobile app 2.0, 1 h ago, unread
+        - Lena Fischer assigned you Write welcome email 2, Onboarding emails, 2 h ago
+        - Weekly report for 19 to 25 October is ready, yesterday
+        - Aiko Tanaka shared survey-results-v2.pdf, Q4 customer survey, yesterday
+
+    openItem:
+        The mention from Priya Nair is open. It shows "@Mara can you pick between
+        A, B and C by Monday? I lean to B, it reads best on phones.", three
+        thumbnails labelled Option A, Option B and Option C, a reply box and
+        buttons for Reply, Mark as done and Open task.

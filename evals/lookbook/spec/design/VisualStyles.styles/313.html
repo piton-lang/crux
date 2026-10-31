@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 313 · Video timeline · Brightwork</title>
+<style>
+:root{color-scheme:dark;--bg:#16151c;--pn:#211f29;--pn2:#2a2834;--well:#0f0e14;--ln:#3a3746;--ink:#ecebf3;--mut:#aba7bd;--vid:#5865d8;--aud:#2e8a5a;--inc:#c98a1e;--ph:#ff5c7a;--amber:#ffbe55;--grn:#74e0a0;--sky:#86c8ff;--red:#ff7f8f;--focus:#ffffff;--f:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;--m:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:13px/1.45 var(--f)}
+:focus-visible,.is-focus{outline:2px solid var(--focus);outline-offset:2px;box-shadow:0 0 0 5px var(--vid)}
+.ic{width:14px;height:14px;flex:none}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:6px 20px;padding:8px 16px;background:#100f15;border-bottom:1px solid var(--ln)}
+.brand{font-weight:700}
+.ws{display:flex;gap:16px;list-style:none;margin:0 auto;padding:0;flex-wrap:wrap}
+.ws a{color:var(--mut);text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
+.ws a[aria-current]{color:var(--ink);border-bottom-color:var(--ph)}
+.seqn{color:var(--mut)}.seqn b{color:var(--ink);font-weight:600}
+main{padding:8px}
+h1{font-size:12px;font-weight:400;color:var(--mut);margin:4px 8px 8px}
+.top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr) minmax(0,1fr);gap:8px}
+.pane{background:var(--pn);border:1px solid var(--ln);border-radius:4px;min-width:0;display:flex;flex-direction:column}
+.pane>h2{margin:0;font-size:12px;font-weight:600;padding:6px 10px;border-bottom:1px solid var(--ln);display:flex;justify-content:space-between;gap:8px;background:var(--pn2);border-radius:4px 4px 0 0}
+.pane>h2 span{color:var(--mut);font-weight:400}
+.bin{list-style:none;margin:0;padding:8px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.bin li{background:var(--well);border:1px solid var(--ln);border-radius:4px;overflow:hidden}
+.thumb{aspect-ratio:16/9;display:grid;place-items:center;background:linear-gradient(135deg,#2a2840,#1a1928);position:relative}
+.thumb svg{width:34px;height:34px}
+.thumb .dur{position:absolute;right:4px;bottom:4px;font:11px var(--m);background:rgba(0,0,0,.75);color:#fff;padding:0 4px;border-radius:2px}
+.bin .cap{padding:6px 8px}
+.bin .nm{font:600 12px var(--m)}
+.bin .s{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600}
+.bin .d{font-size:11px;color:var(--mut)}
+.healthy{color:var(--grn)}.degraded{color:var(--amber)}.recovered{color:var(--sky)}.firing{color:var(--red)}.resolved{color:var(--grn)}.investigating{color:var(--amber)}
+.mon{padding:10px;display:flex;flex-direction:column;gap:8px}
+.frame{position:relative;aspect-ratio:16/9;background:#050508;border:1px solid #000;overflow:hidden}
+.safe{position:absolute;inset:7% 7%;border:1px dashed rgba(255,255,255,.18);pointer-events:none}
+.card{position:absolute;inset:12% 10%;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.card .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.card .big{font-size:clamp(18px,2.6vw,30px);font-weight:700;line-height:1.15}
+.card .big em{font-style:normal;color:var(--red)}
+.card svg{width:100%;height:auto;max-height:40%}
+.tc{position:absolute;left:8px;top:6px;font:600 12px var(--m);color:#fff;background:rgba(0,0,0,.7);padding:1px 6px;border-radius:2px}
+.monbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+.monbar .tcb{font:600 18px var(--m);color:var(--ph)}
+.monbar .ctrls{display:flex;gap:4px}
+.monbar button{width:30px;height:26px;border-radius:4px;background:var(--pn2);border:1px solid var(--ln);color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.monbar button svg{width:12px;height:12px}
+.insp{padding:10px;display:flex;flex-direction:column;gap:6px}
+.insp .id{font:700 20px var(--m);color:var(--amber)}
+.props{display:grid;grid-template-columns:auto 1fr;margin:0;border-top:1px solid var(--ln)}
+.props dt,.props dd{padding:6px 0;border-bottom:1px solid var(--ln);margin:0}
+.props dt{color:var(--mut);padding-right:16px}
+.chip{display:inline-flex;align-items:center;gap:5px;font-weight:600}
+.tline{margin-top:8px}
+.scroll{overflow-x:auto}
+.grid{display:grid;grid-template-columns:132px 1072px;min-width:1204px}
+.th{position:sticky;left:0;z-index:3;background:var(--pn2);border-right:1px solid #000;border-bottom:1px solid var(--ln);padding:6px 8px;display:flex;gap:8px;align-items:center}
+.th .tag{font:700 11px var(--m);padding:1px 5px;border-radius:2px;background:#3a3750;color:var(--ink)}
+.th .tag.a{background:#1f4a35}
+.th span.n{font-size:12px}
+.tr{position:relative;border-bottom:1px solid var(--ln);background:var(--well);height:52px;padding:0 8px}
+.tr.mk{height:34px;background:#1b1a22}
+.rul{position:relative;height:30px;background:var(--pn2);border-bottom:1px solid var(--ln);padding:0 8px;background-image:repeating-linear-gradient(90deg,#5a5670 0 1px,transparent 1px 11px);background-size:100% 6px;background-repeat:repeat-x;background-position:8px 100%}
+.rul span.m{top:16px;height:8px}.rul span{position:absolute;top:2px;margin-left:8px;font:11px/14px var(--m);color:var(--mut);padding-left:3px;border-left:1px solid #6a6680;height:14px}
+.clipv{position:absolute;top:5px;bottom:5px;border-radius:3px;background:var(--vid);border:1px solid #8a94ff;color:#fff;font-size:11px;font-weight:600;padding:2px 6px;white-space:nowrap;overflow:hidden}
+.clipv.inc{background:#5a3d0b;border-color:var(--inc)}
+.film{position:absolute;left:8px;top:5px;bottom:5px;width:1056px;display:flex;border:1px solid #8a94ff;border-radius:3px;overflow:hidden;background:#2a3070}
+.fr{flex:1;position:relative;border-right:1px solid #1a1d48}
+.fr i{position:absolute;left:3px;right:3px;bottom:3px;background:#b8c0ff;border-radius:1px}
+.fr.pk i{background:#fff}
+.film b{position:absolute;left:4px;top:2px;font-size:11px;color:#fff;background:rgba(10,10,30,.85);padding:0 5px;border-radius:2px;z-index:1}
+.aud{position:absolute;left:8px;top:5px;bottom:5px;width:1056px;border-radius:3px;background:#173d2a;border:1px solid #3cae73;overflow:hidden}
+.aud svg{position:absolute;inset:0;width:100%;height:100%}
+.aud b{position:absolute;left:4px;top:2px;font-size:11px;color:#fff;background:rgba(5,20,12,.85);padding:0 5px;border-radius:2px}
+.mark{position:absolute;top:6px;display:flex;align-items:center;gap:4px;font-size:11px;white-space:nowrap;background:#2a2834;border:1px solid currentColor;border-radius:3px;padding:1px 6px}
+.phd{position:absolute;top:0;bottom:0;width:2px;background:var(--ph);z-index:2;pointer-events:none}
+.low{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:8px}
+.low ul{list-style:none;margin:0;padding:0 10px}
+.low li{display:grid;grid-template-columns:120px 1fr auto;gap:8px;padding:8px 0;border-bottom:1px solid var(--ln);align-items:center}
+.low li:last-child{border-bottom:0}
+.low .t{font:12px var(--m);color:var(--mut)}
+.sheet{margin-top:24px;padding:32px 16px 64px;border-top:1px solid var(--ln);background:#1b1a22}
+.sheet>*{max-width:1280px}
+.sheet h2{font-size:20px;margin:0}
+.sheet h3{font-size:12px;font-weight:600;margin:28px 0 10px;padding-bottom:4px;border-bottom:2px solid var(--ph);display:inline-block}
+.idea{max-width:760px;color:var(--ink)}
+.swatches{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+.sw{display:flex;gap:10px;align-items:center;padding:0;background:var(--pn);border:1px solid var(--ln);border-radius:4px;overflow:hidden}
+.sw i{width:48px;align-self:stretch;flex:none;min-height:52px}
+.sw div{padding:6px 0}
+.sw b{display:block}.sw code,.sw span{display:block;font-size:12px;color:var(--mut)}
+.stack code{color:var(--mut)}
+.type-row{display:flex;flex-wrap:wrap;gap:4px 24px;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--ln)}
+.type-row code{width:150px;font-size:12px;color:var(--mut)}
+.facts{display:grid;grid-template-columns:120px 1fr;gap:6px 16px;margin:0}.facts dt{color:var(--mut)}.facts dd{margin:0}
+.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 24px}
+.ctl-label,.field span{display:block;font-size:12px;color:var(--mut);margin-bottom:6px}
+.btn{font:600 13px var(--f);padding:7px 14px;border-radius:4px;cursor:pointer;margin:0 8px 8px 0}
+.btn.primary{background:var(--vid);color:#fff;border:1px solid #8a94ff}
+.btn.secondary{background:var(--pn2);color:var(--ink);border:1px solid #5a5670}
+.field input{width:100%;background:var(--well);border:1px solid #5a5670;border-radius:4px;color:var(--ink);font:13px var(--f);padding:7px 10px}
+.row-demo{display:flex;justify-content:space-between;align-items:center;background:var(--pn);border:1px solid var(--ln);border-radius:4px;padding:7px 10px;color:var(--ink);text-decoration:none}
+.st{display:inline-flex;gap:5px;align-items:center;color:var(--amber);font-weight:600;font-size:12px}
+@media (max-width:1100px){.top{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.monp{grid-column:1/-1;order:-1}}
+@media (max-width:640px){.top,.low{grid-template-columns:minmax(0,1fr)}.ws{margin:0}.grid{grid-template-columns:84px 1072px;min-width:1156px}.th span.n{display:none}.low li{grid-template-columns:1fr auto}.low .t{grid-column:1/-1}.controls,.facts{grid-template-columns:minmax(0,1fr)}.sheet{padding:24px 16px 48px}.card svg{display:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="s-healthy" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-degraded" viewBox="0 0 24 24"><path d="M12 3L22 20H2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9.5v5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17.3" r="1.2" fill="currentColor"/></symbol>
+<symbol id="s-down" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+<symbol id="s-recovered" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18.5 2.8v4.6h-4.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-firing" viewBox="0 0 24 24"><path d="M13.5 2L5 13.5h6L10 22l9-12h-6.2z" fill="currentColor"/></symbol>
+<symbol id="s-resolved" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-investigating" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15 15l5.5 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+<symbol id="s-deploy" viewBox="0 0 24 24"><path d="M12 3v12M7 8l5-5 5 5M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="s-bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15zM10 20.5h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+</defs></svg>
+<header class="bar">
+  <div class="brand">Brightwork Ops</div>
+  <nav aria-label="Suite"><ul class="ws"><li><a href="#">Projects</a></li><li><a href="#">Canvas</a></li><li><a href="#">Drive</a></li><li><a href="#">Code</a></li><li><a href="#" aria-current="page">Ops</a></li></ul></nav>
+  <div class="seqn">Sequence <b>Production · last 24 hours</b></div>
+</header>
+<main>
+  <h1>Brightwork Ops, the suite's service monitor, showing production for the last 24 hours.</h1>
+  <div class="top">
+    <section class="pane" aria-labelledby="bin-h"><h2 id="bin-h">Bin · services <span>5 clips</span></h2>
+      <ul class="bin"><li><div class="thumb healthy"><svg class="" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg><span class="dur">99.98%</span></div><div class="cap"><div class="nm">api</div><div class="s healthy"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg>Healthy</div><div class="d">p95 latency 182 ms</div></div></li><li><div class="thumb healthy"><svg class="" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg><span class="dur">99.99%</span></div><div class="cap"><div class="nm">web</div><div class="s healthy"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg>Healthy</div><div class="d">p95 latency 96 ms</div></div></li><li><div class="thumb degraded"><svg class="" aria-hidden="true" focusable="false"><use href="#s-degraded"/></svg><span class="dur">99.41%</span></div><div class="cap"><div class="nm">sync-worker</div><div class="s degraded"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-degraded"/></svg>Degraded</div><div class="d">Queue depth 4,812</div></div></li><li><div class="thumb healthy"><svg class="" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg><span class="dur">99.95%</span></div><div class="cap"><div class="nm">notifications</div><div class="s healthy"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg>Healthy</div><div class="d">Uptime 99.95%</div></div></li><li><div class="thumb recovered"><svg class="" aria-hidden="true" focusable="false"><use href="#s-recovered"/></svg><span class="dur">down 6 min</span></div><div class="cap"><div class="nm">billing</div><div class="s recovered"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-recovered"/></svg>Recovered</div><div class="d">Recovered at 07:54</div></div></li></ul>
+    </section>
+    <section class="pane monp" aria-labelledby="mon-h"><h2 id="mon-h">Program · frame at playhead <span>07:48</span></h2>
+      <div class="mon">
+        <div class="frame"><div class="safe" aria-hidden="true"></div><span class="tc">07:48:00:00</span>
+          <div class="card"><span class="k">Alert · billing</span><span class="big">billing 5xx rate above 2 percent. Error rate <em>2.3%</em></span>
+          <svg viewBox="0 0 400 92" role="img" aria-label="Error rate from 04:00 to 10:00, flat near 0.1 percent with the spike to 2.3 percent at 07:48."><path d="M0 86.4 L66.7 86 L133.3 86.4 L200 86 L240 85.3 L253.3 7.2 L260 57.6 L273.3 84.2 L333.3 86 L400 86.4" fill="none" stroke="#ff7f8f" stroke-width="3"/></svg></div></div>
+        <div class="monbar"><span class="tcb">07:48:00:00</span><div class="ctrls" role="group" aria-label="Playback"><button type="button" aria-label="Previous marker"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1v10M11 1L4 6l7 5z" fill="currentColor" stroke="currentColor"/></svg></button><button type="button" aria-label="Play from playhead"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg></button><button type="button" aria-label="Next marker"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M10 1v10M1 1l7 5-7 5z" fill="currentColor" stroke="currentColor"/></svg></button></div><span style="color:var(--mut)">Billing recovered at 07:54, six minutes later</span></div>
+      </div>
+    </section>
+    <section class="pane" aria-labelledby="in-h"><h2 id="in-h">Inspector · incident <span>V3 clip</span></h2>
+      <div class="insp"><div class="id">INC-0427</div><div>sync-worker queue backlog</div>
+        <dl class="props"><dt>Status</dt><dd><span class="chip investigating"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-investigating"/></svg>Investigating</span></dd><dt>Severity</dt><dd>2</dd><dt>In point</dt><dd>06:58</dd><dt>Owner</dt><dd>Jonas Weber</dd></dl></div>
+    </section>
+  </div>
+  <section class="pane tline" aria-labelledby="tl-h"><h2 id="tl-h">Timeline · Production <span>10:00:00 to 10:00:00 · playhead 07:48</span></h2>
+    <div class="scroll" tabindex="0" aria-label="Timeline tracks, scroll sideways on small screens"><div class="grid">
+      <div class="th"><span class="tag">MK</span><span class="n">Markers</span></div>
+      <div class="tr mk"><span class="mark resolved" style="left:967.2px"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-resolved"/></svg>07:48 · billing</span><span class="mark firing" style="right:133.4666666666667px"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-firing"/></svg>06:58 · sync-worker</span><span class="mark resolved" style="left:543.3333333333333px"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-resolved"/></svg>Yesterday 22:10 · api</span><div class="phd" style="left:967.2px"></div></div>
+      <div class="th" style="background:#2a2834"><span class="tag">TC</span><span class="n">Timecode</span></div><div class="rul"><span style="left:0px">10:00:00</span><span style="left:44px" class="m"></span><span style="left:88px" class="m"></span><span style="left:132px">13:00:00</span><span style="left:176px" class="m"></span><span style="left:220px" class="m"></span><span style="left:264px">16:00:00</span><span style="left:308px" class="m"></span><span style="left:352px" class="m"></span><span style="left:396px">19:00:00</span><span style="left:440px" class="m"></span><span style="left:484px" class="m"></span><span style="left:528px">22:00:00</span><span style="left:572px" class="m"></span><span style="left:616px" class="m"></span><span style="left:660px">01:00:00</span><span style="left:704px" class="m"></span><span style="left:748px" class="m"></span><span style="left:792px">04:00:00</span><span style="left:836px" class="m"></span><span style="left:880px" class="m"></span><span style="left:924px">07:00:00</span><span style="left:968px" class="m"></span><span style="left:1012px" class="m"></span><span style="left:1056px">10:00:00</span></div>
+      <div class="th"><span class="tag">V3</span><span class="n">Incident</span></div>
+      <div class="tr"><span class="clipv inc" style="left:930.5333333333333px;width:133.4666666666667px">INC-0427</span><div class="phd" style="left:967.2px"></div></div>
+      <div class="th"><span class="tag">V2</span><span class="n">Deploys</span></div>
+      <div class="tr"><span class="clipv" style="right:43.200000000000045px;top:35px;bottom:auto;height:15px;line-height:13px;padding:0 6px;font-size:10.5px;">09:12 web v3.18.2</span><span class="clipv" style="right:74px;top:19px;bottom:auto;height:15px;line-height:13px;padding:0 6px;font-size:10.5px;">08:30 api v5.4.0</span><span class="clipv" style="right:154.66666666666663px;top:3px;bottom:auto;height:15px;line-height:13px;padding:0 6px;font-size:10.5px;">06:40 sync-worker v1.9.1</span><div class="phd" style="left:967.2px"></div></div>
+      <div class="th"><span class="tag">V1</span><span class="n">Requests</span></div>
+      <div class="tr"><div class="film" role="img" aria-label="Requests per minute as 24 hourly frames, from about 1,200 at night to a peak of 9,400 at 14:00, the peak frame white."><b>Requests · peak 9,400 at 14:00 · about 1,200 at night</b><span class="fr"><i style="height:76%"></i></span><span class="fr"><i style="height:83%"></i></span><span class="fr"><i style="height:88%"></i></span><span class="fr"><i style="height:91%"></i></span><span class="fr pk"><i style="height:94%"></i></span><span class="fr"><i style="height:90%"></i></span><span class="fr"><i style="height:85%"></i></span><span class="fr"><i style="height:77%"></i></span><span class="fr"><i style="height:66%"></i></span><span class="fr"><i style="height:55%"></i></span><span class="fr"><i style="height:44%"></i></span><span class="fr"><i style="height:34%"></i></span><span class="fr"><i style="height:25%"></i></span><span class="fr"><i style="height:19%"></i></span><span class="fr"><i style="height:15%"></i></span><span class="fr"><i style="height:13%"></i></span><span class="fr"><i style="height:12%"></i></span><span class="fr"><i style="height:12%"></i></span><span class="fr"><i style="height:13%"></i></span><span class="fr"><i style="height:16%"></i></span><span class="fr"><i style="height:26%"></i></span><span class="fr"><i style="height:42%"></i></span><span class="fr"><i style="height:59%"></i></span><span class="fr"><i style="height:70%"></i></span></div><div class="phd" style="left:967.2px"></div></div>
+      <div class="th"><span class="tag a">A1</span><span class="n">Error rate</span></div>
+      <div class="tr"><div class="aud"><svg viewBox="0 0 1056 44" preserveAspectRatio="none" role="img" aria-label="Error rate over 24 hours as a waveform, near 0.1 percent with a spike to 2.3 percent at 07:48."><path d="M0 21.2 L44 21.3 L88 21.1 L132 21.2 L176 21.0 L220 21.2 L264 21.3 L308 21.2 L352 21.1 L396 21.2 L440 21.3 L484 21.2 L528 21.2 L572 21.4 L616 21.3 L660 21.2 L704 21.3 L748 21.2 L792 21.2 L836 21.1 L880 21.2 L924 21.1 L950.4 21.0 L959.2 3.6 L963.6 14.8 L972.4 20.7 L1012 21.1 L1056 21.2 L1056 22.8 L1012 22.9 L972.4 23.3 L963.6 29.2 L959.2 40.4 L950.4 23.0 L924 22.9 L880 22.8 L836 22.9 L792 22.8 L748 22.8 L704 22.7 L660 22.8 L616 22.7 L572 22.6 L528 22.8 L484 22.8 L440 22.7 L396 22.8 L352 22.9 L308 22.8 L264 22.7 L220 22.8 L176 23.0 L132 22.8 L88 22.9 L44 22.7 L0 22.8Z" fill="#7ff0b0"/></svg><b>Errors · 2.3% at 07:48</b></div><div class="phd" style="left:967.2px"></div></div>
+      <div class="th"><span class="tag a">A2</span><span class="n">p95</span></div>
+      <div class="tr"><div class="aud"><svg viewBox="0 0 1056 44" preserveAspectRatio="none" role="img" aria-label="p95 latency over 24 hours, 138 to 226 ms."><path d="M0 8.4 L44 7.9 L88 7.3 L132 6.8 L176 6.2 L220 6.6 L264 7.1 L308 7.8 L352 8.6 L396 9.2 L440 9.8 L484 10.2 L528 10.4 L572 10.6 L616 10.8 L660 10.9 L704 11.0 L748 11.0 L792 10.8 L836 10.3 L880 9.4 L924 8.2 L968 3.9 L1012 7.4 L1056 7.6 L1056 36.4 L1012 36.6 L968 40.1 L924 35.8 L880 34.6 L836 33.7 L792 33.2 L748 33.0 L704 33.0 L660 33.1 L616 33.2 L572 33.4 L528 33.6 L484 33.8 L440 34.2 L396 34.8 L352 35.4 L308 36.2 L264 36.9 L220 37.4 L176 37.8 L132 37.2 L88 36.7 L44 36.1 L0 35.6Z" fill="#7ff0b0" fill-opacity=".8"/></svg><b>p95 · 138–226 ms</b></div><div class="phd" style="left:967.2px"></div></div>
+      <div class="th"><span class="tag a">A3</span><span class="n">p50</span></div>
+      <div class="tr"><div class="aud"><svg viewBox="0 0 1056 44" preserveAspectRatio="none" role="img" aria-label="p50 latency over 24 hours, 55 to 84 ms."><path d="M0 16.2 L44 16.0 L88 15.8 L132 15.6 L176 15.3 L220 15.5 L264 15.8 L308 16.1 L352 16.4 L396 16.7 L440 17.0 L484 17.2 L528 17.4 L572 17.4 L616 17.5 L660 17.5 L704 17.6 L748 17.6 L792 17.5 L836 17.4 L880 17.0 L924 16.6 L968 15.4 L1012 16.2 L1056 16.3 L1056 27.7 L1012 27.8 L968 28.6 L924 27.4 L880 27.0 L836 26.6 L792 26.5 L748 26.4 L704 26.4 L660 26.5 L616 26.5 L572 26.6 L528 26.6 L484 26.8 L440 27.0 L396 27.3 L352 27.6 L308 27.9 L264 28.2 L220 28.5 L176 28.7 L132 28.4 L88 28.2 L44 28.0 L0 27.8Z" fill="#7ff0b0" fill-opacity=".65"/></svg><b>p50 · 55–84 ms</b></div><div class="phd" style="left:967.2px"></div></div>
+    </div></div>
+  </section>
+  <div class="low">
+    <section class="pane" aria-labelledby="mk-h"><h2 id="mk-h">Markers · alerts</h2><ul><li><span class="t">07:48</span><span>billing 5xx rate above 2 percent</span><span class="chip resolved"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-resolved"/></svg>Resolved</span></li><li><span class="t">06:58</span><span>sync-worker queue depth above 3,000</span><span class="chip firing"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-firing"/></svg>Firing</span></li><li><span class="t">Yesterday 22:10</span><span>api disk 80 percent</span><span class="chip resolved"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-resolved"/></svg>Resolved</span></li></ul></section>
+    <section class="pane" aria-labelledby="ed-h"><h2 id="ed-h">Edit list · deploys</h2><ul><li><span class="t">09:12</span><span style="font-family:var(--m)">web v3.18.2</span><span style="color:var(--mut)">Priya Nair</span></li><li><span class="t">08:30</span><span style="font-family:var(--m)">api v5.4.0</span><span style="color:var(--mut)">Jonas Weber</span></li><li><span class="t">06:40</span><span style="font-family:var(--m)">sync-worker v1.9.1</span><span style="color:var(--mut)">Sam Ortiz</span></li></ul></section>
+  </div>
+</main>
+<section class="sheet" aria-labelledby="sheet-h">
+  <h2 id="sheet-h">Style 313 · Video timeline</h2>
+  <p class="idea">A video editor: services sit in a bin as clips, a program monitor shows the frame at the 07:48 playhead, an inspector holds the incident, and a multi-track timeline lays the 24 hours out as video and audio tracks with markers.</p>
+  <h3>Palette</h3>
+  <ul class="swatches">
+    <li class="sw"><i style="background:#16151c"></i><div><b>Suite</b><code>#16151c</code><span>page</span></div></li>
+    <li class="sw"><i style="background:#211f29"></i><div><b>Pane</b><code>#211f29</code><span>panes</span></div></li>
+    <li class="sw"><i style="background:#2a2834"></i><div><b>Pane head</b><code>#2a2834</code><span>pane titles, track headers, ruler</span></div></li>
+    <li class="sw"><i style="background:#0f0e14"></i><div><b>Well</b><code>#0f0e14</code><span>track wells, bin tiles, fields</span></div></li>
+    <li class="sw"><i style="background:#3a3746"></i><div><b>Rule</b><code>#3a3746</code><span>borders and rules</span></div></li>
+    <li class="sw"><i style="background:#ecebf3"></i><div><b>Ink</b><code>#ecebf3</code><span>text</span></div></li>
+    <li class="sw"><i style="background:#aba7bd"></i><div><b>Muted</b><code>#aba7bd</code><span>labels and timecodes</span></div></li>
+    <li class="sw"><i style="background:#5865d8"></i><div><b>Video</b><code>#5865d8</code><span>video clips, primary button, focus halo</span></div></li>
+    <li class="sw"><i style="background:#2e8a5a"></i><div><b>Audio</b><code>#2e8a5a</code><span>audio clips with #7ff0b0 waveforms</span></div></li>
+    <li class="sw"><i style="background:#ff5c7a"></i><div><b>Playhead</b><code>#ff5c7a</code><span>playhead, timecode readout and current workspace</span></div></li>
+    <li class="sw"><i style="background:#ffbe55"></i><div><b>Amber</b><code>#ffbe55</code><span>incident clip, Degraded, Investigating</span></div></li>
+    <li class="sw"><i style="background:#74e0a0"></i><div><b>Green</b><code>#74e0a0</code><span>Healthy and Resolved</span></div></li>
+    <li class="sw"><i style="background:#86c8ff"></i><div><b>Sky</b><code>#86c8ff</code><span>Recovered</span></div></li>
+    <li class="sw"><i style="background:#ff7f8f"></i><div><b>Rose</b><code>#ff7f8f</code><span>error trace and Firing</span></div></li>
+  </ul>
+  <h3>Type</h3>
+  <p class="stack"><code>"Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial; ui-monospace, Menlo, Consolas for timecode and names</code></p>
+  <div class="type-row"><code>30 / 700 title card</code><span style="font-size:30px;font-weight:700">billing 5xx rate above 2 percent</span></div>
+  <div class="type-row"><code>20 mono 700</code><span style="font:700 20px var(--m);color:var(--amber)">INC-0427</span></div>
+  <div class="type-row"><code>18 mono 600</code><span style="font:600 18px var(--m);color:var(--ph)">07:48:00:00</span></div>
+  <div class="type-row"><code>13 / 400</code><span style="">sync-worker queue backlog</span></div>
+  <div class="type-row"><code>11 mono tag</code><span style="font:700 11px var(--m);background:#3a3750;padding:1px 5px">V1</span></div>
+  <h3>Spacing, density, corners and depth</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>8px gutters between panes, 6 to 10px pane padding, 44px per hour</dd>
+    <dt>Density</dt><dd>Dense. Three panes over an eight-row timeline</dd>
+    <dt>Corners</dt><dd>4px panes, 3px clips and markers</dd>
+    <dt>Borders</dt><dd>1px #3a3746; clips carry a lighter border of their colour</dd>
+    <dt>Shadows</dt><dd>None. Wells sit darker than panes</dd>
+    <dt>Icons</dt><dd>Large status shapes as bin thumbnails, small shapes on markers and chips</dd>
+    <dt>Tone</dt><dd>Editing words such as Bin, Program, Inspector, In point, Markers and Edit list</dd>
+  </dl>
+  <h3>Controls · normal and focus</h3>
+  <div class="controls">
+    <div class="ctl"><span class="ctl-label">Primary</span><button type="button" class="btn primary">Acknowledge</button> <button type="button" class="btn primary is-focus">Acknowledge</button></div>
+    <div class="ctl"><span class="ctl-label">Secondary</span><button type="button" class="btn secondary">Silence 1 h</button> <button type="button" class="btn secondary is-focus">Silence 1 h</button></div>
+    <div class="ctl"><label class="field"><span>Filter services</span><input value="sync-worker"></label></div>
+    <div class="ctl"><label class="field"><span>Filter services, focused</span><input class="is-focus" value="billing"></label></div>
+    <div class="ctl"><span class="ctl-label">List row</span><a href="#" class="row-demo"><span>sync-worker</span><span class="st degraded"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-degraded"/></svg>Degraded</span></a></div>
+    <div class="ctl"><span class="ctl-label">List row, focused</span><a href="#" class="row-demo is-focus"><span>sync-worker</span><span class="st degraded"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-degraded"/></svg>Degraded</span></a></div>
+  </div>
+</section>
+</body>
+</html>

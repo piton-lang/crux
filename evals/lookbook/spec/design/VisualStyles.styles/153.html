@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 153 · Sign painter · Brightwork</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;overflow-x:hidden}
+img,svg{max-width:100%}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+button,input{font:inherit;color:inherit}
+
+:root{--wall:#f5efe1;--glass:#fbf8f0;--board:#1f3d2b;--gold:#c9962e;--gl:#e9c96e;--ox:#6e1d17;--bk:#1c1a17;--mu:#5a5246;--ok:#2d5a2a;--risk:#7a5100;--card:#fffaf0;--rule:#d8c9a8;
+--block:Rockwell,"Rockwell Nova","Roboto Slab","Clarendon","Superclarendon",Georgia,serif;--script:"Brush Script MT","Segoe Script","Apple Chancery","URW Chancery L",cursive;--body:Georgia,"Times New Roman",serif}
+body{background:var(--wall);color:var(--bk);font:16px/1.55 var(--body)}
+.front{max-width:1240px;margin:0 auto;padding:24px 32px 40px}
+.fascia{background:var(--board);border-radius:6px;padding:18px 28px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;box-shadow:inset 0 0 0 3px var(--board),inset 0 0 0 5px var(--gold),inset 0 0 0 9px var(--board),inset 0 0 0 10px var(--gold),0 6px 0 #142a1d}
+.gilt{margin:0;font:700 44px/1 var(--block);color:var(--gl);letter-spacing:.04em;text-shadow:2px 2px 0 #7a5a17,3px 3px 0 #0d1a12,-1px -1px 0 #fff3c4}
+.gilt small{display:block;font:400 18px var(--script);letter-spacing:0;color:var(--gl);text-shadow:1px 1px 0 #0d1a12;margin-top:4px}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px}
+.nav a{display:block;padding:6px 12px;color:var(--glass);text-decoration:none;font:700 14px var(--block);letter-spacing:.14em;text-transform:uppercase;border-bottom:3px solid transparent}
+.nav a[aria-current]{color:var(--gl);border-bottom-color:var(--gl)}
+.fascia a:focus-visible,.fascia button:focus-visible{outline:3px solid var(--gl);outline-offset:2px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--ox);outline-offset:2px;box-shadow:0 0 0 6px var(--gl)}
+.tools{margin-left:auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.search{display:flex;align-items:center;gap:8px;background:var(--glass);border-radius:3px;padding:8px 12px;min-width:220px;color:var(--bk)}
+.search input{border:0;outline:none;background:transparent;width:100%;font-family:var(--body)}
+.search input::placeholder{color:var(--mu)}
+.search:focus-within{outline:3px solid var(--gl);outline-offset:2px}
+.btn{font:700 14px var(--block);letter-spacing:.12em;text-transform:uppercase;border:0;padding:11px 18px;border-radius:3px;cursor:pointer}
+.btn-p{background:var(--ox);color:#fff;box-shadow:inset 0 0 0 2px var(--ox),inset 0 0 0 3px var(--gl),3px 3px 0 var(--bk)}
+.btn-s{background:var(--card);color:var(--bk);box-shadow:inset 0 0 0 2px var(--bk),3px 3px 0 var(--gold)}
+.btn.is-focus{outline:3px solid var(--ox);outline-offset:3px;box-shadow:inset 0 0 0 2px var(--ox),inset 0 0 0 3px var(--gl),3px 3px 0 var(--bk),0 0 0 8px var(--gl)}
+.btn-s.is-focus{box-shadow:inset 0 0 0 2px var(--bk),3px 3px 0 var(--gold),0 0 0 8px var(--gl)}
+.icb{width:42px;height:42px;border-radius:50%;border:2px solid var(--gl);background:transparent;color:var(--gl);display:grid;place-items:center;cursor:pointer}
+.who{display:flex;align-items:center;gap:8px;color:var(--glass);font:italic 16px var(--body)}
+.av{width:40px;height:40px;border-radius:50%;background:var(--gl);color:var(--board);display:grid;place-items:center;font:700 14px var(--block)}
+.window{margin-top:24px;background:linear-gradient(115deg,rgba(255,255,255,.7) 0 18%,transparent 18% 22%,rgba(255,255,255,.5) 22% 24%,transparent 24%),var(--glass);border:12px solid var(--board);border-radius:4px;padding:28px 32px 32px;box-shadow:inset 0 0 0 2px var(--gold)}
+.arch{display:block;width:100%;max-width:820px;height:auto;margin:0 auto}
+.greet{text-align:center}
+.greet .date{font:400 30px var(--script);color:var(--bk);margin:-6px 0 8px}
+.urgent{display:inline-flex;align-items:center;gap:10px;margin:4px 0 28px;font:700 20px var(--block);letter-spacing:.08em;text-transform:uppercase;color:var(--ox);padding:8px 18px;border-top:3px double var(--ox);border-bottom:3px double var(--ox)}
+.cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.card{background:var(--card);padding:16px 16px 14px;text-align:center;box-shadow:0 0 0 2px var(--bk),6px 6px 0 var(--gold);transform:rotate(var(--r))}
+.card .s{display:block;font:400 24px/1 var(--script);color:var(--ox)}
+.card .n{display:block;font:700 64px/1 var(--block);color:var(--bk);text-shadow:3px 3px 0 var(--gl)}
+.card .l{display:block;font:700 13px var(--block);letter-spacing:.16em;text-transform:uppercase;border-top:2px solid var(--bk);padding-top:6px;margin-top:6px}
+.card.od .n{color:var(--ox)}
+.lower{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:32px;margin-top:32px}
+.board{background:var(--card);border:3px solid var(--bk);box-shadow:inset 0 0 0 4px var(--card),inset 0 0 0 5px var(--gold);padding:20px 24px}
+.bh{text-align:center;margin:0 0 12px}
+.bh h2{margin:0;font:700 26px var(--block);letter-spacing:.14em;text-transform:uppercase}
+.bh p{margin:0;font:400 22px var(--script);color:var(--ox)}
+.dir{list-style:none;margin:0;padding:0}
+.dir li{padding:12px 0;border-bottom:1px solid var(--rule)}
+.dir li:last-child{border:0}
+.lead{display:flex;align-items:baseline;gap:8px}
+.lead h3{margin:0;font:700 18px var(--block);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lead .dots{flex:1;border-bottom:3px dotted var(--bk);transform:translateY(-4px);min-width:16px}
+.lead .pc{font:700 26px var(--block);color:var(--bk)}
+.sub{display:flex;flex-wrap:wrap;align-items:center;gap:4px 16px;margin-top:4px;font-size:15px;color:var(--mu)}
+.sub .cat{font:400 20px var(--script);color:var(--ox)}
+.pin{width:140px;height:10px;border:2px solid var(--bk);background:var(--glass);position:relative}
+.pin i{position:absolute;inset:1px auto 1px 1px;background:repeating-linear-gradient(90deg,var(--board) 0 10px,var(--gold) 10px 12px)}
+.sub .st{margin-left:auto}
+.st{display:inline-flex;align-items:center;gap:6px;font:700 13px var(--block);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.st-on{color:var(--ok)}.st-risk{color:var(--risk)}.st-behind{color:var(--ox)}
+.side{display:grid;gap:32px;align-content:start}
+.board svg{display:block;width:100%;height:auto}
+.wk{display:flex;justify-content:space-around;margin-top:10px;text-align:center}
+.wk span{font:700 12px var(--block);letter-spacing:.14em;text-transform:uppercase;color:var(--mu)}
+.wk b{display:block;font:700 30px var(--block);color:var(--bk);text-shadow:2px 2px 0 var(--gl)}
+.tick{list-style:none;margin:0;padding:0}
+.tick li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:15px}
+.tick li:last-child{border:0}
+.tick time{display:block;font:400 19px var(--script);color:var(--ox)}
+/* sheet */
+.sheet{max-width:1176px;margin:0 auto 48px;padding:36px 40px;background:var(--card);border:3px solid var(--bk);box-shadow:inset 0 0 0 5px var(--card),inset 0 0 0 6px var(--gold),8px 8px 0 var(--board)}
+.sheet h2{font:700 34px/1.2 var(--block);letter-spacing:.06em;text-transform:uppercase;margin:0 0 10px;text-shadow:2px 2px 0 var(--gl)}
+.sheet h3{font:400 30px var(--script);color:var(--ox);margin:28px 0 10px;border-bottom:3px double var(--bk);padding-bottom:2px}
+.idea{font-size:18px;font-style:italic;max-width:64ch;margin:0}
+.sws{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:20px}
+.sw{display:flex;flex-direction:column;gap:2px;font-size:14px}
+.chip{height:60px;margin-bottom:8px;box-shadow:0 0 0 2px var(--bk),4px 4px 0 var(--gold)}
+.swn{font:700 14px var(--block);letter-spacing:.06em} .sw code{color:var(--mu)} .swu{color:var(--mu);font-size:13px}
+.tys-l{list-style:none;margin:0;padding:0} .ty{display:flex;flex-wrap:wrap;gap:4px 24px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--rule)} .tym{font-size:13px;color:var(--mu)}
+.sheet .facts{display:grid;grid-template-columns:150px 1fr;gap:10px 24px;margin:0} .sheet .facts dt{font:700 14px var(--block);letter-spacing:.12em;text-transform:uppercase;color:var(--board)} .sheet .facts dd{margin:0}
+.ctls{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.ctl{display:flex;flex-direction:column;gap:16px;align-items:flex-start;padding:22px;background:var(--glass);border:2px solid var(--bk)}
+.ctlh{font:400 24px var(--script);color:var(--ox)}
+.fld{display:flex;flex-direction:column;gap:6px;font:700 13px var(--block);letter-spacing:.12em;text-transform:uppercase;width:100%;max-width:320px}
+.fld input{border:0;border-bottom:3px solid var(--bk);background:#fff;padding:9px 10px;font:16px var(--body);letter-spacing:0;text-transform:none;outline:none}
+.fld input:focus,.fld input.is-focus{outline:3px solid var(--ox);outline-offset:2px;box-shadow:0 0 0 6px var(--gl)}
+.lrow{display:flex;align-items:baseline;gap:8px;width:100%;max-width:320px;padding:8px 6px;font:700 14px var(--block);letter-spacing:.06em;text-transform:uppercase}
+.lrow span:first-child::after{content:""}
+.lrow:focus,.lrow.is-focus{outline:3px solid var(--ox);outline-offset:2px;box-shadow:0 0 0 6px var(--gl)}
+.lrow{justify-content:space-between;border-bottom:3px dotted var(--bk)}
+@media (max-width:1000px){.lower{grid-template-columns:1fr} .cards{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){
+ .front{padding:0 0 24px} .fascia{border-radius:0;padding:16px} .gilt{font-size:34px} .tools{margin-left:0;width:100%} .search{flex:1 1 100%;min-width:0}
+ .window{border-width:8px;padding:18px 14px 20px;margin-top:12px} .greet .date{font-size:24px} .urgent{font-size:16px}
+ .cards{gap:16px} .card .n{font-size:48px} .board{padding:16px 14px} .lower{margin-top:24px}
+ .lead h3{white-space:normal;font-size:16px} .pin{width:110px}
+ .sheet{margin:0 12px 32px;padding:24px 16px} .ctls,.sheet .facts{grid-template-columns:1fr} .sheet .facts dd{margin-bottom:8px}
+}
+
+</style>
+</head>
+<body>
+
+<div class="front">
+ <header class="fascia">
+  <p class="gilt">Brightwork<small>Projects for small teams</small></p>
+  <nav class="nav" aria-label="Main"><ul><li><a href="#" aria-current=page>Home</a></li><li><a href="#">Projects</a></li><li><a href="#">Tasks</a></li><li><a href="#">Team</a></li><li><a href="#">Reports</a></li><li><a href="#">Settings</a></li></ul></nav>
+  <div class="tools">
+   <label class="search"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M15 15l6 6"/></svg><span class="vh">Search projects and tasks</span><input type="search" placeholder="Search projects and tasks"></label>
+   <button class="btn btn-p" type="button">New project</button>
+   <button class="icb" type="button" aria-label="Notifications"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 17V11a6 6 0 0 1 12 0v6l2 2H4z"/><path d="M10 21h4"/></svg></button>
+   <span class="who"><span class="av" aria-hidden="true">MO</span>Mara Okafor</span>
+  </div>
+ </header>
+ <main class="window">
+  <section class="greet" aria-labelledby="g-h">
+   <h1 id="g-h" class="vh">Good morning, Mara</h1>
+   <svg class="arch" viewBox="0 0 820 170" aria-hidden="true">
+<defs><path id="arc" d="M60 160 Q410 -20 760 160"/></defs>
+<text font-family="Rockwell,Roboto Slab,Clarendon,Georgia,serif" font-weight="700" font-size="58" letter-spacing="2" text-anchor="middle" transform="translate(4 4)" fill="#c9962e" aria-hidden="true">
+<textPath href="#arc" startOffset="50%" textLength="640" lengthAdjust="spacingAndGlyphs">GOOD MORNING, MARA</textPath></text>
+<text font-family="Rockwell,Roboto Slab,Clarendon,Georgia,serif" font-weight="700" font-size="58" letter-spacing="2" text-anchor="middle" fill="#6e1d17" stroke="#e9c96e" stroke-width="1.5" paint-order="stroke">
+<textPath href="#arc" startOffset="50%" textLength="640" lengthAdjust="spacingAndGlyphs">GOOD MORNING, MARA</textPath></text></svg>
+   <p class="date">Saturday 31 October 2026</p>
+   <p class="urgent"><span ><svg viewBox="0 0 16 16" width="1.1em" height="1.1em" aria-hidden="true"><rect x="1" y="1" width="14" height="14" fill="currentColor"/><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" stroke="#fffaf0" stroke-width="2"/></svg></span>4 tasks are overdue</p>
+  </section>
+  <h2 class="vh">Summary</h2>
+  <ul class="cards"><li class="card" style="--r:-1.2deg"><span class="s" aria-hidden="true">Now showing</span><span class="n">6</span><span class="l">Active projects</span></li><li class="card" style="--r:.8deg"><span class="s" aria-hidden="true">Due this week</span><span class="n">23</span><span class="l">Tasks due this week</span></li><li class="card od" style="--r:-.6deg"><span class="s" aria-hidden="true">Overdue</span><span class="n">4</span><span class="l">Overdue tasks</span></li><li class="card" style="--r:1.1deg"><span class="s" aria-hidden="true">Hours logged</span><span class="n">186</span><span class="l">Hours logged this week</span></li></ul>
+  <div class="lower">
+   <section class="board" aria-labelledby="p-h"><div class="bh"><h2 id="p-h">Projects</h2><p>the full directory</p></div><ul class="dir"><li><div class="lead"><h3>Website redesign</h3><span class="dots" aria-hidden="true"></span><span class="pc">72%</span></div>
+<div class="sub"><span class="cat">Design</span><span class="pin" role="img" aria-label="72 percent complete"><i style="width:calc(72% - 2px)"></i></span><span>18 of 25 tasks</span><span>due 14 Nov</span><span class="st st-on"><svg viewBox="0 0 16 16" width="1.1em" height="1.1em" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="currentColor"/><path d="M4.4 8.2l2.4 2.4 4.8-5" fill="none" stroke="#fffaf0" stroke-width="2"/></svg>On track</span></div></li><li><div class="lead"><h3>Mobile app 2.0</h3><span class="dots" aria-hidden="true"></span><span class="pc">45%</span></div>
+<div class="sub"><span class="cat">Engineering</span><span class="pin" role="img" aria-label="45 percent complete"><i style="width:calc(45% - 2px)"></i></span><span>27 of 60 tasks</span><span>due 2 Dec</span><span class="st st-risk"><svg viewBox="0 0 16 16" width="1.1em" height="1.1em" aria-hidden="true"><path d="M8 1L15.2 14.6H.8z" fill="currentColor"/><path d="M8 5.8v4.2" stroke="#fffaf0" stroke-width="2"/><circle cx="8" cy="12.3" r="1.1" fill="#fffaf0"/></svg>At risk</span></div></li><li><div class="lead"><h3>Q4 customer survey</h3><span class="dots" aria-hidden="true"></span><span class="pc">90%</span></div>
+<div class="sub"><span class="cat">Research</span><span class="pin" role="img" aria-label="90 percent complete"><i style="width:calc(90% - 2px)"></i></span><span>9 of 10 tasks</span><span>due 7 Nov</span><span class="st st-on"><svg viewBox="0 0 16 16" width="1.1em" height="1.1em" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="currentColor"/><path d="M4.4 8.2l2.4 2.4 4.8-5" fill="none" stroke="#fffaf0" stroke-width="2"/></svg>On track</span></div></li><li><div class="lead"><h3>Billing migration</h3><span class="dots" aria-hidden="true"></span><span class="pc">30%</span></div>
+<div class="sub"><span class="cat">Engineering</span><span class="pin" role="img" aria-label="30 percent complete"><i style="width:calc(30% - 2px)"></i></span><span>12 of 40 tasks</span><span>due 20 Nov</span><span class="st st-behind"><svg viewBox="0 0 16 16" width="1.1em" height="1.1em" aria-hidden="true"><rect x="1" y="1" width="14" height="14" fill="currentColor"/><path d="M4.6 4.6l6.8 6.8M11.4 4.6l-6.8 6.8" stroke="#fffaf0" stroke-width="2"/></svg>Behind</span></div></li><li><div class="lead"><h3>Spring catalogue</h3><span class="dots" aria-hidden="true"></span><span class="pc">15%</span></div>
+<div class="sub"><span class="cat">Marketing</span><span class="pin" role="img" aria-label="15 percent complete"><i style="width:calc(15% - 2px)"></i></span><span>3 of 20 tasks</span><span>due 15 Jan</span><span class="st st-on"><svg viewBox="0 0 16 16" width="1.1em" height="1.1em" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="currentColor"/><path d="M4.4 8.2l2.4 2.4 4.8-5" fill="none" stroke="#fffaf0" stroke-width="2"/></svg>On track</span></div></li><li><div class="lead"><h3>Onboarding emails</h3><span class="dots" aria-hidden="true"></span><span class="pc">60%</span></div>
+<div class="sub"><span class="cat">Marketing</span><span class="pin" role="img" aria-label="60 percent complete"><i style="width:calc(60% - 2px)"></i></span><span>9 of 15 tasks</span><span>due 21 Nov</span><span class="st st-on"><svg viewBox="0 0 16 16" width="1.1em" height="1.1em" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="currentColor"/><path d="M4.4 8.2l2.4 2.4 4.8-5" fill="none" stroke="#fffaf0" stroke-width="2"/></svg>On track</span></div></li></ul></section>
+   <div class="side">
+    <section class="board" aria-labelledby="c-h"><div class="bh"><h2 id="c-h">Tasks done</h2><p>18 to 31 October, green then red</p></div><svg viewBox="0 0 400 214" role="img" aria-label="Tasks completed per day from Sunday 18 to Saturday 31 October: Sun 18 3, Mon 19 12, Tue 20 9, Wed 21 14, Thu 22 11, Fri 23 8, Sat 24 2, Sun 25 4, Mon 26 15, Tue 27 13, Wed 28 17, Thu 29 12, Fri 30 10, Sat 31 2. Last week 59, this week 73."><rect x="9" y="149.2" width="19" height="22.8" fill="#c9962e"/><rect x="6" y="146.2" width="19" height="25.8" fill="#1f3d2b"/><rect x="9" y="149.2" width="13" height="19.8" fill="none" stroke="#e9c96e" stroke-width="1"/><text x="15.5" y="140.2" text-anchor="middle" font-size="14" font-weight="700" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#1c1a17">3</text><text x="15.5" y="188" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">SU</text><text x="15.5" y="201" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">18</text><rect x="36" y="71.9" width="19" height="100.1" fill="#c9962e"/><rect x="33" y="68.9" width="19" height="103.1" fill="#1f3d2b"/><rect x="36" y="71.9" width="13" height="97.1" fill="none" stroke="#e9c96e" stroke-width="1"/><text x="42.5" y="62.9" text-anchor="middle" font-size="14" font-weight="700" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#1c1a17">12</text><text x="42.5" y="188" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">MO</text><text x="42.5" y="201" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">19</text><rect x="63" y="97.7" width="19" height="74.3" fill="#c9962e"/><rect x="60" y="94.7" width="19" height="77.3" fill="#1f3d2b"/><rect x="63" y="97.7" width="13" height="71.3" fill="none" stroke="#e9c96e" stroke-width="1"/><text x="69.5" y="88.7" text-anchor="middle" font-size="14" font-weight="700" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#1c1a17">9</text><text x="69.5" y="188" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">TU</text><text x="69.5" y="201" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">20</text><rect x="90" y="54.8" width="19" height="117.2" fill="#c9962e"/><rect x="87" y="51.8" width="19" height="120.2" fill="#1f3d2b"/><rect x="90" y="54.8" width="13" height="114.2" fill="none" stroke="#e9c96e" stroke-width="1"/><text x="96.5" y="45.8" text-anchor="middle" font-size="14" font-weight="700" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#1c1a17">14</text><text x="96.5" y="188" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">WE</text><text x="96.5" y="201" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">21</text><rect x="117" y="80.5" width="19" height="91.5" fill="#c9962e"/><rect x="114" y="77.5" width="19" height="94.5" fill="#1f3d2b"/><rect x="117" y="80.5" width="13" height="88.5" fill="none" stroke="#e9c96e" stroke-width="1"/><text x="123.5" y="71.5" text-anchor="middle" font-size="14" font-weight="700" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#1c1a17">11</text><text x="123.5" y="188" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">TH</text><text x="123.5" y="201" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">22</text><rect x="144" y="106.3" width="19" height="65.7" fill="#c9962e"/><rect x="141" y="103.3" width="19" height="68.7" fill="#1f3d2b"/><rect x="144" y="106.3" width="13" height="62.7" fill="none" stroke="#e9c96e" stroke-width="1"/><text x="150.5" y="97.3" text-anchor="middle" font-size="14" font-weight="700" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#1c1a17">8</text><text x="150.5" y="188" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">FR</text><text x="150.5" y="201" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">23</text><rect x="171" y="157.8" width="19" height="14.2" fill="#c9962e"/><rect x="168" y="154.8" width="19" height="17.2" fill="#1f3d2b"/><rect x="171" y="157.8" width="13" height="11.2" fill="none" stroke="#e9c96e" stroke-width="1"/><text x="177.5" y="148.8" text-anchor="middle" font-size="14" font-weight="700" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#1c1a17">2</text><text x="177.5" y="188" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">SA</text><text x="177.5" y="201" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">24</text><rect x="206" y="140.6" width="19" height="31.4" fill="#c9962e"/><rect x="203" y="137.6" width="19" height="34.4" fill="#6e1d17"/><rect x="206" y="140.6" width="13" height="28.4" fill="none" stroke="#e9c96e" stroke-width="1"/><text x="212.5" y="131.6" text-anchor="middle" font-size="14" font-weight="700" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#1c1a17">4</text><text x="212.5" y="188" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">SU</text><text x="212.5" y="201" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">25</text><rect x="233" y="46.2" width="19" height="125.8" fill="#c9962e"/><rect x="230" y="43.2" width="19" height="128.8" fill="#6e1d17"/><rect x="233" y="46.2" width="13" height="122.8" fill="none" stroke="#e9c96e" stroke-width="1"/><text x="239.5" y="37.2" text-anchor="middle" font-size="14" font-weight="700" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#1c1a17">15</text><text x="239.5" y="188" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">MO</text><text x="239.5" y="201" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">26</text><rect x="260" y="63.4" width="19" height="108.6" fill="#c9962e"/><rect x="257" y="60.4" width="19" height="111.6" fill="#6e1d17"/><rect x="260" y="63.4" width="13" height="105.6" fill="none" stroke="#e9c96e" stroke-width="1"/><text x="266.5" y="54.4" text-anchor="middle" font-size="14" font-weight="700" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#1c1a17">13</text><text x="266.5" y="188" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">TU</text><text x="266.5" y="201" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">27</text><rect x="287" y="29.0" width="19" height="143.0" fill="#c9962e"/><rect x="284" y="26.0" width="19" height="146.0" fill="#6e1d17"/><rect x="287" y="29.0" width="13" height="140.0" fill="none" stroke="#e9c96e" stroke-width="1"/><text x="293.5" y="20.0" text-anchor="middle" font-size="14" font-weight="700" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#1c1a17">17</text><text x="293.5" y="188" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">WE</text><text x="293.5" y="201" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">28</text><rect x="314" y="71.9" width="19" height="100.1" fill="#c9962e"/><rect x="311" y="68.9" width="19" height="103.1" fill="#6e1d17"/><rect x="314" y="71.9" width="13" height="97.1" fill="none" stroke="#e9c96e" stroke-width="1"/><text x="320.5" y="62.9" text-anchor="middle" font-size="14" font-weight="700" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#1c1a17">12</text><text x="320.5" y="188" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">TH</text><text x="320.5" y="201" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">29</text><rect x="341" y="89.1" width="19" height="82.9" fill="#c9962e"/><rect x="338" y="86.1" width="19" height="85.9" fill="#6e1d17"/><rect x="341" y="89.1" width="13" height="79.9" fill="none" stroke="#e9c96e" stroke-width="1"/><text x="347.5" y="80.1" text-anchor="middle" font-size="14" font-weight="700" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#1c1a17">10</text><text x="347.5" y="188" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">FR</text><text x="347.5" y="201" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">30</text><rect x="368" y="157.8" width="19" height="14.2" fill="#c9962e"/><rect x="365" y="154.8" width="19" height="17.2" fill="#6e1d17"/><rect x="368" y="157.8" width="13" height="11.2" fill="none" stroke="#e9c96e" stroke-width="1"/><text x="374.5" y="148.8" text-anchor="middle" font-size="14" font-weight="700" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#1c1a17">2</text><text x="374.5" y="188" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">SA</text><text x="374.5" y="201" text-anchor="middle" font-size="10" font-family="Rockwell,Roboto Slab,Georgia,serif" fill="#5a5246">31</text><line x1="0" x2="400" y1="172" y2="172" stroke="#1c1a17" stroke-width="2"/></svg>
+     <div class="wk"><span><b>59</b>Last week</span><span><b>73</b>This week</span></div></section>
+    <section class="board" aria-labelledby="a-h"><div class="bh"><h2 id="a-h">Lately</h2><p>news from the workshop</p></div><ul class="tick"><li><b>Jonas Weber</b> completed &ldquo;Export invoices as CSV&rdquo; in Billing migration<time>12 min ago</time></li><li><b>Priya Nair</b> commented on &ldquo;Hero image options&rdquo; in Website redesign<time>40 min ago</time></li><li><b>Sam Ortiz</b> moved &ldquo;Push notifications&rdquo; to Review in Mobile app 2.0<time>1 h ago</time></li><li><b>Lena Fischer</b> added 3 tasks to Spring catalogue<time>2 h ago</time></li><li><b>Tomás Ruiz</b> logged 6 h on Mobile app 2.0<time>3 h ago</time></li><li><b>Aiko Tanaka</b> uploaded &ldquo;survey-results-v2.pdf&rdquo; to Q4 customer survey<time>yesterday</time></li></ul></section>
+   </div>
+  </div>
+ </main>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h">
+ <h2 id="sheet-h">Style 153 · Sign painter</h2>
+ <p class="idea">The dashboard is a hand-painted shop front, with a green fascia in gold-leaf letters, the greeting arched across the window, the totals on painted show cards and the projects listed on a lettered directory board.</p>
+ <h3>Palette</h3><ul class="sws"><li class="sw"><span class="chip" style="background:#f5efe1"></span><span class="swn">wall</span><code>#f5efe1</code><span class="swu">the page around the shop front</span></li><li class="sw"><span class="chip" style="background:#fbf8f0"></span><span class="swn">windowGlass</span><code>#fbf8f0</code><span class="swu">the window, fields and search</span></li><li class="sw"><span class="chip" style="background:#1f3d2b"></span><span class="swn">fasciaGreen</span><code>#1f3d2b</code><span class="swu">the fascia, window frame, last week bars and progress stripes</span></li><li class="sw"><span class="chip" style="background:#c9962e"></span><span class="swn">goldLeaf</span><code>#c9962e</code><span class="swu">drop shadows, pinstripes and card shadows, never small text</span></li><li class="sw"><span class="chip" style="background:#e9c96e"></span><span class="swn">paleGold</span><code>#e9c96e</code><span class="swu">gold lettering and lines on green, the greeting outline and the focus halo</span></li><li class="sw"><span class="chip" style="background:#6e1d17"></span><span class="swn">oxblood</span><code>#6e1d17</code><span class="swu">the greeting, script accents, the primary button, overdue, Behind and focus</span></li><li class="sw"><span class="chip" style="background:#1c1a17"></span><span class="swn">signBlack</span><code>#1c1a17</code><span class="swu">block lettering, outlines and leaders</span></li><li class="sw"><span class="chip" style="background:#5a5246"></span><span class="swn">muted</span><code>#5a5246</code><span class="swu">meta and day labels</span></li><li class="sw"><span class="chip" style="background:#fffaf0"></span><span class="swn">showCard</span><code>#fffaf0</code><span class="swu">show cards and boards</span></li><li class="sw"><span class="chip" style="background:#2d5a2a"></span><span class="swn">okGreen</span><code>#2d5a2a</code><span class="swu">On track</span></li><li class="sw"><span class="chip" style="background:#7a5100"></span><span class="swn">riskAmber</span><code>#7a5100</code><span class="swu">At risk</span></li><li class="sw"><span class="chip" style="background:#d8c9a8"></span><span class="swn">rule</span><code>#d8c9a8</code><span class="swu">hairlines between directory lines</span></li></ul>
+ <h3>Type scale</h3><ul class="tys-l"><li class="ty"><span class="tys" style="font:700 44px var(--block);color:var(--board);letter-spacing:.04em;text-shadow:2px 2px 0 var(--gold)">BRIGHTWORK</span><span class="tym">Fascia · Rockwell, Roboto Slab, Clarendon, Georgia · 44px with a gold and black drop shadow</span></li><li class="ty"><span class="tys" style="font:700 40px var(--block);color:var(--ox);text-shadow:3px 3px 0 var(--gold)">GOOD MORNING, MARA</span><span class="tym">Window greeting · 64px caps set on an arc</span></li><li class="ty"><span class="tys" style="font:400 28px var(--script);color:var(--ox)">Now showing</span><span class="tym">Script accents · Brush Script MT, Segoe Script, Apple Chancery · 19 to 30px, never for facts alone</span></li><li class="ty"><span class="tys" style="font:700 64px/1 var(--block);text-shadow:3px 3px 0 var(--gl)">186</span><span class="tym">Show card figures · 64px with a pale gold drop</span></li><li class="ty"><span class="tys" style="font:700 18px var(--block);letter-spacing:.06em">WEBSITE REDESIGN</span><span class="tym">Directory names · 18px caps</span></li><li class="ty"><span class="tys" style="font:16px/1.55 var(--body)">Body text and activity</span><span class="tym">Body · Georgia, Times New Roman · 15 to 16px</span></li></ul>
+ <h3>Spacing, density, corners, borders, shadows, icons, tone</h3><dl class="facts"><dt>Spacing</dt><dd>An 8px unit. 24 to 32px between cards and boards, 12px between directory lines.</dd><dt>Density</dt><dd>Medium. Big showy lettering up top, a tidy directory below.</dd><dt>Corners</dt><dd>Square cards and boards, 3 to 6px on the fascia, buttons and fields, round bell and avatar.</dd><dt>Borders</dt><dd>Gold pinstripes inset in the fascia, the window frame and every board, 2px black around show cards, dotted leaders and double rules.</dd><dt>Shadows</dt><dd>Hard offset drops only, gold under black letters and cards, black under the primary button, like painted shade lines.</dd><dt>Icons</dt><dd>Solid painted shapes. Status uses a ticked circle for On track, a triangle with an exclamation for At risk and a crossed square for Behind, with the caps word.</dd><dt>Tone</dt><dd>A friendly shopkeeper, such as Now showing, the full directory and news from the workshop.</dd></dl>
+ 
+ <h3>Controls · normal and focus</h3>
+<div class="ctls">
+ <div class="ctl"><span class="ctlh">Normal</span>
+  <button type="button" class="btn btn-p">New project</button>
+  <button type="button" class="btn btn-s">Export report</button>
+  <label class="fld"><span>Project name</span><input type="text" value="Website redesign"></label>
+  <div class="lrow"><span>Q4 customer survey</span><span>90%</span></div>
+ </div>
+ <div class="ctl"><span class="ctlh">Focus</span>
+  <button type="button" class="btn btn-p is-focus">New project</button>
+  <button type="button" class="btn btn-s is-focus">Export report</button>
+  <label class="fld"><span>Project name</span><input type="text" class="is-focus" value="Website redesign"></label>
+  <div class="lrow is-focus" tabindex="0"><span>Q4 customer survey</span><span>90%</span></div>
+ </div>
+</div>
+</section>
+</body>
+</html>

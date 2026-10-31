@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 259 · Holographic · Brightwork</title>
+<style>
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.ab-wrap { position: relative; width: 100%; max-width: 760px; margin: 0 auto; }
+.ab-label { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; margin-bottom: 6px; }
+.ab { position: relative; aspect-ratio: 1440 / 820; background: #ffffff; color: #17181c; container-type: inline-size; }
+.ab-in { position: absolute; inset: 0; padding: 6.67cqw; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto auto 1fr; column-gap: 4cqw; align-content: start; }
+.ab-h { grid-column: 1; margin: 0; font: 700 4.4cqw/1.08 system-ui, "Segoe UI", Roboto, Arial, sans-serif; letter-spacing: -0.02em; color: #17181c; }
+.ab-s { grid-column: 1; margin: 1.6cqw 0 0; font: 400 1.6cqw/1.45 system-ui, "Segoe UI", Roboto, Arial, sans-serif; color: #4a4d55; }
+.ab-gap { grid-column: 1; position: relative; height: 2.22cqw; }
+.ab-gap::before { content: ""; position: absolute; left: 1cqw; top: 0; bottom: 0; border-left: 1px solid currentColor; }
+.ab-gap-l { position: absolute; left: 2cqw; top: 50%; transform: translateY(-50%); font: 700 10px/1 system-ui, sans-serif; padding: 1px 4px; }
+.ab-btn { grid-column: 1; justify-self: start; font: 600 1.5cqw/1 system-ui, sans-serif; padding: 1.2cqw 2cqw; background: #1b1d22; color: #ffffff; border-radius: 0.5cqw; }
+.ab-shot { grid-column: 2; grid-row: 1 / 6; align-self: stretch; border: 1px dashed #8a8f99; background: #f1f2f4; display: grid; place-content: center; justify-items: center; gap: 0.8cqw; color: #50545c; font: 500 1.4cqw/1.2 system-ui, sans-serif; }
+.ab-shot svg { width: 4cqw; height: 4cqw; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.hd { position: absolute; width: 8px; height: 8px; margin: -4px; }
+.hd-nw { left: 0; top: 0; } .hd-n { left: 50%; top: 0; } .hd-ne { left: 100%; top: 0; } .hd-e { left: 100%; top: 50%; }
+.hd-se { left: 100%; top: 100%; } .hd-s { left: 50%; top: 100%; } .hd-sw { left: 0; top: 100%; } .hd-w { left: 0; top: 50%; }
+.pin { position: absolute; left: 12%; top: 62%; display: flex; align-items: flex-start; gap: 6px; }
+.pin-card { display: grid; gap: 2px; font-size: 12px; line-height: 1.35; padding: 8px 10px; max-width: 200px; }
+.pin-av { flex: none; width: 28px; height: 28px; display: grid; place-items: center; font: 700 11px/1 system-ui, sans-serif; }
+@media (max-width: 640px) { .pin { left: 6%; top: 70%; } .pin-card { max-width: 160px; font-size: 11px; } }
+
+
+.sheet { padding: 48px max(32px, calc((100% - 1116px) / 2)) 64px; }
+.sheet h2 { margin: 0 0 8px; }
+.sheet h3 { margin: 40px 0 16px; }
+.sheet .idea { margin: 0; max-width: 70ch; }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.sw { display: flex; gap: 12px; align-items: flex-start; }
+.sw i { flex: none; width: 44px; height: 44px; }
+.sw div { display: grid; gap: 2px; font-size: 13px; line-height: 1.35; min-width: 0; }
+.type-row { display: grid; grid-template-columns: 200px 1fr; gap: 16px; align-items: baseline; padding: 10px 0; }
+.type-row > span { min-width: 0; overflow-wrap: anywhere; }
+.facts { display: grid; grid-template-columns: 140px 1fr; gap: 10px 20px; margin: 0; }
+.facts dt { font-weight: 700; } .facts dd { margin: 0; }
+.controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+.ctl { display: grid; gap: 10px; align-content: start; }
+.ctl-pair { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+.ctl-rows { display: grid; gap: 8px; }
+@media (max-width: 640px) {
+  .sheet { padding: 32px 16px 48px; }
+  .type-row { grid-template-columns: 1fr; gap: 4px; }
+  .facts { grid-template-columns: 1fr; gap: 2px; } .facts dd { margin-bottom: 10px; }
+}
+
+
+:root { color-scheme: dark;
+  --void: #06060a; --glass: #0e0e16; --glass2: #151522; --line: #262636;
+  --ink: #f2f2fa; --muted: #a9a9c2; --cyan: #7ef3ff; --lilac: #b9a4ff; --pink: #ff9ad5; --magenta: #b0189a;
+  --foil: linear-gradient(115deg, #7ef3ff, #b9a4ff 30%, #ff9ad5 55%, #ffe39a 75%, #8affc1); --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--void); color: var(--ink); font: 14px/1.5 var(--font); }
+svg.i { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+button, input { font: inherit; color: inherit; }
+:focus-visible, .is-focus { outline: 2px solid var(--cyan); outline-offset: 3px; box-shadow: 0 0 0 6px rgba(126,243,255,0.22); }
+.foil { border: 1px solid transparent; background: linear-gradient(var(--glass), var(--glass)) padding-box, var(--foil) border-box; background-color: var(--glass); }
+.foil-text { background: var(--foil); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.stage { position: relative; overflow: clip; display: grid; grid-template-columns: 264px minmax(0, 1fr) 284px; grid-template-areas: "file tools people" "layers canvas insp" "layers status insp"; grid-template-rows: auto 1fr auto; gap: 20px; padding: 20px; min-height: 860px;
+  background: radial-gradient(40% 40% at 85% 0%, rgba(185,164,255,0.10), transparent 70%), radial-gradient(35% 45% at 5% 100%, rgba(126,243,255,0.08), transparent 70%), var(--void); }
+.cap { border-radius: 999px; display: flex; align-items: center; gap: 10px; padding: 6px 8px; }
+.file { grid-area: file; padding: 6px 18px 6px 6px; justify-self: start; min-width: 0; }
+.orb { width: 34px; height: 34px; border-radius: 50%; background: var(--foil); background-color: #b9a4ff; color: var(--void); display: grid; place-items: center; font-weight: 800; flex: none; }
+.file div { display: grid; line-height: 1.2; min-width: 0; }
+.file small { color: var(--muted); font-size: 11px; letter-spacing: .08em; }
+.file b { font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tools { grid-area: tools; justify-self: center; gap: 2px; }
+.tool { width: 40px; height: 40px; border-radius: 50%; border: 0; background: none; color: var(--muted); display: grid; place-items: center; cursor: pointer; }
+.tool[aria-pressed="true"] { background: var(--foil); background-color: #b9a4ff; color: var(--void); }
+.zoom { height: 40px; padding: 0 14px; border: 0; border-left: 1px solid var(--line); background: none; color: var(--ink); font: 500 13px/1 var(--mono); cursor: pointer; margin-left: 4px; }
+.people { grid-area: people; justify-self: end; }
+.people ul { display: flex; list-style: none; margin: 0; padding: 0 4px; }
+.people li + li { margin-left: -6px; }
+.av { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 700; color: var(--void); border: 2px solid var(--glass); }
+.av-pn { background: #7ef3ff; } .av-mo { background: #c9b9ff; } .av-at { background: #ffb3df; }
+.btn-primary, .btn-secondary { display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 18px; border-radius: 999px; font-weight: 600; font-size: 13px; cursor: pointer; }
+.btn-primary { border: 0; background: var(--foil); background-color: #b9a4ff; color: var(--void); }
+.btn-secondary { color: var(--ink); border: 1px solid transparent; background: linear-gradient(var(--glass2), var(--glass2)) padding-box, var(--foil) border-box; background-color: var(--glass2); }
+.card { border-radius: 22px; align-self: start; box-shadow: 0 20px 50px rgba(0,0,0,.6); }
+.card h2 { margin: 0; padding: 18px 20px 8px; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.card h2 b { font-size: 20px; letter-spacing: -0.01em; text-transform: none; font-weight: 650; }
+.layers { grid-area: layers; padding-bottom: 10px; }
+.lyr { list-style: none; margin: 0; padding: 4px 10px 6px; display: grid; gap: 2px; }
+.lyr button { width: 100%; display: grid; grid-template-columns: 30px 1fr auto; gap: 10px; align-items: center; text-align: left; border: 1px solid transparent; background: none; padding: 8px 10px; border-radius: 14px; cursor: pointer; }
+.lyr .ty { width: 30px; height: 30px; border-radius: 10px; background: var(--glass2); display: grid; place-items: center; color: var(--lilac); }
+.lyr .nm { display: grid; min-width: 0; }
+.lyr .nm b { font-weight: 550; }
+.lyr .nm small { color: var(--muted); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lyr [aria-current="true"] { background: linear-gradient(#1a1a2a, #1a1a2a) padding-box, var(--foil) border-box; background-color: #1a1a2a; }
+.lyr [aria-current="true"] .ty { background: var(--foil); background-color: #b9a4ff; color: var(--void); }
+.state { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; color: var(--cyan); }
+.state svg.i { width: 14px; height: 14px; }
+.collapsed .state { color: var(--muted); }
+.canvas { grid-area: canvas; min-width: 0; padding: 24px 8px 0; position: relative; }
+.canvas figure { margin: 0; }
+.ab-label { color: var(--muted); font-family: var(--mono); } .ab-label span:first-child { color: var(--cyan); }
+.ab { outline: 1px solid var(--lilac); box-shadow: 0 0 0 4px rgba(185,164,255,.12), 0 30px 80px rgba(126,243,255,.08); border-radius: 2px; }
+.hd { background: var(--void); border: 1.5px solid var(--cyan); border-radius: 50%; width: 10px; height: 10px; margin: -5px; }
+.ab-gap { color: var(--magenta); } .ab-gap-l { background: var(--magenta); color: #fff; border-radius: 6px; font-family: var(--mono); }
+.pin-av { border-radius: 50% 50% 50% 4px; background: var(--foil); background-color: #b9a4ff; color: var(--void); }
+.pin-card { border-radius: 14px; color: var(--ink); border: 1px solid transparent; background: linear-gradient(var(--glass), var(--glass)) padding-box, var(--foil) border-box; background-color: var(--glass); box-shadow: 0 12px 30px rgba(0,0,0,.5); }
+.status { grid-area: status; justify-self: center; padding: 8px 20px; gap: 22px; flex-wrap: wrap; justify-content: center; border-radius: 22px; font-size: 13px; color: var(--muted); }
+.status span { display: inline-flex; align-items: center; gap: 8px; }
+.status svg.i { color: var(--cyan); width: 16px; height: 16px; }
+.insp { grid-area: insp; padding-bottom: 18px; }
+.grp { padding: 10px 20px 6px; }
+.grp h3 { margin: 0 0 8px; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+.grp h3 span { color: var(--ink); letter-spacing: 0; text-transform: none; display: inline-flex; gap: 4px; align-items: center; font-size: 12px; }
+.chips { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.chip { display: flex; align-items: center; gap: 8px; height: 38px; padding: 0 12px; border-radius: 12px; background: var(--glass2); border: 1px solid var(--line); }
+.chip span { font: 600 11px/1 var(--mono); color: var(--lilac); }
+.chip input { width: 100%; min-width: 0; background: none; border: 0; font: 500 13px/1 var(--mono); padding: 8px 0; border-radius: 4px; }
+.chip i { width: 16px; height: 16px; border-radius: 50%; background: #fff; flex: none; }
+.full { grid-column: 1 / -1; }
+.insp .btn-secondary { margin: 10px 20px 0; width: calc(100% - 40px); justify-content: center; }
+@media (max-width: 1100px) { .stage { grid-template-columns: 236px minmax(0,1fr) 256px; gap: 14px; padding: 14px; } .people ul { display: none; } .tool { width: 36px; height: 36px; } }
+@media (max-width: 860px) {
+  .stage { grid-template-columns: minmax(0, 1fr); grid-template-areas: "file" "people" "canvas" "status" "layers" "insp" "tools"; grid-template-rows: none; min-height: 0; gap: 14px; padding: 14px 12px; }
+  .people { justify-self: stretch; justify-content: space-between; border-radius: 22px; }
+  .people ul { display: flex; }
+  .file { justify-self: stretch; }
+  .canvas { padding: 8px 0 0; }
+  .tools { position: sticky; bottom: 10px; z-index: 5; justify-self: center; box-shadow: 0 10px 30px rgba(0,0,0,.8); }
+  .status { border-radius: 18px; }
+}
+@media (max-width: 400px) { .tool { width: 34px; height: 36px; } .zoom { padding: 0 8px; } .people .btn-secondary { padding: 0 12px; } .people .btn-primary { padding: 0 14px; } }
+/* sheet */
+.sheet { background: var(--glass); border-top: 1px solid transparent; border-image: var(--foil) 1; }
+.sheet h2 { font-size: 32px; font-weight: 700; letter-spacing: -0.01em; }
+.sheet h3 { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.sheet .idea { font-size: 17px; }
+.sw i { border-radius: 14px; border: 1px solid var(--line); }
+.sw code, .type-row code { font: 12px/1.4 var(--mono); color: var(--cyan); }
+.sw span { color: var(--muted); }
+.type-row { border-bottom: 1px solid var(--line); }
+.facts dt { color: var(--lilac); }
+.ctl-label { font-size: 12px; color: var(--muted); }
+.field { display: grid; gap: 6px; font-size: 12px; color: var(--muted); }
+.field input { width: 120px; height: 38px; border-radius: 12px; background: var(--glass2); border: 1px solid var(--line); padding: 0 12px; color: var(--ink); font: 500 13px var(--mono); }
+.lrow { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 14px; border: 1px solid transparent; background: linear-gradient(#1a1a2a, #1a1a2a) padding-box, var(--foil) border-box; background-color: #1a1a2a; }
+.lrow-kind { display: inline-flex; gap: 6px; align-items: center; font-size: 12px; color: var(--cyan); }
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<symbol id="i-move" viewBox="0 0 24 24"><path d="M5 3l13 8-6 1.5L9 19z"/></symbol>
+<symbol id="i-frame" viewBox="0 0 24 24"><path d="M8 3v18M16 3v18M3 8h18M3 16h18"/></symbol>
+<symbol id="i-rect" viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="1"/></symbol>
+<symbol id="i-text" viewBox="0 0 24 24"><path d="M5 6V4h14v2M12 4v16M9 20h6"/></symbol>
+<symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 3l6 9-6 9-6-9z"/><circle cx="12" cy="12" r="1.6"/><path d="M12 3v7.4"/></symbol>
+<symbol id="i-hand" viewBox="0 0 24 24"><path d="M8 13V6a1.5 1.5 0 0 1 3 0v5M11 11V4.5a1.5 1.5 0 0 1 3 0V11M14 11V6a1.5 1.5 0 0 1 3 0v7c0 4-2.5 7-6 7-2.5 0-4-1.2-5.5-3.5L4 14a1.4 1.4 0 0 1 2.3-1.6L8 14"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24"><circle cx="17" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="17" cy="19" r="2.5"/><path d="M8.3 10.8l6.4-4.4M8.3 13.2l6.4 4.4"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></symbol>
+<symbol id="i-l-frame" viewBox="0 0 24 24"><path d="M8 4v16M16 4v16M4 8h16M4 16h16"/></symbol>
+<symbol id="i-l-text" viewBox="0 0 24 24"><path d="M6 7V5h12v2M12 5v14M9.5 19h5"/></symbol>
+<symbol id="i-l-comp" viewBox="0 0 24 24"><path d="M12 3l4 4-4 4-4-4zM12 13l4 4-4 4-4-4zM7 8l4 4-4 4-4-4zM17 8l4 4-4 4-4-4z"/></symbol>
+<symbol id="i-l-image" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="1.5"/><circle cx="9" cy="10" r="1.6"/><path d="M4 17l5-5 4 4 2.5-2.5L20 18"/></symbol>
+<symbol id="i-chev-r" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+<symbol id="i-chev-d" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+<symbol id="i-sel" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M8.5 12.2l2.4 2.4 4.6-5"/></symbol>
+<symbol id="i-saved" viewBox="0 0 24 24"><path d="M7 18a4.5 4.5 0 0 1-.6-9 6 6 0 0 1 11.5 1.6A3.8 3.8 0 0 1 17.5 18z"/><path d="M9.5 13.2l2 2 3.5-3.8"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><circle cx="17" cy="9.5" r="2.4"/><path d="M15.5 14.4c2.4-.4 4.4 1.2 5 4.6"/></symbol>
+<symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.5V4.5h8l9 9-8 8z"/><circle cx="8" cy="9" r="1.4"/></symbol>
+<symbol id="i-comment" viewBox="0 0 24 24"><path d="M4 5h16v11H10l-4 4v-4H4z"/></symbol>
+<symbol id="i-export" viewBox="0 0 24 24"><path d="M12 15V3M7.5 7.5L12 3l4.5 4.5M5 13v7h14v-7"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v16M6 14l6 6 6-6"/></symbol>
+<symbol id="i-gap" viewBox="0 0 24 24"><path d="M4 4h16M4 20h16M12 8v8M9.5 10.5L12 8l2.5 2.5M9.5 13.5L12 16l2.5-2.5"/></symbol>
+<symbol id="i-pad" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="1"/><rect x="8" y="8" width="8" height="8"/></symbol>
+<symbol id="i-radius" viewBox="0 0 24 24"><path d="M4 20V10a6 6 0 0 1 6-6h10"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol>
+<symbol id="i-zoom" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M8 10.5h5"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 4l9 5-9 5-9-5z"/><path d="M3 14l9 5 9-5"/></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></symbol>
+</svg>
+<div class="stage">
+  <header class="cap foil file"><span class="orb" aria-hidden="true">B</span><div><small>Canvas · Website redesign</small><b>Home v3</b></div></header>
+  <div class="cap foil tools" role="toolbar" aria-label="Tools"><button class="tool" type="button" aria-label="Move tool, V" aria-pressed="true" title="Move"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-move"/></svg></button><button class="tool" type="button" aria-label="Frame tool, F" aria-pressed="false" title="Frame"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-frame"/></svg></button><button class="tool" type="button" aria-label="Rectangle tool, R" aria-pressed="false" title="Rectangle"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-rect"/></svg></button><button class="tool" type="button" aria-label="Text tool, T" aria-pressed="false" title="Text"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-text"/></svg></button><button class="tool" type="button" aria-label="Pen tool, P" aria-pressed="false" title="Pen"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pen"/></svg></button><button class="tool" type="button" aria-label="Hand tool, H" aria-pressed="false" title="Hand"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-hand"/></svg></button><button class="zoom" type="button" aria-label="Zoom 66 percent">66%</button></div>
+  <div class="cap foil people"><ul aria-label="In this file"><li><span class="av av-pn" role="img" aria-label="Priya Nair" title="Priya Nair">PN</span></li><li><span class="av av-mo" role="img" aria-label="Mara Okafor" title="Mara Okafor">MO</span></li><li><span class="av av-at" role="img" aria-label="Aiko Tanaka" title="Aiko Tanaka">AT</span></li></ul><button class="btn-secondary" type="button"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>Present</button><button class="btn-primary" type="button"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-share"/></svg>Share</button></div>
+  <section class="card foil layers" aria-labelledby="lh"><h2 id="lh"><b class="foil-text">Layers</b></h2><ul class="lyr"><li class="selected"><button type="button" aria-current="true"><span class="ty" title="Frame"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-l-frame"/></svg></span><span class="nm"><b>Hero</b><small>Frame</small></span><span class="state"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-sel"/></svg>Selected</span></button></li><li class=""><button type="button"><span class="ty" title="Text"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-l-text"/></svg></span><span class="nm"><b>Headline text</b><small>Every project, on one calm page</small></span></button></li><li class=""><button type="button"><span class="ty" title="Text"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-l-text"/></svg></span><span class="nm"><b>Subline text</b><small>Text</small></span></button></li><li class=""><button type="button"><span class="ty" title="Instance"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-l-comp"/></svg></span><span class="nm"><b>Primary button</b><small>Component instance</small></span></button></li><li class=""><button type="button"><span class="ty" title="Image"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-l-image"/></svg></span><span class="nm"><b>Product screenshot</b><small>Image</small></span></button></li><li class=""><button type="button"><span class="ty" title="Frame"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-l-frame"/></svg></span><span class="nm"><b>Logo strip</b><small>Frame</small></span></button></li><li class="collapsed"><button type="button"><span class="ty" title="Frame"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-l-frame"/></svg></span><span class="nm"><b>Features</b><small>Frame</small></span><span class="state"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-chev-r"/></svg>Collapsed</span></button></li></ul></section>
+  <main class="canvas" aria-label="Canvas"><figure role="img" aria-label="Canvas at 66 percent. The Hero frame, 1440 by 820, is selected with handles on all sides. It shows the headline Every project, on one calm page, a subline, a Start a project button and a product screenshot placeholder. A pink guide marks the 32 px gap above the button. A comment pin from Priya Nair says Try the button in brand green?"><div class="ab-wrap ">
+  <div class="ab-label"><span>Hero</span><span class="ab-size">1440 × 820</span></div>
+  <div class="ab" aria-hidden="true">
+    <div class="ab-in">
+      <p class="ab-h">Every project, on one calm page</p>
+      <p class="ab-s">Plan the work, share the files and see what moved today.</p>
+      <div class="ab-gap"><span class="ab-gap-l">32</span></div>
+      <span class="ab-btn">Start a project</span>
+      <div class="ab-shot"><svg viewBox="0 0 24 24"><use href="#i-l-image"/></svg><span>Product screenshot</span></div>
+    </div>
+    <i class="hd hd-nw"></i><i class="hd hd-n"></i><i class="hd hd-ne"></i><i class="hd hd-e"></i><i class="hd hd-se"></i><i class="hd hd-s"></i><i class="hd hd-sw"></i><i class="hd hd-w"></i>
+  </div>
+  <div class="pin"><span class="pin-av">PN</span><div class="pin-card"><b>Priya Nair</b><span>Try the button in brand green?</span></div></div>
+</div></figure></main>
+  <footer class="cap foil status" aria-label="File status"><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-saved"/></svg>Saved 2 minutes ago</span><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-users"/></svg>3 people editing</span><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>Version 41</span></footer>
+  <aside class="card foil insp" aria-labelledby="ih"><h2 id="ih"><b class="foil-text">Hero</b> Frame</h2>
+    <div class="grp"><h3>Position and size</h3><div class="chips"><label class="chip "><span>X</span><input value="0" aria-label="X position"></label><label class="chip "><span>Y</span><input value="0" aria-label="Y position"></label><label class="chip "><span>W</span><input value="1440" aria-label="Width"></label><label class="chip "><span>H</span><input value="820" aria-label="Height"></label></div></div>
+    <div class="grp"><h3>Fill</h3><div class="chips"><label class="chip full"><i></i><input value="#FFFFFF" aria-label="Fill colour"><span>100%</span></label></div></div>
+    <div class="grp"><h3>Auto layout <span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-down"/></svg>Vertical</span></h3><div class="chips"><label class="chip "><span>Gap</span><input value="32" aria-label="Gap"></label><label class="chip "><span>Pad</span><input value="96" aria-label="Padding"></label></div></div>
+    <div class="grp"><h3>Corner radius</h3><div class="chips"><label class="chip "><span>R</span><input value="0" aria-label="Corner radius"></label></div></div>
+    <div class="grp"><h3>Export</h3><div class="chips"><label class="chip "><span>Fmt</span><input value="PNG" aria-label="Export format"></label><label class="chip "><span>Scale</span><input value="2x" aria-label="Export scale"></label></div></div>
+    <button class="btn-secondary" type="button"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-export"/></svg>Export Hero</button>
+  </aside>
+</div>
+<section class="sheet" aria-labelledby="sheet-h">
+  <h2 id="sheet-h">Style 259 · Holographic</h2>
+  <p class="idea">Floating capsules and glass cards on deep black, each rimmed with a thin iridescent foil edge that shifts from cyan to lilac to pink, so the interface reads as light caught in a hologram while the content stays plain.</p>
+  <h3>Palette</h3>
+  <ul class="swatches">
+<li class="sw"><i style="background:#06060a"></i><div><b>Void</b><code>#06060a</code><span>page and canvas</span></div></li>
+<li class="sw"><i style="background:#0e0e16"></i><div><b>Glass</b><code>#0e0e16</code><span>capsules, cards, this sheet</span></div></li>
+<li class="sw"><i style="background:#151522"></i><div><b>Glass raised</b><code>#151522</code><span>fields, layer icon tiles, Present</span></div></li>
+<li class="sw"><i style="background:#1a1a2a"></i><div><b>Selected glass</b><code>#1a1a2a</code><span>the selected layer inside its foil rim</span></div></li>
+<li class="sw"><i style="background:#262636"></i><div><b>Line</b><code>#262636</code><span>field borders and dividers</span></div></li>
+<li class="sw"><i style="background:#f2f2fa"></i><div><b>Ink</b><code>#f2f2fa</code><span>text</span></div></li>
+<li class="sw"><i style="background:#a9a9c2"></i><div><b>Mist</b><code>#a9a9c2</code><span>meta, labels, status</span></div></li>
+<li class="sw"><i style="background:#7ef3ff"></i><div><b>Foil cyan</b><code>#7ef3ff</code><span>foil start, handles, status icons, focus</span></div></li>
+<li class="sw"><i style="background:#b9a4ff"></i><div><b>Foil lilac</b><code>#b9a4ff</code><span>foil middle, field keys, frame outline</span></div></li>
+<li class="sw"><i style="background:#ff9ad5"></i><div><b>Foil pink</b><code>#ff9ad5</code><span>foil warm stop</span></div></li>
+<li class="sw"><i style="background:#ffe39a"></i><div><b>Foil gold</b><code>#ffe39a</code><span>foil highlight stop</span></div></li>
+<li class="sw"><i style="background:#8affc1"></i><div><b>Foil mint</b><code>#8affc1</code><span>foil end</span></div></li>
+<li class="sw"><i style="background:#b0189a"></i><div><b>Magenta</b><code>#b0189a</code><span>the 32 px guide on the white frame</span></div></li>
+  </ul>
+  <h3>Type · system-ui, Segoe UI, Roboto for text; ui-monospace for values</h3>
+<div class="type-row"><code>32 / 700</code><span style="font-size:32px;font-weight:700">Website redesign</span></div>
+<div class="type-row"><code>20 / 650 foil text</code><span style="font-size:20px;font-weight:650;background:linear-gradient(115deg, #7ef3ff, #b9a4ff 30%, #ff9ad5 55%, #ffe39a 75%, #8affc1);-webkit-background-clip:text;background-clip:text;color:transparent">Layers</span></div>
+<div class="type-row"><code>14 / 550</code><span style="font-weight:550">Product screenshot</span></div>
+<div class="type-row"><code>13 / 500 mono values</code><span style="font:500 13px var(--mono)">1440 · 820 · #FFFFFF</span></div>
+<div class="type-row"><code>12 / 400 mist</code><span style="font-size:12px;color:var(--muted)">Component instance</span></div>
+<div class="type-row"><code>11 / 600 caps 0.16em</code><span style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">Auto layout</span></div>
+  <h3>Spacing, density and depth</h3>
+  <dl class="facts">
+<dt>Spacing</dt><dd>8px unit. 20px between floating pieces, 20px card padding, 8px between chips.</dd>
+<dt>Density</dt><dd>Light to medium. Everything floats with black showing between.</dd>
+<dt>Corners</dt><dd>Very round. 22px cards, 14px rows, 12px chips, full capsules for bars and buttons.</dd>
+<dt>Borders</dt><dd>A 1px iridescent foil rim on every capsule, card, the selected row and the comment. Plain 1px lines inside.</dd>
+<dt>Shadows</dt><dd>Soft black 0 20px 50px under cards and a faint cyan bloom under the frame.</dd>
+<dt>Icons</dt><dd>18px round line icons at 1.5 stroke, in 30px tiles in the layer list. Selected is a circled check, Collapsed a right chevron, Saved a cloud with a check.</dd>
+<dt>Focus</dt><dd>2px cyan outline offset 3px with a 6px cyan haze.</dd>
+<dt>Tone</dt><dd>Light and modern. Short labels such as Pad, Fmt, Saved 2 minutes ago.</dd>
+  </dl>
+  <h3>Controls · normal and focus</h3>
+  <div class="controls">
+<div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-primary" type="button"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-share"/></svg>Share</button><button class="btn-primary is-focus" type="button"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-share"/></svg>Share</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-secondary" type="button"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>Present</button><button class="btn-secondary is-focus" type="button"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>Present</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="field"><span>Gap</span><input value="32"></label><label class="field"><span>Gap, focused</span><input class="is-focus" value="32"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-rows"><div class="lrow"><span class="lrow-name">Hero</span><span class="lrow-kind"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-l-frame"/></svg>Frame</span></div><div class="lrow is-focus"><span class="lrow-name">Hero</span><span class="lrow-kind"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-l-frame"/></svg>Frame</span></div></div></div>
+  </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 346 · Rounded bubbles · Brightwork</title>
+<style>
+:root{color-scheme:dark;--page:#1b1530;--card:#261e42;--pill:#342a57;--line:#4a3f78;--ink:#f4efff;--muted:#bfb3e0;--own:#ff9e7a;--onOwn:#3a1206;--teal:#154a4a;--berry:#4d2149;--blue:#1e3462;--sun:#ffd166;--onSun:#3a2a00;--mint:#7ef0c0;--font:ui-rounded,"SF Pro Rounded","Nunito","Varela Round",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:15px/1.45 var(--font)}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+:focus-visible,.is-focus{outline:3px solid var(--sun);outline-offset:3px}
+.app{display:grid;grid-template-columns:260px minmax(0,1fr);gap:20px;padding:20px;max-width:1240px;margin:0 auto}
+.side{background:var(--card);border-radius:28px;padding:20px;display:flex;flex-direction:column;gap:18px;align-self:start}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px}
+.blob{width:40px;height:40px;border-radius:50%;background:var(--own);color:var(--onOwn);display:grid;place-items:center;font-weight:900;font-size:18px}
+.side h2{margin:0 0 8px;font-size:13px;color:var(--muted);font-weight:700}
+.side ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.side a{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:var(--pill);color:var(--muted);font-weight:600}
+.side a.un{color:var(--ink);font-weight:800}
+.side a[aria-current]{background:var(--sun);color:var(--onSun);font-weight:800}
+.side a .h{opacity:.9}
+.bd{margin-left:auto;border-radius:999px;font-size:12px;font-weight:800;padding:1px 9px}
+.bd.n{background:var(--mint);color:#063322}
+.bd.m{background:var(--own);color:var(--onOwn)}
+.pres{margin-left:auto;font-size:12px;font-weight:600;color:var(--muted);display:flex;gap:4px;align-items:center}
+.av{width:36px;height:36px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:800;font-size:13px;color:#1b1530}
+.a-pn{background:#7ee0d6}.a-at{background:#f5a3dc}.a-jw{background:#9cc0ff}.a-mo{background:#ffc2a8}
+.side .av{width:26px;height:26px;font-size:11px}
+.main{background:var(--card);border-radius:28px;display:flex;flex-direction:column;min-width:0;overflow:hidden}
+.head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:2px solid var(--pill)}
+.head .ic{width:40px;height:40px;border-radius:14px;background:var(--sun);color:var(--onSun);display:grid;place-items:center;font-weight:900;font-size:20px}
+.head h1{margin:0;font-size:19px;font-weight:800}
+.head p{margin:0;font-size:13px;color:var(--muted)}
+.feed{list-style:none;margin:0;padding:20px;display:flex;flex-direction:column;gap:14px;flex:1}
+.m{display:flex;gap:10px;align-items:flex-end;max-width:78%}
+.m.own{align-self:flex-end;flex-direction:row-reverse}
+.bub{border-radius:22px 22px 22px 6px;padding:10px 16px;min-width:0}
+.own .bub{border-radius:22px 22px 6px 22px;background:var(--own);color:var(--onOwn)}
+.b-pn{background:var(--teal)}.b-at{background:var(--berry)}.b-jw{background:var(--blue)}
+.bub .who{font-size:13px;font-weight:800;display:flex;gap:8px;align-items:baseline}
+.bub .who time{font-weight:600;opacity:.92;font-size:12px}
+.bub p{margin:2px 0 0}
+.pic{display:block;margin-top:8px;border-radius:18px;overflow:hidden;background:#0f2e2e}
+.pic svg{display:block;width:100%;max-width:300px;height:auto}
+.pic span{display:flex;align-items:center;gap:6px;padding:6px 12px;font-size:13px;font-weight:700}
+.extras{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.rp{display:inline-flex;align-items:center;gap:5px;background:var(--pill);border:2px solid var(--line);border-radius:999px;padding:2px 10px;font-size:13px;font-weight:800;color:var(--ink)}
+.rp.mine{border-color:var(--sun)}
+.rp.th{background:var(--sun);border-color:var(--sun);color:var(--onSun)}
+.typing{display:flex;gap:10px;align-items:center;padding:0 20px 8px;font-size:13px;color:var(--muted);font-weight:700}
+.dots{background:var(--pill);border-radius:999px;padding:8px 12px;display:flex;gap:4px}
+.dots i{width:7px;height:7px;border-radius:50%;background:var(--muted)}
+.comp{display:flex;gap:8px;align-items:center;margin:0 16px 16px;background:var(--pill);border-radius:999px;padding:6px}
+.comp:focus-within{outline:3px solid var(--sun);outline-offset:3px}
+.comp input{flex:1;min-width:0;border:0;background:transparent;padding:8px 6px;outline:none}
+.comp input::placeholder{color:var(--muted)}
+.rb{width:40px;height:40px;border-radius:50%;border:0;background:var(--card);display:grid;place-items:center;cursor:pointer;flex:none}
+.rb.send{background:var(--own);color:var(--onOwn)}
+/* sheet */
+.sheet{max-width:1240px;margin:0 auto;padding:40px 20px 72px}
+.sheet h2{font-size:30px;font-weight:900;margin:0 0 8px}
+.idea{color:var(--muted);max-width:64ch;margin:0;font-size:16px}
+.sheet h3{font-size:16px;font-weight:800;margin:40px 0 14px;display:inline-block;background:var(--pill);padding:4px 14px;border-radius:999px}
+.sw{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.sw li{background:var(--card);border-radius:22px;padding:12px;display:flex;flex-direction:column;gap:2px;font-size:13px}
+.sw i{height:44px;border-radius:16px;margin-bottom:8px;border:2px solid var(--line)}
+.sw b{font-weight:800}.sw code{color:var(--muted);font-family:ui-monospace,Menlo,monospace}.sw span{color:var(--muted)}
+.ts{background:var(--card);border-radius:22px;padding:16px 20px;display:grid;gap:10px}
+.ts div{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:baseline}
+.ts code,.facts dt{color:var(--muted);font-size:13px;font-weight:700}
+.facts{background:var(--card);border-radius:22px;padding:16px 20px;display:grid;grid-template-columns:150px 1fr;gap:10px 16px;margin:0}
+.facts dd{margin:0}
+.ctrls{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.ctrls>div{background:var(--card);border-radius:22px;padding:16px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.ctrls h4{margin:0;font-size:13px;color:var(--muted)}
+.btn{border-radius:999px;padding:9px 20px;font-weight:800;border:0;cursor:pointer}
+.btn.p{background:var(--own);color:var(--onOwn)}
+.btn.s{background:var(--pill);color:var(--ink);box-shadow:inset 0 0 0 2px var(--line)}
+.fld{display:grid;gap:4px;font-size:13px;color:var(--muted);font-weight:700;width:100%}
+.fld input{background:var(--pill);border:0;border-radius:999px;padding:9px 14px;color:var(--ink)}
+.row{display:flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:var(--pill);color:var(--muted);font-weight:600;width:100%}
+@media (max-width:820px){
+ .app{grid-template-columns:minmax(0,1fr);padding:12px;gap:12px}
+ .side{border-radius:24px;padding:14px}
+ .side ul{flex-direction:row;flex-wrap:wrap}
+ .side .pres{margin-left:2px}
+ .m{max-width:92%}
+ .feed{padding:14px}.head{padding:12px 14px}
+ .comp{margin:0 10px 12px}
+ .sheet{padding:32px 16px 56px}
+ .ts div,.facts{grid-template-columns:1fr;gap:2px}.facts dd{margin-bottom:8px}
+}
+.fld input{width:100%;min-width:0}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M7 11v9H4v-9zM7 11l4-8c1.6 0 2.6 1.2 2.2 2.8L12.6 9H19a2 2 0 0 1 2 2.3l-1.2 6.8A2.3 2.3 0 0 1 17.6 20H7"/></symbol>
+ <symbol id="eyes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="7.5" cy="12" rx="4.5" ry="6"/><ellipse cx="16.5" cy="12" rx="4.5" ry="6"/><circle cx="8.5" cy="13" r="1.8" fill="currentColor"/><circle cx="17.5" cy="13" r="1.8" fill="currentColor"/></symbol>
+</svg>
+<div class="app">
+ <nav class="side" aria-label="Workspace">
+  <div class="brand"><span class="blob" aria-hidden="true">b</span>Brightwork Chat</div>
+  <div><h2>Channels</h2><ul>
+   <li><a href="#"><span class="h">#</span>general</a></li>
+   <li><a href="#" aria-current="page"><span class="h">#</span>design-crit</a></li>
+   <li><a href="#" class="un"><span class="h">#</span>mobile-release<span class="bd n" aria-label="4 unread">4 new</span></a></li>
+   <li><a href="#" class="un"><span class="h">#</span>billing-war-room<span class="bd m" aria-label="1 mention">@ 1</span></a></li>
+   <li><a href="#"><span class="h">#</span>random</a></li>
+  </ul></div>
+  <div><h2>Direct messages</h2><ul>
+   <li><a href="#"><span class="av a-pn" aria-hidden="true">PN</span>Priya Nair<span class="pres"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="5" fill="#7ef0c0"/></svg>online</span></a></li>
+   <li><a href="#"><span class="av a-jw" aria-hidden="true">JW</span>Jonas Weber<span class="pres"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M5 0a5 5 0 1 0 5 5A3.8 3.8 0 0 1 5 0z" fill="#ffd166"/></svg>away</span></a></li>
+   <li><a href="#"><span class="av a-at" aria-hidden="true">AT</span>Aiko Tanaka<span class="pres"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="3.8" fill="none" stroke="#bfb3e0" stroke-width="2"/></svg>offline</span></a></li>
+  </ul></div>
+ </nav>
+ <main class="main">
+  <div class="head"><span class="ic" aria-hidden="true">#</span><div><h1>design-crit</h1><p>Today</p></div></div>
+  <ol class="feed" aria-label="Messages in design-crit">
+   <li class="m"><span class="av a-pn" aria-hidden="true">PN</span><div class="bub b-pn"><div class="who">Priya Nair <time>09:02</time></div><p>Three hero options are up in Canvas. Thoughts by Monday?</p></div></li>
+   <li class="m"><span class="av a-at" aria-hidden="true">AT</span><div class="bub b-at"><div class="who">Aiko Tanaka <time>09:05</time></div><p>B reads best on phones. A feels busy.</p>
+    <div class="extras"><span class="rp mine" aria-label="Thumbs up, 3 people, including you"><svg width="15" height="15" aria-hidden="true"><use href="#up"/></svg>3</span><span class="rp" aria-label="Eyes, 1 person"><svg width="15" height="15" aria-hidden="true"><use href="#eyes"/></svg>1</span><a class="rp th" href="#">3 replies →</a></div></div></li>
+   <li class="m own"><span class="av a-mo" aria-hidden="true">MO</span><div class="bub"><div class="who">Mara Okafor (you) <time>09:11</time></div><p>Agree on B. Can we try the button in brand green?</p></div></li>
+   <li class="m"><span class="av a-pn" aria-hidden="true">PN</span><div class="bub b-pn"><div class="who">Priya Nair <time>09:12</time></div>
+    <a class="pic" href="#"><svg viewBox="0 0 300 160" role="img" aria-label="Preview of homepage-hero-B.png, a rounded headline card with a pill button"><rect width="300" height="160" fill="#0f2e2e"/><rect x="18" y="18" width="264" height="124" rx="22" fill="#1f5555"/><rect x="38" y="44" width="140" height="14" rx="7" fill="#e8fffb"/><rect x="38" y="66" width="100" height="10" rx="5" fill="#9fd8d0"/><rect x="38" y="94" width="76" height="26" rx="13" fill="#7ef0c0"/><circle cx="230" cy="80" r="34" fill="#2c6c6c"/></svg><span>Image · homepage-hero-B.png</span></a></div></li>
+   <li class="m"><span class="av a-jw" aria-hidden="true">JW</span><div class="bub b-jw"><div class="who">Jonas Weber <time>09:20</time></div><p>Unrelated, billing deploy is at 11:00, heads up</p></div></li>
+  </ol>
+  <div class="typing"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>Priya is typing</div>
+  <form class="comp" action="#">
+   <button type="button" class="rb" aria-label="Attach a file"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+   <input aria-label="Message #design-crit" placeholder="Message #design-crit">
+   <button type="button" class="rb" aria-label="Add emoji"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c1.8 2 5.2 2 7 0"/><path d="M9 9.5h.01M15 9.5h.01" stroke-width="3"/></svg></button>
+   <button type="submit" class="rb send" aria-label="Send message"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+  </form>
+ </main>
+</div>
+
+<section class="sheet" aria-labelledby="sh">
+ <h2 id="sh">Style 346 · Rounded bubbles</h2>
+ <p class="idea">A friendly messenger on deep plum where every person speaks in their own softly coloured bubble, your own words glow coral on the right, and every shape is a pill or a circle.</p>
+ <h3>Palette</h3>
+ <ul class="sw">
+  <li><i style="background:#1b1530"></i><b>plum</b><code>#1b1530</code><span>Page and sheet</span></li>
+  <li><i style="background:#261e42"></i><b>card</b><code>#261e42</code><span>Sidebar and chat cards</span></li>
+  <li><i style="background:#342a57"></i><b>pill</b><code>#342a57</code><span>Channel pills, composer, chips</span></li>
+  <li><i style="background:#4a3f78"></i><b>line</b><code>#4a3f78</code><span>Chip rims and swatch rims</span></li>
+  <li><i style="background:#f4efff"></i><b>ink</b><code>#f4efff</code><span>Text in bubbles and cards</span></li>
+  <li><i style="background:#bfb3e0"></i><b>muted</b><code>#bfb3e0</code><span>Labels, presence words</span></li>
+  <li><i style="background:#ff9e7a"></i><b>coral</b><code>#ff9e7a</code><span>Your bubble, Send, mentions</span></li>
+  <li><i style="background:#ffd166"></i><b>sun</b><code>#ffd166</code><span>Current channel, thread chip, focus</span></li>
+  <li><i style="background:#7ef0c0"></i><b>mint</b><code>#7ef0c0</code><span>New count, online dot</span></li>
+  <li><i style="background:#154a4a"></i><b>teal</b><code>#154a4a</code><span>Priya's bubbles</span></li>
+  <li><i style="background:#4d2149"></i><b>berry</b><code>#4d2149</code><span>Aiko's bubbles</span></li>
+  <li><i style="background:#1e3462"></i><b>blue</b><code>#1e3462</code><span>Jonas's bubbles</span></li>
+ </ul>
+ <h3>Type</h3>
+ <div class="ts">
+  <div><code>30 / 900</code><span style="font-size:30px;font-weight:900">design-crit</span></div>
+  <div><code>19 / 800</code><span style="font-size:19px;font-weight:800">Channel title</span></div>
+  <div><code>15 / 400 / 1.45</code><span>B reads best on phones. A feels busy.</span></div>
+  <div><code>13 / 800</code><b style="font-size:13px;font-weight:800">Aiko Tanaka 09:05</b></div>
+  <div><code>stack</code><span style="font-size:13px;color:var(--muted)">ui-rounded, SF Pro Rounded, Nunito, Varela Round, system-ui, Segoe UI, Roboto</span></div>
+ </div>
+ <h3>Spacing and shape</h3>
+ <dl class="facts">
+  <dt>Spacing</dt><dd>8px unit. 14px between bubbles, 10px 16px bubble padding, 20px card padding.</dd>
+  <dt>Density</dt><dd>Relaxed. Bubbles cap at 78 percent width so the feed zigzags.</dd>
+  <dt>Corners</dt><dd>28px cards, 22px bubbles with one 6px tail corner, pills and circles elsewhere.</dd>
+  <dt>Borders</dt><dd>Almost none. 2px rims on chips only, and a 2px pill line under the header.</dd>
+  <dt>Shadows</dt><dd>None. Colour blocks carry depth.</dd>
+  <dt>Icons</dt><dd>Chunky rounded line icons at 2.2 stroke inside 40px circles.</dd>
+  <dt>Focus</dt><dd>3px sun yellow outline offset 3px, wrapping the whole composer pill.</dd>
+  <dt>Tone</dt><dd>Warm and casual, such as 4 new, Mara Okafor (you) and 3 replies →.</dd>
+ </dl>
+ <h3>Controls · normal and focus</h3>
+ <div class="ctrls">
+  <div><h4>Primary</h4><button class="btn p">Send</button><button class="btn p is-focus">Send</button></div>
+  <div><h4>Secondary</h4><button class="btn s">Open thread</button><button class="btn s is-focus">Open thread</button></div>
+  <div><h4>Text field</h4><label class="fld">Channel name<input value="design-crit"></label><label class="fld">Channel name<input class="is-focus" value="design-crit"></label></div>
+  <div><h4>List row</h4><a class="row" href="#"># general</a><a class="row is-focus" href="#"># general</a></div>
+ </div>
+</section>
+</body>
+</html>

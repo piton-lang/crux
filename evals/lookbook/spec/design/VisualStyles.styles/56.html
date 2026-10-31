@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 56 · Thermal receipt · Brightwork</title>
+<style>
+:root{
+  --counter:#dcdad4; --roll:#fbfbf8; --print:#232323; --thermal:#585858; --faint:#bdbdb8;
+  --fade:#ecece7; --stamp:#9c1f3c;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,"DejaVu Sans Mono","Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--counter);color:var(--print);font:14px/1.5 var(--mono)}
+button,input,textarea{font:inherit;color:inherit}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--print);outline-offset:2px;box-shadow:0 0 0 5px var(--roll)}
+
+.top{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px;padding:24px 16px 0;font-size:12px;color:var(--thermal);text-transform:uppercase;letter-spacing:.12em}
+.counter{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:40px;padding:24px 16px 48px}
+
+.receipt{width:100%;max-width:360px;background:var(--roll);padding:24px 20px 28px;position:relative;filter:drop-shadow(0 6px 10px rgba(0,0,0,.12))}
+.receipt.wide{max-width:420px}
+.receipt::before,.receipt::after{content:"";position:absolute;left:0;right:0;height:10px;background:linear-gradient(-45deg,transparent 7px,var(--roll) 0) 0 0/14px 10px repeat-x,linear-gradient(45deg,transparent 7px,var(--roll) 0) 0 0/14px 10px repeat-x}
+.receipt::before{top:-10px;transform:scaleY(-1)}
+.receipt::after{bottom:-10px}
+.c{text-align:center}
+.hdr{text-align:center;text-transform:uppercase}
+.hdr .brand{color:var(--print);font-size:22px;font-weight:800;letter-spacing:.3em;margin:0}
+.hdr .logo{display:inline-block;border:2px solid var(--print);padding:2px 8px;margin-bottom:6px;font-weight:800}
+.hdr p{margin:2px 0;font-size:12px;color:var(--thermal)}
+.tear{border:0;border-top:2px dashed var(--faint);margin:14px 0}
+.dbl{border:0;border-top:3px double var(--print);margin:14px 0}
+h1,h2{font-size:14px;text-transform:uppercase;letter-spacing:.2em;text-align:center;margin:0}
+
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;list-style:none;padding:0;margin:8px 0 0}
+.modes a{display:flex;gap:8px;text-decoration:none;text-transform:uppercase;font-size:13px;padding:2px 4px}
+.modes a[aria-current]{background:var(--print);color:var(--roll);font-weight:700}
+
+.items{list-style:none;margin:0;padding:0}
+.item a{display:block;text-decoration:none;padding:8px 4px;border-bottom:1px dotted var(--faint)}
+.item:last-child a{border-bottom:0}
+.item .l{display:flex;gap:8px;text-transform:uppercase;font-weight:700}
+.item .l .dots{flex:1;overflow:hidden;white-space:nowrap;color:var(--faint);font-weight:400}
+.item .l .dots::after{content:"................................................................"}
+.item .t{display:block;font-size:13px}
+.item .p{display:block;font-size:12px;color:var(--thermal)}
+.item .flag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.08em;margin-top:2px}
+.flag.u{border:1.5px solid var(--print);padding:0 4px}
+.flag.d{background:var(--print);color:var(--roll);padding:0 4px}
+.flag.o{color:var(--stamp);border:1.5px dashed var(--stamp);padding:0 4px}
+.item.read .l,.item.read .t{color:var(--thermal)}
+.item.open a{background:var(--fade)}
+.sum{display:flex;justify-content:space-between;text-transform:uppercase;font-size:13px}
+.sum.big{font-weight:800;font-size:16px}
+
+.barcode{height:48px;margin:16px auto 4px;max-width:240px;background:repeating-linear-gradient(90deg,var(--print) 0 2px,transparent 2px 4px,var(--print) 4px 5px,transparent 5px 8px,var(--print) 8px 11px,transparent 11px 12px,var(--print) 12px 13px,transparent 13px 16px,var(--print) 16px 18px,transparent 18px 21px)}
+.code{font-size:11px;letter-spacing:.3em;text-align:center;color:var(--thermal);margin:0}
+
+.kv{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 12px;text-transform:uppercase;font-size:13px;margin:0}
+.kv dt{color:var(--thermal)}
+.kv dd{margin:0;text-align:right}
+.msg{font-size:15px;line-height:1.6;margin:12px 0;border-left:3px solid var(--print);padding-left:10px}
+.thumbs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.thumbs figure{margin:0;text-align:center;font-size:11px;text-transform:uppercase;font-weight:700}
+.thumbs svg{display:block;width:100%;height:auto;border:1.5px solid var(--print)}
+.thumbs figcaption{padding-top:2px}
+.reply label{display:block;text-transform:uppercase;font-size:12px;font-weight:700;letter-spacing:.1em;margin-bottom:4px}
+.reply textarea{display:block;width:100%;min-height:72px;border:1.5px dashed var(--print);background:transparent;padding:8px;resize:vertical}
+.reply textarea:focus{outline:2px solid var(--print);outline-offset:2px;border-style:solid}
+.btns{display:grid;gap:6px;margin-top:12px}
+.btn{display:block;width:100%;text-align:center;text-transform:uppercase;letter-spacing:.15em;font-weight:800;padding:10px;border:2px solid var(--print);background:transparent;cursor:pointer;text-decoration:none;font-size:13px}
+.btn.pri{background:var(--print);color:var(--roll)}
+.thanks{text-align:center;text-transform:uppercase;font-size:12px;color:var(--thermal);margin:12px 0 0}
+
+/* sheet */
+.sheet{max-width:1000px;margin:0 auto 64px;padding:32px;background:var(--roll);position:relative}
+.sheet h2{font-size:18px;text-align:left;letter-spacing:.15em}
+.sheet h3{font-size:13px;text-transform:uppercase;letter-spacing:.2em;margin:24px 0 8px;border-bottom:2px dashed var(--faint);padding-bottom:4px}
+.sheet .idea{margin:8px 0 0;max-width:720px;color:var(--thermal)}
+.sw{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px 16px}
+.sw li{display:flex;gap:10px;align-items:center;font-size:12px}
+.sw i{width:36px;height:36px;flex:none;border:1.5px solid var(--print)}
+.sw b{display:block;text-transform:uppercase;font-size:13px}
+.ty{display:flex;flex-wrap:wrap;gap:16px;align-items:baseline;border-bottom:1px dotted var(--faint);padding:6px 0}
+.ty code{font:12px var(--mono);color:var(--thermal);min-width:160px}
+.facts{display:grid;grid-template-columns:9em minmax(0,1fr);gap:4px 16px;margin:0;font-size:13px}
+.facts dt{text-transform:uppercase;font-weight:700}.facts dd{margin:0;color:var(--thermal)}
+.ctls{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.cl{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--thermal);margin-bottom:6px}
+.is-focus{outline:2px solid var(--print);outline-offset:2px;box-shadow:0 0 0 5px var(--roll),0 0 0 7px var(--faint)}
+.fld{display:block;font-size:12px;font-weight:700;text-transform:uppercase}
+.fld input{display:block;width:100%;margin-top:4px;border:1.5px dashed var(--print);background:transparent;padding:8px;font-weight:400;text-transform:none}
+.fld input.is-focus{border-style:solid}
+.demo{border-bottom:1px dotted var(--faint);padding:6px 4px;display:flex;gap:8px;align-items:center;text-transform:uppercase;font-size:13px}
+@media (max-width:600px){.sheet{padding:20px 16px}.facts{grid-template-columns:minmax(0,1fr)}.facts dd{margin-bottom:6px}.counter{gap:32px}}
+</style>
+</head>
+<body>
+<div class="top"><span>Brightwork · terminal 01</span><span>Operator · Mara Okafor</span></div>
+
+<main class="counter">
+  <section class="receipt" aria-labelledby="inbox-h">
+    <div class="hdr">
+      <span class="logo" aria-hidden="true">BW</span>
+      <p class="brand">Brightwork</p>
+      <p>Project tracker for small teams</p>
+      <p>Printed for Mara Okafor</p>
+    </div>
+    <hr class="dbl">
+    <h1 id="inbox-h">Inbox</h1>
+    <nav aria-label="Filter the inbox">
+      <ul class="modes">
+        <li><a href="#" aria-current="page"><span aria-hidden="true">[x]</span>All</a></li>
+        <li><a href="#"><span aria-hidden="true">[ ]</span>Mentions</a></li>
+        <li><a href="#"><span aria-hidden="true">[ ]</span>Assigned</a></li>
+        <li><a href="#"><span aria-hidden="true">[ ]</span>Unread (3)</a></li>
+      </ul>
+    </nav>
+    <hr class="tear">
+    <ul class="items">
+      <li class="item open"><a href="#" aria-current="true">
+        <span class="l"><span>01 Mention</span><span class="dots" aria-hidden="true"></span><span>40 min</span></span>
+        <span class="t">Priya Nair mentioned you in Hero image options</span>
+        <span class="p">Website redesign</span>
+        <span class="flag u">* UNREAD</span> <span class="flag o">&gt; OPEN</span></a></li>
+      <li class="item"><a href="#">
+        <span class="l"><span>02 Completed</span><span class="dots" aria-hidden="true"></span><span>12 min</span></span>
+        <span class="t">Jonas Weber completed Export invoices as CSV</span>
+        <span class="p">Billing migration</span>
+        <span class="flag u">* UNREAD</span> <span class="flag d">&#10003; DONE</span></a></li>
+      <li class="item"><a href="#">
+        <span class="l"><span>03 Review</span><span class="dots" aria-hidden="true"></span><span>1 h</span></span>
+        <span class="t">Sam Ortiz asked for review on Push notifications</span>
+        <span class="p">Mobile app 2.0</span>
+        <span class="flag u">* UNREAD</span></a></li>
+      <li class="item read"><a href="#">
+        <span class="l"><span>04 Assigned</span><span class="dots" aria-hidden="true"></span><span>2 h</span></span>
+        <span class="t">Lena Fischer assigned you Write welcome email 2</span>
+        <span class="p">Onboarding emails</span></a></li>
+      <li class="item read"><a href="#">
+        <span class="l"><span>05 Report</span><span class="dots" aria-hidden="true"></span><span>Yest.</span></span>
+        <span class="t">Weekly report for 19 to 25 October is ready</span></a></li>
+      <li class="item read"><a href="#">
+        <span class="l"><span>06 File</span><span class="dots" aria-hidden="true"></span><span>Yest.</span></span>
+        <span class="t">Aiko Tanaka shared survey-results-v2.pdf</span>
+        <span class="p">Q4 customer survey</span></a></li>
+    </ul>
+    <hr class="tear">
+    <div class="sum"><span>Items</span><span>6</span></div>
+    <div class="sum"><span>Read</span><span>3</span></div>
+    <div class="sum big"><span>Unread</span><span>3</span></div>
+    <div class="barcode" role="img" aria-label="Barcode for inbox printout 0031"></div>
+    <p class="code">0031 1031 BW</p>
+  </section>
+
+  <article class="receipt wide" aria-labelledby="item-h">
+    <div class="hdr"><p>Item 01 of 06</p></div>
+    <h2 id="item-h">Mention</h2>
+    <hr class="dbl">
+    <dl class="kv">
+      <dt>From</dt><dd>Priya Nair</dd>
+      <dt>Task</dt><dd>Hero image options</dd>
+      <dt>Project</dt><dd>Website redesign</dd>
+      <dt>Time</dt><dd>40 min ago</dd>
+      <dt>Status</dt><dd>* Unread</dd>
+    </dl>
+    <hr class="tear">
+    <p class="msg"><b>@Mara</b> can you pick between A, B and C by Monday? I lean to B, it reads best on phones.</p>
+    <div class="thumbs" role="group" aria-label="Three hero image options">
+      <figure><svg viewBox="0 0 60 44" role="img" aria-label="Option A, landscape with headline top left"><rect width="60" height="44" fill="#fbfbf8"/><path d="M0 44 18 24l10 8 10-6 22 18z" fill="#232323"/><rect x="5" y="6" width="20" height="3" fill="#232323"/></svg><figcaption>Option A</figcaption></figure>
+      <figure><svg viewBox="0 0 60 44" role="img" aria-label="Option B, centred phone under a headline"><rect width="60" height="44" fill="#fbfbf8"/><rect x="22" y="14" width="16" height="27" rx="2" fill="#232323"/><rect x="25" y="17" width="10" height="19" fill="#fbfbf8"/><rect x="16" y="5" width="28" height="3" fill="#232323"/></svg><figcaption>Option B</figcaption></figure>
+      <figure><svg viewBox="0 0 60 44" role="img" aria-label="Option C, text left and team photo right"><rect width="60" height="44" fill="#fbfbf8"/><rect x="32" width="28" height="44" fill="#232323"/><circle cx="41" cy="20" r="4" fill="#fbfbf8"/><circle cx="51" cy="22" r="4" fill="#fbfbf8"/><rect x="4" y="16" width="22" height="3" fill="#232323"/><rect x="4" y="22" width="14" height="2" fill="#585858"/></svg><figcaption>Option C</figcaption></figure>
+    </div>
+    <hr class="tear">
+    <form class="reply" onsubmit="return false">
+      <label for="rep">Reply</label>
+      <textarea id="rep" placeholder="Type a reply to Priya"></textarea>
+      <div class="btns">
+        <button class="btn pri" type="submit">Reply</button>
+        <button class="btn" type="button">&#10003; Mark as done</button>
+        <a class="btn" href="#">Open task &gt;</a>
+      </div>
+    </form>
+    <hr class="tear">
+    <div class="barcode" role="img" aria-label="Barcode for item 01"></div>
+    <p class="code">01 HERO IMAGE OPTIONS</p>
+    <p class="thanks">Answer due Monday</p>
+  </article>
+</main>
+
+<section class="sheet" aria-labelledby="sheet-h">
+  <h2 id="sheet-h">Style 56 · Thermal receipt</h2>
+  <p class="idea">The inbox prints out as narrow thermal receipts, with numbered line items, dot leaders, dashed tear lines, a totals block and a barcode at the foot.</p>
+
+  <h3>Palette</h3>
+  <ul class="sw">
+    <li><i style="background:#dcdad4"></i><div><b>Counter</b>#dcdad4 · page behind the slips</div></li>
+    <li><i style="background:#fbfbf8"></i><div><b>Roll</b>#fbfbf8 · receipt paper</div></li>
+    <li><i style="background:#232323"></i><div><b>Print</b>#232323 · text, bars, buttons</div></li>
+    <li><i style="background:#585858"></i><div><b>Thermal grey</b>#585858 · meta, read items</div></li>
+    <li><i style="background:#bdbdb8"></i><div><b>Faint</b>#bdbdb8 · tear lines, dot leaders (decor)</div></li>
+    <li><i style="background:#ecece7"></i><div><b>Fade</b>#ecece7 · the open line item</div></li>
+    <li><i style="background:#9c1f3c"></i><div><b>Stamp</b>#9c1f3c · the dashed OPEN tag</div></li>
+  </ul>
+
+  <h3>Type · ui-monospace, "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace</h3>
+  <div class="ty"><code>22 / 800 / .3em caps</code><span style="font-size:22px;font-weight:800;letter-spacing:.3em">BRIGHTWORK</span></div>
+  <div class="ty"><code>16 / 800 caps total</code><span style="font-size:16px;font-weight:800">UNREAD 3</span></div>
+  <div class="ty"><code>15 / 400 / 1.6 message</code><span style="font-size:15px">I lean to B, it reads best on phones.</span></div>
+  <div class="ty"><code>14 / 700 caps line item</code><span style="font-weight:700">03 REVIEW ..... 1 H</span></div>
+  <div class="ty"><code>12 / 400 meta</code><span style="font-size:12px;color:var(--thermal)">Mobile app 2.0</span></div>
+
+  <h3>Spacing, shape and tone</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>4px steps · 8px line item padding · 20px roll margins · 40px between slips</dd>
+    <dt>Density</dt><dd>Tight. A strip 360 to 420px wide, never wider.</dd>
+    <dt>Corners</dt><dd>Square, with zigzag torn ends top and bottom</dd>
+    <dt>Borders</dt><dd>2px dashed tear lines · 3px double rules · 1px dotted between items · 2px solid buttons</dd>
+    <dt>Shadows</dt><dd>One drop shadow 0 6px 10px rgba(0,0,0,0.12) under each slip</dd>
+    <dt>Icons</dt><dd>Printed glyphs only: [x] and [ ] filters, * UNREAD boxed, a filled ✓ DONE block, a dashed &gt; OPEN tag. Barcodes in CSS stripes.</dd>
+    <dt>Tone</dt><dd>Till-roll uppercase: ITEM 01 OF 06, TOTAL UNREAD 3, ANSWER DUE MONDAY</dd>
+  </dl>
+
+  <h3>Controls · normal and focus</h3>
+  <div class="ctls">
+    <div><span class="cl">Primary</span><button class="btn pri">Reply</button><div style="height:8px"></div><button class="btn pri is-focus">Focused</button></div>
+    <div><span class="cl">Secondary</span><button class="btn">Mark as done</button><div style="height:8px"></div><button class="btn is-focus">Focused</button></div>
+    <div><label class="fld">Reply<input value="Going with B"></label><div style="height:12px"></div><label class="fld">Reply, focused<input class="is-focus" value="Going with B"></label></div>
+    <div><span class="cl">List row</span><div class="demo">03 Review <span class="flag u" style="font-size:11px;font-weight:800">* UNREAD</span></div><div style="height:8px"></div><span class="cl">List row, focused</span><div class="demo is-focus">03 Review <span class="flag u" style="font-size:11px;font-weight:800">* UNREAD</span></div></div>
+  </div>
+</section>
+</body>
+</html>

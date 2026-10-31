@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 308 · SRE minimal · Brightwork</title>
+<style>
+:root{color-scheme:dark;--bg:#131416;--ink:#dcdcdc;--soft:#b5b5b5;--mut:#8f8f8f;--hair:#2a2b2e;--mark:#7d7d7d;--inc:#ff8466;--focus:#e8e8e8;--f:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 var(--f);font-weight:400}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:#555;text-underline-offset:3px}
+:focus-visible,.is-focus{outline:1px solid var(--focus);outline-offset:4px}
+.ic{width:14px;height:14px;flex:none;vertical-align:-2px}
+.wrap{max-width:760px;margin:0 auto;padding:48px 24px}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:13px;color:var(--mut);margin-bottom:72px}
+header ul{display:flex;gap:16px;list-style:none;margin:0;padding:0}
+header nav a{color:var(--mut);text-decoration:none}
+header nav a[aria-current]{color:var(--ink)}
+h1{font-size:13px;font-weight:400;color:var(--mut);margin:0 0 8px}
+.say{font-size:34px;line-height:1.25;font-weight:300;margin:0 0 48px;letter-spacing:-.01em}
+.say em{font-style:normal;color:var(--inc)}
+.inc{border-left:2px solid var(--inc);padding:4px 0 4px 20px;margin:0 0 72px}
+.inc .row1{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:baseline;color:var(--inc);font-size:13px}
+.inc h2{font-size:20px;font-weight:500;margin:4px 0 4px;color:var(--ink)}
+.inc p{margin:0;color:var(--soft);font-size:14px}
+h3{font-size:13px;font-weight:500;color:var(--mut);margin:0 0 12px;letter-spacing:.02em}
+section{margin-bottom:64px}
+ul.rows{list-style:none;margin:0;padding:0}
+ul.rows li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 16px;padding:12px 0;border-top:1px solid var(--hair)}
+ul.rows li:last-child{border-bottom:1px solid var(--hair)}
+.nm{font-weight:500}
+.r{color:var(--soft);text-align:right;font-variant-numeric:tabular-nums}
+.s{grid-column:1/-1;display:flex;gap:6px;align-items:center;font-size:13px;color:var(--mut)}
+.s.on{color:var(--inc)}
+.charts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.charts figure{margin:0}
+.charts svg{display:block;width:100%;height:auto;overflow:visible}
+.charts figcaption{font-size:13px;color:var(--mut);margin-top:8px}
+.charts figcaption b{color:var(--ink);font-weight:500}
+.charts .base{stroke:var(--hair)}
+.t{color:var(--mut);font-variant-numeric:tabular-nums;font-size:13px}
+.sheet{max-width:760px;margin:0 auto;padding:48px 24px 96px;border-top:1px solid var(--hair)}
+.sheet h2{font-size:22px;font-weight:400;margin:0}
+.sheet h3{margin:40px 0 12px}
+.idea{color:var(--soft)}
+.swatches{list-style:none;margin:0;padding:0}
+.sw{display:flex;gap:16px;align-items:center;padding:10px 0;border-top:1px solid var(--hair)}
+.sw i{width:24px;height:24px;flex:none;border:1px solid #3a3b3f}
+.sw div{display:flex;flex-wrap:wrap;gap:0 12px;align-items:baseline}
+.sw b{font-weight:500;min-width:96px}.sw code{color:var(--mut);font-size:13px;min-width:72px}.sw span{color:var(--soft);font-size:13px}
+.stack code{color:var(--mut);font-size:13px}
+.type-row{display:flex;flex-wrap:wrap;gap:4px 24px;align-items:baseline;padding:10px 0;border-top:1px solid var(--hair)}
+.type-row code{width:140px;font-size:12px;color:var(--mut)}
+.facts{display:grid;grid-template-columns:120px 1fr;gap:10px 16px;margin:0}.facts dt{color:var(--mut)}.facts dd{margin:0;color:var(--soft)}
+.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.ctl-label,.field span{display:block;font-size:13px;color:var(--mut);margin-bottom:8px}
+.btn{font:500 14px var(--f);padding:8px 16px;border-radius:2px;cursor:pointer;margin:0 8px 8px 0}
+.btn.primary{background:var(--ink);color:#131416;border:1px solid var(--ink)}
+.btn.secondary{background:transparent;color:var(--ink);border:1px solid #4a4b50}
+.field input{width:100%;background:transparent;border:0;border-bottom:1px solid #4a4b50;color:var(--ink);font:15px var(--f);padding:6px 0}
+.row-demo{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);color:var(--ink);text-decoration:none}
+.st{display:inline-flex;gap:6px;align-items:center;color:var(--inc);font-size:13px}
+@media (max-width:640px){.wrap{padding:32px 16px}header{margin-bottom:48px}.say{font-size:28px}.charts{grid-template-columns:minmax(0,1fr)}.controls,.facts{grid-template-columns:minmax(0,1fr)}.facts dd{margin-bottom:8px}.sheet{padding:40px 16px 72px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="s-healthy" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-degraded" viewBox="0 0 24 24"><path d="M12 3L22 20H2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9.5v5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17.3" r="1.2" fill="currentColor"/></symbol>
+<symbol id="s-down" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+<symbol id="s-recovered" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18.5 2.8v4.6h-4.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-firing" viewBox="0 0 24 24"><path d="M13.5 2L5 13.5h6L10 22l9-12h-6.2z" fill="currentColor"/></symbol>
+<symbol id="s-resolved" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-investigating" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15 15l5.5 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+<symbol id="s-deploy" viewBox="0 0 24 24"><path d="M12 3v12M7 8l5-5 5 5M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="s-bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15zM10 20.5h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+</defs></svg>
+<div class="wrap">
+  <header><span>Brightwork Ops · production · 24 h</span><nav aria-label="Suite"><ul><li><a href="#">Projects</a></li><li><a href="#">Canvas</a></li><li><a href="#">Drive</a></li><li><a href="#">Code</a></li><li><a href="#" aria-current="page">Ops</a></li></ul></nav></header>
+  <main>
+    <h1>Brightwork Ops, the suite's service monitor, showing production for the last 24 hours.</h1>
+    <p class="say"><em>One incident open.</em> Three services healthy and sync-worker degraded. Billing was down for 6 minutes and recovered at 07:54.</p>
+    <section class="inc" aria-labelledby="inc-h">
+      <div class="row1"><span>INC-0427</span><span style="display:inline-flex;gap:6px;align-items:center"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-investigating"/></svg>Investigating</span><span>Severity 2</span></div>
+      <h2 id="inc-h">sync-worker queue backlog</h2>
+      <p>Opened 06:58 · owner Jonas Weber</p>
+    </section>
+    <section aria-labelledby="svc-h"><h3 id="svc-h">Services · uptime</h3><ul class="rows"><li><span class="nm">api</span><span class="r">99.98%</span><span class="s"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg>healthy, p95 latency 182 ms</span></li><li><span class="nm">web</span><span class="r">99.99%</span><span class="s"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg>healthy, p95 latency 96 ms</span></li><li><span class="nm">sync-worker</span><span class="r">99.41%</span><span class="s on"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-degraded"/></svg>degraded, queue depth 4,812</span></li><li><span class="nm">notifications</span><span class="r">99.95%</span><span class="s"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg>healthy</span></li><li><span class="nm">billing</span><span class="r">—</span><span class="s"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-recovered"/></svg>down for 6 minutes, recovered at 07:54</span></li></ul></section>
+    <section aria-labelledby="ch-h"><h3 id="ch-h">Last 24 hours, 10:00 to 10:00</h3>
+      <div class="charts">
+        <figure><svg viewBox="0 0 240 64" role="img" aria-label="Requests per minute over 24 hours, from about 1,200 at night to a peak of 9,400 at 14:00."><line class="base" x1="0" x2="240" y1="60" y2="60"/><path d="M0 14.4 L10 10.2 L20 7.2 L30 5.4 L40 3.6 L50 6 L60 9 L70 13.8 L80 20.4 L90 27 L100 33.6 L110 39.6 L120 45 L130 48.6 L140 51 L150 52.2 L160 52.8 L170 52.8 L180 52.5 L190 50.4 L200 44.4 L210 34.8 L220 24.6 L230 18 L240 15" fill="none" stroke="#7d7d7d" stroke-width="1.5"/></svg><figcaption>Requests per minute<br><b>9,400</b> peak at 14:00, about 1,200 at night</figcaption></figure>
+        <figure><svg viewBox="0 0 240 64" role="img" aria-label="Error rate over 24 hours, near 0.1 percent with a spike to 2.3 percent at 07:48."><line class="base" x1="0" x2="240" y1="60" y2="60"/><path d="M0 57.6 L10 57.8 L20 57.4 L30 57.6 L40 57.1 L50 57.6 L60 57.8 L70 57.6 L80 57.4 L90 57.6 L100 57.8 L110 57.6 L120 57.6 L130 58.1 L140 57.8 L150 57.6 L160 57.8 L170 57.6 L180 57.6 L190 57.4 L200 57.6 L210 57.4 L216 56.9 L218 4.8 L219 38.4 L221 56.2 L230 57.4 L240 57.6" fill="none" stroke="#7d7d7d" stroke-width="1.5"/><path d="M218.0 4.8l4 4-4 4-4-4z" fill="#ff8466" transform="translate(0 -6)"/></svg><figcaption>Error rate<br>near 0.1%, <b style="color:var(--inc)">2.3%</b> at 07:48</figcaption></figure>
+        <figure><svg viewBox="0 0 240 64" role="img" aria-label="Latency p50 and p95 over 24 hours. p50 between 55 and 84 ms, p95 between 138 and 226 ms."><line class="base" x1="0" x2="240" y1="60" y2="60"/><path d="M0 19.2 L10 17.8 L20 15.8 L30 14.4 L40 12.5 L50 13.9 L60 15.4 L70 17.3 L80 19.7 L90 21.6 L100 23.5 L110 24.5 L120 25.2 L130 25.9 L140 26.4 L150 26.6 L160 26.9 L170 26.9 L180 26.4 L190 25 L200 22.1 L210 18.7 L220 5.8 L230 16.3 L240 16.8" fill="none" stroke="#a8a8a8" stroke-width="1.5"/><path d="M0 42.7 L10 42 L20 41.3 L30 40.8 L40 39.8 L50 40.6 L60 41.3 L70 42.2 L80 43.2 L90 44.2 L100 45.1 L110 45.6 L120 46.1 L130 46.3 L140 46.6 L150 46.6 L160 46.8 L170 46.8 L180 46.6 L190 46.1 L200 44.9 L210 43.7 L220 40.3 L230 42.7 L240 43" fill="none" stroke="#7d7d7d" stroke-width="1.5" stroke-dasharray="3 3"/></svg><figcaption>Latency p50 dotted, p95 solid<br><b>55–84</b> and <b>138–226</b> ms</figcaption></figure>
+      </div>
+    </section>
+    <section aria-labelledby="al-h"><h3 id="al-h">Alerts</h3><ul class="rows"><li><span>billing 5xx rate above 2 percent</span><span class="r t">07:48</span><span class="s"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-resolved"/></svg>resolved</span></li><li><span>sync-worker queue depth above 3,000</span><span class="r t">06:58</span><span class="s on"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-firing"/></svg>firing</span></li><li><span>api disk 80 percent</span><span class="r t">Yesterday 22:10</span><span class="s"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-resolved"/></svg>resolved</span></li></ul></section>
+    <section aria-labelledby="dp-h"><h3 id="dp-h">Deploys</h3><ul class="rows"><li><span>web v3.18.2 <span class="t">by Priya Nair</span></span><span class="r t">09:12</span></li><li><span>api v5.4.0 <span class="t">by Jonas Weber</span></span><span class="r t">08:30</span></li><li><span>sync-worker v1.9.1 <span class="t">by Sam Ortiz</span></span><span class="r t">06:40</span></li></ul></section>
+  </main>
+</div>
+<section class="sheet" aria-labelledby="sheet-h">
+  <h2 id="sheet-h">Style 308 · SRE minimal</h2>
+  <p class="idea">A very quiet single column in neutral greys, a plain sentence of the state at the top, hairline lists and tiny grey charts, with colour used only for the open incident.</p>
+  <h3>Palette</h3>
+  <ul class="swatches">
+    <li class="sw"><i style="background:#131416"></i><div><b>Ground</b><code>#131416</code><span>page and style sheet</span></div></li>
+    <li class="sw"><i style="background:#dcdcdc"></i><div><b>Ink</b><code>#dcdcdc</code><span>text and primary button</span></div></li>
+    <li class="sw"><i style="background:#b5b5b5"></i><div><b>Soft</b><code>#b5b5b5</code><span>values and secondary text</span></div></li>
+    <li class="sw"><i style="background:#8f8f8f"></i><div><b>Muted</b><code>#8f8f8f</code><span>labels, times and healthy status</span></div></li>
+    <li class="sw"><i style="background:#2a2b2e"></i><div><b>Hairline</b><code>#2a2b2e</code><span>row rules and chart baselines</span></div></li>
+    <li class="sw"><i style="background:#7d7d7d"></i><div><b>Mark</b><code>#7d7d7d</code><span>chart lines</span></div></li>
+    <li class="sw"><i style="background:#ff8466"></i><div><b>Incident</b><code>#ff8466</code><span>the open incident, Degraded, Firing and the error spike only</span></div></li>
+    <li class="sw"><i style="background:#e8e8e8"></i><div><b>Focus</b><code>#e8e8e8</code><span>1px focus outline offset 4px</span></div></li>
+  </ul>
+  <h3>Type</h3>
+  <p class="stack"><code>system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif</code></p>
+  <div class="type-row"><code>34 / 300</code><span style="font-size:34px;font-weight:300">One incident open.</span></div>
+  <div class="type-row"><code>20 / 500</code><span style="font-size:20px;font-weight:500">sync-worker queue backlog</span></div>
+  <div class="type-row"><code>15 / 400</code><span style="">api disk 80 percent</span></div>
+  <div class="type-row"><code>13 / 400 muted</code><span style="font-size:13px;color:var(--mut)">Services · uptime</span></div>
+  <h3>Spacing, density, corners and depth</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>8px unit, 12px rows, 64 to 72px between sections</dd>
+    <dt>Density</dt><dd>Sparse. One narrow column of about 760px</dd>
+    <dt>Corners</dt><dd>None, 2px on buttons</dd>
+    <dt>Borders</dt><dd>1px #2a2b2e hairlines between rows, a 2px incident line</dd>
+    <dt>Shadows</dt><dd>None</dd>
+    <dt>Icons</dt><dd>14px grey status shapes; only incident shapes take colour</dd>
+    <dt>Tone</dt><dd>Lower case, plain words such as healthy, degraded and resolved, and a summary sentence</dd>
+  </dl>
+  <h3>Controls · normal and focus</h3>
+  <div class="controls">
+    <div class="ctl"><span class="ctl-label">Primary</span><button type="button" class="btn primary">Acknowledge</button> <button type="button" class="btn primary is-focus">Acknowledge</button></div>
+    <div class="ctl"><span class="ctl-label">Secondary</span><button type="button" class="btn secondary">Silence 1 h</button> <button type="button" class="btn secondary is-focus">Silence 1 h</button></div>
+    <div class="ctl"><label class="field"><span>Filter services</span><input value="sync-worker"></label></div>
+    <div class="ctl"><label class="field"><span>Filter services, focused</span><input class="is-focus" value="billing"></label></div>
+    <div class="ctl"><span class="ctl-label">List row</span><a href="#" class="row-demo"><span>sync-worker</span><span class="st degraded"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-degraded"/></svg>Degraded</span></a></div>
+    <div class="ctl"><span class="ctl-label">List row, focused</span><a href="#" class="row-demo is-focus"><span>sync-worker</span><span class="st degraded"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-degraded"/></svg>Degraded</span></a></div>
+  </div>
+</section>
+</body>
+</html>

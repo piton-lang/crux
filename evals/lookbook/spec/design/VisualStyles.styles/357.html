@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 357 · Film reel · Brightwork</title>
+<style>
+:root { color-scheme: dark; }
+*, *::before, *::after { box-sizing: border-box; }
+
+.sheet { background: var(--sh-bg); color: var(--sh-ink); font: 15px/1.55 var(--sh-font); padding: 48px 32px 64px; border-top: var(--sh-top, 1px solid var(--sh-line)); }
+.sheet-in { max-width: 1120px; margin: 0 auto; }
+.sheet h2 { font: var(--sh-h2, 700 28px/1.2 var(--sh-head)); margin: 0 0 8px; color: var(--sh-ink); letter-spacing: var(--sh-h2-ls, 0); }
+.sheet .idea { color: var(--sh-ink); max-width: 760px; margin: 0 0 32px; font-size: 17px; }
+.sheet h3 { font: var(--sh-h3, 700 13px/1.3 var(--sh-head)); letter-spacing: .08em; text-transform: uppercase; color: var(--sh-muted); margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--sh-line); }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.sw { display: flex; gap: 12px; align-items: center; background: var(--sh-surface); border: 1px solid var(--sh-line); border-radius: var(--sh-r); padding: 10px; }
+.sw i { width: 44px; height: 44px; flex: none; border-radius: calc(var(--sh-r) / 2); border: 1px solid var(--sh-chip-line, rgba(255,255,255,.28)); }
+.sw b { display: block; font-size: 14px; }
+.sw span { display: block; font-size: 13px; color: var(--sh-muted); }
+.sw code { font: 13px var(--sh-mono, ui-monospace, Menlo, Consolas, monospace); color: var(--sh-ink); }
+.trow { display: grid; grid-template-columns: 260px 1fr; gap: 16px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--sh-line); }
+.trow code { font: 12px/1.4 var(--sh-mono, ui-monospace, Menlo, Consolas, monospace); color: var(--sh-muted); }
+.trow span { min-width: 0; overflow-wrap: anywhere; }
+.facts { display: grid; grid-template-columns: 160px 1fr; gap: 0 24px; margin: 0; }
+.facts dt { font-weight: 700; padding: 10px 0; border-bottom: 1px solid var(--sh-line); }
+.facts dd { margin: 0; padding: 10px 0; border-bottom: 1px solid var(--sh-line); color: var(--sh-ink); }
+.ctl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+.ctl { background: var(--sh-surface); border: 1px solid var(--sh-line); border-radius: var(--sh-r); padding: 16px; }
+.ctl-label { display: block; font-weight: 700; font-size: 14px; margin-bottom: 12px; }
+.ctl-pair { display: grid; gap: 14px; }
+.ctl-state { display: block; font-size: 12px; color: var(--sh-muted); margin-bottom: 4px; }
+.sf { display: grid; gap: 4px; font-size: 13px; color: var(--sh-muted); }
+.sf input { font: inherit; font-size: 14px; color: var(--sh-ink); width: 100%; }
+@media (max-width: 640px) {
+  .sheet { padding: 32px 16px 48px; }
+  .trow { grid-template-columns: 1fr; gap: 4px; }
+  .facts { grid-template-columns: 1fr; }
+  .facts dt { border-bottom: 0; padding-bottom: 0; }
+}
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+
+
+body { margin: 0; background: #120c08; color: #ecdfca; font: 14px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+button { font: inherit; cursor: pointer; }
+:focus-visible, .is-focus { outline: 3px solid #f2b25c; outline-offset: 3px; }
+.hd { display: flex; align-items: center; gap: 20px; padding: 16px 28px; flex-wrap: wrap; background: #0d0805; border-bottom: 6px solid #1d140d; }
+.tapeL { margin: 0; display: flex; flex-wrap: wrap; gap: 0; background: #eadcc0; color: #2a1d10; font: 14px/1 "American Typewriter", "Courier Prime", "Courier New", Courier, ui-monospace, monospace; transform: rotate(-.6deg); box-shadow: 0 2px 0 #0008; }
+.tapeL > * { padding: 8px 12px; border-right: 1px dashed #9d8a6a; }
+.tapeL > *:last-child { border-right: 0; }
+.tapeL b { font-weight: 700; }
+.rend { display: flex; align-items: center; gap: 10px; margin-left: auto; color: #c9b79c; font-size: 13px; }
+.rend i { font-family: "Bradley Hand", "Segoe Print", "Chalkboard SE", "Comic Neue", "Marker Felt", cursive; font-style: normal; }
+.rf { display: flex; gap: 2px; padding: 5px 3px; background: #3b2612; border-radius: 2px; background-image: radial-gradient(circle at 50% 50%, #0a0604 0 2.6px, transparent 3px), radial-gradient(circle at 50% 50%, #0a0604 0 2.6px, transparent 3px); background-size: 8px 5px; background-repeat: repeat-x; background-position: 0 0, 0 100%; }
+.rf i { width: 6px; height: 8px; border: 1px solid #8a5f2e; display: block; }
+.exp { display: inline-flex; gap: 8px; align-items: center; background: #f2b25c; color: #241405; border: 0; border-radius: 22px; padding: 9px 20px 9px 12px; font-weight: 700; box-shadow: 0 3px 0 #8a5a1f; }
+.exp svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.wb { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); grid-template-areas: "gate cue" "cans cans" "rack rack"; gap: 24px; padding: 24px 28px 40px; }
+.gate { grid-area: gate; } .cans { grid-area: cans; } .cue { grid-area: cue; } .rack { grid-area: rack; }
+.sec { margin: 0 0 12px; font: 400 22px/1.1 "Bradley Hand", "Segoe Print", "Chalkboard SE", "Comic Neue", "Marker Felt", cursive; color: #f2b25c; }
+.sec span { font: 12px "American Typewriter", "Courier Prime", "Courier New", Courier, ui-monospace, monospace; color: #b29f86; margin-left: 8px; }
+.gatef { background: #3b2612; padding: 0 22px; border-radius: 4px; background-image: linear-gradient(to bottom, #3b2612, #3b2612), radial-gradient(circle at 50% 50%, #0a0604 0 4px, transparent 4.5px), radial-gradient(circle at 50% 50%, #0a0604 0 4px, transparent 4.5px); background-size: 0 0, 14px 18px, 14px 18px; background-repeat: no-repeat, repeat-y, repeat-y; background-position: 0 0, 4px 0, calc(100% - 4px) 0; box-shadow: 0 10px 30px #000a; }
+.pic { margin: 0; aspect-ratio: 16 / 9; background: #050302; display: grid; place-items: center; border-radius: 14px / 10px; box-shadow: inset 0 0 50px #2a1a0c; border-top: 10px solid #3b2612; border-bottom: 10px solid #3b2612; }
+.pic p { margin: 0; font: 400 clamp(16px, 2.6vw, 32px)/1.2 "American Typewriter", "Courier Prime", "Courier New", Courier, ui-monospace, monospace; color: #f4e8d2; text-align: center; padding: 0 10%; }
+.tp { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
+.tc { font: 700 20px "American Typewriter", "Courier Prime", "Courier New", Courier, ui-monospace, monospace; color: #f2b25c; }
+.tcd { font: 12px "American Typewriter", "Courier Prime", "Courier New", Courier, ui-monospace, monospace; color: #b29f86; }
+.ctr { display: flex; gap: 8px; }
+.ctr button { width: 40px; height: 40px; border-radius: 50%; background: #2a1c11; border: 2px solid #6b4a28; color: #eadcc0; display: grid; place-items: center; }
+.ctr svg { width: 16px; height: 16px; fill: currentColor; }
+.ctr .pl { background: #eadcc0; color: #241405; border-color: #eadcc0; }
+.cans ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.can { display: grid; justify-items: center; gap: 0; }
+.disc { width: 110px; height: 110px; border-radius: 50%; background: radial-gradient(circle, #1a110a 0 14%, #5a5048 15% 17%, #2d2722 18% 60%, #6d635a 61% 63%, #3a332d 64% 92%, #7d7369 93%); display: grid; place-items: center; box-shadow: 0 6px 14px #000c; }
+.hub { width: 14px; height: 14px; border-radius: 50%; background: #0a0604; }
+.tape { margin-top: -24px; background: #eadcc0; color: #2a1d10; padding: 4px 8px; font: 12px/1.3 "American Typewriter", "Courier Prime", "Courier New", Courier, ui-monospace, monospace; text-align: center; transform: rotate(1.4deg); max-width: 100%; box-shadow: 0 2px 0 #0008; }
+.can:nth-child(even) .tape { transform: rotate(-1.6deg); }
+.tape b { display: block; font-weight: 700; overflow-wrap: anywhere; }
+.cue { align-self: start; background: #1d140d; border: 1px solid #3d2b1b; border-radius: 6px; padding: 18px 20px; }
+.cue dl { margin: 0; display: grid; grid-template-columns: auto 1fr; }
+.cue dt, .cue dd { margin: 0; padding: 9px 0; border-bottom: 1px dashed #4d3a26; }
+.cue dt { font: 14px "American Typewriter", "Courier Prime", "Courier New", Courier, ui-monospace, monospace; color: #c9b79c; }
+.cue dd { text-align: right; font: 700 15px "American Typewriter", "Courier Prime", "Courier New", Courier, ui-monospace, monospace; color: #f4e8d2; }
+.cn { margin: 12px 0 0; font: 15px/1.3 "Bradley Hand", "Segoe Print", "Chalkboard SE", "Comic Neue", "Marker Felt", cursive; color: #ffb39e; }
+.rk { position: relative; --lb: 110px; background: #0d0805; border-radius: 6px; padding: 10px 14px 26px 10px; }
+.edge, .strip { display: grid; grid-template-columns: var(--lb) 1fr; align-items: center; }
+.edge .cell { position: relative; height: 22px; }
+.edge .cell > span { position: absolute; font: 11px "American Typewriter", "Courier Prime", "Courier New", Courier, ui-monospace, monospace; color: #c9a06a; transform: translateX(-50%); top: 3px; }
+.edge .cell > span:first-child { transform: none; }
+.edge .cell > span:nth-last-child(2) { transform: translateX(-100%); }
+.lab { display: grid; font: 12px "American Typewriter", "Courier Prime", "Courier New", Courier, ui-monospace, monospace; color: #b29f86; }
+.lab b { color: #f2b25c; font-size: 15px; }
+.strip { margin-bottom: 8px; }
+.strip .cell { position: relative; height: 46px; background-color: #3b2612; background-image: radial-gradient(circle at 50% 50%, #0a0604 0 2.6px, transparent 3px), radial-gradient(circle at 50% 50%, #0a0604 0 2.6px, transparent 3px); background-size: 12px 9px; background-repeat: repeat-x; background-position: 0 0, 0 100%; border-radius: 2px; }
+.fr { position: absolute; top: 9px; bottom: 9px; background: #5a3a1a; border-left: 2px solid #1a0f06; border-right: 2px solid #1a0f06; background-image: repeating-linear-gradient(to right, transparent 0 22px, #2b1a0b 22px 24px); overflow: hidden; box-shadow: inset 0 2px 0 #c08a4a, inset 0 -2px 0 #c08a4a; }
+.ec { position: absolute; left: 4px; top: 50%; transform: translateY(-50%); font: 700 11px/1.1 "American Typewriter", "Courier Prime", "Courier New", Courier, ui-monospace, monospace; color: #ffd08c; background: #2b1a0b; padding: 2px 4px; white-space: nowrap; max-width: calc(100% - 8px); overflow: hidden; text-overflow: ellipsis; }
+.snd .fr { background-image: none; background-color: #4a3016; }
+.snd .fr::after { content: ""; position: absolute; right: 6px; left: 50%; top: 4px; bottom: 4px; background: repeating-linear-gradient(to right, #d9a868 0 1px, transparent 1px 3px); clip-path: polygon(0 50%, 5% 20%, 12% 60%, 20% 10%, 30% 70%, 40% 30%, 52% 80%, 64% 20%, 76% 65%, 88% 30%, 100% 50%, 88% 75%, 76% 40%, 64% 90%, 52% 25%, 40% 85%, 30% 35%, 20% 95%, 12% 45%, 5% 85%); }
+.fr.sel { overflow: visible; background-color: #6b4520; }
+.fr.sel::before { content: ""; position: absolute; inset: -6px -8px; border: 2px dashed #ffb39e; border-radius: 50% / 40%; }
+.fr.sel .ec::before { content: "\2715  "; }
+.grease { position: absolute; left: calc(100% + 10px); top: -8px; font: 16px "Bradley Hand", "Segoe Print", "Chalkboard SE", "Comic Neue", "Marker Felt", cursive; color: #ffb39e; white-space: nowrap; background: #0d0805; padding: 0 4px; }
+.mk { position: absolute; top: 0; transform: translateX(-50%); z-index: 2; }
+.mk::before { content: "\2715"; position: absolute; left: 50%; transform: translateX(-50%); top: 2px; font: 700 16px/1 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: #ffb39e; }
+.mk::after { content: ""; position: absolute; left: 50%; top: 20px; height: 222px; border-left: 2px dashed #ffb39e; }
+.mk span { position: absolute; right: 14px; top: -2px; font: 17px/1 "Bradley Hand", "Segoe Print", "Chalkboard SE", "Comic Neue", "Marker Felt", cursive; color: #ffb39e; white-space: nowrap; background: #0d0805; padding: 2px 4px; }
+.ph { position: absolute; top: 6px; bottom: 6px; left: calc(10px + var(--lb) + (100% - 24px - var(--lb)) * .2); border-left: 3px solid #f4e8d2; }
+.ph span { position: absolute; bottom: -4px; left: 6px; font: 700 12px "American Typewriter", "Courier Prime", "Courier New", Courier, ui-monospace, monospace; color: #f4e8d2; white-space: nowrap; }
+.ph::before { content: ""; position: absolute; left: -8px; top: -4px; border: 6px solid transparent; border-top: 9px solid #f4e8d2; }
+.sheet { --sh-bg: #120c08; --sh-surface: #1d140d; --sh-ink: #ecdfca; --sh-muted: #b8a68c; --sh-line: #3d2b1b; --sh-font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; --sh-head: "American Typewriter", "Courier Prime", "Courier New", Courier, ui-monospace, monospace; --sh-mono: "American Typewriter", "Courier Prime", "Courier New", Courier, ui-monospace, monospace; --sh-r: 6px; --sh-h2: 400 34px/1.1 "Bradley Hand", "Segoe Print", "Chalkboard SE", "Comic Neue", "Marker Felt", cursive; --sh-top: 6px solid #1d140d; }
+.sheet h2 { color: #f2b25c; }
+.sb { font: 700 14px system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; padding: 9px 20px; border-radius: 22px; }
+.sb-primary { background: #f2b25c; color: #241405; border: 0; box-shadow: 0 3px 0 #8a5a1f; }
+.sb-secondary { background: #2a1c11; color: #eadcc0; border: 2px solid #6b4a28; }
+.sfi { background: #0d0805; border: 1px solid #6b4a28; border-radius: 4px; padding: 7px 10px; font-family: "American Typewriter", "Courier Prime", "Courier New", Courier, ui-monospace, monospace; }
+.srow { display: flex; justify-content: space-between; padding: 8px 10px; background: #3b2612; font: 13px "American Typewriter", "Courier Prime", "Courier New", Courier, ui-monospace, monospace; color: #ffd08c; border-radius: 2px; }
+@media (max-width: 1000px) {
+  .wb { grid-template-columns: minmax(0, 1fr); grid-template-areas: "gate" "cue" "cans" "rack"; }
+  .cans ul { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px) {
+  .hd { padding: 14px 16px; gap: 12px; }
+  .rend { margin-left: 0; }
+  .wb { padding: 16px; gap: 20px; grid-template-areas: "gate" "rack"; }
+  .cans, .cue { display: none; }
+  .gatef { padding: 0 16px; background-position: 0 0, 1px 0, calc(100% - 1px) 0; }
+  .rk { --lb: 30px; padding-right: 10px; }
+  .ph { left: calc(10px + var(--lb) + (100% - 20px - var(--lb)) * .2); }
+  .lab i { display: none; }
+  .edge .cell > span:nth-child(even) { display: none; }
+  .grease { left: 50%; top: -22px; font-size: 13px; }
+  .mk span { font-size: 14px; }
+  .ctr button { width: 44px; height: 44px; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="bench">
+<header class="hd">
+  <p class="tapeL"><b>Brightwork Cut</b><span>Launch teaser</span><span>1080p</span><span>24 fps</span></p>
+  <div class="rend"><span class="rf" role="progressbar" aria-label="Render progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span>0% rendered, <i>no frames yet</i></span></div>
+  <button type="button" class="exp"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><circle cx="10" cy="10" r="1.6"/><circle cx="10" cy="5.5" r="1.6"/><circle cx="14.2" cy="12.4" r="1.6"/><circle cx="5.8" cy="12.4" r="1.6"/></svg>Export</button>
+</header>
+<main class="wb">
+  <section class="gate" aria-labelledby="g-h">
+    <h2 id="g-h" class="sec">Gate <span>program</span></h2>
+    <div class="gatef">
+      <figure class="pic"><p>Every project, on one calm page</p><figcaption class="sr">Projector gate showing the title card Every project, on one calm page.</figcaption></figure>
+    </div>
+    <div class="tp">
+      <span class="tc">00:00:18:12</span>
+      <span class="ctr">
+        <button type="button" aria-label="Rewind"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 5 3 10l7 5zM17 5l-7 5 7 5z"/></svg></button>
+        <button type="button" aria-label="Play" class="pl"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg></button>
+        <button type="button" aria-label="Fast forward"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5l7 5-7 5zM10 5l7 5-7 5z"/></svg></button>
+      </span>
+      <span class="tcd">reel length 00:01:30:00</span>
+    </div>
+  </section>
+  <section class="cans" aria-labelledby="c-h">
+    <h2 id="c-h" class="sec">Cans <span>5 on the shelf</span></h2>
+    <ul><li class="can"><span class="disc" aria-hidden="true"><span class="hub"></span></span><span class="tape"><b>hero-motion.mp4</b><span>00:42 · picture</span></span></li><li class="can"><span class="disc" aria-hidden="true"><span class="hub"></span></span><span class="tape"><b>office-broll-03.mov</b><span>01:15 · picture</span></span></li><li class="can"><span class="disc" aria-hidden="true"><span class="hub"></span></span><span class="tape"><b>voiceover-take4.wav</b><span>01:22 · sound</span></span></li><li class="can"><span class="disc" aria-hidden="true"><span class="hub"></span></span><span class="tape"><b>music-low-tide.wav</b><span>02:40 · sound</span></span></li><li class="can"><span class="disc" aria-hidden="true"><span class="hub"></span></span><span class="tape"><b>logo-sting.mov</b><span>00:04 · picture</span></span></li></ul>
+  </section>
+  <section class="cue" aria-labelledby="q-h">
+    <h2 id="q-h" class="sec">Cue card <span>Title card on V2</span></h2>
+    <dl>
+      <dt>Position</dt><dd>960 by 540</dd>
+      <dt>Scale</dt><dd>100 percent</dd>
+      <dt>Opacity</dt><dd>100 percent</dd>
+      <dt>Cross dissolve</dt><dd>12 frames</dd>
+    </dl>
+    <p class="cn">Dissolve drawn as a long X across 12 frames at the head.</p>
+  </section>
+  <section class="rack" aria-labelledby="r-h">
+    <h2 id="r-h" class="sec">Splice rack <span>0 to 90 seconds</span></h2>
+    <p class="sr">Timeline from 0 to 90 seconds. V2 titles holds the selected Title card from 14 to 26 seconds. V1 video holds hero-motion.mp4 from 0 to 42, office-broll-03.mov from 42 to 84 and logo-sting.mov from 84 to 88. A1 voiceover holds voiceover-take4.wav from 4 to 86. A2 music holds music-low-tide.wav from 0 to 90. The playhead is at 18 seconds and a marker named cut to logo sits at 84 seconds.</p>
+    <div class="rk" aria-hidden="true">
+      <div class="edge"><span class="lab"></span><div class="cell"><span style="left:0.000%">00</span><span style="left:11.111%">10</span><span style="left:22.222%">20</span><span style="left:33.333%">30</span><span style="left:44.444%">40</span><span style="left:55.556%">50</span><span style="left:66.667%">60</span><span style="left:77.778%">70</span><span style="left:88.889%">80</span><span style="left:100.000%">90</span><b class="mk" style="left:93.333%"><span>cut to logo</span></b></div></div>
+      <div class="strip"><span class="lab"><b>V2</b><i>titles</i></span><div class="cell"><span class="fr sel" style="left:15.556%;width:13.333%"><span class="ec">Title card</span><span class="grease">selected</span></span></div></div><div class="strip"><span class="lab"><b>V1</b><i>video</i></span><div class="cell"><span class="fr" style="left:0.000%;width:46.667%"><span class="ec">hero-motion.mp4</span></span><span class="fr" style="left:46.667%;width:46.667%"><span class="ec">office-broll-03.mov</span></span><span class="fr" style="left:93.333%;width:4.444%"><span class="ec">logo-sting.mov</span></span></div></div><div class="strip snd"><span class="lab"><b>A1</b><i>voiceover</i></span><div class="cell"><span class="fr" style="left:4.444%;width:91.111%"><span class="ec">voiceover-take4.wav</span></span></div></div><div class="strip snd"><span class="lab"><b>A2</b><i>music</i></span><div class="cell"><span class="fr" style="left:0.000%;width:100.000%"><span class="ec">music-low-tide.wav</span></span></div></div>
+      <div class="ph"><span>18 s</span></div>
+    </div>
+  </section>
+</main>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h"><div class="sheet-in">
+<h2 id="sheet-h">Style 357 · Film reel</h2>
+<p class="idea">An editing bench of real film, where every track is a strip of amber celluloid with sprocket holes, audio runs as an optical soundtrack, media sits in labelled film cans and grease pencil marks the selection and the marker.</p>
+<h3>Palette</h3><ul class="swatches"><li class="sw"><i style="background:#120c08" aria-hidden="true"></i><div><b>bench</b><code>#120c08</code><span>page, rack ground and the style sheet</span></div></li><li class="sw"><i style="background:#0d0805" aria-hidden="true"></i><div><b>darkroom</b><code>#0d0805</code><span>header, rack well and sprocket hole shade</span></div></li><li class="sw"><i style="background:#1d140d" aria-hidden="true"></i><div><b>cueCard</b><code>#1d140d</code><span>the cue card and swatch cells</span></div></li><li class="sw"><i style="background:#3b2612" aria-hidden="true"></i><div><b>celluloid</b><code>#3b2612</code><span>film strip base and the gate</span></div></li><li class="sw"><i style="background:#5a3a1a" aria-hidden="true"></i><div><b>frame</b><code>#5a3a1a</code><span>picture clips as frames on the strip</span></div></li><li class="sw"><i style="background:#eadcc0" aria-hidden="true"></i><div><b>labelTape</b><code>#eadcc0</code><span>can labels, the header tape and play</span></div></li><li class="sw"><i style="background:#ecdfca" aria-hidden="true"></i><div><b>ink</b><code>#ecdfca</code><span>text</span></div></li><li class="sw"><i style="background:#b29f86" aria-hidden="true"></i><div><b>muted</b><code>#b29f86</code><span>small typewritten asides</span></div></li><li class="sw"><i style="background:#f2b25c" aria-hidden="true"></i><div><b>amber</b><code>#f2b25c</code><span>section titles, timecode, track ids, Export and focus</span></div></li><li class="sw"><i style="background:#ffd08c" aria-hidden="true"></i><div><b>edgeCode</b><code>#ffd08c</code><span>clip names printed on the strip</span></div></li><li class="sw"><i style="background:#ffb39e" aria-hidden="true"></i><div><b>greasePencil</b><code>#ffb39e</code><span>selection loop, marker cross and handwritten notes</span></div></li></ul>
+<h3>Type scale</h3><div class="trow"><code>Hand 22 section titles</code><span style="font:22px/1.1 "Bradley Hand", "Segoe Print", "Chalkboard SE", "Comic Neue", "Marker Felt", cursive;color:#f2b25c">Splice rack</span></div><div class="trow"><code>Typewriter 32 picture card</code><span style="font:32px/1.2 "American Typewriter", "Courier Prime", "Courier New", Courier, ui-monospace, monospace">Every project, on one calm page</span></div><div class="trow"><code>Typewriter 20 / 700 timecode</code><span style="font:700 20px "American Typewriter", "Courier Prime", "Courier New", Courier, ui-monospace, monospace;color:#f2b25c">00:00:18:12</span></div><div class="trow"><code>Typewriter 14 label tape</code><span style="font:14px "American Typewriter", "Courier Prime", "Courier New", Courier, ui-monospace, monospace">Launch teaser</span></div><div class="trow"><code>Typewriter 11 / 700 edge code</code><span style="font:700 11px "American Typewriter", "Courier Prime", "Courier New", Courier, ui-monospace, monospace;color:#ffd08c">office-broll-03.mov</span></div><div class="trow"><code>System sans 14 body</code><span style="font:14px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif">0% rendered</span></div>
+<h3>Spacing, density, corners, borders, shadows, icons and tone</h3><dl class="facts"><dt>Spacing</dt><dd>An 8px unit. 24px between bench areas, 8px between strips.</dd><dt>Density</dt><dd>Medium. Gate, cue card, five cans and four strips.</dd><dt>Corners</dt><dd>Round cans and transport buttons, 22px pill Export, 2px to 6px on strips and cards.</dd><dt>Borders</dt><dd>Frame lines are 2px dark bars with a 2px #c08a4a edge along each frame, the cue card has dashed rules, tape has dashed tears.</dd><dt>Shadows</dt><dd>Heavy drop shadows under cans and the gate, a 3px solid lip under Export.</dd><dt>Icons</dt><dd>Filled transport glyphs, a reel icon on Export, a cross for selected and the marker.</dd><dt>Focus</dt><dd>3px amber outline offset 3px.</dd><dt>Tone</dt><dd>Workshop talk, such as Cans, Splice rack, reel length and no frames yet.</dd></dl>
+<h3>Basic controls</h3><div class="ctl-grid"><div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><div><span class="ctl-state">Normal</span><button type="button" class="sb sb-primary">Export</button></div><div><span class="ctl-state">Focus</span><button type="button" class="sb sb-primary is-focus">Export</button></div></div></div><div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><div><span class="ctl-state">Normal</span><button type="button" class="sb sb-secondary">Add marker</button></div><div><span class="ctl-state">Focus</span><button type="button" class="sb sb-secondary is-focus">Add marker</button></div></div></div><div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><div><span class="ctl-state">Normal</span><label class="sf">Clip name<input class="sfi" type="text" value="Title card"></label></div><div><span class="ctl-state">Focus</span><label class="sf">Clip name<input class="sfi is-focus" type="text" value="Title card"></label></div></div></div><div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><div><span class="ctl-state">Normal</span><div class="srow" tabindex="0"><span>hero-motion.mp4</span><span>00:42</span></div></div><div><span class="ctl-state">Focus</span><div class="srow is-focus" tabindex="0"><span>hero-motion.mp4</span><span>00:42</span></div></div></div></div></div>
+</div></section>
+</body>
+</html>

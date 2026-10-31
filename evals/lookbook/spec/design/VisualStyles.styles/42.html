@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 42 · Architectural · Brightwork</title>
+<style>
+:root {
+  --white: #ffffff;
+  --ink: #1a1a1a;
+  --grey: #666666;
+  --hair: #d4d4d4;
+  --faint: #f4f4f2;
+  --red: #b3261e;
+  --geo: Futura, "Futura PT", "Century Gothic", "Avenir Next", Avenir, "URW Gothic", "Josefin Sans", "Trebuchet MS", sans-serif;
+  --mono: "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--white); color: var(--ink); font: 300 15px/1.6 var(--geo); text-transform: lowercase; letter-spacing: 0.01em; }
+input, button { text-transform: lowercase; }
+a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
+a:hover { border-bottom-color: var(--ink); }
+a:focus-visible, button:focus-visible, input:focus-visible, .is-focus { outline: 1.5px solid var(--ink); outline-offset: 4px; }
+.num { font-variant-numeric: tabular-nums; }
+.lbl { font-size: 11px; letter-spacing: 0.18em; color: var(--grey); font-weight: 400; }
+
+header.top { max-width: 1240px; margin: 0 auto; padding: 28px 48px 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 40px; }
+.brand { font-size: 18px; font-weight: 400; letter-spacing: 0.24em; border: 0; }
+header nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 28px; }
+header nav a { border: 0; color: var(--grey); }
+header nav a[aria-current="page"] { color: var(--ink); border-bottom: 1px solid var(--ink); }
+.right { margin-left: auto; display: flex; gap: 24px; align-items: baseline; flex-wrap: wrap; }
+.search input { font: 300 14px var(--geo); border: 0; border-bottom: 1px solid var(--hair); padding: 4px 0; width: 160px; color: var(--ink); background: transparent; }
+.search input::placeholder { color: var(--grey); }
+
+main { max-width: 1240px; margin: 0 auto; padding: 40px 48px 24px; }
+.intro { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px; margin-bottom: 36px; }
+h1 { font-weight: 300; font-size: 44px; line-height: 1.05; margin: 6px 0 0; letter-spacing: 0.02em; }
+.acts { display: flex; gap: 16px; }
+
+/* Plan with grid markers */
+.plan { position: relative; padding: 44px 0 0 44px; }
+.markers-x { position: absolute; top: 0; left: 44px; right: 0; display: grid; grid-template-columns: repeat(4, 1fr); }
+.ybub { position: absolute; left: -44px; top: -13px; font-style: normal; }
+.ybub::after { content: ""; position: absolute; left: 26px; top: 12px; width: 17px; border-top: 1px dashed var(--grey); }
+.markers-x .bub, .ybub { font-style: normal; }
+.bub { width: 26px; height: 26px; border: 1px solid var(--ink); border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 400; text-transform: uppercase; background: var(--white); }
+.markers-x span { position: relative; height: 44px; }
+.markers-x .bub { position: absolute; left: -13px; top: 0; }
+.markers-x span::after { content: ""; position: absolute; left: 0; top: 26px; height: 18px; border-left: 1px dashed var(--grey); }
+.markers-x span.end .bub { left: auto; right: -13px; }
+.markers-x span.end::after { left: auto; right: 0; }
+
+.rooms { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+.room { border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); padding: 22px 24px 26px; min-width: 0; position: relative; }
+.room > .lbl:first-child { display: block; margin-bottom: 14px; }
+.span2 { grid-column: span 2; }
+.r1 { grid-row: 1; } .r2 { grid-row: 2; } .r3 { grid-row: 3; }
+h2 { font-size: 11px; letter-spacing: 0.18em; color: var(--grey); font-weight: 400; margin: 0 0 14px; }
+h2 b { color: var(--ink); font-weight: 400; margin-right: 10px; }
+.brief { font-size: 19px; line-height: 1.5; max-width: 34em; margin: 0; }
+.big { font-size: 64px; font-weight: 300; line-height: 1; letter-spacing: -0.01em; }
+.big small { font-size: 22px; }
+.st { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.st svg { width: 11px; height: 11px; flex: none; }
+.st.bad { color: var(--red); font-weight: 400; }
+dl.kv { margin: 14px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; font-size: 14px; }
+dl.kv dt { color: var(--grey); }
+dl.kv dd { margin: 0; }
+ul.people { list-style: none; margin: 0; padding: 0; }
+ul.people li { display: flex; align-items: baseline; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--hair); }
+ul.people li:last-child { border-bottom: 0; }
+.ini { width: 28px; height: 28px; border: 1px solid var(--ink); display: inline-grid; place-items: center; font-size: 10px; letter-spacing: 0.1em; flex: none; align-self: center; }
+
+/* Milestones as a dimension line */
+ol.dim { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink); position: relative; }
+ol.dim li { position: relative; padding: 14px 10px 0 0; font-size: 14px; line-height: 1.35; min-width: 0; }
+ol.dim li::before { content: ""; position: absolute; top: -6px; left: 0; height: 11px; border-left: 1px solid var(--ink); transform: skewX(-35deg); }
+ol.dim li:last-child::after { content: ""; position: absolute; top: -6px; right: 0; height: 11px; border-left: 1px solid var(--ink); transform: skewX(-35deg); }
+ol.dim .st { white-space: normal; align-items: baseline; }
+ol.dim .d { display: block; color: var(--grey); font-size: 12px; }
+
+ol.tasks { list-style: none; margin: 0; padding: 0; }
+ol.tasks li { display: grid; grid-template-columns: 30px 1fr auto; gap: 4px 12px; padding: 9px 0; border-bottom: 1px solid var(--hair); align-items: baseline; }
+ol.tasks li:last-child { border-bottom: 0; }
+ol.tasks .n { font-size: 11px; color: var(--grey); letter-spacing: 0.1em; }
+ol.tasks .who { display: block; font-size: 13px; color: var(--grey); }
+ol.tasks .due { font-size: 13px; text-align: right; }
+
+ul.files { list-style: none; margin: 0; padding: 0; }
+ul.files li { padding: 6px 0; border-bottom: 1px solid var(--hair); font-size: 14px; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+ul.files li:last-child { border-bottom: 0; }
+ul.files a { font-family: var(--mono); font-size: 12px; text-transform: none; word-break: break-all; }
+ul.files span { color: var(--grey); font-size: 12px; }
+
+blockquote { margin: 0; font-size: 20px; line-height: 1.45; font-weight: 300; }
+.cite { display: block; margin-top: 10px; font-size: 12px; color: var(--grey); letter-spacing: 0.08em; }
+.reply { margin-top: 18px; display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+.reply .field { flex: 1 1 180px; }
+
+/* Title block */
+.tb { padding: 0; display: grid; grid-template-rows: auto 1fr auto; }
+.tb > div { padding: 10px 16px; border-bottom: 1px solid var(--ink); }
+.tb > div:last-child { border-bottom: 0; }
+.tb .proj { font-size: 16px; }
+.tb dl { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; margin: 0; font-size: 12px; }
+.tb dt { color: var(--grey); letter-spacing: 0.1em; }
+.tb dd { margin: 0; }
+.north { display: flex; align-items: center; gap: 10px; font-size: 11px; color: var(--grey); letter-spacing: 0.14em; }
+
+/* Scale bar */
+.scale { margin: 32px 0 0 44px; max-width: 560px; }
+.scale svg { display: block; width: 100%; height: auto; }
+.scale p { margin: 6px 0 0; font-size: 12px; color: var(--grey); letter-spacing: 0.08em; }
+
+/* Controls */
+.btn { font: 400 13px var(--geo); letter-spacing: 0.16em; padding: 11px 22px; border: 1px solid var(--ink); background: var(--ink); color: var(--white); border-radius: 0; cursor: pointer; }
+.btn-2 { background: transparent; color: var(--ink); }
+.field { display: block; font-size: 11px; letter-spacing: 0.18em; color: var(--grey); font-weight: 400; }
+.field input { display: block; width: 100%; max-width: 300px; margin-top: 6px; font: 300 15px var(--geo); letter-spacing: 0.01em; padding: 6px 0; border: 0; border-bottom: 1px solid var(--ink); background: transparent; color: var(--ink); border-radius: 0; }
+.field input.is-focus { border-bottom-width: 2px; outline: 1.5px solid var(--ink); outline-offset: 4px; }
+
+/* Sheet */
+.sheet { max-width: 1240px; margin: 56px auto 0; padding: 40px 48px 72px; border-top: 1px solid var(--ink); }
+.sheet h2.t { text-transform: none; font-size: 32px; letter-spacing: 0.02em; color: var(--ink); font-weight: 300; margin: 6px 0 10px; }
+.sheet h3 { font-size: 11px; letter-spacing: 0.18em; color: var(--grey); font-weight: 400; margin: 40px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--hair); }
+.idea { font-size: 19px; max-width: 760px; margin: 0; }
+.sw { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px; font-size: 13px; }
+.sw i { display: block; height: 64px; border: 1px solid var(--ink); margin-bottom: 8px; }
+.sw b { display: block; font-weight: 400; font-size: 15px; }
+.sw code { font: 12px var(--mono); color: var(--grey); text-transform: none; }
+.trow { display: grid; grid-template-columns: 240px 1fr; gap: 4px 24px; padding: 10px 0; border-bottom: 1px solid var(--hair); align-items: baseline; }
+.trow code { font: 12px var(--mono); color: var(--grey); text-transform: none; }
+.facts { display: grid; grid-template-columns: 140px 1fr; gap: 10px 24px; margin: 0; font-size: 15px; }
+.facts dt { color: var(--grey); font-size: 12px; letter-spacing: 0.14em; padding-top: 2px; }
+.facts dd { margin: 0; }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 28px 40px; }
+.clbl { display: block; font-size: 11px; letter-spacing: 0.18em; color: var(--grey); margin-bottom: 10px; }
+.row-demo { display: grid; grid-template-columns: 30px 1fr auto; gap: 12px; padding: 10px 6px; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); align-items: baseline; }
+.row-demo.is-focus { background: var(--faint); }
+
+@media (max-width: 1000px) {
+  .rooms { grid-template-columns: repeat(2, 1fr); }
+  .rooms .room { grid-column: auto; grid-row: auto; }
+  .rooms .span2 { grid-column: span 2; }
+  .markers-x { grid-template-columns: repeat(2, 1fr); }
+  .markers-x .hide-md { display: none; }
+}
+@media (max-width: 640px) {
+  header.top, main, .sheet { padding-left: 16px; padding-right: 16px; }
+  .right { margin-left: 0; }
+  h1 { font-size: 32px; }
+  .plan { padding: 0; }
+  .markers-x, .ybub { display: none; }
+  .rooms { grid-template-columns: 1fr; }
+  .rooms .span2 { grid-column: auto; }
+  .room { padding: 18px 16px 20px; }
+  ol.dim { grid-template-columns: 1fr; border-top: 0; border-left: 1px solid var(--ink); margin-left: 6px; }
+  ol.dim li { padding: 0 0 12px 16px; }
+  ol.dim li::before { top: 8px; left: -6px; width: 11px; height: 0; border-left: 0; border-top: 1px solid var(--ink); transform: skewY(-35deg); }
+  ol.dim li:last-child::after { display: none; }
+  .scale { margin-left: 0; }
+  .trow, .facts { grid-template-columns: 1fr; }
+  .big { font-size: 52px; }
+  .sheet h2.t { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#">brightwork</a>
+  <nav aria-label="Main">
+    <ul>
+      <li><a href="#">dashboard</a></li>
+      <li><a href="#" aria-current="page">projects</a></li>
+      <li><a href="#">tasks</a></li>
+      <li><a href="#">team</a></li>
+    </ul>
+  </nav>
+  <div class="right">
+    <form class="search" role="search" action="#"><input type="search" aria-label="Search projects and tasks" placeholder="search"></form>
+    <span>mara okafor</span>
+  </div>
+</header>
+
+<main>
+  <div class="intro">
+    <div>
+      <span class="lbl">project · design team</span>
+      <h1>website redesign</h1>
+    </div>
+    <div class="acts">
+      <button class="btn" type="button">add task</button>
+      <button class="btn btn-2" type="button">edit project</button>
+    </div>
+  </div>
+
+  <div class="plan">
+    <div class="markers-x" aria-hidden="true">
+      <span><i class="bub">a</i></span><span><i class="bub">b</i></span><span class="hide-md"><i class="bub">c</i></span><span class="hide-md"><i class="bub">d</i></span>
+    </div>
+
+    <div class="rooms">
+      <section class="room span2 r1" aria-labelledby="h-brief">
+        <i class="bub ybub" aria-hidden="true">1</i>
+        <h2 id="h-brief"><b>01</b>brief</h2>
+        <p class="brief">rebuild the marketing site on the new brand. ship the home, pricing and customers pages first, then move the blog.</p>
+      </section>
+
+      <section class="room r1" aria-labelledby="h-status">
+        <h2 id="h-status"><b>02</b>status</h2>
+        <div class="big num">72<small>%</small></div>
+        <dl class="kv">
+          <dt>state</dt><dd><span class="st"><svg viewBox="0 0 11 11" aria-hidden="true"><path d="M1.5 5.8 4.3 8.5 9.5 2.5" fill="none" stroke="#1a1a1a" stroke-width="1.3"/></svg>on track</span></dd>
+          <dt>tasks</dt><dd class="num">18 of 25</dd>
+          <dt>start</dt><dd class="num">1 sep</dd>
+          <dt>due</dt><dd class="num">14 nov</dd>
+        </dl>
+      </section>
+
+      <section class="room r1" aria-labelledby="h-people">
+        <h2 id="h-people"><b>03</b>people</h2>
+        <ul class="people">
+          <li><span class="ini" aria-hidden="true">pn</span><span>priya nair <span class="lbl">· owner</span></span></li>
+          <li><span class="ini" aria-hidden="true">mo</span><span>mara okafor</span></li>
+          <li><span class="ini" aria-hidden="true">at</span><span>aiko tanaka</span></li>
+        </ul>
+      </section>
+
+      <section class="room span2 r2" aria-labelledby="h-ms">
+        <i class="bub ybub" aria-hidden="true">2</i>
+        <h2 id="h-ms"><b>04</b>milestones · 1 sep to 14 nov</h2>
+        <ol class="dim">
+          <li><span class="st"><svg viewBox="0 0 11 11" aria-hidden="true"><rect x="1" y="1" width="9" height="9" fill="#1a1a1a"/></svg>content audit</span><span class="d num">done · 19 sep</span></li>
+          <li><span class="st"><svg viewBox="0 0 11 11" aria-hidden="true"><rect x="1" y="1" width="9" height="9" fill="#1a1a1a"/></svg>new design system</span><span class="d num">done · 10 oct</span></li>
+          <li><span class="st"><svg viewBox="0 0 11 11" aria-hidden="true"><rect x="1" y="1" width="9" height="9" fill="none" stroke="#1a1a1a"/><path d="M1 10 10 1V10Z" fill="#1a1a1a"/></svg>home and pricing pages</span><span class="d num">in progress · due 7 nov</span></li>
+          <li><span class="st"><svg viewBox="0 0 11 11" aria-hidden="true"><rect x="1.5" y="1.5" width="8" height="8" fill="none" stroke="#1a1a1a"/></svg>launch</span><span class="d num">planned · due 14 nov</span></li>
+        </ol>
+      </section>
+
+      <section class="room span2 r2" aria-labelledby="h-tasks">
+        <h2 id="h-tasks"><b>05</b>open tasks · 4</h2>
+        <ol class="tasks">
+          <li><span class="n">t1</span><span><a href="#">hero image options</a><span class="who">priya nair</span></span><span class="due num">due 2 nov</span></li>
+          <li><span class="n">t2</span><span><a href="#">pricing table copy</a><span class="who">mara okafor</span></span><span class="due num">due 4 nov</span></li>
+          <li><span class="n">t3</span><span><a href="#">customer logos permission</a><span class="who">aiko tanaka</span></span><span class="due num"><span class="st bad"><svg viewBox="0 0 11 11" aria-hidden="true"><circle cx="5.5" cy="5.5" r="4.5" fill="none" stroke="#b3261e" stroke-width="1.2"/><path d="M2.3 8.7 8.7 2.3" stroke="#b3261e" stroke-width="1.2"/></svg>blocked</span><br>due 5 nov</span></li>
+          <li><span class="n">t4</span><span><a href="#">redirect map for old urls</a><span class="who">unassigned</span></span><span class="due num">due 10 nov</span></li>
+        </ol>
+      </section>
+
+      <section class="room r3" aria-labelledby="h-files">
+        <i class="bub ybub" aria-hidden="true">3</i>
+        <h2 id="h-files"><b>06</b>files</h2>
+        <ul class="files">
+          <li><a href="#">brand-guide-v3.pdf</a><span>4.2 mb</span></li>
+          <li><a href="#">homepage-wireframe.fig</a><span>1.1 mb</span></li>
+          <li><a href="#">content-audit.xlsx</a><span>86 kb</span></li>
+        </ul>
+      </section>
+
+      <section class="room span2 r3" aria-labelledby="h-disc">
+        <h2 id="h-disc"><b>07</b>discussion</h2>
+        <blockquote>“three hero options are up. i lean to b.”<span class="cite">priya nair · 40 min ago</span></blockquote>
+        <form class="reply" action="#">
+          <label class="field">reply <input placeholder="write to the team"></label>
+          <button class="btn btn-2" type="submit">post</button>
+        </form>
+      </section>
+
+      <aside class="room tb r3" aria-label="Title block">
+        <div><span class="lbl">project</span><div class="proj">website redesign</div></div>
+        <div>
+          <dl>
+            <dt>team</dt><dd>design</dd>
+            <dt>owner</dt><dd>priya nair</dd>
+            <dt>viewed by</dt><dd>mara okafor</dd>
+            <dt>sheet</dt><dd>p-01 · overview</dd>
+          </dl>
+        </div>
+        <div class="north"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="none" stroke="#1a1a1a"/><path d="M11 3 15 17 11 14 7 17Z" fill="#1a1a1a"/></svg>brightwork</div>
+      </aside>
+    </div>
+  </div>
+
+  <figure class="scale">
+    <svg viewBox="0 -10 520 56" role="img" aria-labelledby="sc-t">
+      <title id="sc-t">progress scale bar: 18 of 25 tasks done, 72 percent.</title>
+      <g stroke="#1a1a1a" stroke-width="1">
+        <rect x="10" y="14" width="500" height="8" fill="#fff"/>
+        <rect x="10" y="14" width="100" height="8" fill="#1a1a1a"/>
+        <rect x="210" y="14" width="100" height="8" fill="#1a1a1a"/>
+        <path d="M370 6v24" stroke-width="1.5"/>
+        <path d="M366 6h8"/>
+      </g>
+      <g font-family="Futura, Century Gothic, Avenir, sans-serif" font-size="11" fill="#1a1a1a" text-anchor="middle">
+        <text x="10" y="40">0</text><text x="110" y="40">5</text><text x="210" y="40">10</text><text x="310" y="40">15</text><text x="410" y="40">20</text><text x="510" y="40">25</text>
+        <text x="370" y="0" font-size="11">18 · 72%</text>
+      </g>
+    </svg>
+    <p>scale · tasks complete · 1 unit = 1 task</p>
+  </figure>
+</main>
+
+<section class="sheet" aria-labelledby="sheet-h">
+  <span class="lbl">style sheet</span>
+  <h2 class="t" id="sheet-h">Style 42 · Architectural</h2>
+  <p class="idea">the project laid out like a floor plan on a drawing sheet, with hairline walls between numbered rooms, grid bubbles, a dimension-line timeline, a scale bar and a title block, all in lowercase geometric type.</p>
+
+  <h3>palette</h3>
+  <ul class="sw">
+    <li><i style="background:#ffffff"></i><b>white</b><code>#ffffff</code> · page and rooms</li>
+    <li><i style="background:#1a1a1a"></i><b>ink</b><code>#1a1a1a</code> · text, walls, primary button, scale bar</li>
+    <li><i style="background:#666666"></i><b>grey</b><code>#666666</code> · labels, dates, assignees, grid lines</li>
+    <li><i style="background:#d4d4d4"></i><b>hairline</b><code>#d4d4d4</code> · row dividers inside rooms</li>
+    <li><i style="background:#f4f4f2"></i><b>faint</b><code>#f4f4f2</code> · focused list row</li>
+    <li><i style="background:#b3261e"></i><b>markup red</b><code>#b3261e</code> · blocked only, like a redline</li>
+  </ul>
+
+  <h3>type · one geometric sans, lowercase</h3>
+  <p style="margin:0 0 6px"><code style="font:12px var(--mono);color:#666;text-transform:none">Futura, "Futura PT", "Century Gothic", "Avenir Next", Avenir, "URW Gothic", "Trebuchet MS", sans-serif · text-transform: lowercase</code></p>
+  <div class="trow"><code>64 / 300 figures</code><span style="font-size:64px;line-height:1">72%</span></div>
+  <div class="trow"><code>44 / 300 / 1.05</code><span style="font-size:44px;line-height:1.05">website redesign</span></div>
+  <div class="trow"><code>19 / 300 / 1.5 lead</code><span style="font-size:19px">rebuild the marketing site on the new brand.</span></div>
+  <div class="trow"><code>15 / 300 / 1.6 body</code><span>pricing table copy · mara okafor</span></div>
+  <div class="trow"><code>11 / 400 +0.18em labels</code><span class="lbl">05 open tasks</span></div>
+
+  <h3>spacing, corners and depth</h3>
+  <dl class="facts">
+    <dt>spacing</dt><dd>8px unit. 22 to 26px room padding, 36 to 56px between major blocks, 44px gutter for grid markers.</dd>
+    <dt>density</dt><dd>sparse. lots of white; few items per room.</dd>
+    <dt>corners</dt><dd>square. only grid bubbles are round.</dd>
+    <dt>borders</dt><dd>1px ink walls shared between rooms, 1px light grey rows inside, dashed grey grid leaders.</dd>
+    <dt>shadows</dt><dd>none.</dd>
+    <dt>icons</dt><dd>tiny 11px drawn glyphs: tick for on track, filled square done, half-filled square in progress, hollow square planned, slashed circle blocked. initials in square frames for people.</dd>
+    <dt>focus</dt><dd>1.5px ink outline offset 4px; fields also thicken their underline to 2px.</dd>
+    <dt>tone</dt><dd>lowercase, nouns over sentences, numbered like drawing references: “05 open tasks”.</dd>
+  </dl>
+
+  <h3>controls · normal and focus</h3>
+  <div class="controls">
+    <div><span class="clbl">primary button</span><button class="btn" type="button">add task</button> <button class="btn is-focus" type="button">add task</button></div>
+    <div><span class="clbl">secondary button</span><button class="btn btn-2" type="button">edit project</button> <button class="btn btn-2 is-focus" type="button">edit project</button></div>
+    <div><label class="field">task name <input value="pricing table copy"></label></div>
+    <div><label class="field">task name · focused <input class="is-focus" value="hero image options"></label></div>
+    <div><span class="clbl">list row</span><div class="row-demo"><span class="lbl">t3</span><span>customer logos permission</span><span class="st bad"><svg viewBox="0 0 11 11" aria-hidden="true"><circle cx="5.5" cy="5.5" r="4.5" fill="none" stroke="#b3261e" stroke-width="1.2"/><path d="M2.3 8.7 8.7 2.3" stroke="#b3261e" stroke-width="1.2"/></svg>blocked</span></div></div>
+    <div><span class="clbl">list row · focused</span><div class="row-demo is-focus"><span class="lbl">t1</span><span>hero image options</span><span class="num">2 nov</span></div></div>
+  </div>
+</section>
+</body>
+</html>

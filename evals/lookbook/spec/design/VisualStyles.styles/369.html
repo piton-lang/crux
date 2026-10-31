@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 369 · Piggy playful · Brightwork</title>
+<style>
+
+:root { color-scheme: dark; --bg:#1c1630; --card:#28203f; --card2:#352b52; --line:#4a3f6e; --ink:#fbf4ff; --muted:#c4b8dd; --pink:#ff9fcb; --onpink:#3a0c24; --mint:#8ff0c8; --sun:#ffd66e; --oops:#ff9b8a;
+ --round: ui-rounded, "SF Pro Rounded", "Nunito", "Varela Round", "Arial Rounded MT Bold", "Segoe UI", system-ui, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 var(--round); }
+a { color: var(--pink); }
+:focus-visible, .is-focus { outline: 3px solid var(--sun) !important; outline-offset: 4px; border-radius: 20px; }
+.si { width: 1em; height: 1em; vertical-align: -2px; flex: none; }
+.wrap { max-width: 1160px; margin: 0 auto; padding: 24px 24px 0; }
+.top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+.logo { width: 44px; height: 44px; border-radius: 50%; background: var(--pink); display: grid; place-items: center; }
+.logo svg { width: 28px; height: 28px; }
+.top .nm { font-weight: 800; font-size: 19px; }
+.top nav { margin-left: auto; }
+.top nav ul { list-style: none; display: flex; gap: 8px; margin: 0; padding: 0; flex-wrap: wrap; }
+.top nav a { display: block; padding: 8px 16px; border-radius: 999px; background: var(--card); color: var(--muted); text-decoration: none; font-weight: 700; font-size: 14px; }
+.top nav a[aria-current] { background: var(--card2); color: var(--ink); box-shadow: inset 0 0 0 2px var(--pink); }
+.hello { font-size: 34px; font-weight: 800; margin: 0 0 4px; letter-spacing: -.01em; }
+.hello + p { margin: 0 0 24px; color: var(--muted); font-size: 17px; }
+.grid { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 24px; align-items: start; }
+.card { background: var(--card); border-radius: 32px; padding: 24px; }
+h2 { margin: 0 0 16px; font-size: 21px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+h2 .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--pink); }
+.pockets { list-style: none; margin: 0 0 24px; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.pocket { background: var(--card); border-radius: 28px 28px 28px 8px; padding: 18px 20px; }
+.pocket .k { font-weight: 700; color: var(--muted); font-size: 14px; }
+.pocket .v { font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.pocket .t { font-size: 13px; font-weight: 700; display: inline-flex; gap: 6px; align-items: center; margin-top: 4px; background: var(--card2); padding: 3px 10px; border-radius: 999px; }
+.pocket.cc .v { color: var(--oops); }
+.jars { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.jar { text-align: center; display: grid; justify-items: center; gap: 6px; }
+.jar > svg { width: 100%; max-width: 110px; height: auto; }
+.jar .n { font-weight: 800; font-size: 15px; }
+.jar .f { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--muted); font-size: 14px; }
+.jar .f b { color: var(--ink); }
+.tag { display: inline-flex; gap: 5px; align-items: center; font-weight: 800; font-size: 13px; padding: 4px 10px; border-radius: 999px; background: var(--card2); }
+.tag.ok { color: var(--mint); } .tag.full { color: var(--sun); } .tag.over { color: var(--onpink); background: var(--oops); }
+.sumline { margin: 20px 0 0; padding: 14px 18px; border-radius: 20px; background: var(--card2); font-weight: 700; }
+.sumline b { color: var(--mint); }
+.pig { text-align: center; }
+.pig svg { width: 100%; max-width: 320px; height: auto; display: block; margin: 0 auto; }
+.pig .big { color: var(--ink) !important; font-size: 36px; font-weight: 800; margin: 8px 0 0; font-variant-numeric: tabular-nums; }
+.pig .big span { font-size: 18px; color: var(--muted); font-weight: 700; }
+.pig p { margin: 4px 0; color: var(--muted); font-weight: 700; }
+.pig .chip { display: inline-block; margin-top: 10px; background: var(--card2); border-radius: 999px; padding: 6px 14px; color: var(--ink); font-weight: 700; font-size: 14px; }
+.feed { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.feed li { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; gap: 12px; align-items: center; background: var(--card2); border-radius: 22px; padding: 10px 16px 10px 10px; }
+.feed .b { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--line); font-size: 20px; color: var(--ink); }
+.feed .in .b { background: var(--mint); color: #0c3324; }
+.feed .p { font-weight: 800; } .feed .d { color: var(--muted); font-size: 13px; font-weight: 700; }
+.feed .a { font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.feed .in .a { color: var(--mint); }
+.mt { margin-top: 24px; }
+@media (max-width: 1000px) { .grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+ .wrap { padding: 16px 16px 0; } .top nav { margin-left: 0; width: 100%; } .hello { font-size: 28px; }
+ .pockets { grid-template-columns: 1fr; gap: 10px; } .pocket { display: grid; grid-template-columns: 1fr auto; align-items: center; } .pocket .t { grid-column: 1 / -1; justify-self: start; }
+ .jars { grid-template-columns: repeat(3, minmax(0,1fr)); row-gap: 20px; } .card { padding: 20px 16px; border-radius: 28px; }
+ .tag { font-size: 12px; padding: 3px 8px; }
+}
+
+.sheet { max-width: 1120px; margin: 0 auto; padding: 48px 24px 64px; }
+.sheet .swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.sheet .sw { display: flex; gap: 12px; align-items: flex-start; }
+.sheet .sw i { flex: none; width: 44px; height: 44px; }
+.sheet .sw span { font-size: 13px; }
+.sheet .type-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding: 8px 0; }
+.sheet .type-row code { flex: none; width: 200px; font-size: 12px; }
+.sheet .type-row span { min-width: 0; overflow-wrap: anywhere; }
+.sheet .facts { display: grid; grid-template-columns: 140px minmax(0,1fr); gap: 8px 24px; margin: 0; }
+.sheet .facts dd { margin: 0; }
+.sheet .controls { display: grid; gap: 20px; }
+.sheet .ctl-label { display: block; font-size: 13px; margin-bottom: 8px; }
+.sheet .ctl-pair { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
+.sheet .fld { display: grid; gap: 6px; font-size: 13px; }
+.sheet .lrow { min-width: 0; width: min(340px, 100%); }
+@media (max-width: 600px) { .sheet .facts { grid-template-columns: minmax(0,1fr); } .sheet .facts dd { margin-bottom: 8px; } .sheet .type-row code { width: auto; } .sheet { padding: 40px 16px 48px; } }
+
+.sheet h2 { font-size: 32px; display: block; margin: 0 0 8px; }
+.sheet .idea { font-size: 18px; font-weight: 600; max-width: 780px; }
+.sheet h3 { display: inline-block; font-size: 15px; font-weight: 800; background: var(--card); color: var(--pink); padding: 6px 16px; border-radius: 999px; margin: 40px 0 16px; }
+.sheet .sw i { border-radius: 50% 50% 50% 12px; }
+.sheet .sw span, .sheet code, .sheet .ctl-label, .sheet .fld span, .sheet dt { color: var(--muted); }
+.sheet dt { font-weight: 800; }
+.btn-p { font: 800 16px var(--round); background: var(--pink); color: var(--onpink); border: 0; padding: 14px 26px; border-radius: 999px; box-shadow: 0 4px 0 #b9567f; cursor: pointer; }
+.btn-s { font: 800 16px var(--round); background: var(--card2); color: var(--ink); border: 0; padding: 14px 26px; border-radius: 999px; box-shadow: 0 4px 0 #120d20; cursor: pointer; }
+.fld input { font: 700 16px var(--round); background: var(--card); color: var(--ink); border: 2px solid var(--line); padding: 12px 18px; border-radius: 20px; width: 240px; max-width: 100%; }
+.fld input.is-focus { border-color: var(--sun); }
+.lrow { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; background: var(--card2); border-radius: 22px; padding: 12px 18px; color: var(--ink); text-decoration: none; font-weight: 800; }
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><span class="logo"><svg viewBox="0 0 28 28" aria-hidden="true"><ellipse cx="14" cy="15" rx="10" ry="8" fill="#3a0c24"/><rect x="11" y="9" width="6" height="2" rx="1" fill="#ff9fcb"/></svg></span><span class="nm">Brightwork Money</span>
+ <nav aria-label="Main"><ul><li><a href="#" aria-current="page">My month</a></li><li><a href="#">Jars</a></li><li><a href="#">Piggy</a></li><li><a href="#">Activity</a></li></ul></nav></header>
+<main>
+ <h1 class="hello">Nice going, Mara!</h1><p>Here is your October, in euros. Four jars are fine and one got a little too full.</p>
+ <div class="grid">
+  <div>
+   <h2 class="sr" style="font-size:17px;color:var(--muted)">Your pockets</h2>
+   <ul class="pockets">
+    <li class="pocket"><span class="k">Everyday</span><div class="v">€2,184.60</div><span class="t"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.8 12.3l2.8 2.8 5.6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ready to spend</span></li>
+    <li class="pocket"><span class="k">Savings</span><div class="v">€11,420.00</div><span class="t"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.8 12.3l2.8 2.8 5.6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Tucked away</span></li>
+    <li class="pocket cc"><span class="k">Credit card</span><div class="v">−€342.18</div><span class="t"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Pay by 12 Nov</span></li>
+   </ul>
+   <section class="card" aria-labelledby="h-j"><h2 id="h-j"><span class="dot" aria-hidden="true"></span>October jars</h2>
+    <ul class="jars"><li class="jar" role="group" aria-label="Rent, 1150 of 1150, Full up"><svg viewBox="0 0 110 150" aria-hidden="true"><defs><clipPath id="j1150"><rect x="18" y="34" width="74" height="106" rx="22"/></clipPath></defs>
+<rect x="18" y="34" width="74" height="106" rx="22" fill="#352b52"/>
+<rect x="10" y="38" width="90" height="112" fill="#ffd66e" clip-path="url(#j1150)"/>
+<rect x="18" y="34" width="74" height="106" rx="22" fill="none" stroke="#c4b8dd" stroke-width="3"/>
+<rect x="26" y="22" width="58" height="14" rx="6" fill="#4a3f6e" stroke="#c4b8dd" stroke-width="3"/>
+<circle cx="46" cy="80" r="4" fill="#1c1630"/><circle cx="64" cy="80" r="4" fill="#1c1630"/><path d="M44 96 h22" stroke="#1c1630" stroke-width="4" stroke-linecap="round"/></svg><span class="n">Rent</span><span class="f"><b>€1,150</b> of 1,150</span><span class="tag full"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10h8M8 14h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Full up</span></li><li class="jar" role="group" aria-label="Groceries, 386 of 450, 64 to spare"><svg viewBox="0 0 110 150" aria-hidden="true"><defs><clipPath id="j386"><rect x="18" y="34" width="74" height="106" rx="22"/></clipPath></defs>
+<rect x="18" y="34" width="74" height="106" rx="22" fill="#352b52"/>
+<rect x="10" y="52" width="90" height="98" fill="#8ff0c8" clip-path="url(#j386)"/>
+<rect x="18" y="34" width="74" height="106" rx="22" fill="none" stroke="#c4b8dd" stroke-width="3"/>
+<rect x="26" y="22" width="58" height="14" rx="6" fill="#4a3f6e" stroke="#c4b8dd" stroke-width="3"/>
+<circle cx="46" cy="80" r="4" fill="#1c1630"/><circle cx="64" cy="80" r="4" fill="#1c1630"/><path d="M44 92 q11 10 22 0" stroke="#1c1630" stroke-width="4" fill="none" stroke-linecap="round"/></svg><span class="n">Groceries</span><span class="f"><b>€386</b> of 450</span><span class="tag ok"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.8 12.3l2.8 2.8 5.6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>64 to spare</span></li><li class="jar" role="group" aria-label="Eating out, 212 of 150, Oops, 62 over"><svg viewBox="0 0 110 150" aria-hidden="true"><defs><clipPath id="j212"><rect x="18" y="34" width="74" height="106" rx="22"/></clipPath></defs>
+<rect x="18" y="34" width="74" height="106" rx="22" fill="#352b52"/>
+<rect x="10" y="38" width="90" height="112" fill="#ff9b8a" clip-path="url(#j212)"/>
+<rect x="18" y="34" width="74" height="106" rx="22" fill="none" stroke="#c4b8dd" stroke-width="3"/>
+<rect x="26" y="22" width="58" height="14" rx="6" fill="#4a3f6e" stroke="#c4b8dd" stroke-width="3"/>
+<path d="M30 30 C 30 18, 40 22, 44 14 C 48 22, 58 16, 60 26 C 66 18, 74 24, 80 30 Z" fill="#ff9b8a"/><path d="M84 34 q6 14 0 22 q-6 -8 0 -22z" fill="#ff9b8a"/><path d="M18 40 q6 12 0 18 q-6 -6 0 -18z" fill="#ff9b8a"/><circle cx="46" cy="80" r="4" fill="#1c1630"/><circle cx="64" cy="80" r="4" fill="#1c1630"/><path d="M44 100 q11 -10 22 0" stroke="#1c1630" stroke-width="4" fill="none" stroke-linecap="round"/></svg><span class="n">Eating out</span><span class="f"><b>€212</b> of 150</span><span class="tag over"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3L22 20H2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9.5v4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2" fill="currentColor"/></svg>Oops, 62 over</span></li><li class="jar" role="group" aria-label="Transport, 74 of 120, 46 to spare"><svg viewBox="0 0 110 150" aria-hidden="true"><defs><clipPath id="j74"><rect x="18" y="34" width="74" height="106" rx="22"/></clipPath></defs>
+<rect x="18" y="34" width="74" height="106" rx="22" fill="#352b52"/>
+<rect x="10" y="76" width="90" height="74" fill="#8ff0c8" clip-path="url(#j74)"/>
+<rect x="18" y="34" width="74" height="106" rx="22" fill="none" stroke="#c4b8dd" stroke-width="3"/>
+<rect x="26" y="22" width="58" height="14" rx="6" fill="#4a3f6e" stroke="#c4b8dd" stroke-width="3"/>
+<circle cx="46" cy="80" r="4" fill="#1c1630"/><circle cx="64" cy="80" r="4" fill="#1c1630"/><path d="M44 92 q11 10 22 0" stroke="#1c1630" stroke-width="4" fill="none" stroke-linecap="round"/></svg><span class="n">Transport</span><span class="f"><b>€74</b> of 120</span><span class="tag ok"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.8 12.3l2.8 2.8 5.6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>46 to spare</span></li><li class="jar" role="group" aria-label="Subscriptions, 48 of 60, 12 to spare"><svg viewBox="0 0 110 150" aria-hidden="true"><defs><clipPath id="j48"><rect x="18" y="34" width="74" height="106" rx="22"/></clipPath></defs>
+<rect x="18" y="34" width="74" height="106" rx="22" fill="#352b52"/>
+<rect x="10" y="58" width="90" height="92" fill="#8ff0c8" clip-path="url(#j48)"/>
+<rect x="18" y="34" width="74" height="106" rx="22" fill="none" stroke="#c4b8dd" stroke-width="3"/>
+<rect x="26" y="22" width="58" height="14" rx="6" fill="#4a3f6e" stroke="#c4b8dd" stroke-width="3"/>
+<circle cx="46" cy="80" r="4" fill="#1c1630"/><circle cx="64" cy="80" r="4" fill="#1c1630"/><path d="M44 92 q11 10 22 0" stroke="#1c1630" stroke-width="4" fill="none" stroke-linecap="round"/></svg><span class="n">Subscriptions</span><span class="f"><b>€48</b> of 60</span><span class="tag ok"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.8 12.3l2.8 2.8 5.6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>12 to spare</span></li></ul>
+    <p class="sumline">All together you've used €1,870 of €1,930, so <b>€60 is still free</b>.</p>
+   </section>
+  </div>
+  <div>
+   <section class="card pig" aria-labelledby="h-p"><h2 id="h-p" style="justify-content:center"><span class="dot" aria-hidden="true"></span>Japan trip piggy</h2><svg viewBox="0 0 320 240" role="img" aria-label="Piggy bank goal jar, filled 64 percent, 3,200 of 5,000 euros for the Japan trip">
+<defs><clipPath id="pigc"><path d="M60 120 C60 70 110 50 160 50 C220 50 262 80 268 118 L290 112 L290 150 L268 148 C260 180 230 200 200 204 L200 226 L176 226 L176 206 L140 206 L140 226 L116 226 L116 200 C84 190 60 160 60 120 Z"/></clipPath></defs>
+<path d="M60 120 C60 70 110 50 160 50 C220 50 262 80 268 118 L290 112 L290 150 L268 148 C260 180 230 200 200 204 L200 226 L176 226 L176 206 L140 206 L140 226 L116 226 L116 200 C84 190 60 160 60 120 Z" fill="#352b52"/>
+<rect x="40" y="113" width="270" height="200" fill="#ff9fcb" clip-path="url(#pigc)"/>
+<g clip-path="url(#pigc)" fill="#ffd66e" stroke="#3a0c24" stroke-width="2"><circle cx="110" cy="190" r="12"/><circle cx="140" cy="178" r="12"/><circle cx="175" cy="196" r="12"/><circle cx="210" cy="182" r="12"/><circle cx="240" cy="170" r="12"/></g>
+<path d="M60 120 C60 70 110 50 160 50 C220 50 262 80 268 118 L290 112 L290 150 L268 148 C260 180 230 200 200 204 L200 226 L176 226 L176 206 L140 206 L140 226 L116 226 L116 200 C84 190 60 160 60 120 Z" fill="none" stroke="#fbf4ff" stroke-width="5" stroke-linejoin="round"/>
+<path d="M120 58 L104 26 L140 50" fill="#352b52" stroke="#fbf4ff" stroke-width="5" stroke-linejoin="round"/>
+<rect x="138" y="62" width="50" height="9" rx="4.5" fill="#1c1630" stroke="#fbf4ff" stroke-width="3"/>
+<circle cx="236" cy="98" r="6" fill="#fbf4ff"/>
+<path d="M58 118 q-24 -6 -22 -26 q14 4 10 18" fill="none" stroke="#fbf4ff" stroke-width="5" stroke-linecap="round"/>
+<text x="160" y="147" text-anchor="middle" font-family="ui-rounded, Nunito, Arial Rounded MT Bold, sans-serif" font-weight="800" font-size="28" fill="#3a0c24">64%</text>
+<path d="M30 113 h22" stroke="#ff9fcb" stroke-width="3" stroke-linecap="round"/>
+</svg>
+    <p class="big">€3,200 <span>of €5,000</span></p><p>Only €1,800 more to go!</p><span class="chip">Fly day 1 April 2027</span></section>
+   <section class="card mt" id="tx" aria-labelledby="h-a"><h2 id="h-a"><span class="dot" aria-hidden="true"></span>What happened lately</h2><ul class="feed"><li class="in"><span class="b" aria-hidden="true">+</span><span><span class="p">Fernhill Studio salary</span><br><span class="d">31 Oct · money in, yay</span></span><span class="a">+€3,850.00</span></li><li class="out"><span class="b" aria-hidden="true">−</span><span><span class="p">Corner Market</span><br><span class="d">30 Oct</span></span><span class="a">−€42.15</span></li><li class="out"><span class="b" aria-hidden="true">−</span><span><span class="p">Night train tickets</span><br><span class="d">29 Oct</span></span><span class="a">−€118.00</span></li><li class="out"><span class="b" aria-hidden="true">−</span><span><span class="p">Lumen Bakery</span><br><span class="d">28 Oct</span></span><span class="a">−€9.40</span></li><li class="out"><span class="b" aria-hidden="true">−</span><span><span class="p">Music subscription</span><br><span class="d">27 Oct</span></span><span class="a">−€10.99</span></li></ul></section>
+  </div>
+ </div>
+</main>
+</div>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 369 · Piggy playful</h2>
+<p class="idea">A friendly rounded money app on deep plum, with a big pink piggy bank that fills like a jar for the savings goal, budgets as little glass jars with faces that fill up, and cheerful words that stay kind when a jar overflows.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><i style="background:#1c1630"></i><div><b>Plum night</b> #1c1630<br><span>page and style sheet</span></div></li><li class="sw"><i style="background:#28203f"></i><div><b>Card</b> #28203f<br><span>cards and pockets</span></div></li><li class="sw"><i style="background:#352b52"></i><div><b>Card two</b> #352b52<br><span>chips, feed rows, empty glass, secondary button</span></div></li><li class="sw"><i style="background:#4a3f6e"></i><div><b>Line</b> #4a3f6e<br><span>field borders, jar lids, payee discs</span></div></li><li class="sw"><i style="background:#fbf4ff"></i><div><b>Ink</b> #fbf4ff<br><span>text, jar and piggy outlines</span></div></li><li class="sw"><i style="background:#c4b8dd"></i><div><b>Muted</b> #c4b8dd<br><span>labels, dates and jar glass outline</span></div></li><li class="sw"><i style="background:#ff9fcb"></i><div><b>Pink</b> #ff9fcb<br><span>the piggy fill, brand, primary button</span></div></li><li class="sw"><i style="background:#8ff0c8"></i><div><b>Mint</b> #8ff0c8<br><span>jars with room to spare, money in, free money</span></div></li><li class="sw"><i style="background:#ffd66e"></i><div><b>Sun</b> #ffd66e<br><span>Full up jars, coins, focus ring</span></div></li><li class="sw"><i style="background:#ff9b8a"></i><div><b>Oops</b> #ff9b8a<br><span>the overflowing jar, owed card balance</span></div></li></ul>
+<h3>Type · ui-rounded, SF Pro Rounded, Nunito, Varela Round, Arial Rounded MT Bold, Segoe UI, system-ui</h3>
+<div class="type-row"><code>34 / 800 greeting</code><span style="font-size:34px;font-weight:800">Nice going, Mara!</span></div><div class="type-row"><code>36 / 800 goal figure</code><span style="font-size:36px;font-weight:800">€3,200</span></div><div class="type-row"><code>21 / 800 card title</code><span style="font-size:21px;font-weight:800">October jars</span></div><div class="type-row"><code>16 / 700 body</code><span style="font-weight:700">Only €1,800 more to go!</span></div><div class="type-row"><code>13 / 800 tag</code><span style="font-size:13px;font-weight:800;color:var(--oops)">Oops, 62 over</span></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3>
+<dl class="facts"><dt>Spacing</dt><dd>8px unit. 24px gutters and card padding, 14px between pockets, 12px between jars.</dd><dt>Density</dt><dd>Low. Three pockets, five jars, one piggy and five feed rows.</dd><dt>Corners</dt><dd>Very round. 32px cards, pockets with one tucked 8px corner, 22px rows, pill tags and buttons.</dd><dt>Borders</dt><dd>None on cards. Thick 3 to 5px light outlines on the jar and piggy drawings.</dd><dt>Shadows</dt><dd>Only a soft 4px ledge under buttons.</dd><dt>Icons</dt><dd>Drawn jars with faces, smile for room to spare, flat mouth for Full up, frown with overflow drips for over. Tags repeat it with a circle check, ruled square or triangle beside the word.</dd><dt>Focus</dt><dd>A 3px sunny yellow outline offset 4px with round corners.</dd><dt>Tone</dt><dd>Warm and playful, Nice going, Mara!, to spare, Full up, Oops, 62 over, money in, yay.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls">
+<div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-p" type="button">Feed the piggy</button><button class="btn-p is-focus" type="button">Feed the piggy</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-s" type="button">See jars</button><button class="btn-s is-focus" type="button">See jars</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="fld"><span>Name a jar</span><input type="text" value="Snacks"></label><label class="fld"><span>Name a jar, focused</span><input type="text" class="is-focus" value="Snacks"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><a class="lrow" href="#tx"><span>Lumen Bakery</span><span>−€9.40</span></a><a class="lrow is-focus" href="#tx"><span>Lumen Bakery</span><span>−€9.40</span></a></div></div>
+</div>
+</section>
+</body>
+</html>

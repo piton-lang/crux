@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 339 · Territory map · Brightwork</title>
+<style>
+
+:root { color-scheme: dark; --sea:#08121c; --land:#13243a; --panel:#0f1c2b; --line:#2e4a68; --ink:#e3ecf6; --muted:#9fb6cf; --amber:#ffc86b; --onam:#1d1300; --coral:#ff8f7a; --mint:#8de0b5; --ice:#9cd3ff;
+ --font: Bahnschrift, "DIN Alternate", "Roboto Condensed", "Arial Narrow", "Segoe UI", sans-serif;
+ --s-bg:#08121c; --s-ink:#e3ecf6; --s-muted:#9fb6cf; --s-line:#2e4a68; --s-font: var(--font); --s-sw-r: 50% 50% 50% 0; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--sea); color: var(--ink); font: 15px/1.45 var(--font); }
+.ic { width: 1.1em; height: 1.1em; vertical-align: -.18em; flex: none; }
+:focus-visible, .is-focus { outline: 2px dashed var(--ice) !important; outline-offset: 3px; }
+.bar { display: flex; align-items: center; gap: 14px; padding: 12px 24px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.bar .b { font-weight: 700; letter-spacing: .04em; display: flex; gap: 8px; align-items: center; }
+.bar .b .ic { color: var(--amber); }
+.bar .sp { flex: 1; }
+.btn-p { background: var(--amber); color: var(--onam); border: 0; border-radius: 4px; padding: 8px 14px; font: 700 14px var(--font); letter-spacing: .03em; display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
+.btn-s { background: transparent; color: var(--ice); border: 1px solid var(--line); border-radius: 4px; padding: 7px 12px; font: 600 14px var(--font); display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
+main { max-width: 1320px; margin: 0 auto; padding: 20px 24px 40px; }
+h1 { font-size: 26px; margin: 0 0 4px; font-weight: 700; letter-spacing: .02em; }
+.scale { display: flex; flex-wrap: wrap; gap: 0; margin: 12px 0 18px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.scale div { padding: 10px 18px 10px 0; margin-right: 18px; border-right: 1px dashed var(--line); }
+.scale div:last-child { border-right: 0; }
+.scale dt { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.scale dd { margin: 0; font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.tick { display: flex; height: 8px; width: 200px; margin-top: 6px; border: 1px solid var(--muted); }
+.tick i { display: block; width: 64%; background: repeating-linear-gradient(90deg, var(--amber) 0 10px, #ffd999 10px 20px); }
+.grid { display: grid; grid-template-columns: minmax(0,1.7fr) minmax(0,1fr); gap: 20px; align-items: start; }
+.map { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 10px; position: relative; }
+.map svg { display: block; width: 100%; height: auto; }
+.map figcaption { font-size: 13px; color: var(--muted); padding: 8px 4px 2px; }
+.legend { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 8px 4px 0; padding: 0; font-size: 13px; }
+.legend li { display: flex; gap: 6px; align-items: center; }
+.legend svg { width: 16px; height: 16px; }
+.key h2, .act h2 { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; font-weight: 700; }
+.key ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.key li a { display: grid; grid-template-columns: 30px minmax(0,1fr) auto; gap: 4px 12px; padding: 10px 4px; border-bottom: 1px solid var(--line); color: var(--ink); text-decoration: none; align-items: center; }
+.key li a:hover { background: var(--panel); }
+.num { width: 26px; height: 26px; display: grid; place-items: center; background: var(--amber); color: var(--onam); font-weight: 700; font-size: 13px; border-radius: 50%; }
+.num.dia { border-radius: 2px; transform: rotate(45deg); width: 22px; height: 22px; margin-left: 2px; } .num.dia span { transform: rotate(-45deg); }
+.num.sq { border-radius: 2px; }
+.num.tri { background: var(--coral); clip-path: polygon(50% 0, 100% 100%, 0 100%); border-radius: 0; padding-top: 7px; font-size: 11px; width: 28px; height: 26px; }
+.num.won { background: var(--mint); }
+.key b { font-weight: 700; }
+.key .meta { grid-column: 2; font-size: 13px; color: var(--muted); }
+.key .meta .s { color: var(--ink); } .key .meta .s.bad { color: var(--coral); } .key .meta .s.ok { color: var(--mint); }
+.key .v { grid-row: 1 / span 2; grid-column: 3; font-weight: 700; font-variant-numeric: tabular-nums; font-size: 17px; text-align: right; }
+.act { margin-top: 20px; }
+.act ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.act li { display: flex; gap: 8px; font-size: 14px; }
+.act .ic { color: var(--ice); margin-top: 2px; } .act .bad .ic { color: var(--coral); }
+@media (max-width: 960px) { .grid { grid-template-columns: minmax(0,1fr); } }
+@media (max-width: 600px) { .bar { padding: 10px 16px; } main { padding: 16px; } .scale div { flex: 1 1 40%; border-right: 0; } .tick { width: 100%; } }
+.fld { display: grid; gap: 4px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.fld input { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 8px 10px; color: var(--ink); font: 15px var(--font); width: 230px; max-width: 100%; letter-spacing: 0; text-transform: none; }
+.lrow { display: grid; grid-template-columns: 30px minmax(0,1fr) auto; gap: 12px; align-items: center; padding: 10px 6px; border-bottom: 1px solid var(--line); color: var(--ink); text-decoration: none; width: 300px; max-width: 100%; }
+
+
+.sheet { background: var(--s-bg); color: var(--s-ink); font-family: var(--s-font); padding: 48px 28px 72px; border-top: var(--s-top, 1px solid var(--s-line)); }
+.sheet > * { max-width: 1120px; margin-left: auto; margin-right: auto; }
+.sheet h2 { font-family: var(--s-hfont, inherit); font-size: 30px; line-height: 1.2; margin-top: 0; margin-bottom: 8px; font-weight: 700; }
+.sheet .idea { font-size: 17px; line-height: 1.55; color: var(--s-ink); margin-top: 0; margin-bottom: 8px; }
+.sheet h3 { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--s-muted); margin-top: 36px; margin-bottom: 14px; padding-top: 12px; border-top: 1px solid var(--s-line); font-weight: 700; }
+.swatches { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.sw { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; line-height: 1.45; min-width: 0; }
+.sw i { flex: none; width: 44px; height: 44px; border-radius: var(--s-sw-r, 6px); border: 1px solid var(--s-line); }
+.sw b { font-weight: 700; } .sw code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; color: var(--s-ink); }
+.sw span { color: var(--s-muted); }
+.type-row { display: flex; align-items: baseline; gap: 20px; padding: 10px 0; border-bottom: 1px solid var(--s-line); flex-wrap: wrap; min-width: 0; }
+.type-row code { flex: 0 0 220px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12.5px; color: var(--s-muted); }
+.type-row > span { min-width: 0; overflow-wrap: anywhere; }
+.stack { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; color: var(--s-muted); margin: 0 auto 6px; overflow-wrap: anywhere; }
+.facts { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 8px 20px; margin: 0 auto; font-size: 15px; line-height: 1.55; }
+.facts dt { font-weight: 700; } .facts dd { margin: 0; color: var(--s-ink); }
+.controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.ctl-label { display: block; font-size: 13px; color: var(--s-muted); margin-bottom: 10px; }
+.ctl-pair { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.ctl-pair > * { min-width: 0; }
+@media (max-width: 700px) {
+ .sheet { padding: 36px 16px 56px; }
+ .sheet h2 { font-size: 24px; }
+ .facts, .controls { grid-template-columns: minmax(0, 1fr); }
+ .facts dd { margin-bottom: 8px; }
+ .type-row code { flex-basis: 100%; }
+ .ctl-pair > .fld, .ctl-pair > .lrow { flex: 1 1 100%; }
+}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5L21.5 20h-19z"/><path d="M12 10v4"/><path d="M12 17.2v.1"/></symbol><symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol><symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14.5" rx="1.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></symbol><symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 3.5L3.5 10.5l7 3 3 7z"/><path d="M20.5 3.5l-10 10"/></symbol><symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V4"/><path d="M6 4.5h11l-2.5 4 2.5 4H6"/></symbol><symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol><symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></symbol><symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></symbol><symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16l-6 7.5V19l-4 1.5v-8z"/></symbol><symbol id="i-sortd" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 5v14M3.5 15.5L7 19l3.5-3.5"/><path d="M13 7h8M13 12h6M13 17h4"/></symbol><symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></symbol><symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol><symbol id="i-dot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/></symbol><symbol id="i-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H4.5a3 3 0 0 0 3.5 4M16 6h3.5a3 3 0 0 1-3.5 4M12 13v4M8.5 20h7M10 17h4"/></symbol><symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8-4.3-4.1 5.9-.8z"/></symbol><symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/></symbol><symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol><symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></symbol><symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15z"/><path d="M10 20.5h4"/></symbol><symbol id="i-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4 0-6.5-2.6-6.5-6.2 0-3.6 3-5.6 4-9.3 2 1.6 2.5 3.6 2.4 5 1-.6 1.7-1.7 2-3 2.4 2.1 4.6 4.7 4.6 7.3 0 3.6-2.5 6.2-6.5 6.2z"/></symbol><symbol id="i-hex" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/></symbol><symbol id="i-square" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12"/></symbol><symbol id="i-diamond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l8 8-8 8-8-8z"/></symbol><symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></symbol><symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol></defs></svg>
+<header class="bar"><span class="b"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Brightwork Sales · Territories</span><span class="sp"></span><button class="btn-s" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-filter"/></svg>All stages</button><button class="btn-p" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>Place deal</button></header>
+<main>
+<h1>Q4 pipeline by territory</h1>
+<dl class="scale">
+<div><dt>Pipeline value</dt><dd>412,000</dd></div>
+<div><dt>Won this quarter</dt><dd>128,500</dd><div class="tick" role="img" aria-label="64 percent of the 200,000 target"><i></i></div></div>
+<div><dt>Target</dt><dd>200,000</dd></div>
+<div><dt>Win rate</dt><dd>31%</dd></div>
+<div><dt>Open deals</dt><dd>18</dd></div>
+</dl>
+<div class="grid">
+<figure class="map" style="margin:0"><svg viewBox="0 0 720 460" role="img" aria-labelledby="mapt"><title id="mapt">Map of five sales regions with seven numbered deal pins. North holds Orbit Labs and Northpass. Harbour holds Lumen Bakery and Saltwater Freight. Central holds Kettle and Co. East holds Fernhill Studio. South holds Bluewater Clinics.</title><rect width="720" height="460" fill="#0b1826"/><path d="M20 20 L380 20 L360 150 L250 190 L20 170 Z" fill="#152a42" stroke="#2e4a68" stroke-width="2"/><path d="M20 170 L250 190 L230 330 L20 340 Z" fill="#13263c" stroke="#2e4a68" stroke-width="2"/><path d="M250 190 L360 150 L470 210 L450 330 L230 330 Z" fill="#182e47" stroke="#2e4a68" stroke-width="2"/><path d="M380 20 L700 20 L700 260 L470 210 L360 150 Z" fill="#142840" stroke="#2e4a68" stroke-width="2"/><path d="M20 340 L230 330 L450 330 L470 210 L700 260 L700 440 L20 440 Z" fill="#112238" stroke="#2e4a68" stroke-width="2"/><g fill="none" stroke="#1f3854" stroke-width="1.5" stroke-dasharray="4 6"><path d="M60 110 C140 80 220 120 300 90"/><path d="M420 90 C500 60 600 110 680 80"/><path d="M60 400 C200 370 330 410 460 380 S640 400 690 380"/><path d="M270 260 C320 240 380 280 430 250"/></g><text x="150" y="60" font-size="20" letter-spacing="3" fill="#9fb6cf" data-bg="#152a42">NORTH</text><text x="70" y="215" font-size="20" letter-spacing="3" fill="#9fb6cf" data-bg="#13263c">HARBOUR</text><text x="300" y="215" font-size="20" letter-spacing="3" fill="#9fb6cf" data-bg="#182e47">CENTRAL</text><text x="560" y="60" font-size="20" letter-spacing="3" fill="#9fb6cf" data-bg="#142840">EAST</text><text x="520" y="410" font-size="20" letter-spacing="3" fill="#9fb6cf" data-bg="#112238">SOUTH</text><g transform="translate(660 395)" stroke="#9fb6cf" fill="none" stroke-width="1.5"><circle r="22"/><path d="M0 -18 L5 0 L0 18 L-5 0 Z" fill="#9fb6cf"/></g><text x="653" y="358" font-size="14" fill="#9fb6cf" data-bg="#112238">N</text><circle cx="80" cy="295" r="20" fill="#ffc86b" stroke="#08121c" stroke-width="3"/><text x="80" y="302" text-anchor="middle" font-size="19" font-weight="700" fill="#1d1300" data-bg="#ffc86b">1</text><circle cx="250" cy="95" r="20" fill="#ffc86b" stroke="#08121c" stroke-width="3"/><text x="250" y="102" text-anchor="middle" font-size="19" font-weight="700" fill="#1d1300" data-bg="#ffc86b">2</text><path d="M170 106 L194 130 L170 154 L146 130 Z" fill="#ffc86b" stroke="#08121c" stroke-width="3"/><text x="170" y="137" text-anchor="middle" font-size="19" font-weight="700" fill="#1d1300" data-bg="#ffc86b">3</text><rect x="331" y="251" width="38" height="38" rx="3" fill="#ffc86b" stroke="#08121c" stroke-width="3"/><text x="350" y="277" text-anchor="middle" font-size="19" font-weight="700" fill="#1d1300" data-bg="#ffc86b">4</text><path d="M175 224 L201 268 L149 268 Z" fill="#ff8f7a" stroke="#08121c" stroke-width="3"/><text x="175" y="262" text-anchor="middle" font-size="19" font-weight="700" fill="#1d1300" data-bg="#ff8f7a">5</text><path d="M590 126 L614 150 L590 174 L566 150 Z" fill="#ffc86b" stroke="#08121c" stroke-width="3"/><text x="590" y="157" text-anchor="middle" font-size="19" font-weight="700" fill="#1d1300" data-bg="#ffc86b">6</text><circle cx="400" cy="390" r="20" fill="#8de0b5" stroke="#08121c" stroke-width="3"/><circle cx="400" cy="390" r="25" fill="none" stroke="#8de0b5" stroke-width="2"/><text x="400" y="397" text-anchor="middle" font-size="19" font-weight="700" fill="#1d1300" data-bg="#8de0b5">7</text></svg><ul class="legend" aria-label="Pin shapes"><li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="#ffc86b"/></svg>Open, no step listed</li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1 L15 8 L8 15 L1 8Z" fill="#ffc86b"/></svg>Date booked</li><li><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="1" fill="#ffc86b"/></svg>Proposal sent</li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1 L15 14 L1 14Z" fill="#ff8f7a"/></svg>Stalled</li><li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5" fill="#8de0b5"/><circle cx="8" cy="8" r="7.2" fill="none" stroke="#8de0b5" stroke-width="1.3"/></svg>Won</li></ul><figcaption>Regions are drawn for planning and are not to scale.</figcaption></figure>
+<div><section class="key" aria-labelledby="kh"><h2 id="kh">Deals on the map</h2><ol><li><a href="#"><span class="num " aria-hidden="true">1</span><b><span>Lumen Bakery</span></b><span class="v">6,000</span><span class="meta">Pin 1 · Harbour · Lead · Lena Fischer</span></a></li><li><a href="#"><span class="num " aria-hidden="true">2</span><b><span>Orbit Labs</span></b><span class="v">24,000</span><span class="meta">Pin 2 · North · Lead · Sam Ortiz</span></a></li><li><a href="#"><span class="num dia" aria-hidden="true"><span>3</span></span><b><span>Northpass</span></b><span class="v">48,000</span><span class="meta">Pin 3 · North · Qualified · Mara Okafor · <span class="s ">Demo 4 Nov</span></span></a></li><li><a href="#"><span class="num sq" aria-hidden="true">4</span><b><span>Kettle &amp; Co</span></b><span class="v">32,500</span><span class="meta">Pin 4 · Central · Proposal · Lena Fischer · <span class="s ">Sent 28 Oct</span></span></a></li><li><a href="#"><span class="num tri" aria-hidden="true">5</span><b><span>Saltwater Freight</span></b><span class="v">90,000</span><span class="meta">Pin 5 · Harbour · Proposal · Mara Okafor · <span class="s bad">Stalled 12 days</span></span></a></li><li><a href="#"><span class="num dia" aria-hidden="true"><span>6</span></span><b><span>Fernhill Studio</span></b><span class="v">18,000</span><span class="meta">Pin 6 · East · Negotiation · Sam Ortiz · <span class="s ">Closing 7 Nov</span></span></a></li><li><a href="#"><span class="num won" aria-hidden="true">7</span><b><span>Bluewater Clinics</span></b><span class="v">64,000</span><span class="meta">Pin 7 · South · Won · <span class="s ok">Closed 22 Oct</span></span></a></li></ol></section>
+<section class="act" aria-labelledby="ah"><h2 id="ah">Field notes</h2><ul>
+<li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>Call with Northpass booked for 4 Nov 10:00</span></li>
+<li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-eye"/></svg><span>Kettle &amp; Co opened the proposal 3 times</span></li>
+<li class="bad"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-warn"/></svg><span>Saltwater Freight has had no reply for 12 days</span></li></ul></section></div>
+</div>
+</main>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 339 · Territory map</h2>
+<p class="idea">The pipeline placed on a dark abstract map of five sales regions, where each deal is a numbered pin whose shape tells its state, with a keyed deal list beside the map as the legend and text version.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><i style="background:#08121c"></i><div><b>Sea</b> <code>#08121c</code><br><span>page and style sheet</span></div></li><li class="sw"><i style="background:#0b1826"></i><div><b>Chart sea</b> <code>#0b1826</code><br><span>water inside the map</span></div></li><li class="sw"><i style="background:#13243a"></i><div><b>Land</b> <code>#13243a</code><br><span>region fills, stepped from #112238 to #182e47</span></div></li><li class="sw"><i style="background:#0f1c2b"></i><div><b>Panel</b> <code>#0f1c2b</code><br><span>map frame, fields, row hover</span></div></li><li class="sw"><i style="background:#2e4a68"></i><div><b>Border</b> <code>#2e4a68</code><br><span>region borders, rules, dashed dividers</span></div></li><li class="sw"><i style="background:#e3ecf6"></i><div><b>Ink</b> <code>#e3ecf6</code><br><span>text</span></div></li><li class="sw"><i style="background:#9fb6cf"></i><div><b>Muted</b> <code>#9fb6cf</code><br><span>region names, labels, compass</span></div></li><li class="sw"><i style="background:#ffc86b"></i><div><b>Amber</b> <code>#ffc86b</code><br><span>pins, target hatch, primary button</span></div></li><li class="sw"><i style="background:#1d1300"></i><div><b>On amber</b> <code>#1d1300</code><br><span>pin numbers and button text</span></div></li><li class="sw"><i style="background:#ff8f7a"></i><div><b>Coral</b> <code>#ff8f7a</code><br><span>Stalled, triangle pin</span></div></li><li class="sw"><i style="background:#8de0b5"></i><div><b>Mint</b> <code>#8de0b5</code><br><span>Won, ringed pin</span></div></li><li class="sw"><i style="background:#9cd3ff"></i><div><b>Ice</b> <code>#9cd3ff</code><br><span>secondary button, note icons, focus</span></div></li></ul>
+<h3>Type</h3>
+<p class="stack">Bahnschrift, DIN Alternate, Roboto Condensed, Arial Narrow, Segoe UI</p>
+<div class="type-row"><code>26 / 700 title</code><span style="font-size:26px;font-weight:700">Q4 pipeline by territory</span></div><div class="type-row"><code>24 / 700 figure</code><span style="font-size:24px;font-weight:700">412,000</span></div><div class="type-row"><code>20 / caps .15em region</code><span style="font-size:20px;letter-spacing:.15em;color:#9fb6cf">HARBOUR</span></div><div class="type-row"><code>15 / 700 deal</code><span style="font-weight:700">Saltwater Freight</span></div><div class="type-row"><code>13 / 400 meta</code><span style="font-size:13px;color:#9fb6cf">Pin 5 · Harbour · Proposal</span></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3>
+<dl class="facts"><dt>Spacing</dt><dd>8px unit. 20px between map and list, 10px row padding, 24px gutter, 16px on phones.</dd><dt>Density</dt><dd>Medium. The map carries placement, the keyed list carries the detail.</dd><dt>Corners</dt><dd>6px map frame, 4px buttons and fields, round pins. Swatches are map pin teardrops.</dd><dt>Borders</dt><dd>2px region borders, 1px rules under every list row, dashed contour lines and summary dividers.</dd><dt>Shadows</dt><dd>None. Pins sit on a 3px sea coloured ring so they lift off the land.</dd><dt>Icons</dt><dd>Line icons at 1.9 stroke in the chrome. On the map, pin shape carries state, circle open, diamond date booked, square sent, triangle stalled, ringed circle won.</dd><dt>Focus</dt><dd>A 2px dashed ice outline offset 3px.</dd><dt>Tone</dt><dd>Field and survey words. Territories, Place deal, Field notes, Deals on the map.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls">
+<div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-p" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>Place deal</button><button class="btn-p is-focus" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>Place deal</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-s" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-filter"/></svg>All stages</button><button class="btn-s is-focus" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-filter"/></svg>All stages</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="fld"><span>Region</span><input type="text" value="Harbour"></label><label class="fld"><span>Region, focused</span><input type="text" class="is-focus" value="Harbour"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><a class="lrow" href="#"><span class="num" aria-hidden="true">2</span><b>Orbit Labs</b><span>24,000</span></a><a class="lrow is-focus" href="#"><span class="num" aria-hidden="true">2</span><b>Orbit Labs</b><span>24,000</span></a></div></div>
+</div>
+</section>
+</body>
+</html>

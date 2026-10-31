@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Style 275 · Film noir · Brightwork</title>
+<style>
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{margin:0}
+.ic{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:middle}
+.si{width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ic-star.si{fill:currentColor}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+button,input{font:inherit;color:inherit}
+.sheet .swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;list-style:none;margin:0;padding:0}
+.sheet .sw i{display:block;height:44px}
+.sheet .sw div{padding:8px 10px;font-size:12px;line-height:1.4}
+.sheet .sw b{display:block;font-size:13px}
+.sheet .type-row{display:flex;gap:16px;align-items:baseline;padding:8px 0;flex-wrap:wrap}
+.sheet .type-row code{font-size:12px;min-width:170px}
+.sheet .facts{display:grid;grid-template-columns:130px minmax(0,1fr);gap:8px 16px;margin:0;font-size:14px}
+.sheet .facts dd{margin:0}
+.sheet .controls{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+.sheet .ctl-label{display:block;font-size:12px;margin-bottom:8px}
+.sheet .field{display:block;font-size:13px}
+.sheet .field input{display:block;width:100%;margin-top:6px}
+@media (max-width:560px){.sheet .facts{grid-template-columns:1fr}.sheet .facts dt{margin-top:8px}}
+
+:root{--black:#0b0b0b;--wall:#141414;--paper:#1c1c1c;--ink:#ececec;--grey:#a8a8a8;--rule:#4a4a4a;--white:#f4f4f4;
+--type:"Courier New",Courier,"Nimbus Mono PS",ui-monospace,monospace;--title:"Bodoni 72","Didot","Big Caslon","Times New Roman",Times,serif}
+input::placeholder{color:var(--grey);opacity:1}
+body{background:var(--black);color:var(--ink);font:15px/1.5 var(--type)}
+:focus-visible,.is-focus{outline:2px solid var(--white)!important;outline-offset:3px}
+.wall{position:relative;overflow:clip;background:radial-gradient(ellipse at 75% 0%,#2a2a2a 0%,var(--wall) 45%,var(--black) 100%);border-bottom:3px double var(--rule)}
+.blinds{position:absolute;inset:-40px -10% 0 30%;transform:skewY(-14deg);pointer-events:none;background:repeating-linear-gradient(180deg,rgba(255,255,255,.075) 0 18px,transparent 18px 34px);mask-image:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent)}
+.top{position:relative;display:flex;align-items:flex-end;gap:24px;flex-wrap:wrap;padding:32px 40px 0}
+.title{font-family:var(--title);font-size:46px;line-height:1;margin:0;text-transform:uppercase;letter-spacing:.04em;font-weight:700}
+.title small{display:block;font-family:var(--type);font-size:13px;letter-spacing:.3em;color:var(--grey);margin-bottom:10px;font-weight:400}
+.caption{position:relative;display:inline-block;margin:16px 40px 0;padding:6px 12px;background:var(--black);border:1px solid var(--rule);font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.caption ol{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0}
+.caption li+li::before{content:"/";margin-right:6px;color:var(--grey)}
+.caption a{color:var(--ink)}
+.tabs{position:relative;display:flex;gap:4px;padding:24px 40px 0;flex-wrap:wrap;list-style:none;margin:0}
+.tabs a{display:flex;align-items:center;gap:8px;padding:10px 18px 8px;background:#1a1a1a;color:var(--grey);text-decoration:none;font-size:13px;text-transform:uppercase;letter-spacing:.08em;clip-path:polygon(10px 0,calc(100% - 10px) 0,100% 100%,0 100%);border-top:1px solid var(--rule)}
+.tabs a[aria-current=page]{background:var(--paper);color:var(--white);font-weight:700;box-shadow:inset 0 3px 0 var(--white)}
+.tabs .ic{width:16px;height:16px;stroke-width:1.5}
+.desk{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:0;background:var(--paper)}
+main{padding:24px 40px 40px;border-right:1px solid var(--rule)}
+.tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:20px}
+.search{flex:1;min-width:200px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--grey);padding:4px 0}
+.search input{flex:1;min-width:0;background:transparent;border:0;padding:6px 0;font-family:var(--type)}
+.search input:focus-visible{outline-offset:6px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;font:700 13px/1.3 var(--type);text-transform:uppercase;letter-spacing:.1em;border-radius:0;cursor:pointer}
+.btn .ic{width:16px;height:16px;stroke-width:1.8}
+.btn-primary{background:var(--white);color:#0b0b0b;border:1px solid var(--white)}
+.btn-secondary{background:transparent;color:var(--ink);border:1px solid var(--grey)}
+.switch{display:inline-flex;border:1px solid var(--grey)}
+.switch button{background:transparent;border:0;padding:8px 12px;font:13px var(--type);text-transform:uppercase;color:var(--grey);display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+.switch button[aria-pressed=true]{background:var(--white);color:#0b0b0b;font-weight:700}
+.switch .ic{width:15px;height:15px;stroke-width:1.8}
+table{width:100%;border-collapse:collapse;font-size:14px}
+caption{text-align:left;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--grey);padding-bottom:8px}
+th{font-weight:400;text-align:left;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);padding:8px 10px;border-top:3px double var(--rule);border-bottom:1px solid var(--rule)}
+td{padding:12px 10px;border-bottom:1px dotted var(--rule);vertical-align:top}
+td.no{color:var(--grey);width:36px}
+.fname{display:flex;gap:10px;align-items:flex-start}
+.fname .ic{width:20px;height:20px;stroke-width:1.4;margin-top:1px}
+.fname a{color:var(--white);text-decoration:none;font-weight:700;overflow-wrap:anywhere}
+.fname a:hover{text-decoration:underline}
+.kind{display:block;color:var(--grey);font-size:12px}
+.num{white-space:nowrap;font-variant-numeric:tabular-nums}
+tr.sel td{background:var(--white);color:#0b0b0b;border-bottom-color:var(--white)}
+tr.sel .fname a,tr.sel .kind,tr.sel td.no{color:#0b0b0b}
+.st{display:inline-flex;align-items:center;gap:6px;font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin:0 8px 4px 0;white-space:nowrap}
+.st::before{content:"["}.st::after{content:"]"}
+.st .si{stroke-width:1.8;width:14px;height:14px}
+.typed{display:flex;gap:2px;margin-top:6px}
+.typed i{width:8px;height:10px;border:1px solid var(--grey)}
+.typed i.on{background:var(--ink);border-color:var(--ink)}
+.dossier{padding:24px 28px 40px;background:#181818}
+.dossier h2{font-family:var(--title);font-size:24px;text-transform:uppercase;margin:0 0 16px;letter-spacing:.06em}
+.print{background:#2b2b2b;padding:10px 10px 30px;transform:rotate(-1.2deg);box-shadow:6px 8px 0 #000;margin:0 6px 24px}
+.print svg{display:block;width:100%;height:auto}
+.print p{margin:8px 0 0;font-size:12px;color:var(--ink);letter-spacing:.06em;text-align:center}
+.dossier dl{margin:0 0 20px;font-size:14px}
+.dossier dt{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);margin-top:12px}
+.dossier dd{margin:2px 0 0;padding-bottom:6px;border-bottom:1px dotted var(--rule)}
+.acts{display:grid;gap:8px}
+.acts .btn{justify-content:center}
+.ledger{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:24px;padding-top:16px;border-top:3px double var(--rule);font-size:13px;color:var(--grey)}
+.ledger .meter{flex:1;min-width:160px;max-width:320px;height:10px;border:1px solid var(--grey);background:repeating-linear-gradient(90deg,var(--ink) 0 6px,transparent 6px 8px) left/64.2% 100% no-repeat}
+.ledger b{color:var(--ink)}
+.sheet{background:var(--black);border-top:3px double var(--rule);padding:56px 40px 72px}
+.sheet h2{font-family:var(--title);font-size:36px;text-transform:uppercase;letter-spacing:.04em;margin:0 0 8px}
+.sheet h3{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--grey);margin:36px 0 12px;font-weight:400;border-bottom:1px solid var(--rule);padding-bottom:6px}
+.idea{max-width:70ch;margin:0;color:var(--ink)}
+.sw{border:1px solid var(--rule);background:var(--paper)}
+.sw div{color:var(--grey)}.sw b{color:var(--ink)}
+.type-row{border-bottom:1px dotted var(--rule)}.type-row code{color:var(--grey)}
+.facts dt{color:var(--grey);text-transform:uppercase;letter-spacing:.12em;font-size:12px}
+.ctl-label,.field{color:var(--grey)}
+.field input{background:transparent;border:0;border-bottom:1px solid var(--grey);padding:8px 0;font-family:var(--type)}
+.row-demo{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px dotted var(--rule);font-size:14px}
+@media (max-width:960px){.desk{grid-template-columns:minmax(0,1fr)}main{border-right:0}.dossier{border-top:3px double var(--rule)}.print{max-width:360px}}
+@media (max-width:700px){
+ .top{padding:24px 16px 0}.title{font-size:34px}.caption{margin:12px 16px 0}.tabs{padding:16px 16px 0;gap:2px}.tabs a{padding:8px 12px 6px;font-size:12px}
+ main{padding:20px 16px 32px}.dossier{padding:24px 16px 32px}
+ thead{display:none}
+ table,tbody,tr,td{display:block}
+ tr{display:grid;grid-template-columns:30px minmax(0,1fr);border-bottom:1px dotted var(--rule);padding:6px 0}
+ td{border:0;padding:3px 6px}
+ td.no{grid-row:span 4;width:auto}
+ tr.sel{background:var(--white)}
+ caption{display:block}
+ .sheet{padding:40px 16px}.sheet h2{font-size:28px}
+}
+</style>
+</head>
+<body>
+<header class="wall">
+<div class="blinds" aria-hidden="true"></div>
+<div class="top"><h1 class="title"><small>Brightwork Drive · case file</small>Website redesign</h1></div>
+<nav class="caption" aria-label="Breadcrumb"><ol><li><a href="#">My files</a></li><li><a href="#">Fernhill Studio</a></li><li><span aria-current="page">Website redesign</span></li></ol></nav>
+<nav aria-label="Drive"><ul class="tabs"><li><a href="#" aria-current=page><svg class="ic ic-home" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 7h6l2 2h9v10.5h-17z"/><path d="M8 14h8"/></svg>My files</a></li><li><a href="#"><svg class="ic ic-shared" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8.5" r="3"/><path d="M3.5 19.5c0-3.2 2.4-5.5 5.5-5.5s5.5 2.3 5.5 5.5"/><path d="M15 6h6M18 3v6"/></svg>Shared with me</a></li><li><a href="#"><svg class="ic ic-recent" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Recent</a></li><li><a href="#"><svg class="ic ic-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg>Starred</a></li><li><a href="#"><svg class="ic ic-trash" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/><path d="M10 11v5M14 11v5"/></svg>Trash</a></li></ul></nav>
+</header>
+<div class="desk">
+<main>
+<div class="tools">
+<label class="search"><svg class="ic ic-search" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg><span class="vh">Search files</span><input type="search" placeholder="Search files"></label>
+<button type="button" class="btn btn-primary"><svg class="ic ic-upload" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15V4M7.5 8.5L12 4l4.5 4.5"/><path d="M4 15v5h16v-5"/></svg>Upload</button>
+<button type="button" class="btn btn-secondary"><svg class="ic ic-newfolder" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6.5h6.5l2 2H21V19H3z"/><path d="M12 11v6M9 14h6"/></svg>New folder</button>
+<div class="switch" role="group" aria-label="View"><button type="button" aria-pressed="true"><svg class="ic ic-list" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg>List</button><button type="button" aria-pressed="false"><svg class="ic ic-grid" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="6.5" height="6.5"/><rect x="13.5" y="4" width="6.5" height="6.5"/><rect x="4" y="13.5" width="6.5" height="6.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5"/></svg>Grid</button></div>
+</div>
+<table><caption>Contents of Website redesign · 8 entries</caption>
+<thead><tr><th scope="col">No.</th><th scope="col">Name</th><th scope="col">Size</th><th scope="col">Modified</th><th scope="col">Notes</th></tr></thead>
+<tbody><tr class=""><td class="no">01</td><td><div class="fname"><svg class="ic ic-folder" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6.5h6.5l2 2H21V19H3z"/></svg><div><a href="#">Brand assets</a><span class="kind">Folder</span></div></div></td><td class="num">24 items</td><td>28 Oct<span class="kind">by Priya Nair</span></td><td></td></tr><tr class=""><td class="no">02</td><td><div class="fname"><svg class="ic ic-folder" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6.5h6.5l2 2H21V19H3z"/></svg><div><a href="#">Wireframes</a><span class="kind">Folder</span></div></div></td><td class="num">9 items</td><td>30 Oct<span class="kind">by Aiko Tanaka</span></td><td></td></tr><tr class="sel"><td class="no">03</td><td><div class="fname"><svg class="ic ic-pdf" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 16.5h4"/></svg><div><a href="#" aria-current=true>brand-guide-v3.pdf</a><span class="kind">PDF</span></div></div></td><td class="num">4.2 MB</td><td>27 Oct<span class="kind">by Priya Nair</span></td><td><span class="st st-star"><svg class="si ic-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg><span>Starred</span></span><span class="st st-sel"><svg class="si ic-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M7.5 12.3l3 3 6-6.3"/></svg><span>Selected</span></span></td></tr><tr class=""><td class="no">04</td><td><div class="fname"><svg class="ic ic-image" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="4.5" width="17" height="15" rx="1"/><circle cx="9" cy="9.5" r="1.6"/><path d="M4 18l5-5 4 4 3-3 4 4"/></svg><div><a href="#">homepage-hero-B.png</a><span class="kind">PNG image</span></div></div></td><td class="num">2.8 MB</td><td>today 08:12<span class="kind">by Priya Nair</span></td><td></td></tr><tr class=""><td class="no">05</td><td><div class="fname"><svg class="ic ic-sheet" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9.5h16M4 14.5h16M10 4v16"/></svg><div><a href="#">content-audit.xlsx</a><span class="kind">Spreadsheet</span></div></div></td><td class="num">86 KB</td><td>19 Sep<span class="kind">by Mara Okafor</span></td><td></td></tr><tr class=""><td class="no">06</td><td><div class="fname"><svg class="ic ic-doc" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 11h6M9 14h6M9 17h4"/></svg><div><a href="#">launch-plan.docx</a><span class="kind">Document</span></div></div></td><td class="num">140 KB</td><td>yesterday<span class="kind">by Mara Okafor</span></td><td><span class="st st-shared"><svg class="si ic-people" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="3"/><path d="M2.5 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="16.5" cy="9" r="2.5"/><path d="M16 14c3 0 5.5 2.4 5.5 5.5"/></svg><span>Shared with 4 people</span></span></td></tr><tr class=""><td class="no">07</td><td><div class="fname"><svg class="ic ic-zip" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h12v18H6z"/><path d="M12 3v2M12 7v2M12 11v2"/><rect x="10.5" y="14" width="3" height="4"/></svg><div><a href="#">customer-interviews.zip</a><span class="kind">ZIP archive</span></div></div></td><td class="num">312 MB</td><td>12 Oct<span class="kind">by Aiko Tanaka</span></td><td></td></tr><tr class=""><td class="no">08</td><td><div class="fname"><svg class="ic ic-video" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="5.5" width="17" height="13" rx="1"/><path d="M10 9.2v5.6l4.6-2.8z"/></svg><div><a href="#">hero-motion.mp4</a><span class="kind">Video</span></div></div></td><td class="num">48.6 MB</td><td>29 Oct<span class="kind">by Priya Nair</span></td><td><span class="st st-upload"><svg class="si ic-uparrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20V5M5.5 11.5L12 5l6.5 6.5"/></svg><span>Uploading 62 percent</span></span><div class="typed" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div></td></tr></tbody></table>
+<div class="ledger"><span>Storage</span><div class="meter" aria-hidden="true"></div><span><b>64.2 GB</b> of 100 GB used</span></div>
+</main>
+<aside class="dossier" aria-labelledby="det-h">
+<h2 id="det-h">Details</h2>
+<figure class="print" style="margin:0 6px 24px"><svg viewBox="0 0 280 190" role="img" aria-label="Preview of brand-guide-v3.pdf, the cover page in black and white"><rect width="280" height="190" fill="#0e0e0e"/><g transform="rotate(-3 140 95)"><rect x="80" y="14" width="120" height="160" fill="#3a3a3a"/><rect x="94" y="32" width="70" height="10" fill="#d0d0d0"/><rect x="94" y="50" width="92" height="3" fill="#8a8a8a"/><rect x="94" y="58" width="80" height="3" fill="#8a8a8a"/><circle cx="140" cy="118" r="30" fill="none" stroke="#d0d0d0" stroke-width="3"/></g><path d="M0 40L280 0M0 80L280 40M0 120L280 80M0 160L280 120M0 200L280 160" stroke="#000" stroke-width="16" opacity=".35"/></svg><p>brand-guide-v3.pdf</p></figure>
+<span class="st st-star"><svg class="si ic-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg><span>Starred</span></span>
+<dl><dt>Owner</dt><dd>Priya Nair</dd><dt>Size</dt><dd>4.2 MB</dd><dt>Version</dt><dd>3</dd><dt>Shared with</dt><dd>Design team</dd></dl>
+<div class="acts"><button type="button" class="btn btn-primary"><svg class="ic ic-share" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/></svg>Share</button><button type="button" class="btn btn-secondary"><svg class="ic ic-download" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5"/><path d="M4 19.5h16"/></svg>Download</button><button type="button" class="btn btn-secondary"><svg class="ic ic-link" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/></svg>Get link</button></div>
+</aside>
+</div>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 275 · Film noir</h2>
+<p class="idea">A black and white case file lit through venetian blinds, typewriter captions on every fact, the selected file printed in reverse like a lone lit window.</p>
+<h3>Palette</h3><ul class="swatches"><li class="sw"><i style="background:#0b0b0b"></i><div><b>Black</b>#0b0b0b · page, style sheet</div></li><li class="sw"><i style="background:#141414"></i><div><b>Wall</b>#141414 · header wall under the blinds</div></li><li class="sw"><i style="background:#1c1c1c"></i><div><b>Paper</b>#1c1c1c · the desk behind the file table</div></li><li class="sw"><i style="background:#181818"></i><div><b>Dossier</b>#181818 · details column</div></li><li class="sw"><i style="background:#2b2b2b"></i><div><b>Print</b>#2b2b2b · photo print frame</div></li><li class="sw"><i style="background:#ececec"></i><div><b>Ink</b>#ececec · body text</div></li><li class="sw"><i style="background:#a8a8a8"></i><div><b>Grey</b>#a8a8a8 · captions, column heads, meta</div></li><li class="sw"><i style="background:#4a4a4a"></i><div><b>Rule</b>#4a4a4a · dotted and double rules</div></li><li class="sw"><i style="background:#f4f4f4"></i><div><b>White</b>#f4f4f4 · primary button, selected row, focus outline</div></li></ul>
+<h3>Type</h3><div class="type-row"><code>46 / 700 serif caps</code><span style="font-family:var(--title);font-size:46px;font-weight:700;text-transform:uppercase">Website redesign</span></div><div class="type-row"><code>24 serif caps</code><span style="font-family:var(--title);font-size:24px;text-transform:uppercase">Details</span></div><div class="type-row"><code>15 / 400 typewriter</code><span style="">Modified 27 Oct by Priya Nair</span></div><div class="type-row"><code>13 / 700 caps .1em</code><span style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em">Upload</span></div><div class="type-row"><code>12 caps .24em grey</code><span style="font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#a8a8a8">Contents of Website redesign</span></div>
+<h3>Spacing, density and depth</h3><dl class="facts"><dt>Fonts</dt><dd>Titles in a high contrast serif, Bodoni 72, Didot, Big Caslon, Times New Roman. Everything else in Courier New typewriter.</dd><dt>Spacing</dt><dd>8px unit. 40px gutters, 12px cell padding, 24px blocks.</dd><dt>Density</dt><dd>Medium. A numbered ledger with dotted rules.</dd><dt>Corners</dt><dd>Square. Folder tabs are trapezoids.</dd><dt>Borders</dt><dd>Double rules above heads and sections, dotted rules between rows, 1px grey outlines on secondary controls.</dd><dt>Shadows</dt><dd>Only a hard black offset under the tilted print.</dd><dt>Icons</dt><dd>Thin 1.4px line icons in grey and white. Status is a bracketed typed word with a star, people or arrow.</dd><dt>Tone</dt><dd>Typed and terse, case file, Contents, Notes.</dd><dt>Motifs</dt><dd>Diagonal blind shadows across the header wall, the tilted photo print, the reversed selected row.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls"><div><span class="ctl-label">Primary button</span><button type="button" class="btn btn-primary"><svg class="ic ic-share" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/></svg>Share</button> <button type="button" class="btn btn-primary is-focus"><svg class="ic ic-share" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/></svg>Share</button></div>
+<div><span class="ctl-label">Secondary button</span><button type="button" class="btn btn-secondary"><svg class="ic ic-download" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5"/><path d="M4 19.5h16"/></svg>Download</button> <button type="button" class="btn btn-secondary is-focus"><svg class="ic ic-download" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5"/><path d="M4 19.5h16"/></svg>Download</button></div>
+<div><label class="field">Search files<input type="search" value="brand guide"></label></div>
+<div><label class="field">Search files, focused<input type="search" class="is-focus" value="hero"></label></div>
+<div><span class="ctl-label">List row</span><div class="row-demo"><span>brand-guide-v3.pdf</span><span class="st st-star"><svg class="si ic-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg><span>Starred</span></span></div></div>
+<div><span class="ctl-label">List row, focused</span><div class="row-demo is-focus"><span>brand-guide-v3.pdf</span><span class="st st-star"><svg class="si ic-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg><span>Starred</span></span></div></div></div>
+</section>
+</body>
+</html>

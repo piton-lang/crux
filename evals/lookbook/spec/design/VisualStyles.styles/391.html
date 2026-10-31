@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 391 · Night swim · Brightwork</title>
+<style>
+
+:root { color-scheme: dark; --deck:#14191c; --tile:#20272b; --water:#05212d; --lane:#072a39; --floor:#021118; --ink:#eefaff; --muted:#a3cad6;
+ --cyan:#7fe0ff; --onc:#02202a; --coral:#ff8f80; --rope:#f2fbff; --block:#e9eef0; --onblock:#0c1418;
+ --geo: Futura, "Century Gothic", "URW Gothic", "Avenir Next", "Trebuchet MS", system-ui, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--deck); color: var(--ink); font: 15px/1.5 var(--geo);
+ background-image: linear-gradient(var(--tile) 1px, transparent 1px), linear-gradient(90deg, var(--tile) 1px, transparent 1px); background-size: 48px 48px; }
+a { color: var(--cyan); }
+:focus-visible, .is-focus { outline: 3px solid var(--cyan) !important; outline-offset: 3px; }
+.deckbar { max-width: 1260px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.deckbar .brand { font-weight: 700; font-size: 18px; letter-spacing: .04em; display: flex; align-items: center; gap: 10px; }
+.deckbar .brand svg { width: 30px; height: 20px; }
+.deckbar nav { display: flex; gap: 6px; }
+.deckbar nav a { padding: 6px 14px; color: var(--muted); text-decoration: none; border: 1px solid #2f393e; background: var(--deck); font-size: 14px; }
+.deckbar nav a[aria-current="page"] { color: var(--onblock); background: var(--block); border-color: var(--block); }
+.deckbar .date { margin: 0 0 0 auto; font-size: 14px; color: var(--muted); }
+.deckbar .date b { color: var(--ink); }
+.pool { max-width: 1260px; margin: 0 auto 32px; padding: 0 24px; }
+.blocks { display: grid; grid-template-columns: 1fr 10px 1.15fr 10px 1fr 10px 1fr; }
+.blocks span { display: grid; place-items: center; height: 44px; margin: 0 22%; background: var(--block); color: var(--onblock); font: 700 22px var(--geo); border-radius: 4px 4px 0 0; }
+.blocks i { display: block; }
+.water { display: grid; grid-template-columns: 1fr 10px 1.15fr 10px 1fr 10px 1fr; background: var(--water); border: 10px solid #d9e1e4; border-radius: 6px; position: relative; overflow: clip;
+ background-image: radial-gradient(ellipse 40% 30% at 15% 0%, rgba(127,224,255,.12), transparent 70%), radial-gradient(ellipse 40% 30% at 85% 0%, rgba(127,224,255,.12), transparent 70%); }
+.rope { background: repeating-linear-gradient(180deg, var(--coral) 0 10px, var(--rope) 10px 20px, var(--coral) 20px 30px, #2d6b85 30px 40px); border-radius: 5px; margin: 0; }
+.lane { position: relative; padding: 22px 20px 64px; min-width: 0; background: var(--lane); }
+.lane:nth-of-type(odd) { background: transparent; }
+.lane::after { content: ""; position: absolute; left: 50%; bottom: 14px; width: 12px; height: 70%; transform: translateX(-50%); background: var(--floor); opacity: .9; border-radius: 2px; pointer-events: none; z-index: 0; }
+.lane::before { content: ""; position: absolute; left: 50%; bottom: 14px; width: 60px; height: 12px; transform: translateX(-50%); background: var(--floor); z-index: 0; }
+.lane > * { position: relative; z-index: 1; }
+.lane h2 { margin: 0 0 14px; font: 700 13px var(--geo); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.lane h2 b { color: var(--ink); letter-spacing: .04em; }
+.panel { background: rgba(2,17,24,.82); border: 1px solid #1d4a5c; border-radius: 10px; padding: 14px; margin-bottom: 14px; }
+.levels { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; }
+.lv { text-align: center; }
+.tube { position: relative; height: 200px; border: 2px solid var(--muted); border-radius: 12px; overflow: hidden; background: var(--floor); }
+.tube .w { position: absolute; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, var(--cyan), #3fb8d9); }
+.tube .w::before { content: ""; position: absolute; left: 0; right: 0; top: -4px; height: 8px; background: radial-gradient(circle at 6px 8px, var(--cyan) 5px, transparent 6px) 0 0 / 12px 8px; }
+.tube .goal { position: absolute; left: 0; right: 0; top: 0; border-top: 2px dashed var(--ink); }
+.tube .mk { position: absolute; right: 4px; font: 700 10px var(--geo); color: var(--muted); }
+.lv b { display: block; margin-top: 8px; font: 700 22px/1.1 var(--geo); }
+.lv small { display: block; color: var(--muted); font-size: 12px; }
+.lv .nm { display: block; font-weight: 700; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; margin-top: 2px; }
+.note { margin: 0; font-size: 13px; color: var(--muted); }
+.note b { color: var(--ink); }
+.clock { display: block; width: 100%; max-width: 260px; margin: 0 auto; height: auto; }
+.runfacts { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; margin: 12px 0 0; }
+.runfacts div { background: rgba(2,17,24,.82); border: 1px solid #1d4a5c; border-radius: 10px; padding: 10px 12px; }
+.runfacts dt { font-size: 12px; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; }
+.runfacts dd { margin: 0; font: 700 28px/1.15 var(--geo); font-variant-numeric: tabular-nums; }
+.runfacts dd small { font-size: 13px; color: var(--muted); }
+.tag { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; background: var(--cyan); color: var(--onc); font-weight: 700; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; border-radius: 999px; }
+.tag svg { width: 14px; height: 14px; }
+.zrow { display: grid; grid-template-columns: 34px minmax(0,1fr) 54px; gap: 8px; align-items: center; margin: 6px 0; font-size: 13px; }
+.zrow b { font-weight: 700; }
+.zrow .bar { height: 14px; background: var(--floor); border-radius: 7px; border: 1px solid #1d4a5c; overflow: hidden; }
+.zrow .bar i { display: block; height: 100%; background: var(--cyan); border-radius: 7px; }
+.zrow.hi .bar i { background: var(--coral); }
+.zrow.hi b, .zrow.hi span { color: var(--coral); }
+.zrow span { text-align: right; font-variant-numeric: tabular-nums; }
+.laps { list-style: none; margin: 0; padding: 0; }
+.laps li { display: grid; grid-template-columns: 54px minmax(0,1fr) 40px; gap: 8px; align-items: center; padding: 5px 0; border-bottom: 1px dashed #1d4a5c; font-size: 13px; }
+.laps li:last-child { border: 0; }
+.laps .bar { height: 10px; border-radius: 5px; background: var(--cyan); }
+.laps li.t { font-weight: 700; }
+.laps li.t .bar { background: var(--coral); }
+.laps li.r { color: var(--muted); }
+.laps li.r .bar { background: none; border-top: 2px dotted var(--muted); height: 0; }
+.laps span:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.big { font: 700 34px/1.1 var(--geo); margin: 0; }
+.big small { font-size: 15px; color: var(--muted); }
+.lapticks { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3px; margin: 10px 0 6px; }
+.lapticks i { height: 26px; border: 2px solid var(--muted); border-radius: 3px; }
+.lapticks i.d { background: var(--muted); }
+.lapticks i.c { background: var(--coral); border-color: var(--coral); }
+.next { margin-top: 10px; padding-top: 10px; border-top: 1px dashed #1d4a5c; }
+.next small { display: block; color: var(--muted); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
+.next b { font-size: 18px; }
+.btn-p, .btn-s { font: 700 14px var(--geo); letter-spacing: .06em; padding: 10px 20px; border-radius: 999px; cursor: pointer; }
+.btn-p { background: var(--cyan); color: var(--onc); border: 0; }
+.btn-s { background: transparent; color: var(--ink); border: 2px solid var(--rope); }
+.sheet { max-width: 1260px; margin: 0 auto; padding: 24px 24px 56px; }
+.sheet > * { position: relative; }
+.sheet h2 { font: 700 32px var(--geo); margin: 0 0 8px; }
+.sheet h3 { font: 700 13px var(--geo); letter-spacing: .16em; text-transform: uppercase; color: var(--onblock); background: var(--block); display: inline-block; padding: 6px 14px; border-radius: 4px 4px 0 0; margin: 32px 0 0; }
+.idea { max-width: 780px; margin: 0; font-size: 17px; }
+.swatches, .types, .facts, .controls { background: var(--water); border: 6px solid #d9e1e4; border-radius: 0 6px 6px 6px; padding: 16px; margin: 0; }
+.swatches { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px 18px; }
+.sw { display: flex; gap: 10px; font-size: 13px; }
+.sw i { width: 30px; height: 30px; flex: none; border-radius: 50%; border: 2px solid #3d6676; }
+.sw span { color: var(--muted); }
+.type-row { display: flex; gap: 16px; align-items: baseline; padding: 8px 0; border-bottom: 1px dashed #1d4a5c; flex-wrap: wrap; }
+.type-row:last-child { border: 0; }
+.type-row code { font: 12px ui-monospace, Menlo, Consolas, monospace; color: var(--muted); min-width: 220px; }
+.facts { display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 8px 18px; }
+.facts dt { font-weight: 700; color: var(--cyan); }
+.facts dd { margin: 0; }
+.controls { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; }
+.ctl-label { display: block; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; font-weight: 700; }
+.ctl-pair { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-end; }
+.fld { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); }
+.fld input { font: 15px var(--geo); color: var(--ink); background: var(--floor); border: 2px solid #2d6b85; border-radius: 999px; padding: 8px 16px; width: 220px; }
+.lrow { display: grid; grid-template-columns: 36px 1fr auto; gap: 10px; align-items: center; min-width: 280px; padding: 6px 14px 6px 6px; background: var(--lane); border-left: 6px solid var(--coral); color: var(--ink); text-decoration: none; }
+.lrow .n { display: grid; place-items: center; height: 32px; background: var(--block); color: var(--onblock); font-weight: 700; border-radius: 4px; }
+@media (max-width: 1100px) {
+ .blocks { display: none; }
+ .water { grid-template-columns: minmax(0,1fr); }
+ .rope { height: 10px; background: repeating-linear-gradient(90deg, var(--coral) 0 10px, var(--rope) 10px 20px, var(--coral) 20px 30px, #2d6b85 30px 40px); }
+ .lane { padding: 20px 20px 28px; }
+ .lane::after, .lane::before { display: none; }
+ .lane h2::before { content: attr(data-lane); display: inline-grid; place-items: center; width: 30px; height: 30px; background: var(--block); color: var(--onblock); border-radius: 4px; margin-right: 8px; font-size: 16px; letter-spacing: 0; }
+ .lane h2 { align-items: center; justify-content: flex-start; }
+ .lane h2 > :last-child { margin-left: auto; }
+}
+@media (max-width: 600px) {
+ .deckbar { padding: 14px 16px; gap: 12px; }
+ .deckbar .date { margin-left: 0; width: 100%; }
+ .pool { padding: 0 8px; }
+ .water { border-width: 6px; }
+ .lane { padding: 16px 12px 22px; }
+ .tube { height: 160px; }
+ .lv b { font-size: 18px; }
+ .sheet { padding: 20px 16px 40px; }
+ .swatches, .types, .facts, .controls { padding: 12px; border-width: 4px; }
+ .facts, .controls { grid-template-columns: minmax(0,1fr); }
+ .fld input, .lrow { width: 100%; min-width: 0; }
+ .ctl-pair > * { flex: 1 1 100%; }
+}
+
+</style>
+</head>
+<body>
+<header class="deckbar"><span class="brand"><svg viewBox="0 0 30 20" aria-hidden="true"><path d="M1 7c4-4 7 4 11 0s7 4 11 0 5 2 6 1M1 14c4-4 7 4 11 0s7 4 11 0 5 2 6 1" fill="none" stroke="#7fe0ff" stroke-width="2.2" stroke-linecap="round"/></svg>Brightwork Move</span>
+<nav aria-label="Move views"><a href="#today" aria-current="page">Today</a><a href="#week">Week</a><a href="#plan">Plan</a></nav>
+<p class="date"><b>Saturday 31 October</b> · lights on</p></header>
+<main class="pool" id="today">
+<div class="blocks" aria-hidden="true"><span>1</span><i></i><span>2</span><i></i><span>3</span><i></i><span>4</span></div>
+<div class="water">
+<section class="lane" aria-labelledby="h-r"><h2 id="h-r" data-lane="1">Rings <b>water level</b></h2>
+<div class="panel"><div class="levels"><div class="lv"><div class="tube" role="img" aria-label="Move 486 of 600 kcal, filled to 81 percent, goal line at the top"><span class="goal"></span><span class="mk" style="top:4px">goal</span><span class="w" style="height:81%"></span></div>
+<span class="nm">Move</span><b>486</b><small>of 600 kcal</small></div><div class="lv"><div class="tube" role="img" aria-label="Exercise 38 of 45 minutes, filled to 84 percent, goal line at the top"><span class="goal"></span><span class="mk" style="top:4px">goal</span><span class="w" style="height:84%"></span></div>
+<span class="nm">Exercise</span><b>38</b><small>of 45 min</small></div><div class="lv"><div class="tube" role="img" aria-label="Stand 9 of 12 hours, filled to 75 percent, goal line at the top"><span class="goal"></span><span class="mk" style="top:4px">goal</span><span class="w" style="height:75%"></span></div>
+<span class="nm">Stand</span><b>9</b><small>of 12 h</small></div></div></div>
+<p class="note">No ring full yet. <b>114 kcal</b>, <b>7 min</b> and <b>3 h</b> to the line.</p></section>
+<div class="rope" aria-hidden="true"></div>
+<section class="lane" aria-labelledby="h-run" id="workout"><h2 id="h-run" data-lane="2">Evening run <span class="tag"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Done</span></h2>
+<svg class="clock" viewBox="0 0 260 260" role="img" aria-label="Pace clock showing an average pace of 5 minutes 9 seconds per kilometre, the red hand on 9 seconds" font-family="Futura, Century Gothic, sans-serif">
+<circle cx="130" cy="130" r="126" fill="#021118" stroke="#e9eef0" stroke-width="6"/><line x1="130.0" y1="24.0" x2="130.0" y2="12.0" stroke="#eefaff" stroke-width="3"/><line x1="141.8" y1="17.6" x2="142.3" y2="12.6" stroke="#a3cad6" stroke-width="1.5"/><line x1="153.5" y1="19.5" x2="154.5" y2="14.6" stroke="#a3cad6" stroke-width="1.5"/><line x1="164.9" y1="22.5" x2="166.5" y2="17.8" stroke="#a3cad6" stroke-width="1.5"/><line x1="176.0" y1="26.8" x2="178.0" y2="22.2" stroke="#a3cad6" stroke-width="1.5"/><line x1="183.0" y1="38.2" x2="189.0" y2="27.8" stroke="#eefaff" stroke-width="3"/><line x1="196.4" y1="38.6" x2="199.4" y2="34.5" stroke="#a3cad6" stroke-width="1.5"/><line x1="205.6" y1="46.0" x2="209.0" y2="42.3" stroke="#a3cad6" stroke-width="1.5"/><line x1="214.0" y1="54.4" x2="217.7" y2="51.0" stroke="#a3cad6" stroke-width="1.5"/><line x1="221.4" y1="63.6" x2="225.5" y2="60.6" stroke="#a3cad6" stroke-width="1.5"/><line x1="221.8" y1="77.0" x2="232.2" y2="71.0" stroke="#eefaff" stroke-width="3"/><line x1="233.2" y1="84.0" x2="237.8" y2="82.0" stroke="#a3cad6" stroke-width="1.5"/><line x1="237.5" y1="95.1" x2="242.2" y2="93.5" stroke="#a3cad6" stroke-width="1.5"/><line x1="240.5" y1="106.5" x2="245.4" y2="105.5" stroke="#a3cad6" stroke-width="1.5"/><line x1="242.4" y1="118.2" x2="247.4" y2="117.7" stroke="#a3cad6" stroke-width="1.5"/><line x1="236.0" y1="130.0" x2="248.0" y2="130.0" stroke="#eefaff" stroke-width="3"/><line x1="242.4" y1="141.8" x2="247.4" y2="142.3" stroke="#a3cad6" stroke-width="1.5"/><line x1="240.5" y1="153.5" x2="245.4" y2="154.5" stroke="#a3cad6" stroke-width="1.5"/><line x1="237.5" y1="164.9" x2="242.2" y2="166.5" stroke="#a3cad6" stroke-width="1.5"/><line x1="233.2" y1="176.0" x2="237.8" y2="178.0" stroke="#a3cad6" stroke-width="1.5"/><line x1="221.8" y1="183.0" x2="232.2" y2="189.0" stroke="#eefaff" stroke-width="3"/><line x1="221.4" y1="196.4" x2="225.5" y2="199.4" stroke="#a3cad6" stroke-width="1.5"/><line x1="214.0" y1="205.6" x2="217.7" y2="209.0" stroke="#a3cad6" stroke-width="1.5"/><line x1="205.6" y1="214.0" x2="209.0" y2="217.7" stroke="#a3cad6" stroke-width="1.5"/><line x1="196.4" y1="221.4" x2="199.4" y2="225.5" stroke="#a3cad6" stroke-width="1.5"/><line x1="183.0" y1="221.8" x2="189.0" y2="232.2" stroke="#eefaff" stroke-width="3"/><line x1="176.0" y1="233.2" x2="178.0" y2="237.8" stroke="#a3cad6" stroke-width="1.5"/><line x1="164.9" y1="237.5" x2="166.5" y2="242.2" stroke="#a3cad6" stroke-width="1.5"/><line x1="153.5" y1="240.5" x2="154.5" y2="245.4" stroke="#a3cad6" stroke-width="1.5"/><line x1="141.8" y1="242.4" x2="142.3" y2="247.4" stroke="#a3cad6" stroke-width="1.5"/><line x1="130.0" y1="236.0" x2="130.0" y2="248.0" stroke="#eefaff" stroke-width="3"/><line x1="118.2" y1="242.4" x2="117.7" y2="247.4" stroke="#a3cad6" stroke-width="1.5"/><line x1="106.5" y1="240.5" x2="105.5" y2="245.4" stroke="#a3cad6" stroke-width="1.5"/><line x1="95.1" y1="237.5" x2="93.5" y2="242.2" stroke="#a3cad6" stroke-width="1.5"/><line x1="84.0" y1="233.2" x2="82.0" y2="237.8" stroke="#a3cad6" stroke-width="1.5"/><line x1="77.0" y1="221.8" x2="71.0" y2="232.2" stroke="#eefaff" stroke-width="3"/><line x1="63.6" y1="221.4" x2="60.6" y2="225.5" stroke="#a3cad6" stroke-width="1.5"/><line x1="54.4" y1="214.0" x2="51.0" y2="217.7" stroke="#a3cad6" stroke-width="1.5"/><line x1="46.0" y1="205.6" x2="42.3" y2="209.0" stroke="#a3cad6" stroke-width="1.5"/><line x1="38.6" y1="196.4" x2="34.5" y2="199.4" stroke="#a3cad6" stroke-width="1.5"/><line x1="38.2" y1="183.0" x2="27.8" y2="189.0" stroke="#eefaff" stroke-width="3"/><line x1="26.8" y1="176.0" x2="22.2" y2="178.0" stroke="#a3cad6" stroke-width="1.5"/><line x1="22.5" y1="164.9" x2="17.8" y2="166.5" stroke="#a3cad6" stroke-width="1.5"/><line x1="19.5" y1="153.5" x2="14.6" y2="154.5" stroke="#a3cad6" stroke-width="1.5"/><line x1="17.6" y1="141.8" x2="12.6" y2="142.3" stroke="#a3cad6" stroke-width="1.5"/><line x1="24.0" y1="130.0" x2="12.0" y2="130.0" stroke="#eefaff" stroke-width="3"/><line x1="17.6" y1="118.2" x2="12.6" y2="117.7" stroke="#a3cad6" stroke-width="1.5"/><line x1="19.5" y1="106.5" x2="14.6" y2="105.5" stroke="#a3cad6" stroke-width="1.5"/><line x1="22.5" y1="95.1" x2="17.8" y2="93.5" stroke="#a3cad6" stroke-width="1.5"/><line x1="26.8" y1="84.0" x2="22.2" y2="82.0" stroke="#a3cad6" stroke-width="1.5"/><line x1="38.2" y1="77.0" x2="27.8" y2="71.0" stroke="#eefaff" stroke-width="3"/><line x1="38.6" y1="63.6" x2="34.5" y2="60.6" stroke="#a3cad6" stroke-width="1.5"/><line x1="46.0" y1="54.4" x2="42.3" y2="51.0" stroke="#a3cad6" stroke-width="1.5"/><line x1="54.4" y1="46.0" x2="51.0" y2="42.3" stroke="#a3cad6" stroke-width="1.5"/><line x1="63.6" y1="38.6" x2="60.6" y2="34.5" stroke="#a3cad6" stroke-width="1.5"/><line x1="77.0" y1="38.2" x2="71.0" y2="27.8" stroke="#eefaff" stroke-width="3"/><line x1="84.0" y1="26.8" x2="82.0" y2="22.2" stroke="#a3cad6" stroke-width="1.5"/><line x1="95.1" y1="22.5" x2="93.5" y2="17.8" stroke="#a3cad6" stroke-width="1.5"/><line x1="106.5" y1="19.5" x2="105.5" y2="14.6" stroke="#a3cad6" stroke-width="1.5"/><line x1="118.2" y1="17.6" x2="117.7" y2="12.6" stroke="#a3cad6" stroke-width="1.5"/><text x="130.0" y="46.0" text-anchor="middle" font-size="16" font-weight="700" fill="#eefaff">60</text><text x="220.0" y="136.0" text-anchor="middle" font-size="16" font-weight="700" fill="#eefaff">15</text><text x="130.0" y="226.0" text-anchor="middle" font-size="16" font-weight="700" fill="#eefaff">30</text><text x="40.0" y="136.0" text-anchor="middle" font-size="16" font-weight="700" fill="#eefaff">45</text>
+<text x="130" y="176" text-anchor="middle" font-size="34" font-weight="700" fill="#eefaff">5:09</text><text x="130" y="196" text-anchor="middle" font-size="12" fill="#a3cad6" letter-spacing="2">PER KM</text><line x1="130" y1="130" x2="212.5" y2="70.0" stroke="#ff8f80" stroke-width="4" stroke-linecap="round"/><circle cx="130" cy="130" r="7" fill="#ff8f80"/></svg>
+<dl class="runfacts"><div><dt>Distance</dt><dd>8.2<small> km</small></dd></div><div><dt>Time</dt><dd>42:16</dd></div><div><dt>Avg pace</dt><dd>5:09<small> /km</small></dd></div><div><dt>Avg HR</dt><dd>152<small> bpm</small></dd></div></dl></section>
+<div class="rope" aria-hidden="true"></div>
+<section class="lane" aria-labelledby="h-z" id="week"><h2 id="h-z" data-lane="3">Zones and laps</h2>
+<div class="panel" role="img" aria-label="Heart rate zones for the evening run. Zone 1, 3 minutes. Zone 2, 9 minutes. Zone 3, 18 minutes, the most. Zone 4, 10 minutes. Zone 5, 2 minutes. 42 minutes in all."><p class="note" style="margin-bottom:6px">Heart rate zones · <b>42 min</b></p><div class="zrow"><b>Z1</b><div class="bar"><i style="width:17%"></i></div><span>3 min</span></div><div class="zrow"><b>Z2</b><div class="bar"><i style="width:50%"></i></div><span>9 min</span></div><div class="zrow hi"><b>Z3</b><div class="bar"><i style="width:100%"></i></div><span>18 min</span></div><div class="zrow"><b>Z4</b><div class="bar"><i style="width:56%"></i></div><span>10 min</span></div><div class="zrow"><b>Z5</b><div class="bar"><i style="width:11%"></i></div><span>2 min</span></div></div>
+<div class="panel"><p class="note" style="margin-bottom:4px">This week · <b>23.7 km</b> over four runs</p><ul class="laps" aria-label="Distance per day this week"><li class="r"><span>Sun 25</span><span class="bar"></span><span>rest</span></li><li class=""><span>Mon 26</span><span class="bar" style="width:62%"></span><span>5.1</span></li><li class="r"><span>Tue 27</span><span class="bar"></span><span>rest</span></li><li class=""><span>Wed 28</span><span class="bar" style="width:90%"></span><span>7.4</span></li><li class=""><span>Thu 29</span><span class="bar" style="width:37%"></span><span>3.0</span></li><li class="r"><span>Fri 30</span><span class="bar"></span><span>rest</span></li><li class="t"><span>Today</span><span class="bar" style="width:100%"></span><span>8.2</span></li></ul></div></section>
+<div class="rope" aria-hidden="true"></div>
+<section class="lane" aria-labelledby="h-s" id="plan"><h2 id="h-s" data-lane="4">At the wall</h2>
+<div class="panel"><p class="note">Sleep last night</p><p class="big">7<small> h</small> 12<small> min</small></p><p class="note"><b>1 h 34 min</b> deep sleep</p></div>
+<div class="panel"><p class="note">Half marathon plan</p><p class="big">Week 6 <small>of 12</small></p>
+<div class="lapticks" role="img" aria-label="Week 6 of 12, five weeks done"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="c"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+<div class="next"><small>Next session · tomorrow</small><b>Long run 14 km</b></div></div>
+<button class="btn-s" type="button">View plan</button></section>
+</div>
+</main>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 391 · Night swim</h2>
+<p class="idea">An outdoor pool under night floodlights, seen from above, where the screen is four lanes split by bead lane ropes, numbered from the starting blocks, with a round pace clock for the run and rings filled like water levels.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><i style="background:#14191c"></i><div><b>Deck</b> #14191c<br><span>the tiled pool deck, page and style sheet</span></div></li><li class="sw"><i style="background:#20272b"></i><div><b>Tile</b> #20272b<br><span>deck tile joints</span></div></li><li class="sw"><i style="background:#05212d"></i><div><b>Water</b> #05212d<br><span>the pool and sheet basins</span></div></li><li class="sw"><i style="background:#072a39"></i><div><b>Lane</b> #072a39<br><span>alternate lanes and list rows</span></div></li><li class="sw"><i style="background:#021118"></i><div><b>Floor</b> #021118<br><span>lane floor lines, tube insides, fields and inner panels</span></div></li><li class="sw"><i style="background:#eefaff"></i><div><b>Ink</b> #eefaff<br><span>text and figures</span></div></li><li class="sw"><i style="background:#a3cad6"></i><div><b>Muted</b> #a3cad6<br><span>labels, tube outlines and passed plan weeks</span></div></li><li class="sw"><i style="background:#7fe0ff"></i><div><b>Cyan</b> #7fe0ff<br><span>water levels, zone bars, laps, the Done tag, primary button and focus</span></div></li><li class="sw"><i style="background:#02202a"></i><div><b>On cyan</b> #02202a<br><span>text on cyan</span></div></li><li class="sw"><i style="background:#ff8f80"></i><div><b>Coral</b> #ff8f80<br><span>rope beads, the pace hand, the top zone, today and the current week</span></div></li><li class="sw"><i style="background:#f2fbff"></i><div><b>Rope white</b> #f2fbff<br><span>rope beads and the secondary button edge</span></div></li><li class="sw"><i style="background:#e9eef0"></i><div><b>Block</b> #e9eef0<br><span>starting blocks, lane numbers, the pool coping and sheet tabs</span></div></li><li class="sw"><i style="background:#0c1418"></i><div><b>On block</b> #0c1418<br><span>numbers on blocks</span></div></li></ul>
+<h3>Type · Futura, Century Gothic, URW Gothic, Avenir Next, Trebuchet MS, system-ui</h3>
+<div class="types"><div class="type-row"><code>34 / 700 Futura, Century Gothic stack</code><span style="font:700 34px var(--geo)">5:09</span></div><div class="type-row"><code>28 / 700 lane figure</code><span style="font:700 28px var(--geo)">42:16</span></div><div class="type-row"><code>22 / 700 block number</code><span style="font:700 22px var(--geo)">1 2 3 4</span></div><div class="type-row"><code>15 / 400 body</code><span style="">No ring full yet.</span></div><div class="type-row"><code>13 / 700 caps .16em lane label</code><span style="font:700 13px var(--geo);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">Zones and laps</span></div></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3>
+<dl class="facts"><dt>Spacing</dt><dd>8px unit. Lanes with 20px inner padding, 14px between panels, 10px lane ropes.</dd><dt>Density</dt><dd>Medium. Four lanes side by side, each holding one or two panels.</dd><dt>Corners</dt><dd>10px panels, 12px water tubes, 4px blocks, pills for buttons, fields and tags.</dd><dt>Borders</dt><dd>A 10px light coping around the pool, bead lane ropes between lanes, 1px teal panel edges.</dd><dt>Shadows</dt><dd>None. Floodlight glows sit in the water at the top.</dd><dt>Icons</dt><dd>Wave mark, lane numbers on blocks, a pace clock with a red hand, water tubes with a dashed goal line, a check in the Done tag. Rest days have a dotted line and the word rest. Passed plan weeks are filled, the current one coral, future ones hollow.</dd><dt>Focus</dt><dd>A 3px cyan outline offset 3px.</dd><dt>Tone</dt><dd>Pool words, water level, At the wall, laps, to the line.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls"><div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-p" type="button">Start workout</button><button class="btn-p is-focus" type="button">Start workout</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-s" type="button">View plan</button><button class="btn-s is-focus" type="button">View plan</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="fld"><span>Search workouts</span><input type="text" value="run"></label><label class="fld"><span>Search workouts, focused</span><input type="text" class="is-focus" value="run"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><a class="lrow" href="#workout"><span class="n">2</span><span>Evening run · 8.2 km</span><span>Done</span></a><a class="lrow is-focus" href="#workout"><span class="n">2</span><span>Evening run · 8.2 km</span><span>Done</span></a></div></div></div>
+</section>
+</body>
+</html>

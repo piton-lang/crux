@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 178 · Focus column · Brightwork</title>
+<style>
+:root {
+  --paper: #faf8f3;
+  --ink: #1b2433;
+  --blue: #1d3c78;
+  --muted: #5b5f68;
+  --rule: #d8d3c7;
+  --lastwk: #8a8f9c;
+  --ok: #2f6b3a;
+  --risk: #8a4a00;
+  --bad: #a3261b;
+  --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: "Helvetica Neue", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.6 var(--serif); }
+h1, h2, h3, p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+a { color: var(--blue); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+svg.i { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+:focus-visible, .is-focus { outline: 2px solid var(--blue); outline-offset: 3px; }
+.col { max-width: 752px; margin: 0 auto; padding: 0 16px; }
+
+/* masthead */
+.mast { padding-top: 32px; }
+.mast-top { display: flex; align-items: center; gap: 16px; }
+.brand { font-weight: 700; font-size: 22px; letter-spacing: -0.01em; color: var(--blue); }
+.brand span { font-style: italic; font-weight: 400; }
+.mast-tools { margin-left: auto; display: flex; align-items: center; gap: 12px; font: 14px/1 var(--sans); }
+.iconbtn { width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid var(--rule); border-radius: 50%; background: transparent; color: var(--ink); cursor: pointer; }
+.user { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+.user .av { width: 32px; height: 32px; border-radius: 50%; background: var(--blue); color: #fff; display: grid; place-items: center; font-size: 12px; font-weight: 700; }
+.nav { display: flex; flex-wrap: wrap; gap: 4px 24px; margin-top: 20px; padding: 10px 0; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--rule); font: 15px/1.4 var(--sans); }
+.nav a { color: var(--muted); text-decoration: none; padding: 2px 0; }
+.nav a[aria-current="page"] { color: var(--ink); font-weight: 600; box-shadow: inset 0 -2px 0 var(--blue); }
+.find { display: flex; gap: 12px; margin-top: 16px; }
+.search { flex: 1; display: flex; align-items: center; gap: 8px; height: 40px; border-bottom: 1px solid var(--ink); color: var(--muted); font-family: var(--sans); }
+.search input { flex: 1; min-width: 0; border: 0; outline: none; background: transparent; font: 16px var(--sans); color: var(--ink); }
+.search:focus-within { outline: 2px solid var(--blue); outline-offset: 3px; }
+.btn { display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 16px; border-radius: 2px; font: 600 15px/1 var(--sans); cursor: pointer; white-space: nowrap; }
+.btn.primary { background: var(--blue); color: #fff; border: 1px solid var(--blue); }
+.btn.secondary { background: transparent; color: var(--blue); border: 1px solid var(--blue); }
+
+/* greeting */
+.greet { padding: 56px 0 8px; }
+.kicker { font: 600 13px/1.4 var(--sans); text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); }
+.greet h1 { font-size: 44px; line-height: 1.12; font-weight: 700; letter-spacing: -0.02em; margin-top: 8px; }
+.lead { margin-top: 16px; font-size: 21px; line-height: 1.5; }
+.lead .od { color: var(--bad); font-weight: 700; white-space: nowrap; }
+.lead .od svg.i { width: 20px; height: 20px; vertical-align: -3px; margin-right: 4px; stroke-width: 2; }
+
+/* sections */
+.sec { padding-top: 48px; }
+.sec-h { display: flex; align-items: baseline; gap: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--ink); }
+.sec-h .n { font: 600 13px/1 var(--sans); color: var(--blue); letter-spacing: 0.08em; }
+.sec-h h2 { font-size: 22px; font-weight: 700; }
+.sec-h .aside { margin-left: auto; font: 14px var(--sans); color: var(--muted); }
+
+.attn li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 8px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.attn svg.i { width: 22px; height: 22px; margin-top: 3px; stroke-width: 2; }
+.attn .bad { color: var(--bad); }
+.attn .risk { color: var(--risk); }
+.attn b { font-weight: 700; }
+.attn p.m { font: 14px/1.5 var(--sans); color: var(--muted); margin-top: 2px; }
+.attn .tag { font: 700 14px var(--sans); }
+
+.figs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.fig { padding: 16px 16px 16px 0; }
+.fig + .fig { padding-left: 16px; border-left: 1px solid var(--rule); }
+.fig b { display: flex; align-items: center; gap: 6px; font-size: 40px; line-height: 1.1; font-weight: 400; font-variant-numeric: lining-nums tabular-nums; color: var(--blue); }
+.fig span { display: block; font: 14px/1.4 var(--sans); color: var(--muted); margin-top: 4px; }
+.fig.over b { color: var(--bad); }
+.fig.over svg.i { width: 24px; height: 24px; stroke-width: 2; }
+
+.plist li { display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; gap: 4px 12px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.plist .idx { font: 600 13px/1.9 var(--sans); color: var(--muted); font-variant-numeric: tabular-nums; }
+.plist .nm { font-size: 19px; font-weight: 700; }
+.plist .nm a { color: var(--ink); text-decoration: none; }
+.plist .nm a:hover { text-decoration: underline; }
+.plist .meta { grid-column: 2 / -1; font: 14px/1.5 var(--sans); color: var(--muted); }
+.plist .line { grid-column: 2 / -1; height: 2px; background: var(--rule); margin-top: 6px; }
+.plist .line span { display: block; height: 100%; background: var(--blue); }
+.st { display: inline-flex; align-items: center; gap: 5px; font: 600 14px/1.9 var(--sans); white-space: nowrap; }
+.st svg.i { width: 16px; height: 16px; stroke-width: 2; }
+.st.ok { color: var(--ok); }
+.st.risk { color: var(--risk); }
+.st.behind { color: var(--bad); }
+
+.chart-note { font-size: 17px; margin: 16px 0 8px; }
+.chart-note .key { display: inline-block; width: 12px; height: 12px; margin: 0 4px 0 2px; vertical-align: -1px; }
+.key.lw { border: 1.5px solid var(--lastwk); }
+.key.tw { background: var(--blue); }
+.bars { display: flex; align-items: flex-end; gap: 6px; height: 170px; padding-top: 8px; }
+.bars .col { max-width: none; margin: 0; padding: 0; flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; gap: 3px; }
+.bars .col.wk2 { margin-left: 16px; }
+.bars .val { font: 12px var(--sans); color: var(--muted); font-variant-numeric: tabular-nums; }
+.bars .bar { width: 100%; height: calc(var(--v) * 7px); }
+.bars .lw .bar { border: 1.5px solid var(--lastwk); border-bottom: 0; }
+.bars .tw .bar { background: var(--blue); }
+.bars .day { font: 12px/1.3 var(--sans); color: var(--muted); border-top: 1px solid var(--ink); width: 100%; text-align: center; padding-top: 4px; }
+
+.acts li { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.acts .when { font: 14px/1.7 var(--sans); color: var(--muted); }
+.end { padding: 40px 0 0; font: 14px var(--sans); color: var(--muted); text-align: center; }
+
+/* style sheet */
+.sheet { max-width: 752px; margin: 80px auto 80px; padding: 32px 16px 0; border-top: 2px solid var(--ink); }
+.sheet h2 { font-size: 30px; font-weight: 700; letter-spacing: -0.01em; }
+.sheet h3 { font: 600 13px/1.4 var(--sans); text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin: 40px 0 8px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+.idea { margin-top: 12px; font-size: 20px; line-height: 1.5; font-style: italic; }
+.swatches li { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 16px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+.sw { width: 48px; height: 32px; border: 1px solid rgba(0,0,0,.14); }
+.sw-t { display: block; font-size: 16px; }
+.sw-t code { font: 13px ui-monospace, Menlo, Consolas, monospace; color: var(--muted); margin: 0 8px; }
+.sw-t span { display: block; font: 14px var(--sans); color: var(--muted); }
+.tscale li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.ts-m { font: 13px var(--sans); color: var(--muted); }
+.stack { margin-top: 12px; font: 14px/1.6 var(--sans); color: var(--muted); }
+.sys { margin: 0; }
+.sys div { padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.sys dt { font-weight: 700; }
+.sys dd { margin: 2px 0 0; font: 15px/1.6 var(--sans); color: var(--muted); }
+.ctls { display: grid; gap: 24px; }
+.ctl-l { font-weight: 700; margin-bottom: 8px; }
+.ctl-p { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
+.ctl-p > div { min-width: 0; }
+.state { display: block; font: 600 12px var(--sans); text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 6px; }
+.field { display: grid; gap: 4px; font: 600 14px var(--sans); }
+.input { height: 40px; width: 100%; padding: 0 2px; border: 0; border-bottom: 1px solid var(--ink); border-radius: 0; font: 16px var(--sans); color: var(--ink); background: transparent; }
+.ctl .plist li { border-top: 1px solid var(--rule); }
+
+@media (max-width: 760px) {
+  .mast { padding-top: 20px; }
+  .user .name { display: none; }
+  .nav { gap: 4px 16px; }
+  .find .btn .lab { display: none; }
+  .find .btn { padding: 0 12px; }
+  .greet { padding-top: 40px; }
+  .greet h1 { font-size: 34px; }
+  .lead { font-size: 19px; }
+  .figs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fig:nth-child(3) { border-left: 0; padding-left: 0; }
+  .fig:nth-child(-n+2) { border-bottom: 1px solid var(--rule); }
+  .fig b { font-size: 34px; }
+  .plist li { grid-template-columns: 28px minmax(0, 1fr); }
+  .plist .st { grid-column: 2; }
+  .bars { gap: 3px; }
+  .bars .col.wk2 { margin-left: 8px; }
+  .bars .val, .bars .day { font-size: 11px; }
+  .acts li { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .acts .when { order: 2; }
+  .ctl-p { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .sheet { margin: 56px auto; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></symbol>
+<symbol id="i-proj" viewBox="0 0 24 24"><path d="M3 6.5a1.5 1.5 0 0 1 1.5-1.5h4.5l2 2h8.5a1.5 1.5 0 0 1 1.5 1.5v9.5a1.5 1.5 0 0 1-1.5 1.5h-15a1.5 1.5 0 0 1-1.5-1.5z"/></symbol>
+<symbol id="i-task" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 12.5l2.8 2.8L16 9.5"/></symbol>
+<symbol id="i-team" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.5-3.5 3.2-5.5 6.5-5.5s6 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14c2.6.2 4.5 2 5 5"/></symbol>
+<symbol id="i-rep" viewBox="0 0 24 24"><path d="M4 4v16h16"/><path d="M8 16v-4M12 16V8M16 16v-6M20 16V5"/></symbol>
+<symbol id="i-set" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></symbol>
+<symbol id="i-time" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+<symbol id="i-cmd" viewBox="0 0 24 24"><path d="M9 6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3z"/></symbol>
+<symbol id="s-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.8 2.8L16.2 9.5"/></symbol>
+<symbol id="s-risk" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.4v.2"/></symbol>
+<symbol id="s-behind" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M9 9l6 6M15 9l-6 6"/></symbol>
+<symbol id="s-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+</svg>
+<header class="mast col">
+  <div class="mast-top">
+    <span class="brand">Bright<span>work</span></span>
+    <div class="mast-tools">
+      <button class="iconbtn" type="button" aria-label="Notifications"><svg class="i" aria-hidden="true"><use href="#i-bell"/></svg></button>
+      <span class="user"><span class="av" aria-hidden="true">MO</span><span class="name">Mara Okafor</span><span class="vh">Signed in as Mara Okafor</span></span>
+    </div>
+  </div>
+  <nav class="nav" aria-label="Main">
+    <a href="#" aria-current="page">Home</a><a href="#">Projects</a><a href="#">Tasks</a><a href="#">Team</a><a href="#">Reports</a><a href="#">Settings</a>
+  </nav>
+  <div class="find">
+    <label class="search"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span class="vh">Search projects and tasks</span><input type="search" placeholder="Search projects and tasks"></label>
+    <button class="btn primary" type="button" aria-label="New project"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg><span class="lab">New project</span></button>
+  </div>
+</header>
+
+<main class="col">
+  <section class="greet" aria-labelledby="greet-h">
+    <p class="kicker">Saturday 31 October 2026</p>
+    <h1 id="greet-h">Good morning, Mara.</h1>
+    <p class="lead"><span class="od"><svg class="i" aria-hidden="true"><use href="#s-clock"/></svg>4 tasks are overdue.</span> Billing migration is behind and Mobile app 2.0 is at risk. The other four projects are on track.</p>
+  </section>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="sec-h"><span class="n">01</span><h2 id="s1">Needs attention</h2></div>
+    <ul class="attn">
+      <li><svg class="i bad" aria-hidden="true"><use href="#s-clock"/></svg><div><p><b>4 overdue tasks</b> across your projects. <a href="#">Review overdue tasks</a></p><p class="m"><span class="tag" style="color:var(--bad)">Overdue</span> · Tasks past their due date</p></div></li>
+      <li><svg class="i bad" aria-hidden="true"><use href="#s-behind"/></svg><div><p><b>Billing migration</b> is 30% done with 28 tasks open and 20 days to go.</p><p class="m"><span class="tag" style="color:var(--bad)">Behind</span> · Engineering · Due 20 Nov</p></div></li>
+      <li><svg class="i risk" aria-hidden="true"><use href="#s-risk"/></svg><div><p><b>Mobile app 2.0</b> is 45% done with 33 tasks open and 32 days to go.</p><p class="m"><span class="tag" style="color:var(--risk)">At risk</span> · Engineering · Due 2 Dec</p></div></li>
+    </ul>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="sec-h"><span class="n">02</span><h2 id="s2">This week</h2><span class="aside">25 to 31 October</span></div>
+    <div class="figs">
+      <p class="fig"><b>6</b><span>active projects</span></p>
+      <p class="fig"><b>23</b><span>tasks due this week</span></p>
+      <p class="fig over"><b><svg class="i" aria-hidden="true"><use href="#s-clock"/></svg>4</b><span>overdue tasks</span></p>
+      <p class="fig"><b>186</b><span>hours logged</span></p>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="sec-h"><span class="n">03</span><h2 id="s3">All projects</h2><span class="aside">Most urgent first</span></div>
+    <ol class="plist">
+<li><span class="idx">01</span><span class="nm"><a href="#">Billing migration</a></span><span class="st behind"><svg class="i" aria-hidden="true"><use href="#s-behind"/></svg>Behind</span><span class="meta">Engineering · 12 of 40 tasks, 30% · Due 20 Nov, 20 days left</span><span class="line" aria-hidden="true"><span style="width:30%"></span></span></li>
+<li><span class="idx">02</span><span class="nm"><a href="#">Mobile app 2.0</a></span><span class="st risk"><svg class="i" aria-hidden="true"><use href="#s-risk"/></svg>At risk</span><span class="meta">Engineering · 27 of 60 tasks, 45% · Due 2 Dec, 32 days left</span><span class="line" aria-hidden="true"><span style="width:45%"></span></span></li>
+<li><span class="idx">03</span><span class="nm"><a href="#">Q4 customer survey</a></span><span class="st ok"><svg class="i" aria-hidden="true"><use href="#s-ok"/></svg>On track</span><span class="meta">Research · 9 of 10 tasks, 90% · Due 7 Nov, 7 days left</span><span class="line" aria-hidden="true"><span style="width:90%"></span></span></li>
+<li><span class="idx">04</span><span class="nm"><a href="#">Website redesign</a></span><span class="st ok"><svg class="i" aria-hidden="true"><use href="#s-ok"/></svg>On track</span><span class="meta">Design · 18 of 25 tasks, 72% · Due 14 Nov, 14 days left</span><span class="line" aria-hidden="true"><span style="width:72%"></span></span></li>
+<li><span class="idx">05</span><span class="nm"><a href="#">Onboarding emails</a></span><span class="st ok"><svg class="i" aria-hidden="true"><use href="#s-ok"/></svg>On track</span><span class="meta">Marketing · 9 of 15 tasks, 60% · Due 21 Nov, 21 days left</span><span class="line" aria-hidden="true"><span style="width:60%"></span></span></li>
+<li><span class="idx">06</span><span class="nm"><a href="#">Spring catalogue</a></span><span class="st ok"><svg class="i" aria-hidden="true"><use href="#s-ok"/></svg>On track</span><span class="meta">Marketing · 3 of 20 tasks, 15% · Due 15 Jan, 76 days left</span><span class="line" aria-hidden="true"><span style="width:15%"></span></span></li>
+    </ol>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="sec-h"><span class="n">04</span><h2 id="s4">Tasks completed</h2><span class="aside">Last 14 days</span></div>
+    <p class="chart-note">This week the team finished <b>73</b> tasks <span class="key tw" aria-hidden="true"></span>, against <b>59</b> last week <span class="key lw" aria-hidden="true"></span>, which is 14 more.</p>
+<div class="bars" role="img" aria-label="Tasks completed per day, 18 to 31 October. Last week, Sunday 18 to Saturday 24: 3, 12, 9, 14, 11, 8, 2, total 59. This week, Sunday 25 to Saturday 31: 4, 15, 13, 17, 12, 10, 2, total 73.">
+<div class="col lw" style="--v:3" aria-hidden="true"><span class="val">3</span><span class="bar"></span><span class="day">S<br>18</span></div>
+<div class="col lw" style="--v:12" aria-hidden="true"><span class="val">12</span><span class="bar"></span><span class="day">M<br>19</span></div>
+<div class="col lw" style="--v:9" aria-hidden="true"><span class="val">9</span><span class="bar"></span><span class="day">T<br>20</span></div>
+<div class="col lw" style="--v:14" aria-hidden="true"><span class="val">14</span><span class="bar"></span><span class="day">W<br>21</span></div>
+<div class="col lw" style="--v:11" aria-hidden="true"><span class="val">11</span><span class="bar"></span><span class="day">T<br>22</span></div>
+<div class="col lw" style="--v:8" aria-hidden="true"><span class="val">8</span><span class="bar"></span><span class="day">F<br>23</span></div>
+<div class="col lw" style="--v:2" aria-hidden="true"><span class="val">2</span><span class="bar"></span><span class="day">S<br>24</span></div>
+<div class="col tw wk2" style="--v:4" aria-hidden="true"><span class="val">4</span><span class="bar"></span><span class="day">S<br>25</span></div>
+<div class="col tw" style="--v:15" aria-hidden="true"><span class="val">15</span><span class="bar"></span><span class="day">M<br>26</span></div>
+<div class="col tw" style="--v:13" aria-hidden="true"><span class="val">13</span><span class="bar"></span><span class="day">T<br>27</span></div>
+<div class="col tw" style="--v:17" aria-hidden="true"><span class="val">17</span><span class="bar"></span><span class="day">W<br>28</span></div>
+<div class="col tw" style="--v:12" aria-hidden="true"><span class="val">12</span><span class="bar"></span><span class="day">T<br>29</span></div>
+<div class="col tw" style="--v:10" aria-hidden="true"><span class="val">10</span><span class="bar"></span><span class="day">F<br>30</span></div>
+<div class="col tw" style="--v:2" aria-hidden="true"><span class="val">2</span><span class="bar"></span><span class="day">S<br>31</span></div>
+</div>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="sec-h"><span class="n">05</span><h2 id="s5">Recent activity</h2></div>
+    <ul class="acts">
+<li><span class="when">12 min ago</span><p><b>Jonas Weber</b> completed “Export invoices as CSV” in <a href="#">Billing migration</a></p></li>
+<li><span class="when">40 min ago</span><p><b>Priya Nair</b> commented on “Hero image options” in <a href="#">Website redesign</a></p></li>
+<li><span class="when">1 h ago</span><p><b>Sam Ortiz</b> moved “Push notifications” to Review in <a href="#">Mobile app 2.0</a></p></li>
+<li><span class="when">2 h ago</span><p><b>Lena Fischer</b> added 3 tasks to <a href="#">Spring catalogue</a></p></li>
+<li><span class="when">3 h ago</span><p><b>Tomás Ruiz</b> logged 6 h on <a href="#">Mobile app 2.0</a></p></li>
+<li><span class="when">yesterday</span><p><b>Aiko Tanaka</b> uploaded survey-results-v2.pdf to <a href="#">Q4 customer survey</a></p></li>
+    </ul>
+  </section>
+  <p class="end">That is everything for today.</p>
+</main>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 178 · Focus column</h2>
+<p class="idea">The whole dashboard as one calm 720px column read top to bottom in priority order, a sentence that names what matters, then numbered sections set in a bookish serif on off-white paper with ink blue accents and rules instead of boxes.</p>
+<h3>Palette</h3><ul class="swatches">
+<li><span class="sw" style="background:#faf8f3"></span><span class="sw-t"><b>paper</b> <code>#faf8f3</code><span>the off-white page</span></span></li>
+<li><span class="sw" style="background:#1b2433"></span><span class="sw-t"><b>ink</b> <code>#1b2433</code><span>text, section rules and the nav top rule</span></span></li>
+<li><span class="sw" style="background:#1d3c78"></span><span class="sw-t"><b>inkBlue</b> <code>#1d3c78</code><span>the wordmark, links, figures, section numbers, the primary button, progress lines, this week bars and focus</span></span></li>
+<li><span class="sw" style="background:#5b5f68"></span><span class="sw-t"><b>muted</b> <code>#5b5f68</code><span>meta, captions, times and the date kicker</span></span></li>
+<li><span class="sw" style="background:#d8d3c7"></span><span class="sw-t"><b>rule</b> <code>#d8d3c7</code><span>hairlines between rows and figures</span></span></li>
+<li><span class="sw" style="background:#8a8f9c"></span><span class="sw-t"><b>lastWeek</b> <code>#8a8f9c</code><span>outlines of last week bars</span></span></li>
+<li><span class="sw" style="background:#2f6b3a"></span><span class="sw-t"><b>ok</b> <code>#2f6b3a</code><span>On track text and check circle</span></span></li>
+<li><span class="sw" style="background:#8a4a00"></span><span class="sw-t"><b>risk</b> <code>#8a4a00</code><span>At risk text and triangle</span></span></li>
+<li><span class="sw" style="background:#a3261b"></span><span class="sw-t"><b>bad</b> <code>#a3261b</code><span>Behind and overdue text, crossed square and clock</span></span></li>
+</ul><h3>Type</h3><ul class="tscale">
+<li><span class="ts-s" style="font:700 44px/1.12 Charter, Bitstream Charter, Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;letter-spacing:-0.02em">Good morning, Mara.</span><span class="ts-m">Greeting, 44px serif, 700</span></li>
+<li><span class="ts-s" style="font:400 21px/1.5 Charter, Bitstream Charter, Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif">Billing migration is behind and Mobile app 2.0 is at risk.</span><span class="ts-m">Lead, 21px serif, 400</span></li>
+<li><span class="ts-s" style="font:400 40px/1.1 Charter, Bitstream Charter, Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;color:#1d3c78;font-variant-numeric:lining-nums tabular-nums">186</span><span class="ts-m">Figure, 40px serif, 400, ink blue</span></li>
+<li><span class="ts-s" style="font:700 22px/1.3 Charter, Bitstream Charter, Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif">Needs attention</span><span class="ts-m">Section title, 22px serif, 700</span></li>
+<li><span class="ts-s" style="font:400 14px/1.5 Helvetica Neue, Segoe UI, system-ui, Roboto, Arial, sans-serif;color:#5b5f68">Engineering · 12 of 40 tasks · Due 20 Nov</span><span class="ts-m">Meta, 14px sans</span></li>
+<li><span class="ts-s" style="font:600 13px/1.4 Helvetica Neue, Segoe UI, system-ui, Roboto, Arial, sans-serif;text-transform:uppercase;letter-spacing:.14em;color:#5b5f68">Saturday 31 October 2026</span><span class="ts-m">Kicker, 13px sans caps, tracked</span></li>
+</ul><p class="stack">Two stacks. Reading text uses Charter, Bitstream Charter, Iowan Old Style, Palatino Linotype, Palatino, Georgia at 17px and 1.6. Meta, nav, buttons and labels use Helvetica Neue, Segoe UI, system-ui, Roboto, Arial at 13 to 15px. The greeting is 44px serif bold at minus 0.02em, the lead 21px serif, section titles 22px serif bold, project names 19px serif bold, figures 40px serif regular in ink blue, and the date kicker and section numbers 13px sans caps tracked 0.08 to 0.14em.</p>
+<h3>System</h3><dl class="sys">
+<div><dt>Layout</dt><dd>One centred column 720px wide with 16px side padding and nothing beside it. The masthead has the wordmark in ink blue, Bright bold and work italic, with a round outlined bell and Mara Okafor at right. Under it the six nav items run as one line of sans text links between a 2px ink rule above and a hairline below, Home underlined in ink blue. Then an underlined search field and a New project button on one line. The greeting follows with generous space, a caps date kicker, a 44px serif Good morning, Mara. and a lead sentence that starts with 4 tasks are overdue in red with a clock and names the behind and at risk projects. Five numbered sections follow, each titled under a 2px ink rule. 01 Needs attention lists the overdue tasks, Billing migration and Mobile app 2.0 with icons in the margin and open task counts. 02 This week shows the four figures as large serif numbers in a row split by hairlines. 03 All projects is an ordered list, most urgent first, with an index number, the serif name, the status at right, meta with category, tasks, due date and days left, and a 2px progress line. 04 Tasks completed opens with a sentence of the week totals over square outlined and solid bars. 05 Recent activity puts the time in a left margin column. A closing line ends the page. Below 760px figures go two by two and the margin times move under each entry.</dd></div>
+<div><dt>Spacing</dt><dd>An 8px unit with a reading rhythm. 56px above the greeting, 48px between sections, 16px row padding.</dd></div>
+<div><dt>Density</dt><dd>Low. One column, one thing after another, wide line height.</dd></div>
+<div><dt>Corners</dt><dd>Square. Only the bell, avatar and buttons at 2px or round.</dd></div>
+<div><dt>Borders</dt><dd>Rules only. A 2px ink rule over each section and the nav, 1px warm hairlines between rows, an underline for the search field.</dd></div>
+<div><dt>Shadows</dt><dd>None.</dd></div>
+<div><dt>Icons</dt><dd>Line icons at 1.6px stroke, 18px, set in the text or in a 28px left margin. Status uses a check circle for On track, a triangle for At risk, a crossed square for Behind and a clock for overdue, always with the word.</dd></div>
+<div><dt>Focus</dt><dd>A 2px ink blue outline offset 3px on every control and field.</dd></div>
+<div><dt>Tone</dt><dd>Written and calm, in full sentences such as Billing migration is 30% done with 28 tasks open and 20 days to go.</dd></div>
+</dl><h3>Controls</h3><div class="ctls">
+<div class="ctl"><p class="ctl-l">Primary button</p><div class="ctl-p"><div><span class="state">Normal</span><button class="btn primary" type="button"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>New project</button></div><div><span class="state">Focus</span><button class="btn primary is-focus" type="button"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>New project</button></div></div></div>
+<div class="ctl"><p class="ctl-l">Secondary button</p><div class="ctl-p"><div><span class="state">Normal</span><button class="btn secondary" type="button">Review overdue tasks</button></div><div><span class="state">Focus</span><button class="btn secondary is-focus" type="button">Review overdue tasks</button></div></div></div>
+<div class="ctl"><p class="ctl-l">Text field</p><div class="ctl-p"><div><span class="state">Normal</span><label class="field"><span>Project name</span><input class="input" type="text" value="Mobile app 2.0"></label></div><div><span class="state">Focus</span><label class="field"><span>Project name</span><input class="input is-focus" type="text" value="Mobile app 2.0"></label></div></div></div>
+<div class="ctl"><p class="ctl-l">List row</p><div class="ctl-p"><div><span class="state">Normal</span><ol class="plist"><li class=""><span class="idx">04</span><span class="nm"><a href="#">Website redesign</a></span><span class="st ok"><svg class="i" aria-hidden="true"><use href="#s-ok"/></svg>On track</span><span class="meta">Design · 18 of 25 tasks, 72% · Due 14 Nov</span></li></ol></div><div><span class="state">Focus</span><ol class="plist"><li class=" is-focus"><span class="idx">04</span><span class="nm"><a href="#">Website redesign</a></span><span class="st ok"><svg class="i" aria-hidden="true"><use href="#s-ok"/></svg>On track</span><span class="meta">Design · 18 of 25 tasks, 72% · Due 14 Nov</span></li></ol></div></div></div>
+</div></section>
+</body>
+</html>

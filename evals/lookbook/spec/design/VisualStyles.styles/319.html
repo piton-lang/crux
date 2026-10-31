@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 319 · Stained glass night · Brightwork</title>
+<style>
+
+:root { color-scheme: dark; --bg:#08070b; --lead:#020203; --ink:#f7f1e6; --muted:#d7cdbd;
+ --ruby:#3b0f1d; --sapphire:#0f1f45; --emerald:#0b3424; --amethyst:#2b1547; --amber:#3b2608; --slate:#1a1a22;
+ --gold:#f2d27a; --ok:#a8f0c0; --warn:#ffd98a; --rec:#b8daff; --bad:#ffb5bf;
+ --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif; --lw: 6px; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 var(--serif); }
+a { color: var(--gold); }
+:focus-visible, .is-focus { outline: 3px solid var(--gold) !important; outline-offset: 2px; box-shadow: 0 0 0 6px #020203, 0 0 0 8px var(--gold); }
+.ic { width: 1.1em; height: 1.1em; flex: none; } .si { width: 16px; height: 16px; flex: none; }
+.top { max-width: 1200px; margin: 0 auto; padding: 24px 24px 16px; display:flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.quatre { width: 40px; height: 40px; flex: none; }
+.brand { font-size: 24px; font-variant: small-caps; letter-spacing: .08em; }
+.brand small { display:block; font-variant: normal; letter-spacing: .02em; font-size: 14px; color: var(--muted); font-style: italic; }
+.top nav { margin-left: auto; }
+.apps { display:flex; gap: 4px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+.apps a { display:inline-flex; align-items:center; gap: 6px; padding: 6px 10px; color: var(--muted); text-decoration: none; font-variant: small-caps; letter-spacing: .06em; font-size: 16px; }
+.apps a[aria-current="page"] { color: var(--ink); background: var(--sapphire); outline: 3px solid var(--lead); box-shadow: inset 0 -2px 0 var(--gold); }
+.window { max-width: 1200px; margin: 0 auto 0; padding: 0 24px; }
+.frame { background: var(--lead); padding: var(--lw); border-radius: 600px 600px 6px 6px / 160px 160px 6px 6px; display:grid; gap: var(--lw); box-shadow: 0 0 0 2px #2a2630, 0 0 60px rgba(60,80,160,.18); }
+.pane { position: relative; padding: 20px 22px; min-width: 0; background-color: var(--jw); background-image: linear-gradient(135deg, rgba(255,255,255,.05), transparent 40%, rgba(255,255,255,.03) 70%, transparent); }
+.j-ruby { --jw: var(--ruby); } .j-sapphire { --jw: var(--sapphire); } .j-emerald { --jw: var(--emerald); } .j-amethyst { --jw: var(--amethyst); } .j-amber { --jw: var(--amber); } .j-slate { --jw: var(--slate); }
+.head { border-radius: 594px 594px 0 0 / 154px 154px 0 0; padding: 56px 64px 22px; text-align: center; }
+.pane h2 { margin: 0 0 4px; font-size: 18px; font-weight: 600; font-variant: small-caps; letter-spacing: .1em; }
+.pane .cap { margin: 0 0 12px; color: var(--muted); font-style: italic; font-size: 15px; }
+.plot { position: relative; }
+.chart { display:block; width: 100%; height: 200px; }
+.chart.sm { height: 110px; }
+.gl { stroke: rgba(247,241,230,.18); }
+.l-req { fill: none; stroke: var(--gold); stroke-width: 3; }
+.a-req { fill: rgba(242,210,122,.14); }
+.l-err { fill: none; stroke: var(--bad); stroke-width: 2.5; }
+.l-p50 { fill: none; stroke: var(--ok); stroke-width: 2.5; }
+.l-p95 { fill: none; stroke: var(--gold); stroke-width: 2.5; stroke-dasharray: 6 4; }
+.ticks { display:flex; justify-content: space-between; color: var(--muted); font-size: 13px; margin-top: 6px; font-variant-numeric: lining-nums tabular-nums; }
+.peak { position: absolute; transform: translateX(-50%); top: -2px; font-size: 14px; font-style: italic; color: var(--gold); white-space: nowrap; }
+.lancets { list-style: none; margin: 0; padding: 0; display:grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: var(--lw); }
+.lancet { border-radius: 200px 200px 0 0 / 90px 90px 0 0; padding: 48px 16px 20px; text-align: center; min-height: 250px; display:flex; flex-direction: column; align-items: center; gap: 6px; }
+.lancet .roundel { width: 48px; height: 48px; border-radius: 50%; border: var(--lw) solid var(--lead); display:grid; place-items:center; background: rgba(0,0,0,.25); }
+.lancet .roundel .si { width: 22px; height: 22px; }
+.lancet b { font-size: 18px; font-weight: 600; }
+.lancet .up { font-size: 26px; font-variant-numeric: lining-nums; }
+.lancet .m { font-size: 14px; color: var(--muted); }
+.st { display:inline-flex; align-items: center; gap: 6px; font-size: 15px; font-variant: small-caps; letter-spacing: .06em; font-weight: 600; }
+.st-ok { color: var(--ok); } .st-warn { color: var(--warn); } .st-rec { color: var(--rec); } .st-fire { color: var(--bad); } .st-res { color: var(--ok); } .st-inv { color: var(--warn); }
+.row3 { display:grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr); gap: var(--lw); }
+.row4 { display:grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--lw); }
+.id { font-size: 32px; margin: 2px 0 0; letter-spacing: .02em; }
+.kv { display:grid; grid-template-columns: auto 1fr; gap: 6px 14px; margin: 12px 0 16px; }
+.kv dt { color: var(--muted); font-style: italic; } .kv dd { margin: 0; }
+.legend { display:flex; gap: 14px; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+.legend i { display:inline-block; width: 16px; border-top: 3px solid; vertical-align: middle; margin-right: 4px; }
+.list { list-style: none; margin: 8px 0 0; padding: 0; }
+.list li { display:grid; grid-template-columns: 120px 1fr; gap: 2px 12px; padding: 10px 0; border-top: 3px solid var(--lead); }
+.list li:first-child { border-top: 0; padding-top: 0; }
+.list time { color: var(--muted); font-style: italic; }
+.list .st { grid-column: 2; }
+.sill { height: 18px; background: #1d1a22; border-top: 2px solid #3a3440; margin: 0 -24px; max-width: none; }
+.btn-p { font: 600 16px var(--serif); font-variant: small-caps; letter-spacing: .08em; background: var(--gold); color: #1a1405; border: 3px solid var(--lead); padding: 7px 18px; cursor: pointer; }
+.btn-s { font: 600 16px var(--serif); font-variant: small-caps; letter-spacing: .08em; background: transparent; color: var(--ink); border: 3px solid var(--gold); padding: 7px 16px; cursor: pointer; }
+.btns { display:flex; gap: 8px; flex-wrap: wrap; }
+.sheet { max-width: 1152px; margin: 40px auto 48px; padding: 28px; background: var(--slate); border: var(--lw) solid var(--lead); outline: 2px solid #3a3440; }
+.sheet h2 { margin: 0 0 8px; font-size: 28px; font-variant: small-caps; letter-spacing: .06em; font-weight: 600; }
+.sheet h3 { margin: 28px 0 12px; font-size: 17px; font-variant: small-caps; letter-spacing: .1em; color: var(--gold); }
+.idea { margin: 0; max-width: 70ch; }
+.swatches { list-style: none; margin: 0; padding: 0; display:grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 12px; }
+.sw { display:flex; gap: 10px; font-size: 14px; }
+.sw i { width: 34px; height: 48px; flex: none; border: 4px solid var(--lead); border-radius: 20px 20px 0 0; outline: 1px solid #3a3440; }
+.sw span { color: var(--muted); }
+.type-row { display:flex; gap: 16px; align-items: baseline; padding: 8px 0; border-top: 1px solid #3a3440; flex-wrap: wrap; }
+.type-row code { font: 12px ui-monospace, Menlo, Consolas, monospace; color: var(--muted); min-width: 180px; }
+.facts { display:grid; grid-template-columns: 130px 1fr; gap: 8px 16px; margin: 0; font-size: 15px; }
+.facts dt { font-variant: small-caps; letter-spacing: .06em; font-weight: 600; } .facts dd { margin: 0; }
+.controls { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; }
+.ctl-label { display:block; font-style: italic; color: var(--muted); margin-bottom: 8px; }
+.ctl-pair { display:flex; gap: 18px; flex-wrap: wrap; align-items: flex-end; }
+.fld { display:flex; flex-direction: column; gap: 4px; font-size: 14px; color: var(--muted); font-style: italic; }
+.fld input { font: 16px var(--serif); color: var(--ink); background: var(--bg); border: 3px solid #4a4452; padding: 7px 10px; width: 190px; }
+.lrow { display:flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 14px; background: var(--amber); border: 4px solid var(--lead); color: var(--ink); text-decoration: none; min-width: 250px; }
+@media (max-width: 1000px) { .row3 { grid-template-columns: minmax(0,1fr) minmax(0,1fr); } .row3 > :first-child { grid-column: 1 / -1; } .lancets { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+@media (max-width: 760px) {
+ .top { padding: 16px; } .top nav { margin: 0; width: 100%; } .window { padding: 0 16px; }
+ .frame { border-radius: 300px 300px 6px 6px / 70px 70px 6px 6px; } .head { border-radius: 294px 294px 0 0 / 64px 64px 0 0; padding: 40px 16px 16px; }
+ .pane { padding: 16px; } .lancets { grid-template-columns: minmax(0,1fr) minmax(0,1fr); } .lancet { min-height: 0; padding: 36px 10px 16px; border-radius: 120px 120px 0 0 / 50px 50px 0 0; } .lancet:last-child { grid-column: 1 / -1; }
+ .row3, .row4 { grid-template-columns: minmax(0,1fr); } .chart { height: 160px; } .list li { grid-template-columns: minmax(0,1fr); } .list .st { grid-column: 1; }
+ .sill { margin: 0 -16px; } .sheet { margin: 32px 16px; padding: 18px; } .controls, .facts { grid-template-columns: minmax(0,1fr); } .fld input, .lrow { width: 100%; min-width: 0; } .ctl-pair > * { flex: 1 1 100%; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="top"><svg class="quatre" viewBox="0 0 40 40" aria-hidden="true"><g stroke="#020203" stroke-width="2.5"><circle cx="20" cy="10" r="8" fill="#3b0f1d"/><circle cx="30" cy="20" r="8" fill="#0f1f45"/><circle cx="20" cy="30" r="8" fill="#0b3424"/><circle cx="10" cy="20" r="8" fill="#2b1547"/><circle cx="20" cy="20" r="6" fill="#f2d27a"/></g></svg>
+ <div class="brand">Brightwork Ops<small>Production, the last 24 hours</small></div>
+ <nav aria-label="Suite apps"><ul class="apps"><li><a href="#" ><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg>Canvas</a></li><li><a href="#" ><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h7l2 2h9v10H3z"/></svg>Drive</a></li><li><a href="#" ><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8l-5 4 5 4M16 8l5 4-5 4M14 5l-4 14"/></svg>Code</a></li><li><a href="#" aria-current="page"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg>Ops</a></li></ul></nav>
+</header>
+<main class="window">
+ <div class="frame">
+  <section class="pane head j-sapphire" aria-labelledby="h-req"><h2 id="h-req">Requests per minute</h2><p class="cap">About 1,200 through the night, a peak of 9,400 at 14:00</p>
+   <div class="plot"><svg class="chart" viewBox="0 0 800 200" preserveAspectRatio="none" role="img" aria-label="Requests per minute over the last 24 hours, from 10:00 yesterday to 10:00 today. About 1,200 at night around 03:00 to 04:00, rising to a peak of 9,400 at 14:00 yesterday, and 7,700 now."><line class="gl" x1="0" x2="800" y1="66.7" y2="66.7" vector-effect="non-scaling-stroke"/><line class="gl" x1="0" x2="800" y1="133.3" y2="133.3" vector-effect="non-scaling-stroke"/><path class="a-req" d="M0,200 L0.0,48.0 L33.3,34.0 L66.7,24.0 L100.0,18.0 L133.3,12.0 L166.7,16.0 L200.0,26.0 L233.3,42.0 L266.7,64.0 L300.0,88.0 L333.3,110.0 L366.7,128.0 L400.0,142.0 L433.3,154.0 L466.7,164.0 L500.0,170.0 L533.3,174.0 L566.7,176.0 L600.0,176.0 L633.3,172.0 L666.7,158.0 L700.0,128.0 L733.3,88.0 L766.7,60.0 L800.0,46.0 L800,200 Z"/><polyline class="l-req" points="0.0,48.0 33.3,34.0 66.7,24.0 100.0,18.0 133.3,12.0 166.7,16.0 200.0,26.0 233.3,42.0 266.7,64.0 300.0,88.0 333.3,110.0 366.7,128.0 400.0,142.0 433.3,154.0 466.7,164.0 500.0,170.0 533.3,174.0 566.7,176.0 600.0,176.0 633.3,172.0 666.7,158.0 700.0,128.0 733.3,88.0 766.7,60.0 800.0,46.0" vector-effect="non-scaling-stroke"/></svg><span class="peak" style="left:16.67%">9,400 at 14:00</span></div><div class="ticks" aria-hidden="true"><span>10:00</span><span>14:00</span><span>18:00</span><span>22:00</span><span>02:00</span><span>06:00</span><span>10:00</span></div></section>
+  <section aria-labelledby="h-svc"><h2 id="h-svc" class="vh" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Services</h2><ul class="lancets"><li class="pane lancet j-sapphire" id="svc-api"><span class="roundel st-ok"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor"/><path d="M7.5 12.3l3 3 6-6.3" stroke="#0f1f45" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>api</b><span class="st st-ok">Healthy</span><span class="up">99.98%</span><span class="m">p95 latency 182 ms</span></li><li class="pane lancet j-emerald" id="svc-web"><span class="roundel st-ok"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor"/><path d="M7.5 12.3l3 3 6-6.3" stroke="#0b3424" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>web</b><span class="st st-ok">Healthy</span><span class="up">99.99%</span><span class="m">p95 latency 96 ms</span></li><li class="pane lancet j-ruby" id="svc-sync"><span class="roundel st-warn"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5L22.5 21h-21z" fill="currentColor"/><path d="M12 9v5.5" stroke="#3b0f1d" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="17.6" r="1.4" fill="#3b0f1d"/></svg></span><b>sync-worker</b><span class="st st-warn">Degraded</span><span class="up">99.41%</span><span class="m">queue depth 4,812</span></li><li class="pane lancet j-amethyst" id="svc-notif"><span class="roundel st-ok"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="currentColor"/><path d="M7.5 12.3l3 3 6-6.3" stroke="#2b1547" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>notifications</b><span class="st st-ok">Healthy</span><span class="up">99.95%</span><span class="m">uptime</span></li><li class="pane lancet j-amber" id="svc-billing"><span class="roundel st-rec"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5L22.5 12 12 22.5 1.5 12z" fill="currentColor"/><path d="M8 12.5l2.8 2.6L16 9.5" stroke="#3b2608" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>billing</b><span class="st st-rec">Recovered</span><span class="up">6 min</span><span class="m">down, recovered 07:54</span></li></ul></section>
+  <div class="row3">
+   <section class="pane j-ruby" aria-labelledby="h-inc"><h2 id="h-inc">Open incident · severity 2</h2><p class="id">INC-0427</p><p style="margin:0">sync-worker queue backlog</p>
+    <dl class="kv"><dt>Status</dt><dd><span class="st st-inv"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>Investigating</span></dd><dt>Opened</dt><dd>06:58</dd><dt>Owner</dt><dd>Jonas Weber</dd></dl>
+    <div class="btns"><button class="btn-p" type="button">Open incident</button><button class="btn-s" type="button">Runbook</button></div></section>
+   <section class="pane j-amethyst" aria-labelledby="h-err"><h2 id="h-err">Error rate</h2><p class="cap">Near 0.1%, a spike to 2.3% at 07:48</p><svg class="chart sm" viewBox="0 0 300 110" preserveAspectRatio="none" role="img" aria-label="Error rate over the last 24 hours. Near 0.1 percent all day, with one spike to 2.3 percent at 07:48 today."><line class="gl" x1="0" x2="300" y1="55.0" y2="55.0" vector-effect="non-scaling-stroke"/><polyline class="l-err" points="0.0,106.0 12.5,105.6 25.0,105.2 37.5,105.6 50.0,104.7 62.5,105.6 75.0,106.0 87.5,105.6 100.0,105.2 112.5,105.6 125.0,106.0 137.5,106.5 150.0,105.6 162.5,106.0 175.0,106.5 187.5,106.5 200.0,106.0 212.5,106.5 225.0,106.0 237.5,105.6 250.0,105.2 262.5,104.7 270.0,101.2 272.5,8.8 275.0,88.0 278.8,103.8 287.5,105.2 300.0,105.6" vector-effect="non-scaling-stroke"/></svg><div class="ticks" aria-hidden="true"><span>10:00</span><span>18:00</span><span>02:00</span><span>10:00</span></div></section>
+   <section class="pane j-emerald" aria-labelledby="h-lat"><h2 id="h-lat">Latency</h2><div class="legend"><span><i style="color:var(--ok)"></i>p50</span><span><i style="color:var(--gold);border-top-style:dashed"></i>p95</span></div><svg class="chart sm" viewBox="0 0 300 110" preserveAspectRatio="none" role="img" aria-label="Latency p50 and p95 over the last 24 hours. p50 sits between 54 and 82 ms, p95 between 136 and 204 ms, with a brief p95 spike to 310 ms at 07:48. p95 is 182 ms now."><line class="gl" x1="0" x2="300" y1="55.0" y2="55.0" vector-effect="non-scaling-stroke"/><polyline class="l-p95" points="0.0,49.5 12.5,46.8 25.0,44.0 37.5,41.9 50.0,39.9 62.5,41.9 75.0,44.7 87.5,47.4 100.0,50.9 112.5,53.6 125.0,56.4 137.5,58.4 150.0,59.8 162.5,61.2 175.0,61.9 187.5,62.6 200.0,62.6 212.5,63.2 225.0,62.6 237.5,60.5 250.0,57.8 262.5,51.6 272.5,3.4 275.0,42.6 287.5,46.1 300.0,47.4" vector-effect="non-scaling-stroke"/><polyline class="l-p50" points="0.0,85.2 12.5,84.2 25.0,83.2 37.5,82.5 50.0,81.8 62.5,82.5 75.0,83.5 87.5,84.6 100.0,85.9 112.5,87.3 125.0,88.7 137.5,89.4 150.0,90.1 162.5,90.4 175.0,91.1 187.5,91.1 200.0,91.4 212.5,91.4 225.0,91.1 237.5,90.1 250.0,88.7 262.5,86.6 272.5,78.4 275.0,84.6 287.5,83.9 300.0,84.6" vector-effect="non-scaling-stroke"/></svg><div class="ticks" aria-hidden="true"><span>10:00</span><span>18:00</span><span>02:00</span><span>10:00</span></div></section>
+  </div>
+  <div class="row4">
+   <section class="pane j-amber" aria-labelledby="h-al"><h2 id="h-al">Alerts</h2><ul class="list"><li><time>07:48</time><span><b>billing</b> 5xx rate above 2 percent</span><span class="st st-res"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3" fill="currentColor"/><path d="M7.5 12.3l3 3 6-6.3" stroke="#3b2608" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Resolved</span></li><li><time>06:58</time><span><b>sync-worker</b> queue depth above 3,000</span><span class="st st-fire"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2h8l6 6v8l-6 6H8l-6-6V8z" fill="currentColor"/><path d="M12 7v6" stroke="#3b2608" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="16.8" r="1.4" fill="#3b2608"/></svg>Firing</span></li><li><time>Yesterday 22:10</time><span><b>api</b> disk 80 percent</span><span class="st st-res"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3" fill="currentColor"/><path d="M7.5 12.3l3 3 6-6.3" stroke="#3b2608" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Resolved</span></li></ul></section>
+   <section class="pane j-slate" aria-labelledby="h-dp"><h2 id="h-dp">Deploys</h2><ul class="list"><li><time>09:12</time><span><b>web v3.18.2</b><br><span style="color:var(--muted)">by Priya Nair</span></span></li><li><time>08:30</time><span><b>api v5.4.0</b><br><span style="color:var(--muted)">by Jonas Weber</span></span></li><li><time>06:40</time><span><b>sync-worker v1.9.1</b><br><span style="color:var(--muted)">by Sam Ortiz</span></span></li></ul></section>
+  </div>
+ </div>
+ <div class="sill" aria-hidden="true"></div>
+</main>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 319 · Stained glass night</h2>
+<p class="idea">The whole monitor is one leaded window seen at night, with deep jewel glass panes held in thick black lead, an arched head pane for traffic, five round-arched lancets for the services, and pale glowing text on every pane.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><i style="background:#08070b"></i><div><b>Night</b> #08070b<br><span>page</span></div></li><li class="sw"><i style="background:#020203"></i><div><b>Lead</b> #020203<br><span>the frame, gaps between panes, roundel rims</span></div></li><li class="sw"><i style="background:#f7f1e6"></i><div><b>Ink</b> #f7f1e6<br><span>text on every pane</span></div></li><li class="sw"><i style="background:#d7cdbd"></i><div><b>Pale</b> #d7cdbd<br><span>captions, times, axis on every pane</span></div></li><li class="sw"><i style="background:#3b0f1d"></i><div><b>Ruby</b> #3b0f1d<br><span>incident pane, sync-worker lancet</span></div></li><li class="sw"><i style="background:#0f1f45"></i><div><b>Sapphire</b> #0f1f45<br><span>head pane, api lancet, current app</span></div></li><li class="sw"><i style="background:#0b3424"></i><div><b>Emerald</b> #0b3424<br><span>latency pane, web lancet</span></div></li><li class="sw"><i style="background:#2b1547"></i><div><b>Amethyst</b> #2b1547<br><span>error pane, notifications lancet</span></div></li><li class="sw"><i style="background:#3b2608"></i><div><b>Amber glass</b> #3b2608<br><span>alerts pane, billing lancet, list rows</span></div></li><li class="sw"><i style="background:#1a1a22"></i><div><b>Slate glass</b> #1a1a22<br><span>deploys pane and the style sheet</span></div></li><li class="sw"><i style="background:#f2d27a"></i><div><b>Gold</b> #f2d27a<br><span>request line, p95, primary button, focus</span></div></li><li class="sw"><i style="background:#a8f0c0"></i><div><b>Healthy</b> #a8f0c0<br><span>Healthy and Resolved, circle and square, p50</span></div></li><li class="sw"><i style="background:#ffd98a"></i><div><b>Degraded</b> #ffd98a<br><span>Degraded and Investigating, triangle and magnifier</span></div></li><li class="sw"><i style="background:#b8daff"></i><div><b>Recovered</b> #b8daff<br><span>Recovered, diamond</span></div></li><li class="sw"><i style="background:#ffb5bf"></i><div><b>Firing</b> #ffb5bf<br><span>Firing, octagon, error line</span></div></li></ul>
+<h3>Type · Iowan Old Style, Palatino Linotype, Palatino, Book Antiqua, Georgia</h3>
+<div class="type-row"><code>32 / 400 serif</code><span style="font-size:32px">INC-0427</span></div><div class="type-row"><code>24 / small caps .08em</code><span style="font-size:24px;font-variant:small-caps;letter-spacing:.08em">Brightwork Ops</span></div><div class="type-row"><code>18 / 600 small caps .1em</code><span style="font-size:18px;font-weight:600;font-variant:small-caps;letter-spacing:.1em">Requests per minute</span></div><div class="type-row"><code>16 / 400 / 1.5</code><span style="">sync-worker queue depth above 3,000</span></div><div class="type-row"><code>15 / italic caption</code><span style="font-size:15px;font-style:italic;color:var(--muted)">About 1,200 through the night</span></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3>
+<dl class="facts"><dt>Spacing</dt><dd>8px unit. 6px lead between panes, 20 to 22px pane padding, 56px top padding under the arch.</dd><dt>Density</dt><dd>Medium. One head pane, five lancets, then rows of three and two panes.</dd><dt>Corners</dt><dd>The frame and head pane have one wide elliptical arch, lancets have round arched tops. Everything else is square.</dd><dt>Borders</dt><dd>Lead does the work. A 6px black lead around and between panes, 3px lead between list rows and around buttons.</dd><dt>Shadows</dt><dd>None inside. A faint cool glow around the whole window, a sill bar beneath it.</dd><dt>Icons</dt><dd>A quatrefoil mark of four jewel discs. Status shapes sit in leaded roundels on the lancets, circle, triangle, diamond, and with the word in lists, octagon, square, magnifier.</dd><dt>Focus</dt><dd>A 3px gold outline, a black gap and a second thin gold ring, like a leaded border.</dd><dt>Tone</dt><dd>Quiet and formal, small caps headings, italic captions.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls"><div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-p" type="button">Acknowledge</button><button class="btn-p is-focus" type="button">Acknowledge</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-s" type="button">View runbook</button><button class="btn-s is-focus" type="button">View runbook</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="fld"><span>Filter services</span><input type="text" value="sync"></label><label class="fld"><span>Filter services, focused</span><input type="text" class="is-focus" value="sync"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><a class="lrow" href="#svc-sync"><span>sync-worker</span><span class="st st-warn"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5L22.5 21h-21z" fill="currentColor"/><path d="M12 9v5.5" stroke="#3b2608" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="17.6" r="1.4" fill="#3b2608"/></svg>Degraded</span></a><a class="lrow is-focus" href="#svc-sync"><span>sync-worker</span><span class="st st-warn"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5L22.5 21h-21z" fill="currentColor"/><path d="M12 9v5.5" stroke="#3b2608" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="17.6" r="1.4" fill="#3b2608"/></svg>Degraded</span></a></div></div></div>
+</section>
+</body>
+</html>

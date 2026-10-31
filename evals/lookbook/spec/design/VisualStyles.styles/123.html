@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 123 · Stock certificate · Brightwork</title>
+<style>
+:root{
+  --wall:#ece6d8; --cream:#fbf7ea; --vellum:#f6efd9; --sienna:#7a3b12; --sienna-lt:#c98a5a; --ink:#2a1c10; --muted:#5d4a36;
+  --gold:#b08a2e; --gold-dk:#6f5414; --ok:#235c33; --risk:#8a4a00; --late:#9c1f1f; --navy:#22325a;
+  --caps:"Trajan Pro","Trajan","Cinzel","Optima","Times New Roman",serif;
+  --text:"Big Caslon","Caslon","Libre Caslon Text","Book Antiqua","Palatino Linotype",Georgia,serif;
+  --fig:"Bodoni 72","Bodoni MT","Didot","Big Caslon",Georgia,serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wall);color:var(--ink);font:16px/1.55 var(--text);padding:20px 16px 56px}
+a{color:inherit}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible,.is-focus{outline:2px solid var(--sienna);outline-offset:3px;box-shadow:0 0 0 6px rgba(176,138,46,.35)}
+.wrap{max-width:1200px;margin:0 auto}
+/* agent strip */
+.agent{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;padding:6px 4px 16px}
+.brand{font:600 20px/1 var(--caps);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--sienna);display:flex;align-items:center;gap:10px}
+.brand svg{width:34px;height:34px}
+nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:0}
+nav li+li::before{content:"\2766";color:var(--sienna-lt);padding:0 8px;font-size:12px}
+nav li{display:flex;align-items:center}
+nav a{text-decoration:none;font:600 13px var(--caps);letter-spacing:.14em;text-transform:uppercase;padding:6px 2px;color:var(--ink)}
+nav a[aria-current]{color:var(--sienna);border-bottom:3px double var(--sienna)}
+.tools{margin-left:auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.search{display:flex;align-items:center;gap:6px;border:1px solid var(--sienna);background:var(--cream);height:38px;padding:0 10px;min-width:240px;border-radius:19px}
+.search input{border:0;background:transparent;font:italic 15px var(--text);color:var(--ink);width:100%;height:100%}
+.search input:focus{outline:none}
+.search:focus-within{outline:2px solid var(--sienna);outline-offset:3px}
+.btn{font:600 12px/1 var(--caps);letter-spacing:.16em;text-transform:uppercase;height:38px;padding:0 18px;background:var(--sienna);color:#fff;border:1px solid var(--sienna);border-radius:2px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;box-shadow:inset 0 0 0 2px var(--sienna),inset 0 0 0 3px #e9c9a8}
+.btn.sec{background:var(--cream);color:var(--sienna);box-shadow:inset 0 0 0 2px var(--cream),inset 0 0 0 3px var(--sienna)}
+.bell{width:38px;height:38px;border-radius:50%;border:1px solid var(--sienna);background:var(--cream);display:grid;place-items:center;cursor:pointer;position:relative;color:var(--ink)}
+.bell svg{width:18px;height:18px}
+.bell b{position:absolute;top:-6px;right:-6px;font:700 10px/18px var(--text);min-width:18px;border-radius:50%;background:var(--late);color:#fff}
+.user{font:italic 16px var(--text)}
+/* certificate */
+.cert{position:relative;background:var(--cream);border:16px solid transparent;border-image:repeating-linear-gradient(45deg,var(--sienna) 0 1.5px,var(--cream) 1.5px 4px) 16;box-shadow:0 0 0 2px var(--sienna),0 12px 28px rgba(80,50,20,.18)}
+.inner{position:relative;margin:6px;border:3px double var(--sienna);padding:28px 40px 30px;background:radial-gradient(ellipse at center,var(--cream) 30%,var(--vellum) 100%);overflow:hidden}
+.water{position:absolute;left:50%;top:50%;width:620px;height:620px;margin:-310px 0 0 -310px;color:var(--sienna);opacity:.07;pointer-events:none}
+.corner{position:absolute;width:72px;height:72px;color:var(--sienna);opacity:.85;pointer-events:none}
+.c1{left:-4px;top:-4px}.c2{right:-4px;top:-4px}.c3{left:-4px;bottom:-4px}.c4{right:-4px;bottom:-4px}
+.inner>*:not(.water):not(.corner){position:relative}
+/* top: share number cartouches and title */
+.toprow{display:grid;grid-template-columns:150px minmax(0,1fr) 150px;gap:20px;align-items:start}
+.cart{border:2px solid var(--sienna);border-radius:40px/24px;padding:10px 8px;text-align:center;background:var(--cream);box-shadow:inset 0 0 0 3px var(--cream),inset 0 0 0 4px var(--sienna-lt)}
+.cart .k{display:block;font:600 10px/1.2 var(--caps);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cart b{display:block;font:400 40px/1.05 var(--fig);color:var(--ink)}
+.title{text-align:center}
+.title .co{font:600 13px var(--caps);letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin:0}
+.title .bigname{margin:4px 0 0;font:600 56px/1 var(--caps);letter-spacing:.1em;text-transform:uppercase;color:var(--sienna);text-shadow:0 1px 0 #fff}
+.ribbon{display:inline-block;margin:10px 0 0;font:600 12px var(--caps);letter-spacing:.24em;text-transform:uppercase;padding:5px 26px;background:var(--sienna);color:#fff;clip-path:polygon(0 0,100% 0,96% 50%,100% 100%,0 100%,4% 50%)}
+.vign{display:block;margin:14px auto 0;width:220px;height:70px;color:var(--sienna)}
+.certify{text-align:center;margin:12px auto 0;max-width:760px;font-size:18px}
+.certify em{font-size:15px;letter-spacing:.04em}
+.certify .name{display:block;font:italic 400 40px/1.15 var(--text);color:var(--navy);border-bottom:1px solid var(--sienna);margin:4px auto 6px;max-width:520px}
+.notice{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font:600 13px var(--caps);letter-spacing:.12em;text-transform:uppercase;color:var(--late);border-top:1px solid var(--late);border-bottom:1px solid var(--late);padding:6px 14px}
+.lowcart{display:grid;grid-template-columns:150px 150px;justify-content:space-between;margin-top:-80px;pointer-events:none}
+.lowcart .cart{pointer-events:auto}
+h2.orn{font:600 15px var(--caps);letter-spacing:.24em;text-transform:uppercase;color:var(--sienna);text-align:center;margin:30px 0 10px;display:flex;align-items:center;gap:14px}
+h2.orn::before,h2.orn::after{content:"";flex:1;height:7px;border-top:1px solid var(--sienna);border-bottom:3px double var(--sienna)}
+/* holdings */
+.hold{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:760px}
+th{font:600 11px var(--caps);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px 10px;border-top:1px solid var(--sienna);border-bottom:3px double var(--sienna)}
+td{padding:11px 10px;border-bottom:1px dotted var(--sienna-lt);vertical-align:middle}
+td.p{font:600 18px var(--text)}
+td.cls{font:italic 15px var(--text);color:var(--muted)}
+td.f{font:400 20px var(--fig);white-space:nowrap}
+td.f small{font:13px var(--text);color:var(--muted)}
+.cert-bar{display:block;width:110px;height:8px;border:1px solid var(--sienna);margin-top:4px;background:var(--cream)}
+.cert-bar i{display:block;height:100%;width:var(--p);background:repeating-linear-gradient(90deg,var(--sienna) 0 1px,transparent 1px 3px)}
+.stand{display:inline-flex;align-items:center;gap:7px;font:600 12px var(--caps);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.stand svg{width:20px;height:20px;flex:none}
+.ok{color:var(--ok)}.risk{color:var(--risk)}.late{color:var(--late)}
+/* lower */
+.lower{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:36px}
+.div{display:grid;grid-template-columns:repeat(14,minmax(0,1fr));gap:6px;align-items:end;height:200px;border-bottom:3px double var(--sienna);padding:0 2px}
+.div>div{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%}
+.div em{font:13px var(--fig);font-style:normal}
+.div i{display:block;width:100%;max-width:28px;height:calc(var(--v)*9.5px);border:1px solid var(--k,var(--sienna-lt));border-bottom:0;background:repeating-linear-gradient(0deg,var(--k,var(--sienna-lt)) 0 1px,transparent 1px 3px);border-radius:14px 14px 0 0}
+.div .w2{--k:var(--sienna)}
+.div .w2 i{background:repeating-linear-gradient(0deg,var(--sienna) 0 2px,transparent 2px 3px)}
+.div .gap{margin-left:10px}
+.dax{display:grid;grid-template-columns:repeat(14,minmax(0,1fr));gap:6px;padding:4px 2px 0 12px;font:11px var(--text);text-align:center;color:var(--muted)}
+.dlg{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;font:14px var(--text);margin:10px 0 0}
+.dlg span{display:inline-flex;gap:6px;align-items:center}
+.dlg i{width:16px;height:12px;border:1px solid var(--sienna)}
+.ledger{list-style:none;margin:0;padding:0}
+.ledger li{display:grid;grid-template-columns:1fr auto;gap:10px;padding:8px 0;border-bottom:1px dotted var(--sienna-lt);font-size:15px}
+.ledger time{font:italic 13px var(--text);color:var(--muted);white-space:nowrap}
+.sigs{display:grid;grid-template-columns:1fr 160px 1fr;gap:20px;align-items:end;margin-top:30px}
+.sigs div{text-align:center;font:600 11px var(--caps);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.sigs div span{display:block;border-bottom:1px solid var(--ink);font:italic 400 22px var(--text);letter-spacing:0;text-transform:none;color:var(--navy);padding-bottom:2px;margin-bottom:4px}
+.seal{width:150px;height:150px;justify-self:center;filter:drop-shadow(0 2px 2px rgba(80,50,10,.35))}
+/* style sheet */
+.sheet{max-width:1200px;margin:44px auto 0;background:var(--cream);border:3px double var(--sienna);outline:1px solid var(--sienna);outline-offset:5px;padding:30px}
+.sheet h2{font:600 30px var(--caps);letter-spacing:.08em;text-transform:uppercase;color:var(--sienna);margin:0 0 6px}
+.sheet .idea{font-size:18px;max-width:780px;margin:0 0 6px}
+.sheet h3{font:600 13px var(--caps);letter-spacing:.2em;text-transform:uppercase;color:var(--sienna);margin:30px 0 12px;border-bottom:3px double var(--sienna);padding-bottom:4px}
+.sw{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.sw li{display:flex;gap:10px;font-size:14px}
+.sw i{width:46px;height:46px;flex:none;border:2px solid var(--sienna);border-radius:50%;box-shadow:inset 0 0 0 3px var(--cream)}
+.sw b{display:block;font:600 12px var(--caps);letter-spacing:.08em}
+.sw code{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--muted)}
+.ty div{display:flex;gap:16px;flex-wrap:wrap;align-items:baseline;border-bottom:1px dotted var(--sienna-lt);padding:6px 0}
+.ty code{font:11px ui-monospace,Menlo,Consolas,monospace;color:var(--muted);min-width:240px}
+.fx{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px 28px;margin:0}
+.fx dt{font:600 12px var(--caps);letter-spacing:.14em;text-transform:uppercase;color:var(--sienna)}
+.fx dd{margin:0 0 6px}
+.ctl{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.ctl>div{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.lab{font:600 11px var(--caps);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.field{display:grid;gap:4px;width:100%}
+.field input{height:38px;border:0;border-bottom:1px solid var(--ink);background:var(--vellum);font:italic 17px var(--text);padding:0 8px;color:var(--ink)}
+.row{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 8px;border-bottom:1px dotted var(--sienna-lt);font:600 16px var(--text)}
+@media (max-width:980px){
+  .toprow{grid-template-columns:1fr 1fr}.title{grid-column:1/-1;grid-row:1}
+  .lowcart{margin-top:16px}
+  .lower{grid-template-columns:minmax(0,1fr)}
+  .tools{margin-left:0}
+}
+@media (max-width:640px){
+  body{padding:12px 6px 40px}
+  .cert{border-width:10px;border-image-width:10px}
+  .inner{padding:18px 12px 20px;margin:4px}
+  .corner{width:44px;height:44px}
+  .title .bigname{font-size:34px;letter-spacing:.06em}
+  .title .co{font-size:11px;letter-spacing:.2em}
+  .ribbon{font-size:10px;letter-spacing:.14em;padding:5px 18px}
+  .toprow,.lowcart{grid-template-columns:1fr 1fr;gap:10px}
+  .cart b{font-size:32px}
+  .certify{font-size:16px}.certify .name{font-size:30px}
+  .notice{font-size:11px;letter-spacing:.08em;padding:6px 8px}
+  .search{min-width:0;flex:1 1 100%}
+  .div{gap:3px;height:180px}.div i{height:calc(var(--v)*8.5px)}.div em{font-size:10px}.div .gap{margin-left:6px}
+  .dax{gap:3px;font-size:9px;padding-left:8px}
+  .sigs{grid-template-columns:1fr 1fr}.seal{grid-column:1/-1;grid-row:1;width:120px;height:120px}
+  .sheet{padding:20px 14px}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="r1" viewBox="0 0 100 100"><path d="M99.0 50.0 97.4 43.6 92.6 38.3 85.2 34.8 76.0 33.8 66.0 35.8 56.3 40.6 47.8 48.0 41.3 57.2 37.5 67.4 36.7 77.6 38.6 86.6 42.8 93.6 48.6 97.8 55.1 98.7 61.3 96.4 66.1 91.1 68.8 83.4 68.8 74.2 65.8 64.5 60.0 55.3 51.8 47.6 41.9 42.1 31.4 39.4 21.2 39.6 12.4 42.4 5.9 47.4 2.4 53.6 2.1 60.2 5.0 66.1 10.8 70.3 18.7 72.2 27.9 71.2 37.3 67.2 45.8 60.5 52.6 51.5 57.0 41.1 58.6 30.4 57.3 20.2 53.6 11.8 48.0 5.9 41.4 3.0 34.9 3.4 29.3 6.9 25.7 13.1 24.7 21.2 26.6 30.2 31.5 39.1 39.1 46.9 48.8 52.7 59.6 56.0 70.4 56.5 80.4 54.2 88.4 49.6 93.7 43.4 95.8 36.6 94.8 30.1 90.7 24.9 84.1 22.0 76.0 21.8 67.2 24.7 58.9 30.5 51.9 38.9 47.1 49.1 45.0 60.1 45.7 71.0 49.0 80.6 54.4 88.1 61.1 92.7 68.2 94.2 74.5 92.4 79.2 87.8 81.4 81.0 80.8 72.9 77.0 64.5 70.3 56.8 61.3 50.8 50.6 47.1 39.4 46.1 28.7 47.9 19.4 52.2 12.6 58.4 8.7 65.5 8.0 72.7 10.4 78.8 15.4 83.0 22.4 84.5 30.5 83.0 38.4 78.4 45.4 70.9 50.4 61.3 53.0 50.3 52.8 39.1 49.8 28.6 44.6 19.8 37.7 13.7 30.2 10.5 23.0 10.6 17.2 13.6 13.6 19.1 12.8 26.2 15.1 34.0 20.6 41.5 28.7 47.6 38.8 51.6 50.0 53.0 61.2 51.6 71.3 47.6 79.4 41.5 84.9 34.0 87.2 26.2 86.4 19.1 82.8 13.6 77.0 10.6 69.8 10.5 62.3 13.7 55.4 19.8 50.2 28.6 47.2 39.1 47.0 50.3 49.6 61.3 54.6 70.9 61.6 78.4 69.5 83.0 77.6 84.5 84.6 83.0 89.6 78.8 92.0 72.7 91.3 65.5 87.4 58.4 80.6 52.2 71.3 47.9 60.6 46.1 49.4 47.1 38.7 50.8 29.7 56.8 23.0 64.5 19.2 72.9 18.6 81.0 20.8 87.8 25.5 92.4 31.8 94.2 38.9 92.7 45.6 88.1 51.0 80.6 54.3 71.0 55.0 60.1 52.9 49.1 48.1 38.9 41.1 30.5 32.8 24.7 24.0 21.8 15.9 22.0 9.3 24.9 5.2 30.1 4.2 36.6 6.3 43.4 11.6 49.6 19.6 54.2 29.6 56.5 40.4 56.0 51.2 52.7 60.9 46.9 68.5 39.1 73.4 30.2 75.3 21.2 74.3 13.1 70.7 6.9 65.1 3.4 58.6 3.0 52.0 5.9 46.4 11.8 42.7 20.2 41.4 30.4 43.0 41.1 47.4 51.5 54.2 60.5 62.7 67.2 72.1 71.2 81.3 72.2 89.2 70.3 95.0 66.1 97.9 60.2 97.6 53.6 94.1 47.4 87.6 42.4 78.8 39.6 68.6 39.4 58.1 42.1 48.2 47.6 40.0 55.3 34.2 64.5 31.2 74.2 31.2 83.4 33.9 91.1 38.7 96.4 44.9 98.7 51.4 97.8 57.2 93.6 61.4 86.6 63.3 77.6 62.5 67.4 58.7 57.2 52.2 48.0 43.7 40.6 34.0 35.8 24.0 33.8 14.8 34.8 7.4 38.3 2.6 43.6 1.0 50.0 2.6 56.4 7.4 61.7 14.8 65.2 24.0 66.2 34.0 64.2 43.7 59.4 52.2 52.0 58.7 42.8 62.5 32.6 63.3 22.4 61.4 13.4 57.2 6.4 51.4 2.2 44.9 1.3 38.7 3.6 33.9 8.9 31.2 16.6 31.2 25.8 34.2 35.5 40.0 44.7 48.2 52.4 58.1 57.9 68.6 60.6 78.8 60.4 87.6 57.6 94.1 52.6 97.6 46.4 97.9 39.8 95.0 33.9 89.2 29.7 81.3 27.8 72.1 28.8 62.7 32.8 54.2 39.5 47.4 48.5 43.0 58.9 41.4 69.6 42.7 79.8 46.4 88.2 52.0 94.1 58.6 97.0 65.1 96.6 70.7 93.1 74.3 86.9 75.3 78.8 73.4 69.8 68.5 60.9 60.9 53.1 51.2 47.3 40.4 44.0 29.6 43.5 19.6 45.8 11.6 50.4 6.3 56.6 4.2 63.4 5.2 69.9 9.3 75.1 15.9 78.0 24.0 78.2 32.8 75.3 41.1 69.5 48.1 61.1 52.9 50.9 55.0 39.9 54.3 29.0 51.0 19.4 45.6 11.9 38.9 7.3 31.8 5.8 25.5 7.6 20.8 12.2 18.6 19.0 19.2 27.1 23.0 35.5 29.7 43.2 38.7 49.2 49.4 52.9 60.6 53.9 71.3 52.1 80.6 47.8 87.4 41.6 91.3 34.5 92.0 27.3 89.6 21.2 84.6 17.0 77.6 15.5 69.5 17.0 61.6 21.6 54.6 29.1 49.6 38.7 47.0 49.7 47.2 60.9 50.2 71.4 55.4 80.2 62.3 86.3 69.8 89.5 77.0 89.4 82.8 86.4 86.4 80.9 87.2 73.8 84.9 66.0 79.4 58.5 71.3 52.4 61.2 48.4 50.0 47.0 38.8 48.4 28.7 52.4 20.6 58.5 15.1 66.0 12.8 73.8 13.6 80.9 17.2 86.4 23.0 89.4 30.2 89.5 37.7 86.3 44.6 80.2 49.8 71.4 52.8 60.9 53.0 49.7 50.4 38.7 45.4 29.1 38.4 21.6 30.5 17.0 22.4 15.5 15.4 17.0 10.4 21.2 8.0 27.3 8.7 34.5 12.6 41.6 19.4 47.8 28.7 52.1 39.4 53.9 50.6 52.9 61.3 49.2 70.3 43.2 77.0 35.5 80.8 27.1 81.4 19.0 79.2 12.2 74.5 7.6 68.2 5.8 61.1 7.3 54.4 11.9 49.0 19.4 45.7 29.0 45.0 39.9 47.1 50.9 51.9 61.1 58.9 69.5 67.2 75.3 76.0 78.2 84.1 78.0 90.7 75.1 94.8 69.9 95.8 63.4 93.7 56.6 88.4 50.4 80.4 45.8 70.4 43.5 59.6 44.0 48.8 47.3 39.1 53.1 31.5 60.9 26.6 69.8 24.7 78.8 25.7 86.9 29.3 93.1 34.9 96.6 41.4 97.0 48.0 94.1 53.6 88.2 57.3 79.8 58.6 69.6 57.0 58.9 52.6 48.5 45.8 39.5 37.3 32.8 27.9 28.8 18.7 27.8 10.8 29.7 5.0 33.9 2.1 39.8 2.4 46.4 5.9 52.6 12.4 57.6 21.2 60.4 31.4 60.6 41.9 57.9 51.8 52.4 60.0 44.7 65.8 35.5 68.8 25.8 68.8 16.6 66.1 8.9 61.3 3.6 55.1 1.3 48.6 2.2 42.8 6.4 38.6 13.4 36.7 22.4 37.5 32.6 41.3 42.8 47.8 52.0 56.3 59.4 66.0 64.2 76.0 66.2 85.2 65.2 92.6 61.7 97.4 56.4 99.0 50.0" fill="none" stroke="currentColor" stroke-width=".6"/></symbol>
+  <symbol id="r2" viewBox="0 0 200 200"><path d="M194.4 100.0 191.5 90.4 183.2 82.3 170.1 77.0 153.6 75.7 135.2 78.9 116.4 86.8 99.0 98.8 84.4 114.1 73.7 131.4 67.6 149.2 66.3 165.7 69.5 179.4 76.2 188.9 85.2 193.2 95.2 191.9 104.5 184.9 111.7 172.9 115.6 156.8 115.3 138.0 110.5 118.2 101.4 99.2 88.5 82.3 73.1 69.1 56.5 60.3 40.4 56.5 26.4 57.4 15.9 62.6 10.2 70.8 10.0 80.9 15.4 91.2 26.2 100.2 41.5 106.5 60.1 109.2 80.3 107.5 100.6 101.5 119.2 91.4 134.7 78.2 146.0 63.2 152.3 47.9 153.6 33.9 150.1 22.8 142.9 15.9 133.0 14.1 122.0 17.8 111.4 27.1 102.7 41.2 97.2 59.1 95.6 79.4 98.4 100.4 105.5 120.3 116.1 137.7 129.1 151.2 143.2 159.8 156.9 163.2 168.4 161.6 176.4 155.5 179.7 146.0 177.7 134.5 170.3 122.6 157.7 111.9 140.8 103.6 121.0 98.9 99.9 98.4 79.1 102.2 60.2 110.0 44.9 120.8 34.2 133.4 28.6 146.3 28.5 157.9 33.2 166.8 42.1 171.5 53.7 171.4 66.6 165.8 79.2 155.1 90.0 139.8 97.8 120.9 101.6 100.1 101.1 79.0 96.4 59.2 88.1 42.3 77.4 29.7 65.5 22.3 54.0 20.3 44.5 23.6 38.4 31.6 36.8 43.1 40.2 56.8 48.8 70.9 62.3 83.9 79.7 94.5 99.6 101.6 120.6 104.4 140.9 102.8 158.8 97.3 172.9 88.6 182.2 78.0 185.9 67.0 184.1 57.1 177.2 49.9 166.1 46.4 152.1 47.7 136.8 54.0 121.8 65.3 108.6 80.8 98.5 99.4 92.5 119.7 90.8 139.9 93.5 158.5 99.8 173.8 108.8 184.6 119.1 190.0 129.2 189.8 137.4 184.1 142.6 173.6 143.5 159.6 139.7 143.5 130.9 126.9 117.7 111.5 100.8 98.6 81.8 89.5 62.0 84.7 43.2 84.4 27.1 88.3 15.1 95.5 8.1 104.8 6.8 114.8 11.1 123.8 20.6 130.5 34.3 133.7 50.8 132.4 68.6 126.3 85.9 115.6 101.2 101.0 113.2 83.6 121.1 64.8 124.3 46.4 123.0 29.9 117.7 16.8 109.6 8.5 100.0 5.6 90.4 8.5 82.3 16.8 77.0 29.9 75.7 46.4 78.9 64.8 86.8 83.6 98.8 101.0 114.1 115.6 131.4 126.3 149.2 132.4 165.7 133.7 179.4 130.5 188.9 123.8 193.2 114.8 191.9 104.8 184.9 95.5 172.9 88.3 156.8 84.4 138.0 84.7 118.2 89.5 99.2 98.6 82.3 111.5 69.1 126.9 60.3 143.5 56.5 159.6 57.4 173.6 62.6 184.1 70.8 189.8 80.9 190.0 91.2 184.6 100.2 173.8 106.5 158.5 109.2 139.9 107.5 119.7 101.5 99.4 91.4 80.8 78.2 65.3 63.2 54.0 47.9 47.7 33.9 46.4 22.8 49.9 15.9 57.1 14.1 67.0 17.8 78.0 27.1 88.6 41.2 97.3 59.1 102.8 79.4 104.4 100.4 101.6 120.3 94.5 137.7 83.9 151.2 70.9 159.8 56.8 163.2 43.1 161.6 31.6 155.5 23.6 146.0 20.3 134.5 22.3 122.6 29.7 111.9 42.3 103.6 59.2 98.9 79.0 98.4 100.1 102.2 120.9 110.0 139.8 120.8 155.1 133.4 165.8 146.3 171.4 157.9 171.5 166.8 166.8 171.5 157.9 171.4 146.3 165.8 133.4 155.1 120.8 139.8 110.0 120.9 102.2 100.1 98.4 79.0 98.9 59.2 103.6 42.3 111.9 29.7 122.6 22.3 134.5 20.3 146.0 23.6 155.5 31.6 161.6 43.1 163.2 56.8 159.8 70.9 151.2 83.9 137.7 94.5 120.3 101.6 100.4 104.4 79.4 102.8 59.1 97.3 41.2 88.6 27.1 78.0 17.8 67.0 14.1 57.1 15.9 49.9 22.8 46.4 33.9 47.7 47.9 54.0 63.2 65.3 78.2 80.8 91.4 99.4 101.5 119.7 107.5 139.9 109.2 158.5 106.5 173.8 100.2 184.6 91.2 190.0 80.9 189.8 70.8 184.1 62.6 173.6 57.4 159.6 56.5 143.5 60.3 126.9 69.1 111.5 82.3 98.6 99.2 89.5 118.2 84.7 138.0 84.4 156.8 88.3 172.9 95.5 184.9 104.8 191.9 114.8 193.2 123.8 188.9 130.5 179.4 133.7 165.7 132.4 149.2 126.3 131.4 115.6 114.1 101.0 98.8 83.6 86.8 64.8 78.9 46.4 75.7 29.9 77.0 16.8 82.3 8.5 90.4 5.6 100.0 8.5 109.6 16.8 117.7 29.9 123.0 46.4 124.3 64.8 121.1 83.6 113.2 101.0 101.2 115.6 85.9 126.3 68.6 132.4 50.8 133.7 34.3 130.5 20.6 123.8 11.1 114.8 6.8 104.8 8.1 95.5 15.1 88.3 27.1 84.4 43.2 84.7 62.0 89.5 81.8 98.6 100.8 111.5 117.7 126.9 130.9 143.5 139.7 159.6 143.5 173.6 142.6 184.1 137.4 189.8 129.2 190.0 119.1 184.6 108.8 173.8 99.8 158.5 93.5 139.9 90.8 119.7 92.5 99.4 98.5 80.8 108.6 65.3 121.8 54.0 136.8 47.7 152.1 46.4 166.1 49.9 177.2 57.1 184.1 67.0 185.9 78.0 182.2 88.6 172.9 97.3 158.8 102.8 140.9 104.4 120.6 101.6 99.6 94.5 79.7 83.9 62.3 70.9 48.8 56.8 40.2 43.1 36.8 31.6 38.4 23.6 44.5 20.3 54.0 22.3 65.5 29.7 77.4 42.3 88.1 59.2 96.4 79.0 101.1 100.1 101.6 120.9 97.8 139.8 90.0 155.1 79.2 165.8 66.6 171.4 53.7 171.5 42.1 166.8 33.2 157.9 28.5 146.3 28.6 133.4 34.2 120.8 44.9 110.0 60.2 102.2 79.1 98.4 99.9 98.9 121.0 103.6 140.8 111.9 157.7 122.6 170.3 134.5 177.7 146.0 179.7 155.5 176.4 161.6 168.4 163.2 156.9 159.8 143.2 151.2 129.1 137.7 116.1 120.3 105.5 100.4 98.4 79.4 95.6 59.1 97.2 41.2 102.7 27.1 111.4 17.8 122.0 14.1 133.0 15.9 142.9 22.8 150.1 33.9 153.6 47.9 152.3 63.2 146.0 78.2 134.7 91.4 119.2 101.5 100.6 107.5 80.3 109.2 60.1 106.5 41.5 100.2 26.2 91.2 15.4 80.9 10.0 70.8 10.2 62.6 15.9 57.4 26.4 56.5 40.4 60.3 56.5 69.1 73.1 82.3 88.5 99.2 101.4 118.2 110.5 138.0 115.3 156.8 115.6 172.9 111.7 184.9 104.5 191.9 95.2 193.2 85.2 188.9 76.2 179.4 69.5 165.7 66.3 149.2 67.6 131.4 73.7 114.1 84.4 98.8 99.0 86.8 116.4 78.9 135.2 75.7 153.6 77.0 170.1 82.3 183.2 90.4 191.5 100.0 194.4 109.6 191.5 117.7 183.2 123.0 170.1 124.3 153.6 121.1 135.2 113.2 116.4 101.2 99.0 85.9 84.4 68.6 73.7 50.8 67.6 34.3 66.3 20.6 69.5 11.1 76.2 6.8 85.2 8.1 95.2 15.1 104.5 27.1 111.7 43.2 115.6 62.0 115.3 81.8 110.5 100.8 101.4 117.7 88.5 130.9 73.1 139.7 56.5 143.5 40.4 142.6 26.4 137.4 15.9 129.2 10.2 119.1 10.0 108.8 15.4 99.8 26.2 93.5 41.5 90.8 60.1 92.5 80.3 98.5 100.6 108.6 119.2 121.8 134.7 136.8 146.0 152.1 152.3 166.1 153.6 177.2 150.1 184.1 142.9 185.9 133.0 182.2 122.0 172.9 111.4 158.8 102.7 140.9 97.2 120.6 95.6 99.6 98.4 79.7 105.5 62.3 116.1 48.8 129.1 40.2 143.2 36.8 156.9 38.4 168.4 44.5 176.4 54.0 179.7 65.5 177.7 77.4 170.3 88.1 157.7 96.4 140.8 101.1 121.0 101.6 99.9 97.8 79.1 90.0 60.2 79.2 44.9 66.6 34.2 53.7 28.6 42.1 28.5 33.2 33.2 28.5 42.1 28.6 53.7 34.2 66.6 44.9 79.2 60.2 90.0 79.1 97.8 99.9 101.6 121.0 101.1 140.8 96.4 157.7 88.1 170.3 77.4 177.7 65.5 179.7 54.0 176.4 44.5 168.4 38.4 156.9 36.8 143.2 40.2 129.1 48.8 116.1 62.3 105.5 79.7 98.4 99.6 95.6 120.6 97.2 140.9 102.7 158.8 111.4 172.9 122.0 182.2 133.0 185.9 142.9 184.1 150.1 177.2 153.6 166.1 152.3 152.1 146.0 136.8 134.7 121.8 119.2 108.6 100.6 98.5 80.3 92.5 60.1 90.8 41.5 93.5 26.2 99.8 15.4 108.8 10.0 119.1 10.2 129.2 15.9 137.4 26.4 142.6 40.4 143.5 56.5 139.7 73.1 130.9 88.5 117.7 101.4 100.8 110.5 81.8 115.3 62.0 115.6 43.2 111.7 27.1 104.5 15.1 95.2 8.1 85.2 6.8 76.2 11.1 69.5 20.6 66.3 34.3 67.6 50.8 73.7 68.6 84.4 85.9 99.0 101.2 116.4 113.2 135.2 121.1 153.6 124.3 170.1 123.0 183.2 117.7 191.5 109.6 194.4 100.0" fill="none" stroke="currentColor" stroke-width=".5"/></symbol>
+</defs></svg>
+<div class="wrap">
+  <header class="agent">
+    <a class="brand" href="#" aria-label="Brightwork home"><svg aria-hidden="true"><use href="#r1"/></svg>Brightwork</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#" aria-current="page">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Tasks</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </nav>
+    <div class="tools">
+      <label class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M15 15l6 6"/></svg><span class="sr">Search projects and tasks</span><input type="search" placeholder="Search projects and tasks"></label>
+      <button class="btn" type="button"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg>New project</button>
+      <button class="bell" type="button" aria-label="Notifications, 3 new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></svg><b aria-hidden="true">3</b></button>
+      <span class="user">Mara Okafor</span>
+    </div>
+  </header>
+
+  <main class="cert">
+    <div class="inner">
+      <svg class="water" aria-hidden="true"><use href="#r2"/></svg>
+      <svg class="corner c1" aria-hidden="true"><use href="#r1"/></svg><svg class="corner c2" aria-hidden="true"><use href="#r1"/></svg><svg class="corner c3" aria-hidden="true"><use href="#r1"/></svg><svg class="corner c4" aria-hidden="true"><use href="#r1"/></svg>
+      <ul class="sr" aria-label="Summary"><li>6 active projects</li><li>23 tasks due this week</li><li>4 overdue tasks</li><li>186 hours logged this week</li></ul>
+      <div class="toprow">
+        <div class="cart" aria-hidden="true"><span class="k">No.</span><b>6</b><span class="k">Active projects</span></div>
+        <div class="title">
+          <p class="co">Team holdings of</p>
+          <p class="bigname">Brightwork</p>
+          <span class="ribbon">Certificate of progress</span>
+        </div>
+        <div class="cart" aria-hidden="true"><span class="k">Due this week</span><b>23</b><span class="k">Tasks</span></div>
+      </div>
+      <svg class="vign" viewBox="0 0 220 70" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M10 60h200"/><path d="M60 60a50 50 0 0 1 100 0"/><g stroke-width=".8"><path d="M110 10v-8M110 60 70 18M110 60l40-42M110 60 50 34M110 60l60-26M110 60 40 52M110 60l70-8M110 60 88 12M110 60l22-48"/></g><circle cx="110" cy="60" r="16" fill="#fbf7ea"/><circle cx="110" cy="60" r="16"/><circle cx="110" cy="60" r="10"/><path d="M20 66h180" stroke-dasharray="2 3"/></svg>
+      <section class="certify" aria-labelledby="hi">
+        <h1 id="hi" style="margin:0;font:inherit"><em>This certifies that, good morning,</em><span class="name">Mara Okafor</span></h1>
+        <p style="margin:0">holds the projects scheduled below as of <b>Saturday 31 October 2026</b>.</p>
+        <p class="notice" style="margin-bottom:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>Notice · 4 tasks are overdue</p>
+      </section>
+      <div class="lowcart" aria-hidden="true">
+        <div class="cart"><span class="k">Overdue</span><b style="color:var(--late)">4</b><span class="k">Tasks</span></div>
+        <div class="cart"><span class="k">Logged this week</span><b>186</b><span class="k">Hours</span></div>
+      </div>
+
+      <h2 class="orn" id="p-h">Schedule of holdings</h2>
+      <div class="hold" tabindex="0" role="region" aria-labelledby="p-h">
+        <table>
+          <thead><tr><th scope="col">Project</th><th scope="col">Class</th><th scope="col">Shares held</th><th scope="col">Percent</th><th scope="col">Matures</th><th scope="col">Standing</th></tr></thead>
+          <tbody>
+            <tr><td class="p">Website redesign</td><td class="cls">Design</td><td class="f">18 <small>of 25 tasks</small></td><td class="f">72%<span class="cert-bar" aria-hidden="true"><i style="--p:72%"></i></span></td><td class="cls">14 Nov</td><td><span class="stand ok"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2 2.2 2.9-.6.7 2.9 2.8 1-1 2.8L19 12l-2.4 1.8.4 2.9-2.9.3-1.3 2.7L10 18.3 7.2 19.7 5.9 17l-2.9-.3.4-2.9L1 12l1.6-2.7-1-2.8 2.8-1 .7-2.9 2.9.6z" fill="currentColor"/><path d="M6 10.3l2.6 2.6L14 7.5" fill="none" stroke="#fff" stroke-width="1.8"/></svg>On track</span></td></tr>
+            <tr><td class="p">Mobile app 2.0</td><td class="cls">Engineering</td><td class="f">27 <small>of 60 tasks</small></td><td class="f">45%<span class="cert-bar" aria-hidden="true"><i style="--p:45%"></i></span></td><td class="cls">2 Dec</td><td><span class="stand risk"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1 19 10 10 19 1 10z" fill="currentColor"/><path d="M10 5.5v5.5M10 13.5v1" stroke="#fff" stroke-width="2"/></svg>At risk</span></td></tr>
+            <tr><td class="p">Q4 customer survey</td><td class="cls">Research</td><td class="f">9 <small>of 10 tasks</small></td><td class="f">90%<span class="cert-bar" aria-hidden="true"><i style="--p:90%"></i></span></td><td class="cls">7 Nov</td><td><span class="stand ok"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2 2.2 2.9-.6.7 2.9 2.8 1-1 2.8L19 12l-2.4 1.8.4 2.9-2.9.3-1.3 2.7L10 18.3 7.2 19.7 5.9 17l-2.9-.3.4-2.9L1 12l1.6-2.7-1-2.8 2.8-1 .7-2.9 2.9.6z" fill="currentColor"/><path d="M6 10.3l2.6 2.6L14 7.5" fill="none" stroke="#fff" stroke-width="1.8"/></svg>On track</span></td></tr>
+            <tr><td class="p">Billing migration</td><td class="cls">Engineering</td><td class="f">12 <small>of 40 tasks</small></td><td class="f">30%<span class="cert-bar" aria-hidden="true"><i style="--p:30%"></i></span></td><td class="cls">20 Nov</td><td><span class="stand late"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="16" height="16" fill="currentColor"/><path d="M6.5 6.5l7 7M13.5 6.5l-7 7" stroke="#fff" stroke-width="2"/></svg>Behind</span></td></tr>
+            <tr><td class="p">Spring catalogue</td><td class="cls">Marketing</td><td class="f">3 <small>of 20 tasks</small></td><td class="f">15%<span class="cert-bar" aria-hidden="true"><i style="--p:15%"></i></span></td><td class="cls">15 Jan</td><td><span class="stand ok"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2 2.2 2.9-.6.7 2.9 2.8 1-1 2.8L19 12l-2.4 1.8.4 2.9-2.9.3-1.3 2.7L10 18.3 7.2 19.7 5.9 17l-2.9-.3.4-2.9L1 12l1.6-2.7-1-2.8 2.8-1 .7-2.9 2.9.6z" fill="currentColor"/><path d="M6 10.3l2.6 2.6L14 7.5" fill="none" stroke="#fff" stroke-width="1.8"/></svg>On track</span></td></tr>
+            <tr><td class="p">Onboarding emails</td><td class="cls">Marketing</td><td class="f">9 <small>of 15 tasks</small></td><td class="f">60%<span class="cert-bar" aria-hidden="true"><i style="--p:60%"></i></span></td><td class="cls">21 Nov</td><td><span class="stand ok"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2 2.2 2.9-.6.7 2.9 2.8 1-1 2.8L19 12l-2.4 1.8.4 2.9-2.9.3-1.3 2.7L10 18.3 7.2 19.7 5.9 17l-2.9-.3.4-2.9L1 12l1.6-2.7-1-2.8 2.8-1 .7-2.9 2.9.6z" fill="currentColor"/><path d="M6 10.3l2.6 2.6L14 7.5" fill="none" stroke="#fff" stroke-width="1.8"/></svg>On track</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="lower">
+        <section aria-labelledby="c-h">
+          <h2 class="orn" id="c-h">Record of dividends</h2>
+          <div class="div" role="img" aria-label="Tasks completed per day over the last 14 days. Last week, Sunday 18 to Saturday 24 October: 3, 12, 9, 14, 11, 8, 2, total 59. This week, Sunday 25 to Saturday 31 October: 4, 15, 13, 17, 12, 10, 2, total 73.">
+            <div style="--v:3"><em>3</em><i></i></div><div style="--v:12"><em>12</em><i></i></div><div style="--v:9"><em>9</em><i></i></div><div style="--v:14"><em>14</em><i></i></div><div style="--v:11"><em>11</em><i></i></div><div style="--v:8"><em>8</em><i></i></div><div style="--v:2"><em>2</em><i></i></div>
+            <div class="w2 gap" style="--v:4"><em>4</em><i></i></div><div class="w2" style="--v:15"><em>15</em><i></i></div><div class="w2" style="--v:13"><em>13</em><i></i></div><div class="w2" style="--v:17"><em>17</em><i></i></div><div class="w2" style="--v:12"><em>12</em><i></i></div><div class="w2" style="--v:10"><em>10</em><i></i></div><div class="w2" style="--v:2"><em>2</em><i></i></div>
+          </div>
+          <div class="dax" aria-hidden="true"><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span></div>
+          <p class="dlg"><span><i style="background:repeating-linear-gradient(0deg,#c98a5a 0 1px,transparent 1px 3px)"></i>Last week, tasks completed · 59</span><span><i style="background:repeating-linear-gradient(0deg,#7a3b12 0 2px,transparent 2px 3px)"></i><b>This week · 73</b></span></p>
+        </section>
+        <section aria-labelledby="a-h">
+          <h2 class="orn" id="a-h">Transfer ledger</h2>
+          <ul class="ledger">
+            <li><span>Jonas Weber completed "Export invoices as CSV" in Billing migration</span><time>12 min ago</time></li>
+            <li><span>Priya Nair commented on "Hero image options" in Website redesign</span><time>40 min ago</time></li>
+            <li><span>Sam Ortiz moved "Push notifications" to Review in Mobile app 2.0</span><time>1 h ago</time></li>
+            <li><span>Lena Fischer added 3 tasks to Spring catalogue</span><time>2 h ago</time></li>
+            <li><span>Tomás Ruiz logged 6 h on Mobile app 2.0</span><time>3 h ago</time></li>
+            <li><span>Aiko Tanaka uploaded survey-results-v2.pdf to Q4 customer survey</span><time>yesterday</time></li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="sigs" aria-hidden="true">
+        <div><span>Mara Okafor</span>Holder</div>
+        <svg class="seal" viewBox="0 0 150 150"><defs><radialGradient id="g" cx=".4" cy=".35"><stop offset="0" stop-color="#e6c66c"/><stop offset=".7" stop-color="#b08a2e"/><stop offset="1" stop-color="#8a6a1e"/></radialGradient><path id="sa" d="M30 75a45 45 0 1 1 90 0a45 45 0 1 1-90 0"/></defs><path d="M75 4l6 8 10-4 3 10 10 0-1 10 9 4-4 9 7 7-7 7 4 9-9 4 1 10-10 0-3 10-10-4-6 8-6-8-10 4-3-10-10 0 1-10-9-4 4-9-7-7 7-7-4-9 9-4-1-10 10 0 3-10 10 4z" transform="translate(0 4) scale(1 1)" fill="url(#g)" stroke="#6f5414" stroke-width="1"/><circle cx="75" cy="78" r="50" fill="none" stroke="#6f5414" stroke-width="1"/><circle cx="75" cy="78" r="34" fill="none" stroke="#6f5414" stroke-width="1"/><text font-family="Cinzel,Trajan,'Times New Roman',serif" font-size="10" letter-spacing="3" fill="#3f2f08"><textPath href="#sa" transform="translate(0 3)">BRIGHTWORK · SEAL · 2026 ·</textPath></text><text x="75" y="85" text-anchor="middle" font-family="Cinzel,Trajan,'Times New Roman',serif" font-size="20" font-weight="700" fill="#3f2f08">BW</text></svg>
+        <div><span>31 October 2026</span>Dated</div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<section class="sheet" aria-labelledby="sh">
+  <h2 id="sh">Style 123 · Stock certificate</h2>
+  <p class="idea">The dashboard is an engraved share certificate made out to Mara: hatched borders and guilloche rosettes, share numbers in corner cartouches, projects as a schedule of holdings, and a gold seal.</p>
+  <h3>Palette</h3>
+  <ul class="sw">
+    <li><i style="background:#ece6d8"></i><div><b>Wall</b><code>#ece6d8</code> page behind the certificate</div></li>
+    <li><i style="background:#fbf7ea"></i><div><b>Cream</b><code>#fbf7ea</code> certificate paper, cartouches</div></li>
+    <li><i style="background:#f6efd9"></i><div><b>Vellum</b><code>#f6efd9</code> edge of the paper glow, fields</div></li>
+    <li><i style="background:#7a3b12"></i><div><b>Engraver sienna</b><code>#7a3b12</code> borders, title, rules, primary button, this week, focus</div></li>
+    <li><i style="background:#c98a5a"></i><div><b>Light sienna</b><code>#c98a5a</code> dotted rules, last week hatch, never text</div></li>
+    <li><i style="background:#2a1c10"></i><div><b>Ink</b><code>#2a1c10</code> body text and figures</div></li>
+    <li><i style="background:#5d4a36"></i><div><b>Muted</b><code>#5d4a36</code> caps labels, classes, times</div></li>
+    <li><i style="background:#22325a"></i><div><b>Signature navy</b><code>#22325a</code> holder name and signature text</div></li>
+    <li><i style="background:#b08a2e"></i><div><b>Seal gold</b><code>#b08a2e</code> embossed seal and focus halo, decorative</div></li>
+    <li><i style="background:#235c33"></i><div><b>Green</b><code>#235c33</code> On track with a ticked rosette</div></li>
+    <li><i style="background:#8a4a00"></i><div><b>Amber</b><code>#8a4a00</code> At risk with a diamond</div></li>
+    <li><i style="background:#9c1f1f"></i><div><b>Red</b><code>#9c1f1f</code> Behind with a crossed square, overdue notice</div></li>
+  </ul>
+  <h3>Type</h3>
+  <div class="ty">
+    <div><code>Engraved caps 56px 0.1em · title</code><span style="font:600 34px/1 var(--caps);letter-spacing:.06em;text-transform:uppercase;color:var(--sienna)">Brightwork</span></div>
+    <div><code>Caslon italic 40px · holder name</code><span style="font:italic 40px/1.1 var(--text);color:var(--navy)">Mara Okafor</span></div>
+    <div><code>Didone 40px · cartouche figures</code><span style="font:40px/1 var(--fig)">186</span></div>
+    <div><code>Engraved caps 11–15px 0.14–0.24em</code><span style="font:600 13px var(--caps);letter-spacing:.2em;text-transform:uppercase;color:var(--sienna)">Schedule of holdings</span></div>
+    <div><code>Caslon 15–18px · body and names</code><span>holds the projects scheduled below</span></div>
+  </div>
+  <p style="font-size:14px;color:var(--muted)">Caps: "Trajan Pro", Trajan, Cinzel, Optima, "Times New Roman", serif. Text: "Big Caslon", Caslon, "Libre Caslon Text", "Book Antiqua", Georgia, serif. Figures: "Bodoni 72", "Bodoni MT", Didot, Georgia, serif.</p>
+  <h3>Surface rules</h3>
+  <dl class="fx">
+    <div><dt>Spacing</dt><dd>8px unit. 16px hatched border, 28–40px inner margin, 30px before each ornamental heading.</dd></div>
+    <div><dt>Density</dt><dd>Formal and centred. One ceremonial top, then a ruled schedule and two half columns.</dd></div>
+    <div><dt>Corners</dt><dd>Square certificate. Oval cartouches at 40px by 24px radius, rounded bar tops, round seal.</dd></div>
+    <div><dt>Borders</dt><dd>16px diagonal hatch frame, a 2px outer line and a 3px double inner line. Double rules under headings and table heads, dotted row rules.</dd></div>
+    <div><dt>Shadows</dt><dd>A soft drop under the certificate and under the seal. Everything else is flat engraving.</dd></div>
+    <div><dt>Icons</dt><dd>Solid standing marks: ticked rosette for On track, diamond with mark for At risk, crossed square for Behind, clock for overdue. Guilloche rosettes in the corners and as a watermark.</dd></div>
+    <div><dt>Tone</dt><dd>Ceremonial share language, such as This certifies that, Schedule of holdings, Matures and Transfer ledger.</dd></div>
+    <div><dt>Focus</dt><dd>2px sienna outline offset 3px inside a 6px gold halo.</dd></div>
+  </dl>
+  <h3>Controls · normal and focus</h3>
+  <div class="ctl">
+    <div><span class="lab">Primary</span><button class="btn" type="button">New project</button><button class="btn is-focus" type="button">New project</button></div>
+    <div><span class="lab">Secondary</span><button class="btn sec" type="button">Cancel</button><button class="btn sec is-focus" type="button">Cancel</button></div>
+    <div><label class="field"><span class="lab">Project name</span><input value="Website redesign"></label><label class="field"><span class="lab">Project name, focused</span><input class="is-focus" value="Mobile app 2.0"></label></div>
+    <div><span class="lab">List row</span><div class="row">Mobile app 2.0<span class="stand risk"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1 19 10 10 19 1 10z" fill="currentColor"/><path d="M10 5.5v5.5M10 13.5v1" stroke="#fff" stroke-width="2"/></svg>At risk</span></div><div class="row is-focus">Billing migration<span class="stand late"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="16" height="16" fill="currentColor"/><path d="M6.5 6.5l7 7M13.5 6.5l-7 7" stroke="#fff" stroke-width="2"/></svg>Behind</span></div></div>
+  </div>
+</section>
+</body>
+</html>

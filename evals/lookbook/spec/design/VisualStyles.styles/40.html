@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 40 · Encyclopedia · Brightwork</title>
+<style>
+:root {
+  --page: #f6f6f6;
+  --sheet: #ffffff;
+  --text: #202122;
+  --muted: #54595d;
+  --line: #a2a9b1;
+  --hair: #c8ccd1;
+  --link: #1d52a3;
+  --visited: #5a3696;
+  --box: #f8f9fa;
+  --head: #dde6f3;
+  --ok: #1e6b35;
+  --bad: #a3221b;
+  --serif: "Linux Libertine", "Georgia", "Times", "Times New Roman", serif;
+  --sans: -apple-system, "Segoe UI", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--page); color: var(--text); font: 15px/1.6 var(--sans); }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible, .is-focus { outline: 2px solid var(--link); outline-offset: 1px; }
+
+/* Top bar */
+.top { background: var(--sheet); border-bottom: 1px solid var(--hair); }
+.top-in { max-width: 1200px; margin: 0 auto; padding: 10px 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; }
+.logo { display: flex; align-items: center; gap: 10px; color: var(--text); }
+.logo b { font: 400 21px/1 var(--serif); letter-spacing: 0.02em; }
+.logo small { display: block; font: 11px/1.2 var(--sans); color: var(--muted); }
+.search { flex: 1 1 260px; display: flex; max-width: 520px; }
+.search input { flex: 1; min-width: 0; font: 14px var(--sans); padding: 6px 8px; border: 1px solid var(--line); border-right: 0; border-radius: 2px 0 0 2px; color: var(--text); }
+.search button { font: 14px var(--sans); padding: 6px 12px; border: 1px solid var(--line); background: var(--box); border-radius: 0 2px 2px 0; color: var(--text); cursor: pointer; }
+.user { margin-left: auto; font-size: 13px; display: flex; gap: 14px; }
+
+.layout { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 170px minmax(0, 1fr); }
+.side { padding: 20px 16px 20px 20px; font-size: 13px; }
+.side h2 { font: 400 12px var(--sans); color: var(--muted); border-bottom: 1px solid var(--hair); margin: 16px 0 6px; padding-bottom: 2px; }
+.side h2:first-child { margin-top: 0; }
+.side ul { list-style: none; margin: 0; padding: 0; }
+.side li { padding: 2px 0; }
+.side a[aria-current="page"] { color: var(--text); font-weight: 700; }
+
+main { background: var(--sheet); border: 1px solid var(--hair); border-top: 0; min-width: 0; }
+.tabs { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0 20px; padding: 0 24px; border-bottom: 1px solid var(--line); font-size: 13px; }
+.tabs ul { list-style: none; margin: 0; padding: 0; display: flex; }
+.tabs a { display: block; padding: 8px 10px 6px; }
+.tabs a[aria-current="page"] { color: var(--text); border-bottom: 2px solid var(--text); }
+.content { padding: 16px 24px 32px; }
+h1 { font: 400 28px/1.3 var(--serif); margin: 0 0 4px; padding-bottom: 2px; border-bottom: 1px solid var(--line); }
+.from { font-size: 13px; color: var(--muted); margin: 0 0 14px; }
+h2.h { font: 400 22px/1.3 var(--serif); border-bottom: 1px solid var(--line); margin: 22px 0 8px; padding-bottom: 2px; display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+h2.h .edit { font: 13px var(--sans); }
+p { margin: 0 0 10px; }
+sup.cite { font-size: 11px; line-height: 0; white-space: nowrap; }
+
+/* Infobox */
+.infobox { float: right; width: 290px; margin: 0 0 16px 20px; border: 1px solid var(--line); background: var(--box); font-size: 13px; line-height: 1.45; padding: 4px; border-spacing: 0; }
+.infobox caption { font: 700 16px/1.3 var(--sans); padding: 6px 4px; }
+.infobox th, .infobox td { text-align: left; vertical-align: top; padding: 4px 6px; }
+.infobox th { width: 38%; font-weight: 700; }
+.infobox .band th { background: var(--head); text-align: center; font-weight: 700; padding: 4px; }
+.infobox .img td { text-align: center; padding: 8px 4px 2px; }
+.infobox .img svg { width: 120px; height: 120px; }
+.infobox .cap td { text-align: center; font-size: 12px; color: var(--muted); padding-bottom: 8px; }
+
+/* Contents box */
+.toc { display: inline-block; border: 1px solid var(--line); background: var(--box); padding: 8px 14px 10px; font-size: 13px; margin: 6px 0 14px; max-width: 100%; }
+.toc summary { font-weight: 700; cursor: pointer; text-align: center; list-style: none; }
+.toc summary::-webkit-details-marker { display: none; }
+.toc summary span { font-weight: 400; color: var(--link); }
+.toc ol { margin: 6px 0 0; padding-left: 0; list-style: none; counter-reset: t; }
+.toc li { counter-increment: t; }
+.toc li::before { content: counter(t) " "; color: var(--muted); margin-right: 6px; }
+
+.st { white-space: nowrap; font-weight: 700; }
+.st.ok { color: var(--ok); }
+.st.bad { color: var(--bad); }
+.wt { border-collapse: collapse; margin: 6px 0 12px; font-size: 14px; background: var(--box); max-width: 100%; }
+.wt th, .wt td { border: 1px solid var(--line); padding: 4px 10px; text-align: left; vertical-align: top; }
+.wt th { background: #eaecf0; }
+ul.plain { margin: 0 0 10px; padding-left: 22px; }
+ul.plain li { margin-bottom: 3px; }
+.quote { margin: 8px 0 12px; padding: 4px 0 4px 16px; border-left: 3px solid var(--hair); font-family: var(--serif); font-size: 16px; }
+.quote cite { display: block; font: normal 13px var(--sans); color: var(--muted); }
+.refs { font-size: 13px; padding-left: 26px; margin: 4px 0 0; }
+.refs li { margin-bottom: 2px; }
+.note { font-size: 13px; color: var(--muted); border-top: 1px solid var(--hair); margin-top: 20px; padding-top: 8px; }
+
+/* Controls */
+.btn { font: 700 14px var(--sans); padding: 6px 14px; border-radius: 2px; border: 1px solid var(--link); background: var(--link); color: #ffffff; cursor: pointer; }
+.btn-2 { background: var(--box); color: var(--text); border-color: var(--line); font-weight: 400; }
+.btn.is-focus { box-shadow: inset 0 0 0 1px #ffffff; outline: 2px solid var(--link); outline-offset: 1px; }
+.btn-2.is-focus { box-shadow: none; border-color: var(--link); }
+.field { display: block; font-size: 13px; font-weight: 700; }
+.field input { display: block; margin-top: 4px; width: 100%; max-width: 280px; font: 14px var(--sans); padding: 6px 8px; border: 1px solid var(--line); border-radius: 2px; color: var(--text); font-weight: 400; }
+.field input.is-focus { border-color: var(--link); outline: 0; box-shadow: inset 0 0 0 1px var(--link); }
+
+/* Style sheet */
+.sheet { max-width: 1200px; margin: 0 auto; background: var(--sheet); border: 1px solid var(--hair); border-top: 4px double var(--line); padding: 24px 24px 48px; margin-top: 24px; margin-bottom: 40px; }
+.sheet h2 { font: 400 28px/1.3 var(--serif); border-bottom: 1px solid var(--line); margin: 0 0 8px; }
+.sheet h3 { font: 400 20px var(--serif); border-bottom: 1px solid var(--hair); margin: 26px 0 10px; }
+.kick { font-size: 13px; color: var(--muted); }
+.idea { font-size: 16px; max-width: 760px; }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px 18px; font-size: 13px; }
+.swatches li { display: flex; gap: 10px; align-items: center; }
+.swatches i { flex: 0 0 40px; height: 40px; border: 1px solid var(--line); display: block; }
+.swatches b { display: block; font-size: 14px; }
+.trow { display: grid; grid-template-columns: 220px 1fr; gap: 4px 16px; padding: 6px 0; border-bottom: 1px solid #eaecf0; align-items: baseline; }
+.trow code { font: 12px ui-monospace, Menlo, Consolas, monospace; color: var(--muted); }
+.facts { display: grid; grid-template-columns: 130px 1fr; gap: 6px 16px; margin: 0; }
+.facts dt { font-weight: 700; }
+.facts dd { margin: 0; }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px 26px; }
+.cl { display: block; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.row-demo { display: flex; justify-content: space-between; gap: 10px; padding: 6px 10px; border: 1px solid var(--line); background: var(--sheet); font-size: 14px; }
+.row-demo.is-focus { background: #eaf3ff; }
+
+@media (max-width: 860px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { display: none; }
+  .infobox { float: none; width: 100%; margin: 0 0 16px; }
+  .user { margin-left: 0; }
+}
+@media (max-width: 600px) {
+  .content, .tabs { padding-left: 16px; padding-right: 16px; }
+  .trow, .facts { grid-template-columns: 1fr; }
+  .facts dd { margin-bottom: 8px; }
+  .sheet { padding: 20px 16px 40px; }
+  .wt { font-size: 13px; }
+  .wt th, .wt td { padding: 4px 6px; }
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <a class="logo" href="#" aria-label="Brightwork home">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="15" fill="none" stroke="#202122" stroke-width="1.4"/><path d="M17 4v26M4 17h26M8 8l18 18M26 8 8 26" stroke="#202122" stroke-width="0.8"/><circle cx="17" cy="17" r="5" fill="#fff" stroke="#202122" stroke-width="1.4"/></svg>
+      <span><b>Brightwork</b><small>The team's project reference</small></span>
+    </a>
+    <form class="search" role="search" action="#">
+      <input type="search" aria-label="Search Brightwork" placeholder="Search projects and tasks">
+      <button type="submit">Search</button>
+    </form>
+    <div class="user"><span>Mara Okafor</span><a href="#">Notifications (2)</a><a href="#">Log out</a></div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="side" aria-label="Main">
+    <h2>Navigation</h2>
+    <ul>
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#" aria-current="page">All projects</a></li>
+      <li><a href="#">My tasks</a></li>
+      <li><a href="#">Recent changes</a></li>
+    </ul>
+    <h2>Design team</h2>
+    <ul>
+      <li><a href="#">Team page</a></li>
+      <li><a href="#">Members</a></li>
+    </ul>
+    <h2>Tools</h2>
+    <ul>
+      <li><a href="#">Add task</a></li>
+      <li><a href="#">Upload file</a></li>
+      <li><a href="#">Printable version</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="tabs">
+      <ul aria-label="Page views">
+        <li><a href="#" aria-current="page">Project</a></li>
+        <li><a href="#">Discussion (1)</a></li>
+      </ul>
+      <ul aria-label="Page actions">
+        <li><a href="#">Read</a></li>
+        <li><a href="#">Edit</a></li>
+        <li><a href="#">View history</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <h1>Website redesign</h1>
+      <p class="from">From Brightwork, the Design team's project overview</p>
+
+      <table class="infobox" aria-label="Project summary">
+        <caption>Website redesign</caption>
+        <tbody>
+          <tr class="img"><td colspan="2">
+            <svg viewBox="0 0 120 120" role="img" aria-labelledby="ring-t">
+              <title id="ring-t">Progress ring: 72 percent, 18 of 25 tasks done.</title>
+              <circle cx="60" cy="60" r="48" fill="#fff" stroke="#c8ccd1" stroke-width="12"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#1d52a3" stroke-width="12" stroke-dasharray="217.15 301.6" transform="rotate(-90 60 60)"/>
+              <text x="60" y="58" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#202122">72%</text>
+              <text x="60" y="76" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#54595d">18 of 25</text>
+            </svg>
+          </td></tr>
+          <tr class="cap"><td colspan="2">Tasks completed to date</td></tr>
+          <tr class="band"><th colspan="2">Project</th></tr>
+          <tr><th scope="row">Team</th><td><a href="#">Design team</a></td></tr>
+          <tr><th scope="row">Status</th><td><span class="st ok">✓ On track</span></td></tr>
+          <tr><th scope="row">Progress</th><td>72% (18 of 25 tasks)</td></tr>
+          <tr class="band"><th colspan="2">Dates</th></tr>
+          <tr><th scope="row">Started</th><td>1 Sep</td></tr>
+          <tr><th scope="row">Due</th><td>14 Nov</td></tr>
+          <tr class="band"><th colspan="2">People</th></tr>
+          <tr><th scope="row">Owner</th><td><a href="#">Priya Nair</a></td></tr>
+          <tr><th scope="row">Members</th><td><a href="#">Priya Nair</a><br><a href="#">Mara Okafor</a><br><a href="#">Aiko Tanaka</a></td></tr>
+        </tbody>
+      </table>
+
+      <p><b>Website redesign</b> is a project of the <a href="#">Design team</a> to rebuild the marketing site on the new brand.<sup class="cite"><a href="#ref1">[1]</a></sup> It ships the home, pricing and customers pages first, then moves the blog. The project began on 1 September and is due on 14 November, under owner <a href="#">Priya Nair</a>. As of today it is <span class="st ok">✓ on track</span>, with 18 of 25 tasks (72%) complete.</p>
+
+      <details class="toc" open>
+        <summary>Contents <span>[hide]</span></summary>
+        <ol>
+          <li><a href="#milestones">Milestones</a></li>
+          <li><a href="#tasks">Open tasks</a></li>
+          <li><a href="#files">Files</a></li>
+          <li><a href="#discussion">Discussion</a></li>
+          <li><a href="#references">References</a></li>
+        </ol>
+      </details>
+
+      <h2 class="h" id="milestones">Milestones <span class="edit">[<a href="#" aria-label="Edit milestones">edit</a>]</span></h2>
+      <p>The work is divided into four milestones. The content audit was completed on 19 September,<sup class="cite"><a href="#ref3">[3]</a></sup> followed by the new design system on 10 October.</p>
+      <table class="wt">
+        <thead><tr><th scope="col">Milestone</th><th scope="col">State</th><th scope="col">Date</th></tr></thead>
+        <tbody>
+          <tr><td>Content audit</td><td><span class="st ok">✓ Done</span></td><td>19 Sep</td></tr>
+          <tr><td>New design system</td><td><span class="st ok">✓ Done</span></td><td>10 Oct</td></tr>
+          <tr><td>Home and pricing pages</td><td>◐ In progress</td><td>Due 7 Nov</td></tr>
+          <tr><td>Launch</td><td>○ Planned</td><td>Due 14 Nov</td></tr>
+        </tbody>
+      </table>
+
+      <h2 class="h" id="tasks">Open tasks <span class="edit">[<a href="#" aria-label="Edit open tasks">edit</a>]</span></h2>
+      <p>Four tasks remain open.</p>
+      <ul class="plain">
+        <li><a href="#">Hero image options</a> — <a href="#">Priya Nair</a>, due 2 Nov</li>
+        <li><a href="#">Pricing table copy</a> — <a href="#">Mara Okafor</a>, due 4 Nov<sup class="cite"><a href="#ref2">[2]</a></sup></li>
+        <li><a href="#">Customer logos permission</a> — <a href="#">Aiko Tanaka</a>, due 5 Nov <span class="st bad">⊘ Blocked</span></li>
+        <li><a href="#">Redirect map for old URLs</a> — <i>unassigned</i>, due 10 Nov</li>
+      </ul>
+
+      <h2 class="h" id="files">Files <span class="edit">[<a href="#" aria-label="Edit files">edit</a>]</span></h2>
+      <ul class="plain">
+        <li><a href="#">brand-guide-v3.pdf</a> (4.2 MB)</li>
+        <li><a href="#">homepage-wireframe.fig</a> (1.1 MB)</li>
+        <li><a href="#">content-audit.xlsx</a> (86 KB)</li>
+      </ul>
+
+      <h2 class="h" id="discussion">Discussion <span class="edit">[<a href="#" aria-label="Reply in discussion">reply</a>]</span></h2>
+      <blockquote class="quote">Three hero options are up. I lean to B.<cite>— <a href="#">Priya Nair</a>, 40 min ago</cite></blockquote>
+
+      <h2 class="h" id="references">References</h2>
+      <ol class="refs">
+        <li id="ref1"><a href="#">brand-guide-v3.pdf</a>. Design team. 4.2 MB.</li>
+        <li id="ref2"><a href="#">homepage-wireframe.fig</a>. Design team. 1.1 MB.</li>
+        <li id="ref3"><a href="#">content-audit.xlsx</a>. Design team. 86 KB.</li>
+      </ol>
+      <p class="note">This page was last edited by Mara Okafor. Categories: <a href="#">Design team</a> · <a href="#">Active projects</a></p>
+    </div>
+  </main>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h">
+  <span class="kick">Style sheet</span>
+  <h2 id="sheet-h">Style 40 · Encyclopedia</h2>
+  <p class="idea">The project reads like a reference article, with a lead paragraph, a summary infobox on the right, a contents box, serif headings over thin rules, blue links and bracketed citations.</p>
+
+  <h3>Palette</h3>
+  <ul class="swatches">
+    <li><i style="background:#f6f6f6"></i><div><b>Page</b>#f6f6f6 · area around the article</div></li>
+    <li><i style="background:#ffffff"></i><div><b>Sheet</b>#ffffff · article body</div></li>
+    <li><i style="background:#202122"></i><div><b>Text</b>#202122 · body and headings</div></li>
+    <li><i style="background:#54595d"></i><div><b>Muted</b>#54595d · tagline, captions, side headings</div></li>
+    <li><i style="background:#1d52a3"></i><div><b>Link blue</b>#1d52a3 · links, primary button, progress, focus</div></li>
+    <li><i style="background:#a2a9b1"></i><div><b>Rule</b>#a2a9b1 · heading underlines, box borders</div></li>
+    <li><i style="background:#f8f9fa"></i><div><b>Box</b>#f8f9fa · infobox, contents, tables</div></li>
+    <li><i style="background:#dde6f3"></i><div><b>Band</b>#dde6f3 · infobox group headers</div></li>
+    <li><i style="background:#1e6b35"></i><div><b>Green</b>#1e6b35 · On track and Done words</div></li>
+    <li><i style="background:#a3221b"></i><div><b>Red</b>#a3221b · Blocked word</div></li>
+  </ul>
+
+  <h3>Type · serif headings, sans body</h3>
+  <div class="trow"><code>headings: "Linux Libertine", Georgia, Times, serif</code><span style="font:400 28px/1.3 var(--serif)">Website redesign</span></div>
+  <div class="trow"><code>22 serif, 1px rule below</code><span style="font:400 22px var(--serif)">Milestones</span></div>
+  <div class="trow"><code>body: -apple-system, Segoe UI, Helvetica, Arial · 15 / 1.6</code><span>Four tasks remain open.<sup class="cite"><a href="#">[2]</a></sup></span></div>
+  <div class="trow"><code>16 bold sans</code><span style="font-weight:700;font-size:16px">Infobox caption</span></div>
+  <div class="trow"><code>13 sans</code><span style="font-size:13px">Infobox rows, contents, references</span></div>
+  <div class="trow"><code>11 superscript</code><span style="font-size:11px">[1] citation marks</span></div>
+
+  <h3>Spacing, corners and depth</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>16 to 24px article padding, 22px above section heads, 10px between paragraphs.</dd>
+    <dt>Density</dt><dd>Medium-dense reading text; facts compressed into the infobox.</dd>
+    <dt>Corners</dt><dd>Square boxes; 2px on buttons and fields only.</dd>
+    <dt>Borders</dt><dd>1px grey rule under every heading; 1px boxes for infobox, contents and tables.</dd>
+    <dt>Shadows</dt><dd>None.</dd>
+    <dt>Icons</dt><dd>Almost none. Status uses text marks ✓ Done, ◐ In progress, ○ Planned, ⊘ Blocked. A simple line emblem by the brand.</dd>
+    <dt>Focus</dt><dd>2px link-blue outline offset 1px; fields get a blue border with an inset ring.</dd>
+    <dt>Tone</dt><dd>Neutral, encyclopedic third person: “Website redesign is a project of the Design team…”</dd>
+  </dl>
+
+  <h3>Controls · normal and focus</h3>
+  <div class="controls">
+    <div><span class="cl">Primary button</span><button class="btn" type="button">Publish changes</button> <button class="btn is-focus" type="button">Publish changes</button></div>
+    <div><span class="cl">Secondary button</span><button class="btn btn-2" type="button">Preview</button> <button class="btn btn-2 is-focus" type="button">Preview</button></div>
+    <div><label class="field">Task name <input value="Pricing table copy"></label></div>
+    <div><label class="field">Task name (focused) <input class="is-focus" value="Hero image options"></label></div>
+    <div><span class="cl">List row</span><div class="row-demo"><a href="#">Customer logos permission</a><span class="st bad">⊘ Blocked</span></div></div>
+    <div><span class="cl">List row (focused)</span><div class="row-demo is-focus"><a href="#">Hero image options</a><span>due 2 Nov</span></div></div>
+  </div>
+</section>
+</body>
+</html>

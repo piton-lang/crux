@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 371 · Calm budget · Brightwork</title>
+<style>
+
+:root { color-scheme: dark; --bg:#1d2327; --soft:#252d32; --soft2:#2e383e; --track:#3a464d; --ink:#e9eef0; --muted:#aab7bd; --sage:#a8d5bf; --onsage:#11291f; --sand:#e8c99b; --ease:#c9b8e8;
+ --sans: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.7 var(--sans); }
+a { color: var(--sage); text-underline-offset: 4px; }
+:focus-visible, .is-focus { outline: 2px solid var(--sage) !important; outline-offset: 4px; box-shadow: 0 0 0 8px rgba(168,213,191,.12); }
+.si { width: 1em; height: 1em; vertical-align: -2px; flex: none; }
+.col { max-width: 700px; margin: 0 auto; padding: 40px 24px 0; }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 64px; }
+.top .nm { font-size: 16px; color: var(--muted); display: flex; align-items: center; gap: 10px; }
+.top .nm i { width: 14px; height: 14px; border-radius: 50%; background: var(--sage); display: inline-block; }
+.top nav ul { list-style: none; display: flex; gap: 24px; margin: 0; padding: 0; font-size: 16px; }
+.top nav a { color: var(--muted); text-decoration: none; }
+.top nav a[aria-current] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--sage); text-decoration-thickness: 2px; }
+h1 { font-size: 40px; line-height: 1.25; font-weight: 400; margin: 0 0 16px; letter-spacing: -.01em; }
+.lede { font-size: 20px; color: var(--muted); margin: 0 0 56px; }
+.lede b { color: var(--ink); font-weight: 600; }
+section { margin-bottom: 64px; }
+h2 { font-size: 15px; font-weight: 600; color: var(--sage); margin: 0 0 20px; letter-spacing: .02em; }
+.accts { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.accts li { background: var(--soft); border-radius: 20px; padding: 20px 24px; display: flex; justify-content: space-between; align-items: baseline; gap: 8px 16px; flex-wrap: wrap; }
+.accts .k { color: var(--muted); }
+.accts .v { font-size: 26px; font-variant-numeric: tabular-nums; }
+.accts .n { width: 100%; font-size: 15px; color: var(--sand); display: flex; gap: 8px; align-items: center; }
+.plan { list-style: none; margin: 0; padding: 0; display: grid; gap: 28px; }
+.plan .hd { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.plan .n { font-size: 20px; }
+.plan .f { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 16px; }
+.plan .bar { height: 14px; border-radius: 999px; background: var(--track); margin: 10px 0 8px; overflow: hidden; }
+.plan .bar i { display: block; height: 100%; border-radius: 999px; background: var(--sage); }
+.plan .over .bar i { background: var(--ease); }
+.plan .full .bar i { background: var(--sand); }
+.plan p { margin: 0; font-size: 16px; color: var(--muted); display: flex; gap: 8px; align-items: baseline; }
+.plan p .si { align-self: center; }
+.plan .ok p .si { color: var(--sage); } .plan .full p .si { color: var(--sand); } .plan .over p .si { color: var(--ease); }
+.plan .over p { color: var(--ink); }
+.reassure { margin: 32px 0 0; background: var(--soft); border-radius: 20px; padding: 20px 24px; font-size: 17px; }
+.reassure b { color: var(--sage); font-weight: 600; }
+.path { background: var(--soft); border-radius: 24px; padding: 28px 24px 24px; }
+.path .t { font-size: 24px; margin: 0; }
+.path svg { width: 100%; height: auto; display: block; margin: 16px 0; }
+.path p { margin: 0; color: var(--muted); font-size: 16px; }
+.path p b { color: var(--ink); font-weight: 600; font-size: 20px; }
+.recent { list-style: none; margin: 0; padding: 0; }
+.recent li { display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--soft2); align-items: baseline; }
+.recent .d { color: var(--muted); font-size: 15px; }
+.recent .a { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.recent .in .a { color: var(--sage); }
+.recent .tagin { font-size: 14px; color: var(--sage); display: block; }
+.end { color: var(--muted); font-size: 16px; text-align: center; margin: 0 0 24px; }
+@media (max-width: 600px) {
+ .col { padding: 24px 16px 0; } .top { margin-bottom: 40px; } h1 { font-size: 30px; } .lede { font-size: 18px; margin-bottom: 40px; }
+ section { margin-bottom: 48px; } .recent li { grid-template-columns: 56px minmax(0,1fr) auto; gap: 10px; }
+ .accts li { padding: 16px 18px; }
+}
+
+.sheet { max-width: 1120px; margin: 0 auto; padding: 48px 24px 64px; }
+.sheet .swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.sheet .sw { display: flex; gap: 12px; align-items: flex-start; }
+.sheet .sw i { flex: none; width: 44px; height: 44px; }
+.sheet .sw span { font-size: 13px; }
+.sheet .type-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding: 8px 0; }
+.sheet .type-row code { flex: none; width: 200px; font-size: 12px; }
+.sheet .type-row span { min-width: 0; overflow-wrap: anywhere; }
+.sheet .facts { display: grid; grid-template-columns: 140px minmax(0,1fr); gap: 8px 24px; margin: 0; }
+.sheet .facts dd { margin: 0; }
+.sheet .controls { display: grid; gap: 20px; }
+.sheet .ctl-label { display: block; font-size: 13px; margin-bottom: 8px; }
+.sheet .ctl-pair { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
+.sheet .fld { display: grid; gap: 6px; font-size: 13px; }
+.sheet .lrow { min-width: 0; width: min(340px, 100%); }
+@media (max-width: 600px) { .sheet .facts { grid-template-columns: minmax(0,1fr); } .sheet .facts dd { margin-bottom: 8px; } .sheet .type-row code { width: auto; } .sheet { padding: 40px 16px 48px; } }
+
+.sheet { max-width: 900px; border-top: 1px solid var(--soft2); margin-top: 32px; }
+.sheet h2 { font-size: 30px; font-weight: 400; color: var(--ink); margin: 0 0 8px; }
+.sheet .idea { font-size: 19px; color: var(--muted); }
+.sheet h3 { font-size: 15px; font-weight: 600; color: var(--sage); margin: 48px 0 16px; }
+.sheet .sw i { border-radius: 50%; border: 1px solid var(--track); }
+.sheet .sw span, .sheet code, .sheet .ctl-label, .sheet .fld span, .sheet dt { color: var(--muted); }
+.sheet .facts dd { font-size: 16px; }
+.btn-p { font: 600 16px var(--sans); background: var(--sage); color: var(--onsage); border: 0; padding: 14px 28px; border-radius: 16px; cursor: pointer; }
+.btn-s { font: 600 16px var(--sans); background: var(--soft2); color: var(--ink); border: 0; padding: 14px 28px; border-radius: 16px; cursor: pointer; }
+.fld input { font: 17px var(--sans); background: var(--soft); color: var(--ink); border: 1px solid var(--track); padding: 12px 16px; border-radius: 14px; width: 260px; max-width: 100%; }
+.lrow { display: grid; grid-template-columns: 64px 1fr auto; gap: 12px; padding: 14px 16px; background: var(--soft); border-radius: 16px; color: var(--ink); text-decoration: none; font-size: 16px; }
+.lrow .d { color: var(--muted); }
+
+</style>
+</head>
+<body>
+<div class="col">
+<header class="top"><span class="nm"><i aria-hidden="true"></i>Brightwork Money</span>
+ <nav aria-label="Main"><ul><li><a href="#" aria-current="page">October</a></li><li><a href="#">Plan</a></li><li><a href="#">Goal</a></li></ul></nav></header>
+<main>
+ <h1>Hello Mara. October is in good shape.</h1>
+ <p class="lede">You spent <b>€1,870</b> of the <b>€1,930</b> you planned, so the month ends <b>€60 under</b>. One budget went a little over, and that is fine.</p>
+ <section aria-labelledby="h-ac"><h2 id="h-ac">Where your money is</h2>
+  <ul class="accts">
+   <li><span class="k">Everyday account</span><span class="v">€2,184.60</span></li>
+   <li><span class="k">Savings</span><span class="v">€11,420.00</span></li>
+   <li><span class="k">Credit card</span><span class="v">−€342.18</span><span class="n"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Due 12 Nov. Your everyday account covers it easily.</span></li>
+  </ul>
+ </section>
+ <section aria-labelledby="h-pl"><h2 id="h-pl">How the plan went</h2>
+  <ul class="plan"><li class="full"><div class="hd"><span class="n">Rent</span><span class="f">€1,150 of €1,150</span></div><div class="bar" role="img" aria-label="1,150 of 1,150"><i style="width:100%"></i></div><p><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10h8M8 14h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span><b style="font-weight:600;color:var(--ink)">On plan.</b> Paid in full, right on plan.</span></p></li><li class="ok"><div class="hd"><span class="n">Groceries</span><span class="f">€386 of €450</span></div><div class="bar" role="img" aria-label="386 of 450"><i style="width:86%"></i></div><p><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.8 12.3l2.8 2.8 5.6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b style="font-weight:600;color:var(--ink)">Room left.</b> 64 left, plenty of room for the last days.</span></p></li><li class="over"><div class="hd"><span class="n">Eating out</span><span class="f">€212 of €150</span></div><div class="bar" role="img" aria-label="212 of 150"><i style="width:100%"></i></div><p><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3L22 20H2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9.5v4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2" fill="currentColor"/></svg><span><b style="font-weight:600;color:var(--ink)">A little over.</b> 62 past the plan. That happens, and nothing else needs to change.</span></p></li><li class="ok"><div class="hd"><span class="n">Transport</span><span class="f">€74 of €120</span></div><div class="bar" role="img" aria-label="74 of 120"><i style="width:62%"></i></div><p><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.8 12.3l2.8 2.8 5.6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b style="font-weight:600;color:var(--ink)">Room left.</b> 46 left, comfortably under.</span></p></li><li class="ok"><div class="hd"><span class="n">Subscriptions</span><span class="f">€48 of €60</span></div><div class="bar" role="img" aria-label="48 of 60"><i style="width:80%"></i></div><p><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.8 12.3l2.8 2.8 5.6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b style="font-weight:600;color:var(--ink)">Room left.</b> 12 left, steady as usual.</span></p></li></ul>
+  <p class="reassure">Taken together, you are <b>€60 under plan</b> for October.</p>
+ </section>
+ <section aria-labelledby="h-go"><h2 id="h-go">Your goal</h2>
+  <div class="path"><p class="t">Japan trip</p><svg viewBox="0 0 600 130" role="img" aria-label="A gentle path from start to 1 April 2027, with Mara 64 percent of the way along, 3,200 of 5,000 saved">
+<path d="M20 96 Q300 96 580 30" fill="none" stroke="#3a464d" stroke-width="10" stroke-linecap="round"/>
+<polyline points="20.0,96.0 34.0,96.0 48.0,95.8 62.0,95.6 76.0,95.3 90.0,95.0 104.0,94.5 118.0,94.0 132.0,93.4 146.0,92.7 160.0,91.9 174.0,91.0 188.0,90.1 202.0,89.0 216.0,87.9 230.0,86.7 244.0,85.4 258.0,84.1 272.0,82.6 286.0,81.1 300.0,79.5 314.0,77.8 328.0,76.0 342.0,74.2 356.0,72.2 370.0,70.2" fill="none" stroke="#a8d5bf" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="378.4" cy="69.0" r="13" fill="#1d2327" stroke="#a8d5bf" stroke-width="4"/>
+<circle cx="580" cy="30" r="9" fill="none" stroke="#e8c99b" stroke-width="3"/>
+<text x="378.4" y="105.0" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="15" fill="#e9eef0">You are here, 64%</text>
+<text x="580" y="62" text-anchor="end" font-family="Segoe UI, system-ui, sans-serif" font-size="15" fill="#aab7bd">1 April 2027</text>
+<text x="20" y="124" font-family="Segoe UI, system-ui, sans-serif" font-size="15" fill="#aab7bd">Start</text>
+</svg><p><b>€3,200 of €5,000</b> saved. €1,800 to go before 1 April 2027, at an easy pace.</p></div>
+ </section>
+ <section id="tx" aria-labelledby="h-re"><h2 id="h-re">Lately</h2><ul class="recent"><li class="in"><span class="d">31 Oct</span><span>Fernhill Studio salary<span class=tagin>Money in</span></span><span class="a">+€3,850.00</span></li><li class="out"><span class="d">30 Oct</span><span>Corner Market</span><span class="a">−€42.15</span></li><li class="out"><span class="d">29 Oct</span><span>Night train tickets</span><span class="a">−€118.00</span></li><li class="out"><span class="d">28 Oct</span><span>Lumen Bakery</span><span class="a">−€9.40</span></li><li class="out"><span class="d">27 Oct</span><span>Music subscription</span><span class="a">−€10.99</span></li></ul></section>
+ <p class="end">That is everything for now.</p>
+</main>
+</div>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 371 · Calm budget</h2>
+<p class="idea">A gentle single column on soft blue grey dark, large unhurried type, budgets explained in reassuring sentences with soft rounded bars, the goal as a gentle path with You are here, and no alarm colours anywhere.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><i style="background:#1d2327"></i><div><b>Dusk</b> #1d2327<br><span>page and style sheet</span></div></li><li class="sw"><i style="background:#252d32"></i><div><b>Soft</b> #252d32<br><span>account rows, the goal card, fields and list rows</span></div></li><li class="sw"><i style="background:#2e383e"></i><div><b>Soft two</b> #2e383e<br><span>row dividers and the secondary button</span></div></li><li class="sw"><i style="background:#3a464d"></i><div><b>Track</b> #3a464d<br><span>empty bar track and field borders</span></div></li><li class="sw"><i style="background:#e9eef0"></i><div><b>Ink</b> #e9eef0<br><span>text</span></div></li><li class="sw"><i style="background:#aab7bd"></i><div><b>Muted</b> #aab7bd<br><span>labels, figures beside names, explanations</span></div></li><li class="sw"><i style="background:#a8d5bf"></i><div><b>Sage</b> #a8d5bf<br><span>bars with room, headings, money in, primary button, focus</span></div></li><li class="sw"><i style="background:#11291f"></i><div><b>On sage</b> #11291f<br><span>text on sage</span></div></li><li class="sw"><i style="background:#e8c99b"></i><div><b>Sand</b> #e8c99b<br><span>on plan bar, due date note, goal end marker</span></div></li><li class="sw"><i style="background:#c9b8e8"></i><div><b>Lavender</b> #c9b8e8<br><span>the over bar, a soft colour in place of red</span></div></li></ul>
+<h3>Type · Segoe UI Variable Text, Segoe UI, system-ui, -apple-system, Roboto, Helvetica Neue, Arial</h3>
+<div class="type-row"><code>40 / 400 / 1.25 headline</code><span style="font-size:40px;line-height:1.25">Hello Mara. October is in good shape.</span></div><div class="type-row"><code>20 / 400 lede</code><span style="font-size:20px;color:var(--muted)">You spent €1,870 of the €1,930 you planned</span></div><div class="type-row"><code>26 / tabular figure</code><span style="font-size:26px">€11,420.00</span></div><div class="type-row"><code>18 / 1.7 body</code><span style="">Groceries, 64 left, plenty of room.</span></div><div class="type-row"><code>15 / 600 section label</code><span style="font-size:15px;font-weight:600;color:var(--sage)">How the plan went</span></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3>
+<dl class="facts"><dt>Spacing</dt><dd>8px unit. A 700px column, 64px between sections, 28px between budget lines, 20 to 24px inside cards.</dd><dt>Density</dt><dd>Very low. One column, one idea at a time, sentences before numbers.</dd><dt>Corners</dt><dd>Soft. 20 to 24px cards, 16px buttons and rows, round bars and dots.</dd><dt>Borders</dt><dd>Almost none. Thin dividers only between recent items.</dd><dt>Shadows</dt><dd>None. Surfaces lift by tone.</dd><dt>Icons</dt><dd>Few and small. Circle check for room left, ruled square for on plan, triangle for a little over, always before a bold word and a sentence. The over bar is lavender, not red.</dd><dt>Focus</dt><dd>A 2px sage outline offset 4px with a wide soft sage halo.</dd><dt>Tone</dt><dd>Reassuring and plain, October is in good shape, plenty of room, That happens, and nothing else needs to change.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls">
+<div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-p" type="button">Adjust plan</button><button class="btn-p is-focus" type="button">Adjust plan</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-s" type="button">Not now</button><button class="btn-s is-focus" type="button">Not now</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="fld"><span>Note for October</span><input type="text" value="Dinner with friends"></label><label class="fld"><span>Note for October, focused</span><input type="text" class="is-focus" value="Dinner with friends"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><a class="lrow" href="#tx"><span class="d">27 Oct</span><span>Music subscription</span><span>−€10.99</span></a><a class="lrow is-focus" href="#tx"><span class="d">27 Oct</span><span>Music subscription</span><span>−€10.99</span></a></div></div>
+</div>
+</section>
+</body>
+</html>

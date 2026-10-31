@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 399 · Telegraph office · Brightwork</title>
+<style>
+:root {
+  color-scheme: dark;
+  --umber: #1c150f; --counter: #261d15; --form: #2f241a; --groove: #47372a; --brass: #d6aa5c; --brass-hi: #f0cd88; --brass-lo: #8a6a33; --on-brass: #241703;
+  --cream: #f0e3c9; --sepia: #c3ae8c; --oxblood: #e48a76; --wire: #9fc4b8;
+  --slab: Rockwell, "Rockwell Nova", "Roboto Slab", "DejaVu Serif", Georgia, serif;
+  --type: "American Typewriter", "Courier Prime", "Courier New", Courier, monospace;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--umber); color: var(--cream); font: 15px/1.5 var(--slab); }
+h1, h2, h3, p, ul { margin: 0; padding: 0; }
+ul { list-style: none; }
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; color: inherit; }
+:focus-visible, .is-focus { outline: 2px solid var(--brass-hi); outline-offset: 3px; box-shadow: 0 0 0 6px rgba(240, 205, 136, .18); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.morse { color: var(--brass); letter-spacing: .3em; font-family: var(--type); font-size: 13px; white-space: nowrap; overflow: hidden; }
+
+.sign { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 24px; padding: 20px 28px; background: var(--counter); border-bottom: 4px double var(--groove); }
+.sign svg { width: 120px; height: 56px; }
+.sign h1 { font-size: 26px; letter-spacing: .14em; text-transform: uppercase; }
+.sign h1 small { display: block; font-size: 13px; letter-spacing: .3em; color: var(--sepia); font-weight: 400; }
+.find { display: flex; align-items: center; gap: 8px; padding: 6px 12px; border: 2px solid var(--groove); background: var(--umber); border-radius: 2px; color: var(--sepia); font-family: var(--type); }
+.find input { background: none; border: 0; outline: none; color: var(--cream); width: 190px; max-width: 100%; }
+.find input::placeholder { color: var(--sepia); }
+.find:focus-within { outline: 2px solid var(--brass-hi); outline-offset: 3px; }
+
+.office { display: grid; grid-template-columns: 210px minmax(0, 1fr) minmax(0, 1.05fr); gap: 24px; padding: 24px 28px 48px; }
+.rack h2, .book h2 { font-size: 13px; letter-spacing: .25em; text-transform: uppercase; color: var(--sepia); font-weight: 400; margin-bottom: 10px; }
+.rack h2:not(:first-child) { margin-top: 22px; }
+.rack li + li { margin-top: 6px; }
+.plaque { display: flex; flex-direction: column; padding: 6px 12px; border-radius: 3px; background-color: #33271b; background-image: linear-gradient(180deg, #3a2c1e, #2d2217); border: 1px solid var(--groove); }
+.plaque b { display: flex; justify-content: space-between; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; font-size: 14px; }
+.plaque span { font-family: var(--type); font-size: 11px; color: var(--sepia); letter-spacing: .25em; }
+.plaque[aria-current] { background-color: var(--brass); background-image: linear-gradient(180deg, var(--brass-hi), var(--brass)); color: var(--on-brass); border-color: var(--brass-lo); }
+.plaque[aria-current] span { color: #3a2a0c; }
+
+.book { min-width: 0; }
+.ledger { border: 2px solid var(--groove); background: var(--counter); }
+.ledger li { border-bottom: 1px solid var(--groove); }
+.ledger li:last-child { border-bottom: 0; }
+.entry { display: grid; grid-template-columns: 40px 64px minmax(0, 1fr); gap: 0; }
+.entry > * { padding: 10px 10px; }
+.entry .no { font-family: var(--type); color: var(--sepia); border-right: 1px solid var(--groove); text-align: right; }
+.entry time { font-family: var(--type); border-right: 1px solid var(--groove); font-size: 13px; }
+.entry .who { font-size: 16px; letter-spacing: .04em; }
+.entry .subj { display: block; font-family: var(--type); color: var(--sepia); font-size: 14px; }
+.entry .flags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.mark { display: inline-flex; align-items: center; gap: 4px; padding: 0 6px; border: 1px solid currentColor; font-family: var(--type); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+.mark.new { color: var(--oxblood); }
+.mark.star { color: var(--brass-hi); }
+.mark.encl { color: var(--wire); }
+.mark.lab { color: var(--cream); border-style: dotted; }
+.entry.unread .who { font-weight: 700; }
+.entry.open { background: var(--form); box-shadow: inset 4px 0 0 var(--brass); }
+
+.telegram { background: var(--form); border: 2px solid var(--brass-lo); outline: 1px solid var(--groove); outline-offset: 4px; padding: 0; align-self: start; }
+.telegram .band { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 18px; border-bottom: 2px solid var(--brass-lo); }
+.telegram .band b { letter-spacing: .35em; font-size: 18px; color: var(--brass-hi); }
+.telegram .band span { font-family: var(--type); font-size: 12px; color: var(--sepia); }
+.boxes { display: grid; grid-template-columns: 1fr 1fr 110px; border-bottom: 1px solid var(--groove); }
+.boxes div { padding: 6px 14px; border-right: 1px solid var(--groove); }
+.boxes div:last-child { border-right: 0; }
+.boxes dt { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--sepia); }
+.boxes dd { margin: 0; font-family: var(--type); }
+.telegram h2 { padding: 16px 18px 4px; font-size: 24px; letter-spacing: .06em; }
+.telegram .body { padding: 8px 18px 6px; font-family: var(--type); font-size: 17px; line-height: 1.8; background: repeating-linear-gradient(to bottom, transparent 0 29px, rgba(195,174,140,.14) 29px 30px); }
+.telegram .body p + p { margin-top: 0; }
+.stop { color: var(--brass); font-size: 12px; letter-spacing: .2em; margin-left: 6px; }
+.telegram .morse { padding: 8px 18px 0; }
+.keys { display: flex; flex-wrap: wrap; gap: 10px; padding: 16px 18px 18px; }
+.key { display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; border-radius: 16px; border: 1px solid var(--groove); background-color: #33271b; background-image: linear-gradient(180deg, #3b2e21, #2a2017); color: var(--cream); box-shadow: 0 3px 0 #120d08; cursor: pointer; letter-spacing: .06em; font-size: 14px; }
+.key.primary { background-color: var(--brass); background-image: linear-gradient(180deg, var(--brass-hi), var(--brass)); color: var(--on-brass); border-color: var(--brass-lo); box-shadow: 0 3px 0 #5a4219; font-weight: 700; }
+
+.sheet { background: var(--counter); border-top: 4px double var(--groove); padding: 48px 28px 64px; }
+.sheet h2 { font-size: 30px; letter-spacing: .1em; text-transform: uppercase; }
+.sheet .idea { color: var(--sepia); max-width: 740px; margin-top: 6px; font-family: var(--type); }
+.sheet h3 { font-size: 13px; letter-spacing: .3em; text-transform: uppercase; color: var(--brass); font-weight: 400; margin: 36px 0 14px; }
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+.sw { display: flex; gap: 10px; align-items: center; padding: 8px 10px; border: 1px solid var(--groove); background: var(--umber); font-family: var(--type); font-size: 12px; color: var(--sepia); }
+.sw i { width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--brass-lo); flex: none; }
+.sw b { display: block; font-family: var(--slab); font-size: 14px; color: var(--cream); letter-spacing: .06em; font-weight: 400; text-transform: uppercase; }
+.type-row { display: flex; flex-wrap: wrap; gap: 6px 20px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--groove); }
+.type-row code { width: 200px; flex: none; color: var(--sepia); font-size: 12px; font-family: var(--type); }
+.facts { display: grid; grid-template-columns: 120px 1fr; gap: 8px 18px; margin: 0; }
+.facts dt { letter-spacing: .1em; text-transform: uppercase; font-size: 13px; }
+.facts dd { margin: 0; color: var(--sepia); font-family: var(--type); font-size: 14px; }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 24px; }
+.ctl-label { display: block; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--sepia); margin-bottom: 8px; }
+.field { display: block; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--sepia); }
+.field input { display: block; width: 100%; margin-top: 6px; padding: 8px 10px; border: 2px solid var(--groove); background: var(--umber); color: var(--cream); font-family: var(--type); letter-spacing: 0; text-transform: none; border-radius: 2px; }
+.demo { border: 2px solid var(--groove); background: var(--counter); }
+
+@media (max-width: 1100px) {
+  .office { grid-template-columns: 190px minmax(0, 1fr); }
+  .telegram { grid-column: 1 / -1; }
+}
+@media (max-width: 720px) {
+  .sign { grid-template-columns: auto 1fr; gap: 12px 16px; padding: 16px; }
+  .sign svg { width: 84px; height: 40px; }
+  .sign h1 { font-size: 20px; }
+  .find { grid-column: 1 / -1; }
+  .find input { width: 100%; }
+  .office { display: flex; flex-direction: column; padding: 16px; gap: 28px; }
+  .book { order: 1; }
+  .telegram { order: 2; align-self: stretch; min-width: 0; }
+  .rack { order: 3; }
+  .rack ul { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .rack li + li { margin-top: 0; }
+  .boxes { grid-template-columns: 1fr 1fr; }
+  .boxes div:nth-child(2) { border-right: 0; }
+  .boxes div:last-child { grid-column: 1 / -1; border-top: 1px solid var(--groove); }
+  .entry { grid-template-columns: 34px 58px minmax(0, 1fr); }
+  .entry > * { padding: 8px 6px; }
+  .sheet { padding: 40px 16px 56px; }
+  .facts { grid-template-columns: 1fr; gap: 2px; }
+  .facts dd { margin-bottom: 10px; }
+}
+</style>
+</head>
+<body>
+<header class="sign">
+  <svg viewBox="0 0 120 56" role="img" aria-label="A brass telegraph key on a wooden base">
+    <rect x="4" y="42" width="112" height="10" rx="2" fill="#5a3f26" stroke="#8a6a33"/>
+    <rect x="18" y="34" width="70" height="8" rx="2" fill="#d6aa5c"/>
+    <path d="M24 30 L96 22" stroke="#f0cd88" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="52" cy="27" r="5" fill="#8a6a33"/>
+    <ellipse cx="100" cy="20" rx="12" ry="5" fill="#1c150f" stroke="#d6aa5c" stroke-width="2"/>
+    <circle cx="16" cy="38" r="3" fill="#f0cd88"/><circle cx="100" cy="47" r="3" fill="#d6aa5c"/>
+  </svg>
+  <h1>Brightwork Mail <small>Telegraph office · Mara Okafor</small></h1>
+  <label class="find"><span aria-hidden="true">⌕</span><span class="sr">Search mail</span><input type="search" placeholder="Search the book"></label>
+</header>
+
+<div class="office">
+  <nav class="rack" aria-label="Folders">
+    <h2>Pigeon rack</h2>
+    <ul>
+      <li><a href="#" class="plaque" aria-current="page"><b>Inbox <i>12</i></b><span aria-hidden="true">·· −·</span></a></li>
+      <li><a href="#" class="plaque"><b>Starred</b><span aria-hidden="true">··· −</span></a></li>
+      <li><a href="#" class="plaque"><b>Snoozed</b><span aria-hidden="true">··· −·</span></a></li>
+      <li><a href="#" class="plaque"><b>Sent</b><span aria-hidden="true">··· ·</span></a></li>
+      <li><a href="#" class="plaque"><b>Drafts <i>2</i></b><span aria-hidden="true">−·· ·−·</span></a></li>
+      <li><a href="#" class="plaque"><b>Archive</b><span aria-hidden="true">·− ·−·</span></a></li>
+    </ul>
+    <h2>Labels</h2>
+    <ul>
+      <li><a href="#" class="plaque"><b>Clients</b><span aria-hidden="true">−·−· ·−··</span></a></li>
+      <li><a href="#" class="plaque"><b>Invoices</b><span aria-hidden="true">·· −·</span></a></li>
+      <li><a href="#" class="plaque"><b>Team</b><span aria-hidden="true">− ·</span></a></li>
+    </ul>
+  </nav>
+
+  <section class="book" aria-labelledby="book-h">
+    <h2 id="book-h">Received book · Inbox</h2>
+    <ul class="ledger">
+      <li><a href="#" class="entry unread open" aria-current="true"><span class="no">1</span><time>08:44</time><span><span class="who">Northpass</span><span class="subj">Demo on Tuesday. “Looking forward to seeing the reports view”</span><span class="flags"><span class="mark new">● New</span><span class="mark lab">Clients</span></span></span></a></li>
+      <li><a href="#" class="entry unread"><span class="no">2</span><time>08:02</time><span><span class="who">Priya Nair</span><span class="subj">Hero options. “B is my pick, see Canvas”</span><span class="flags"><span class="mark new">● New</span></span></span></a></li>
+      <li><a href="#" class="entry"><span class="no">3</span><time>07:15</time><span><span class="who">Billing</span><span class="subj">Invoice 2026-10 is ready</span><span class="flags"><span class="mark lab">Invoices</span><span class="mark encl">+ Encl.</span></span></span></a></li>
+      <li><a href="#" class="entry"><span class="no">4</span><time>Yest.</time><span><span class="who">Aiko Tanaka</span><span class="subj">Survey readout slides</span><span class="flags"><span class="mark star">★ Starred</span></span></span></a></li>
+      <li><a href="#" class="entry"><span class="no">5</span><time>Yest.</time><span><span class="who">Lumen Bakery</span><span class="subj">Re pricing question</span></span></a></li>
+      <li><a href="#" class="entry"><span class="no">6</span><time>Fri.</time><span><span class="who">Newsletter</span><span class="subj">The small team digest</span></span></a></li>
+    </ul>
+  </section>
+
+  <article class="telegram" aria-labelledby="read-h">
+    <div class="band"><b>TELEGRAM</b><span>No. 1 · received · Clients</span></div>
+    <dl class="boxes">
+      <div><dt>From</dt><dd>Dana Whitfield, Northpass</dd></div>
+      <div><dt>To</dt><dd>Mara Okafor</dd></div>
+      <div><dt>Time sent</dt><dd>08:44</dd></div>
+    </dl>
+    <h2 id="read-h">Demo on Tuesday</h2>
+    <div class="body">
+      <p>Hi Mara, looking forward to Tuesday.<span class="stop" aria-hidden="true">STOP</span></p>
+      <p>Can you show the reports view and how guests work?<span class="stop" aria-hidden="true">STOP</span></p>
+      <p>Thanks, Dana.<span class="stop" aria-hidden="true">STOP</span></p>
+    </div>
+    <p class="morse" aria-hidden="true">−·· · −− −−− · −−− −· · − ··− · ··· −·· ·− −·−−</p>
+    <div class="keys" role="toolbar" aria-label="Telegram actions">
+      <button class="key primary" type="button">Reply</button>
+      <button class="key" type="button">Reply all</button>
+      <button class="key" type="button">Forward</button>
+      <button class="key" type="button">Snooze</button>
+      <button class="key" type="button">Archive</button>
+    </div>
+  </article>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h">
+  <h2 id="sheet-h">Style 399 · Telegraph office</h2>
+  <p class="idea">Mail as a sepia telegraph counter, with folders as brass plaques carrying morse marks, the inbox as a numbered received book, and the open message typed onto a telegram form.</p>
+  <p class="morse" aria-hidden="true" style="margin-top:12px">·−·· −−− −−− −·− −··· −−− −−− −·−</p>
+
+  <h3>Palette</h3>
+  <ul class="swatches">
+    <li class="sw"><i style="background:#1c150f"></i><div><b>Umber</b>#1c150f · page, fields</div></li>
+    <li class="sw"><i style="background:#261d15"></i><div><b>Counter</b>#261d15 · header, ledger, sheet</div></li>
+    <li class="sw"><i style="background:#2f241a"></i><div><b>Form</b>#2f241a · telegram, open entry</div></li>
+    <li class="sw"><i style="background:#47372a"></i><div><b>Groove</b>#47372a · ruled lines, borders</div></li>
+    <li class="sw"><i style="background:#f0e3c9"></i><div><b>Cream</b>#f0e3c9 · text</div></li>
+    <li class="sw"><i style="background:#c3ae8c"></i><div><b>Sepia</b>#c3ae8c · subjects, box labels</div></li>
+    <li class="sw"><i style="background:#d6aa5c"></i><div><b>Brass</b>#d6aa5c · plaques, morse, keys</div></li>
+    <li class="sw"><i style="background:#f0cd88"></i><div><b>Brass high</b>#f0cd88 · lit plaque, focus, Starred</div></li>
+    <li class="sw"><i style="background:#8a6a33"></i><div><b>Brass low</b>#8a6a33 · telegram frame, key edges</div></li>
+    <li class="sw"><i style="background:#e48a76"></i><div><b>Oxblood</b>#e48a76 · New mark with filled dot</div></li>
+    <li class="sw"><i style="background:#9fc4b8"></i><div><b>Wire</b>#9fc4b8 · Encl. mark</div></li>
+  </ul>
+
+  <h3>Type</h3>
+  <div class="type-row"><code>26 / 700 slab caps .14em</code><span style="font-size:26px;font-weight:700;letter-spacing:.14em;text-transform:uppercase">Brightwork Mail</span></div>
+  <div class="type-row"><code>24 / 700 slab</code><span style="font-size:24px;font-weight:700;letter-spacing:.06em">Demo on Tuesday</span></div>
+  <div class="type-row"><code>17 typewriter / 1.8</code><span style="font-family:var(--type);font-size:17px">Hi Mara, looking forward to Tuesday.<span class="stop">STOP</span></span></div>
+  <div class="type-row"><code>16 / 700 slab sender</code><span style="font-size:16px;font-weight:700">Priya Nair</span></div>
+  <div class="type-row"><code>12 typewriter caps mark</code><span class="mark new">● New</span></div>
+  <p style="color:var(--sepia);font-size:13px;margin-top:10px;font-family:var(--type)">Slab: Rockwell, Rockwell Nova, Roboto Slab, DejaVu Serif, Georgia. Typewriter: American Typewriter, Courier Prime, Courier New.</p>
+
+  <h3>Space, shape and tone</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>8px unit. 24px between the three columns, 10px cells in the ledger, 18px telegram padding.</dd>
+    <dt>Density</dt><dd>Medium. A ruled six entry book beside a full telegram.</dd>
+    <dt>Corners</dt><dd>Nearly square, 2 to 3px. Only the brass keys are pill shaped.</dd>
+    <dt>Borders</dt><dd>2px groove frames, 1px ruled cells, a 4px double rule under the sign, a brass frame with an offset outline on the telegram.</dd>
+    <dt>Shadows</dt><dd>A hard 3px dark under each key so it looks pressable. Gradients on brass.</dd>
+    <dt>Icons</dt><dd>A drawn brass key in the sign. Marks are typographic. ● New, ★ Starred, + Encl., dotted box for labels. Morse lines are decoration only.</dd>
+    <dt>Focus</dt><dd>2px bright brass outline offset 3px plus a soft brass halo.</dd>
+    <dt>Tone</dt><dd>Period office words. Received book, Pigeon rack, Time sent, STOP.</dd>
+  </dl>
+
+  <h3>Controls · normal and focus</h3>
+  <div class="controls">
+    <div><span class="ctl-label">Primary</span><button class="key primary" type="button">Reply</button> <button class="key primary is-focus" type="button">Reply</button></div>
+    <div><span class="ctl-label">Secondary</span><button class="key" type="button">Forward</button> <button class="key is-focus" type="button">Forward</button></div>
+    <div><label class="field">Send to<input value="Dana Whitfield"></label></div>
+    <div><label class="field">Send to, focused<input class="is-focus" value="Dana Whitfield"></label></div>
+    <div><span class="ctl-label">List row</span><div class="demo"><a href="#" class="entry"><span class="no">5</span><time>Yest.</time><span><span class="who">Lumen Bakery</span><span class="subj">Re pricing question</span></span></a></div></div>
+    <div><span class="ctl-label">List row, focused</span><div class="demo"><a href="#" class="entry is-focus"><span class="no">5</span><time>Yest.</time><span><span class="who">Lumen Bakery</span><span class="subj">Re pricing question</span></span></a></div></div>
+  </div>
+</section>
+</body>
+</html>

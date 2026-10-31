@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 119 · Airmail · Brightwork</title>
+<style>
+:root{
+  --sky:#e8eef7; --paper:#f8fafd; --tissue:#eef3fa; --ink:#1b2433; --muted:#4c5868; --rule:#c5d0e0;
+  --red:#b3202a; --blue:#1f3e8c; --white:#ffffff; --green:#1f6a45;
+  --chev:repeating-linear-gradient(-45deg,var(--red) 0 14px,var(--white) 14px 22px,var(--blue) 22px 36px,var(--white) 36px 44px);
+  --geo:Futura,"Century Gothic","Avenir Next",Avenir,"URW Gothic","Trebuchet MS",sans-serif;
+  --letter:Georgia,"Iowan Old Style","Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--sky);color:var(--ink);font:15px/1.55 var(--letter);padding:24px 16px 56px}
+a{color:inherit}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible,.is-focus{outline:3px solid var(--blue);outline-offset:3px;box-shadow:0 0 0 6px rgba(179,32,42,.25)}
+.env{max-width:1240px;margin:0 auto;background:var(--paper);border:14px solid transparent;border-image:var(--chev) 14;box-shadow:0 10px 24px rgba(31,62,140,.15);padding:24px 30px 36px}
+/* header */
+.head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:start}
+.from{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.parav{display:inline-flex;flex-direction:column;background:var(--blue);color:#fff;font:700 11px/1.2 var(--geo);letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border:2px solid #fff;outline:2px solid var(--blue)}
+.parav b{font-size:15px;letter-spacing:.1em}
+.brand{font:700 26px/1 var(--geo);letter-spacing:.04em;text-decoration:none;color:var(--blue)}
+.brand span{color:var(--red)}
+nav ul{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:4px 20px;font:600 14px var(--geo);letter-spacing:.06em;text-transform:uppercase}
+nav a{text-decoration:none;display:inline-flex;align-items:center;gap:6px;padding:4px 0;border-bottom:2px solid transparent}
+nav a[aria-current]{color:var(--red);border-bottom-color:var(--red)}
+nav a[aria-current]::before{content:"";width:14px;height:14px;background:currentColor;clip-path:polygon(0 40%,100% 0,60% 100%,45% 60%)}
+.corner{display:flex;gap:10px;align-items:flex-start}
+.stampbox{width:92px;height:108px;border:2px dashed var(--muted);display:grid;place-items:end center;padding-bottom:8px;text-align:center;font:600 10px/1.3 var(--geo);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);position:relative}
+.stampbox svg{position:absolute;left:-40px;top:6px;width:118px;height:70px;color:var(--blue);opacity:.85}
+.tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:18px;grid-column:1/-1;justify-content:flex-end;border-top:1px solid var(--rule);padding-top:14px}
+.search{display:flex;align-items:center;gap:6px;border:1px solid var(--muted);border-radius:20px;padding:0 14px;height:40px;background:#fff;min-width:260px}
+.search input{border:0;background:transparent;font:15px var(--letter);color:var(--ink);width:100%;height:100%}
+.search input:focus{outline:none}
+.search:focus-within{outline:3px solid var(--blue);outline-offset:3px}
+.btn{font:700 13px/1 var(--geo);letter-spacing:.1em;text-transform:uppercase;height:40px;padding:0 18px;border-radius:20px;border:2px solid var(--red);background:var(--red);color:#fff;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.btn.sec{background:#fff;color:var(--blue);border-color:var(--blue)}
+.bell{width:40px;height:40px;border-radius:50%;border:1px solid var(--muted);background:#fff;display:grid;place-items:center;cursor:pointer;position:relative;color:var(--ink)}
+.bell svg{width:18px;height:18px}
+.bell b{position:absolute;top:-6px;right:-6px;font:700 10px/18px var(--geo);min-width:18px;border-radius:50%;background:var(--red);color:#fff}
+.user{font:600 14px var(--geo);display:flex;align-items:center;gap:8px}
+.user i{width:34px;height:34px;border-radius:50%;background:var(--tissue);border:2px solid var(--blue);display:grid;place-items:center;font-style:normal;font-size:12px;color:var(--blue)}
+/* letter */
+.letter{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px;margin:30px 0 8px;align-items:end}
+.dear h1{font:italic 400 34px/1.15 var(--letter);margin:0 0 8px}
+.dear p{margin:0;font-size:17px}
+.dear .urg{margin-top:8px;color:var(--red);font-weight:700;display:flex;align-items:center;gap:8px}
+.addr{font:600 13px/1.5 var(--geo);letter-spacing:.06em;text-transform:uppercase;border-left:4px solid var(--red);padding:4px 0 4px 16px;color:var(--muted)}
+.addr b{color:var(--ink);font-size:16px}
+/* postcodes */
+.codes{list-style:none;margin:28px 0 0;padding:20px 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.digits{display:flex;gap:4px}
+.digits span{width:40px;height:52px;border:2px solid var(--c,var(--red));display:grid;place-items:center;font:700 30px/1 var(--geo);color:var(--ink);background:#fff}
+.codes p{margin:8px 0 0;font:600 12px var(--geo);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+h2.sec{font:700 14px var(--geo);letter-spacing:.16em;text-transform:uppercase;margin:32px 0 14px;display:flex;align-items:center;gap:12px;color:var(--blue)}
+h2.sec::after{content:"";flex:1;height:6px;background:var(--chev);opacity:.85}
+/* aerogrammes */
+.aeros{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.aero{background:var(--tissue);border:1px solid var(--rule);position:relative;padding:22px 18px 16px;box-shadow:0 2px 0 var(--rule)}
+.aero::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--chev)}
+.aero h3{font:700 18px/1.2 var(--geo);margin:0}
+.aero .co{font:italic 14px var(--letter);color:var(--muted);margin:2px 0 12px}
+.route{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;font:700 11px var(--geo);letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.path{position:relative;height:24px}
+.path::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:2px dashed var(--muted)}
+.path::after{content:"";position:absolute;left:0;top:50%;width:var(--p);border-top:2px solid var(--blue);margin-top:-1px}
+.path svg{position:absolute;left:calc(var(--p) - 11px);top:1px;width:22px;height:22px;color:var(--blue);z-index:1}
+.aero .facts{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:12px 0 10px;font:600 13px var(--geo)}
+.aero .facts b{font-size:26px;color:var(--blue)}
+.lbl{display:inline-flex;align-items:center;gap:6px;font:700 12px/1 var(--geo);letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;background:#fff;border:2px solid currentColor}
+.lbl svg{width:14px;height:14px}
+.ok{color:var(--green)}.risk{color:var(--blue)}.late{color:var(--red)}
+.risk.lbl{border-style:dashed}
+.late.lbl{background:var(--red);color:#fff;border-color:var(--red)}
+/* lower */
+.lower{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:32px}
+.chartwrap{overflow-x:auto}
+.chartwrap svg{width:100%;min-width:480px;height:auto;display:block}
+.key{display:flex;gap:20px;flex-wrap:wrap;font:600 13px var(--geo);margin:8px 0 0}
+.key span{display:inline-flex;gap:6px;align-items:center}
+.corr{list-style:none;margin:0;padding:0}
+.corr li{display:grid;grid-template-columns:30px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.corr li:last-child{border:0}
+.corr svg{width:26px;height:20px;margin-top:3px}
+.corr time{display:block;font:600 11px var(--geo);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+/* sheet */
+.sheet{max-width:1240px;margin:44px auto 0;background:var(--paper);border:8px solid transparent;border-image:var(--chev) 8;padding:30px}
+.sheet h2{font:italic 400 34px var(--letter);margin:0 0 6px}
+.sheet .idea{max-width:780px;font-size:17px;margin:0 0 6px}
+.sheet h3{font:700 13px var(--geo);letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin:30px 0 12px;border-bottom:2px solid var(--red);padding-bottom:4px;display:inline-block}
+.sw{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.sw li{display:flex;gap:10px;font-size:13px}
+.sw i{width:46px;height:46px;flex:none;border:1px solid rgba(0,0,0,.25)}
+.sw b{display:block;font:700 13px var(--geo)}
+.sw code{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--muted)}
+.ty div{display:flex;gap:16px;flex-wrap:wrap;align-items:baseline;border-bottom:1px solid var(--rule);padding:6px 0}
+.ty code{font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--muted);min-width:230px}
+.fx{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px 28px;margin:0}
+.fx dt{font:700 13px var(--geo);letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
+.fx dd{margin:0 0 6px}
+.ctl{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.ctl>div{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.lab{font:700 12px var(--geo);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.field{display:grid;gap:4px;width:100%;font:600 13px var(--geo)}
+.field input{height:40px;border:1px solid var(--muted);border-radius:20px;background:#fff;font:15px var(--letter);padding:0 14px;color:var(--ink)}
+.row{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;background:var(--tissue);border-bottom:1px solid var(--rule);font:700 14px var(--geo)}
+@media (max-width:1000px){.aeros{grid-template-columns:repeat(2,minmax(0,1fr))}.lower{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:700px){
+  body{padding:12px 6px 40px}
+  .env{border-width:10px;padding:16px 14px 24px}
+  .head{grid-template-columns:1fr}
+  .corner{order:-1;justify-content:flex-end}
+  .stampbox{width:72px;height:84px}.stampbox svg{left:-60px;width:100px}
+  .tools{justify-content:flex-start}
+  .search{min-width:0;flex:1 1 100%}
+  .letter{grid-template-columns:1fr;gap:16px}
+  .dear h1{font-size:28px}
+  .codes{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 12px}
+  .digits span{width:32px;height:44px;font-size:24px}
+  .aeros{grid-template-columns:minmax(0,1fr)}
+  .sheet{padding:20px 14px;border-width:6px}
+}
+</style>
+</head>
+<body>
+<div class="env">
+  <header class="head">
+    <div>
+      <div class="from">
+        <span class="parav" aria-hidden="true"><b>Par avion</b>By airmail</span>
+        <a class="brand" href="#" aria-label="Brightwork home">Bright<span>work</span></a>
+      </div>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="#" aria-current="page">Home</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Tasks</a></li>
+          <li><a href="#">Team</a></li>
+          <li><a href="#">Reports</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="corner" aria-hidden="true">
+      <div class="stampbox">Postage<br>paid<svg viewBox="0 0 118 70" fill="none" stroke="currentColor"><circle cx="35" cy="35" r="30" stroke-width="2"/><text x="35" y="31" text-anchor="middle" font-family="Futura,'Century Gothic',sans-serif" font-size="11" font-weight="700" fill="currentColor" stroke="none">31 OCT</text><text x="35" y="45" text-anchor="middle" font-family="Futura,'Century Gothic',sans-serif" font-size="10" fill="currentColor" stroke="none">2026</text><path d="M68 20h50M68 30h50M68 40h50M68 50h50" stroke-width="2"/></svg></div>
+    </div>
+    <div class="tools">
+      <label class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M15 15l6 6"/></svg><span class="sr">Search projects and tasks</span><input type="search" placeholder="Search projects and tasks"></label>
+      <button class="btn" type="button"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg>New project</button>
+      <button class="bell" type="button" aria-label="Notifications, 3 new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></svg><b aria-hidden="true">3</b></button>
+      <span class="user"><i aria-hidden="true">MO</i>Mara Okafor</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="letter" aria-labelledby="hi">
+      <div class="dear">
+        <h1 id="hi">Dear Mara,</h1>
+        <p>Here is your post for Saturday 31 October 2026.</p>
+        <p class="urg"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>Urgent: 4 tasks are overdue.</p>
+      </div>
+      <p class="addr" aria-label="Addressed to Mara Okafor, Brightwork team">To<br><b>Mara Okafor</b><br>Brightwork team<br>Delivered Sat 31 Oct 2026</p>
+    </section>
+
+    <ul class="codes" aria-label="Summary">
+      <li aria-label="6 active projects"><div class="digits" aria-hidden="true"><span>6</span></div><p aria-hidden="true">Active projects</p></li>
+      <li aria-label="23 tasks due this week"><div class="digits" aria-hidden="true"><span>2</span><span>3</span></div><p aria-hidden="true">Tasks due this week</p></li>
+      <li aria-label="4 overdue tasks"><div class="digits" aria-hidden="true"><span style="color:var(--red);border-width:3px">4</span></div><p aria-hidden="true">Overdue tasks</p></li>
+      <li aria-label="186 hours logged this week"><div class="digits" aria-hidden="true" style="--c:var(--blue)"><span>1</span><span>8</span><span>6</span></div><p aria-hidden="true">Hours logged this week</p></li>
+    </ul>
+
+    <h2 class="sec" id="p-h">Projects in transit</h2>
+    <ul class="aeros" aria-labelledby="p-h">
+      <li class="aero"><h3>Website redesign</h3><p class="co">c/o Design</p><div class="route"><span>Start</span><span class="path" style="--p:72%"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 11.5 13 9 9 2H7l2 7-5 1-2-2H1l1.5 4L1 15h1l2-2 5 1-2 7h2l4-7 8-2.5z"/></svg></span><span>Due 14 Nov</span></div><p class="facts"><span><b>72%</b> flown</span><span>18 of 25 tasks</span></p><span class="lbl ok"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="currentColor"/></svg>On track</span></li>
+      <li class="aero"><h3>Mobile app 2.0</h3><p class="co">c/o Engineering</p><div class="route"><span>Start</span><span class="path" style="--p:45%"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 11.5 13 9 9 2H7l2 7-5 1-2-2H1l1.5 4L1 15h1l2-2 5 1-2 7h2l4-7 8-2.5z"/></svg></span><span>Due 2 Dec</span></div><p class="facts"><span><b>45%</b> flown</span><span>27 of 60 tasks</span></p><span class="lbl risk"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 .5 15.5 8 8 15.5.5 8z" fill="currentColor"/></svg>At risk</span></li>
+      <li class="aero"><h3>Q4 customer survey</h3><p class="co">c/o Research</p><div class="route"><span>Start</span><span class="path" style="--p:90%"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 11.5 13 9 9 2H7l2 7-5 1-2-2H1l1.5 4L1 15h1l2-2 5 1-2 7h2l4-7 8-2.5z"/></svg></span><span>Due 7 Nov</span></div><p class="facts"><span><b>90%</b> flown</span><span>9 of 10 tasks</span></p><span class="lbl ok"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="currentColor"/></svg>On track</span></li>
+      <li class="aero"><h3>Billing migration</h3><p class="co">c/o Engineering</p><div class="route"><span>Start</span><span class="path" style="--p:30%"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 11.5 13 9 9 2H7l2 7-5 1-2-2H1l1.5 4L1 15h1l2-2 5 1-2 7h2l4-7 8-2.5z"/></svg></span><span>Due 20 Nov</span></div><p class="facts"><span><b>30%</b> flown</span><span>12 of 40 tasks</span></p><span class="lbl late"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" fill="currentColor"/></svg>Behind</span></li>
+      <li class="aero"><h3>Spring catalogue</h3><p class="co">c/o Marketing</p><div class="route"><span>Start</span><span class="path" style="--p:15%"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 11.5 13 9 9 2H7l2 7-5 1-2-2H1l1.5 4L1 15h1l2-2 5 1-2 7h2l4-7 8-2.5z"/></svg></span><span>Due 15 Jan</span></div><p class="facts"><span><b>15%</b> flown</span><span>3 of 20 tasks</span></p><span class="lbl ok"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="currentColor"/></svg>On track</span></li>
+      <li class="aero"><h3>Onboarding emails</h3><p class="co">c/o Marketing</p><div class="route"><span>Start</span><span class="path" style="--p:60%"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 11.5 13 9 9 2H7l2 7-5 1-2-2H1l1.5 4L1 15h1l2-2 5 1-2 7h2l4-7 8-2.5z"/></svg></span><span>Due 21 Nov</span></div><p class="facts"><span><b>60%</b> flown</span><span>9 of 15 tasks</span></p><span class="lbl ok"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="currentColor"/></svg>On track</span></li>
+    </ul>
+
+    <div class="lower">
+      <section aria-labelledby="c-h">
+        <h2 class="sec" id="c-h">Flight log · tasks done per day</h2>
+        <div class="chartwrap">
+          <svg viewBox="0 0 650 222" role="img" aria-label="Tasks completed per day over the last 14 days. Last week, Sunday 18 to Saturday 24 October: 3, 12, 9, 14, 11, 8, 2, total 59. This week, Sunday 25 to Saturday 31 October: 4, 15, 13, 17, 12, 10, 2, total 73.">
+            <g stroke="#c5d0e0" stroke-width="1"><line x1="20" y1="190" x2="630" y2="190" stroke="#1b2433" stroke-width="1.5"/><line x1="20" y1="100" x2="630" y2="100" stroke-dasharray="2 4"/><line x1="324.6" y1="20" x2="324.6" y2="190" stroke-dasharray="6 4" stroke="#4c5868"/></g>
+            <polyline points="36,163 80.4,82 124.8,109 169.2,64 213.6,91 258,118 302.4,172" fill="none" stroke="#1f3e8c" stroke-width="2.5" stroke-dasharray="7 5"/>
+            <polyline points="346.8,154 391.2,55 435.6,73 480,37 524.4,82 568.8,100 613.2,172" fill="none" stroke="#b3202a" stroke-width="3"/>
+            <g fill="#fff" stroke="#1f3e8c" stroke-width="2.5"><circle cx="36" cy="163" r="5"/><circle cx="80.4" cy="82" r="5"/><circle cx="124.8" cy="109" r="5"/><circle cx="169.2" cy="64" r="5"/><circle cx="213.6" cy="91" r="5"/><circle cx="258" cy="118" r="5"/><circle cx="302.4" cy="172" r="5"/></g>
+            <g fill="#b3202a"><path d="M346.8 147l7 7-7 7-7-7z"/><path d="M391.2 48l7 7-7 7-7-7z"/><path d="M435.6 66l7 7-7 7-7-7z"/><path d="M480 30l7 7-7 7-7-7z"/><path d="M524.4 75l7 7-7 7-7-7z"/><path d="M568.8 93l7 7-7 7-7-7z"/><path d="M613.2 165l7 7-7 7-7-7z"/></g>
+            <g font-family="Futura,'Century Gothic',Avenir,sans-serif" font-size="13" font-weight="700" fill="#1b2433" text-anchor="middle"><text x="36" y="150">3</text><text x="80.4" y="69">12</text><text x="124.8" y="96">9</text><text x="169.2" y="51">14</text><text x="213.6" y="78">11</text><text x="258" y="105">8</text><text x="302.4" y="159">2</text><text x="346.8" y="139">4</text><text x="391.2" y="40">15</text><text x="435.6" y="58">13</text><text x="480" y="22">17</text><text x="524.4" y="67">12</text><text x="568.8" y="85">10</text><text x="613.2" y="157">2</text></g>
+            <g font-family="Futura,'Century Gothic',Avenir,sans-serif" font-size="11" fill="#4c5868" text-anchor="middle"><text x="36" y="210">18</text><text x="80.4" y="210">19</text><text x="124.8" y="210">20</text><text x="169.2" y="210">21</text><text x="213.6" y="210">22</text><text x="258" y="210">23</text><text x="302.4" y="210">24</text><text x="346.8" y="210">25</text><text x="391.2" y="210">26</text><text x="435.6" y="210">27</text><text x="480" y="210">28</text><text x="524.4" y="210">29</text><text x="568.8" y="210">30</text><text x="613.2" y="210">31</text></g>
+          </svg>
+        </div>
+        <p class="key"><span><svg width="30" height="12" aria-hidden="true"><line x1="0" y1="6" x2="30" y2="6" stroke="#1f3e8c" stroke-width="2.5" stroke-dasharray="7 5"/><circle cx="15" cy="6" r="4" fill="#fff" stroke="#1f3e8c" stroke-width="2"/></svg>Last week, 18 to 24 Oct · 59</span><span><svg width="30" height="14" aria-hidden="true"><line x1="0" y1="7" x2="30" y2="7" stroke="#b3202a" stroke-width="3"/><path d="M15 1l6 6-6 6-6-6z" fill="#b3202a"/></svg>This week, 25 to 31 Oct · 73</span></p>
+      </section>
+      <section aria-labelledby="a-h">
+        <h2 class="sec" id="a-h">Correspondence</h2>
+        <ul class="corr">
+          <li><svg viewBox="0 0 26 20" fill="none" stroke="#1f3e8c" stroke-width="1.8" aria-hidden="true"><rect x="1" y="1" width="24" height="18"/><path d="M1 1l12 10L25 1"/></svg><span>Jonas Weber completed "Export invoices as CSV" in Billing migration<time>12 min ago</time></span></li>
+          <li><svg viewBox="0 0 26 20" fill="none" stroke="#1f3e8c" stroke-width="1.8" aria-hidden="true"><rect x="1" y="1" width="24" height="18"/><path d="M1 1l12 10L25 1"/></svg><span>Priya Nair commented on "Hero image options" in Website redesign<time>40 min ago</time></span></li>
+          <li><svg viewBox="0 0 26 20" fill="none" stroke="#1f3e8c" stroke-width="1.8" aria-hidden="true"><rect x="1" y="1" width="24" height="18"/><path d="M1 1l12 10L25 1"/></svg><span>Sam Ortiz moved "Push notifications" to Review in Mobile app 2.0<time>1 h ago</time></span></li>
+          <li><svg viewBox="0 0 26 20" fill="none" stroke="#1f3e8c" stroke-width="1.8" aria-hidden="true"><rect x="1" y="1" width="24" height="18"/><path d="M1 1l12 10L25 1"/></svg><span>Lena Fischer added 3 tasks to Spring catalogue<time>2 h ago</time></span></li>
+          <li><svg viewBox="0 0 26 20" fill="none" stroke="#1f3e8c" stroke-width="1.8" aria-hidden="true"><rect x="1" y="1" width="24" height="18"/><path d="M1 1l12 10L25 1"/></svg><span>Tomás Ruiz logged 6 h on Mobile app 2.0<time>3 h ago</time></span></li>
+          <li><svg viewBox="0 0 26 20" fill="none" stroke="#1f3e8c" stroke-width="1.8" aria-hidden="true"><rect x="1" y="1" width="24" height="18"/><path d="M1 1l12 10L25 1"/></svg><span>Aiko Tanaka uploaded survey-results-v2.pdf to Q4 customer survey<time>Yesterday</time></span></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+</div>
+
+<section class="sheet" aria-labelledby="sh">
+  <h2 id="sh">Style 119 · Airmail</h2>
+  <p class="idea">The dashboard is an airmail envelope addressed to Mara: red and blue chevron edges, a par avion label, postcode boxes for the numbers, and each project flying a dashed route towards its due date.</p>
+  <h3>Palette</h3>
+  <ul class="sw">
+    <li><i style="background:#e8eef7"></i><div><b>Sky</b><code>#e8eef7</code> page behind the envelope</div></li>
+    <li><i style="background:#f8fafd"></i><div><b>Envelope</b><code>#f8fafd</code> main surface</div></li>
+    <li><i style="background:#eef3fa"></i><div><b>Tissue blue</b><code>#eef3fa</code> aerogramme cards and rows</div></li>
+    <li><i style="background:#1b2433"></i><div><b>Ink</b><code>#1b2433</code> text and digits</div></li>
+    <li><i style="background:#4c5868"></i><div><b>Muted</b><code>#4c5868</code> captions, dashed route still to fly</div></li>
+    <li><i style="background:#b3202a"></i><div><b>Airmail red</b><code>#b3202a</code> chevrons, primary button, overdue, Behind, this week</div></li>
+    <li><i style="background:#1f3e8c"></i><div><b>Airmail blue</b><code>#1f3e8c</code> chevrons, par avion label, brand, route flown, At risk, focus</div></li>
+    <li><i style="background:#1f6a45"></i><div><b>Green</b><code>#1f6a45</code> On track label</div></li>
+    <li><i style="background:#c5d0e0"></i><div><b>Rule</b><code>#c5d0e0</code> dividers and card edges</div></li>
+  </ul>
+  <h3>Type</h3>
+  <div class="ty">
+    <div><code>Georgia italic 34px · greeting</code><span style="font:italic 34px var(--letter)">Dear Mara,</span></div>
+    <div><code>Geometric 30px bold · postcode digits</code><span class="digits"><span>2</span><span>3</span></span></div>
+    <div><code>Geometric 18px bold · project names</code><span style="font:700 18px var(--geo)">Mobile app 2.0</span></div>
+    <div><code>Geometric 12–14px caps 0.1em · labels</code><span style="font:700 13px var(--geo);letter-spacing:.12em;text-transform:uppercase">Projects in transit</span></div>
+    <div><code>Georgia 15–17px · body</code><span>Here is your post for Saturday 31 October 2026.</span></div>
+  </div>
+  <p style="font-size:13px;color:var(--muted)">Geometric: Futura, "Century Gothic", "Avenir Next", Avenir, "Trebuchet MS", sans-serif. Letter: Georgia, "Iowan Old Style", "Times New Roman", serif.</p>
+  <h3>Surface rules</h3>
+  <dl class="fx">
+    <div><dt>Spacing</dt><dd>8px unit. 24–30px envelope padding, 18px between cards, 32px before sections.</dd></div>
+    <div><dt>Density</dt><dd>Airy. A letter opening, one row of postcodes, cards with one route each.</dd></div>
+    <div><dt>Corners</dt><dd>Square envelope and cards. Pill buttons, search and fields at 20px. Round bell and avatar.</dd></div>
+    <div><dt>Borders</dt><dd>14px chevron border round the envelope, 8px chevron strip on each card top, 2px postcode boxes, dashed stamp box.</dd></div>
+    <div><dt>Shadows</dt><dd>One soft blue shadow under the envelope, a 2px flat lip under cards.</dd></div>
+    <div><dt>Icons</dt><dd>A filled plane rides the route. Labels: filled circle for On track, diamond on a dashed label for At risk, square on red for Behind, clock for overdue. Envelope outlines in the log.</dd></div>
+    <div><dt>Tone</dt><dd>Warm letter writing, such as Dear Mara, Projects in transit and Correspondence.</dd></div>
+    <div><dt>Focus</dt><dd>3px blue outline offset 3px with a 6px soft red halo.</dd></div>
+  </dl>
+  <h3>Controls · normal and focus</h3>
+  <div class="ctl">
+    <div><span class="lab">Primary</span><button class="btn" type="button">New project</button><button class="btn is-focus" type="button">New project</button></div>
+    <div><span class="lab">Secondary</span><button class="btn sec" type="button">Cancel</button><button class="btn sec is-focus" type="button">Cancel</button></div>
+    <div><label class="field">Project name<input value="Website redesign"></label><label class="field">Project name, focused<input class="is-focus" value="Mobile app 2.0"></label></div>
+    <div><span class="lab">List row</span><div class="row">Mobile app 2.0<span class="lbl risk"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 .5 15.5 8 8 15.5.5 8z" fill="currentColor"/></svg>At risk</span></div><div class="row is-focus">Billing migration<span class="lbl late"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" fill="currentColor"/></svg>Behind</span></div></div>
+  </div>
+</section>
+</body>
+</html>

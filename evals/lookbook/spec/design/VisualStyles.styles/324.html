@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Style 324 · Pro streaming · Brightwork</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{color-scheme:dark}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img,svg{max-width:100%}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:inherit}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+h1,h2,h3,h4,p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+.ic{width:1.2em;height:1.2em;flex:none;vertical-align:-.22em}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+/* style sheet scaffold, themed per style through variables */
+.sheet{background:var(--s-bg);color:var(--s-ink);font-family:var(--s-font);padding:48px 32px 64px;border-top:var(--s-top,1px solid var(--s-line))}
+.sheet>*{max-width:1120px;margin-left:auto;margin-right:auto}
+.sheet h2{font-size:var(--s-h2,28px);line-height:1.2;margin-bottom:8px}
+.sheet .idea{color:var(--s-muted);max-width:760px;margin-bottom:32px;font-size:16px;line-height:1.55}
+.sheet h3{font-size:var(--s-h3,15px);margin:32px auto 16px;text-transform:var(--s-h3-case,none);letter-spacing:var(--s-h3-ls,0)}
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.sw{display:flex;gap:12px;align-items:flex-start;padding:12px;border:1px solid var(--s-line);border-radius:var(--s-r,6px);background:var(--s-panel);font-size:14px;line-height:1.45}
+.sw i{width:44px;height:44px;flex:none;border-radius:var(--s-r,6px);border:1px solid var(--s-line)}
+.sw span{color:var(--s-muted)}
+.type-row{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--s-line)}
+.type-row code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;color:var(--s-muted);min-width:180px}
+.type-row span{min-width:0;overflow-wrap:anywhere}
+.facts{display:grid;grid-template-columns:160px 1fr;gap:10px 24px;font-size:15px;line-height:1.55}
+.facts dt{font-weight:700;color:var(--s-ink)}
+.facts dd{color:var(--s-muted)}
+.controls{display:grid;gap:20px}
+.ctl{display:grid;grid-template-columns:160px 1fr;gap:12px 24px;align-items:center}
+.ctl-label{font-size:13px;color:var(--s-muted)}
+.ctl-pair{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center}
+.fld{display:grid;gap:6px;font-size:13px;color:var(--s-muted);min-width:0}
+.fld input{min-width:0;width:240px;max-width:100%}
+.lrow{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0;width:320px;max-width:100%}
+@media (max-width:640px){.sheet{padding:32px 16px 48px}.facts,.ctl{grid-template-columns:1fr}.facts dd{margin-bottom:8px}.type-row code{min-width:0}}
+
+
+:root{--base:#0f1012;--rail:#16171a;--card:#1f2125;--line:#2e3137;--ink:#f3f4f6;--muted:#a9aeb8;--coral:#ff8463;--on:#1d0a04;--soft:#3a211b;
+--s-bg:var(--base);--s-ink:var(--ink);--s-muted:var(--muted);--s-line:var(--line);--s-panel:var(--rail);--s-font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--s-r:8px;--s-h3:13px;--s-h3-case:uppercase;--s-h3-ls:.12em}
+body{background:var(--base);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+:focus-visible,.is-focus{outline:2px solid var(--coral);outline-offset:3px}
+.app{display:grid;grid-template-columns:232px minmax(0,1fr) 320px;grid-template-rows:1fr auto;min-height:100vh}
+.side{background:var(--rail);padding:24px 16px;display:flex;flex-direction:column;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;padding:0 8px}
+.brand i{width:28px;height:28px;border-radius:50%;background:var(--coral);display:grid;place-items:center;color:var(--on);font-style:normal;font-size:14px}
+.nav a{display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:8px;text-decoration:none;color:var(--muted);font-weight:600}
+.nav a[aria-current]{background:var(--soft);color:var(--ink)}
+.lab{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 8px;margin-bottom:8px}
+.pl a{display:flex;gap:12px;align-items:center;padding:8px;border-radius:8px;text-decoration:none}
+.pl a:hover{background:var(--card)}
+.pl .art{width:44px;height:44px;border-radius:6px;flex:none}
+.pl b{display:block;font-size:14px}.pl small{color:var(--muted);font-size:13px}
+.more{display:flex;flex-wrap:wrap;gap:8px;padding:0 8px}
+.more a{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;text-decoration:none;color:var(--ink)}
+main{padding:32px 40px 40px;min-width:0}
+.hero{display:grid;grid-template-columns:minmax(0,280px) minmax(0,1fr);gap:32px;align-items:end}
+.cover{border-radius:8px;box-shadow:0 24px 48px rgba(0,0,0,.5);display:block;width:100%;height:auto;aspect-ratio:1}
+.kick{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(40px,4.4vw,60px);overflow-wrap:anywhere;font-weight:800;letter-spacing:-.03em;line-height:1;margin:8px 0 12px}
+.by{font-size:20px;font-weight:600}.alb{color:var(--muted);margin-top:4px}
+.likes{display:inline-flex;align-items:center;gap:8px;margin-top:20px;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-weight:600;background:none}
+.likes .ic{color:var(--coral)}
+.lyr{margin-top:40px;background:var(--card);border-radius:8px;padding:24px}
+.lyr h2{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.lyr p{font-size:24px;font-weight:700;line-height:1.35;padding:8px 12px;border-radius:6px;color:var(--muted)}
+.lyr p.now{background:var(--soft);color:var(--ink)}
+.lyr p.now::before{content:"▸ ";color:var(--coral)}
+.queue{background:var(--rail);padding:24px 16px;min-width:0}
+.queue h2{font-size:17px;font-weight:800;padding:0 8px 12px}
+.queue li a{display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 8px;border-top:1px solid var(--line);text-decoration:none}
+.queue li a:hover{background:var(--card)}
+.lr-n{color:var(--muted);font-variant-numeric:tabular-nums;text-align:right}
+.lr-t b{display:block;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.lr-t small{color:var(--muted);font-size:13px}
+.lr-d{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.bar{grid-column:1/-1;background:var(--card);border-top:1px solid var(--line);display:grid;grid-template-columns:260px minmax(0,1fr) 240px;gap:24px;align-items:center;padding:12px 24px;position:sticky;bottom:0}
+.mini{display:flex;gap:12px;align-items:center;min-width:0}.mini svg{width:52px;height:52px;border-radius:6px;flex:none}
+.mini b{display:block;font-size:14px}.mini small{color:var(--muted);font-size:13px}
+.ctr{display:grid;gap:6px;justify-items:center}
+.btns{display:flex;gap:16px;align-items:center}
+.ib{background:none;border:0;color:var(--ink);width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:18px}
+.ib.off{color:var(--muted)}
+.pp{width:48px;height:48px;background:var(--coral);color:var(--on);border-radius:50%;border:0;display:grid;place-items:center;font-size:20px}
+.seek{display:flex;gap:12px;align-items:center;width:100%;max-width:560px;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.track{flex:1;height:4px;background:var(--line);border-radius:2px;position:relative}
+.track i{position:absolute;left:0;top:0;bottom:0;width:48%;background:var(--coral);border-radius:2px}
+.track i::after{content:"";position:absolute;right:-6px;top:-4px;width:12px;height:12px;border-radius:50%;background:var(--ink)}
+.vol{display:flex;gap:10px;align-items:center;justify-content:flex-end;font-size:13px;color:var(--muted)}
+.vol .track{max-width:120px}.vol .track i{width:70%;background:var(--ink)}.vol .track i::after{display:none}
+@media (max-width:1100px){.app{grid-template-columns:200px minmax(0,1fr)}.queue{grid-column:2}.bar{grid-template-columns:minmax(0,1fr) auto}.mini{display:none}}
+@media (max-width:760px){.app{display:flex;flex-direction:column}main{padding:20px 16px;order:1}.side{order:3;padding:24px 16px}.queue{order:2;padding:16px 8px}.bar{order:0;position:sticky;top:0;bottom:auto;grid-template-columns:1fr;padding:12px 16px;gap:8px}.vol{justify-content:center}
+.hero{grid-template-columns:1fr;gap:20px}.nav{display:flex;gap:4px;flex-wrap:wrap}.lyr p{font-size:20px}}
+.btn-p{background:var(--coral);color:var(--on);border:0;border-radius:999px;padding:12px 28px;font-weight:700}
+.btn-s{background:none;color:var(--ink);border:1px solid #6b7078;border-radius:999px;padding:11px 24px;font-weight:600}
+.fld input{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:10px 12px;color:var(--ink)}
+.lrow{display:grid;grid-template-columns:24px minmax(0,1fr) auto;padding:10px 8px;border-radius:6px;background:var(--rail)}
+.lrow .lr-t small{display:block}
+</style>
+</head>
+<body>
+
+<div class="app">
+<nav class="side" aria-label="Library">
+  <div class="brand"><i aria-hidden="true">B</i>Brightwork Sound</div>
+  <div class="nav"><a href="#" aria-current="page"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 11 12 4l8 7v9h-5.5v-5.5h-5V20H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Now playing</a><a href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Search</a><a href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4v16M10 4v16M15 4.5l4.5 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Your library</a></div>
+  <div><h2 class="lab">Playlists</h2>
+  <ul class="pl">
+    <li><a href="#"><svg class="art" viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" fill="#2b3f5e"/><circle cx="30" cy="14" r="7" fill="#f6c27a"/></svg><span><b>Morning focus</b><small>42 songs</small></span></a></li>
+    <li><a href="#"><svg class="art" viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" fill="#3d1f3a"/><path d="M0 34h44" stroke="#ff8463" stroke-width="4"/></svg><span><b>Late drive</b><small>28 songs</small></span></a></li>
+    <li><a href="#"><svg class="art" viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" fill="#ff8463"/><path d="M22 33s-10-6-10-13a5.5 5.5 0 0 1 10-3 5.5 5.5 0 0 1 10 3c0 7-10 13-10 13z" fill="#1d0a04"/></svg><span><b>Liked songs</b><small>311 songs</small></span></a></li>
+  </ul></div>
+  <div class="more"><a href="#">Albums</a><a href="#">Artists</a><a href="#">Podcasts</a></div>
+</nav>
+<main>
+  <section class="hero" aria-labelledby="np">
+    <svg class="cover" viewBox="0 0 360 360" role="img" aria-label="Cover art for Low Tide, a harbour at night with a row of lights over dark water">
+      <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b2a4a"/><stop offset=".55" stop-color="#3c3557"/><stop offset=".56" stop-color="#101a2c"/><stop offset="1" stop-color="#070b14"/></linearGradient></defs>
+      <rect width="360" height="360" fill="url(#sky)"/>
+      <path d="M0 196h360v6H0z" fill="#22263a"/>
+      <g fill="#ffcf8a"><circle cx="40" cy="192" r="3"/><circle cx="92" cy="190" r="3"/><circle cx="148" cy="192" r="3"/><circle cx="206" cy="189" r="3"/><circle cx="262" cy="192" r="3"/><circle cx="318" cy="190" r="3"/></g>
+      <g stroke="#ffcf8a" stroke-width="2" opacity=".55"><path d="M36 214h8M88 226h8M144 218h8M202 232h8M258 216h8M314 228h8M38 244h4M90 258h4M146 250h4M204 266h4M260 248h4M316 262h4"/></g>
+      <circle cx="286" cy="78" r="22" fill="#e8e1d0" opacity=".9"/>
+      <text x="24" y="330" fill="#f3f4f6" font-family="system-ui,sans-serif" font-size="30" font-weight="800" letter-spacing="-1">LOW TIDE</text>
+    </svg>
+    <div>
+      <p class="kick">Now playing</p>
+      <h1 id="np">Harbour Lights</h1>
+      <p class="by">The Saltmarsh Trio</p>
+      <p class="alb">From the album Low Tide</p>
+      <button class="likes" type="button" aria-pressed="true"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.2 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Liked</button>
+    </div>
+  </section>
+  <section class="lyr" aria-labelledby="ly">
+    <h2 id="ly">Lyrics</h2>
+    <p class="now" aria-current="true">And the harbour lights go out one by one</p>
+    <p>Still I wait for the slow boat home</p>
+  </section>
+</main>
+<section class="queue" aria-labelledby="qh">
+  <h2 id="qh">Up next</h2>
+  <ol>
+    <li><a href="#" id="q1"><span class="lr-n">1</span><span class="lr-t"><b>Paper Boats</b><small>The Saltmarsh Trio</small></span><span class="lr-d">3:52</span></a></li>
+    <li><a href="#"><span class="lr-n">2</span><span class="lr-t"><b>Fogbank</b><small>Mira Kell</small></span><span class="lr-d">5:10</span></a></li>
+    <li><a href="#"><span class="lr-n">3</span><span class="lr-t"><b>North Pier</b><small>Odd Weather</small></span><span class="lr-d">4:01</span></a></li>
+    <li><a href="#"><span class="lr-n">4</span><span class="lr-t"><b>Slow Ferry</b><small>The Saltmarsh Trio</small></span><span class="lr-d">6:24</span></a></li>
+    <li><a href="#"><span class="lr-n">5</span><span class="lr-t"><b>Lantern Walk</b><small>Juno Park</small></span><span class="lr-d">3:33</span></a></li>
+  </ol>
+</section>
+<section class="bar" aria-label="Player controls">
+  <div class="mini"><svg viewBox="0 0 52 52" aria-hidden="true"><rect width="52" height="52" fill="#1b2a4a"/><path d="M0 30h52v22H0z" fill="#0a1120"/><g fill="#ffcf8a"><circle cx="10" cy="29" r="1.6"/><circle cx="22" cy="29" r="1.6"/><circle cx="34" cy="29" r="1.6"/><circle cx="46" cy="29" r="1.6"/></g></svg><span><b>Harbour Lights</b><small>The Saltmarsh Trio</small></span></div>
+  <div class="ctr">
+    <div class="btns">
+      <button class="ib" type="button" aria-label="Shuffle" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7h3.5c2 0 3 1 4.2 2.6l2.6 3.8C14.5 15 15.5 17 17.5 17H21M3 17h3.5c1.4 0 2.3-.6 3.1-1.5M14.4 8.5C15.2 7.6 16 7 17.5 7H21M18.5 4.5 21 7l-2.5 2.5M18.5 14.5 21 17l-2.5 2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="ib" type="button" aria-label="Previous"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6v12l-9-6z" fill="currentColor"/><rect x="5.5" y="6" width="2.5" height="12" fill="currentColor"/></svg></button>
+      <button class="pp" type="button" aria-label="Pause, playing now"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6.5" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="13.5" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg></button>
+      <button class="ib" type="button" aria-label="Next"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6v12l9-6z" fill="currentColor"/><rect x="16" y="6" width="2.5" height="12" fill="currentColor"/></svg></button>
+      <button class="ib" type="button" aria-label="Repeat" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 11V9.5A2.5 2.5 0 0 1 6.5 7H19M16.5 4.5 19 7l-2.5 2.5M20 13v1.5a2.5 2.5 0 0 1-2.5 2.5H5M7.5 19.5 5 17l2.5-2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <div class="seek"><span>2:14</span><div class="track" role="progressbar" aria-label="Position" aria-valuemin="0" aria-valuemax="278" aria-valuenow="134" aria-valuetext="2:14 of 4:38"><i></i></div><span>4:38</span></div>
+  </div>
+  <div class="vol"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><div class="track" role="slider" tabindex="0" aria-label="Volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" aria-valuetext="70 percent"><i></i></div><span>70%</span></div>
+</section>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 324 · Pro streaming</h2>
+<p class="idea">A polished, generic dark streaming app with a big square cover art block leading the page, clean edge to edge lists, one warm coral accent and a fixed player bar along the bottom.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><i style="background:#0f1012"></i><div><b>Base</b> #0f1012<br><span>the page, the main column and the style sheet</span></div></li><li class="sw"><i style="background:#16171a"></i><div><b>Rail</b> #16171a<br><span>the library sidebar and the queue column</span></div></li><li class="sw"><i style="background:#1f2125"></i><div><b>Card</b> #1f2125<br><span>playlist tiles, the lyrics card, hover rows and the player bar</span></div></li><li class="sw"><i style="background:#2e3137"></i><div><b>Line</b> #2e3137<br><span>dividers, the seek track and field borders</span></div></li><li class="sw"><i style="background:#f3f4f6"></i><div><b>Ink</b> #f3f4f6<br><span>titles and body text</span></div></li><li class="sw"><i style="background:#a9aeb8"></i><div><b>Muted</b> #a9aeb8<br><span>artists, durations, counts and labels</span></div></li><li class="sw"><i style="background:#ff8463"></i><div><b>Coral</b> #ff8463<br><span>the play button, seek fill, the liked heart, links and focus</span></div></li><li class="sw"><i style="background:#1d0a04"></i><div><b>On coral</b> #1d0a04<br><span>the icon and text on coral</span></div></li><li class="sw"><i style="background:#3a211b"></i><div><b>Coral soft</b> #3a211b<br><span>the current lyric line wash and the selected nav tile</span></div></li></ul>
+<h3>Type · system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif</h3>
+<div class="type-row"><code>56 / 800 / 1.0 / -0.03em title</code><span style="font-size:56px;font-weight:800;letter-spacing:-.03em;line-height:1">Harbour Lights</span></div><div class="type-row"><code>20 / 600 artist line</code><span style="font-size:20px;font-weight:600">The Saltmarsh Trio</span></div><div class="type-row"><code>15 / 600 list title</code><span style="font-size:15px;font-weight:600">Paper Boats</span></div><div class="type-row"><code>13 / 400 meta, tabular</code><span style="font-size:13px;color:#a9aeb8;font-variant-numeric:tabular-nums">3:52 · 42 songs</span></div><div class="type-row"><code>11 / 700 / .12em caps label</code><span style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#a9aeb8">Up next</span></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3>
+<dl class="facts"><dt>Spacing</dt><dd>8px unit. 24px gutters, 16px card padding, 56px queue rows, a 88px player bar.</dd><dt>Density</dt><dd>Medium. One hero, five queue rows and a short library, nothing crowded.</dd><dt>Corners</dt><dd>8px cards and cover art, 4px fields, round play button, avatars and pills.</dd><dt>Borders</dt><dd>Almost none. Surfaces step from Base to Rail to Card, with 1px Line dividers between rows.</dd><dt>Shadows</dt><dd>One deep soft shadow under the cover art, 0 24px 48px black at 50 percent. Nothing else.</dd><dt>Icons</dt><dd>Solid transport glyphs, rounded 2px line icons for nav. The liked heart is filled and carries the word Liked.</dd><dt>Focus</dt><dd>A 2px coral outline offset 3px, round on round controls.</dd><dt>Tone</dt><dd>Short and familiar, such as Now playing, Up next, Your library and Liked.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls">
+<div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-p" type="button">Play</button><button class="btn-p is-focus" type="button">Play</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-s" type="button">Add to playlist</button><button class="btn-s is-focus" type="button">Add to playlist</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="fld"><span>Search songs</span><input type="text" value="harbour"></label><label class="fld"><span>Search songs, focused</span><input type="text" class="is-focus" value="harbour"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><a class="lrow" href="#q1"><span class="lr-n">1</span><span class="lr-t"><b>Paper Boats</b><small>The Saltmarsh Trio</small></span><span class="lr-d">3:52</span></a><a class="lrow is-focus" href="#q1"><span class="lr-n">1</span><span class="lr-t"><b>Paper Boats</b><small>The Saltmarsh Trio</small></span><span class="lr-d">3:52</span></a></div></div>
+</div>
+</section>
+</body>
+</html>

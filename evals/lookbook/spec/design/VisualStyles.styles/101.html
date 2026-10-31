@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 101 · Chess notation · Brightwork</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;overflow-x:hidden}
+img,svg{max-width:100%}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sheet .swatches{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.sheet .sw{display:flex;gap:12px;align-items:flex-start}
+.sheet .chip{flex:none;width:44px;height:44px}
+.sheet .type-row{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:16px;align-items:baseline;padding:8px 0}
+.sheet .type-row span{overflow-wrap:anywhere}
+.sheet .facts{display:grid;grid-template-columns:140px minmax(0,1fr);gap:8px 16px;margin:0}
+.sheet .facts dd{margin:0}
+.sheet .controls{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.sheet .ctl-label{display:block;margin-bottom:6px}
+.sheet .field input{width:100%}
+.sheet .row-demo{display:flex;justify-content:space-between;align-items:center;gap:12px;text-decoration:none}
+@media (max-width:640px){
+.sheet .type-row{grid-template-columns:1fr;gap:4px}
+.sheet .facts{grid-template-columns:1fr;gap:2px}
+.sheet .facts dd{margin-bottom:10px}
+}
+
+:root{--paper:#fbfaf7;--ink:#161616;--graph:#3b3b3b;--walnut:#6b4a2b;--light:#f1e9da;--dark:#e2d4bb;--green:#24603e;--amber:#8a5200;--red:#a02020;
+--geo:Futura,"Century Gothic","Avenir Next","Segoe UI",system-ui,sans-serif;--serif:Georgia,"Times New Roman",serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,"DejaVu Sans Mono",monospace}
+body{background:var(--paper);color:var(--ink);font:15px/1.5 var(--serif)}
+a{color:var(--ink)}
+.sym{width:1.25em;height:1.25em;flex:none}
+.hdr{border-bottom:2px solid var(--ink)}
+.hdr-in{max-width:1200px;margin:0 auto;padding:12px 24px 0}
+.brandrow{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{margin:0;font:600 24px var(--geo);letter-spacing:.06em;text-transform:uppercase}
+.tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.search input,.field input{font:14px var(--mono);padding:8px 10px;border:1px solid var(--ink);background:#fff;color:var(--ink);width:240px;border-radius:0}
+.bell{display:inline-flex;align-items:center;gap:2px;color:var(--ink);text-decoration:none;font:600 13px var(--mono);min-height:40px}
+.bell svg{width:22px;height:22px}
+.btn{font:600 13px var(--geo);letter-spacing:.12em;text-transform:uppercase;padding:10px 18px;cursor:pointer;border-radius:0}
+.btn.primary{background:var(--ink);color:var(--paper);border:1px solid var(--ink)}
+.btn.secondary{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+.event{width:100%;border-collapse:collapse;margin:12px 0 0;font-size:14px}
+.event th,.event td{border:1px solid var(--ink);padding:6px 10px;text-align:left}
+.event th{font:600 11px var(--geo);letter-spacing:.14em;text-transform:uppercase;width:80px;background:var(--light)}
+.nav{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap}
+.nav li{flex:1 1 auto}
+.nav a{display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 12px;text-decoration:none;font:500 14px var(--geo);border-right:1px solid var(--ink)}
+.nav li:last-child a{border-right:0}
+.file{font:700 13px var(--mono);color:var(--walnut)}
+.nav a[aria-current]{background:var(--ink);color:var(--paper)}
+.nav a[aria-current] .file{color:var(--dark)}
+.wrap{max-width:1200px;margin:0 auto;padding:32px 24px 64px}
+.hello{display:flex;align-items:baseline;justify-content:space-between;gap:12px 24px;flex-wrap:wrap}
+h1{font:500 clamp(30px,4vw,44px)/1.1 var(--geo);margin:0}
+.warn{display:inline-flex;gap:8px;align-items:center;margin:0;color:var(--red);font-size:17px}
+.ranks{list-style:none;padding:0;margin:24px 0 40px;display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--ink)}
+.ranks li{padding:18px 16px;display:flex;flex-direction:column;gap:4px}
+.ranks .l{background:var(--light)}
+.ranks .d{background:var(--walnut);color:#fff}
+.ranks b{font:700 52px/1 var(--mono)}
+.ranks span{font:500 13px var(--geo);letter-spacing:.06em;text-transform:uppercase;display:flex;gap:6px;align-items:center}
+.ranks .ov{color:var(--red)}
+.block{margin-bottom:40px}
+.bh{border-bottom:2px solid var(--ink);margin-bottom:12px;padding-bottom:6px}
+h2{font:600 18px var(--geo);letter-spacing:.14em;text-transform:uppercase;margin:0}
+.legend{margin:2px 0 0;font-size:13px;color:var(--graph)}
+.table-wrap{overflow-x:auto}
+.std{width:100%;border-collapse:collapse;min-width:720px}
+.std th,.std td{border-bottom:1px solid var(--ink);padding:10px 8px;text-align:left;vertical-align:middle}
+.std thead th{font:600 11px var(--geo);letter-spacing:.14em;text-transform:uppercase;border-bottom:2px solid var(--ink)}
+.std tbody tr:nth-child(even){background:#f6f1e7}
+.std .n,.std .num,.std .due{font:14px var(--mono)}
+.std .pc{font-size:28px;line-height:1;width:36px;color:var(--ink);font-family:"Segoe UI Symbol","DejaVu Sans","Noto Sans Symbols2",sans-serif;font-weight:700}
+.std th[scope=row]{font-weight:400}
+.std th[scope=row] a{font-size:16px;text-decoration:none}
+.std th[scope=row] a:hover{text-decoration:underline}
+.team{display:block;font:12px var(--geo);color:var(--graph);letter-spacing:.06em}
+.rank{display:inline-flex;border:1px solid var(--ink);vertical-align:middle;margin-right:8px}
+.rank i{width:14px;height:14px}
+.rank i.l{background:var(--light)}.rank i.d{background:var(--dark)}
+.rank i.on{background:var(--ink)}
+.pct{font:600 14px var(--mono)}
+.st{display:inline-flex;align-items:center;gap:6px;font:600 13px var(--geo);white-space:nowrap}
+.st-on{color:var(--green)}.st-risk{color:var(--amber)}.st-behind{color:var(--red)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
+.chart{width:100%;height:auto;display:block;font-family:var(--mono)}
+.moves{list-style:none;padding:0;margin:0;counter-reset:m}
+.moves li{display:grid;grid-template-columns:28px 92px minmax(0,1fr);gap:2px 10px;padding:8px 0;border-bottom:1px solid #cfc6b6}
+.mn{font:700 14px var(--mono)}
+.moves code{font:600 14px var(--mono);color:var(--walnut)}
+.moves p{margin:0}
+.moves .when{grid-column:3;font:12px var(--mono);color:var(--graph)}
+q{quotes:"\201C" "\201D"}
+:focus-visible,.is-focus{outline:3px solid var(--ink)!important;outline-offset:2px;box-shadow:0 0 0 6px var(--dark)!important}
+.sheet{margin-top:64px;border-top:2px solid var(--ink);padding-top:24px}
+.sheet h2{font:500 34px var(--geo);letter-spacing:0;text-transform:none}
+.sheet h3{font:600 14px var(--geo);letter-spacing:.14em;text-transform:uppercase;margin:32px 0 12px;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.sheet .idea{font-size:18px;max-width:62ch}
+.sheet .chip{border:1px solid var(--ink)}
+.sheet code{font:13px var(--mono)}
+.sheet .ctl-label{font:600 11px var(--geo);letter-spacing:.14em;text-transform:uppercase;color:var(--graph)}
+.sheet .field input{width:100%}
+.sheet .row-demo{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:10px 6px;color:var(--ink);font-size:16px}
+@media (max-width:900px){.two{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){
+.hdr-in{padding:12px 16px 0}.tools{width:100%}.search{flex:1 1 100%}.search input{width:100%}.btn.primary{margin-left:auto}
+.event th{width:auto}
+.event tr{display:grid;grid-template-columns:auto 1fr}
+.nav li{flex:1 1 33%}.nav a{border-bottom:1px solid var(--ink);font-size:13px;padding:8px 6px}
+.wrap{padding:24px 16px 48px}
+.ranks{grid-template-columns:1fr 1fr}
+.ranks li:nth-child(3){background:var(--walnut);color:#fff}
+.ranks li:nth-child(4){background:var(--light);color:var(--ink)}
+.ranks .ov{color:#fff!important}
+.ranks b{font-size:40px}
+.chart-wrap{overflow-x:auto}.chart{min-width:440px}
+.moves li{grid-template-columns:24px minmax(0,1fr)}
+.std{min-width:0;display:block}.std tbody{display:block}
+.std thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.std tr{display:grid;grid-template-columns:22px 30px minmax(0,1fr) auto;gap:6px 8px;padding:12px 4px;border-bottom:1px solid var(--ink)}
+.std td,.std th{border:0!important;padding:0!important}
+.std .n{grid-row:1;grid-column:1}.std .pc{grid-row:1;grid-column:2}.std th[scope=row]{grid-row:1;grid-column:3/5}
+.std .num{grid-row:2;grid-column:3}.std .due{grid-row:2;grid-column:4}
+.std td:nth-child(5){grid-row:3;grid-column:3/5}.std td:nth-child(7){grid-row:4;grid-column:3/5}
+.moves code{grid-column:2}.moves p,.moves .when{grid-column:2}
+}
+
+</style>
+</head>
+<body>
+<header class="hdr">
+<div class="hdr-in">
+<div class="brandrow">
+<p class="brand"><span aria-hidden="true">♚</span> Brightwork</p>
+<div class="tools">
+<label class="search"><span class="vh">Search projects and tasks</span><input type="search" placeholder="Search projects and tasks"></label>
+<a href="#" class="bell" aria-label="Notifications, 3 new"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0-6 6v4l-2 3h16l-2-3V9a6 6 0 0 0-6-6zM9.5 19a2.5 2.5 0 0 0 5 0" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>3</span></a>
+<button class="btn primary">New project</button>
+</div>
+</div>
+<table class="event" aria-label="Scoresheet header">
+<tr><th scope="row">Player</th><td>Mara Okafor</td><th scope="row">Date</th><td>Saturday 31 October 2026</td></tr>
+</table>
+<nav aria-label="Main"><ul class="nav"><li><a href="#" aria-current="page"><span class="file" aria-hidden="true">a</span>Home</a></li>
+<li><a href="#"><span class="file" aria-hidden="true">b</span>Projects</a></li>
+<li><a href="#"><span class="file" aria-hidden="true">c</span>Tasks</a></li>
+<li><a href="#"><span class="file" aria-hidden="true">d</span>Team</a></li>
+<li><a href="#"><span class="file" aria-hidden="true">e</span>Reports</a></li>
+<li><a href="#"><span class="file" aria-hidden="true">f</span>Settings</a></li></ul></nav>
+</div>
+</header>
+<main class="wrap">
+<section class="hello" aria-labelledby="hello-h">
+<h1 id="hello-h">Good morning, Mara.</h1>
+<p class="warn"><svg class="sym" viewBox="0 0 22 22" aria-hidden="true"><rect x="1.5" y="1.5" width="19" height="19" fill="currentColor"/><text x="11" y="15" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" font-family="Georgia,serif">??</text></svg><span><b>Check.</b> 4 tasks are overdue.</span></p>
+</section>
+<ul class="ranks" aria-label="Summary">
+<li class="l"><b>6</b><span>Active projects</span></li>
+<li class="d"><b>23</b><span>Tasks due this week</span></li>
+<li class="l ov"><b>4</b><span><svg class="sym" viewBox="0 0 22 22" aria-hidden="true"><rect x="1.5" y="1.5" width="19" height="19" fill="currentColor"/><text x="11" y="15" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" font-family="Georgia,serif">??</text></svg> Overdue tasks</span></li>
+<li class="d"><b>186</b><span>Hours logged this week</span></li>
+</ul>
+<section class="block" aria-labelledby="std-h">
+<div class="bh"><h2 id="std-h">Standings</h2><p class="legend">Pieces mark the team: ♗ Design, ♖ Engineering, ♘ Research, ♕ Marketing. The rank of eight squares shows progress.</p></div>
+<div class="table-wrap">
+<table class="std">
+<thead><tr><th scope="col">No.</th><th scope="col"><span class="vh">Team piece</span></th><th scope="col">Project</th><th scope="col">Tasks</th><th scope="col">Progress</th><th scope="col">Due</th><th scope="col">Status</th></tr></thead>
+<tbody><tr>
+<td class="n">1</td>
+<td class="pc"><span title="bishop" aria-hidden="true">♗</span></td>
+<th scope="row"><a href="#">Website redesign</a><span class="team">Design</span></th>
+<td class="num">18/25</td>
+<td><span class="rank" aria-hidden="true"><i class="on l"></i><i class="on d"></i><i class="on l"></i><i class="on d"></i><i class="on l"></i><i class="on d"></i><i class=" l"></i><i class=" d"></i></span><span class="pct">72%</span></td>
+<td class="due">14 Nov</td>
+<td><span class="st st-on"><svg class="sym" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9.5" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="11" y="15.5" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor" font-family="Georgia,serif">!</text></svg>On track</span></td>
+</tr>
+<tr>
+<td class="n">2</td>
+<td class="pc"><span title="rook" aria-hidden="true">♖</span></td>
+<th scope="row"><a href="#">Mobile app 2.0</a><span class="team">Engineering</span></th>
+<td class="num">27/60</td>
+<td><span class="rank" aria-hidden="true"><i class="on l"></i><i class="on d"></i><i class="on l"></i><i class="on d"></i><i class=" l"></i><i class=" d"></i><i class=" l"></i><i class=" d"></i></span><span class="pct">45%</span></td>
+<td class="due">2 Dec</td>
+<td><span class="st st-risk"><svg class="sym" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 1 21 11 11 21 1 11z" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="11" y="15" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor" font-family="Georgia,serif">?!</text></svg>At risk</span></td>
+</tr>
+<tr>
+<td class="n">3</td>
+<td class="pc"><span title="knight" aria-hidden="true">♘</span></td>
+<th scope="row"><a href="#">Q4 customer survey</a><span class="team">Research</span></th>
+<td class="num">9/10</td>
+<td><span class="rank" aria-hidden="true"><i class="on l"></i><i class="on d"></i><i class="on l"></i><i class="on d"></i><i class="on l"></i><i class="on d"></i><i class="on l"></i><i class=" d"></i></span><span class="pct">90%</span></td>
+<td class="due">7 Nov</td>
+<td><span class="st st-on"><svg class="sym" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9.5" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="11" y="15.5" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor" font-family="Georgia,serif">!</text></svg>On track</span></td>
+</tr>
+<tr>
+<td class="n">4</td>
+<td class="pc"><span title="rook" aria-hidden="true">♖</span></td>
+<th scope="row"><a href="#">Billing migration</a><span class="team">Engineering</span></th>
+<td class="num">12/40</td>
+<td><span class="rank" aria-hidden="true"><i class="on l"></i><i class="on d"></i><i class=" l"></i><i class=" d"></i><i class=" l"></i><i class=" d"></i><i class=" l"></i><i class=" d"></i></span><span class="pct">30%</span></td>
+<td class="due">20 Nov</td>
+<td><span class="st st-behind"><svg class="sym" viewBox="0 0 22 22" aria-hidden="true"><rect x="1.5" y="1.5" width="19" height="19" fill="currentColor"/><text x="11" y="15" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" font-family="Georgia,serif">??</text></svg>Behind</span></td>
+</tr>
+<tr>
+<td class="n">5</td>
+<td class="pc"><span title="queen" aria-hidden="true">♕</span></td>
+<th scope="row"><a href="#">Spring catalogue</a><span class="team">Marketing</span></th>
+<td class="num">3/20</td>
+<td><span class="rank" aria-hidden="true"><i class="on l"></i><i class=" d"></i><i class=" l"></i><i class=" d"></i><i class=" l"></i><i class=" d"></i><i class=" l"></i><i class=" d"></i></span><span class="pct">15%</span></td>
+<td class="due">15 Jan</td>
+<td><span class="st st-on"><svg class="sym" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9.5" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="11" y="15.5" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor" font-family="Georgia,serif">!</text></svg>On track</span></td>
+</tr>
+<tr>
+<td class="n">6</td>
+<td class="pc"><span title="queen" aria-hidden="true">♕</span></td>
+<th scope="row"><a href="#">Onboarding emails</a><span class="team">Marketing</span></th>
+<td class="num">9/15</td>
+<td><span class="rank" aria-hidden="true"><i class="on l"></i><i class="on d"></i><i class="on l"></i><i class="on d"></i><i class="on l"></i><i class=" d"></i><i class=" l"></i><i class=" d"></i></span><span class="pct">60%</span></td>
+<td class="due">21 Nov</td>
+<td><span class="st st-on"><svg class="sym" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9.5" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="11" y="15.5" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor" font-family="Georgia,serif">!</text></svg>On track</span></td>
+</tr></tbody>
+</table>
+</div>
+</section>
+<div class="two">
+<section class="block" aria-labelledby="ch-h">
+<div class="bh"><h2 id="ch-h">Fourteen ranks</h2><p class="legend">Tasks completed per day, one square per task, Sunday 18 to Saturday 31 October.</p></div>
+<div class="chart-wrap"><svg class="chart" viewBox="0 0 474 300" role="img" aria-label="Tasks completed per day from Sunday 18 October to Saturday 31 October: 3, 12, 9, 14, 11, 8, 2, then 4, 15, 13, 17, 12, 10, 2. Last week 59, this week 73.">
+<text x="32" y="262" text-anchor="end" font-size="10" fill="#3b3b3b">0</text><text x="32" y="206" text-anchor="end" font-size="10" fill="#3b3b3b">4</text><text x="32" y="150" text-anchor="end" font-size="10" fill="#3b3b3b">8</text><text x="32" y="94" text-anchor="end" font-size="10" fill="#3b3b3b">12</text><text x="32" y="38" text-anchor="end" font-size="10" fill="#3b3b3b">16</text>
+<rect x="40" y="244" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="40" y="230" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="40" y="216" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="40" y="202" width="30" height="14" fill="#e2d4bb"/><rect x="40" y="188" width="30" height="14" fill="#f1e9da"/><rect x="40" y="174" width="30" height="14" fill="#e2d4bb"/><rect x="40" y="160" width="30" height="14" fill="#f1e9da"/><rect x="40" y="146" width="30" height="14" fill="#e2d4bb"/><rect x="40" y="132" width="30" height="14" fill="#f1e9da"/><rect x="40" y="118" width="30" height="14" fill="#e2d4bb"/><rect x="40" y="104" width="30" height="14" fill="#f1e9da"/><rect x="40" y="90" width="30" height="14" fill="#e2d4bb"/><rect x="40" y="76" width="30" height="14" fill="#f1e9da"/><rect x="40" y="62" width="30" height="14" fill="#e2d4bb"/><rect x="40" y="48" width="30" height="14" fill="#f1e9da"/><rect x="40" y="34" width="30" height="14" fill="#e2d4bb"/><rect x="40" y="20" width="30" height="14" fill="#f1e9da"/><text x="55" y="227" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">3</text><text x="55" y="273" text-anchor="middle" font-size="11" fill="#3b3b3b">s18</text><rect x="70" y="244" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="70" y="230" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="70" y="216" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="70" y="202" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="70" y="188" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="70" y="174" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="70" y="160" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="70" y="146" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="70" y="132" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="70" y="118" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="70" y="104" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="70" y="90" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="70" y="76" width="30" height="14" fill="#e2d4bb"/><rect x="70" y="62" width="30" height="14" fill="#f1e9da"/><rect x="70" y="48" width="30" height="14" fill="#e2d4bb"/><rect x="70" y="34" width="30" height="14" fill="#f1e9da"/><rect x="70" y="20" width="30" height="14" fill="#e2d4bb"/><text x="85" y="101" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">12</text><text x="85" y="273" text-anchor="middle" font-size="11" fill="#3b3b3b">m19</text><rect x="100" y="244" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="100" y="230" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="100" y="216" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="100" y="202" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="100" y="188" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="100" y="174" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="100" y="160" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="100" y="146" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="100" y="132" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="100" y="118" width="30" height="14" fill="#e2d4bb"/><rect x="100" y="104" width="30" height="14" fill="#f1e9da"/><rect x="100" y="90" width="30" height="14" fill="#e2d4bb"/><rect x="100" y="76" width="30" height="14" fill="#f1e9da"/><rect x="100" y="62" width="30" height="14" fill="#e2d4bb"/><rect x="100" y="48" width="30" height="14" fill="#f1e9da"/><rect x="100" y="34" width="30" height="14" fill="#e2d4bb"/><rect x="100" y="20" width="30" height="14" fill="#f1e9da"/><text x="115" y="143" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">9</text><text x="115" y="273" text-anchor="middle" font-size="11" fill="#3b3b3b">t20</text><rect x="130" y="244" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="130" y="230" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="130" y="216" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="130" y="202" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="130" y="188" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="130" y="174" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="130" y="160" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="130" y="146" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="130" y="132" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="130" y="118" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="130" y="104" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="130" y="90" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="130" y="76" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="130" y="62" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="130" y="48" width="30" height="14" fill="#e2d4bb"/><rect x="130" y="34" width="30" height="14" fill="#f1e9da"/><rect x="130" y="20" width="30" height="14" fill="#e2d4bb"/><text x="145" y="73" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">14</text><text x="145" y="273" text-anchor="middle" font-size="11" fill="#3b3b3b">w21</text><rect x="160" y="244" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="160" y="230" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="160" y="216" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="160" y="202" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="160" y="188" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="160" y="174" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="160" y="160" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="160" y="146" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="160" y="132" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="160" y="118" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="160" y="104" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="160" y="90" width="30" height="14" fill="#e2d4bb"/><rect x="160" y="76" width="30" height="14" fill="#f1e9da"/><rect x="160" y="62" width="30" height="14" fill="#e2d4bb"/><rect x="160" y="48" width="30" height="14" fill="#f1e9da"/><rect x="160" y="34" width="30" height="14" fill="#e2d4bb"/><rect x="160" y="20" width="30" height="14" fill="#f1e9da"/><text x="175" y="115" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">11</text><text x="175" y="273" text-anchor="middle" font-size="11" fill="#3b3b3b">t22</text><rect x="190" y="244" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="190" y="230" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="190" y="216" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="190" y="202" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="190" y="188" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="190" y="174" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="190" y="160" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="190" y="146" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="190" y="132" width="30" height="14" fill="#e2d4bb"/><rect x="190" y="118" width="30" height="14" fill="#f1e9da"/><rect x="190" y="104" width="30" height="14" fill="#e2d4bb"/><rect x="190" y="90" width="30" height="14" fill="#f1e9da"/><rect x="190" y="76" width="30" height="14" fill="#e2d4bb"/><rect x="190" y="62" width="30" height="14" fill="#f1e9da"/><rect x="190" y="48" width="30" height="14" fill="#e2d4bb"/><rect x="190" y="34" width="30" height="14" fill="#f1e9da"/><rect x="190" y="20" width="30" height="14" fill="#e2d4bb"/><text x="205" y="157" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">8</text><text x="205" y="273" text-anchor="middle" font-size="11" fill="#3b3b3b">f23</text><rect x="220" y="244" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="220" y="230" width="30" height="14" fill="#6b4a2b" stroke="#fbfaf7" stroke-width="1"/><rect x="220" y="216" width="30" height="14" fill="#f1e9da"/><rect x="220" y="202" width="30" height="14" fill="#e2d4bb"/><rect x="220" y="188" width="30" height="14" fill="#f1e9da"/><rect x="220" y="174" width="30" height="14" fill="#e2d4bb"/><rect x="220" y="160" width="30" height="14" fill="#f1e9da"/><rect x="220" y="146" width="30" height="14" fill="#e2d4bb"/><rect x="220" y="132" width="30" height="14" fill="#f1e9da"/><rect x="220" y="118" width="30" height="14" fill="#e2d4bb"/><rect x="220" y="104" width="30" height="14" fill="#f1e9da"/><rect x="220" y="90" width="30" height="14" fill="#e2d4bb"/><rect x="220" y="76" width="30" height="14" fill="#f1e9da"/><rect x="220" y="62" width="30" height="14" fill="#e2d4bb"/><rect x="220" y="48" width="30" height="14" fill="#f1e9da"/><rect x="220" y="34" width="30" height="14" fill="#e2d4bb"/><rect x="220" y="20" width="30" height="14" fill="#f1e9da"/><text x="235" y="241" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">2</text><text x="235" y="273" text-anchor="middle" font-size="11" fill="#3b3b3b">s24</text><rect x="264" y="244" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="264" y="230" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="264" y="216" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="264" y="202" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="264" y="188" width="30" height="14" fill="#e2d4bb"/><rect x="264" y="174" width="30" height="14" fill="#f1e9da"/><rect x="264" y="160" width="30" height="14" fill="#e2d4bb"/><rect x="264" y="146" width="30" height="14" fill="#f1e9da"/><rect x="264" y="132" width="30" height="14" fill="#e2d4bb"/><rect x="264" y="118" width="30" height="14" fill="#f1e9da"/><rect x="264" y="104" width="30" height="14" fill="#e2d4bb"/><rect x="264" y="90" width="30" height="14" fill="#f1e9da"/><rect x="264" y="76" width="30" height="14" fill="#e2d4bb"/><rect x="264" y="62" width="30" height="14" fill="#f1e9da"/><rect x="264" y="48" width="30" height="14" fill="#e2d4bb"/><rect x="264" y="34" width="30" height="14" fill="#f1e9da"/><rect x="264" y="20" width="30" height="14" fill="#e2d4bb"/><text x="279" y="213" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">4</text><text x="279" y="273" text-anchor="middle" font-size="11" fill="#3b3b3b">s25</text><rect x="294" y="244" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="294" y="230" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="294" y="216" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="294" y="202" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="294" y="188" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="294" y="174" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="294" y="160" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="294" y="146" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="294" y="132" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="294" y="118" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="294" y="104" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="294" y="90" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="294" y="76" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="294" y="62" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="294" y="48" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="294" y="34" width="30" height="14" fill="#e2d4bb"/><rect x="294" y="20" width="30" height="14" fill="#f1e9da"/><text x="309" y="59" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">15</text><text x="309" y="273" text-anchor="middle" font-size="11" fill="#3b3b3b">m26</text><rect x="324" y="244" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="324" y="230" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="324" y="216" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="324" y="202" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="324" y="188" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="324" y="174" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="324" y="160" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="324" y="146" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="324" y="132" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="324" y="118" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="324" y="104" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="324" y="90" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="324" y="76" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="324" y="62" width="30" height="14" fill="#f1e9da"/><rect x="324" y="48" width="30" height="14" fill="#e2d4bb"/><rect x="324" y="34" width="30" height="14" fill="#f1e9da"/><rect x="324" y="20" width="30" height="14" fill="#e2d4bb"/><text x="339" y="87" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">13</text><text x="339" y="273" text-anchor="middle" font-size="11" fill="#3b3b3b">t27</text><rect x="354" y="244" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="354" y="230" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="354" y="216" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="354" y="202" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="354" y="188" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="354" y="174" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="354" y="160" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="354" y="146" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="354" y="132" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="354" y="118" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="354" y="104" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="354" y="90" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="354" y="76" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="354" y="62" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="354" y="48" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="354" y="34" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="354" y="20" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><text x="369" y="31" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">17</text><text x="369" y="273" text-anchor="middle" font-size="11" fill="#3b3b3b">w28</text><rect x="384" y="244" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="384" y="230" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="384" y="216" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="384" y="202" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="384" y="188" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="384" y="174" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="384" y="160" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="384" y="146" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="384" y="132" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="384" y="118" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="384" y="104" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="384" y="90" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="384" y="76" width="30" height="14" fill="#e2d4bb"/><rect x="384" y="62" width="30" height="14" fill="#f1e9da"/><rect x="384" y="48" width="30" height="14" fill="#e2d4bb"/><rect x="384" y="34" width="30" height="14" fill="#f1e9da"/><rect x="384" y="20" width="30" height="14" fill="#e2d4bb"/><text x="399" y="101" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">12</text><text x="399" y="273" text-anchor="middle" font-size="11" fill="#3b3b3b">t29</text><rect x="414" y="244" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="414" y="230" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="414" y="216" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="414" y="202" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="414" y="188" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="414" y="174" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="414" y="160" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="414" y="146" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="414" y="132" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="414" y="118" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="414" y="104" width="30" height="14" fill="#f1e9da"/><rect x="414" y="90" width="30" height="14" fill="#e2d4bb"/><rect x="414" y="76" width="30" height="14" fill="#f1e9da"/><rect x="414" y="62" width="30" height="14" fill="#e2d4bb"/><rect x="414" y="48" width="30" height="14" fill="#f1e9da"/><rect x="414" y="34" width="30" height="14" fill="#e2d4bb"/><rect x="414" y="20" width="30" height="14" fill="#f1e9da"/><text x="429" y="129" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">10</text><text x="429" y="273" text-anchor="middle" font-size="11" fill="#3b3b3b">f30</text><rect x="444" y="244" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="444" y="230" width="30" height="14" fill="#161616" stroke="#fbfaf7" stroke-width="1"/><rect x="444" y="216" width="30" height="14" fill="#e2d4bb"/><rect x="444" y="202" width="30" height="14" fill="#f1e9da"/><rect x="444" y="188" width="30" height="14" fill="#e2d4bb"/><rect x="444" y="174" width="30" height="14" fill="#f1e9da"/><rect x="444" y="160" width="30" height="14" fill="#e2d4bb"/><rect x="444" y="146" width="30" height="14" fill="#f1e9da"/><rect x="444" y="132" width="30" height="14" fill="#e2d4bb"/><rect x="444" y="118" width="30" height="14" fill="#f1e9da"/><rect x="444" y="104" width="30" height="14" fill="#e2d4bb"/><rect x="444" y="90" width="30" height="14" fill="#f1e9da"/><rect x="444" y="76" width="30" height="14" fill="#e2d4bb"/><rect x="444" y="62" width="30" height="14" fill="#f1e9da"/><rect x="444" y="48" width="30" height="14" fill="#e2d4bb"/><rect x="444" y="34" width="30" height="14" fill="#f1e9da"/><rect x="444" y="20" width="30" height="14" fill="#e2d4bb"/><text x="459" y="241" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">2</text><text x="459" y="273" text-anchor="middle" font-size="11" fill="#3b3b3b">s31</text>
+<rect x="40" y="20" width="210" height="238" fill="none" stroke="#161616"/>
+<rect x="264" y="20" width="210" height="238" fill="none" stroke="#161616"/>
+<text x="145" y="292" text-anchor="middle" font-size="12" fill="#161616">Week one · 59</text>
+<text x="369" y="292" text-anchor="middle" font-size="12" font-weight="700" fill="#161616">Week two · 73</text>
+</svg></div>
+</section>
+<section class="block" aria-labelledby="mv-h">
+<div class="bh"><h2 id="mv-h">Moves</h2><p class="legend">Latest first. × completed, !? comment, → moved, + added, h logged, ↑ upload.</p></div>
+<ol class="moves"><li><span class="mn">1.</span><code>BM×CSV</code><p><b>Jonas Weber</b> completed <q>Export invoices as CSV</q> in <a href="#">Billing migration</a></p><span class="when">12 min ago</span></li>
+<li><span class="mn">2.</span><code>WR!?hero</code><p><b>Priya Nair</b> commented on <q>Hero image options</q> in <a href="#">Website redesign</a></p><span class="when">40 min ago</span></li>
+<li><span class="mn">3.</span><code>MA→R</code><p><b>Sam Ortiz</b> moved <q>Push notifications</q> to Review in <a href="#">Mobile app 2.0</a></p><span class="when">1 h ago</span></li>
+<li><span class="mn">4.</span><code>SC+3</code><p><b>Lena Fischer</b> added 3 tasks to <a href="#">Spring catalogue</a></p><span class="when">2 h ago</span></li>
+<li><span class="mn">5.</span><code>MA 6h</code><p><b>Tomás Ruiz</b> logged 6 h on <a href="#">Mobile app 2.0</a></p><span class="when">3 h ago</span></li>
+<li><span class="mn">6.</span><code>QS↑pdf</code><p><b>Aiko Tanaka</b> uploaded <q>survey-results-v2.pdf</q> to <a href="#">Q4 customer survey</a></p><span class="when">yesterday</span></li></ol>
+</section>
+</div>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 101 · Chess notation</h2>
+<p class="idea">The dashboard kept like a tournament scoresheet, with board files for navigation, the totals on a checkered rank, projects in a standings table with chess pieces and annotation marks, and activity written as numbered moves.</p>
+<h3>Palette</h3>
+<ul class="swatches">
+<li class="sw"><span class="chip" style="background:#fbfaf7"></span><span><b>Scoresheet</b> <code>#fbfaf7</code><br>the page, tables and fields</span></li>
+<li class="sw"><span class="chip" style="background:#161616"></span><span><b>Ink</b> <code>#161616</code><br>text, rules, week two squares, the primary button</span></li>
+<li class="sw"><span class="chip" style="background:#3b3b3b"></span><span><b>Graphite</b> <code>#3b3b3b</code><br>meta, legends, axis labels</span></li>
+<li class="sw"><span class="chip" style="background:#6b4a2b"></span><span><b>Walnut</b> <code>#6b4a2b</code><br>dark board squares, week one squares, the file letters</span></li>
+<li class="sw"><span class="chip" style="background:#f1e9da"></span><span><b>Light square</b> <code>#f1e9da</code><br>light board squares, row stripes</span></li>
+<li class="sw"><span class="chip" style="background:#e2d4bb"></span><span><b>Dark square</b> <code>#e2d4bb</code><br>empty dark squares on the chart</span></li>
+<li class="sw"><span class="chip" style="background:#24603e"></span><span><b>Green</b> <code>#24603e</code><br>On track, a circled !</span></li>
+<li class="sw"><span class="chip" style="background:#8a5200"></span><span><b>Amber</b> <code>#8a5200</code><br>At risk, a diamond ?!</span></li>
+<li class="sw"><span class="chip" style="background:#a02020"></span><span><b>Red</b> <code>#a02020</code><br>Behind and overdue, a solid square ??</span></li>
+</ul>
+<h3>Type</h3>
+<p class="type-note">Headings use Futura, Century Gothic, Avenir Next, Segoe UI, sans-serif. Body uses Georgia, serif. Notation and numbers use ui-monospace, SF Mono, Menlo, Consolas, monospace.</p>
+<div class="type-row"><code>40 / 500 Futura greeting</code><span style="font:500 36px/1.1 var(--geo)">Good morning, Mara.</span></div>
+<div class="type-row"><code>48 mono on a square</code><span style="font:700 44px var(--mono)">186</span></div>
+<div class="type-row"><code>18 / 600 Futura caps head</code><span style="font:600 18px var(--geo);text-transform:uppercase;letter-spacing:.14em">Standings</span></div>
+<div class="type-row"><code>16 Georgia project</code><span style="font:16px var(--serif)">Website redesign</span></div>
+<div class="type-row"><code>14 mono notation</code><span style="font:600 14px var(--mono)">BM×CSV</span></div>
+<div class="type-row"><code>13 Georgia legend</code><span style="font:13px var(--serif);color:#3b3b3b">Pieces mark the team</span></div>
+<h3>Spacing, density and finish</h3>
+<dl class="facts">
+<dt>Spacing</dt><dd>8px unit. 8px table cell padding, 40px between blocks.</dd>
+<dt>Density</dt><dd>Dense and orderly, like a scoresheet. Tables carry most of the content.</dd>
+<dt>Corners</dt><dd>Square everywhere.</dd>
+<dt>Borders</dt><dd>1px ink rules for tables and a 2px ink rule under each block heading. The summary rank has a 2px ink frame.</dd>
+<dt>Shadows</dt><dd>None.</dd>
+<dt>Icons</dt><dd>Unicode chess pieces for teams and the brand king. Annotation marks drawn in SVG, ! in a circle for On track, ?! in a diamond for At risk, ?? in a solid square for Behind and overdue.</dd>
+<dt>Tone</dt><dd>Terse tournament shorthand with a plain sentence beside it, such as Check, Standings and Moves.</dd>
+</dl>
+<h3>Controls, normal and focus</h3>
+<div class="controls">
+<div class="ctl"><span class="ctl-label">Primary button</span><button class="btn primary">New project</button> <button class="btn primary is-focus">New project</button></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><button class="btn secondary">Cancel</button> <button class="btn secondary is-focus">Cancel</button></div>
+<div class="ctl"><label class="field"><span class="ctl-label">Text field</span><input type="text" value="Website redesign"></label></div>
+<div class="ctl"><label class="field"><span class="ctl-label">Text field, focused</span><input type="text" class="is-focus" value="Mobile app 2.0"></label></div>
+<div class="ctl"><span class="ctl-label">List row</span><a href="#" class="row-demo"><span>Billing migration</span><span class="st st-behind"><svg class="sym" viewBox="0 0 22 22" aria-hidden="true"><rect x="1.5" y="1.5" width="19" height="19" fill="currentColor"/><text x="11" y="15" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" font-family="Georgia,serif">??</text></svg>Behind</span></a></div>
+<div class="ctl"><span class="ctl-label">List row, focused</span><a href="#" class="row-demo is-focus"><span>Billing migration</span><span class="st st-behind"><svg class="sym" viewBox="0 0 22 22" aria-hidden="true"><rect x="1.5" y="1.5" width="19" height="19" fill="currentColor"/><text x="11" y="15" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" font-family="Georgia,serif">??</text></svg>Behind</span></a></div>
+</div>
+</section>
+</main>
+</body>
+</html>

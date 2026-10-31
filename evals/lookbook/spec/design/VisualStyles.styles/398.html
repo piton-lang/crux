@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 398 · Newswire · Brightwork</title>
+<style>
+:root {
+  color-scheme: dark;
+  --room: #121316; --strip: #1c1d21; --strip-2: #23252a; --perf: #0a0b0d; --rule: #3a3c43;
+  --type: #ecebe6; --grey: #a9a8a2; --flash: #ff6d5e; --on-flash: #1d0400; --hl: #f5d547; --on-hl: #1d1800;
+  --mono: "IBM Plex Mono", "SF Mono", ui-monospace, Menlo, Consolas, "Liberation Mono", monospace;
+  --head: "Franklin Gothic Medium", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--room); color: var(--type); font: 14px/1.5 var(--mono); }
+h1, h2, h3, p, ul { margin: 0; padding: 0; }
+ul { list-style: none; }
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; color: inherit; }
+:focus-visible, .is-focus { outline: 2px solid var(--hl); outline-offset: 2px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.ticker { display: flex; align-items: center; gap: 0; background: var(--type); color: #111; font-weight: 700; font-size: 13px; overflow: hidden; }
+.ticker .tag { background: var(--flash); color: var(--on-flash); padding: 6px 14px; letter-spacing: .1em; flex: none; }
+.ticker .run { padding: 6px 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.mast { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding: 18px 24px 14px; border-bottom: 3px double var(--rule); }
+.mast h1 { font-family: var(--head); font-size: 30px; font-weight: 700; letter-spacing: .02em; text-transform: uppercase; }
+.mast .ed { color: var(--grey); font-size: 13px; }
+.mast .find { margin-left: auto; display: flex; align-items: center; gap: 6px; border-bottom: 1px solid var(--grey); color: var(--grey); }
+.mast .find input { width: 220px; max-width: 60vw; background: none; border: 0; outline: none; color: var(--type); padding: 4px 0; }
+.mast .find input::placeholder { color: var(--grey); }
+.mast .find:focus-within { outline: 2px solid var(--hl); outline-offset: 3px; }
+
+.desk { display: grid; grid-template-columns: 200px minmax(0, 1fr) minmax(0, 1fr); }
+.desks { padding: 16px 20px; border-right: 1px solid var(--rule); }
+.desks h2, .col-h { font-size: 12px; color: var(--grey); font-weight: 400; letter-spacing: .12em; margin-bottom: 8px; }
+.desks h2:not(:first-child) { margin-top: 20px; }
+.desks a { display: flex; justify-content: space-between; padding: 3px 0; text-transform: uppercase; letter-spacing: .04em; }
+.desks a::before { content: "  "; white-space: pre; }
+.desks a[aria-current] { background: var(--hl); color: var(--on-hl); font-weight: 700; padding: 3px 6px; margin: 0 -6px; }
+.desks a[aria-current]::before { content: "> "; }
+.desks a span:first-child { margin-right: auto; }
+
+.feed { position: relative; padding: 16px 20px 24px 44px; border-right: 1px solid var(--rule); background: var(--strip); }
+.feed::before { content: ""; position: absolute; left: 12px; top: 0; bottom: 0; width: 12px; background: radial-gradient(circle at 6px 9px, var(--perf) 4px, transparent 4.5px) 0 0 / 12px 18px repeat-y; }
+.item { display: block; padding: 10px 0 12px; border-bottom: 1px dashed var(--rule); }
+.item .line { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--grey); letter-spacing: .04em; }
+.item .line time { color: var(--type); font-weight: 700; }
+.item .slug { text-transform: uppercase; }
+.pri { display: inline-block; padding: 0 5px; font-weight: 700; letter-spacing: .08em; }
+.pri.urgent { background: var(--flash); color: var(--on-flash); }
+.pri.routine { border: 1px solid var(--rule); color: var(--grey); }
+.pri.star { border: 1px solid var(--hl); color: var(--hl); }
+.item h3 { font-family: var(--head); font-size: 20px; line-height: 1.25; font-weight: 400; margin-top: 4px; }
+.item.unread h3 { font-weight: 700; }
+.item .lede { color: var(--grey); margin-top: 2px; }
+.item .lede::before { content: "— "; }
+.item.open { background: var(--strip-2); box-shadow: -32px 0 0 var(--strip-2), 8px 0 0 var(--strip-2); border-bottom-style: solid; border-bottom-color: var(--hl); }
+.item.open .line::after { content: "ON SCREEN →"; color: var(--hl); font-weight: 700; margin-left: auto; }
+
+.story { padding: 16px 24px 32px; min-width: 0; }
+.story .slugbar { display: flex; justify-content: space-between; gap: 12px; padding: 4px 0; border-top: 2px solid var(--type); border-bottom: 1px solid var(--rule); font-size: 12px; letter-spacing: .08em; }
+.story h2 { font-family: var(--head); font-size: 38px; line-height: 1.1; font-weight: 700; margin: 16px 0 12px; }
+.story dl { display: grid; grid-template-columns: 72px 1fr; gap: 2px 12px; margin: 0 0 16px; font-size: 13px; }
+.story dt { color: var(--grey); letter-spacing: .08em; }
+.story dd { margin: 0; }
+.copy { font-size: 16px; line-height: 1.75; max-width: 58ch; border-left: 3px solid var(--rule); padding-left: 16px; }
+.copy p + p { margin-top: 12px; }
+.end { margin-top: 16px; color: var(--grey); font-size: 12px; letter-spacing: .3em; }
+.acts { display: flex; flex-wrap: wrap; gap: 0; margin-top: 24px; border: 1px solid var(--rule); width: fit-content; max-width: 100%; }
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 0; border-right: 1px solid var(--rule); background: var(--room); color: var(--type); text-transform: uppercase; letter-spacing: .06em; font-size: 13px; cursor: pointer; }
+.btn:last-child { border-right: 0; }
+.btn.primary { background: var(--type); color: #111; font-weight: 700; }
+.btn kbd { font: inherit; font-size: 11px; color: var(--grey); }
+.btn.primary kbd { color: #444; }
+
+.sheet { background: var(--strip); border-top: 3px double var(--rule); padding: 40px 24px 64px; }
+.sheet h2 { font-family: var(--head); font-size: 32px; font-weight: 700; text-transform: uppercase; }
+.sheet .idea { color: var(--grey); max-width: 760px; margin-top: 6px; }
+.sheet h3 { font-size: 12px; font-weight: 400; letter-spacing: .12em; color: var(--grey); margin: 36px 0 12px; border-bottom: 1px dashed var(--rule); padding-bottom: 4px; }
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0 24px; }
+.sw { display: flex; gap: 10px; align-items: center; padding: 6px 0; border-bottom: 1px dashed var(--rule); font-size: 12px; color: var(--grey); }
+.sw i { width: 28px; height: 28px; border: 1px solid #55575f; flex: none; }
+.sw b { color: var(--type); text-transform: uppercase; letter-spacing: .06em; margin-right: 6px; }
+.type-row { display: flex; flex-wrap: wrap; gap: 6px 20px; align-items: baseline; padding: 8px 0; border-bottom: 1px dashed var(--rule); }
+.type-row code { width: 210px; flex: none; color: var(--grey); font-size: 12px; font-family: var(--mono); }
+.facts { display: grid; grid-template-columns: 110px 1fr; gap: 6px 16px; margin: 0; }
+.facts dt { letter-spacing: .08em; text-transform: uppercase; }
+.facts dd { margin: 0; color: var(--grey); }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 24px; }
+.ctl-label { display: block; font-size: 12px; color: var(--grey); letter-spacing: .1em; margin-bottom: 6px; }
+.field { display: block; font-size: 12px; color: var(--grey); letter-spacing: .1em; }
+.field input { display: block; width: 100%; margin-top: 6px; padding: 8px 10px; border: 1px solid var(--rule); background: var(--room); color: var(--type); border-radius: 0; }
+.sheet .item h3 { font-size: 20px; letter-spacing: 0; color: var(--type); margin: 4px 0 0; border: 0; padding: 0; }
+.demo .item { padding-left: 8px; padding-right: 8px; border: 1px dashed var(--rule); }
+.demo .btn { border: 1px solid var(--rule); }
+
+@media (max-width: 1100px) {
+  .desk { grid-template-columns: 180px minmax(0, 1fr); }
+  .story { grid-column: 1 / -1; border-top: 3px double var(--rule); }
+}
+@media (max-width: 700px) {
+  .mast { padding: 14px 16px; }
+  .mast h1 { font-size: 24px; }
+  .mast .find { margin-left: 0; width: 100%; }
+  .mast .find input { width: 100%; max-width: none; }
+  .desk { display: flex; flex-direction: column; }
+  .feed { order: 1; padding: 12px 16px 16px 36px; border-right: 0; }
+  .feed::before { left: 8px; }
+  .item.open { box-shadow: -28px 0 0 var(--strip-2), 16px 0 0 var(--strip-2); }
+  .story { order: 2; padding: 16px; }
+  .story h2 { font-size: 30px; }
+  .desks { order: 3; border-right: 0; border-top: 3px double var(--rule); padding: 16px; }
+  .sheet { padding: 32px 16px 48px; }
+  .facts { grid-template-columns: 1fr; gap: 2px; }
+  .facts dd { margin-bottom: 8px; }
+}
+</style>
+</head>
+<body>
+<div class="ticker" role="note" aria-label="Wire ticker"><span class="tag">WIRE</span><span class="run">08:44 NORTHPASS DEMO ON TUESDAY · 08:02 PRIYA NAIR HERO OPTIONS · 07:15 BILLING INVOICE 2026-10 IS READY</span></div>
+<header class="mast">
+  <h1>Brightwork Mail Wire</h1>
+  <span class="ed">Desk of Mara Okafor · morning file</span>
+  <label class="find"><span aria-hidden="true">/</span><span class="sr">Search mail</span><input type="search" placeholder="search the wire"></label>
+</header>
+
+<div class="desk">
+  <nav class="desks" aria-label="Folders">
+    <h2>DESKS</h2>
+    <ul>
+      <li><a href="#" aria-current="page"><span>Inbox</span><span>12</span></a></li>
+      <li><a href="#"><span>Starred</span></a></li>
+      <li><a href="#"><span>Snoozed</span></a></li>
+      <li><a href="#"><span>Sent</span></a></li>
+      <li><a href="#"><span>Drafts</span><span>2</span></a></li>
+      <li><a href="#"><span>Archive</span></a></li>
+    </ul>
+    <h2>BEATS</h2>
+    <ul>
+      <li><a href="#"><span>Clients</span></a></li>
+      <li><a href="#"><span>Invoices</span></a></li>
+      <li><a href="#"><span>Team</span></a></li>
+    </ul>
+  </nav>
+
+  <section class="feed" aria-labelledby="feed-h">
+    <h2 id="feed-h" class="col-h">INBOX FEED · 6 OF 12 · NEWEST FIRST</h2>
+    <ul>
+      <li><a href="#" class="item unread open" aria-current="true">
+        <span class="line"><time>08:44</time><span class="pri urgent">■ NEW</span><span class="slug">NORTHPASS-DEMO</span><span>BEAT CLIENTS</span></span>
+        <h3>Northpass · Demo on Tuesday</h3>
+        <p class="lede">“Looking forward to seeing the reports view”</p>
+      </a></li>
+      <li><a href="#" class="item unread">
+        <span class="line"><time>08:02</time><span class="pri urgent">■ NEW</span><span class="slug">NAIR-HERO</span></span>
+        <h3>Priya Nair · Hero options</h3>
+        <p class="lede">“B is my pick, see Canvas”</p>
+      </a></li>
+      <li><a href="#" class="item">
+        <span class="line"><time>07:15</time><span class="pri routine">ROUTINE</span><span class="slug">BILLING-INVOICE</span><span>BEAT INVOICES</span><span>+1 ATTACHED</span></span>
+        <h3>Billing · Invoice 2026-10 is ready</h3>
+      </a></li>
+      <li><a href="#" class="item">
+        <span class="line"><time>YDAY</time><span class="pri star">* STARRED</span><span class="slug">TANAKA-SURVEY</span></span>
+        <h3>Aiko Tanaka · Survey readout slides</h3>
+      </a></li>
+      <li><a href="#" class="item">
+        <span class="line"><time>YDAY</time><span class="pri routine">ROUTINE</span><span class="slug">LUMEN-PRICING</span></span>
+        <h3>Lumen Bakery · Re pricing question</h3>
+      </a></li>
+      <li><a href="#" class="item">
+        <span class="line"><time>FRI</time><span class="pri routine">ROUTINE</span><span class="slug">DIGEST</span></span>
+        <h3>Newsletter · The small team digest</h3>
+      </a></li>
+    </ul>
+  </section>
+
+  <article class="story" aria-labelledby="read-h">
+    <div class="slugbar"><span>NORTHPASS-DEMO</span><span>■ NEW · CLIENTS</span></div>
+    <h2 id="read-h">Demo on Tuesday</h2>
+    <dl>
+      <dt>FROM</dt><dd>Dana Whitfield, Northpass</dd>
+      <dt>TO</dt><dd>Mara Okafor</dd>
+      <dt>FILED</dt><dd>08:44</dd>
+    </dl>
+    <div class="copy">
+      <p>Hi Mara, looking forward to Tuesday. Can you show the reports view and how guests work?</p>
+      <p>Thanks, Dana.</p>
+    </div>
+    <p class="end" aria-hidden="true">— 30 —</p>
+    <div class="acts" role="toolbar" aria-label="Message actions">
+      <button class="btn primary" type="button">Reply <kbd>R</kbd></button>
+      <button class="btn" type="button">Reply all <kbd>A</kbd></button>
+      <button class="btn" type="button">Forward <kbd>F</kbd></button>
+      <button class="btn" type="button">Snooze <kbd>S</kbd></button>
+      <button class="btn" type="button">Archive <kbd>E</kbd></button>
+    </div>
+  </article>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h">
+  <h2 id="sheet-h">Style 398 · Newswire</h2>
+  <p class="idea">The inbox reads as a wire service feed on a perforated dark paper strip, with every message filed under a timestamp, a priority code and an uppercase slug, and the open message set as wire copy.</p>
+
+  <h3>PALETTE</h3>
+  <ul class="swatches">
+    <li class="sw"><i style="background:#121316"></i><div><b>Room</b>#121316 · page, desks column, buttons</div></li>
+    <li class="sw"><i style="background:#1c1d21"></i><div><b>Strip</b>#1c1d21 · the feed paper, style sheet</div></li>
+    <li class="sw"><i style="background:#23252a"></i><div><b>Strip 2</b>#23252a · the item on screen</div></li>
+    <li class="sw"><i style="background:#0a0b0d"></i><div><b>Perf</b>#0a0b0d · sprocket holes</div></li>
+    <li class="sw"><i style="background:#3a3c43"></i><div><b>Rule</b>#3a3c43 · dashed and double rules</div></li>
+    <li class="sw"><i style="background:#ecebe6"></i><div><b>Type</b>#ecebe6 · text, ticker band, primary</div></li>
+    <li class="sw"><i style="background:#a9a8a2"></i><div><b>Grey</b>#a9a8a2 · slugs, ledes, labels</div></li>
+    <li class="sw"><i style="background:#ff6d5e"></i><div><b>Flash</b>#ff6d5e · NEW priority block, WIRE tag</div></li>
+    <li class="sw"><i style="background:#f5d547"></i><div><b>Highlight</b>#f5d547 · current desk, STARRED, focus</div></li>
+  </ul>
+
+  <h3>TYPE</h3>
+  <div class="type-row"><code>38 / 700 gothic headline</code><span style="font-family:var(--head);font-size:38px;font-weight:700;line-height:1.1">Demo on Tuesday</span></div>
+  <div class="type-row"><code>20 / 700 gothic item</code><span style="font-family:var(--head);font-size:20px;font-weight:700">Priya Nair · Hero options</span></div>
+  <div class="type-row"><code>16 mono / 1.75 copy</code><span style="font-size:16px">Hi Mara, looking forward to Tuesday.</span></div>
+  <div class="type-row"><code>12 mono caps slug line</code><span style="font-size:12px;color:var(--grey);letter-spacing:.04em"><b style="color:var(--type)">08:02</b> <span class="pri urgent">■ NEW</span> NAIR-HERO</span></div>
+  <p style="color:var(--grey);font-size:12px;margin-top:8px">Mono: IBM Plex Mono, SF Mono, ui-monospace, Menlo, Consolas. Headlines: Franklin Gothic Medium, Arial Narrow, Helvetica Neue, Arial.</p>
+
+  <h3>SPACE, SHAPE AND TONE</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>4px base. 10 to 12px item padding, 20 to 24px column padding, 44px left gutter for the sprocket strip.</dd>
+    <dt>Density</dt><dd>High. Three columns of text, slug lines above every headline.</dd>
+    <dt>Corners</dt><dd>Square. Nothing is rounded but the sprocket holes.</dd>
+    <dt>Borders</dt><dd>1px dashed rules between items, 3px double rules under the masthead and above the sheet, a 2px solid rule over the story.</dd>
+    <dt>Shadows</dt><dd>None.</dd>
+    <dt>Icons</dt><dd>Typographic only. ■ NEW in a red block, * STARRED boxed, +1 ATTACHED, the &gt; caret on the current desk, — 30 — to end copy.</dd>
+    <dt>Focus</dt><dd>2px yellow outline offset 2px.</dd>
+    <dt>Tone</dt><dd>Wire desk shorthand in capitals. DESKS, BEATS, FILED, ROUTINE, YDAY.</dd>
+  </dl>
+
+  <h3>CONTROLS · NORMAL AND FOCUS</h3>
+  <div class="controls">
+    <div class="demo"><span class="ctl-label">PRIMARY</span><button class="btn primary" type="button">Reply <kbd>R</kbd></button> <button class="btn primary is-focus" type="button">Reply <kbd>R</kbd></button></div>
+    <div class="demo"><span class="ctl-label">SECONDARY</span><button class="btn" type="button">Archive <kbd>E</kbd></button> <button class="btn is-focus" type="button">Archive <kbd>E</kbd></button></div>
+    <div><label class="field">TO<input value="Dana Whitfield"></label></div>
+    <div><label class="field">TO, FOCUSED<input class="is-focus" value="Dana Whitfield"></label></div>
+    <div class="demo"><span class="ctl-label">LIST ROW</span><a href="#" class="item"><span class="line"><time>YDAY</time><span class="pri routine">ROUTINE</span><span class="slug">LUMEN-PRICING</span></span><h3>Lumen Bakery · Re pricing question</h3></a></div>
+    <div class="demo"><span class="ctl-label">LIST ROW, FOCUSED</span><a href="#" class="item is-focus"><span class="line"><time>YDAY</time><span class="pri routine">ROUTINE</span><span class="slug">LUMEN-PRICING</span></span><h3>Lumen Bakery · Re pricing question</h3></a></div>
+  </div>
+</section>
+</body>
+</html>

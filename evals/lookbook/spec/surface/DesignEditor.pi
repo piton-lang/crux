@@ -1,0 +1,33 @@
+export anchor DesignEditor:
+    description:
+        Brightwork Canvas, the suite's design tool, editing the file Website
+        redesign, page Home v3. Treat it as a desktop app; on a phone it shows
+        a simplified view with the canvas and a bottom toolbar.
+
+    toolbar:
+        Move, Frame, Rectangle, Text, Pen and Hand tools with Move selected, a
+        zoom of 66 percent, Share and Present buttons, and avatars for Priya
+        Nair, Mara Okafor and Aiko Tanaka showing who is in the file.
+
+    layersPanel:
+        - Hero, a frame, selected
+        - Headline text, "Every project, on one calm page"
+        - Subline text
+        - Primary button, a component instance
+        - Product screenshot, an image
+        - Logo strip, a frame
+        - Features, a frame, collapsed
+
+    canvas:
+        The Hero frame at 1440 by 820, showing the headline, a button and a
+        screenshot placeholder, with selection handles and a 32 px spacing
+        guide. A comment pin from Priya Nair says "Try the button in brand
+        green?".
+
+    inspector:
+        For the selected frame, X 0, Y 0, W 1440, H 820, a fill of #FFFFFF,
+        auto layout vertical with 32 gap and 96 padding, corner radius 0, and
+        an export section with PNG at 2x.
+
+    statusBar:
+        Saved 2 minutes ago, 3 people editing, version 41.

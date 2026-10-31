@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 337 · Dense deal table · Brightwork</title>
+<style>
+
+:root { color-scheme: dark; --bg:#111418; --head:#1a1f26; --zeb:#151a20; --grp:#1d232b; --line:#262d36; --ink:#e3e7ec; --muted:#9aa4b1; --acc:#ff9e64; --on:#2a1405; --bad:#ff8a80; --info:#7fd4ff; --sent:#cdb6ff; --ok:#8be39b;
+ --font: system-ui, "Segoe UI", Roboto, Arial, sans-serif; --mono: ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
+ --s-bg:#111418; --s-ink:#e3e7ec; --s-muted:#9aa4b1; --s-line:#262d36; --s-font: var(--font); --s-sw-r: 3px; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 13px/1.4 var(--font); }
+.ic { width: 14px; height: 14px; vertical-align: -2px; flex: none; }
+:focus-visible, .is-focus { outline: 2px solid var(--acc) !important; outline-offset: -2px; }
+.app { max-width: 1360px; margin: 0 auto; padding: 12px 20px 32px; }
+.crumbs { display: flex; gap: 6px; align-items: center; color: var(--muted); font-size: 12px; flex-wrap: wrap; }
+.crumbs b { color: var(--ink); font-weight: 600; }
+.crumbs .ic { width: 12px; height: 12px; }
+h1 { font-size: 15px; font-weight: 650; margin: 8px 0; display: inline; }
+.kpis { display: flex; flex-wrap: wrap; gap: 0; margin: 8px 0 10px; border: 1px solid var(--line); border-radius: 3px; background: var(--head); font-family: var(--mono); font-size: 12px; }
+.kpis div { padding: 6px 12px; border-right: 1px solid var(--line); display: flex; gap: 8px; align-items: baseline; }
+.kpis div:last-child { border-right: 0; }
+.kpis dt { color: var(--muted); } .kpis dd { margin: 0; font-weight: 600; }
+.kpis .pct { color: var(--acc); }
+.tools { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
+.tools .sp { flex: 1; }
+.filter { display: flex; align-items: center; gap: 6px; height: 28px; border: 1px solid var(--line); border-radius: 3px; padding: 0 8px; background: var(--bg); color: var(--muted); }
+.filter input { border: 0; background: none; color: var(--ink); font: 13px var(--font); width: 180px; outline: none; }
+.filter:focus-within { outline: 2px solid var(--acc); }
+.btn-p, .btn-s { height: 28px; padding: 0 10px; border-radius: 3px; font: 600 12px var(--font); display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
+.btn-p { background: var(--acc); color: var(--on); border: 1px solid var(--acc); }
+.btn-s { background: var(--head); color: var(--ink); border: 1px solid var(--line); }
+.split { display: grid; grid-template-columns: minmax(0,1fr) 280px; gap: 12px; align-items: start; }
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 3px; }
+table { border-collapse: collapse; width: 100%; min-width: 640px; font-variant-numeric: tabular-nums; }
+th, td { padding: 0 10px; height: 30px; text-align: left; white-space: nowrap; border-bottom: 1px solid var(--line); }
+thead th { background: var(--head); font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; position: sticky; top: 0; }
+thead th button { all: unset; display: inline-flex; gap: 4px; align-items: center; cursor: pointer; }
+thead th[aria-sort] { color: var(--ink); }
+thead th[aria-sort] .ic { color: var(--acc); }
+th.num, td.num { text-align: right; } th.num button { flex-direction: row-reverse; }
+td.num { font-family: var(--mono); }
+tbody tr:nth-child(even) td { background: var(--zeb); }
+tbody tr.g th { background: var(--grp); height: 28px; font-weight: 600; font-size: 12px; color: var(--ink); }
+tr.g .gl { display: inline-flex; gap: 6px; align-items: center; }
+tr.g .gm { color: var(--muted); font-weight: 400; font-family: var(--mono); margin-left: 10px; }
+tr.g .gs { float: right; font-family: var(--mono); }
+td a { color: var(--ink); text-decoration: none; font-weight: 500; }
+td a:hover { text-decoration: underline; }
+td .ow { display: inline-flex; gap: 6px; align-items: center; }
+.ini { font: 600 10px var(--mono); color: var(--muted); border: 1px solid var(--line); border-radius: 2px; padding: 0 3px; }
+.tag { font: 600 11px var(--mono); display: inline-flex; gap: 4px; align-items: center; }
+.tag.bad { color: var(--bad); } .tag.info { color: var(--info); } .tag.sent { color: var(--sent); } .tag.ok { color: var(--ok); } .tag.none { color: var(--muted); font-weight: 400; }
+td.dim { color: var(--muted); }
+tr.warnrow td:first-child { box-shadow: inset 3px 0 0 var(--bad); }
+tfoot td { background: var(--head); font-weight: 600; height: 28px; }
+.log { border: 1px solid var(--line); border-radius: 3px; }
+.log h2 { margin: 0; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); background: var(--head); padding: 0 10px; height: 30px; display: flex; align-items: center; border-bottom: 1px solid var(--line); }
+.log ul { list-style: none; margin: 0; padding: 0; }
+.log li { display: grid; grid-template-columns: 18px minmax(0,1fr); gap: 6px; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+.log li:last-child { border-bottom: 0; }
+.log .ic { color: var(--muted); margin-top: 1px; } .log .bad .ic { color: var(--bad); }
+.note { color: var(--muted); font-size: 12px; margin: 6px 2px 0; }
+@media (max-width: 980px) { .split { grid-template-columns: minmax(0,1fr); } }
+@media (max-width: 600px) { .app { padding: 10px 16px 28px; } .filter input { width: 120px; } .kpis div { flex: 1 1 50%; border-bottom: 1px solid var(--line); } .tools .sp { display: none; } td:first-child, th:first-child { position: sticky; left: 0; z-index: 1; background: var(--bg); } tbody tr:nth-child(even) td:first-child { background: var(--zeb); } tbody tr.g th { position: static; } }
+.fld { display: grid; gap: 4px; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.fld input { height: 28px; border: 1px solid var(--line); border-radius: 3px; padding: 0 8px; background: var(--bg); color: var(--ink); font: 13px var(--font); width: 220px; max-width: 100%; text-transform: none; letter-spacing: 0; }
+.lrow { display: grid; grid-template-columns: minmax(0,1fr) auto auto; gap: 12px; align-items: center; height: 30px; padding: 0 10px; background: var(--zeb); border-bottom: 1px solid var(--line); color: var(--ink); text-decoration: none; width: 320px; max-width: 100%; }
+.lrow .num { font-family: var(--mono); }
+
+
+.sheet { background: var(--s-bg); color: var(--s-ink); font-family: var(--s-font); padding: 48px 28px 72px; border-top: var(--s-top, 1px solid var(--s-line)); }
+.sheet > * { max-width: 1120px; margin-left: auto; margin-right: auto; }
+.sheet h2 { font-family: var(--s-hfont, inherit); font-size: 30px; line-height: 1.2; margin-top: 0; margin-bottom: 8px; font-weight: 700; }
+.sheet .idea { font-size: 17px; line-height: 1.55; color: var(--s-ink); margin-top: 0; margin-bottom: 8px; }
+.sheet h3 { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--s-muted); margin-top: 36px; margin-bottom: 14px; padding-top: 12px; border-top: 1px solid var(--s-line); font-weight: 700; }
+.swatches { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.sw { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; line-height: 1.45; min-width: 0; }
+.sw i { flex: none; width: 44px; height: 44px; border-radius: var(--s-sw-r, 6px); border: 1px solid var(--s-line); }
+.sw b { font-weight: 700; } .sw code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; color: var(--s-ink); }
+.sw span { color: var(--s-muted); }
+.type-row { display: flex; align-items: baseline; gap: 20px; padding: 10px 0; border-bottom: 1px solid var(--s-line); flex-wrap: wrap; min-width: 0; }
+.type-row code { flex: 0 0 220px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12.5px; color: var(--s-muted); }
+.type-row > span { min-width: 0; overflow-wrap: anywhere; }
+.stack { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; color: var(--s-muted); margin: 0 auto 6px; overflow-wrap: anywhere; }
+.facts { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 8px 20px; margin: 0 auto; font-size: 15px; line-height: 1.55; }
+.facts dt { font-weight: 700; } .facts dd { margin: 0; color: var(--s-ink); }
+.controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.ctl-label { display: block; font-size: 13px; color: var(--s-muted); margin-bottom: 10px; }
+.ctl-pair { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.ctl-pair > * { min-width: 0; }
+@media (max-width: 700px) {
+ .sheet { padding: 36px 16px 56px; }
+ .sheet h2 { font-size: 24px; }
+ .facts, .controls { grid-template-columns: minmax(0, 1fr); }
+ .facts dd { margin-bottom: 8px; }
+ .type-row code { flex-basis: 100%; }
+ .ctl-pair > .fld, .ctl-pair > .lrow { flex: 1 1 100%; }
+}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5L21.5 20h-19z"/><path d="M12 10v4"/><path d="M12 17.2v.1"/></symbol><symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol><symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14.5" rx="1.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></symbol><symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 3.5L3.5 10.5l7 3 3 7z"/><path d="M20.5 3.5l-10 10"/></symbol><symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V4"/><path d="M6 4.5h11l-2.5 4 2.5 4H6"/></symbol><symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol><symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></symbol><symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></symbol><symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16l-6 7.5V19l-4 1.5v-8z"/></symbol><symbol id="i-sortd" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 5v14M3.5 15.5L7 19l3.5-3.5"/><path d="M13 7h8M13 12h6M13 17h4"/></symbol><symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></symbol><symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol><symbol id="i-dot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/></symbol><symbol id="i-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H4.5a3 3 0 0 0 3.5 4M16 6h3.5a3 3 0 0 1-3.5 4M12 13v4M8.5 20h7M10 17h4"/></symbol><symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8-4.3-4.1 5.9-.8z"/></symbol><symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/></symbol><symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol><symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></symbol><symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15z"/><path d="M10 20.5h4"/></symbol><symbol id="i-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4 0-6.5-2.6-6.5-6.2 0-3.6 3-5.6 4-9.3 2 1.6 2.5 3.6 2.4 5 1-.6 1.7-1.7 2-3 2.4 2.1 4.6 4.7 4.6 7.3 0 3.6-2.5 6.2-6.5 6.2z"/></symbol><symbol id="i-hex" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/></symbol><symbol id="i-square" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12"/></symbol><symbol id="i-diamond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l8 8-8 8-8-8z"/></symbol><symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></symbol><symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol></defs></svg>
+<div class="app">
+<nav class="crumbs" aria-label="Breadcrumb"><span>Brightwork</span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg><span>Sales</span><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg><b>Pipeline Q4</b></nav>
+<main>
+<h1>Deal pipeline</h1>
+<dl class="kpis" aria-label="Summary">
+<div><dt>pipeline</dt><dd>412,000</dd></div>
+<div><dt>won</dt><dd>128,500 / 200,000 <span class="pct">64%</span></dd></div>
+<div><dt>target</dt><dd>200,000</dd></div>
+<div><dt>win rate</dt><dd>31%</dd></div>
+<div><dt>open</dt><dd>18</dd></div>
+</dl>
+<div class="tools"><label class="filter"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-search"/></svg><input type="search" aria-label="Filter deals" placeholder="Filter deals"></label>
+<button class="btn-s" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-filter"/></svg>Group: Stage</button><button class="btn-s" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-user"/></svg>Owner: All</button><span class="sp"></span><button class="btn-s" type="button">Columns</button><button class="btn-p" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>Deal</button></div>
+<div class="split">
+<div><div class="scroll" role="region" aria-label="Deals table" tabindex="0"><table>
+<thead><tr><th scope="col"><button type="button">Deal</button></th><th scope="col"><button type="button">Owner</button></th><th scope="col" class="num" aria-sort="descending"><button type="button">Value<svg class="ic" aria-hidden="true" focusable="false"><use href="#i-down"/></svg></button></th><th scope="col"><button type="button">Status</button></th><th scope="col"><button type="button">Date</button></th></tr></thead>
+<tbody><tr class="g"><th colspan="5" scope="colgroup"><span class="gl"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-down"/></svg>Lead</span><span class="gm">2 deals</span><span class="gs" aria-label="subtotal 30,000">30,000</span></th></tr><tr><td><a href="#">Orbit Labs</a></td><td><span class="ow"><span class="ini" aria-hidden="true">SO</span>Sam Ortiz</span></td><td class="num">24,000</td><td><span class="tag none">no step listed</span></td><td class="dim">—</td></tr><tr><td><a href="#">Lumen Bakery</a></td><td><span class="ow"><span class="ini" aria-hidden="true">LF</span>Lena Fischer</span></td><td class="num">6,000</td><td><span class="tag none">no step listed</span></td><td class="dim">—</td></tr><tr class="g"><th colspan="5" scope="colgroup"><span class="gl"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-down"/></svg>Qualified</span><span class="gm">1 deal</span><span class="gs" aria-label="subtotal 48,000">48,000</span></th></tr><tr><td><a href="#">Northpass</a></td><td><span class="ow"><span class="ini" aria-hidden="true">MO</span>Mara Okafor</span></td><td class="num">48,000</td><td><span class="tag info">[<svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>DEMO]</span></td><td class="dim">4 Nov</td></tr><tr class="g"><th colspan="5" scope="colgroup"><span class="gl"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-down"/></svg>Proposal</span><span class="gm">2 deals</span><span class="gs" aria-label="subtotal 122,500">122,500</span></th></tr><tr class=warnrow><td><a href="#">Saltwater Freight</a></td><td><span class="ow"><span class="ini" aria-hidden="true">MO</span>Mara Okafor</span></td><td class="num">90,000</td><td><span class="tag bad">[<svg class="ic" aria-hidden="true" focusable="false"><use href="#i-warn"/></svg>STALLED 12d]</span></td><td class="dim">12 days</td></tr><tr><td><a href="#">Kettle &amp; Co</a></td><td><span class="ow"><span class="ini" aria-hidden="true">LF</span>Lena Fischer</span></td><td class="num">32,500</td><td><span class="tag sent">[<svg class="ic" aria-hidden="true" focusable="false"><use href="#i-send"/></svg>SENT]</span></td><td class="dim">28 Oct</td></tr><tr class="g"><th colspan="5" scope="colgroup"><span class="gl"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-down"/></svg>Negotiation</span><span class="gm">1 deal</span><span class="gs" aria-label="subtotal 18,000">18,000</span></th></tr><tr><td><a href="#">Fernhill Studio</a></td><td><span class="ow"><span class="ini" aria-hidden="true">SO</span>Sam Ortiz</span></td><td class="num">18,000</td><td><span class="tag info">[<svg class="ic" aria-hidden="true" focusable="false"><use href="#i-flag"/></svg>CLOSING]</span></td><td class="dim">7 Nov</td></tr><tr class="g"><th colspan="5" scope="colgroup"><span class="gl"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-down"/></svg>Won</span><span class="gm">1 deal</span><span class="gs" aria-label="subtotal 64,000">64,000</span></th></tr><tr><td><a href="#">Bluewater Clinics</a></td><td><span class="dim">—</span></td><td class="num">64,000</td><td><span class="tag ok">[<svg class="ic" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>WON]</span></td><td class="dim">22 Oct</td></tr></tbody>
+<tfoot><tr><td>7 deals shown</td><td></td><td class="num">282,500</td><td colspan="2" class="dim">incl. won 64,000</td></tr></tfoot>
+</table></div>
+<p class="note">Sorted by value, high to low, within each stage. Dash means none listed.</p></div>
+<aside class="log" aria-labelledby="logh"><h2 id="logh">Activity · 3</h2><ul>
+<li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>Call with Northpass booked for 4 Nov 10:00</span></li>
+<li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-eye"/></svg><span>Kettle &amp; Co opened the proposal 3 times</span></li>
+<li class="bad"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-warn"/></svg><span>Saltwater Freight has had no reply for 12 days</span></li>
+</ul></aside>
+</div>
+</main></div>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 337 · Dense deal table</h2>
+<p class="idea">The whole pipeline as one tight 13px table grouped by stage, with group subtotals, a sorted value column, small bracketed status tags and the summary squeezed into a single line of key figures.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><i style="background:#111418"></i><div><b>Base</b> <code>#111418</code><br><span>page, table body, style sheet</span></div></li><li class="sw"><i style="background:#1a1f26"></i><div><b>Head</b> <code>#1a1f26</code><br><span>header row, summary line, footer, secondary buttons</span></div></li><li class="sw"><i style="background:#151a20"></i><div><b>Zebra</b> <code>#151a20</code><br><span>even rows</span></div></li><li class="sw"><i style="background:#1d232b"></i><div><b>Group</b> <code>#1d232b</code><br><span>stage group rows</span></div></li><li class="sw"><i style="background:#262d36"></i><div><b>Line</b> <code>#262d36</code><br><span>every rule and border</span></div></li><li class="sw"><i style="background:#e3e7ec"></i><div><b>Ink</b> <code>#e3e7ec</code><br><span>text</span></div></li><li class="sw"><i style="background:#9aa4b1"></i><div><b>Muted</b> <code>#9aa4b1</code><br><span>headers, dates, counts</span></div></li><li class="sw"><i style="background:#ff9e64"></i><div><b>Orange</b> <code>#ff9e64</code><br><span>sort arrow, percent, primary button, focus</span></div></li><li class="sw"><i style="background:#ff8a80"></i><div><b>Red</b> <code>#ff8a80</code><br><span>STALLED tag, row edge and triangle</span></div></li><li class="sw"><i style="background:#7fd4ff"></i><div><b>Sky</b> <code>#7fd4ff</code><br><span>DEMO and CLOSING tags</span></div></li><li class="sw"><i style="background:#cdb6ff"></i><div><b>Lilac</b> <code>#cdb6ff</code><br><span>SENT tag</span></div></li><li class="sw"><i style="background:#8be39b"></i><div><b>Green</b> <code>#8be39b</code><br><span>WON tag with check</span></div></li></ul>
+<h3>Type</h3>
+<p class="stack">system-ui, Segoe UI, Roboto, Arial · figures in ui-monospace, Cascadia Mono, Menlo, Consolas</p>
+<div class="type-row"><code>15 / 650 title</code><span style="font-size:15px;font-weight:650">Deal pipeline</span></div><div class="type-row"><code>13 / 500 cell</code><span style="font-size:13px;font-weight:500">Saltwater Freight</span></div><div class="type-row"><code>13 / mono figure</code><span style="font:13px ui-monospace,Menlo,monospace">90,000</span></div><div class="type-row"><code>11 / 600 caps header</code><span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#9aa4b1">Value</span></div><div class="type-row"><code>11 / 600 mono tag</code><span style="font:600 11px ui-monospace,Menlo,monospace;color:#ff8a80">[STALLED 12d]</span></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3>
+<dl class="facts"><dt>Spacing</dt><dd>4px unit. 30px rows, 28px group rows and controls, 10px cell padding, 20px page gutter, 16px on phones.</dd><dt>Density</dt><dd>High. Every deal, subtotal and the activity log fit in one screen.</dd><dt>Corners</dt><dd>3px on the table frame, fields and buttons. Square cells.</dd><dt>Borders</dt><dd>1px #262d36 under every row, round the table, between summary figures.</dd><dt>Shadows</dt><dd>None. A 3px red inset edge marks the stalled row.</dd><dt>Icons</dt><dd>14px line icons at 1.9 stroke. Tags sit in square brackets with a triangle, calendar, flag, plane or check.</dd><dt>Focus</dt><dd>A 2px orange outline drawn inside the control.</dd><dt>Tone</dt><dd>Terse and technical. Group: Stage, Owner: All, Columns, lowercase key figures.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls">
+<div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-p" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>Deal</button><button class="btn-p is-focus" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>Deal</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-s" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-filter"/></svg>Group: Stage</button><button class="btn-s is-focus" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-filter"/></svg>Group: Stage</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="fld"><span>Filter deals</span><input type="text" value="owner:mara"></label><label class="fld"><span>Filter deals, focused</span><input type="text" class="is-focus" value="owner:mara"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><a class="lrow" href="#"><span>Kettle &amp; Co</span><span class="num">32,500</span><span class="tag sent">[SENT]</span></a><a class="lrow is-focus" href="#"><span>Kettle &amp; Co</span><span class="num">32,500</span><span class="tag sent">[SENT]</span></a></div></div>
+</div>
+</section>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 34 · Sketch wireframe · Brightwork</title>
+<style>
+:root {
+  --paper: #fdfdfb;
+  --pencil: #222222;
+  --graphite: #595959;
+  --smudge: #e4e4e4;
+  --tray: #f3f3f1;
+  --pen: #1a4fd6;
+  --wash: #e3ebff;
+  --hand: "Segoe Print", "Bradley Hand", "Marker Felt", "Chalkboard SE", "Comic Sans MS", cursive;
+  --wob1: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --wob2: 15px 225px 15px 255px / 255px 15px 225px 15px;
+  --wob3: 125px 10px 20px 185px / 25px 205px 205px 25px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; color: var(--pencil); font: 15px/1.5 var(--hand);
+  background-color: var(--paper);
+  background-image: radial-gradient(circle, #d9d9d6 1px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+svg.i { width: 1.15em; height: 1.15em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; vertical-align: -0.2em; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible, .is-focus {
+  outline: 2.5px dashed var(--pen); outline-offset: 4px;
+}
+
+/* wobbly box base: hand drawn outline plus a second offset stroke */
+.sk { position: relative; border: 2px solid var(--pencil); border-radius: var(--wob1); background: #fff; }
+.sk::after {
+  content: ""; position: absolute; inset: -3px -2px -2px -4px; border: 1.2px solid var(--pencil);
+  border-radius: var(--wob2); opacity: .45; pointer-events: none; filter: url(#rough);
+}
+.sk.alt { border-radius: var(--wob3); }
+
+.page { max-width: 1320px; margin: 0 auto; padding: 24px 16px 64px; }
+
+/* browser frame sketch */
+.frame { padding: 0; }
+.chrome { display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-bottom: 2px solid var(--pencil); }
+.dot { width: 12px; height: 12px; border: 2px solid var(--pencil); border-radius: 50%; }
+.url { flex: 1; min-width: 0; margin-left: 8px; padding: 0 12px; border: 1.5px solid var(--graphite); border-radius: var(--wob2); color: var(--graphite); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.screen { padding: 24px; }
+.topbar { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+.logo { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 700; }
+.ph { width: 40px; height: 40px; border: 2px solid var(--pencil); border-radius: 6px 9px 5px 8px; flex: none; position: relative; overflow: hidden; background: #fff; }
+.ph svg { position: absolute; inset: 0; width: 100%; height: 100%; stroke: var(--graphite); stroke-width: 1.5; }
+.grow { flex: 1; }
+.who { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+.av { width: 34px; height: 34px; border: 2px solid var(--pencil); border-radius: 50% 45% 52% 48%; display: grid; place-items: center; font-size: 12px; font-weight: 700; background: #fff; flex: none; }
+.av.none { border-style: dashed; color: var(--graphite); }
+
+.head { display: grid; grid-template-columns: 1fr auto; gap: 16px 24px; align-items: end; margin-bottom: 16px; }
+h1 { font-size: 34px; line-height: 1.15; margin: 0; font-weight: 700; }
+.underline { display: block; width: 220px; max-width: 100%; height: 12px; margin-top: 4px; }
+.tag { display: inline-flex; align-items: center; gap: 6px; margin-left: 8px; padding: 2px 12px; font-size: 15px; vertical-align: middle; border: 2px solid var(--pencil); border-radius: var(--wob3); background: #fff; }
+.note { color: var(--pen); font-size: 14px; display: inline-flex; align-items: center; gap: 4px; }
+
+.tools { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: flex-end; margin: 16px 0 32px; }
+.fld { display: flex; flex-direction: column; gap: 2px; font-size: 13px; color: var(--graphite); }
+.fld select, .fld input {
+  appearance: none; -webkit-appearance: none; background: #fff; color: var(--pencil);
+  border: 2px solid var(--pencil); border-radius: var(--wob2); padding: 6px 32px 6px 12px; min-height: 40px; font-size: 15px;
+}
+.fld select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10'%3E%3Cpath d='M1 2 L7 8.5 L13 1.5' fill='none' stroke='%23222' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; }
+.fld select:focus-visible, .fld input:focus-visible, .fld .is-focus { outline: none; border-color: var(--pen); box-shadow: 3px 3px 0 var(--wash); }
+.search { position: relative; flex: 1 1 220px; max-width: 360px; }
+.search input { width: 100%; padding-left: 36px; padding-right: 12px; }
+.search svg { position: absolute; left: 10px; bottom: 11px; color: var(--graphite); }
+
+.btn { display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 6px 20px; cursor: pointer; background: #fff; border: 2px solid var(--pencil); border-radius: var(--wob1); font-size: 16px; font-weight: 700; }
+.btn-pen { color: var(--pen); border-color: var(--pen); box-shadow: 3px 4px 0 -1px var(--wash), 3px 4px 0 1px var(--pen); }
+.btn-pen:hover { background: var(--wash); }
+
+/* board */
+.board { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.col { background: var(--tray); padding: 16px; border-style: dashed; border-width: 2px; }
+.col::after { display: none; }
+.col h2 { font-size: 20px; margin: 0 0 16px; display: flex; align-items: center; gap: 8px; }
+.count { display: inline-grid; place-items: center; width: 32px; height: 30px; border: 2px solid var(--pencil); border-radius: 50% 42% 55% 45%; font-size: 15px; transform: rotate(-6deg); }
+.cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.card { padding: 12px 16px 12px; }
+.card:nth-child(2n) { border-radius: var(--wob2); }
+.card:nth-child(3n) { border-radius: var(--wob3); }
+.card h3 { margin: 0 0 8px; font-size: 17px; line-height: 1.3; }
+.meta { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 0; font-size: 13px; color: var(--graphite); }
+.meta div { display: inline-flex; align-items: center; gap: 4px; }
+.meta dt { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.meta dd { margin: 0; }
+.lbl { display: inline-block; padding: 0 8px; border: 1.5px solid var(--graphite); border-radius: var(--wob3); font-size: 12px; color: var(--pencil); }
+.lbl.eng { background: repeating-linear-gradient(-45deg, transparent 0 5px, var(--smudge) 5px 6.5px); }
+.foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 12px; padding-top: 8px; border-top: 1.5px dashed #9a9a9a; font-size: 13px; }
+.foot .person { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.pts { white-space: nowrap; }
+
+.overdue { border-color: var(--pen); }
+.flag { position: relative; display: inline-flex; align-items: center; gap: 4px; color: var(--pen); font-weight: 700; font-size: 14px; padding: 0 10px; margin-bottom: 4px; }
+.flag::before { content: ""; position: absolute; inset: -4px -6px; border: 2px solid var(--pen); border-radius: 50% 40% 55% 45% / 60% 50% 45% 55%; transform: rotate(-3deg); }
+.arrow { position: absolute; right: -10px; top: -30px; width: 76px; height: 40px; color: var(--pen); }
+.arrow-note { position: absolute; right: -6px; top: -54px; color: var(--pen); font-size: 13px; transform: rotate(-4deg); }
+
+.done h3 { text-decoration: line-through; text-decoration-thickness: 2px; text-decoration-color: var(--graphite); }
+.done { background: repeating-linear-gradient(-45deg, #fff 0 9px, #f1f1f1 9px 10.5px); }
+.donemark { display: inline-flex; align-items: center; gap: 4px; font-weight: 700; font-size: 14px; }
+
+/* style sheet */
+.sheet { margin-top: 64px; padding: 32px 24px; }
+.sheet h2 { font-size: 30px; margin: 0 0 4px; }
+.sheet h3 { font-size: 20px; margin: 32px 0 12px; }
+.idea { font-size: 17px; max-width: 64ch; margin: 8px 0 0; }
+.swatches { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.sw { display: flex; gap: 12px; align-items: center; font-size: 13px; }
+.sw i { width: 48px; height: 48px; flex: none; border: 2px solid var(--pencil); border-radius: var(--wob3); }
+.sw b { display: block; font-size: 15px; }
+.type-row { display: flex; gap: 16px; align-items: baseline; flex-wrap: wrap; padding: 8px 0; border-bottom: 1.5px dashed #b8b8b8; }
+.type-row code { font: 12px/1.4 ui-monospace, Menlo, Consolas, monospace; color: var(--graphite); min-width: 130px; }
+.facts { display: grid; grid-template-columns: 140px 1fr; gap: 8px 16px; margin: 0; }
+.facts dt { font-weight: 700; }
+.facts dd { margin: 0; }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; align-items: end; }
+.ctl-label { display: block; font-size: 13px; color: var(--graphite); margin-bottom: 4px; }
+.row-demo { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 12px; border: 2px solid var(--pencil); border-radius: var(--wob2); background: #fff; }
+.row-demo.is-focus { outline: 2.5px dashed var(--pen); outline-offset: 4px; background: var(--wash); }
+.btn.is-focus { outline: 2.5px dashed var(--pen); outline-offset: 5px; }
+
+@media (max-width: 1040px) { .board { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .screen { padding: 16px; }
+  .board { grid-template-columns: 1fr; }
+  .head { grid-template-columns: 1fr; }
+  h1 { font-size: 28px; }
+  .search { max-width: none; flex-basis: 100%; }
+  .tools .btn { width: 100%; justify-content: center; }
+  .facts { grid-template-columns: 1fr; gap: 0 0; }
+  .facts dd { margin-bottom: 8px; }
+  .who > span:first-child { display: none; }
+  .sheet { padding: 24px 16px; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="3"/></filter>
+    <symbol id="i-search" viewBox="0 0 24 24"><path d="M10.5 4.2c3.6-.3 6.4 2.4 6.3 5.9-.1 3.4-2.8 6.1-6.2 6-3.5 0-6-2.8-5.9-6.1.1-3.1 2.6-5.6 5.8-5.8z"/><path d="M15.2 15.6l5.1 4.9"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12.3 4.5c-.2 5-.1 10 .1 15M4.6 12.2c5-.3 9.9-.2 14.8.1"/></symbol>
+    <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 3.6c2.8 5 5.6 10 8.6 16.2-5.8.4-11.5.3-17.2.1C6.3 14.1 9.1 8.8 12 3.6z"/><path d="M12 9.5v4.8M12 17.2v.2"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><path d="M12 3.8c4.6-.1 8.3 3.5 8.2 8.1 0 4.5-3.7 8.2-8.3 8.2-4.5-.1-8.1-3.8-8-8.3.1-4.4 3.7-7.9 8.1-8z"/><path d="M12 7.6v4.6l3 2"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4.4 5.6c5.1-.6 10.2-.5 15.2.1.4 3.4.4 6.7 0 10-3.4.3-6.8.3-10.1.2L5.3 19.6l.6-3.8c-.8-.1-1.2-.2-1.5-.3-.3-3.3-.3-6.6 0-9.9z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.2 12.6c1.8 1.5 3.4 3.3 4.9 5.4 3-5 6.6-9.3 10.8-12.9"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M4.5 4.8c5-.4 10-.4 15 .1.3 4.8.3 9.6-.1 14.4-5 .3-10 .3-14.9-.1-.4-4.8-.4-9.6 0-14.4z"/></symbol>
+  </defs>
+</svg>
+
+<div class="page">
+  <div class="sk frame">
+    <div class="chrome" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">brightwork / projects / mobile-app-2.0 / board</span></div>
+
+    <div class="screen">
+      <header class="topbar">
+        <div class="logo">
+          <span class="ph" aria-hidden="true"><svg viewBox="0 0 40 40" preserveAspectRatio="none"><path d="M2 2 L38 38 M38 2 L2 38"/></svg></span>
+          <span>Brightwork</span>
+        </div>
+        <span class="grow"></span>
+        <div class="who"><span>Mara Okafor</span><span class="av" role="img" aria-label="Mara Okafor">MO</span></div>
+      </header>
+
+      <main>
+        <div class="head">
+          <div>
+            <h1>Mobile app 2.0 <span class="tag"><svg class="i" aria-hidden="true"><use href="#i-warn"/></svg>At risk</span></h1>
+            <svg class="underline" viewBox="0 0 220 12" aria-hidden="true"><path d="M3 8 C 50 3, 110 10, 160 5 S 210 6, 217 4" fill="none" stroke="#1a4fd6" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+          <span class="note" aria-hidden="true">task board · 4 columns · 8 tasks</span>
+        </div>
+
+        <form class="tools" aria-label="Board filters">
+          <label class="fld">Assignee
+            <select><option>Anyone</option><option>Mara Okafor</option><option>Tomás Ruiz</option><option>Priya Nair</option><option>Jonas Weber</option><option>Sam Ortiz</option><option>Aiko Tanaka</option></select>
+          </label>
+          <label class="fld">Label
+            <select><option>Any label</option><option>Engineering</option><option>Design</option></select>
+          </label>
+          <label class="fld">Due
+            <select><option>Any time</option><option>Overdue</option><option>This week</option><option>No due date</option></select>
+          </label>
+          <label class="fld search">Search tasks
+            <input type="search" placeholder="type to search…">
+            <svg class="i" aria-hidden="true"><use href="#i-search"/></svg>
+          </label>
+          <span class="grow"></span>
+          <button class="btn btn-pen" type="button"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>Add task</button>
+        </form>
+
+        <div class="board">
+          <section class="sk col" aria-labelledby="c1">
+            <h2 id="c1">To do <span class="count" aria-label="3 tasks">3</span></h2>
+            <ul class="cards">
+              <li class="sk card">
+                <h3>Offline mode for task list</h3>
+                <dl class="meta"><div><dt>Label</dt><dd><span class="lbl eng">Engineering</span></dd></div><div><dt>Due</dt><dd><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg> 6 Nov</dd></div></dl>
+                <div class="foot"><span class="person"><span class="av" aria-hidden="true">TR</span>Tomás Ruiz</span><span class="pts">5 pts</span></div>
+              </li>
+              <li class="sk card">
+                <h3>App store screenshots</h3>
+                <dl class="meta"><div><dt>Label</dt><dd><span class="lbl">Design</span></dd></div><div><dt>Due</dt><dd><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg> 12 Nov</dd></div></dl>
+                <div class="foot"><span class="person"><span class="av" aria-hidden="true">PN</span>Priya Nair</span><span class="pts">2 pts</span></div>
+              </li>
+              <li class="sk card">
+                <h3>Crash report triage</h3>
+                <dl class="meta"><div><dt>Label</dt><dd><span class="lbl eng">Engineering</span></dd></div><div><dt>Due</dt><dd>No due date</dd></div></dl>
+                <div class="foot"><span class="person"><span class="av none" aria-hidden="true">?</span>Unassigned</span><span class="pts">3 pts</span></div>
+              </li>
+            </ul>
+          </section>
+
+          <section class="sk col" aria-labelledby="c2">
+            <h2 id="c2">In progress <span class="count" aria-label="2 tasks">2</span></h2>
+            <ul class="cards">
+              <li class="sk card overdue" style="margin-top:8px">
+                <span class="flag"><svg class="i" aria-hidden="true"><use href="#i-warn"/></svg>Overdue</span>
+                <h3>Sign in with Apple</h3>
+                <dl class="meta"><div><dt>Label</dt><dd><span class="lbl eng">Engineering</span></dd></div><div><dt>Due</dt><dd><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg> 3 Nov</dd></div></dl>
+                <div class="foot"><span class="person"><span class="av" aria-hidden="true">JW</span>Jonas Weber</span><span class="pts">3 pts</span></div>
+              </li>
+              <li class="sk card">
+                <h3>Dark icon set</h3>
+                <dl class="meta"><div><dt>Label</dt><dd><span class="lbl">Design</span></dd></div><div><dt>Due</dt><dd><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg> 7 Nov</dd></div></dl>
+                <div class="foot"><span class="person"><span class="av" aria-hidden="true">PN</span>Priya Nair</span><span class="pts">2 pts</span></div>
+              </li>
+            </ul>
+          </section>
+
+          <section class="sk col" aria-labelledby="c3">
+            <h2 id="c3">Review <span class="count" aria-label="1 task">1</span></h2>
+            <ul class="cards">
+              <li class="sk card">
+                <h3>Push notifications</h3>
+                <dl class="meta"><div><dt>Label</dt><dd><span class="lbl eng">Engineering</span></dd></div><div><dt>Due</dt><dd><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg> 4 Nov</dd></div><div><dt>Comments</dt><dd><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg> 3 comments</dd></div></dl>
+                <div class="foot"><span class="person"><span class="av" aria-hidden="true">SO</span>Sam Ortiz</span><span class="pts">8 pts</span></div>
+              </li>
+            </ul>
+          </section>
+
+          <section class="sk col" aria-labelledby="c4">
+            <h2 id="c4">Done <span class="count" aria-label="2 tasks">2</span></h2>
+            <ul class="cards">
+              <li class="sk card done">
+                <span class="donemark"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Done</span>
+                <h3>Task detail redesign</h3>
+                <dl class="meta"><div><dt>Label</dt><dd><span class="lbl">Design</span></dd></div></dl>
+                <div class="foot"><span class="person"><span class="av" aria-hidden="true">AT</span>Aiko Tanaka</span><span class="pts">3 pts</span></div>
+              </li>
+              <li class="sk card done">
+                <span class="donemark"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Done</span>
+                <h3>Login rate limiting</h3>
+                <dl class="meta"><div><dt>Label</dt><dd><span class="lbl eng">Engineering</span></dd></div></dl>
+                <div class="foot"><span class="person"><span class="av" aria-hidden="true">JW</span>Jonas Weber</span><span class="pts">2 pts</span></div>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <section class="sk sheet alt" aria-labelledby="sheet-h">
+    <h2 id="sheet-h">Style 34 · Sketch wireframe</h2>
+    <p class="idea">The app drawn as a pencil wireframe on dotted paper, wobbly hand-drawn boxes in greyscale with one blue pen for the things that need attention.</p>
+
+    <h3>Palette</h3>
+    <ul class="swatches">
+      <li class="sw"><i style="background:#fdfdfb"></i><div><b>Paper</b>#fdfdfb · page, with #d9d9d6 dot grid</div></li>
+      <li class="sw"><i style="background:#ffffff"></i><div><b>Sheet</b>#ffffff · boxes, cards, fields</div></li>
+      <li class="sw"><i style="background:#f3f3f1"></i><div><b>Tray</b>#f3f3f1 · column fill</div></li>
+      <li class="sw"><i style="background:#222222"></i><div><b>Pencil</b>#222222 · text and outlines</div></li>
+      <li class="sw"><i style="background:#595959"></i><div><b>Graphite</b>#595959 · meta, field labels</div></li>
+      <li class="sw"><i style="background:#e4e4e4"></i><div><b>Smudge</b>#e4e4e4 · hatching, Done fill</div></li>
+      <li class="sw"><i style="background:#1a4fd6"></i><div><b>Blue pen</b>#1a4fd6 · primary action, Overdue, focus</div></li>
+      <li class="sw"><i style="background:#e3ebff"></i><div><b>Pen wash</b>#e3ebff · hover, focused row, button offset</div></li>
+    </ul>
+
+    <h3>Type · "Segoe Print", "Bradley Hand", "Marker Felt", "Chalkboard SE", "Comic Sans MS", cursive</h3>
+    <div class="type-row"><code>34 / 700 / 1.15</code><span style="font-size:34px;font-weight:700">Mobile app 2.0</span></div>
+    <div class="type-row"><code>20 / 700</code><span style="font-size:20px;font-weight:700">In progress</span></div>
+    <div class="type-row"><code>17 / 700</code><span style="font-size:17px;font-weight:700">Sign in with Apple</span></div>
+    <div class="type-row"><code>15 / 400 / 1.5</code><span>Tomás Ruiz · 5 pts</span></div>
+    <div class="type-row"><code>13 / 400 graphite</code><span style="font-size:13px;color:#595959">Due 6 Nov · Engineering</span></div>
+    <div class="type-row"><code>14 / 700 pen, circled</code><span class="flag"><svg class="i" aria-hidden="true"><use href="#i-warn"/></svg>Overdue</span></div>
+
+    <h3>Spacing, corners and depth</h3>
+    <dl class="facts">
+      <dt>Spacing</dt><dd>8px unit · 16px between cards · 24px between columns · 24px screen padding</dd>
+      <dt>Density</dt><dd>Medium. A whole board fits one laptop screen.</dd>
+      <dt>Corners</dt><dd>Wobbly asymmetric radii such as 255/15/225/15 over 15/225/15/255, so no edge is straight</dd>
+      <dt>Borders</dt><dd>2px pencil, with a faint second stroke slightly offset and roughened. Columns use a dashed pencil line.</dd>
+      <dt>Shadows</dt><dd>None, except a blue pen offset outline behind the primary button</dd>
+      <dt>Icons</dt><dd>Hand-drawn 2px round strokes at text size. Overdue is a triangle with !, Done a tick, placeholders a crossed box.</dd>
+      <dt>Tone</dt><dd>Plain sketch notes in sentence case: “Add task”, “type to search…”, “5 pts”</dd>
+    </dl>
+
+    <h3>Controls · normal and focus</h3>
+    <div class="controls">
+      <div><span class="ctl-label">Primary</span><button class="btn btn-pen" type="button">Save task</button> <button class="btn btn-pen is-focus" type="button">Focused</button></div>
+      <div><span class="ctl-label">Secondary</span><button class="btn" type="button">Cancel</button> <button class="btn is-focus" type="button">Focused</button></div>
+      <div class="fld"><label class="fld">Task title<input value="Dark icon set"></label></div>
+      <div class="fld"><label class="fld">Focused field<input class="is-focus" value="Push notifications"></label></div>
+      <div><span class="ctl-label">List row</span><div class="row-demo"><span>Sign in with Apple</span><span class="flag"><svg class="i" aria-hidden="true"><use href="#i-warn"/></svg>Overdue</span></div></div>
+      <div><span class="ctl-label">List row, focused</span><div class="row-demo is-focus"><span>Login rate limiting</span><span class="donemark"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Done</span></div></div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

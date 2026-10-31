@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 80 · Recipe card · Brightwork</title>
+<style>
+:root {
+  --gingham: #c94141;
+  --counter: #fbf6ea;
+  --card: #fffdf6;
+  --rule: #a9cbe8;
+  --topRule: #d0453f;
+  --pencil: #26262f;
+  --faded: #57525c;
+  --herb: #2e6a30;
+  --honey: #875700;
+  --tomato: #ac2727;
+  --butter: #f8e7b0;
+  --blueInk: #1f4e9a;
+  --hand: "Segoe Print", "Bradley Hand", "Chalkboard SE", "Comic Sans MS", "Comic Neue", cursive;
+  --type: "Courier New", Courier, "Liberation Mono", monospace;
+  --body: "Trebuchet MS", "Gill Sans", "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html { background-color: #fff; background-image: linear-gradient(90deg, rgba(201,65,65,.55) 50%, transparent 50%), linear-gradient(rgba(201,65,65,.55) 50%, transparent 50%); background-size: 28px 28px; }
+body { margin: 22px; background: var(--counter); color: var(--pencil); font: 15px/1.5 var(--body); border-radius: 6px; box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--gingham); min-height: calc(100vh - 44px); }
+a { color: var(--blueInk); }
+:focus-visible, .is-focus { outline: 3px dashed var(--blueInk); outline-offset: 3px; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+.hand { font-family: var(--hand); }
+.field-l { font: 700 11px/1.3 var(--type); letter-spacing: .06em; text-transform: uppercase; color: var(--faded); }
+
+/* index card base: red top rule then blue ruled lines */
+.card { position: relative; background: var(--card); border-radius: 3px; box-shadow: 0 1px 1px rgba(0,0,0,.12), 0 6px 14px rgba(70,40,20,.12);
+  background-image: linear-gradient(transparent 46px, var(--topRule) 46px 48px, transparent 48px), repeating-linear-gradient(transparent 0 25px, var(--rule) 25px 26px);
+  background-position: 0 0, 0 22px; background-repeat: no-repeat, repeat; padding: 10px 18px 16px; }
+
+/* top */
+.top { padding-top: 18px; display: flex; align-items: flex-end; gap: 14px 24px; flex-wrap: wrap; }
+.logo { font: 700 34px/1 var(--hand); color: var(--tomato); display: flex; align-items: center; gap: 10px; }
+.logo small { display: block; font: 700 11px var(--type); color: var(--faded); letter-spacing: .1em; text-transform: uppercase; }
+.tools { margin-left: auto; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.search { display: flex; align-items: center; gap: 6px; background: var(--card); border: 1.5px solid var(--pencil); border-radius: 18px 4px 18px 4px; padding: 0 12px; }
+.search input { border: 0; background: transparent; font: 16px var(--hand); color: var(--pencil); padding: 7px 0; width: 210px; }
+.search input:focus { outline: none; }
+.search:focus-within { outline: 3px dashed var(--blueInk); outline-offset: 3px; }
+.btn { font: 700 16px var(--hand); padding: 8px 16px; border: 2px solid var(--pencil); background: var(--tomato); color: #fff; border-radius: 4px 16px 4px 16px; cursor: pointer; box-shadow: 2px 3px 0 var(--pencil); }
+.btn-2 { background: var(--card); color: var(--pencil); }
+.bell { position: relative; display: inline-grid; place-items: center; width: 40px; height: 40px; background: var(--card); border: 1.5px solid var(--pencil); border-radius: 50%; }
+.bell b { position: absolute; top: -6px; right: -8px; font: 700 13px var(--hand); background: var(--butter); border: 1.5px solid var(--pencil); border-radius: 50%; width: 22px; height: 22px; display: grid; place-items: center; }
+.cook { font: 15px var(--hand); }
+.cook small { display: block; font: 700 10px var(--type); letter-spacing: .1em; text-transform: uppercase; color: var(--faded); }
+
+.tabs { display: flex; gap: 4px; list-style: none; margin: 18px 0 0; padding: 0; flex-wrap: wrap; border-bottom: 2px solid #d9c9a5; }
+.tabs a { display: block; padding: 7px 16px 5px; background: #efe2c4; border: 1.5px solid #c9b48a; border-bottom: 0; border-radius: 10px 10px 0 0; color: var(--pencil); text-decoration: none; font: 700 15px var(--hand); margin-bottom: -2px; }
+.tabs a[aria-current="page"] { background: var(--card); padding-top: 11px; margin-top: -4px; border-color: var(--pencil); }
+
+/* hello */
+.hello { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 22px; margin: 22px 0; align-items: stretch; }
+.hello .card { transform: rotate(-.5deg); }
+.hello h1 { margin: 0; font: 700 30px/48px var(--hand); height: 48px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.hello p { margin: 0; font: 18px/26px var(--hand); }
+.hello .warn { color: var(--tomato); font-weight: 700; }
+.pantry { padding-top: 10px; }
+.pantry h2 { margin: 0; font: 700 22px/38px var(--hand); }
+.measures { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+.measures li { display: flex; align-items: center; gap: 8px; min-height: 52px; }
+.measures svg { flex: none; }
+.measures b { font: 700 30px/1 var(--hand); }
+.measures span { font-size: 13px; line-height: 1.2; color: var(--faded); }
+
+/* recipe cards */
+.box-h { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin: 6px 0 12px; }
+.box-h h2 { margin: 0; font: 700 26px var(--hand); }
+.box-h span { font: 13px var(--type); color: var(--faded); }
+.recipes { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px; list-style: none; margin: 0 0 26px; padding: 0; }
+.recipe:nth-child(odd) { transform: rotate(.6deg); }
+.recipe:nth-child(even) { transform: rotate(-.7deg); }
+.recipe h3 { margin: 0; font: 700 21px/38px var(--hand); height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.recipe h3 a { color: var(--pencil); text-decoration: none; }
+.recipe h3 a:hover { text-decoration: underline; }
+.rbody { display: grid; grid-template-columns: 1fr 64px; gap: 0 10px; }
+.lines { margin: 0; font: 16px/26px var(--hand); }
+.lines div { display: flex; gap: 6px; }
+.lines dt { font: 700 11px/26px var(--type); text-transform: uppercase; color: var(--faded); letter-spacing: .04em; white-space: nowrap; }
+.lines dd { margin: 0; }
+.jug { width: 64px; height: 78px; margin-top: 4px; }
+.stamp { display: inline-flex; align-items: center; gap: 6px; font: 700 15px var(--hand); padding: 1px 8px; border: 2px solid currentColor; border-radius: 4px; transform: rotate(-4deg); white-space: nowrap; }
+.stamp.ok { color: var(--herb); } .stamp.risk { color: var(--honey); } .stamp.bad { color: var(--tomato); }
+.stamp svg { width: 14px; height: 14px; flex: none; }
+.method { font: 13px/26px var(--body); color: var(--faded); margin: 0; }
+
+.lower { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 22px; margin-bottom: 40px; align-items: start; }
+.lower h2 { margin: 0; font: 700 22px/38px var(--hand); }
+.chart svg { width: 100%; height: auto; display: block; margin-top: 12px; }
+.chart p { margin: 0; font: 16px/26px var(--hand); }
+.notes { list-style: none; margin: 0; padding: 0; }
+.notes li { font: 16px/26px var(--hand); padding: 0; }
+.notes time { font: 700 11px var(--type); color: var(--tomato); text-transform: uppercase; margin-right: 6px; }
+
+/* sheet */
+.sheet { margin-bottom: 40px; }
+.sheet .card { padding: 10px 22px 24px; }
+.sheet h2.t { margin: 0; font: 700 28px/38px var(--hand); }
+.sheet h3 { margin: 26px 0 8px; font: 700 12px var(--type); letter-spacing: .1em; text-transform: uppercase; color: var(--tomato); }
+.idea { margin: 10px 0 0; font: 18px/26px var(--hand); }
+.sw { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; list-style: none; margin: 0; padding: 0; }
+.sw li { background: #fff; border: 1.5px solid var(--pencil); border-radius: 3px; font-size: 13px; line-height: 1.35; }
+.sw i { display: block; height: 42px; border-bottom: 1.5px solid var(--pencil); }
+.sw div { padding: 6px 8px; }
+.sw b { display: block; font: 700 15px var(--hand); }
+.tr { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; padding: 6px 0; background: var(--card); }
+.tr code { font: 12px var(--type); color: var(--faded); min-width: 240px; }
+.facts { display: grid; grid-template-columns: 120px 1fr; gap: 6px 14px; margin: 0; background: var(--card); }
+.facts dt { font: 700 11px/1.8 var(--type); text-transform: uppercase; color: var(--faded); }
+.facts dd { margin: 0; }
+.ctls { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; background: var(--card); }
+.ctls .field-l { display: block; margin-bottom: 6px; }
+.field input { width: 100%; font: 17px var(--hand); padding: 6px 10px; border: 1.5px solid var(--pencil); border-radius: 12px 3px 12px 3px; background: #fff; color: var(--pencil); }
+.row { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 10px; background: #fff; border-bottom: 1.5px solid var(--rule); border-top: 1.5px solid var(--rule); font: 700 17px var(--hand); }
+
+@media (max-width: 1000px) {
+  .recipes { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .lower, .hello { grid-template-columns: minmax(0,1fr); }
+}
+@media (max-width: 680px) {
+  body { margin: 12px; min-height: calc(100vh - 24px); }
+  .wrap { padding: 0 14px; }
+  .tools { margin-left: 0; width: 100%; }
+  .search { flex: 1 1 100%; }
+  .search input { width: 100%; }
+  .tabs a { padding: 6px 10px 4px; font-size: 14px; }
+  .hello h1 { font-size: 24px; }
+  .recipes { grid-template-columns: minmax(0,1fr); }
+  .measures { grid-template-columns: minmax(0,1fr); }
+  .facts { grid-template-columns: 1fr; gap: 0; }
+  .facts dd { margin-bottom: 8px; }
+  .tr code { min-width: 0; }
+  .sheet .card { padding: 10px 14px 20px; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-ok" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7.3l2 2 4-4.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-risk" viewBox="0 0 14 14"><path d="M7 1l6 12H1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M7 5.5v3.5" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-bad" viewBox="0 0 14 14"><rect x="1.5" y="1.5" width="11" height="11" fill="currentColor"/><path d="M4.5 4.5l5 5M9.5 4.5l-5 5" stroke="#fffdf6" stroke-width="1.8"/></symbol>
+</svg>
+
+<header class="wrap">
+  <div class="top">
+    <div class="logo"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 18h24l-3 16H11z" fill="#fffdf6" stroke="#26262f" stroke-width="2" stroke-linejoin="round"/><path d="M12 18c0-6 4-10 8-10s8 4 8 10" fill="none" stroke="#ac2727" stroke-width="2.4"/><path d="M15 24h10M14 29h12" stroke="#a9cbe8" stroke-width="2"/></svg><div>Brightwork<small>The team recipe box</small></div></div>
+    <div class="tools">
+      <label class="search"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="#26262f" stroke-width="1.8"/><path d="M11 11l4 4" stroke="#26262f" stroke-width="1.8"/></svg><input type="search" aria-label="Search projects and tasks" placeholder="Find a project or task"></label>
+      <button class="btn" type="button">New project</button>
+      <a class="bell" href="#" aria-label="Notifications, 3 unread"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="11" r="7" fill="none" stroke="#26262f" stroke-width="1.8"/><path d="M10 7v4l3 2M8 2h4" fill="none" stroke="#26262f" stroke-width="1.8"/></svg><b aria-hidden="true">3</b></a>
+      <span class="cook"><small>Head cook</small>Mara Okafor</span>
+    </div>
+  </div>
+  <nav aria-label="Main">
+    <ul class="tabs">
+      <li><a href="#" aria-current="page">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Tasks</a></li>
+      <li><a href="#">Team</a></li>
+      <li><a href="#">Reports</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="hello" aria-label="Greeting and summary">
+    <div class="card">
+      <h1>Good morning, Mara!</h1>
+      <p>Saturday 31 October 2026</p>
+      <p class="warn">Heads up: 4 tasks are overdue, check the oven first.</p>
+      <p>Everything else is simmering nicely.</p>
+    </div>
+    <div class="card pantry">
+      <h2>In the pantry this week</h2>
+      <ul class="measures">
+        <li><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M6 8h18v18a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3z" fill="#fffdf6" stroke="#26262f" stroke-width="2"/><path d="M24 12h3a3 3 0 0 1 0 8h-3" fill="none" stroke="#26262f" stroke-width="2"/><path d="M6 18h18v8a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3z" fill="#f8e7b0"/></svg><b>6</b><span>active projects</span></li>
+        <li><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><ellipse cx="11" cy="12" rx="7" ry="5" fill="#fffdf6" stroke="#26262f" stroke-width="2"/><path d="M17 14l13 14" stroke="#26262f" stroke-width="3" stroke-linecap="round"/></svg><b>23</b><span>tasks due this week</span></li>
+        <li><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="18" r="12" fill="#fffdf6" stroke="#ac2727" stroke-width="2.4"/><path d="M17 11v7l5 3M13 3h8" fill="none" stroke="#ac2727" stroke-width="2.4"/></svg><b style="color:var(--tomato)">4</b><span>overdue tasks</span></li>
+        <li><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M10 4h14M10 30h14M11 4c0 8 12 8 12 13s-12 5-12 13M23 4c0 8-12 8-12 13s12 5 12 13" fill="none" stroke="#26262f" stroke-width="2"/><path d="M13 27h8l-4-4z" fill="#f8e7b0" stroke="#26262f"/></svg><b>186</b><span>hours logged this week</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="box-h"><h2>Recipes on the go</h2><span>6 cards · tasks measured like cups</span></div>
+  <ul class="recipes">
+    <li class="card recipe">
+      <h3><a href="#">Website redesign</a><span class="stamp ok"><svg aria-hidden="true"><use href="#i-ok"/></svg>On track</span></h3>
+      <div class="rbody">
+        <dl class="lines">
+          <div><dt>From</dt><dd>the Design kitchen</dd></div>
+          <div><dt>Measured</dt><dd>18 of 25 cups</dd></div>
+          <div><dt>Done</dt><dd>72 percent</dd></div>
+          <div><dt>Ready by</dt><dd>14 Nov</dd></div>
+        </dl>
+        <svg class="jug" viewBox="0 0 64 78" role="img" aria-label="Jug 72 percent full"><path d="M50 22h5a5 5 0 0 1 0 22h-5" fill="none" stroke="#26262f" stroke-width="2"/><rect x="12" y="26" width="38" height="36" fill="#f8e7b0"/><path d="M10 8h42v54a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4z" fill="none" stroke="#26262f" stroke-width="2"/><g stroke="#1f4e9a" stroke-width="1.5"><line x1="10" y1="49.5" x2="18" y2="49.5"/><line x1="10" y1="37" x2="18" y2="37"/><line x1="10" y1="24.5" x2="18" y2="24.5"/></g><text x="31" y="47" font-family="Segoe Print, Bradley Hand, Comic Sans MS, cursive" font-size="12" font-weight="700" text-anchor="middle" fill="#26262f">72%</text></svg>
+      </div>
+      <p class="method">Method: keep stirring, bake until 14 Nov.</p>
+    </li>
+    <li class="card recipe">
+      <h3><a href="#">Mobile app 2.0</a><span class="stamp risk"><svg aria-hidden="true"><use href="#i-risk"/></svg>At risk</span></h3>
+      <div class="rbody">
+        <dl class="lines">
+          <div><dt>From</dt><dd>the Engineering kitchen</dd></div>
+          <div><dt>Measured</dt><dd>27 of 60 cups</dd></div>
+          <div><dt>Done</dt><dd>45 percent</dd></div>
+          <div><dt>Ready by</dt><dd>2 Dec</dd></div>
+        </dl>
+        <svg class="jug" viewBox="0 0 64 78" role="img" aria-label="Jug 45 percent full"><path d="M50 22h5a5 5 0 0 1 0 22h-5" fill="none" stroke="#26262f" stroke-width="2"/><rect x="12" y="39.5" width="38" height="22.5" fill="#f8e7b0"/><path d="M10 8h42v54a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4z" fill="none" stroke="#26262f" stroke-width="2"/><g stroke="#1f4e9a" stroke-width="1.5"><line x1="10" y1="49.5" x2="18" y2="49.5"/><line x1="10" y1="37" x2="18" y2="37"/><line x1="10" y1="24.5" x2="18" y2="24.5"/></g><text x="31" y="34" font-family="Segoe Print, Bradley Hand, Comic Sans MS, cursive" font-size="12" font-weight="700" text-anchor="middle" fill="#26262f">45%</text></svg>
+      </div>
+      <p class="method">Method: watch closely, needs more hands.</p>
+    </li>
+    <li class="card recipe">
+      <h3><a href="#">Q4 customer survey</a><span class="stamp ok"><svg aria-hidden="true"><use href="#i-ok"/></svg>On track</span></h3>
+      <div class="rbody">
+        <dl class="lines">
+          <div><dt>From</dt><dd>the Research kitchen</dd></div>
+          <div><dt>Measured</dt><dd>9 of 10 cups</dd></div>
+          <div><dt>Done</dt><dd>90 percent</dd></div>
+          <div><dt>Ready by</dt><dd>7 Nov</dd></div>
+        </dl>
+        <svg class="jug" viewBox="0 0 64 78" role="img" aria-label="Jug 90 percent full"><path d="M50 22h5a5 5 0 0 1 0 22h-5" fill="none" stroke="#26262f" stroke-width="2"/><rect x="12" y="17" width="38" height="45" fill="#f8e7b0"/><path d="M10 8h42v54a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4z" fill="none" stroke="#26262f" stroke-width="2"/><g stroke="#1f4e9a" stroke-width="1.5"><line x1="10" y1="49.5" x2="18" y2="49.5"/><line x1="10" y1="37" x2="18" y2="37"/><line x1="10" y1="24.5" x2="18" y2="24.5"/></g><text x="31" y="47" font-family="Segoe Print, Bradley Hand, Comic Sans MS, cursive" font-size="12" font-weight="700" text-anchor="middle" fill="#26262f">90%</text></svg>
+      </div>
+      <p class="method">Method: nearly done, one cup to go.</p>
+    </li>
+    <li class="card recipe">
+      <h3><a href="#">Billing migration</a><span class="stamp bad"><svg aria-hidden="true"><use href="#i-bad"/></svg>Behind</span></h3>
+      <div class="rbody">
+        <dl class="lines">
+          <div><dt>From</dt><dd>the Engineering kitchen</dd></div>
+          <div><dt>Measured</dt><dd>12 of 40 cups</dd></div>
+          <div><dt>Done</dt><dd>30 percent</dd></div>
+          <div><dt>Ready by</dt><dd>20 Nov</dd></div>
+        </dl>
+        <svg class="jug" viewBox="0 0 64 78" role="img" aria-label="Jug 30 percent full"><path d="M50 22h5a5 5 0 0 1 0 22h-5" fill="none" stroke="#26262f" stroke-width="2"/><rect x="12" y="47" width="38" height="15" fill="#f8e7b0"/><path d="M10 8h42v54a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4z" fill="none" stroke="#26262f" stroke-width="2"/><g stroke="#1f4e9a" stroke-width="1.5"><line x1="10" y1="49.5" x2="18" y2="49.5"/><line x1="10" y1="37" x2="18" y2="37"/><line x1="10" y1="24.5" x2="18" y2="24.5"/></g><text x="31" y="34" font-family="Segoe Print, Bradley Hand, Comic Sans MS, cursive" font-size="12" font-weight="700" text-anchor="middle" fill="#26262f">30%</text></svg>
+      </div>
+      <p class="method">Method: running late, turn up the heat.</p>
+    </li>
+    <li class="card recipe">
+      <h3><a href="#">Spring catalogue</a><span class="stamp ok"><svg aria-hidden="true"><use href="#i-ok"/></svg>On track</span></h3>
+      <div class="rbody">
+        <dl class="lines">
+          <div><dt>From</dt><dd>the Marketing kitchen</dd></div>
+          <div><dt>Measured</dt><dd>3 of 20 cups</dd></div>
+          <div><dt>Done</dt><dd>15 percent</dd></div>
+          <div><dt>Ready by</dt><dd>15 Jan</dd></div>
+        </dl>
+        <svg class="jug" viewBox="0 0 64 78" role="img" aria-label="Jug 15 percent full"><path d="M50 22h5a5 5 0 0 1 0 22h-5" fill="none" stroke="#26262f" stroke-width="2"/><rect x="12" y="54.5" width="38" height="7.5" fill="#f8e7b0"/><path d="M10 8h42v54a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4z" fill="none" stroke="#26262f" stroke-width="2"/><g stroke="#1f4e9a" stroke-width="1.5"><line x1="10" y1="49.5" x2="18" y2="49.5"/><line x1="10" y1="37" x2="18" y2="37"/><line x1="10" y1="24.5" x2="18" y2="24.5"/></g><text x="31" y="34" font-family="Segoe Print, Bradley Hand, Comic Sans MS, cursive" font-size="12" font-weight="700" text-anchor="middle" fill="#26262f">15%</text></svg>
+      </div>
+      <p class="method">Method: just started, plenty of time.</p>
+    </li>
+    <li class="card recipe">
+      <h3><a href="#">Onboarding emails</a><span class="stamp ok"><svg aria-hidden="true"><use href="#i-ok"/></svg>On track</span></h3>
+      <div class="rbody">
+        <dl class="lines">
+          <div><dt>From</dt><dd>the Marketing kitchen</dd></div>
+          <div><dt>Measured</dt><dd>9 of 15 cups</dd></div>
+          <div><dt>Done</dt><dd>60 percent</dd></div>
+          <div><dt>Ready by</dt><dd>21 Nov</dd></div>
+        </dl>
+        <svg class="jug" viewBox="0 0 64 78" role="img" aria-label="Jug 60 percent full"><path d="M50 22h5a5 5 0 0 1 0 22h-5" fill="none" stroke="#26262f" stroke-width="2"/><rect x="12" y="32" width="38" height="30" fill="#f8e7b0"/><path d="M10 8h42v54a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4z" fill="none" stroke="#26262f" stroke-width="2"/><g stroke="#1f4e9a" stroke-width="1.5"><line x1="10" y1="49.5" x2="18" y2="49.5"/><line x1="10" y1="37" x2="18" y2="37"/><line x1="10" y1="24.5" x2="18" y2="24.5"/></g><text x="31" y="49" font-family="Segoe Print, Bradley Hand, Comic Sans MS, cursive" font-size="12" font-weight="700" text-anchor="middle" fill="#26262f">60%</text></svg>
+      </div>
+      <p class="method">Method: past halfway, keep folding in.</p>
+    </li>
+  </ul>
+
+  <div class="lower">
+    <section class="card chart" aria-labelledby="b-h">
+      <h2 id="b-h">Batches baked, last 14 days</h2>
+      <svg viewBox="0 0 510 230" role="img" aria-label="Tasks completed per day, Sunday 18 to Saturday 31 October: 3, 12, 9, 14, 11, 8, 2, then 4, 15, 13, 17, 12, 10, 2. Last week 59, this week 73.">
+        <rect x="0" y="0" width="510" height="230" fill="#fffdf6"/>
+        <g stroke="#a9cbe8" stroke-dasharray="4 4"><line x1="24" y1="145" x2="505" y2="145"/><line x1="24" y1="100" x2="505" y2="100"/><line x1="24" y1="55" x2="505" y2="55"/></g>
+        <g font-family="Courier New, monospace" font-size="11" fill="#57525c"><text x="2" y="148">5</text><text x="0" y="103">10</text><text x="0" y="58">15</text></g>
+        <g fill="#fffdf6" stroke="#26262f" stroke-width="2" stroke-linejoin="round"><rect x="30" y="163" width="22" height="27" rx="3"/><rect x="64" y="82" width="22" height="108" rx="3"/><rect x="98" y="109" width="22" height="81" rx="3"/><rect x="132" y="64" width="22" height="126" rx="3"/><rect x="166" y="91" width="22" height="99" rx="3"/><rect x="200" y="118" width="22" height="72" rx="3"/><rect x="234" y="172" width="22" height="18" rx="3"/></g>
+        <g fill="#ac2727" stroke="#26262f" stroke-width="2" stroke-linejoin="round"><rect x="268" y="154" width="22" height="36" rx="3"/><rect x="302" y="55" width="22" height="135" rx="3"/><rect x="336" y="73" width="22" height="117" rx="3"/><rect x="370" y="37" width="22" height="153" rx="3"/><rect x="404" y="82" width="22" height="108" rx="3"/><rect x="438" y="100" width="22" height="90" rx="3"/><rect x="472" y="172" width="22" height="18" rx="3"/></g>
+        <path d="M22 191c160 2 320-2 486 1" fill="none" stroke="#26262f" stroke-width="2"/>
+        <g font-family="Segoe Print, Bradley Hand, Comic Sans MS, cursive" font-size="13" fill="#26262f" text-anchor="middle"><text x="41" y="158">3</text><text x="75" y="77">12</text><text x="109" y="104">9</text><text x="143" y="59">14</text><text x="177" y="86">11</text><text x="211" y="113">8</text><text x="245" y="167">2</text><text x="279" y="149">4</text><text x="313" y="50">15</text><text x="347" y="68">13</text><text x="381" y="32">17</text><text x="415" y="77">12</text><text x="449" y="95">10</text><text x="483" y="167">2</text></g>
+        <g font-family="Courier New, monospace" font-size="12" fill="#57525c" text-anchor="middle"><text x="41" y="208">S</text><text x="75" y="208">M</text><text x="109" y="208">T</text><text x="143" y="208">W</text><text x="177" y="208">T</text><text x="211" y="208">F</text><text x="245" y="208">S</text><text x="279" y="208">S</text><text x="313" y="208">M</text><text x="347" y="208">T</text><text x="381" y="208">W</text><text x="415" y="208">T</text><text x="449" y="208">F</text><text x="483" y="208">S</text></g>
+        <g font-family="Segoe Print, Bradley Hand, Comic Sans MS, cursive" font-size="14" font-weight="700"><text x="143" y="226" text-anchor="middle" fill="#57525c">last week, 59</text><text x="381" y="226" text-anchor="middle" fill="#ac2727">this week, 73</text></g>
+      </svg>
+      <p>Open batches were last week, filled ones this week. Best day: 17 on Wednesday.</p>
+    </section>
+
+    <section class="card" aria-labelledby="n-h">
+      <h2 id="n-h">Kitchen notes</h2>
+      <ol class="notes">
+        <li><time>12 min</time>Jonas Weber completed “Export invoices as CSV” in Billing migration</li>
+        <li><time>40 min</time>Priya Nair commented on “Hero image options” in Website redesign</li>
+        <li><time>1 h</time>Sam Ortiz moved “Push notifications” to Review in Mobile app 2.0</li>
+        <li><time>2 h</time>Lena Fischer added 3 tasks to Spring catalogue</li>
+        <li><time>3 h</time>Tomás Ruiz logged 6 h on Mobile app 2.0</li>
+        <li><time>Yesterday</time>Aiko Tanaka uploaded survey-results-v2.pdf to Q4 customer survey</li>
+      </ol>
+    </section>
+  </div>
+
+  <section class="sheet" aria-labelledby="sheet-h">
+    <div class="card">
+      <h2 class="t" id="sheet-h">Style 80 · Recipe card</h2>
+      <p class="idea">Every project is a handwritten index recipe card on a gingham-bordered counter, with tasks measured in cups, a jug that fills as work is done and a stamp for the status.</p>
+
+      <h3>Palette</h3>
+      <ul class="sw">
+        <li><i style="background:#c94141"></i><div><b>Gingham</b>#c94141 at 55% · checked border</div></li>
+        <li><i style="background:#fbf6ea"></i><div><b>Counter</b>#fbf6ea · page inside the border</div></li>
+        <li><i style="background:#fffdf6"></i><div><b>Card</b>#fffdf6 · index cards</div></li>
+        <li><i style="background:#d0453f"></i><div><b>Top rule</b>#d0453f · red line under card titles</div></li>
+        <li><i style="background:#a9cbe8"></i><div><b>Ruled blue</b>#a9cbe8 · card lines, decoration</div></li>
+        <li><i style="background:#26262f"></i><div><b>Pencil</b>#26262f · writing, outlines</div></li>
+        <li><i style="background:#57525c"></i><div><b>Faded</b>#57525c · typed field labels</div></li>
+        <li><i style="background:#f8e7b0"></i><div><b>Butter</b>#f8e7b0 · jug fill, badge</div></li>
+        <li><i style="background:#ac2727"></i><div><b>Tomato</b>#ac2727 · primary, Behind, this week</div></li>
+        <li><i style="background:#2e6a30"></i><div><b>Herb</b>#2e6a30 · On track stamp</div></li>
+        <li><i style="background:#875700"></i><div><b>Honey</b>#875700 · At risk stamp</div></li>
+        <li><i style="background:#1f4e9a"></i><div><b>Blue ink</b>#1f4e9a · links, jug marks, focus</div></li>
+      </ul>
+
+      <h3>Type</h3>
+      <div class="tr"><code>hand "Segoe Print", "Bradley Hand", "Comic Sans MS" · 30 / 700</code><span class="hand" style="font-size:30px;font-weight:700">Good morning, Mara!</span></div>
+      <div class="tr"><code>card title 21 / 700 on a 38px line</code><span class="hand" style="font-size:21px;font-weight:700">Website redesign</span></div>
+      <div class="tr"><code>card lines 16 hand on a 26px rule</code><span class="hand" style="font-size:16px">18 of 25 cups</span></div>
+      <div class="tr"><code>typed labels "Courier New" · 11 / 700 caps</code><span class="field-l">Ready by</span></div>
+      <div class="tr"><code>body "Trebuchet MS", "Gill Sans" · 13 to 15</code><span>Method: keep stirring, bake until 14 Nov.</span></div>
+
+      <h3>Spacing, corners and depth</h3>
+      <dl class="facts">
+        <dt>Spacing</dt><dd>Set by the 26px ruled line. 22px between cards, 18px card padding.</dd>
+        <dt>Density</dt><dd>Medium. Four facts per card plus a jug.</dd>
+        <dt>Corners</dt><dd>3px card corners; buttons and fields use uneven hand-cut corners such as 4px 16px.</dd>
+        <dt>Borders</dt><dd>Gingham frame round the page, a 2px red title rule and blue lines on cards, 2px pencil outlines on controls.</dd>
+        <dt>Shadows</dt><dd>Soft paper shadow under cards, a 2px by 3px pencil offset under buttons. Cards tilt under one degree.</dd>
+        <dt>Icons</dt><dd>Kitchen drawings: jug, spoon, timer, sand glass. Stamps pair the word with a ticked circle for On track, a triangle for At risk and a crossed square for Behind.</dd>
+        <dt>Tone</dt><dd>Warm and homely: Heads up, check the oven first, Recipes on the go, Kitchen notes, Ready by.</dd>
+      </dl>
+
+      <h3>Controls · normal and focus</h3>
+      <div class="ctls">
+        <div><span class="field-l">Primary</span><button class="btn" type="button">Save recipe</button> <button class="btn is-focus" type="button">Focused</button></div>
+        <div><span class="field-l">Secondary</span><button class="btn btn-2" type="button">Put back</button> <button class="btn btn-2 is-focus" type="button">Focused</button></div>
+        <label class="field"><span class="field-l">Project name</span><input value="Website redesign"></label>
+        <label class="field"><span class="field-l">Project name, focused</span><input class="is-focus" value="Mobile app 2.0"></label>
+        <div><span class="field-l">List row</span><div class="row">Billing migration <span class="stamp bad"><svg aria-hidden="true"><use href="#i-bad"/></svg>Behind</span></div></div>
+        <div><span class="field-l">List row, focused</span><div class="row is-focus">Mobile app 2.0 <span class="stamp risk"><svg aria-hidden="true"><use href="#i-risk"/></svg>At risk</span></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

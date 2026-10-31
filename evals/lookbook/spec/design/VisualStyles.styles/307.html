@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 307 · Radar · Brightwork</title>
+<style>
+:root{color-scheme:dark;--bg:#020a06;--face:#03140b;--pn:#06170e;--ln:#1d5a37;--ph:#7dffb0;--ink:#d6ffe6;--mut:#6fc796;--amb:#ffc94a;--sky:#8fd8ff;--red:#ff8a7a;--focus:#ffffff;--m:ui-monospace,"SF Mono",Menlo,Consolas,"DejaVu Sans Mono",monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 var(--m)}
+:focus-visible,.is-focus{outline:2px dashed var(--focus);outline-offset:3px}
+.ic{width:16px;height:16px;flex:none}
+header{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;padding:12px 24px;border-bottom:1px solid var(--ln)}
+.mark{display:flex;gap:10px;align-items:center;font-weight:700;color:var(--ph);letter-spacing:.08em}
+.mark svg{width:28px;height:28px}
+header ul{display:flex;gap:16px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+header nav a{color:var(--mut);text-decoration:none}
+header nav a[aria-current]{color:var(--ph);text-decoration:underline;text-underline-offset:6px}
+.sector{margin-left:auto;color:var(--mut)}.sector b{color:var(--ink)}
+main{max-width:1280px;margin:0 auto;padding:24px}
+h1{font-size:13px;font-weight:400;color:var(--mut);margin:0 0 16px}
+.top{display:grid;grid-template-columns:minmax(0,560px) minmax(0,1fr);gap:24px;align-items:start}
+.scope{position:relative;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#06261a 0,#03140b 62%,#010805 100%);box-shadow:0 0 0 8px #0b1f14,0 0 0 9px var(--ln),0 0 60px rgba(125,255,176,.12) inset}
+.sweep{position:absolute;inset:4%;border-radius:50%;background:conic-gradient(from 300deg,rgba(125,255,176,0) 0deg,rgba(125,255,176,.18) 50deg,rgba(125,255,176,.0) 50.5deg)}
+.scope svg{position:absolute;inset:0;width:100%;height:100%;font-family:var(--m)}
+.scope .rg circle{fill:none;stroke:#1d5a37;stroke-width:1.2}
+.scope .rg line{stroke:#1d5a37}
+.scope .tk line{stroke:#2f8a55;stroke-width:1.5}
+.cap{margin:12px 0 0;color:var(--mut);font-size:12px;text-align:center}
+.key{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 16px;font-size:12px;color:var(--mut);list-style:none;padding:0;margin:8px 0 0}
+.key li{display:flex;gap:6px;align-items:center}
+h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ph);margin:0 0 8px;font-weight:700}
+h2 span{color:var(--mut);font-weight:400;letter-spacing:.04em;text-transform:none}
+.strips{list-style:none;margin:0 0 24px;padding:0;display:grid;gap:6px}
+.strip{display:grid;grid-template-columns:10px minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);background:#0a1f13;border:1px solid var(--ln);min-height:56px}
+.strip .tab{background:var(--ph)}
+.strip.degraded .tab{background:var(--amb)}.strip.recovered .tab{background:var(--sky)}
+.strip>div{padding:6px 10px;border-left:1px dashed #1d5a37}
+.strip .cs{font-size:17px;font-weight:700;color:var(--ink)}
+.strip small{display:block;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.healthy{color:var(--ph)}.degraded{color:var(--amb)}.recovered{color:var(--sky)}.firing{color:var(--red)}.resolved{color:var(--ph)}
+.sw2{display:flex;gap:6px;align-items:center;font-weight:700;font-size:13px}
+.inc{border:1px solid var(--amb);background:#151404;padding:12px 16px;display:grid;grid-template-columns:auto 1fr;gap:4px 16px}
+.inc .id{font-size:20px;font-weight:700;color:var(--amb);grid-column:1/-1}
+.inc .tt{grid-column:1/-1;font-size:15px;margin-bottom:6px}
+.inc dt{color:#d9c48a;font-size:12px;text-transform:uppercase;letter-spacing:.08em}.inc dd{margin:0}
+.lower{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:24px}
+.trace{border:1px solid var(--ln);background:var(--face);padding:12px;border-radius:8px}
+.trace svg{display:block;width:100%;height:auto;filter:drop-shadow(0 0 3px rgba(125,255,176,.6))}
+.trace .g line{stroke:#123a24}
+.trace p{margin:6px 0 0;font-size:12px;color:var(--mut)}.trace p b{color:var(--ink)}
+.ax{display:flex;justify-content:space-between;font-size:11px;color:var(--mut)}
+.lists{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:24px}
+ul.adv{list-style:none;margin:0;padding:0;border-top:1px solid var(--ln)}
+ul.adv li{display:grid;grid-template-columns:130px 1fr auto;gap:4px 12px;padding:8px 0;border-bottom:1px solid var(--ln);align-items:center}
+ul.adv .t{color:var(--ph)}
+.sheet{max-width:1280px;margin:32px auto 0;padding:32px 24px 64px;border-top:1px solid var(--ln)}
+.sheet h2{font-size:20px;letter-spacing:.06em}
+.sheet h3{color:var(--mut);font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:28px 0 10px;font-weight:400}
+.idea{max-width:760px}
+.swatches{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+.sw{display:flex;gap:10px;align-items:center;padding:8px;border:1px solid var(--ln);border-radius:8px;background:var(--pn)}
+.sw i{width:36px;height:36px;border-radius:50%;flex:none;border:1px solid #2f8a55}
+.sw b{display:block}.sw code,.sw span{display:block;font-size:12px;color:var(--mut)}
+.stack code{color:var(--mut);font-size:12px}
+.type-row{display:flex;flex-wrap:wrap;gap:6px 24px;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--ln)}
+.type-row code{width:150px;font-size:12px;color:var(--mut)}
+.facts{display:grid;grid-template-columns:130px 1fr;gap:6px 16px;margin:0}.facts dt{color:var(--mut)}.facts dd{margin:0}
+.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 24px}
+.ctl-label,.field span{display:block;font-size:12px;color:var(--mut);margin-bottom:6px}
+.btn{font:700 13px var(--m);padding:8px 16px;border-radius:20px;cursor:pointer;margin:0 8px 8px 0}
+.btn.primary{background:var(--ph);color:#022012;border:1px solid var(--ph)}
+.btn.secondary{background:transparent;color:var(--ph);border:1px solid var(--ph)}
+.field input{width:100%;background:var(--face);border:1px solid var(--ln);color:var(--ink);font:14px var(--m);padding:8px 12px;border-radius:4px}
+.row-demo{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--ln);border-left:8px solid var(--amb);background:#0a1f13;padding:8px 12px;color:var(--ink);text-decoration:none}
+.st{display:inline-flex;gap:6px;align-items:center;color:var(--amb);font-weight:700}
+@media (max-width:1000px){.top{grid-template-columns:minmax(0,1fr)}.scope{max-width:560px;width:100%;margin:0 auto}.lower{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){header,main{padding-left:16px;padding-right:16px}.sector{margin-left:0}.scope{box-shadow:0 0 0 4px #0b1f14,0 0 0 5px var(--ln)}.strip{grid-template-columns:8px minmax(0,1fr) minmax(0,1fr)}.strip>div:last-child{grid-column:2/-1;border-top:1px dashed #1d5a37}.lists,.controls,.facts{grid-template-columns:minmax(0,1fr)}ul.adv li{grid-template-columns:1fr auto}ul.adv .t{grid-column:1/-1}.sheet{padding:24px 16px 48px}.scope svg .nm{font-size:20px}.scope svg .swt,.scope svg .rl{display:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="s-healthy" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-degraded" viewBox="0 0 24 24"><path d="M12 3L22 20H2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9.5v5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17.3" r="1.2" fill="currentColor"/></symbol>
+<symbol id="s-down" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+<symbol id="s-recovered" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18.5 2.8v4.6h-4.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-firing" viewBox="0 0 24 24"><path d="M13.5 2L5 13.5h6L10 22l9-12h-6.2z" fill="currentColor"/></symbol>
+<symbol id="s-resolved" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-investigating" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15 15l5.5 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+<symbol id="s-deploy" viewBox="0 0 24 24"><path d="M12 3v12M7 8l5-5 5 5M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="s-bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15zM10 20.5h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+</defs></svg>
+<header>
+  <div class="mark"><svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="12" fill="none" stroke="#7dffb0" stroke-width="2"/><circle cx="14" cy="14" r="6" fill="none" stroke="#7dffb0"/><path d="M14 14L23 6" stroke="#7dffb0" stroke-width="2"/></svg>BRIGHTWORK OPS</div>
+  <nav aria-label="Suite"><ul><li><a href="#">Projects</a></li><li><a href="#">Canvas</a></li><li><a href="#">Drive</a></li><li><a href="#">Code</a></li><li><a href="#" aria-current="page">Ops</a></li></ul></nav>
+  <div class="sector">Sector <b>production</b> · window <b>24 h</b></div>
+</header>
+<main>
+  <h1>Brightwork Ops, the suite's service monitor, showing production for the last 24 hours.</h1>
+  <div class="top">
+    <div>
+      <div class="scope">
+        <div class="sweep" aria-hidden="true"></div>
+        <svg viewBox="0 0 520 520" role="img" aria-label="Radar scope of five services. Inner healthy ring holds api, web and notifications. Middle degraded ring holds sync-worker. Outer outage ring holds billing, recovered at 07:54.">
+          <g class="rg"><circle cx="260" cy="260" r="80"/><circle cx="260" cy="260" r="160"/><circle cx="260" cy="260" r="230"/><line x1="260" y1="20" x2="260" y2="500"/><line x1="20" y1="260" x2="500" y2="260"/></g>
+          <g class="tk"><line x1="260.0" y1="32.0" x2="260.0" y2="18.0"/><line x1="301.0" y1="27.6" x2="302.0" y2="21.7"/><line x1="340.7" y1="38.2" x2="342.8" y2="32.6"/><line x1="374.0" y1="62.5" x2="381.0" y2="50.4"/><line x1="411.7" y1="79.2" x2="415.6" y2="74.6"/><line x1="440.8" y1="108.3" x2="445.4" y2="104.4"/><line x1="457.5" y1="146.0" x2="469.6" y2="139.0"/><line x1="481.8" y1="179.3" x2="487.4" y2="177.2"/><line x1="492.4" y1="219.0" x2="498.3" y2="218.0"/><line x1="488.0" y1="260.0" x2="502.0" y2="260.0"/><line x1="492.4" y1="301.0" x2="498.3" y2="302.0"/><line x1="481.8" y1="340.7" x2="487.4" y2="342.8"/><line x1="457.5" y1="374.0" x2="469.6" y2="381.0"/><line x1="440.8" y1="411.7" x2="445.4" y2="415.6"/><line x1="411.7" y1="440.8" x2="415.6" y2="445.4"/><line x1="374.0" y1="457.5" x2="381.0" y2="469.6"/><line x1="340.7" y1="481.8" x2="342.8" y2="487.4"/><line x1="301.0" y1="492.4" x2="302.0" y2="498.3"/><line x1="260.0" y1="488.0" x2="260.0" y2="502.0"/><line x1="219.0" y1="492.4" x2="218.0" y2="498.3"/><line x1="179.3" y1="481.8" x2="177.2" y2="487.4"/><line x1="146.0" y1="457.5" x2="139.0" y2="469.6"/><line x1="108.3" y1="440.8" x2="104.4" y2="445.4"/><line x1="79.2" y1="411.7" x2="74.6" y2="415.6"/><line x1="62.5" y1="374.0" x2="50.4" y2="381.0"/><line x1="38.2" y1="340.7" x2="32.6" y2="342.8"/><line x1="27.6" y1="301.0" x2="21.7" y2="302.0"/><line x1="32.0" y1="260.0" x2="18.0" y2="260.0"/><line x1="27.6" y1="219.0" x2="21.7" y2="218.0"/><line x1="38.2" y1="179.3" x2="32.6" y2="177.2"/><line x1="62.5" y1="146.0" x2="50.4" y2="139.0"/><line x1="79.2" y1="108.3" x2="74.6" y2="104.4"/><line x1="108.3" y1="79.2" x2="104.4" y2="74.6"/><line x1="146.0" y1="62.5" x2="139.0" y2="50.4"/><line x1="179.3" y1="38.2" x2="177.2" y2="32.6"/><line x1="219.0" y1="27.6" x2="218.0" y2="21.7"/></g>
+          <text x="336" y="254" class="rl" text-anchor="end" fill="#6fc796" font-size="11">HEALTHY</text><text x="416" y="254" class="rl" text-anchor="end" fill="#6fc796" font-size="11">DEGRADED</text><text x="486" y="254" class="rl" text-anchor="end" fill="#6fc796" font-size="11">OUTAGE</text>
+          <circle cx="260" cy="260" r="4" fill="#7dffb0"/>
+          <g color="#7dffb0"><use href="#s-healthy" x="295" y="194" width="22" height="22"/><text x="322" y="210" text-anchor="start" class="nm" fill="#7dffb0" font-size="15" font-weight="700">api</text><text x="322" y="227" text-anchor="start" class="swt" fill="#7dffb0" font-size="12">HEALTHY</text></g><g color="#7dffb0"><use href="#s-healthy" x="298" y="290" width="22" height="22"/><text x="325" y="306" text-anchor="start" class="nm" fill="#7dffb0" font-size="15" font-weight="700">web</text><text x="325" y="323" text-anchor="start" class="swt" fill="#7dffb0" font-size="12">HEALTHY</text></g><g color="#ffc94a"><use href="#s-degraded" x="119" y="174" width="22" height="22"/><text x="146" y="190" text-anchor="start" class="nm" fill="#ffc94a" font-size="15" font-weight="700">sync-worker</text><text x="146" y="207" text-anchor="start" class="swt" fill="#ffc94a" font-size="12">DEGRADED</text></g><g color="#7dffb0"><use href="#s-healthy" x="190" y="290" width="22" height="22"/><text x="185" y="306" text-anchor="end" class="nm" fill="#7dffb0" font-size="15" font-weight="700">notifications</text><text x="185" y="323" text-anchor="end" class="swt" fill="#7dffb0" font-size="12">HEALTHY</text></g><g color="#8fd8ff"><use href="#s-recovered" x="175" y="47" width="22" height="22"/><text x="202" y="63" text-anchor="start" class="nm" fill="#8fd8ff" font-size="15" font-weight="700">billing</text><text x="202" y="80" text-anchor="start" class="swt" fill="#8fd8ff" font-size="12">RECOVERED</text></g>
+        </svg>
+      </div>
+      <p class="cap">Distance from centre shows trouble. Inner ring healthy, middle degraded, outer outage.</p>
+      <ul class="key"><li class="healthy"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg>Healthy</li><li class="degraded"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-degraded"/></svg>Degraded</li><li class="recovered"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-recovered"/></svg>Recovered</li></ul>
+    </div>
+    <div>
+      <section aria-labelledby="h-str"><h2 id="h-str">Service strips <span>5 on scope</span></h2>
+        <ul class="strips"><li class="strip healthy"><span class="tab" aria-hidden="true"></span><div><small>Service</small><span class="cs">api</span></div><div><small>Status</small><span class="sw2 healthy"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg>Healthy</span></div><div><small>Uptime · p95 latency</small>99.98% · 182 ms</div></li><li class="strip healthy"><span class="tab" aria-hidden="true"></span><div><small>Service</small><span class="cs">web</span></div><div><small>Status</small><span class="sw2 healthy"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg>Healthy</span></div><div><small>Uptime · p95 latency</small>99.99% · 96 ms</div></li><li class="strip degraded"><span class="tab" aria-hidden="true"></span><div><small>Service</small><span class="cs">sync-worker</span></div><div><small>Status</small><span class="sw2 degraded"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-degraded"/></svg>Degraded</span></div><div><small>Uptime · Queue depth</small>99.41% · 4,812</div></li><li class="strip healthy"><span class="tab" aria-hidden="true"></span><div><small>Service</small><span class="cs">notifications</span></div><div><small>Status</small><span class="sw2 healthy"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg>Healthy</span></div><div><small>Uptime</small>99.95%</div></li><li class="strip recovered"><span class="tab" aria-hidden="true"></span><div><small>Service</small><span class="cs">billing</span></div><div><small>Status</small><span class="sw2 recovered"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-recovered"/></svg>Recovered</span></div><div><small>Outage</small>Down 6 min · back 07:54</div></li></ul>
+      </section>
+      <section aria-labelledby="h-inc"><h2 id="h-inc">Incident <span>holding until resolved</span></h2>
+        <dl class="inc"><dt class="id">INC-0427</dt><dd class="tt" style="grid-column:1/-1">sync-worker queue backlog</dd><dt>Status</dt><dd><span class="sw2 degraded"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-investigating"/></svg>Investigating</span></dd><dt>Severity</dt><dd>2</dd><dt>Opened</dt><dd>06:58</dd><dt>Owner</dt><dd>Jonas Weber</dd></dl>
+      </section>
+    </div>
+  </div>
+  <div class="lower">
+    <section class="trace" aria-labelledby="t1"><h2 id="t1">Traffic <span>requests per minute</span></h2>
+      <svg viewBox="0 0 400 92" role="img" aria-label="Requests per minute over 24 hours, from about 1,200 at night to a peak of 9,400 at 14:00."><g class="g"><line x1="0" x2="400" y1="0" y2="0"/><line x1="0" x2="400" y1="30" y2="30"/><line x1="0" x2="400" y1="60" y2="60"/><line x1="0" x2="400" y1="90" y2="90"/></g><path d="M0 21.6 L16.7 15.3 L33.3 10.8 L50 8.1 L66.7 5.4 L83.3 9 L100 13.5 L116.7 20.7 L133.3 30.6 L150 40.5 L166.7 50.4 L183.3 59.4 L200 67.5 L216.7 72.9 L233.3 76.5 L250 78.3 L266.7 79.2 L283.3 79.2 L300 78.8 L316.7 75.6 L333.3 66.6 L350 52.2 L366.7 36.9 L383.3 27 L400 22.5" fill="none" stroke="#7dffb0" stroke-width="2"/></svg>
+      <div class="ax" aria-hidden="true"><span>10:00</span><span>18:00</span><span>02:00</span><span>10:00</span></div><p>Peak <b>9,400</b> at 14:00, about <b>1,200</b> at night</p></section>
+    <section class="trace" aria-labelledby="t2"><h2 id="t2">Errors <span>rate</span></h2>
+      <svg viewBox="0 0 400 92" role="img" aria-label="Error rate over 24 hours, near 0.1 percent with a spike to 2.3 percent at 07:48."><g class="g"><line x1="0" x2="400" y1="0" y2="0"/><line x1="0" x2="400" y1="30" y2="30"/><line x1="0" x2="400" y1="60" y2="60"/><line x1="0" x2="400" y1="90" y2="90"/></g><path d="M0 86.4 L16.7 86.8 L33.3 86 L50 86.4 L66.7 85.7 L83.3 86.4 L100 86.8 L116.7 86.4 L133.3 86 L150 86.4 L166.7 86.8 L183.3 86.4 L200 86.4 L216.7 87.1 L233.3 86.8 L250 86.4 L266.7 86.8 L283.3 86.4 L300 86.4 L316.7 86 L333.3 86.4 L350 86 L360 85.3 L363.3 7.2 L365 57.6 L368.3 84.2 L383.3 86 L400 86.4" fill="none" stroke="#ff8a7a" stroke-width="2"/></svg>
+      <div class="ax" aria-hidden="true"><span>10:00</span><span>18:00</span><span>02:00</span><span>10:00</span></div><p>Near <b>0.1%</b>, spike <b>2.3%</b> at 07:48</p></section>
+    <section class="trace" aria-labelledby="t3"><h2 id="t3">Latency <span>p50 dashed, p95 solid</span></h2>
+      <svg viewBox="0 0 400 92" role="img" aria-label="Latency p50 and p95 over 24 hours. p50 between 55 and 84 ms, p95 between 138 and 226 ms."><g class="g"><line x1="0" x2="400" y1="0" y2="0"/><line x1="0" x2="400" y1="30" y2="30"/><line x1="0" x2="400" y1="60" y2="60"/><line x1="0" x2="400" y1="90" y2="90"/></g><path d="M0 28.8 L16.7 26.6 L33.3 23.8 L50 21.6 L66.7 18.7 L83.3 20.9 L100 23 L116.7 25.9 L133.3 29.5 L150 32.4 L166.7 35.3 L183.3 36.7 L200 37.8 L216.7 38.9 L233.3 39.6 L250 40 L266.7 40.3 L283.3 40.3 L300 39.6 L316.7 37.4 L333.3 33.1 L350 28.1 L366.7 8.6 L383.3 24.5 L400 25.2" fill="none" stroke="#ffc94a" stroke-width="2"/><path d="M0 64.1 L16.7 63 L33.3 61.9 L50 61.2 L66.7 59.8 L83.3 60.8 L100 61.9 L116.7 63.4 L133.3 64.8 L150 66.2 L166.7 67.7 L183.3 68.4 L200 69.1 L216.7 69.5 L233.3 69.8 L250 69.8 L266.7 70.2 L283.3 70.2 L300 69.8 L316.7 69.1 L333.3 67.3 L350 65.5 L366.7 60.5 L383.3 64.1 L400 64.4" fill="none" stroke="#8fd8ff" stroke-width="2" stroke-dasharray="5 4"/></svg>
+      <div class="ax" aria-hidden="true"><span>10:00</span><span>18:00</span><span>02:00</span><span>10:00</span></div><p>p50 <b>55–84 ms</b>, p95 <b>138–226 ms</b></p></section>
+  </div>
+  <div class="lists">
+    <section aria-labelledby="h-adv"><h2 id="h-adv">Advisories <span>alerts</span></h2>
+      <ul class="adv"><li><span class="t">07:48</span><span>billing 5xx rate above 2 percent</span><span class="sw2 resolved"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-resolved"/></svg>Resolved</span></li><li><span class="t">06:58</span><span>sync-worker queue depth above 3,000</span><span class="sw2 firing"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-firing"/></svg>Firing</span></li><li><span class="t">Yesterday 22:10</span><span>api disk 80 percent</span><span class="sw2 resolved"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-resolved"/></svg>Resolved</span></li></ul></section>
+    <section aria-labelledby="h-dep"><h2 id="h-dep">Departures <span>deploys</span></h2>
+      <ul class="adv"><li><span class="t">09:12</span><span>web v3.18.2</span><span style="color:var(--mut)">Priya Nair</span></li><li><span class="t">08:30</span><span>api v5.4.0</span><span style="color:var(--mut)">Jonas Weber</span></li><li><span class="t">06:40</span><span>sync-worker v1.9.1</span><span style="color:var(--mut)">Sam Ortiz</span></li></ul></section>
+  </div>
+</main>
+<section class="sheet" aria-labelledby="sheet-h">
+  <h2 id="sheet-h">Style 307 · Radar</h2>
+  <p class="idea">An air traffic radar scope where services are blips placed on healthy, degraded and outage rings under a sweeping line, with flight-progress strips and phosphor traces beside it.</p>
+  <h3>Palette</h3>
+  <ul class="swatches">
+    <li class="sw"><i style="background:#020a06"></i><div><b>Scope black</b><code>#020a06</code><span>page and style sheet</span></div></li>
+    <li class="sw"><i style="background:#03140b"></i><div><b>Scope face</b><code>#03140b</code><span>scope and trace panels</span></div></li>
+    <li class="sw"><i style="background:#0a1f13"></i><div><b>Strip</b><code>#0a1f13</code><span>service strips</span></div></li>
+    <li class="sw"><i style="background:#1d5a37"></i><div><b>Ring</b><code>#1d5a37</code><span>rings, borders and rules</span></div></li>
+    <li class="sw"><i style="background:#7dffb0"></i><div><b>Phosphor</b><code>#7dffb0</code><span>healthy blips, headings, traffic trace, primary button</span></div></li>
+    <li class="sw"><i style="background:#d6ffe6"></i><div><b>Ink</b><code>#d6ffe6</code><span>body text</span></div></li>
+    <li class="sw"><i style="background:#6fc796"></i><div><b>Muted</b><code>#6fc796</code><span>labels and axes</span></div></li>
+    <li class="sw"><i style="background:#ffc94a"></i><div><b>Amber</b><code>#ffc94a</code><span>Degraded, the incident and p95</span></div></li>
+    <li class="sw"><i style="background:#8fd8ff"></i><div><b>Sky</b><code>#8fd8ff</code><span>Recovered and p50</span></div></li>
+    <li class="sw"><i style="background:#ff8a7a"></i><div><b>Coral</b><code>#ff8a7a</code><span>error trace and Firing</span></div></li>
+    <li class="sw"><i style="background:#ffffff"></i><div><b>Focus</b><code>#ffffff</code><span>dashed focus outline</span></div></li>
+  </ul>
+  <h3>Type</h3>
+  <p class="stack"><code>ui-monospace, "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace</code></p>
+  <div class="type-row"><code>20 / 700</code><span style="font-size:20px;font-weight:700;color:var(--amb)">INC-0427</span></div>
+  <div class="type-row"><code>17 / 700</code><span style="font-size:17px;font-weight:700">sync-worker</span></div>
+  <div class="type-row"><code>13 caps 0.14em</code><span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ph);font-weight:700">Advisories</span></div>
+  <div class="type-row"><code>14 / 400</code><span style="">billing 5xx rate above 2 percent</span></div>
+  <div class="type-row"><code>11 caps</code><span style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)">Uptime · Queue depth</span></div>
+  <h3>Spacing, density, corners and depth</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>8px unit, 24px between scope, strips and traces, 6px between strips</dd>
+    <dt>Density</dt><dd>Medium. The scope dominates, strips are compact</dd>
+    <dt>Corners</dt><dd>A circular scope, square strips, 8px trace panels, round buttons</dd>
+    <dt>Borders</dt><dd>1px #1d5a37 rings and panels, dashed cell dividers inside strips</dd>
+    <dt>Shadows</dt><dd>A ring bezel and a soft phosphor glow on traces</dd>
+    <dt>Icons</dt><dd>Status shapes serve as the blips themselves and sit beside every status word</dd>
+    <dt>Tone</dt><dd>Air traffic words such as Sector, Advisories and Departures, kept plain</dd>
+  </dl>
+  <h3>Controls · normal and focus</h3>
+  <div class="controls">
+    <div class="ctl"><span class="ctl-label">Primary</span><button type="button" class="btn primary">Acknowledge</button> <button type="button" class="btn primary is-focus">Acknowledge</button></div>
+    <div class="ctl"><span class="ctl-label">Secondary</span><button type="button" class="btn secondary">Silence 1 h</button> <button type="button" class="btn secondary is-focus">Silence 1 h</button></div>
+    <div class="ctl"><label class="field"><span>Filter services</span><input value="sync-worker"></label></div>
+    <div class="ctl"><label class="field"><span>Filter services, focused</span><input class="is-focus" value="billing"></label></div>
+    <div class="ctl"><span class="ctl-label">List row</span><a href="#" class="row-demo"><span>sync-worker</span><span class="st degraded"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-degraded"/></svg>Degraded</span></a></div>
+    <div class="ctl"><span class="ctl-label">List row, focused</span><a href="#" class="row-demo is-focus"><span>sync-worker</span><span class="st degraded"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-degraded"/></svg>Degraded</span></a></div>
+  </div>
+</section>
+</body>
+</html>

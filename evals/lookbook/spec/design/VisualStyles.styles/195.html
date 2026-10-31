@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 195 · Sectioned report · Brightwork</title>
+<style>
+:root {
+  --desk: #eef0f3;
+  --sheet: #ffffff;
+  --ink: #16202e;
+  --muted: #4f5b6b;
+  --rule: #d5dae1;
+  --navy: #1f3a68;
+  --navy-tint: #e6ebf3;
+  --numeral: #5a6b8c;
+  --ok: #1e6b45;
+  --warn: #8f4f00;
+  --bad: #a3222b;
+  --bad-tint: #fbeaea;
+  --sans: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", system-ui, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--desk); color: var(--ink); font: 15px/1.55 var(--sans); }
+a { color: var(--navy); }
+svg.i { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: square; stroke-linejoin: miter; flex: none; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+:focus-visible, .is-focus { outline: 2px solid var(--navy); outline-offset: 2px; box-shadow: 0 0 0 4px #ffffff; }
+
+/* Header */
+.mast { background: var(--sheet); border-bottom: 1px solid var(--rule); }
+.mast-in { max-width: 1240px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; gap: 16px; min-height: 64px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; margin-right: auto; }
+.brand b { width: 26px; height: 26px; background: var(--navy); color: #fff; display: grid; place-items: center; font-size: 14px; }
+.search { display: flex; align-items: center; gap: 8px; border: 1px solid #8a94a3; padding: 0 10px; width: 280px; color: var(--muted); background: var(--sheet); }
+.search input { border: 0; background: none; font: 14px var(--sans); color: var(--ink); padding: 8px 0; width: 100%; min-width: 0; }
+.search input::placeholder { color: var(--muted); }
+.search input:focus { outline: none; }
+.search:focus-within { outline: 2px solid var(--navy); outline-offset: 1px; }
+.btn { display: inline-flex; align-items: center; gap: 6px; font: 700 14px/1 var(--sans); padding: 10px 16px; border-radius: 0; cursor: pointer; white-space: nowrap; }
+.btn-primary { background: var(--navy); color: #fff; border: 1px solid var(--navy); }
+.btn-secondary { background: var(--sheet); color: var(--navy); border: 1px solid var(--navy); }
+.icon-btn { width: 38px; height: 38px; border: 1px solid var(--rule); background: var(--sheet); color: var(--ink); display: grid; place-items: center; position: relative; cursor: pointer; }
+.icon-btn .badge { position: absolute; top: -6px; right: -6px; min-width: 18px; height: 18px; background: var(--bad); color: #fff; font-size: 11px; font-weight: 700; display: grid; place-items: center; padding: 0 4px; }
+.user { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+.ini { width: 32px; height: 32px; background: var(--navy-tint); color: var(--navy); display: grid; place-items: center; font-weight: 700; font-size: 12px; flex: none; }
+.navrow { background: var(--ink); }
+.navrow ul { max-width: 1240px; margin: 0 auto; padding: 0 32px; display: flex; list-style: none; gap: 0; overflow-x: auto; }
+.navrow a { display: block; color: #d7dde6; text-decoration: none; padding: 10px 14px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.navrow a[aria-current="page"] { color: #fff; background: var(--navy); font-weight: 700; }
+.navrow a:focus-visible { outline: 2px solid #fff; outline-offset: -4px; box-shadow: none; }
+
+/* Report frame */
+.frame { max-width: 1240px; margin: 0 auto; padding: 32px; display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px; align-items: start; }
+.toc { position: sticky; top: 24px; font-size: 14px; }
+.toc h2 { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; font-weight: 700; }
+.toc ol { list-style: none; margin: 0 0 24px; padding: 0; border-left: 1px solid #b9c1cc; }
+.toc a { display: grid; grid-template-columns: 28px 1fr; padding: 7px 12px; color: var(--ink); text-decoration: none; margin-left: -1px; border-left: 3px solid transparent; }
+.toc a span { font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 2px; }
+.toc a[aria-current="true"] { border-left-color: var(--navy); color: var(--navy); font-weight: 700; background: var(--sheet); }
+.toc .meta { font-size: 12px; color: var(--muted); border-top: 1px solid #b9c1cc; padding-top: 12px; margin: 0; }
+.toc .meta b { color: var(--ink); display: block; }
+
+.doc { background: var(--sheet); border: 1px solid var(--rule); padding: 48px 56px 56px; min-width: 0; }
+.doc-head { border-bottom: 3px solid var(--ink); padding-bottom: 24px; margin-bottom: 8px; }
+.eyebrow { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; font-weight: 700; }
+h1 { font-size: 40px; line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 12px; font-weight: 700; }
+.lede { font-size: 18px; margin: 0; max-width: 44em; }
+.lede .od { color: var(--bad); font-weight: 700; display: inline-flex; align-items: center; gap: 6px; }
+
+.sec { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 0 24px; padding: 40px 0 8px; border-bottom: 1px solid var(--rule); scroll-margin-top: 16px; }
+.sec:last-of-type { border-bottom: 0; }
+.num { font-size: 56px; line-height: 0.9; font-weight: 300; color: var(--numeral); letter-spacing: -0.04em; font-variant-numeric: tabular-nums; border-top: 3px solid var(--navy); padding-top: 10px; }
+.sec h2 { font-size: 22px; margin: 0 0 4px; letter-spacing: -0.01em; border-top: 1px solid var(--ink); padding-top: 12px; }
+.sec .sub { color: var(--muted); margin: 0 0 24px; font-size: 14px; }
+.body { min-width: 0; padding-bottom: 32px; }
+
+/* 1 Summary */
+.figs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; }
+.figs div { padding: 0 20px; border-left: 1px solid var(--rule); }
+.figs div:first-child { padding-left: 0; border-left: 0; }
+.figs dt { font-size: 13px; color: var(--muted); order: 2; }
+.figs dd { margin: 0 0 4px; font-size: 44px; font-weight: 300; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.figs div { display: flex; flex-direction: column-reverse; justify-content: flex-end; }
+.figs .od dd { color: var(--bad); font-weight: 500; display: flex; align-items: center; gap: 8px; }
+.figs .od dd svg { width: 26px; height: 26px; stroke-width: 2; }
+.figs .od dt { color: var(--bad); font-weight: 700; }
+
+/* 2 Projects ledger */
+.ledger-wrap { overflow-x: auto; border-top: 2px solid var(--ink); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th { text-align: left; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 700; padding: 10px 12px 8px; border-bottom: 1px solid var(--ink); white-space: nowrap; }
+td { padding: 12px; border-bottom: 1px solid var(--rule); vertical-align: top; white-space: nowrap; }
+td.ref { font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 14px; }
+td.r, th.r { text-align: right; font-variant-numeric: tabular-nums; }
+td .pn { font-weight: 700; color: var(--ink); text-decoration: none; }
+td .pn:hover { text-decoration: underline; }
+.meter { display: block; width: 96px; height: 6px; border: 1px solid var(--ink); margin-top: 6px; margin-left: auto; }
+.meter i { display: block; height: 100%; background: var(--navy); }
+.st { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: 13px; }
+.st svg { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; }
+.ok { color: var(--ok); } .warn { color: var(--warn); } .bad { color: var(--bad); }
+tfoot td { border-bottom: 0; border-top: 2px solid var(--ink); font-weight: 700; }
+
+/* 3 Findings */
+.finds { list-style: none; margin: 0; padding: 0; counter-reset: f; }
+.finds li { display: grid; grid-template-columns: 44px 1fr; gap: 0 12px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.finds li:first-child { padding-top: 0; }
+.finds .fn { font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 3px; }
+.finds h3 { margin: 0 0 4px; font-size: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+.finds p { margin: 0; color: var(--ink); }
+.finds .note { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+/* 4 Throughput */
+.chart-grid { display: grid; grid-template-columns: minmax(0, 1fr) 200px; gap: 32px; align-items: start; }
+.chart-grid svg { width: 100%; height: auto; display: block; }
+.tot { margin: 0; border-top: 2px solid var(--ink); }
+.tot div { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+.tot dt { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.tot dd { margin: 0; font-size: 28px; font-weight: 300; font-variant-numeric: tabular-nums; }
+.key { width: 22px; height: 0; border-top: 2px solid; display: inline-block; }
+
+/* 5 Activity */
+.log td { white-space: normal; }
+.log td.t { font-family: var(--mono); font-size: 12px; color: var(--muted); width: 110px; padding-top: 14px; white-space: nowrap; }
+.log td.p { font-weight: 700; width: 150px; }
+.log .in { color: var(--muted); }
+
+/* Style sheet */
+.sheet { background: var(--sheet); border-top: 3px solid var(--ink); }
+.sheet-in { max-width: 1240px; margin: 0 auto; padding: 56px 32px 72px; }
+.sheet h2.title { font-size: 32px; letter-spacing: -0.02em; margin: 0 0 8px; }
+.sheet .idea { font-size: 17px; color: var(--muted); max-width: 48em; margin: 0 0 16px; }
+.sheet h3 { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); margin: 40px 0 16px; border-top: 1px solid var(--ink); padding-top: 10px; }
+.sw { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0; list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--rule); border-top: 1px solid var(--rule); }
+.sw li { border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 0 0 10px; font-size: 13px; }
+.sw i { display: block; height: 48px; border-bottom: 1px solid var(--rule); margin-bottom: 8px; }
+.sw b, .sw code, .sw span { display: block; padding: 0 10px; }
+.sw code { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.sw span { font-size: 12px; color: var(--muted); }
+.ts { margin: 0; padding: 0; list-style: none; }
+.ts li { display: grid; grid-template-columns: 240px 1fr; gap: 16px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+.ts code { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+dl.spec { display: grid; grid-template-columns: 140px 1fr; margin: 0; font-size: 14px; }
+dl.spec dt, dl.spec dd { padding: 10px 0; border-bottom: 1px solid var(--rule); margin: 0; }
+dl.spec dt { font-weight: 700; }
+.ctls { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 24px 32px; }
+.ctls .lab { display: block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 10px; }
+.field { display: block; font-size: 13px; font-weight: 700; }
+.field input { display: block; width: 100%; margin-top: 6px; font: 14px var(--sans); padding: 9px 10px; border: 1px solid #8a94a3; border-radius: 0; background: var(--sheet); color: var(--ink); }
+.rowdemo td { white-space: normal; }
+.rowdemo tr.is-focus td { background: var(--navy-tint); }
+.rowdemo tr.is-focus { outline-offset: -2px; box-shadow: none; }
+
+@media (max-width: 1080px) {
+  .frame { grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 24px; }
+  .toc { min-width: 0; }
+  .toc { position: static; }
+  .toc ol { display: flex; overflow-x: auto; border-left: 0; border-bottom: 1px solid #b9c1cc; margin-bottom: 8px; }
+  .toc a { display: flex; gap: 6px; white-space: nowrap; border-left: 0; border-bottom: 3px solid transparent; margin: 0 0 -1px; }
+  .toc a[aria-current="true"] { border-bottom-color: var(--navy); }
+  .toc .meta { border-top: 0; padding-top: 0; }
+  .toc .meta b { display: inline; }
+  .chart-grid { grid-template-columns: 1fr; }
+  .tot { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+}
+@media (max-width: 760px) {
+  .mast-in { flex-wrap: wrap; padding: 12px 16px; gap: 10px; }
+  .search { order: 5; width: 100%; }
+  .user span:not(.ini) { display: none; }
+  .btn-primary .lbl { display: none; }
+  .navrow ul { padding: 0 8px; }
+  .frame { padding: 16px; }
+  .doc { padding: 24px 16px 32px; border-left: 0; border-right: 0; margin: 0 -16px; }
+  h1 { font-size: 30px; }
+  .lede { font-size: 16px; }
+  .sec { grid-template-columns: 1fr; padding-top: 32px; }
+  .num { font-size: 36px; border-top: 0; padding-top: 0; margin-bottom: 4px; }
+  .figs { grid-template-columns: 1fr 1fr; gap: 20px 0; }
+  .figs div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .figs dd { font-size: 36px; }
+  .finds li { grid-template-columns: 1fr; }
+  .log td.p { width: auto; }
+  .log thead { display: none; }
+  .log tr { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+  .log td { border: 0; padding: 0; }
+  .log td.t { width: auto; padding-top: 2px; }
+  .log td.a { grid-column: 1 / -1; }
+  .sheet-in { padding: 40px 16px 56px; }
+  .ts li { grid-template-columns: 1fr; gap: 4px; }
+  dl.spec { grid-template-columns: 1fr; }
+  dl.spec dt { border-bottom: 0; padding-bottom: 0; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="s-ok" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.6"/><path d="m5 8.2 2 2 4-4.2"/></symbol>
+  <symbol id="s-warn" viewBox="0 0 16 16"><path d="M8 1.6 14.8 14H1.2Z" stroke-linejoin="round"/><path d="M8 6.2v3.6M8 11.6v.6"/></symbol>
+  <symbol id="s-bad" viewBox="0 0 16 16"><path d="M5.3 1.5h5.4l3.8 3.8v5.4l-3.8 3.8H5.3l-3.8-3.8V5.3Z"/><path d="m5.8 5.8 4.4 4.4M10.2 5.8l-4.4 4.4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15Z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+</svg>
+
+<header class="mast">
+  <div class="mast-in">
+    <a class="brand" href="#"><b aria-hidden="true">B</b>Brightwork</a>
+    <label class="search"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search projects and tasks</span><input type="search" placeholder="Search projects and tasks"></label>
+    <button class="btn btn-primary" type="button" aria-label="New project"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg><span class="lbl">New project</span></button>
+    <button class="icon-btn" type="button" aria-label="Notifications, 3 unread"><svg class="i" aria-hidden="true"><use href="#i-bell"/></svg><span class="badge" aria-hidden="true">3</span></button>
+    <div class="user"><span class="ini" aria-hidden="true">MO</span><span>Mara Okafor</span></div>
+  </div>
+  <nav class="navrow" aria-label="Main">
+    <ul>
+      <li><a href="#" aria-current="page">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Tasks</a></li>
+      <li><a href="#">Team</a></li>
+      <li><a href="#">Reports</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="frame">
+  <aside class="toc" aria-labelledby="toc-h">
+    <h2 id="toc-h">Contents</h2>
+    <nav aria-label="Report contents">
+      <ol>
+        <li><a href="#s1" aria-current="true"><span>1</span>Summary</a></li>
+        <li><a href="#s2"><span>2</span>Projects</a></li>
+        <li><a href="#s3"><span>3</span>Needs attention</a></li>
+        <li><a href="#s4"><span>4</span>Throughput</a></li>
+        <li><a href="#s5"><span>5</span>Activity</a></li>
+      </ol>
+    </nav>
+    <p class="meta"><b>Week ending 31 Oct 2026</b> Prepared for Mara Okafor</p>
+  </aside>
+
+  <main class="doc">
+    <div class="doc-head">
+      <p class="eyebrow">Home · Saturday 31 October 2026</p>
+      <h1>Good morning, Mara</h1>
+      <p class="lede"><span class="od"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>4 tasks are overdue.</span> This report covers 6 active projects, the week's throughput and the latest team activity.</p>
+    </div>
+
+    <section class="sec" id="s1" aria-labelledby="h1s">
+      <div class="num" aria-hidden="true">1</div>
+      <div class="body">
+        <h2 id="h1s">Summary</h2>
+        <p class="sub">Figures for the week of Sunday 25 to Saturday 31 October.</p>
+        <dl class="figs">
+          <div><dt>Active projects</dt><dd>6</dd></div>
+          <div><dt>Tasks due this week</dt><dd>23</dd></div>
+          <div class="od"><dt>Overdue tasks</dt><dd><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>4</dd></div>
+          <div><dt>Hours logged this week</dt><dd>186</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="sec" id="s2" aria-labelledby="h2s">
+      <div class="num" aria-hidden="true">2</div>
+      <div class="body">
+        <h2 id="h2s">Projects</h2>
+        <p class="sub">Six active projects in due date order. 78 of 170 tasks are done across them.</p>
+        <div class="ledger-wrap" tabindex="0" role="region" aria-label="Projects ledger, scrolls sideways on small screens">
+          <table>
+            <thead><tr><th scope="col">Ref</th><th scope="col">Project</th><th scope="col">Team</th><th scope="col">Status</th><th scope="col" class="r">Complete</th><th scope="col" class="r">Tasks</th><th scope="col" class="r">Due</th></tr></thead>
+            <tbody>
+              <tr><td class="ref">2.1</td><td><a class="pn" href="#">Q4 customer survey</a></td><td>Research</td><td><span class="st ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td><td class="r">90%<span class="meter"><i style="width:90%"></i></span></td><td class="r">9 of 10</td><td class="r">7 Nov</td></tr>
+              <tr><td class="ref">2.2</td><td><a class="pn" href="#">Website redesign</a></td><td>Design</td><td><span class="st ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td><td class="r">72%<span class="meter"><i style="width:72%"></i></span></td><td class="r">18 of 25</td><td class="r">14 Nov</td></tr>
+              <tr><td class="ref">2.3</td><td><a class="pn" href="#">Billing migration</a></td><td>Engineering</td><td><span class="st bad"><svg aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></td><td class="r">30%<span class="meter"><i style="width:30%"></i></span></td><td class="r">12 of 40</td><td class="r">20 Nov</td></tr>
+              <tr><td class="ref">2.4</td><td><a class="pn" href="#">Onboarding emails</a></td><td>Marketing</td><td><span class="st ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td><td class="r">60%<span class="meter"><i style="width:60%"></i></span></td><td class="r">9 of 15</td><td class="r">21 Nov</td></tr>
+              <tr><td class="ref">2.5</td><td><a class="pn" href="#">Mobile app 2.0</a></td><td>Engineering</td><td><span class="st warn"><svg aria-hidden="true"><use href="#s-warn"/></svg>At risk</span></td><td class="r">45%<span class="meter"><i style="width:45%"></i></span></td><td class="r">27 of 60</td><td class="r">2 Dec</td></tr>
+              <tr><td class="ref">2.6</td><td><a class="pn" href="#">Spring catalogue</a></td><td>Marketing</td><td><span class="st ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td><td class="r">15%<span class="meter"><i style="width:15%"></i></span></td><td class="r">3 of 20</td><td class="r">15 Jan</td></tr>
+            </tbody>
+            <tfoot><tr><td></td><td>Total</td><td></td><td>4 on track</td><td class="r">46%</td><td class="r">78 of 170</td><td></td></tr></tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="s3" aria-labelledby="h3s">
+      <div class="num" aria-hidden="true">3</div>
+      <div class="body">
+        <h2 id="h3s">Needs attention</h2>
+        <p class="sub">Items drawn from sections 1 and 2.</p>
+        <ol class="finds">
+          <li><span class="fn">3.1</span><div><h3>Overdue tasks <span class="st bad"><svg aria-hidden="true"><use href="#i-clock"/></svg>4 overdue</span></h3><p>4 tasks have passed their due date and need a new date or an owner.</p></div></li>
+          <li><span class="fn">3.2</span><div><h3>Billing migration <span class="st bad"><svg aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></h3><p>30 percent done, 28 of 40 tasks remain, due 20 Nov.</p><p class="note">20 days left. The target pace to finish is 1.4 tasks a day.</p></div></li>
+          <li><span class="fn">3.3</span><div><h3>Mobile app 2.0 <span class="st warn"><svg aria-hidden="true"><use href="#s-warn"/></svg>At risk</span></h3><p>45 percent done, 33 of 60 tasks remain, due 2 Dec.</p><p class="note">32 days left. The target pace to finish is about 1 task a day.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="sec" id="s4" aria-labelledby="h4s">
+      <div class="num" aria-hidden="true">4</div>
+      <div class="body">
+        <h2 id="h4s">Throughput</h2>
+        <p class="sub">Tasks completed per day, this week laid over last week, Sunday to Saturday.</p>
+        <div class="chart-grid">
+          <svg viewBox="0 0 672 230" role="img" aria-label="Tasks completed per day. Last week, Sunday 18 to Saturday 24 October: 3, 12, 9, 14, 11, 8, 2, total 59. This week, Sunday 25 to Saturday 31 October: 4, 15, 13, 17, 12, 10, 2, total 73.">
+            <g stroke="#d5dae1"><line x1="40" y1="20" x2="660" y2="20"/><line x1="40" y1="62.5" x2="660" y2="62.5"/><line x1="40" y1="105" x2="660" y2="105"/><line x1="40" y1="147.5" x2="660" y2="147.5"/></g>
+            <line x1="40" y1="190" x2="660" y2="190" stroke="#16202e"/>
+            <g font-size="11" fill="#4f5b6b" font-family="Helvetica Neue, Arial, sans-serif" text-anchor="end"><text x="30" y="24">20</text><text x="30" y="109">10</text><text x="30" y="194">0</text></g>
+            <polyline points="48,164.5 144,88.0 240,113.5 336,71.0 432,96.5 528,122.0 624,173.0" fill="none" stroke="#5a6b8c" stroke-width="2" stroke-dasharray="6 4"/>
+            <g fill="#ffffff" stroke="#5a6b8c" stroke-width="2"><rect x="44" y="160.5" width="8" height="8"/><rect x="140" y="84" width="8" height="8"/><rect x="236" y="109.5" width="8" height="8"/><rect x="332" y="67" width="8" height="8"/><rect x="428" y="92.5" width="8" height="8"/><rect x="524" y="118" width="8" height="8"/><rect x="620" y="169" width="8" height="8"/></g>
+            <polyline points="48,156.0 144,62.5 240,79.5 336,45.5 432,88.0 528,105.0 624,173.0" fill="none" stroke="#1f3a68" stroke-width="2.5"/>
+            <g fill="#1f3a68"><circle cx="48" cy="156" r="4.5"/><circle cx="144" cy="62.5" r="4.5"/><circle cx="240" cy="79.5" r="4.5"/><circle cx="336" cy="45.5" r="4.5"/><circle cx="432" cy="88" r="4.5"/><circle cx="528" cy="105" r="4.5"/><circle cx="624" cy="173" r="4.5"/></g>
+            <g font-size="11" fill="#1f3a68" font-family="Helvetica Neue, Arial, sans-serif" font-weight="700" text-anchor="middle"><text x="48" y="146">4</text><text x="144" y="52">15</text><text x="240" y="69">13</text><text x="336" y="35">17</text><text x="432" y="78">12</text><text x="528" y="95">10</text><text x="624" y="163">2</text></g>
+            <g font-size="11" fill="#4f5b6b" font-family="Helvetica Neue, Arial, sans-serif" text-anchor="middle"><text x="48" y="210">Sun</text><text x="144" y="210">Mon</text><text x="240" y="210">Tue</text><text x="336" y="210">Wed</text><text x="432" y="210">Thu</text><text x="528" y="210">Fri</text><text x="624" y="210">Sat</text></g>
+          </svg>
+          <dl class="tot">
+            <div><dt><span class="key" style="border-color:#1f3a68"></span>This week, 25 to 31 Oct, solid with dots</dt><dd>73</dd></div>
+            <div><dt><span class="key" style="border-color:#5a6b8c;border-top-style:dashed"></span>Last week, 18 to 24 Oct, dashed with squares</dt><dd>59</dd></div>
+            <div><dt>Change</dt><dd>+14</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="s5" aria-labelledby="h5s">
+      <div class="num" aria-hidden="true">5</div>
+      <div class="body">
+        <h2 id="h5s">Activity</h2>
+        <p class="sub">Latest changes, newest first.</p>
+        <table class="log">
+          <thead><tr><th scope="col">When</th><th scope="col">Who</th><th scope="col">What</th></tr></thead>
+          <tbody>
+            <tr><td class="t">12 min ago</td><td class="p">Jonas Weber</td><td class="a">Completed “Export invoices as CSV” <span class="in">in Billing migration</span></td></tr>
+            <tr><td class="t">40 min ago</td><td class="p">Priya Nair</td><td class="a">Commented on “Hero image options” <span class="in">in Website redesign</span></td></tr>
+            <tr><td class="t">1 h ago</td><td class="p">Sam Ortiz</td><td class="a">Moved “Push notifications” to Review <span class="in">in Mobile app 2.0</span></td></tr>
+            <tr><td class="t">2 h ago</td><td class="p">Lena Fischer</td><td class="a">Added 3 tasks <span class="in">to Spring catalogue</span></td></tr>
+            <tr><td class="t">3 h ago</td><td class="p">Tomás Ruiz</td><td class="a">Logged 6 h <span class="in">on Mobile app 2.0</span></td></tr>
+            <tr><td class="t">Yesterday</td><td class="p">Aiko Tanaka</td><td class="a">Uploaded survey-results-v2.pdf <span class="in">to Q4 customer survey</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-title">
+  <div class="sheet-in">
+    <h2 class="title" id="sheet-title">Style 195 · Sectioned report</h2>
+    <p class="idea">The home screen reads as a numbered status report on a white sheet, with large light section numerals in the margin and a sticky contents list on the left, so the week can be read top to bottom or jumped to by section.</p>
+
+    <h3>Palette</h3>
+    <ul class="sw">
+      <li><i style="background:#eef0f3"></i><b>Desk</b><code>#eef0f3</code><span>Page behind the sheet, contents rail</span></li>
+      <li><i style="background:#ffffff"></i><b>Sheet</b><code>#ffffff</code><span>The report, header, fields</span></li>
+      <li><i style="background:#16202e"></i><b>Ink</b><code>#16202e</code><span>Text, heavy rules, nav band</span></li>
+      <li><i style="background:#4f5b6b"></i><b>Muted</b><code>#4f5b6b</code><span>Labels, refs, meta</span></li>
+      <li><i style="background:#d5dae1"></i><b>Rule</b><code>#d5dae1</code><span>Row hairlines, never text</span></li>
+      <li><i style="background:#1f3a68"></i><b>Navy</b><code>#1f3a68</code><span>Primary, current nav, this week line, focus</span></li>
+      <li><i style="background:#e6ebf3"></i><b>Navy tint</b><code>#e6ebf3</code><span>Initials, focused row</span></li>
+      <li><i style="background:#5a6b8c"></i><b>Numeral</b><code>#5a6b8c</code><span>Section numerals, last week line</span></li>
+      <li><i style="background:#1e6b45"></i><b>Green</b><code>#1e6b45</code><span>On track, check in a circle</span></li>
+      <li><i style="background:#8f4f00"></i><b>Amber</b><code>#8f4f00</code><span>At risk, bang in a triangle</span></li>
+      <li><i style="background:#a3222b"></i><b>Red</b><code>#a3222b</code><span>Behind, cross in an octagon, overdue</span></li>
+    </ul>
+
+    <h3>Type</h3>
+    <ul class="ts">
+      <li><code>Numeral 56 / 300 · Helvetica Neue, Arial</code><span style="font-size:56px;font-weight:300;line-height:1;color:#5a6b8c;letter-spacing:-.04em">4</span></li>
+      <li><code>H1 40 / 700, minus 0.02em</code><span style="font-size:40px;font-weight:700;letter-spacing:-.02em;line-height:1.1">Good morning, Mara</span></li>
+      <li><code>Figure 44 / 300 tabular</code><span style="font-size:44px;font-weight:300">186</span></li>
+      <li><code>Section 22 / 700</code><span style="font-size:22px;font-weight:700">Throughput</span></li>
+      <li><code>Body 15 / 400 at 1.55</code><span>30 percent done, 28 of 40 tasks remain.</span></li>
+      <li><code>Ref 12 · ui-monospace, Menlo, Consolas</code><span style="font-family:var(--mono);font-size:12px">2.3</span></li>
+      <li><code>Label 11 / 700 caps 0.1em</code><span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase">Complete</span></li>
+    </ul>
+
+    <h3>Rules</h3>
+    <dl class="spec">
+      <dt>Spacing</dt><dd>8px unit. 40px above each section, 56px sheet padding, 24px between the margin numeral and the text.</dd>
+      <dt>Density</dt><dd>Medium. Reading pace, with one idea per numbered section.</dd>
+      <dt>Corners</dt><dd>Square everywhere.</dd>
+      <dt>Borders</dt><dd>A 3px ink rule under the report head, a 3px navy cap over each numeral, 1px ink over each heading and 1px grey between rows.</dd>
+      <dt>Shadows</dt><dd>None. The white sheet sits on a grey desk with a 1px border.</dd>
+      <dt>Icons</dt><dd>1.5px square-capped line icons at 18px. Status is an outline check circle, bang triangle or crossed octagon beside its word.</dd>
+      <dt>Tone</dt><dd>Report voice with refs, such as 3.2 Billing migration, Total and Change.</dd>
+    </dl>
+
+    <h3>Controls, normal and focus</h3>
+    <div class="ctls">
+      <div><span class="lab">Primary button</span><button class="btn btn-primary" type="button">New project</button> <button class="btn btn-primary is-focus" type="button">New project</button></div>
+      <div><span class="lab">Secondary button</span><button class="btn btn-secondary" type="button">Download PDF</button> <button class="btn btn-secondary is-focus" type="button">Download PDF</button></div>
+      <div><span class="lab">Text field</span><label class="field">Project name<input type="text" value="Billing migration"></label><label class="field" style="margin-top:12px">Project name, focused<input class="is-focus" type="text" value="Billing migration"></label></div>
+      <div><span class="lab">Ledger row</span>
+        <table class="rowdemo"><tbody>
+          <tr><td class="ref" style="font-family:var(--mono);font-size:12px;color:#4f5b6b">2.2</td><td>Website redesign</td><td><span class="st ok"><svg aria-hidden="true"><use href="#s-ok"/></svg>On track</span></td></tr>
+          <tr class="is-focus"><td class="ref" style="font-family:var(--mono);font-size:12px;color:#4f5b6b">2.3</td><td>Billing migration</td><td><span class="st bad"><svg aria-hidden="true"><use href="#s-bad"/></svg>Behind</span></td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

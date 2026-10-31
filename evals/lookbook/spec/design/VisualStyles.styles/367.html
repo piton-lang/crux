@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 367 · Market depth · Brightwork</title>
+<style>
+
+:root { color-scheme: dark; --bg:#090c12; --panel:#0f131b; --head:#151b26; --grid:#232b3a; --ink:#dfe6f2; --muted:#93a0b5; --spent:#f2b45c; --left:#5fcbe3; --over:#ff8593; --in:#7fe3a9;
+ --mono: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 13px/1.45 var(--mono); }
+a { color: var(--left); }
+:focus-visible, .is-focus { outline: 2px solid var(--left) !important; outline-offset: -2px; box-shadow: inset 0 0 0 4px rgba(95,203,227,.18); }
+.si { width: 1em; height: 1em; vertical-align: -2px; flex: none; }
+.bar { display: flex; align-items: stretch; border-bottom: 1px solid var(--grid); background: var(--head); flex-wrap: wrap; }
+.bar .brand { padding: 10px 16px; font-weight: 700; border-right: 1px solid var(--grid); letter-spacing: .04em; }
+.bar .brand span { color: var(--left); }
+.tick { display: flex; list-style: none; margin: 0; padding: 0; flex: 1; min-width: 0; overflow-x: auto; }
+.tick li { padding: 8px 16px; border-right: 1px solid var(--grid); white-space: nowrap; }
+.tick .s { color: var(--muted); font-size: 11px; display: block; letter-spacing: .08em; }
+.tick .v { font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.tick .neg { color: var(--over); }
+.bar .user { padding: 10px 16px; color: var(--muted); border-left: 1px solid var(--grid); white-space: nowrap; }
+.desk { display: grid; grid-template-columns: 260px minmax(0, 1fr) 330px; gap: 1px; background: var(--grid); min-height: 560px; }
+.pn { background: var(--panel); min-width: 0; }
+.pn h2 { margin: 0; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 8px 12px; background: var(--head); border-bottom: 1px solid var(--grid); display: flex; justify-content: space-between; gap: 8px; }
+.pn h2 span { color: var(--muted); font-weight: 400; }
+.pos { list-style: none; margin: 0; padding: 0; }
+.pos li { padding: 10px 12px; border-bottom: 1px solid var(--grid); display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; }
+.pos .k { color: var(--muted); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+.pos .v { grid-column: 1 / -1; font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.pos .t { font-size: 11px; color: var(--muted); text-align: right; }
+.pos .neg { color: var(--over); }
+.ladder { padding: 8px 12px 12px; }
+.ladder ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column-reverse; gap: 2px; }
+.ladder li { display: grid; grid-template-columns: 48px 1fr; gap: 8px; align-items: center; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.ladder li i { height: 12px; background: var(--grid); display: block; }
+.ladder li.f i { background: var(--in); }
+.ladder li.p i { background: linear-gradient(90deg, var(--in) 40%, var(--grid) 40%); }
+.ladder li.f, .ladder li.p { color: var(--ink); }
+.ladder .sum { margin: 10px 0 0; font-size: 12px; line-height: 1.6; }
+.ladder .sum b { font-size: 16px; }
+.book { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.book th { font-size: 11px; font-weight: 400; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; padding: 6px 8px; border-bottom: 1px solid var(--grid); }
+.book td { padding: 0; border-bottom: 1px solid var(--grid); height: 52px; font-variant-numeric: tabular-nums; }
+.book .l { text-align: right; } .book .r { text-align: left; }
+.book .mid { width: 150px; text-align: center; background: var(--head); border-left: 1px solid var(--grid); border-right: 1px solid var(--grid); }
+.book .mid b { display: block; font-size: 13px; } .book .mid span { font-size: 11px; color: var(--muted); }
+.side { position: relative; height: 52px; display: flex; align-items: center; padding: 0 8px; }
+.side.l { justify-content: flex-end; } .side.r { justify-content: flex-start; }
+.side i { position: absolute; top: 10px; bottom: 10px; display: block; }
+.side.l i { right: 0; background: rgba(242,180,92,.30); border-left: 2px solid var(--spent); }
+.side.r i { left: 0; background: rgba(95,203,227,.26); border-right: 2px solid var(--left); }
+.side.r i.def { background: repeating-linear-gradient(135deg, rgba(255,133,147,.4) 0 4px, transparent 4px 8px); border-right: 2px solid var(--over); }
+.side span { position: relative; font-weight: 700; font-size: 14px; background: var(--panel); padding: 0 4px; }
+.side.l span { color: var(--spent); } .side.r span { color: var(--left); }
+.side.r span.o { color: var(--over); }
+.side em { position: relative; font-style: normal; font-size: 11px; margin: 0 6px; padding: 1px 5px; display: inline-flex; gap: 4px; align-items: center; background: var(--panel); }
+.side em.over { color: var(--over); border: 1px solid var(--over); }
+.side em.full { color: var(--ink); border: 1px dashed var(--muted); }
+.side.l b.cap { position: absolute; left: 0; top: 4px; bottom: 4px; border-left: 2px dotted var(--over); }
+.spread { display: grid; grid-template-columns: 1fr 150px 1fr; background: var(--head); border-bottom: 1px solid var(--grid); font-size: 13px; }
+.spread div { padding: 10px 8px; } .spread .a { text-align: right; color: var(--spent); } .spread .b { text-align: center; border-left: 1px solid var(--grid); border-right: 1px solid var(--grid); } .spread .c { color: var(--left); }
+.key { display: flex; flex-wrap: wrap; gap: 6px 18px; padding: 10px 12px; color: var(--muted); font-size: 11px; }
+.key i { display: inline-block; width: 10px; height: 10px; vertical-align: -1px; margin-right: 6px; }
+.tape { width: 100%; border-collapse: collapse; }
+.tape th { font-size: 11px; font-weight: 400; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; text-align: left; padding: 6px 12px; border-bottom: 1px solid var(--grid); }
+.tape td { padding: 9px 12px; border-bottom: 1px solid var(--grid); font-variant-numeric: tabular-nums; vertical-align: top; }
+.tape td.d { color: var(--muted); white-space: nowrap; width: 60px; }
+.tape td.a { text-align: right; font-weight: 700; white-space: nowrap; }
+.tape .sd { font-size: 10px; letter-spacing: .08em; display: inline-flex; gap: 3px; align-items: center; margin-top: 2px; }
+.tape tr.in .sd, .tape tr.in td.a { color: var(--in); }
+.tape tr.out .sd { color: var(--muted); }
+@media (max-width: 1100px) { .desk { grid-template-columns: 240px minmax(0,1fr); } .desk .tp { grid-column: 1 / -1; } }
+@media (max-width: 760px) {
+ .desk { grid-template-columns: minmax(0,1fr); } .desk .tp { grid-column: auto; } .desk .ps { order: 2; } .desk .tp { order: 3; }
+ .bar .user { display: none; }
+ .book .mid, .spread .b { width: 92px; } .spread { grid-template-columns: 1fr 92px 1fr; }
+ .book .mid b { font-size: 12px; } .side span { font-size: 12px; padding: 0 2px; } .side { padding: 0 4px; }
+ .side em { margin: 0 2px; padding: 1px 3px; font-size: 10px; }
+ .book .r .side { flex-direction: column; align-items: flex-start; justify-content: center; gap: 2px; }
+}
+
+.sheet { max-width: 1120px; margin: 0 auto; padding: 48px 24px 64px; }
+.sheet .swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.sheet .sw { display: flex; gap: 12px; align-items: flex-start; }
+.sheet .sw i { flex: none; width: 44px; height: 44px; }
+.sheet .sw span { font-size: 13px; }
+.sheet .type-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding: 8px 0; }
+.sheet .type-row code { flex: none; width: 200px; font-size: 12px; }
+.sheet .type-row span { min-width: 0; overflow-wrap: anywhere; }
+.sheet .facts { display: grid; grid-template-columns: 140px minmax(0,1fr); gap: 8px 24px; margin: 0; }
+.sheet .facts dd { margin: 0; }
+.sheet .controls { display: grid; gap: 20px; }
+.sheet .ctl-label { display: block; font-size: 13px; margin-bottom: 8px; }
+.sheet .ctl-pair { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
+.sheet .fld { display: grid; gap: 6px; font-size: 13px; }
+.sheet .lrow { min-width: 0; width: min(340px, 100%); }
+@media (max-width: 600px) { .sheet .facts { grid-template-columns: minmax(0,1fr); } .sheet .facts dd { margin-bottom: 8px; } .sheet .type-row code { width: auto; } .sheet { padding: 40px 16px 48px; } }
+
+.sheet { border-top: 1px solid var(--grid); background: var(--bg); }
+.sheet h2 { font-size: 24px; letter-spacing: .02em; margin: 0 0 8px; }
+.sheet .idea { font-size: 14px; max-width: 780px; line-height: 1.7; }
+.sheet h3 { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; background: var(--head); color: var(--ink); border: 1px solid var(--grid); padding: 6px 10px; margin: 32px 0 12px; font-weight: 700; }
+.sheet .sw i { border: 1px solid var(--grid); width: 32px; height: 32px; }
+.sheet .sw span, .sheet code, .sheet .ctl-label, .sheet .fld span, .sheet dt { color: var(--muted); }
+.sheet .sw span { font-size: 12px; }
+.btn-p { font: 700 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; background: var(--left); color: #04161b; border: 0; padding: 8px 16px; border-radius: 2px; cursor: pointer; }
+.btn-s { font: 700 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; background: var(--head); color: var(--ink); border: 1px solid var(--grid); padding: 7px 15px; border-radius: 2px; cursor: pointer; }
+.btn-p.is-focus, .btn-p:focus-visible { outline-color: var(--ink) !important; outline-offset: 2px; }
+.fld input { font: 13px var(--mono); background: var(--panel); color: var(--ink); border: 1px solid var(--grid); padding: 7px 10px; border-radius: 2px; width: 220px; max-width: 100%; }
+.lrow { display: grid; grid-template-columns: 56px 1fr auto; gap: 8px; padding: 9px 12px; border: 1px solid var(--grid); background: var(--panel); color: var(--ink); text-decoration: none; font-size: 13px; }
+.lrow .d { color: var(--muted); }
+
+</style>
+</head>
+<body>
+<header class="bar">
+ <div class="brand">BW<span>/</span>MONEY</div>
+ <ul class="tick" aria-label="Balances">
+  <li><span class="s">EVERYDAY</span><span class="v">2,184.60</span></li>
+  <li><span class="s">SAVINGS</span><span class="v">11,420.00</span></li>
+  <li><span class="s">CREDIT CARD · <svg class="si" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> DUE 12 NOV</span><span class="v neg">−342.18</span></li>
+  <li><span class="s">OCT BUDGET LEFT</span><span class="v">60</span></li>
+ </ul>
+ <div class="user">MARA OKAFOR · EUR · OCT</div>
+</header>
+<main class="desk">
+ <section class="pn ps" aria-labelledby="h-pos"><h2 id="h-pos">Positions <span>EUR</span></h2>
+  <ul class="pos">
+   <li><span class="k">Everyday account</span><span class="v">2,184.60</span></li>
+   <li><span class="k">Savings</span><span class="v">11,420.00</span></li>
+   <li><span class="k">Credit card</span><span class="t">due 12 Nov</span><span class="v neg">−342.18</span></li>
+  </ul>
+  <h2 id="h-goal">Goal ladder · Japan trip <span>500/lvl</span></h2>
+  <div class="ladder"><ol role="img" aria-label="Ten levels of 500 euros up to 5,000. Six levels filled and the seventh two fifths, 3,200 saved"><li class="f"><span>500</span><i></i></li><li class="f"><span>1,000</span><i></i></li><li class="f"><span>1,500</span><i></i></li><li class="f"><span>2,000</span><i></i></li><li class="f"><span>2,500</span><i></i></li><li class="f"><span>3,000</span><i></i></li><li class="p"><span>3,500</span><i></i></li><li class=""><span>4,000</span><i></i></li><li class=""><span>4,500</span><i></i></li><li class=""><span>5,000</span><i></i></li></ol>
+   <p class="sum"><b>3,200</b> / 5,000 filled<br>1,800 to go · target 1 APR 2027</p></div>
+ </section>
+ <section class="pn" aria-labelledby="h-book"><h2 id="h-book">Budget depth · October <span>spent ◂ limit ▸ remaining</span></h2>
+  <table class="book"><thead><tr><th class="l">Spent</th><th class="mid" style="background:none">Category</th><th class="r">Remaining</th></tr></thead><tbody><tr><td class="l"><div class="side l"><i style="width:100%"></i><span>1,150</span></div></td><td class="mid"><b>RENT</b><span>limit 1,150</span></td><td class="r"><div class="side r"><span>0</span><em class="full"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10h8M8 14h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>FILLED</em></div></td></tr><tr><td class="l"><div class="side l"><i style="width:86%"></i><span>386</span></div></td><td class="mid"><b>GROCERIES</b><span>limit 450</span></td><td class="r"><div class="side r"><i style="width:14%"></i><span>64</span></div></td></tr><tr><td class="l"><div class="side l"><b class="cap" aria-hidden="true"></b><i style="width:100%"></i><span>212</span></div></td><td class="mid"><b>EATING OUT</b><span>limit 150</span></td><td class="r"><div class="side r"><i class="def" style="width:41%"></i><span class="o">−62</span><em class="over"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3L22 20H2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9.5v4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2" fill="currentColor"/></svg>OVER</em></div></td></tr><tr><td class="l"><div class="side l"><i style="width:62%"></i><span>74</span></div></td><td class="mid"><b>TRANSPORT</b><span>limit 120</span></td><td class="r"><div class="side r"><i style="width:38%"></i><span>46</span></div></td></tr><tr><td class="l"><div class="side l"><i style="width:80%"></i><span>48</span></div></td><td class="mid"><b>SUBSCRIPTIONS</b><span>limit 60</span></td><td class="r"><div class="side r"><i style="width:20%"></i><span>12</span></div></td></tr></tbody></table>
+  <div class="spread" aria-label="Totals"><div class="a">1,870 spent</div><div class="b">1,930 total</div><div class="c">60 left</div></div>
+  <div class="key"><span><i style="background:#f2b45c"></i>spent, grows left to its limit</span><span><i style="background:#5fcbe3"></i>remaining, grows right</span><span><i style="background:repeating-linear-gradient(135deg,#ff8593 0 2px,transparent 2px 4px);border:1px solid #ff8593"></i>deficit past limit, OVER</span><span>dotted red edge, spent beyond limit</span></div>
+ </section>
+ <section class="pn tp" id="tx" aria-labelledby="h-tape"><h2 id="h-tape">Tape <span>last 5</span></h2>
+  <table class="tape"><thead><tr><th>Date</th><th>Payee · side</th><th style="text-align:right">EUR</th></tr></thead><tbody><tr class="in"><td class="d">31 OCT</td><td>Fernhill Studio salary<br><span class="sd"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>IN</span></td><td class="a">+3,850.00</td></tr><tr class="out"><td class="d">30 OCT</td><td>Corner Market<br><span class="sd"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>OUT</span></td><td class="a">−42.15</td></tr><tr class="out"><td class="d">29 OCT</td><td>Night train tickets<br><span class="sd"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>OUT</span></td><td class="a">−118.00</td></tr><tr class="out"><td class="d">28 OCT</td><td>Lumen Bakery<br><span class="sd"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>OUT</span></td><td class="a">−9.40</td></tr><tr class="out"><td class="d">27 OCT</td><td>Music subscription<br><span class="sd"><svg class="si" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>OUT</span></td><td class="a">−10.99</td></tr></tbody></table>
+ </section>
+</main>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 367 · Market depth</h2>
+<p class="idea">The budget read as an order book, each category a mirrored depth row with spent growing left and remaining growing right from a central limit column, balances on a ticker strip, savings as a goal ladder and transactions as a trade tape.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><i style="background:#090c12"></i><div><b>Floor</b> #090c12<br><span>page and style sheet</span></div></li><li class="sw"><i style="background:#0f131b"></i><div><b>Panel</b> #0f131b<br><span>the three desk panels, fields and rows</span></div></li><li class="sw"><i style="background:#151b26"></i><div><b>Head</b> #151b26<br><span>panel title bars, ticker strip and limit column</span></div></li><li class="sw"><i style="background:#232b3a"></i><div><b>Grid</b> #232b3a<br><span>1px gaps between panels and every row line</span></div></li><li class="sw"><i style="background:#dfe6f2"></i><div><b>Ink</b> #dfe6f2<br><span>text and figures</span></div></li><li class="sw"><i style="background:#93a0b5"></i><div><b>Muted</b> #93a0b5<br><span>column heads, dates, side labels</span></div></li><li class="sw"><i style="background:#f2b45c"></i><div><b>Spent</b> #f2b45c<br><span>spent figures and spent depth bars</span></div></li><li class="sw"><i style="background:#5fcbe3"></i><div><b>Remaining</b> #5fcbe3<br><span>remaining figures and bars, primary button, focus</span></div></li><li class="sw"><i style="background:#ff8593"></i><div><b>Over</b> #ff8593<br><span>deficit hatching, OVER tag, owed balance</span></div></li><li class="sw"><i style="background:#7fe3a9"></i><div><b>In</b> #7fe3a9<br><span>money in on the tape and filled goal levels</span></div></li></ul>
+<h3>Type · ui-monospace, JetBrains Mono, SF Mono, Menlo, Consolas, Liberation Mono</h3>
+<div class="type-row"><code>18 / 700 position</code><span style="font-size:18px;font-weight:700">11,420.00</span></div><div class="type-row"><code>15 / 700 ticker</code><span style="font-size:15px;font-weight:700">2,184.60</span></div><div class="type-row"><code>14 / 700 depth figure</code><span style="font-size:14px;font-weight:700;color:var(--spent)">386 · 64</span></div><div class="type-row"><code>13 / 400 body</code><span style="font-size:13px">Night train tickets</span></div><div class="type-row"><code>11 / caps .12em panel head</code><span style="font-size:11px;letter-spacing:.12em;font-weight:700">BUDGET DEPTH · OCTOBER</span></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3>
+<dl class="facts"><dt>Spacing</dt><dd>4px unit. 8 to 12px cell padding, 52px depth rows, 1px gaps between panels.</dd><dt>Density</dt><dd>High. Three panels edge to edge, a ticker, a five row book with totals, a ten level ladder and a tape.</dd><dt>Corners</dt><dd>Square, 2px on buttons and fields only.</dd><dt>Borders</dt><dd>1px grid lines everywhere, panels separated by 1px gaps, a framed limit column in the middle of the book.</dd><dt>Shadows</dt><dd>None.</dd><dt>Icons</dt><dd>Tiny 1em glyphs beside capital words. Triangle with OVER in a solid box, ruled square with FILLED in a dashed box, arrows with IN and OUT, a clock for due.</dd><dt>Focus</dt><dd>A 2px cyan inset outline with a faint cyan inner wash.</dd><dt>Tone</dt><dd>Terse trading labels in capitals, Positions, Budget depth, Tape, OVER, FILLED, 60 left.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls">
+<div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-p" type="button">Rebalance</button><button class="btn-p is-focus" type="button">Rebalance</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-s" type="button">Export</button><button class="btn-s is-focus" type="button">Export</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="fld"><span>Filter tape</span><input type="text" value="bakery"></label><label class="fld"><span>Filter tape, focused</span><input type="text" class="is-focus" value="bakery"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><a class="lrow" href="#tx"><span class="d">28 OCT</span><span>Lumen Bakery</span><span>−9.40</span></a><a class="lrow is-focus" href="#tx"><span class="d">28 OCT</span><span>Lumen Bakery</span><span>−9.40</span></a></div></div>
+</div>
+</section>
+</body>
+</html>

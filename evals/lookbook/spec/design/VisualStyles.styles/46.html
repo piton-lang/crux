@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 46 · Public service plain · Brightwork</title>
+<style>
+:root {
+  --ink: #0b0c0c;
+  --paper: #ffffff;
+  --hint: #4f575b;
+  --rule: #b1b4b6;
+  --link: #1a4f8b;
+  --focus: #ffdd00;
+  --success: #1a6b3c;
+  --warning: #b3261e;
+  --panel: #f3f2f1;
+  --font: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 19px/1.45 var(--font); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 3px; }
+/* The yellow focus: fill plus a black bar underneath */
+a:focus-visible, a.is-focus { outline: 3px solid transparent; background: var(--focus); color: var(--ink); text-decoration: none; box-shadow: 0 -2px var(--focus), 0 4px var(--ink); }
+button:focus-visible, button.is-focus { outline: 3px solid transparent; background: var(--focus) !important; color: var(--ink) !important; box-shadow: 0 2px 0 var(--ink) !important; }
+select:focus-visible, select.is-focus, input[type=text]:focus-visible, input.is-focus { outline: 3px solid var(--focus); outline-offset: 0; box-shadow: inset 0 0 0 2px var(--ink); }
+input:focus-visible + .mark, .mark.is-focus { outline: 3px solid transparent; box-shadow: 0 0 0 4px var(--focus); }
+.row.is-focus { outline: 3px solid var(--focus); outline-offset: 0; box-shadow: inset 0 0 0 2px var(--ink); }
+
+.width { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+header.top { border-bottom: 10px solid var(--ink); }
+header.top .width { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; padding-top: 16px; padding-bottom: 12px; }
+.brand { font-size: 28px; font-weight: 700; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+.who { font-size: 16px; }
+
+main.width { padding-top: 40px; padding-bottom: 64px; }
+.caption { display: block; color: var(--hint); font-size: 19px; margin-bottom: 4px; }
+h1 { font-size: 48px; line-height: 1.04; margin: 0 0 40px; font-weight: 700; }
+h2 { font-size: 32px; line-height: 1.1; margin: 0 0 20px; font-weight: 700; }
+h3 { font-size: 24px; margin: 0 0 16px; font-weight: 700; }
+p { margin: 0 0 20px; }
+
+.layout { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+.subnav ul { list-style: none; margin: 0; padding: 0; }
+.subnav li { border-left: 5px solid transparent; padding: 6px 0 6px 12px; margin-bottom: 4px; }
+.subnav li.current { border-left-color: var(--ink); }
+.subnav li.current a { color: var(--ink); font-weight: 700; text-decoration: none; }
+
+fieldset { border: 0; margin: 0 0 32px; padding: 0; min-width: 0; }
+legend { padding: 0; font-weight: 700; font-size: 24px; margin-bottom: 12px; }
+.hint { display: block; color: var(--hint); margin: -4px 0 16px; }
+.item { position: relative; display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; cursor: pointer; }
+.mark { width: 40px; height: 40px; flex: none; border: 2px solid var(--ink); background: #fff; display: grid; place-items: center; }
+.mark svg { width: 26px; height: 26px; visibility: hidden; }
+input:checked + .mark svg { visibility: visible; }
+.mark.radio { border-radius: 50%; }
+.mark.radio::after { content: ""; width: 20px; height: 20px; border-radius: 50%; background: var(--ink); visibility: hidden; }
+input:checked + .mark.radio::after { visibility: visible; }
+.item .t { padding-top: 7px; }
+.item .t small { display: block; color: var(--hint); font-size: 16px; }
+.nested { margin: 4px 0 16px 18px; padding-left: 32px; border-left: 4px solid var(--rule); }
+
+.field { display: block; margin-bottom: 28px; }
+.field .lab { display: block; font-weight: 700; margin-bottom: 6px; }
+select { font: 19px var(--font); color: var(--ink); background: #fff; border: 2px solid var(--ink); border-radius: 0; height: 44px; padding: 0 8px; min-width: 18em; max-width: 100%; }
+
+.btn { display: inline-block; font: 700 19px/1 var(--font); padding: 12px 16px 10px; border: 2px solid transparent; border-radius: 0; cursor: pointer; margin: 0 16px 16px 0; }
+.btn-primary { background: var(--ink); color: #fff; box-shadow: 0 3px 0 #6f777b; }
+.btn-secondary { background: var(--panel); color: var(--ink); box-shadow: 0 3px 0 #929191; }
+.btn-warning { background: var(--warning); color: #fff; box-shadow: 0 3px 0 #5a130f; }
+
+.banner { border: 5px solid var(--success); margin: 0 0 40px; }
+.banner .head { background: var(--success); color: #fff; padding: 4px 16px 6px; font-weight: 700; font-size: 16px; }
+.banner .body { padding: 16px; display: flex; gap: 12px; align-items: center; font-size: 24px; font-weight: 700; }
+.banner svg { width: 32px; height: 32px; flex: none; }
+
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+.danger h2 { display: flex; align-items: center; gap: 12px; }
+.warn-text { display: flex; gap: 16px; align-items: flex-start; font-weight: 700; margin-bottom: 24px; }
+.warn-text .bang { width: 36px; height: 36px; flex: none; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; font-size: 26px; line-height: 1; }
+
+/* Style sheet */
+.sheet { border-top: 10px solid var(--ink); padding-top: 40px; padding-bottom: 64px; }
+.idea { font-size: 24px; max-width: 34em; }
+.sw { list-style: none; margin: 0 0 40px; padding: 0; }
+.sw li { display: flex; gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.sw i { width: 48px; height: 48px; flex: none; border: 1px solid var(--ink); }
+.sw code, .type-row code { font: 16px Consolas, "Courier New", monospace; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 40px; }
+th, td { text-align: left; vertical-align: top; padding: 12px 16px 12px 0; border-bottom: 1px solid var(--rule); }
+th { width: 30%; }
+.type-row { padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.type-row code { display: block; color: var(--hint); }
+.demo { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 40px; }
+.demo .row { padding: 12px; border: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 12px; }
+
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; }
+  h1 { font-size: 36px; margin-bottom: 24px; }
+  h2 { font-size: 27px; }
+  .demo { grid-template-columns: 1fr; }
+  select { min-width: 0; width: 100%; }
+  .width { padding: 0 16px; }
+  th { width: 38%; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-tick" viewBox="0 0 24 24"><path d="M3.5 12.5l5.5 5.5L20.5 6" fill="none" stroke="#0b0c0c" stroke-width="4" stroke-linecap="square"/></symbol>
+  <symbol id="i-done" viewBox="0 0 24 24"><path d="M3.5 12.5l5.5 5.5L20.5 6" fill="none" stroke="#1a6b3c" stroke-width="4" stroke-linecap="square"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="width">
+    <a class="brand" href="#">Brightwork</a>
+    <span class="who">Mara Okafor</span>
+  </div>
+</header>
+
+<main class="width">
+  <span class="caption">Your account</span>
+  <h1>Settings</h1>
+
+  <div class="layout">
+    <nav class="subnav" aria-label="Settings sections">
+      <ul>
+        <li><a href="#">Profile</a></li>
+        <li class="current"><a href="#" aria-current="page">Notifications</a></li>
+        <li><a href="#">Workspace</a></li>
+        <li><a href="#">Billing</a></li>
+        <li><a href="#">Security</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <div class="banner" role="status">
+        <div class="head">Success</div>
+        <div class="body"><svg aria-hidden="true"><use href="#i-done"/></svg>Changes saved</div>
+      </div>
+
+      <form action="#">
+        <h2>Notifications</h2>
+
+        <fieldset>
+          <legend>Email and reminders</legend>
+          <span class="hint">Select all that apply.</span>
+          <label class="item"><input class="sr" type="checkbox" checked><span class="mark" aria-hidden="true"><svg><use href="#i-tick"/></svg></span><span class="t">Email me when a task is assigned to me</span></label>
+          <label class="item"><input class="sr" type="checkbox"><span class="mark" aria-hidden="true"><svg><use href="#i-tick"/></svg></span><span class="t">Email me when a task I follow is completed</span></label>
+          <label class="item"><input class="sr" type="checkbox" checked><span class="mark" aria-hidden="true"><svg><use href="#i-tick"/></svg></span><span class="t">Daily summary at 08:00</span></label>
+          <label class="item"><input class="sr" type="checkbox" checked><span class="mark" aria-hidden="true"><svg><use href="#i-tick"/></svg></span><span class="t">Weekly report on Monday</span></label>
+          <label class="item"><input class="sr" type="checkbox" checked><span class="mark" aria-hidden="true"><svg><use href="#i-tick"/></svg></span><span class="t">Quiet hours from 19:00 to 07:00</span></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Mentions in comments</legend>
+          <span class="hint">How you are told when someone mentions you.</span>
+          <div class="nested">
+            <label class="item"><input class="sr" type="checkbox" checked><span class="mark" aria-hidden="true"><svg><use href="#i-tick"/></svg></span><span class="t">Push</span></label>
+            <label class="item"><input class="sr" type="checkbox" checked><span class="mark" aria-hidden="true"><svg><use href="#i-tick"/></svg></span><span class="t">Email</span></label>
+          </div>
+        </fieldset>
+
+        <label class="field"><span class="lab">Time zone</span><select><option>Europe/Berlin</option><option>Europe/London</option></select></label>
+        <label class="field"><span class="lab">Summary language</span><select><option>English</option></select></label>
+
+        <fieldset>
+          <legend>Digest frequency</legend>
+          <label class="item"><input class="sr" type="radio" name="digest" checked><span class="mark radio" aria-hidden="true"></span><span class="t">Daily</span></label>
+          <label class="item"><input class="sr" type="radio" name="digest"><span class="mark radio" aria-hidden="true"></span><span class="t">Weekly</span></label>
+          <label class="item"><input class="sr" type="radio" name="digest"><span class="mark radio" aria-hidden="true"></span><span class="t">Never</span></label>
+        </fieldset>
+
+        <button class="btn btn-primary" type="button">Save changes</button><button class="btn btn-secondary" type="button">Cancel</button>
+      </form>
+
+      <hr>
+
+      <section class="danger" aria-labelledby="dz-h">
+        <h2 id="dz-h">Danger zone</h2>
+        <div class="warn-text"><span class="bang" aria-hidden="true">!</span><span><span class="sr">Warning: </span>If you leave, you lose access to this workspace.</span></div>
+        <button class="btn btn-warning" type="button">Leave workspace</button>
+      </section>
+    </div>
+  </div>
+</main>
+
+<section class="width sheet" aria-labelledby="sheet-h">
+  <h2 id="sheet-h">Style 46 · Public service plain</h2>
+  <p class="idea">A plain public-service form in black on white, one bold sans and a thick yellow focus, where nothing is decoration and every heading sits hard left.</p>
+
+  <h3>Palette</h3>
+  <ul class="sw">
+    <li><i style="background:#0b0c0c"></i><div><b>Ink</b> <code>#0b0c0c</code> · text, checkbox borders, primary button, header rule</div></li>
+    <li><i style="background:#ffffff"></i><div><b>Paper</b> <code>#ffffff</code> · page and fields</div></li>
+    <li><i style="background:#4f575b"></i><div><b>Hint</b> <code>#4f575b</code> · hint text and captions</div></li>
+    <li><i style="background:#b1b4b6"></i><div><b>Rule</b> <code>#b1b4b6</code> · thin dividers, nested group bar</div></li>
+    <li><i style="background:#1a4f8b"></i><div><b>Link</b> <code>#1a4f8b</code> · underlined links</div></li>
+    <li><i style="background:#ffdd00"></i><div><b>Focus</b> <code>#ffdd00</code> · focus fill and ring, always with black</div></li>
+    <li><i style="background:#f3f2f1"></i><div><b>Panel</b> <code>#f3f2f1</code> · secondary button</div></li>
+    <li><i style="background:#1a6b3c"></i><div><b>Success</b> <code>#1a6b3c</code> · saved banner border and tick</div></li>
+    <li><i style="background:#b3261e"></i><div><b>Warning</b> <code>#b3261e</code> · Leave workspace button</div></li>
+  </ul>
+
+  <h3>Type · Arial, "Helvetica Neue", Helvetica, sans-serif</h3>
+  <div class="type-row"><code>48 / 700 / 1.04 · page title</code><span style="font-size:48px;font-weight:700;line-height:1.04">Settings</span></div>
+  <div class="type-row"><code>32 / 700 · section</code><span style="font-size:32px;font-weight:700">Notifications</span></div>
+  <div class="type-row"><code>24 / 700 · legend</code><span style="font-size:24px;font-weight:700">Digest frequency</span></div>
+  <div class="type-row"><code>19 / 400 / 1.45 · body</code><span>Email me when a task is assigned to me</span></div>
+  <div class="type-row"><code>19 / 400 hint</code><span style="color:var(--hint)">Select all that apply.</span></div>
+
+  <h3>Build</h3>
+  <table>
+    <tr><th scope="row">Spacing</th><td>8px unit, used as 16, 24 and 40. 16px between options, 32px between groups, 40px between columns.</td></tr>
+    <tr><th scope="row">Density</th><td>Low to medium. A single long form, read top to bottom.</td></tr>
+    <tr><th scope="row">Corners</th><td>Square everywhere. Only radios are round.</td></tr>
+    <tr><th scope="row">Borders</th><td>2px black on fields and boxes, 10px black under the header, 1px #b1b4b6 dividers.</td></tr>
+    <tr><th scope="row">Shadows</th><td>Only a 3px flat bottom edge on buttons.</td></tr>
+    <tr><th scope="row">Icons</th><td>Almost none. Black square tick in boxes, a filled dot in radios, a bold exclamation in a black circle for warnings.</td></tr>
+    <tr><th scope="row">Tone</th><td>Direct and instructional: Select all that apply. If you leave, you lose access.</td></tr>
+  </table>
+
+  <h3>Controls · normal and focus</h3>
+  <div class="demo">
+    <div><button class="btn btn-primary" type="button">Save changes</button><button class="btn btn-primary is-focus" type="button">Save changes</button></div>
+    <div><button class="btn btn-secondary" type="button">Cancel</button><button class="btn btn-secondary is-focus" type="button">Cancel</button></div>
+    <label class="field"><span class="lab">Text field</span><select><option>Europe/Berlin</option></select></label>
+    <label class="field"><span class="lab">Text field, focused</span><select class="is-focus"><option>English</option></select></label>
+    <div><span class="lab" style="font-weight:700;display:block;margin-bottom:6px">List row</span><div class="row"><a href="#">Weekly report on Monday</a><span>On</span></div></div>
+    <div><span class="lab" style="font-weight:700;display:block;margin-bottom:6px">List row, focused</span><div class="row is-focus"><a href="#" class="is-focus">Weekly report on Monday</a><span>On</span></div></div>
+  </div>
+</section>
+</body>
+</html>

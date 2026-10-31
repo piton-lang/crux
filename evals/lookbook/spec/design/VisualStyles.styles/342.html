@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 342 · Boardroom walnut · Brightwork</title>
+<style>
+
+:root { color-scheme: dark; --wood:#26170f; --grainA:#2d1c13; --grainB:#21140d; --ox:#3b1d1b; --oxin:#2e1716; --green:#1d2c24; --stitch:#b08a5a; --ink:#f1e3c8; --muted:#d2b994; --b1:#c9a45c; --b2:#e6c983; --b3:#b8924a; --eng:#2a1a08; --red:#ffa08c; --won:#b7e0a0;
+ --serif: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; --plate: Copperplate, "Copperplate Gothic Light", "Trajan Pro", Optima, serif;
+ --s-bg:#1c110b; --s-ink:#f1e3c8; --s-muted:#d2b994; --s-line:#5a3f2a; --s-font: var(--serif); --s-hfont: var(--plate); --s-sw-r: 2px; }
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); font: 17px/1.5 var(--serif); background-color: var(--wood);
+ background-image: repeating-linear-gradient(92deg, var(--grainA) 0 3px, var(--wood) 3px 11px, var(--grainB) 11px 13px, var(--wood) 13px 29px); }
+.ic { width: 1em; height: 1em; vertical-align: -.12em; flex: none; }
+:focus-visible, .is-focus { outline: 3px solid var(--b2) !important; outline-offset: 3px; }
+.brass { background-color: var(--b1); background-image: linear-gradient(180deg, var(--b2), var(--b1) 55%, var(--b3)); color: var(--eng); box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 2px 3px rgba(0,0,0,.6); }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 28px 28px 52px; }
+.head { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 26px; }
+.title { padding: 10px 26px; border-radius: 3px; text-align: center; }
+.title small { display: block; font: 12px var(--plate); letter-spacing: .3em; text-transform: uppercase; }
+.title h1 { margin: 0; font: 600 24px var(--plate); letter-spacing: .12em; text-transform: uppercase; }
+.head .sp { flex: 1; }
+.btn-p { border: 0; border-radius: 3px; padding: 10px 18px; font: 700 15px var(--plate); letter-spacing: .1em; text-transform: uppercase; display: inline-flex; gap: 6px; align-items: center; cursor: pointer; background-color: var(--b1); background-image: linear-gradient(180deg, var(--b2), var(--b1) 55%, var(--b3)); color: var(--eng); box-shadow: 0 2px 3px rgba(0,0,0,.6); }
+.btn-s { border: 1px dashed var(--stitch); border-radius: 8px; padding: 9px 16px; font: 700 15px var(--plate); letter-spacing: .1em; text-transform: uppercase; display: inline-flex; gap: 6px; align-items: center; cursor: pointer; background: var(--ox); color: var(--ink); box-shadow: 0 0 0 4px var(--ox), 0 4px 8px rgba(0,0,0,.6); }
+.plaques { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 14px; margin: 0 0 30px; }
+.plaques > div { border-radius: 4px; padding: 10px 12px; text-align: center; position: relative; }
+.plaques > div::before, .plaques > div::after { content: ""; position: absolute; top: 50%; width: 6px; height: 6px; margin-top: -3px; border-radius: 50%; background: #7a5a26; }
+.plaques > div::before { left: 7px; } .plaques > div::after { right: 7px; }
+.plaques dt { font: 11px var(--plate); letter-spacing: .2em; text-transform: uppercase; }
+.plaques dd { margin: 0; font: 600 28px/1.2 var(--serif); font-variant-numeric: lining-nums tabular-nums; }
+.plaques .meter { height: 5px; background: #8a6a32; margin: 4px 12px 0; border-radius: 3px; }
+.plaques .meter i { display: block; height: 100%; width: 64%; background: var(--eng); border-radius: 3px; }
+.folders { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 18px; align-items: start; }
+.folder { background: var(--ox); border-radius: 4px 12px 12px 12px; padding: 8px; box-shadow: 0 10px 18px rgba(0,0,0,.55), inset 0 0 30px rgba(0,0,0,.35); position: relative; margin-top: 18px; }
+.folder.g { background: var(--green); }
+.folder::before { content: ""; position: absolute; left: 0; top: -16px; width: 46%; height: 18px; background: inherit; border-radius: 8px 8px 0 0; }
+.folder > .in { border: 1.5px dashed var(--stitch); border-radius: 8px; padding: 12px; }
+.folder h2 { margin: 0 auto 12px; width: fit-content; max-width: 100%; padding: 3px 14px; border-radius: 2px; font: 600 14px var(--plate); letter-spacing: .14em; text-transform: uppercase; text-align: center; }
+.folder h2 span { font-family: var(--serif); letter-spacing: 0; margin-left: 6px; }
+.folder ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.deal { display: block; color: var(--ink); text-decoration: none; padding-bottom: 12px; border-bottom: 1px solid rgba(176,138,90,.35); }
+.folder li:last-child .deal { border-bottom: 0; padding-bottom: 0; }
+.deal b { display: block; font-size: 18px; font-weight: 600; line-height: 1.25; }
+.deal .v { font-size: 22px; font-variant-numeric: lining-nums tabular-nums; }
+.np { display: inline-block; font: 600 11px var(--plate); letter-spacing: .12em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; margin-top: 4px; }
+.st { display: flex; gap: 6px; align-items: baseline; font-style: italic; font-size: 15px; margin-top: 6px; color: var(--muted); }
+.st.bad { color: var(--red); font-style: normal; font-weight: 700; } .st.ok { color: var(--won); }
+.total { font-size: 14px; color: var(--muted); text-align: center; margin: 10px 0 0; font-style: italic; }
+.blotter { margin-top: 30px; background: var(--green); border-radius: 6px; padding: 10px; box-shadow: 0 10px 18px rgba(0,0,0,.55); border-left: 22px solid #3a2416; border-right: 22px solid #3a2416; }
+.blotter .in { border: 1.5px dashed var(--stitch); border-radius: 4px; padding: 16px 20px; }
+.blotter h2 { margin: 0 0 10px; font: 600 15px var(--plate); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.blotter ol { margin: 0; padding-left: 26px; display: grid; gap: 6px; }
+.blotter li::marker { color: var(--muted); }
+.blotter .bad { color: var(--red); }
+@media (max-width: 1100px) { .folders { grid-template-columns: repeat(3, minmax(0,1fr)); } .plaques { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+@media (max-width: 640px) {
+ .wrap { padding: 18px 16px 40px; }
+ .title { width: 100%; } .title h1 { font-size: 19px; }
+ .plaques { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; } .plaques > div:first-child { grid-column: 1 / -1; } .plaques dd { font-size: 22px; }
+ .folders { grid-template-columns: minmax(0,1fr); }
+ .blotter { border-left-width: 8px; border-right-width: 8px; } .blotter .in { padding: 12px; }
+}
+.fld { display: grid; gap: 4px; font: 12px var(--plate); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.fld input { background: var(--oxin); border: 1px dashed var(--stitch); border-radius: 6px; padding: 9px 12px; color: var(--ink); font: 17px var(--serif); width: 230px; max-width: 100%; letter-spacing: 0; text-transform: none; }
+.lrow { display: flex; gap: 12px; align-items: center; background: var(--ox); border-radius: 8px; padding: 10px 14px; color: var(--ink); text-decoration: none; width: 300px; max-width: 100%; }
+.lrow .np { margin: 0 0 0 auto; }
+
+
+.sheet { background: var(--s-bg); color: var(--s-ink); font-family: var(--s-font); padding: 48px 28px 72px; border-top: var(--s-top, 1px solid var(--s-line)); }
+.sheet > * { max-width: 1120px; margin-left: auto; margin-right: auto; }
+.sheet h2 { font-family: var(--s-hfont, inherit); font-size: 30px; line-height: 1.2; margin-top: 0; margin-bottom: 8px; font-weight: 700; }
+.sheet .idea { font-size: 17px; line-height: 1.55; color: var(--s-ink); margin-top: 0; margin-bottom: 8px; }
+.sheet h3 { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--s-muted); margin-top: 36px; margin-bottom: 14px; padding-top: 12px; border-top: 1px solid var(--s-line); font-weight: 700; }
+.swatches { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.sw { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; line-height: 1.45; min-width: 0; }
+.sw i { flex: none; width: 44px; height: 44px; border-radius: var(--s-sw-r, 6px); border: 1px solid var(--s-line); }
+.sw b { font-weight: 700; } .sw code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; color: var(--s-ink); }
+.sw span { color: var(--s-muted); }
+.type-row { display: flex; align-items: baseline; gap: 20px; padding: 10px 0; border-bottom: 1px solid var(--s-line); flex-wrap: wrap; min-width: 0; }
+.type-row code { flex: 0 0 220px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12.5px; color: var(--s-muted); }
+.type-row > span { min-width: 0; overflow-wrap: anywhere; }
+.stack { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; color: var(--s-muted); margin: 0 auto 6px; overflow-wrap: anywhere; }
+.facts { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 8px 20px; margin: 0 auto; font-size: 15px; line-height: 1.55; }
+.facts dt { font-weight: 700; } .facts dd { margin: 0; color: var(--s-ink); }
+.controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.ctl-label { display: block; font-size: 13px; color: var(--s-muted); margin-bottom: 10px; }
+.ctl-pair { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.ctl-pair > * { min-width: 0; }
+@media (max-width: 700px) {
+ .sheet { padding: 36px 16px 56px; }
+ .sheet h2 { font-size: 24px; }
+ .facts, .controls { grid-template-columns: minmax(0, 1fr); }
+ .facts dd { margin-bottom: 8px; }
+ .type-row code { flex-basis: 100%; }
+ .ctl-pair > .fld, .ctl-pair > .lrow { flex: 1 1 100%; }
+}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5L21.5 20h-19z"/><path d="M12 10v4"/><path d="M12 17.2v.1"/></symbol><symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol><symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14.5" rx="1.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></symbol><symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 3.5L3.5 10.5l7 3 3 7z"/><path d="M20.5 3.5l-10 10"/></symbol><symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V4"/><path d="M6 4.5h11l-2.5 4 2.5 4H6"/></symbol><symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></symbol><symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></symbol><symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></symbol><symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16l-6 7.5V19l-4 1.5v-8z"/></symbol><symbol id="i-sortd" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 5v14M3.5 15.5L7 19l3.5-3.5"/><path d="M13 7h8M13 12h6M13 17h4"/></symbol><symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></symbol><symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol><symbol id="i-dot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/></symbol><symbol id="i-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H4.5a3 3 0 0 0 3.5 4M16 6h3.5a3 3 0 0 1-3.5 4M12 13v4M8.5 20h7M10 17h4"/></symbol><symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8-4.3-4.1 5.9-.8z"/></symbol><symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/></symbol><symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol><symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></symbol><symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15z"/><path d="M10 20.5h4"/></symbol><symbol id="i-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4 0-6.5-2.6-6.5-6.2 0-3.6 3-5.6 4-9.3 2 1.6 2.5 3.6 2.4 5 1-.6 1.7-1.7 2-3 2.4 2.1 4.6 4.7 4.6 7.3 0 3.6-2.5 6.2-6.5 6.2z"/></symbol><symbol id="i-hex" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/></symbol><symbol id="i-square" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12"/></symbol><symbol id="i-diamond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l8 8-8 8-8-8z"/></symbol><symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></symbol><symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol></defs></svg>
+<div class="wrap">
+<header class="head"><div class="title brass"><small>Brightwork Sales</small><h1>Q4 Pipeline</h1></div><span class="sp"></span><button class="btn-s" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-user"/></svg>Owners</button><button class="btn-p" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>New deal</button></header>
+<main>
+<dl class="plaques">
+<div class="brass"><dt>Pipeline value</dt><dd>412,000</dd></div>
+<div class="brass"><dt>Won this quarter</dt><dd>128,500</dd><div class="meter" role="img" aria-label="64 percent of target"><i></i></div></div>
+<div class="brass"><dt>Target</dt><dd>200,000</dd></div>
+<div class="brass"><dt>Win rate</dt><dd>31%</dd></div>
+<div class="brass"><dt>Open deals</dt><dd>18</dd></div>
+</dl>
+<div class="folders"><section class="folder" aria-labelledby="f0"><div class="in"><h2 class="brass" id="f0">Lead<span>· 2</span></h2><ul><li><a class="deal" href="#"><b>Lumen Bakery</b><span class="v">6,000</span><br><span class="np brass">Lena Fischer</span></a></li><li><a class="deal" href="#"><b>Orbit Labs</b><span class="v">24,000</span><br><span class="np brass">Sam Ortiz</span></a></li></ul><p class="total">Folder total 30,000</p></div></section><section class="folder" aria-labelledby="f1"><div class="in"><h2 class="brass" id="f1">Qualified<span>· 1</span></h2><ul><li><a class="deal" href="#"><b>Northpass</b><span class="v">48,000</span><br><span class="np brass">Mara Okafor</span><span class="st "><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Demo on 4 Nov</span></a></li></ul><p class="total">Folder total 48,000</p></div></section><section class="folder" aria-labelledby="f2"><div class="in"><h2 class="brass" id="f2">Proposal<span>· 2</span></h2><ul><li><a class="deal" href="#"><b>Kettle &amp; Co</b><span class="v">32,500</span><br><span class="np brass">Lena Fischer</span><span class="st "><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-send"/></svg>Proposal sent 28 Oct</span></a></li><li><a class="deal" href="#"><b>Saltwater Freight</b><span class="v">90,000</span><br><span class="np brass">Mara Okafor</span><span class="st bad"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-warn"/></svg>Stalled 12 days</span></a></li></ul><p class="total">Folder total 122,500</p></div></section><section class="folder" aria-labelledby="f3"><div class="in"><h2 class="brass" id="f3">Negotiation<span>· 1</span></h2><ul><li><a class="deal" href="#"><b>Fernhill Studio</b><span class="v">18,000</span><br><span class="np brass">Sam Ortiz</span><span class="st "><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-flag"/></svg>Closing 7 Nov</span></a></li></ul><p class="total">Folder total 18,000</p></div></section><section class="folder g" aria-labelledby="f4"><div class="in"><h2 class="brass" id="f4">Won<span>· 1</span></h2><ul><li><a class="deal" href="#"><b>Bluewater Clinics</b><span class="v">64,000</span><br><span class="st ok"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Closed 22 Oct</span></a></li></ul><p class="total">Folder total 64,000</p></div></section></div>
+<section class="blotter" aria-labelledby="mh"><div class="in"><h2 id="mh">Minutes</h2><ol>
+<li>Call with Northpass booked for 4 Nov 10:00</li>
+<li>Kettle &amp; Co opened the proposal 3 times</li>
+<li class="bad"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-warn"/></svg> Saltwater Freight has had no reply for 12 days</li>
+</ol></div></section>
+</main></div>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 342 · Boardroom walnut</h2>
+<p class="idea">The pipeline laid out on a dark walnut boardroom table, each stage a stitched leather folder with a brass name plate, owners on small engraved brass plates, the figures on brass plaques and the activity as minutes on a green leather blotter.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><i style="background:#26170f"></i><div><b>Walnut</b> <code>#26170f</code><br><span>table top, with grain lines #2d1c13 and #21140d</span></div></li><li class="sw"><i style="background:#1c110b"></i><div><b>Sheet walnut</b> <code>#1c110b</code><br><span>style sheet ground</span></div></li><li class="sw"><i style="background:#3b1d1b"></i><div><b>Oxblood</b> <code>#3b1d1b</code><br><span>open stage folders, secondary button</span></div></li><li class="sw"><i style="background:#1d2c24"></i><div><b>Bottle green</b> <code>#1d2c24</code><br><span>Won folder and minutes blotter</span></div></li><li class="sw"><i style="background:#b08a5a"></i><div><b>Stitch</b> <code>#b08a5a</code><br><span>dashed stitching inside every folder</span></div></li><li class="sw"><i style="background:#f1e3c8"></i><div><b>Ink</b> <code>#f1e3c8</code><br><span>text on leather and wood</span></div></li><li class="sw"><i style="background:#d2b994"></i><div><b>Tan</b> <code>#d2b994</code><br><span>italic remarks and labels</span></div></li><li class="sw"><i style="background:#e6c983"></i><div><b>Brass light</b> <code>#e6c983</code><br><span>top of every brass gradient, focus</span></div></li><li class="sw"><i style="background:#c9a45c"></i><div><b>Brass</b> <code>#c9a45c</code><br><span>plaques, name plates, primary button</span></div></li><li class="sw"><i style="background:#b8924a"></i><div><b>Brass dark</b> <code>#b8924a</code><br><span>bottom of the brass gradient</span></div></li><li class="sw"><i style="background:#2a1a08"></i><div><b>Engraved</b> <code>#2a1a08</code><br><span>text cut into brass</span></div></li><li class="sw"><i style="background:#ffa08c"></i><div><b>Red</b> <code>#ffa08c</code><br><span>Stalled, with a triangle</span></div></li><li class="sw"><i style="background:#b7e0a0"></i><div><b>Leaf</b> <code>#b7e0a0</code><br><span>Closed, with a check</span></div></li></ul>
+<h3>Type</h3>
+<p class="stack">Baskerville, Baskerville Old Face, Hoefler Text, Garamond, Times New Roman · plates in Copperplate, Copperplate Gothic Light, Trajan Pro, Optima</p>
+<div class="type-row"><code>24 / 600 plate caps</code><span style="font:600 24px Copperplate,Copperplate Gothic Light,Optima,serif;letter-spacing:.12em;text-transform:uppercase">Q4 Pipeline</span></div><div class="type-row"><code>28 / 600 plaque figure</code><span style="font-size:28px;font-weight:600">412,000</span></div><div class="type-row"><code>18 / 600 deal name</code><span style="font-size:18px;font-weight:600">Saltwater Freight</span></div><div class="type-row"><code>11 / 600 plate caps</code><span style="font:600 11px Copperplate,Optima,serif;letter-spacing:.12em;text-transform:uppercase;background:#c9a45c;color:#2a1a08;padding:2px 8px">Mara Okafor</span></div><div class="type-row"><code>15 / italic remark</code><span style="font-size:15px;font-style:italic;color:#d2b994">Proposal sent 28 Oct</span></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3>
+<dl class="facts"><dt>Spacing</dt><dd>8px unit. 18px between folders, 14px between plaques, 12px inside the stitching, 28px gutter, 16px on phones.</dd><dt>Density</dt><dd>Low to medium. Five folders, one deal block each, generous wood between.</dd><dt>Corners</dt><dd>Folders 4px at the tab corner and 12px elsewhere, 8px stitching, 2px to 4px on brass.</dd><dt>Borders</dt><dd>Dashed 1.5px tan stitching inside folders and the blotter, thin tan rules between deals, wooden ends on the blotter.</dd><dt>Shadows</dt><dd>Deep soft shadows under folders and blotter, an inner shade on leather, a light top bevel and a short drop on brass.</dd><dt>Icons</dt><dd>Few, small line icons at 1.7 stroke beside italic remarks. Red triangle and bold word for stalled, leaf check for closed.</dd><dt>Focus</dt><dd>A 3px light brass outline offset 3px.</dd><dt>Tone</dt><dd>Formal meeting words. Q4 Pipeline, Folder total, Minutes, Owners.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls">
+<div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-p" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>New deal</button><button class="btn-p is-focus" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>New deal</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-s" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-user"/></svg>Owners</button><button class="btn-s is-focus" type="button"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-user"/></svg>Owners</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="fld"><span>Deal</span><input type="text" value="Northpass"></label><label class="fld"><span>Deal, focused</span><input type="text" class="is-focus" value="Northpass"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><a class="lrow" href="#"><b>Fernhill Studio</b><span class="np brass">Sam Ortiz</span></a><a class="lrow is-focus" href="#"><b>Fernhill Studio</b><span class="np brass">Sam Ortiz</span></a></div></div>
+</div>
+</section>
+</body>
+</html>

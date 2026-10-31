@@ -36,6 +36,80 @@ export skill CruxUiDevelop extends CruxUiBase:
         such as the whole app, suggest a narrower part first, and let
         the user keep the broad target if they want.
 
+    mockupFiles:
+        Mockups are saved project files, not throwaway output. Save
+        them next to the specification file they belong to, in a folder
+        named after that file with a .mockups suffix. For
+        spec/surface/Card.pi the folder is spec/surface/Card.mockups.
+        Each round gets its own subfolder, round-1, round-2 and so on.
+        Inside a round, each variation is one file named by its number,
+        1.html, 2.html, 3.html, and the round's gallery is index.html.
+        The folder also has a top-level index.html that lists every
+        round, links to each round's gallery, and marks the variation
+        picked in each round. Never overwrite or renumber an earlier
+        round. A new round is always a new folder.
+
+    referencingMockups:
+        Give the anchor that describes the UI a mockups property. In
+        it, name the mockups folder index and the picked variation of
+        the latest round, such as
+        spec/surface/Card.mockups/round-2/3.html. Add one plain
+        sentence per pick saying what it settled. Keep the property in
+        step with each new pick. Every behaviour a pick settles, such
+        as layout order, what shows when a list is empty, or what a
+        control does, is also written as plain requirements in the
+        anchor.
+
+    variations:
+        Number variations 1, 2, 3 and so on, in the order they appear
+        in the gallery. Use the same number in the file name, in the
+        gallery card, and in everything you say about it, so the user
+        can pick one by number alone.
+
+        Make the variations genuinely different. Vary what matters for
+        the open question of the round, such as layout, information
+        order, density, navigation, or how an interaction works. Never
+        make variations that differ only in colour or font size. Give
+        each one a short name and one sentence on the idea behind it.
+
+        Follow the design rules the specification already has, such as
+        palette, spacing, type, icons, tone, accessibility and language
+        rules. If the project has a style library with a chosen
+        direction, made by crux-ui-styles, build in that direction
+        unless the round is exploring the look itself. When the
+        specification sets no look for what a variation needs, or the
+        round explores the look, search the style catalogue for
+        treatments that suit the idea, rather than inventing generic
+        ones. Show the states
+        the specification cares about, such as empty, loading, error,
+        long text, a second language, or a narrow screen, when they
+        matter for the round.
+
+    gallery:
+        Each round has one gallery page, index.html in the round
+        folder, that shows every variation of the round at once. It
+        shows the round number and the question the round explores.
+        Then it shows one card per variation with the number large and
+        clear, the short name, the one-sentence idea, and a live
+        preview of the variation file in an iframe. Pressing a
+        variation's number key also opens its large view. In a later
+        round, the gallery also links back to the variation it grew
+        from.
+
+    picking:
+        The user picks a variation by telling you its number, such as
+        2, or I like 2. They may also combine, such as 2 with the
+        header from 3, ask for changes to one, ask to dive deeper into
+        one, reject all of them, or ask for a different number of
+        variations. Treat a combination or a change as the starting
+        point for the next round, not as a pick of an existing file.
+        Never pick for the user, and never treat silence as a pick.
+
+        Once a pick is made, record it. Mark it in the top-level
+        mockups index, update the mockups property in the
+        specification, and write what the pick settled as plain
+        requirements in the anchor.
+
     interview:
         Before your own questions, ask how many questions the user
         wants to answer, with 5 as the default. Accepting the default,
@@ -112,6 +186,8 @@ export skill CruxUiDevelop extends CruxUiBase:
         records it. When the work turns into developing a feature that
         is not mainly about the UI, recommend crux-spec-develop. When an
         existing UI specification needs more detail without mockups,
-        recommend crux-spec-deep-dive. When the user wants to build the
+        recommend crux-spec-deep-dive. When the question is the overall
+        visual style of the whole application rather than one part of
+        the UI, recommend crux-ui-styles. When the user wants to build the
         picked design, say that this skill stops at the specification
         and its mockups.

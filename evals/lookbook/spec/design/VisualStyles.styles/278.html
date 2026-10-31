@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Style 278 · Gothic cathedral · Brightwork</title>
+<style>
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{margin:0}
+.ic{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:middle}
+.si{width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ic-star.si{fill:currentColor}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+button,input{font:inherit;color:inherit}
+.sheet .swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;list-style:none;margin:0;padding:0}
+.sheet .sw i{display:block;height:44px}
+.sheet .sw div{padding:8px 10px;font-size:12px;line-height:1.4}
+.sheet .sw b{display:block;font-size:13px}
+.sheet .type-row{display:flex;gap:16px;align-items:baseline;padding:8px 0;flex-wrap:wrap}
+.sheet .type-row code{font-size:12px;min-width:170px}
+.sheet .facts{display:grid;grid-template-columns:130px minmax(0,1fr);gap:8px 16px;margin:0;font-size:14px}
+.sheet .facts dd{margin:0}
+.sheet .controls{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+.sheet .ctl-label{display:block;font-size:12px;margin-bottom:8px}
+.sheet .field{display:block;font-size:13px}
+.sheet .field input{display:block;width:100%;margin-top:6px}
+@media (max-width:560px){.sheet .facts{grid-template-columns:1fr}.sheet .facts dt{margin-top:8px}}
+
+:root{--stone:#131217;--nave:#1c1a21;--vault:#24212b;--joint:#36313f;--ink:#ece6da;--muted:#b4acbd;--gold:#dcab48;--ruby:#ef6f80;--sapphire:#88a6ff;--emerald:#5fcf98;--amethyst:#c39af2;
+--serif:"Iowan Old Style","Charter","Bitstream Charter",Cambria,Georgia,serif}
+body{background:var(--stone);color:var(--ink);font:15px/1.55 var(--serif)}
+input::placeholder{color:var(--muted);opacity:1}
+:focus-visible,.is-focus{outline:2px solid var(--gold)!important;outline-offset:3px;box-shadow:0 0 0 5px rgba(220,171,72,.22)!important}
+.masonry{background:
+ repeating-linear-gradient(0deg,transparent 0 47px,rgba(255,255,255,.025) 47px 48px),var(--stone);padding:0 32px 56px;overflow:clip}
+.portal{position:relative;text-align:center;padding:40px 16px 24px;max-width:900px;margin:0 auto}
+.portal svg.big{position:absolute;inset:8px 0 0;width:100%;height:calc(100% - 8px);pointer-events:none}
+.portal p{margin:0;font-size:12px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);position:relative}
+.portal h1{position:relative;margin:10px 0 8px;font-weight:600;font-size:42px;letter-spacing:.18em;text-transform:uppercase;line-height:1.1}
+.crumbs{position:relative}
+.crumbs ol{list-style:none;display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:0;padding:0;color:var(--muted);font-size:14px;letter-spacing:.06em}
+.crumbs li+li::before{content:"\2720";color:var(--gold);margin-right:8px;font-size:11px}
+.crumbs a{color:var(--ink)}
+.nave{display:grid;grid-template-columns:220px minmax(0,1fr) 300px;gap:24px;max-width:1240px;margin:16px auto 0;align-items:start}
+.bay{position:relative;background:var(--nave);border:1px solid var(--joint);border-top:0;padding:8px 20px 20px;margin-top:76px}
+.bay>svg.arch{position:absolute;left:-1px;right:-1px;bottom:100%;width:calc(100% + 2px);height:76px;display:block}
+.bay>svg.arch path{fill:var(--nave);stroke:var(--joint);stroke-width:1;vector-effect:non-scaling-stroke}
+.bay>svg.arch path.inner{fill:none;stroke:var(--gold);stroke-opacity:.55}
+.bay h2{font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);text-align:center;margin:0 0 14px;font-weight:600}
+.side ul{list-style:none;margin:0;padding:0}
+.side a{display:flex;align-items:center;gap:10px;padding:9px 8px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--joint);letter-spacing:.04em}
+.side a[aria-current=page]{color:var(--ink);font-weight:600;background:var(--vault);box-shadow:inset 3px 0 0 var(--gold)}
+.side .ic{width:18px;height:18px;stroke-width:1.5}
+.store{margin-top:18px;font-size:13px;color:var(--muted);text-align:center}
+.store b{display:block;font-size:22px;color:var(--ink);font-weight:600}
+.lancet{display:flex;gap:4px;justify-content:center;margin:10px 0 6px}
+.lancet i{width:14px;height:34px;border-radius:7px 7px 0 0;background:#2e2a36;border:1px solid var(--joint)}
+.lancet i.on{background:linear-gradient(180deg,var(--sapphire),#5470d0)}
+.lancet i.part{background:linear-gradient(0deg,#5470d0 0 20%,#2e2a36 20%)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px}
+.search{flex:1;min-width:200px;display:flex;align-items:center;gap:8px;border:1px solid var(--joint);background:var(--stone);padding:0 12px;color:var(--muted)}
+.search input{flex:1;min-width:0;border:0;background:transparent;padding:9px 0;font-family:var(--serif)}
+.search input:focus-visible{outline:0!important;box-shadow:none!important}
+.search:focus-within{outline:2px solid var(--gold);outline-offset:3px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;font:600 13px/1.3 var(--serif);letter-spacing:.14em;text-transform:uppercase;border-radius:0;cursor:pointer}
+.btn .ic{width:16px;height:16px;stroke-width:1.7}
+.btn-primary{background:var(--gold);color:#1b1305;border:1px solid var(--gold)}
+.btn-secondary{background:transparent;color:var(--ink);border:1px solid #6a6176}
+.switch{display:inline-flex;border:1px solid var(--joint)}
+.switch button{display:inline-flex;gap:6px;align-items:center;background:transparent;border:0;color:var(--muted);padding:8px 12px;font:13px var(--serif);letter-spacing:.08em;cursor:pointer}
+.switch button[aria-pressed=true]{background:var(--vault);color:var(--ink);font-weight:600;box-shadow:inset 0 -2px 0 var(--gold)}
+.switch .ic{width:15px;height:15px;stroke-width:1.7}
+.stones{list-style:none;margin:0;padding:0}
+.stones li{display:grid;grid-template-columns:40px minmax(0,1.6fr) 80px minmax(0,1.4fr);gap:12px;align-items:center;padding:10px 6px;border-bottom:1px solid var(--joint)}
+.stones li:last-child{border-bottom:0}
+.gem{width:34px;height:34px;display:grid;place-items:center;clip-path:polygon(50% 0,100% 30%,100% 100%,0 100%,0 30%);background:var(--vault);border-bottom:2px solid currentColor}
+.gem .ic{width:18px;height:18px;stroke-width:1.6;margin-top:6px}
+.g-folder{color:var(--gold)}.g-pdf{color:var(--ruby)}.g-image{color:var(--sapphire)}.g-sheet{color:var(--emerald)}.g-doc{color:var(--sapphire)}.g-zip{color:var(--amethyst)}.g-video{color:var(--ruby)}
+.stones a{color:var(--ink);text-decoration:none;font-size:16px;font-weight:600;overflow-wrap:anywhere}
+.kind{display:block;font-size:12px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.num{font-variant-numeric:tabular-nums}
+.mod{font-size:14px;color:var(--muted)}
+.mod .flags{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:2px}
+.stones li.sel{background:linear-gradient(90deg,rgba(195,154,242,.16),rgba(195,154,242,.04));outline:1px solid rgba(195,154,242,.5);outline-offset:-1px}
+.st{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-style:italic}
+.st .si{stroke-width:1.9;width:15px;height:15px}
+.st-star{color:var(--gold)}.st-shared{color:var(--sapphire)}.st-upload{color:var(--emerald)}.st-sel{color:var(--amethyst)}
+.trac{height:6px;background:#2e2a36;margin-top:6px;max-width:220px}
+.trac span{display:block;height:100%;width:62%;background:var(--emerald)}
+.chapel svg.rose{display:block;width:100%;max-width:240px;height:auto;margin:0 auto 14px}
+.chapel h3{text-align:center;margin:0 0 6px;font-size:18px;font-weight:600;overflow-wrap:anywhere}
+.chapel .c{text-align:center}
+.chapel dl{margin:14px 0 18px;font-size:14px}
+.chapel dl div{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid var(--joint)}
+.chapel dt{color:var(--muted);letter-spacing:.12em;text-transform:uppercase;font-size:12px}
+.chapel dd{margin:0}
+.acts{display:grid;gap:8px}
+.acts .btn{justify-content:center}
+.sheet{background:var(--nave);border-top:1px solid var(--joint);padding:56px max(32px,calc((100% - 1176px)/2)) 72px}
+.sheet h2{font-weight:600;font-size:34px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 8px}
+.sheet h3{font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin:36px 0 12px;font-weight:600}
+.idea{color:var(--muted);margin:0;max-width:72ch}
+.sw{border:1px solid var(--joint);background:var(--stone)}
+.sw div{color:var(--muted)}.sw b{color:var(--ink)}
+.type-row{border-bottom:1px solid var(--joint)}.type-row code{color:var(--muted)}
+.facts dt{color:var(--gold);font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.ctl-label,.field{color:var(--muted)}
+.field input{background:var(--stone);border:1px solid var(--joint);padding:9px 12px;font-family:var(--serif)}
+.row-demo{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--joint);font-weight:600}
+@media (max-width:1120px){.nave{grid-template-columns:200px minmax(0,1fr)}.chapel{grid-column:1/-1;max-width:460px;justify-self:center;width:100%}}
+@media (max-width:760px){
+ .masonry{padding:0 16px 40px}.portal h1{font-size:28px;letter-spacing:.12em}
+ .nave{grid-template-columns:minmax(0,1fr);gap:8px}
+ .bay{padding:8px 14px 16px;margin-top:48px}.bay>svg.arch{height:48px}
+ .side ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px}
+ .stones li{grid-template-columns:40px minmax(0,1fr);gap:4px 12px}
+ .stones .num,.stones .mod{grid-column:2}
+ .num{font-size:14px;color:var(--muted)}
+ .sheet{padding:40px 16px}.sheet h2{font-size:26px}
+}
+</style>
+</head>
+<body>
+<div class="masonry">
+<header class="portal">
+<p>Brightwork Drive</p><h1>Website redesign</h1>
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="#">My files</a></li><li><a href="#">Fernhill Studio</a></li><li><span aria-current="page">Website redesign</span></li></ol></nav>
+</header>
+<div class="nave">
+<aside class="bay side"><svg class="arch" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C0 16 40 8 50 0 C60 8 100 16 100 40 Z"/><path class="inner" d="M5 40 C5 20 41 12 50 5 C59 12 95 20 95 40"/></svg><h2>Drive</h2><nav aria-label="Drive"><ul><li><a href="#" aria-current=page><svg class="ic ic-home" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 7h6l2 2h9v10.5h-17z"/><path d="M8 14h8"/></svg>My files</a></li><li><a href="#"><svg class="ic ic-shared" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8.5" r="3"/><path d="M3.5 19.5c0-3.2 2.4-5.5 5.5-5.5s5.5 2.3 5.5 5.5"/><path d="M15 6h6M18 3v6"/></svg>Shared with me</a></li><li><a href="#"><svg class="ic ic-recent" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Recent</a></li><li><a href="#"><svg class="ic ic-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg>Starred</a></li><li><a href="#"><svg class="ic ic-trash" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/><path d="M10 11v5M14 11v5"/></svg>Trash</a></li></ul></nav>
+<div class="store"><span class="vh">Storage</span><b>64.2 GB</b>of 100 GB used<div class="lancet" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="part"></i><i class=""></i><i class=""></i><i class=""></i></div></div></aside>
+<main class="bay"><svg class="arch" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C0 16 40 8 50 0 C60 8 100 16 100 40 Z"/><path class="inner" d="M5 40 C5 20 41 12 50 5 C59 12 95 20 95 40"/></svg><h2>The files</h2>
+<div class="tools">
+<label class="search"><svg class="ic ic-search" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg><span class="vh">Search files</span><input type="search" placeholder="Search files"></label>
+<button type="button" class="btn btn-primary"><svg class="ic ic-upload" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15V4M7.5 8.5L12 4l4.5 4.5"/><path d="M4 15v5h16v-5"/></svg>Upload</button>
+<button type="button" class="btn btn-secondary"><svg class="ic ic-newfolder" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6.5h6.5l2 2H21V19H3z"/><path d="M12 11v6M9 14h6"/></svg>New folder</button>
+<div class="switch" role="group" aria-label="View"><button type="button" aria-pressed="true"><svg class="ic ic-list" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg>List</button><button type="button" aria-pressed="false"><svg class="ic ic-grid" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="6.5" height="6.5"/><rect x="13.5" y="4" width="6.5" height="6.5"/><rect x="4" y="13.5" width="6.5" height="6.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5"/></svg>Grid</button></div>
+</div>
+<ul class="stones" aria-label="Files in Website redesign"><li class=""><span class="gem g-folder"><svg class="ic ic-folder" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6.5h6.5l2 2H21V19H3z"/></svg></span><div><a href="#">Brand assets</a><span class="kind">Folder</span></div><span class="num">24 items</span><div class="mod">28 Oct, Priya Nair<div class="flags"></div></div></li><li class=""><span class="gem g-folder"><svg class="ic ic-folder" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6.5h6.5l2 2H21V19H3z"/></svg></span><div><a href="#">Wireframes</a><span class="kind">Folder</span></div><span class="num">9 items</span><div class="mod">30 Oct, Aiko Tanaka<div class="flags"></div></div></li><li class="sel"><span class="gem g-pdf"><svg class="ic ic-pdf" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 16.5h4"/></svg></span><div><a href="#" aria-current=true>brand-guide-v3.pdf</a><span class="kind">PDF</span></div><span class="num">4.2 MB</span><div class="mod">27 Oct, Priya Nair<div class="flags"><span class="st st-star"><svg class="si ic-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg><span>Starred</span></span><span class="st st-sel"><svg class="si ic-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M7.5 12.3l3 3 6-6.3"/></svg><span>Selected</span></span></div></div></li><li class=""><span class="gem g-image"><svg class="ic ic-image" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="4.5" width="17" height="15" rx="1"/><circle cx="9" cy="9.5" r="1.6"/><path d="M4 18l5-5 4 4 3-3 4 4"/></svg></span><div><a href="#">homepage-hero-B.png</a><span class="kind">PNG image</span></div><span class="num">2.8 MB</span><div class="mod">today 08:12, Priya Nair<div class="flags"></div></div></li><li class=""><span class="gem g-sheet"><svg class="ic ic-sheet" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9.5h16M4 14.5h16M10 4v16"/></svg></span><div><a href="#">content-audit.xlsx</a><span class="kind">Spreadsheet</span></div><span class="num">86 KB</span><div class="mod">19 Sep, Mara Okafor<div class="flags"></div></div></li><li class=""><span class="gem g-doc"><svg class="ic ic-doc" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 11h6M9 14h6M9 17h4"/></svg></span><div><a href="#">launch-plan.docx</a><span class="kind">Document</span></div><span class="num">140 KB</span><div class="mod">yesterday, Mara Okafor<div class="flags"><span class="st st-shared"><svg class="si ic-people" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="3"/><path d="M2.5 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="16.5" cy="9" r="2.5"/><path d="M16 14c3 0 5.5 2.4 5.5 5.5"/></svg><span>Shared with 4 people</span></span></div></div></li><li class=""><span class="gem g-zip"><svg class="ic ic-zip" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h12v18H6z"/><path d="M12 3v2M12 7v2M12 11v2"/><rect x="10.5" y="14" width="3" height="4"/></svg></span><div><a href="#">customer-interviews.zip</a><span class="kind">ZIP archive</span></div><span class="num">312 MB</span><div class="mod">12 Oct, Aiko Tanaka<div class="flags"></div></div></li><li class=""><span class="gem g-video"><svg class="ic ic-video" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="5.5" width="17" height="13" rx="1"/><path d="M10 9.2v5.6l4.6-2.8z"/></svg></span><div><a href="#">hero-motion.mp4</a><span class="kind">Video</span></div><span class="num">48.6 MB</span><div class="mod">29 Oct, Priya Nair<div class="flags"><span class="st st-upload"><svg class="si ic-uparrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20V5M5.5 11.5L12 5l6.5 6.5"/></svg><span>Uploading 62 percent</span></span></div><div class="trac" aria-hidden="true"><span></span></div></div></li></ul></main>
+<aside class="bay chapel" aria-labelledby="det-h"><svg class="arch" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C0 16 40 8 50 0 C60 8 100 16 100 40 Z"/><path class="inner" d="M5 40 C5 20 41 12 50 5 C59 12 95 20 95 40"/></svg><h2 id="det-h">Details</h2><svg class="rose" viewBox="0 0 220 220" role="img" aria-label="Preview of brand-guide-v3.pdf, the cover page, set inside a rose window frame"><circle cx="110" cy="110" r="106" fill="#131217" stroke="#dcab48" stroke-opacity=".6" stroke-width="2"/><circle cx="110.0" cy="44.0" r="24" fill="#ef6f80" fill-opacity=".55" stroke="#131217" stroke-width="4"/><circle cx="156.7" cy="63.3" r="24" fill="#88a6ff" fill-opacity=".55" stroke="#131217" stroke-width="4"/><circle cx="176.0" cy="110.0" r="24" fill="#dcab48" fill-opacity=".55" stroke="#131217" stroke-width="4"/><circle cx="156.7" cy="156.7" r="24" fill="#5fcf98" fill-opacity=".55" stroke="#131217" stroke-width="4"/><circle cx="110.0" cy="176.0" r="24" fill="#c39af2" fill-opacity=".55" stroke="#131217" stroke-width="4"/><circle cx="63.3" cy="156.7" r="24" fill="#88a6ff" fill-opacity=".55" stroke="#131217" stroke-width="4"/><circle cx="44.0" cy="110.0" r="24" fill="#ef6f80" fill-opacity=".55" stroke="#131217" stroke-width="4"/><circle cx="63.3" cy="63.3" r="24" fill="#5fcf98" fill-opacity=".55" stroke="#131217" stroke-width="4"/><circle cx="110" cy="110" r="44" fill="#24212b" stroke="#dcab48" stroke-width="2"/><rect x="92" y="84" width="36" height="50" fill="#ece6da" fill-opacity=".9"/><rect x="97" y="91" width="20" height="4" fill="#ef6f80"/><rect x="97" y="99" width="26" height="2" fill="#6a6176"/><rect x="97" y="104" width="22" height="2" fill="#6a6176"/><circle cx="110" cy="120" r="7" fill="none" stroke="#5470d0" stroke-width="2"/></svg>
+<h3>brand-guide-v3.pdf</h3><div class="c"><span class="st st-star"><svg class="si ic-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg><span>Starred</span></span></div>
+<dl><div><dt>Owner</dt><dd>Priya Nair</dd></div><div><dt>Size</dt><dd>4.2 MB</dd></div><div><dt>Version</dt><dd>3</dd></div><div><dt>Shared with</dt><dd>Design team</dd></div></dl>
+<div class="acts"><button type="button" class="btn btn-primary"><svg class="ic ic-share" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/></svg>Share</button><button type="button" class="btn btn-secondary"><svg class="ic ic-download" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5"/><path d="M4 19.5h16"/></svg>Download</button><button type="button" class="btn btn-secondary"><svg class="ic ic-link" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/></svg>Get link</button></div></aside>
+</div></div>
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 278 · Gothic cathedral</h2>
+<p class="idea">A dark stone nave where every panel rises to a pointed arch, files are set like stones between mortar joints, and rose window colours mark file types and statuses.</p>
+<h3>Palette</h3><ul class="swatches"><li class="sw"><i style="background:#131217"></i><div><b>Stone</b>#131217 · page with faint coursing lines, fields</div></li><li class="sw"><i style="background:#1c1a21"></i><div><b>Nave</b>#1c1a21 · arched panels, style sheet</div></li><li class="sw"><i style="background:#24212b"></i><div><b>Vault</b>#24212b · current nav, pressed switch, gem tiles</div></li><li class="sw"><i style="background:#36313f"></i><div><b>Joint</b>#36313f · mortar lines and borders</div></li><li class="sw"><i style="background:#ece6da"></i><div><b>Ink</b>#ece6da · text</div></li><li class="sw"><i style="background:#b4acbd"></i><div><b>Muted</b>#b4acbd · meta and labels</div></li><li class="sw"><i style="background:#dcab48"></i><div><b>Gold</b>#dcab48 · arch trim, headings, primary button, folders, Starred, focus</div></li><li class="sw"><i style="background:#ef6f80"></i><div><b>Ruby</b>#ef6f80 · PDF and video gems</div></li><li class="sw"><i style="background:#88a6ff"></i><div><b>Sapphire</b>#88a6ff · image and document gems, Shared, storage lancets</div></li><li class="sw"><i style="background:#5fcf98"></i><div><b>Emerald</b>#5fcf98 · spreadsheet gem, Uploading</div></li><li class="sw"><i style="background:#c39af2"></i><div><b>Amethyst</b>#c39af2 · archive gem, selected row, Selected</div></li></ul>
+<h3>Type</h3><div class="type-row"><code>42 / 600 caps .18em</code><span style="font-size:42px;font-weight:600;letter-spacing:.18em;text-transform:uppercase">Website redesign</span></div><div class="type-row"><code>18 / 600</code><span style="font-size:18px;font-weight:600">brand-guide-v3.pdf</span></div><div class="type-row"><code>16 / 600</code><span style="font-size:16px;font-weight:600">customer-interviews.zip</span></div><div class="type-row"><code>15 / 400</code><span style="">12 Oct, Aiko Tanaka</span></div><div class="type-row"><code>13 italic status</code><span style="font-size:13px;font-style:italic;color:#dcab48">Starred</span></div><div class="type-row"><code>13 caps .32em gold</code><span style="font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:#dcab48">The files</span></div>
+<h3>Spacing, density and depth</h3><dl class="facts"><dt>Fonts</dt><dd>One carved serif, Iowan Old Style, Charter, Cambria, Georgia. Titles in tracked capitals, statuses in italic.</dd><dt>Spacing</dt><dd>8px unit. 24px between bays, 20px bay padding, 10px rows, 76px arch height.</dd><dt>Density</dt><dd>Medium. Three bays side by side with plain rows.</dd><dt>Corners</dt><dd>Square, except every bay rises to a pointed arch and file gems have a gabled top.</dd><dt>Borders</dt><dd>1px mortar joints around bays and between rows, a gold inner line inside each arch.</dd><dt>Shadows</dt><dd>None. Depth comes from the arches and coloured glass.</dd><dt>Icons</dt><dd>1.5px line icons inside gabled gems coloured by file type. Status is an italic word with a star, people, arrow or checked box.</dd><dt>Tone</dt><dd>Quiet and ceremonial, The files, Drive, Details.</dd><dt>Motifs</dt><dd>Pointed arches, a rose window around the preview, lancet windows for storage, faint stone coursing.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls"><div><span class="ctl-label">Primary button</span><button type="button" class="btn btn-primary"><svg class="ic ic-share" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/></svg>Share</button> <button type="button" class="btn btn-primary is-focus"><svg class="ic ic-share" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/></svg>Share</button></div>
+<div><span class="ctl-label">Secondary button</span><button type="button" class="btn btn-secondary"><svg class="ic ic-download" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5"/><path d="M4 19.5h16"/></svg>Download</button> <button type="button" class="btn btn-secondary is-focus"><svg class="ic ic-download" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5"/><path d="M4 19.5h16"/></svg>Download</button></div>
+<div><label class="field">Search files<input type="search" value="brand guide"></label></div>
+<div><label class="field">Search files, focused<input type="search" class="is-focus" value="hero"></label></div>
+<div><span class="ctl-label">List row</span><div class="row-demo"><span>brand-guide-v3.pdf</span><span class="st st-star"><svg class="si ic-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg><span>Starred</span></span></div></div>
+<div><span class="ctl-label">List row, focused</span><div class="row-demo is-focus"><span>brand-guide-v3.pdf</span><span class="st st-star"><svg class="si ic-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg><span>Starred</span></span></div></div></div>
+</section>
+</body>
+</html>

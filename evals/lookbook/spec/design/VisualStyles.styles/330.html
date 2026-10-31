@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Style 330 · Hard bop sleeve · Brightwork</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{color-scheme:dark}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img,svg{max-width:100%}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:inherit}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+h1,h2,h3,h4,p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+.ic{width:1.2em;height:1.2em;flex:none;vertical-align:-.22em}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+/* style sheet scaffold, themed per style through variables */
+.sheet{background:var(--s-bg);color:var(--s-ink);font-family:var(--s-font);padding:48px 32px 64px;border-top:var(--s-top,1px solid var(--s-line))}
+.sheet>*{max-width:1120px;margin-left:auto;margin-right:auto}
+.sheet h2{font-size:var(--s-h2,28px);line-height:1.2;margin-bottom:8px}
+.sheet .idea{color:var(--s-muted);max-width:760px;margin-bottom:32px;font-size:16px;line-height:1.55}
+.sheet h3{font-size:var(--s-h3,15px);margin:32px auto 16px;text-transform:var(--s-h3-case,none);letter-spacing:var(--s-h3-ls,0)}
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.sw{display:flex;gap:12px;align-items:flex-start;padding:12px;border:1px solid var(--s-line);border-radius:var(--s-r,6px);background:var(--s-panel);font-size:14px;line-height:1.45}
+.sw i{width:44px;height:44px;flex:none;border-radius:var(--s-r,6px);border:1px solid var(--s-line)}
+.sw span{color:var(--s-muted)}
+.type-row{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--s-line)}
+.type-row code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;color:var(--s-muted);min-width:180px}
+.type-row span{min-width:0;overflow-wrap:anywhere}
+.facts{display:grid;grid-template-columns:160px 1fr;gap:10px 24px;font-size:15px;line-height:1.55}
+.facts dt{font-weight:700;color:var(--s-ink)}
+.facts dd{color:var(--s-muted)}
+.controls{display:grid;gap:20px}
+.ctl{display:grid;grid-template-columns:160px 1fr;gap:12px 24px;align-items:center}
+.ctl-label{font-size:13px;color:var(--s-muted)}
+.ctl-pair{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center}
+.fld{display:grid;gap:6px;font-size:13px;color:var(--s-muted);min-width:0}
+.fld input{min-width:0;width:240px;max-width:100%}
+.lrow{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0;width:320px;max-width:100%}
+@media (max-width:640px){.sheet{padding:32px 16px 48px}.facts,.ctl{grid-template-columns:1fr}.facts dd{margin-bottom:8px}.type-row code{min-width:0}}
+
+
+:root{--blk:#121110;--board:#1d1b19;--paper:#f1ebdd;--grey:#b1a998;--or:#e8742c;--te:#3a9e98;--mu:#e3b23c;--pb:#111111;--rule:#3a3631;
+--s-bg:var(--blk);--s-ink:var(--paper);--s-muted:var(--grey);--s-line:var(--rule);--s-panel:var(--board);--s-font:"Helvetica Neue","Arial Nova",Arial,sans-serif;--s-r:0;--s-h3:11px;--s-h3-case:uppercase;--s-h3-ls:.3em;--s-h2:40px}
+body{background:var(--blk);color:var(--paper);font:15px/1.5 "Helvetica Neue","Arial Nova",Arial,sans-serif}
+:focus-visible,.is-focus{outline:3px solid var(--mu);outline-offset:3px}
+.sheet h2{font-weight:900;letter-spacing:-.04em;text-transform:uppercase}
+.cr{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--grey)}
+.sleeve{max-width:1200px;margin:0 auto;padding:40px 24px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px}
+.cover{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:minmax(56px,auto);min-width:0}
+.cover .top{grid-column:1/-1;display:flex;justify-content:space-between;padding-bottom:16px}
+h1{grid-column:1/6;font-size:clamp(52px,8vw,108px);font-weight:900;line-height:.82;letter-spacing:-.06em;text-transform:uppercase;margin:0 0 0 -4px;padding-bottom:12px}
+.dotcol{grid-column:6;grid-row:2;display:grid;gap:12px;align-content:start;justify-items:end}
+.dotcol i{width:40px;height:40px;border-radius:50%;background:var(--mu)}.dotcol i:nth-child(2){background:var(--or);width:28px;height:28px}.dotcol i:nth-child(3){background:var(--te);width:20px;height:20px}
+.artist{grid-column:1/5;background:var(--or);color:var(--pb);padding:20px 24px;font-size:clamp(22px,2.6vw,32px);font-weight:900;letter-spacing:-.03em;text-transform:uppercase;line-height:1}
+.blk{grid-column:5/7;background:var(--paper)}
+.album{grid-column:2/-1;background:var(--te);color:var(--pb);padding:12px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:700}
+.album b{font-size:20px;font-weight:900;text-transform:uppercase;letter-spacing:-.02em}
+.album span{font-size:11px;letter-spacing:.3em;text-transform:uppercase}
+.gap1{grid-column:1;background:var(--mu)}
+.pos{grid-column:1/-1;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px;align-items:center;padding:24px 0 16px;font-weight:700;font-variant-numeric:tabular-nums}
+.pos span{color:var(--grey)}
+.rl{height:8px;background:var(--board);position:relative}.rl i{position:absolute;left:0;top:0;bottom:0;width:48%;background:var(--paper)}.rl i::after{content:"";position:absolute;right:-12px;top:-8px;width:24px;height:24px;border-radius:50%;background:var(--mu)}
+.slabs{grid-column:1/-1;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px}
+.slab{display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:16px;min-height:96px;padding:12px;border:0;border-radius:0;background:var(--board);color:var(--paper);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;font-size:14px;text-align:left}
+.slab .ic{width:28px;height:28px}
+.slab.pp{background:var(--mu);color:var(--pb)}
+.slab.lk{background:var(--te);color:var(--pb)}
+.slab small{display:block;font-size:10px;letter-spacing:.2em;font-weight:700}
+.vol{grid-column:1/-1;display:flex;align-items:center;gap:16px;padding-top:16px}
+.vol .rl{flex:1;max-width:280px;height:6px}.vol .rl i{width:70%;background:var(--or)}.vol .rl i::after{display:none}
+.vol b{font-weight:900}
+.back{background:var(--board);padding:32px;display:grid;gap:32px;align-content:start;min-width:0}
+.back h2{font-size:28px;font-weight:900;letter-spacing:-.03em;text-transform:uppercase;line-height:1;margin-top:4px}
+.trk a{display:grid;grid-template-columns:32px auto minmax(16px,1fr) auto;gap:10px;align-items:baseline;padding:8px 0;text-decoration:none}
+.tn{font-weight:900;color:var(--or)}
+.tt b{font-weight:900;text-transform:uppercase;letter-spacing:-.01em}.tt small{color:var(--grey);margin-left:8px;font-size:13px}
+.ld{border-bottom:1px dotted #6b645a;transform:translateY(-4px)}
+.td{font-variant-numeric:tabular-nums;font-weight:700}
+.notes p{font-size:15px;margin-top:8px;color:var(--grey)}
+.notes p.now{color:var(--or);font-weight:700;font-size:20px;line-height:1.3}
+.notes p.now::before{content:"→ "}
+.cat ul{display:grid;gap:4px;margin-top:8px}
+.cat li a{display:flex;justify-content:space-between;gap:8px;text-decoration:none;padding:8px 12px;background:var(--blk);font-weight:700}
+.cat li a span{color:var(--grey);font-weight:400}
+.cat .also{display:flex;gap:4px;margin-top:4px}
+.cat .also a{flex:1;text-align:center;text-decoration:none;padding:8px;font-weight:900;text-transform:uppercase;font-size:13px;color:var(--pb)}
+.cat .also a:nth-child(1){background:var(--or)}.cat .also a:nth-child(2){background:var(--te)}.cat .also a:nth-child(3){background:var(--mu)}
+@media (max-width:980px){.sleeve{grid-template-columns:1fr}}
+@media (max-width:620px){.sleeve{padding:20px 16px}.slabs{grid-template-columns:repeat(3,minmax(0,1fr))}.artist{grid-column:1/-1}.blk{display:none}.album{grid-column:1/-1;flex-wrap:wrap}.gap1{display:none}h1{grid-column:1/-1}.dotcol{display:none}.back{padding:20px 16px}.trk a{grid-template-columns:32px minmax(0,1fr) auto}.ld{display:none}.tt small{display:block;margin:0}}
+.btn-p{background:var(--or);color:var(--pb);border:0;border-radius:0;padding:12px 24px;font-weight:900;text-transform:uppercase}
+.btn-s{background:var(--blk);color:var(--paper);border:2px solid var(--paper);border-radius:0;padding:10px 22px;font-weight:900;text-transform:uppercase}
+.fld input{background:var(--blk);border:0;border-bottom:3px solid var(--paper);border-radius:0;padding:10px 4px;color:var(--paper);font-weight:700}
+.lrow{display:grid;grid-template-columns:32px auto minmax(16px,1fr) auto;gap:10px;align-items:baseline;padding:10px 12px;background:var(--board)}
+</style>
+</head>
+<body>
+
+<div class="sleeve">
+<section class="cover" aria-labelledby="np">
+  <div class="top"><span class="cr">Brightwork Sound</span><span class="cr">Now playing</span></div>
+  <h1 id="np">Harbour Lights</h1>
+  <div class="dotcol" aria-hidden="true"><i></i><i></i><i></i></div>
+  <p class="artist">The Saltmarsh Trio</p>
+  <div class="blk" aria-hidden="true"></div>
+  <div class="gap1" aria-hidden="true"></div>
+  <p class="album"><b>Low Tide</b><span>From the album</span></p>
+  <div class="pos"><b>2:14</b><div class="rl" role="progressbar" aria-label="Position" aria-valuemin="0" aria-valuemax="278" aria-valuenow="134" aria-valuetext="2:14 of 4:38"><i></i></div><span>4:38</span></div>
+  <div class="slabs" role="group" aria-label="Player controls">
+    <button class="slab" type="button" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7h3.5c2 0 3 1 4.2 2.6l2.6 3.8C14.5 15 15.5 17 17.5 17H21M3 17h3.5c1.4 0 2.3-.6 3.1-1.5M14.4 8.5C15.2 7.6 16 7 17.5 7H21M18.5 4.5 21 7l-2.5 2.5M18.5 14.5 21 17l-2.5 2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Shuffle<small>Off</small></span></button>
+    <button class="slab" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6v12l-9-6z" fill="currentColor"/><rect x="5.5" y="6" width="2.5" height="12" fill="currentColor"/></svg><span>Previous</span></button>
+    <button class="slab pp" type="button" aria-label="Pause, playing now"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6.5" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="13.5" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg><span>Pause<small>Playing</small></span></button>
+    <button class="slab" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6v12l9-6z" fill="currentColor"/><rect x="16" y="6" width="2.5" height="12" fill="currentColor"/></svg><span>Next</span></button>
+    <button class="slab" type="button" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 11V9.5A2.5 2.5 0 0 1 6.5 7H19M16.5 4.5 19 7l-2.5 2.5M20 13v1.5a2.5 2.5 0 0 1-2.5 2.5H5M7.5 19.5 5 17l2.5-2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Repeat<small>Off</small></span></button>
+    <button class="slab lk" type="button" aria-pressed="true"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.2 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>Liked<small>On</small></span></button>
+  </div>
+  <div class="vol" role="slider" tabindex="0" aria-label="Volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" aria-valuetext="70 percent"><span class="cr">Volume</span><span class="rl" aria-hidden="true"><i></i></span><b>70%</b></div>
+</section>
+<div class="back">
+  <section class="trk" aria-labelledby="sb">
+    <p class="cr">Up next</p><h2 id="sb">Side B</h2>
+    <ol><li><a href="#" id="q1"><span class="tn">B1</span><span class="tt"><b>Paper Boats</b><small>The Saltmarsh Trio</small></span><span class="ld" aria-hidden="true"></span><span class="td">3:52</span></a></li><li><a href="#"><span class="tn">B2</span><span class="tt"><b>Fogbank</b><small>Mira Kell</small></span><span class="ld" aria-hidden="true"></span><span class="td">5:10</span></a></li><li><a href="#"><span class="tn">B3</span><span class="tt"><b>North Pier</b><small>Odd Weather</small></span><span class="ld" aria-hidden="true"></span><span class="td">4:01</span></a></li><li><a href="#"><span class="tn">B4</span><span class="tt"><b>Slow Ferry</b><small>The Saltmarsh Trio</small></span><span class="ld" aria-hidden="true"></span><span class="td">6:24</span></a></li><li><a href="#"><span class="tn">B5</span><span class="tt"><b>Lantern Walk</b><small>Juno Park</small></span><span class="ld" aria-hidden="true"></span><span class="td">3:33</span></a></li></ol>
+  </section>
+  <section class="notes" aria-labelledby="ln">
+    <p class="cr">Lyrics</p><h2 id="ln">Liner notes</h2>
+    <p class="now" aria-current="true">And the harbour lights go out one by one</p>
+    <p>Still I wait for the slow boat home</p>
+  </section>
+  <section class="cat" aria-labelledby="ca">
+    <p class="cr">Your library</p><h2 id="ca">Also available</h2>
+    <ul><li><a href="#">Morning focus<span>42 songs</span></a></li><li><a href="#">Late drive<span>28 songs</span></a></li><li><a href="#">Liked songs<span>311 songs</span></a></li></ul>
+    <nav class="also" aria-label="More library"><a href="#">Albums</a><a href="#">Artists</a><a href="#">Podcasts</a></nav>
+  </section>
+</div>
+</div>
+
+<section class="sheet" aria-labelledby="sheet-h">
+<h2 id="sheet-h">Style 330 · Hard bop sleeve</h2>
+<p class="idea">The screen is laid out like a 1950s jazz record sleeve, with a huge tight sans title, flat blocks of orange, teal and mustard on near black, controls as coloured slabs and the queue listed as Side B on the back cover.</p>
+<h3>Palette</h3>
+<ul class="swatches"><li class="sw"><i style="background:#121110"></i><div><b>Sleeve black</b> #121110<br><span>the page, the cover ground and the style sheet</span></div></li><li class="sw"><i style="background:#1d1b19"></i><div><b>Board</b> #1d1b19<br><span>the back cover panel and list rows</span></div></li><li class="sw"><i style="background:#f1ebdd"></i><div><b>Paper white</b> #f1ebdd<br><span>the title and body text on black</span></div></li><li class="sw"><i style="background:#b1a998"></i><div><b>Grey print</b> #b1a998<br><span>credits, times and small print</span></div></li><li class="sw"><i style="background:#e8742c"></i><div><b>Orange</b> #e8742c<br><span>the artist block, the current lyric and the primary button</span></div></li><li class="sw"><i style="background:#3a9e98"></i><div><b>Teal</b> #3a9e98<br><span>the album bar and the like slab</span></div></li><li class="sw"><i style="background:#e3b23c"></i><div><b>Mustard</b> #e3b23c<br><span>the pause slab, the position dot and focus</span></div></li><li class="sw"><i style="background:#111111"></i><div><b>Print black</b> #111111<br><span>text on Orange, Teal and Mustard</span></div></li><li class="sw"><i style="background:#3a3631"></i><div><b>Rule</b> #3a3631<br><span>dot leaders and dividers</span></div></li></ul>
+<h3>Type · Helvetica Neue, Arial Nova, Arial, sans-serif, heavy and tightly tracked</h3>
+<div class="type-row"><code>120 / 900 / 0.82 / -0.06em caps title</code><span style="font-size:clamp(56px,12vw,120px);font-weight:900;line-height:.82;letter-spacing:-.06em;text-transform:uppercase">Harbour</span></div><div class="type-row"><code>28 / 900 / -0.03em caps block</code><span style="font-size:28px;font-weight:900;letter-spacing:-.03em;text-transform:uppercase">The Saltmarsh Trio</span></div><div class="type-row"><code>18 / 700 lyric</code><span style="font-size:18px;font-weight:700;color:#e8742c">And the harbour lights go out one by one</span></div><div class="type-row"><code>15 / 400 body</code><span style="font-size:15px">Still I wait for the slow boat home</span></div><div class="type-row"><code>11 / 700 / .3em caps credit</code><span style="font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#b1a998">Side B · Up next</span></div>
+<h3>Spacing, density, corners, borders, shadows, icons, tone</h3>
+<dl class="facts"><dt>Spacing</dt><dd>8px unit. Blocks butt together with 0 to 8px gaps, 24px inside a block, 48px around the cover.</dd><dt>Density</dt><dd>Low on the cover, medium on the back cover list.</dd><dt>Corners</dt><dd>None, except the round position dot and the round record bullet.</dd><dt>Borders</dt><dd>None. Edges come from flat colour blocks meeting. Thin 1px Rule leaders on the back cover only.</dd><dt>Shadows</dt><dd>None. Flat print.</dd><dt>Icons</dt><dd>Heavy solid glyphs set beside a caps word on each slab. Like is a filled heart plus the word Liked. The current lyric gets a bold arrow.</dd><dt>Focus</dt><dd>A 3px mustard outline offset 3px, square.</dd><dt>Tone</dt><dd>Sleeve credits, such as Side B, Also available, Recorded on Low Tide, Liner notes.</dd></dl>
+<h3>Controls · normal and focus</h3>
+<div class="controls">
+<div class="ctl"><span class="ctl-label">Primary button</span><div class="ctl-pair"><button class="btn-p" type="button">Play</button><button class="btn-p is-focus" type="button">Play</button></div></div>
+<div class="ctl"><span class="ctl-label">Secondary button</span><div class="ctl-pair"><button class="btn-s" type="button">Add to side B</button><button class="btn-s is-focus" type="button">Add to side B</button></div></div>
+<div class="ctl"><span class="ctl-label">Text field</span><div class="ctl-pair"><label class="fld"><span>Search the catalogue</span><input type="text" value="harbour"></label><label class="fld"><span>Search the catalogue, focused</span><input type="text" class="is-focus" value="harbour"></label></div></div>
+<div class="ctl"><span class="ctl-label">List row</span><div class="ctl-pair"><a class="lrow" href="#q1"><span class="tn">B1</span><span class="tt"><b>Paper Boats</b><small>The Saltmarsh Trio</small></span><span class="ld" aria-hidden="true"></span><span class="td">3:52</span></a><a class="lrow is-focus" href="#q1"><span class="tn">B1</span><span class="tt"><b>Paper Boats</b><small>The Saltmarsh Trio</small></span><span class="ld" aria-hidden="true"></span><span class="td">3:52</span></a></div></div>
+</div>
+</section>
+</body>
+</html>

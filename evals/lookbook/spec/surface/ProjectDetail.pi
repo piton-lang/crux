@@ -1,0 +1,30 @@
+export anchor ProjectDetail:
+    description:
+        The overview page of one project, Website redesign.
+
+    summary:
+        Design team, status On track, 72 percent done, 18 of 25 tasks, started 1 Sep, due 14 Nov, owner Priya Nair, members Priya Nair, Mara Okafor and Aiko Tanaka.
+
+    brief:
+        Rebuild the marketing site on the new brand. Ship the home, pricing and
+        customers pages first, then move the blog.
+
+    milestones:
+        - Content audit, done 19 Sep
+        - New design system, done 10 Oct
+        - Home and pricing pages, in progress, due 7 Nov
+        - Launch, due 14 Nov
+
+    openTasks:
+        - Hero image options, Priya Nair, due 2 Nov
+        - Pricing table copy, Mara Okafor, due 4 Nov
+        - Customer logos permission, Aiko Tanaka, due 5 Nov, blocked
+        - Redirect map for old URLs, unassigned, due 10 Nov
+
+    files:
+        - brand-guide-v3.pdf, 4.2 MB
+        - homepage-wireframe.fig, 1.1 MB
+        - content-audit.xlsx, 86 KB
+
+    discussion:
+        Priya Nair, 40 min ago, "Three hero options are up. I lean to B."

@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 404 · DB admin · Brightwork</title>
+<style>
+:root {
+  color-scheme: dark;
+  --page: #111418;
+  --pane: #181c21;
+  --head: #20252c;
+  --well: #0c0e11;
+  --line: #2c333c;
+  --ink: #e2e6ea;
+  --muted: #9aa4b0;
+  --accent: #5cc8d6;
+  --on-accent: #062227;
+  --accent-soft: #163037;
+  --kw: #c6a8ff;
+  --str: #9fdc8a;
+  --num: #f2c879;
+  --ok: #7fd9a0;
+  --bad: #ff9c94;
+  --warn: #f2c879;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+* { box-sizing: border-box; }
+html { background: var(--page); }
+body { margin: 0; background: var(--page); color: var(--ink); font: 13px/1.45 var(--sans); }
+svg.i { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: square; stroke-linejoin: miter; flex: none; vertical-align: -2px; }
+button, input { font: inherit; color: inherit; }
+:focus-visible, .is-focus { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+/* Title bar and toolbar */
+.titlebar { display: flex; align-items: center; gap: 12px; height: 36px; padding: 0 12px; background: var(--well); border-bottom: 1px solid var(--line); }
+.mark { width: 20px; height: 20px; background: var(--accent); color: var(--on-accent); display: grid; place-items: center; font-weight: 800; font-size: 12px; border-radius: 2px; }
+.titlebar h1 { font-size: 13px; font-weight: 600; margin: 0; }
+.conn { display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px; border: 1px solid var(--line); border-radius: 2px; font-family: var(--mono); font-size: 12px; color: var(--ink); }
+.conn .lock { color: var(--warn); }
+.titlebar .ro { margin-left: auto; color: var(--warn); font-size: 12px; display: inline-flex; gap: 6px; align-items: center; }
+
+.toolbar { display: flex; gap: 4px; padding: 6px 8px; background: var(--head); border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.tb { display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 10px; border: 1px solid var(--line); background: var(--pane); border-radius: 2px; cursor: pointer; }
+.tb.run { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 650; }
+.tb .k { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.tb.run .k { color: var(--on-accent); }
+.sep { width: 1px; background: var(--line); margin: 4px 4px; }
+
+/* Workspace */
+.work { display: grid; grid-template-columns: 240px minmax(0, 1fr) 260px; min-height: 620px; }
+.pane { background: var(--pane); border-right: 1px solid var(--line); min-width: 0; display: flex; flex-direction: column; }
+.pane:last-child { border-right: 0; border-left: 1px solid var(--line); }
+.phead { display: flex; align-items: center; justify-content: space-between; height: 28px; padding: 0 10px; background: var(--head); border-bottom: 1px solid var(--line); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.phead h2 { font-size: inherit; margin: 0; font-weight: inherit; }
+
+.tree { list-style: none; margin: 0; padding: 6px 0; font-family: var(--mono); font-size: 12px; }
+.tree ul { list-style: none; margin: 0; padding: 0; }
+.tree a { display: flex; align-items: center; gap: 6px; padding: 3px 10px; color: var(--ink); text-decoration: none; }
+.tree a:hover { background: var(--head); }
+.tree .grp > a { color: var(--muted); }
+.tree .t1 a { padding-left: 24px; }
+.tree .t2 a { padding-left: 42px; }
+.tree .sel > a { background: var(--accent-soft); }
+.tree .type { margin-left: auto; color: var(--muted); }
+.tree .key { color: var(--num); }
+
+.center { display: grid; grid-template-rows: auto auto 1fr; min-width: 0; border-right: 1px solid var(--line); }
+.tabs { display: flex; background: var(--head); border-bottom: 1px solid var(--line); overflow-x: auto; }
+.tab { padding: 0 14px; height: 30px; display: flex; align-items: center; gap: 8px; border-right: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.tab[aria-selected="true"] { background: var(--pane); color: var(--ink); box-shadow: inset 0 2px 0 var(--accent); }
+.editor { background: var(--well); display: grid; grid-template-columns: 40px minmax(0, 1fr); font: 13px/1.6 var(--mono); border-bottom: 1px solid var(--line); overflow-x: auto; }
+.gutter { color: #9aa4b0; text-align: right; padding: 10px 8px 10px 0; border-right: 1px solid var(--line); user-select: none; }
+.code { margin: 0; padding: 10px 12px; white-space: pre; }
+.kw { color: var(--kw); } .str { color: var(--str); } .fn { color: var(--accent); } .op { color: var(--muted); }
+
+.results { display: flex; flex-direction: column; min-width: 0; background: var(--pane); }
+.rbar { display: flex; align-items: center; gap: 12px; padding: 6px 10px; border-bottom: 1px solid var(--line); background: var(--head); flex-wrap: wrap; }
+.rbar .okmsg { color: var(--ok); display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+.rbar .meta { color: var(--muted); font-family: var(--mono); font-size: 12px; }
+.gridwrap { overflow-x: auto; }
+table.grid { border-collapse: collapse; width: 100%; font-family: var(--mono); font-size: 12px; }
+.grid th, .grid td { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 5px 10px; text-align: left; white-space: nowrap; }
+.grid th { background: var(--head); font-weight: 600; color: var(--ink); }
+.grid th small { color: var(--muted); font-weight: 400; margin-left: 6px; }
+.grid td.n { text-align: right; color: var(--num); }
+.grid .rn { width: 36px; color: #9aa4b0; text-align: right; background: var(--head); }
+.grid tr.cur td { background: var(--accent-soft); }
+
+.hist { list-style: none; margin: 0; padding: 0; }
+.hist li { padding: 8px 10px; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: auto 1fr auto; gap: 2px 8px; align-items: start; }
+.hist .t { font-family: var(--mono); color: var(--muted); font-size: 12px; }
+.hist .q { font-weight: 600; }
+.hist .d { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.hist .st { grid-column: 2 / 4; display: inline-flex; gap: 6px; align-items: center; font-size: 12px; }
+.hist .st.ok { color: var(--ok); }
+.hist .st.bad { color: var(--bad); }
+.hist .err { grid-column: 2 / 4; font-family: var(--mono); font-size: 12px; color: var(--bad); background: #2a1719; border-left: 2px solid var(--bad); padding: 4px 8px; }
+
+.statusbar { display: flex; gap: 0; background: var(--well); border-top: 1px solid var(--line); font-size: 12px; flex-wrap: wrap; }
+.statusbar span { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-right: 1px solid var(--line); color: var(--ink); }
+.statusbar .ro { color: var(--warn); }
+
+/* Style sheet */
+.sheet { background: var(--pane); border-top: 4px solid var(--accent); padding: 40px 32px 56px; }
+.sheet h2 { font-size: 20px; margin: 0 0 4px; }
+.sheet h3 { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 32px 0 10px; }
+.idea { color: var(--muted); margin: 0; max-width: 70ch; font-size: 14px; }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.sw { display: flex; gap: 10px; padding: 8px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 12px; }
+.sw i { width: 28px; height: 28px; flex: none; border: 1px solid var(--line); border-radius: 2px; }
+.sw b { display: block; font-size: 12px; } .sw code { font-family: var(--mono); color: var(--muted); }
+.type-row { display: flex; gap: 16px; align-items: baseline; border-bottom: 1px solid var(--line); padding: 8px 0; flex-wrap: wrap; }
+.type-row code { font-family: var(--mono); color: var(--muted); font-size: 12px; min-width: 200px; }
+.facts { display: grid; grid-template-columns: 120px 1fr; margin: 0; border-top: 1px solid var(--line); }
+.facts dt, .facts dd { padding: 6px 8px; border-bottom: 1px solid var(--line); margin: 0; }
+.facts dt { color: var(--muted); background: var(--head); }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+.ctl-label { display: block; color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+.field { display: block; font-weight: 600; font-size: 12px; }
+.field input { display: block; width: 100%; margin-top: 4px; height: 28px; padding: 0 8px; background: var(--well); border: 1px solid var(--line); border-radius: 2px; font-family: var(--mono); }
+.row-demo { display: flex; justify-content: space-between; padding: 5px 10px; border: 1px solid var(--line); font-family: var(--mono); font-size: 12px; background: var(--well); }
+.row-demo .n { color: var(--num); }
+
+@media (max-width: 1100px) {
+  .work { grid-template-columns: 220px minmax(0, 1fr); }
+  .pane.right { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--line); }
+}
+@media (max-width: 720px) {
+  .work { grid-template-columns: 1fr; }
+  .pane, .center { border-right: 0; }
+  .center { border-top: 1px solid var(--line); }
+  .titlebar { height: auto; flex-wrap: wrap; padding: 8px 12px; }
+  .titlebar .ro { margin-left: 0; }
+  .sheet { padding: 32px 16px 48px; }
+  .facts { grid-template-columns: 96px 1fr; }
+  .tb .k { display: none; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-db" viewBox="0 0 16 16"><ellipse cx="8" cy="3.5" rx="5.5" ry="2"/><path d="M2.5 3.5v9c0 1.1 2.5 2 5.5 2s5.5-.9 5.5-2v-9M2.5 8c0 1.1 2.5 2 5.5 2s5.5-.9 5.5-2"/></symbol>
+  <symbol id="i-table" viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="10"/><path d="M2 6.5h12M6.5 6.5V13"/></symbol>
+  <symbol id="i-col" viewBox="0 0 16 16"><path d="M4 8h8"/></symbol>
+  <symbol id="i-key" viewBox="0 0 16 16"><circle cx="5" cy="8" r="2.5"/><path d="M7.5 8H14M12 8v2.5"/></symbol>
+  <symbol id="i-down" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></symbol>
+  <symbol id="i-right" viewBox="0 0 16 16"><path d="M6 4l4 4-4 4"/></symbol>
+  <symbol id="i-play" viewBox="0 0 16 16"><path d="M5 3l8 5-8 5z" fill="currentColor"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 16 16"><rect x="3" y="7" width="10" height="7"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></symbol>
+  <symbol id="i-ok" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></symbol>
+  <symbol id="i-x" viewBox="0 0 16 16"><path d="M4 4l8 8M12 4l-8 8"/></symbol>
+  <symbol id="i-fmt" viewBox="0 0 16 16"><path d="M2 4h12M2 8h8M2 12h10"/></symbol>
+  <symbol id="i-save" viewBox="0 0 16 16"><path d="M3 2h8l2 2v10H3z"/><path d="M5 2v4h5V2M5 14V10h6v4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 4.5V8l2.5 1.5"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 16 16"><path d="M6 2v3M10 2v3M4 5h8v3a4 4 0 0 1-8 0zM8 12v2"/></symbol>
+</svg>
+
+<header class="titlebar">
+  <span class="mark" aria-hidden="true">B</span>
+  <h1>Brightwork Data</h1>
+  <span class="conn"><svg class="i" aria-hidden="true"><use href="#i-db"/></svg>production-replica</span>
+  <span class="ro"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg>Read-only</span>
+</header>
+<div class="toolbar" role="toolbar" aria-label="Query actions">
+  <button class="tb run"><svg class="i" aria-hidden="true"><use href="#i-play"/></svg>Run <span class="k">Ctrl Enter</span></button>
+  <button class="tb"><svg class="i" aria-hidden="true"><use href="#i-fmt"/></svg>Format</button>
+  <button class="tb"><svg class="i" aria-hidden="true"><use href="#i-save"/></svg>Save</button>
+  <span class="sep" aria-hidden="true"></span>
+  <button class="tb"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Explain</button>
+</div>
+
+<div class="work">
+  <nav class="pane" aria-label="Schema">
+    <div class="phead"><h2>Schema</h2><span>public</span></div>
+    <ul class="tree">
+      <li class="grp"><a href="#"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg><svg class="i" aria-hidden="true"><use href="#i-db"/></svg>production-replica</a>
+        <ul>
+          <li class="t1"><a href="#"><svg class="i" aria-hidden="true"><use href="#i-right"/></svg><svg class="i" aria-hidden="true"><use href="#i-table"/></svg>projects</a></li>
+          <li class="t1 sel"><a href="#" aria-expanded="true" aria-current="true"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg><svg class="i" aria-hidden="true"><use href="#i-table"/></svg>tasks</a>
+            <ul>
+              <li class="t2"><a href="#"><svg class="i key" aria-label="Primary key"><use href="#i-key"/></svg>id<span class="type">uuid</span></a></li>
+              <li class="t2"><a href="#"><svg class="i" aria-label="Foreign key" style="color:var(--accent)"><use href="#i-key"/></svg>project_id<span class="type">uuid</span></a></li>
+              <li class="t2"><a href="#"><svg class="i" aria-hidden="true"><use href="#i-col"/></svg>title<span class="type">text</span></a></li>
+              <li class="t2"><a href="#"><svg class="i" aria-label="Foreign key" style="color:var(--accent)"><use href="#i-key"/></svg>assignee_id<span class="type">uuid</span></a></li>
+              <li class="t2"><a href="#"><svg class="i" aria-hidden="true"><use href="#i-col"/></svg>due_on<span class="type">date</span></a></li>
+              <li class="t2"><a href="#"><svg class="i" aria-hidden="true"><use href="#i-col"/></svg>status<span class="type">text</span></a></li>
+            </ul>
+          </li>
+          <li class="t1"><a href="#"><svg class="i" aria-hidden="true"><use href="#i-right"/></svg><svg class="i" aria-hidden="true"><use href="#i-table"/></svg>members</a></li>
+          <li class="t1"><a href="#"><svg class="i" aria-hidden="true"><use href="#i-right"/></svg><svg class="i" aria-hidden="true"><use href="#i-table"/></svg>activity</a></li>
+          <li class="t1"><a href="#"><svg class="i" aria-hidden="true"><use href="#i-right"/></svg><svg class="i" aria-hidden="true"><use href="#i-table"/></svg>invoices</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="center">
+    <div class="tabs" role="tablist" aria-label="Open queries">
+      <span class="tab" role="tab" aria-selected="true">overdue_by_project.sql</span>
+      <span class="tab" role="tab" aria-selected="false">members_without_tasks.sql</span>
+    </div>
+    <div class="editor" role="region" aria-label="Query editor">
+      <div class="gutter" aria-hidden="true">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8</div>
+<pre class="code"><span class="kw">SELECT</span> p.name <span class="kw">AS</span> project, <span class="fn">count</span>(*) <span class="kw">AS</span> open_overdue
+<span class="kw">FROM</span> tasks t
+<span class="kw">JOIN</span> projects p <span class="kw">ON</span> p.id = t.project_id
+<span class="kw">WHERE</span> t.status <span class="op">&lt;&gt;</span> <span class="str">'done'</span>
+  <span class="kw">AND</span> t.due_on <span class="op">&lt;</span> <span class="fn">current_date</span>
+<span class="kw">GROUP BY</span> p.name
+<span class="kw">ORDER BY</span> open_overdue <span class="kw">DESC</span>;
+</pre>
+    </div>
+    <section class="results" aria-label="Results">
+      <div class="rbar">
+        <span class="okmsg"><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg>Succeeded</span>
+        <span class="meta">3 rows · 38 ms</span>
+      </div>
+      <div class="gridwrap">
+        <table class="grid">
+          <thead><tr><th class="rn" scope="col"><span class="visually" style="position:absolute;left:-9999px">Row</span>#</th><th scope="col">project<small>text</small></th><th scope="col">open_overdue<small>bigint</small></th></tr></thead>
+          <tbody>
+            <tr class="cur"><td class="rn">1</td><td>Billing migration</td><td class="n">2</td></tr>
+            <tr><td class="rn">2</td><td>Mobile app 2.0</td><td class="n">1</td></tr>
+            <tr><td class="rn">3</td><td>Website redesign</td><td class="n">1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <aside class="pane right" aria-label="History">
+    <div class="phead"><h2>History</h2><span>Today</span></div>
+    <ol class="hist">
+      <li><span class="t">09:41</span><span class="q">count overdue tasks</span><span class="d">38 ms</span><span class="st ok"><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg>Succeeded</span></li>
+      <li><span class="t">09:30</span><span class="q">members without tasks</span><span class="d">12 ms</span><span class="st ok"><svg class="i" aria-hidden="true"><use href="#i-ok"/></svg>Succeeded</span></li>
+      <li><span class="t">09:12</span><span class="q">failed query</span><span class="d">error</span><span class="st bad"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg>Failed</span><code class="err">column "assignee" does not exist</code></li>
+    </ol>
+  </aside>
+</div>
+
+<footer class="statusbar" aria-label="Connection status">
+  <span class="ro"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg>Read-only replica</span>
+  <span><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Lag 2 s</span>
+  <span><svg class="i" aria-hidden="true"><use href="#i-plug"/></svg>14 active connections</span>
+</footer>
+
+<section class="sheet" aria-labelledby="sheet-title">
+  <h2 id="sheet-title">Style 404 · DB admin</h2>
+  <p class="idea">A professional dark console built from square ruled panes, a tree, a tabbed editor and a dense grid, where a single cyan accent marks only what runs and what is selected.</p>
+
+  <h3>Palette</h3>
+  <ul class="swatches">
+    <li class="sw"><i style="background:#111418"></i><div><b>Page</b><code>#111418</code> frame and gaps</div></li>
+    <li class="sw"><i style="background:#181c21"></i><div><b>Pane</b><code>#181c21</code> tree, grid, history</div></li>
+    <li class="sw"><i style="background:#20252c"></i><div><b>Head</b><code>#20252c</code> pane headers, toolbar</div></li>
+    <li class="sw"><i style="background:#0c0e11"></i><div><b>Well</b><code>#0c0e11</code> editor, fields, status bar</div></li>
+    <li class="sw"><i style="background:#2c333c"></i><div><b>Line</b><code>#2c333c</code> every rule</div></li>
+    <li class="sw"><i style="background:#e2e6ea"></i><div><b>Ink</b><code>#e2e6ea</code> text</div></li>
+    <li class="sw"><i style="background:#9aa4b0"></i><div><b>Muted</b><code>#9aa4b0</code> types, meta</div></li>
+    <li class="sw"><i style="background:#5cc8d6"></i><div><b>Accent</b><code>#5cc8d6</code> Run, active tab, focus</div></li>
+    <li class="sw"><i style="background:#163037"></i><div><b>Accent soft</b><code>#163037</code> selected row</div></li>
+    <li class="sw"><i style="background:#c6a8ff"></i><div><b>Keyword</b><code>#c6a8ff</code> SQL keywords</div></li>
+    <li class="sw"><i style="background:#f2c879"></i><div><b>Number</b><code>#f2c879</code> numbers, read-only, keys</div></li>
+    <li class="sw"><i style="background:#7fd9a0"></i><div><b>OK</b><code>#7fd9a0</code> Succeeded, strings</div></li>
+    <li class="sw"><i style="background:#ff9c94"></i><div><b>Bad</b><code>#ff9c94</code> Failed and errors</div></li>
+  </ul>
+
+  <h3>Type · system-ui for chrome, ui-monospace, SF Mono, Menlo, Consolas for data</h3>
+  <div class="type-row"><code>20 / 650 sans</code><span style="font-size:20px;font-weight:650">Style sheet title</span></div>
+  <div class="type-row"><code>13 / 600 sans</code><span style="font-weight:600">Brightwork Data</span></div>
+  <div class="type-row"><code>11 / 700 caps 0.06em</code><span style="font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)">Schema</span></div>
+  <div class="type-row"><code>13 / 1.6 mono</code><span style="font-family:var(--mono)"><span class="kw">SELECT</span> p.name</span></div>
+  <div class="type-row"><code>12 mono grid</code><span style="font-family:var(--mono);font-size:12px">Billing migration · 2</span></div>
+
+  <h3>Spacing, corners and depth</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>4px unit. 28px pane headers, 5px by 10px grid cells, 8px by 10px history rows.</dd>
+    <dt>Density</dt><dd>High. Tree, editor, grid and history all visible at once.</dd>
+    <dt>Corners</dt><dd>2px on buttons, fields and badges. Panes are square.</dd>
+    <dt>Borders</dt><dd>1px #2c333c rules between every pane, row and cell.</dd>
+    <dt>Shadows</dt><dd>None. Depth comes from four surface steps.</dd>
+    <dt>Icons</dt><dd>14px square-capped line icons. Keys mark key columns, check and cross mark run results.</dd>
+    <dt>Tone</dt><dd>Terse tool labels, such as Run, Format, Succeeded, 3 rows.</dd>
+  </dl>
+
+  <h3>Controls · normal and focus</h3>
+  <div class="controls">
+    <div><span class="ctl-label">Primary</span><button class="tb run"><svg class="i" aria-hidden="true"><use href="#i-play"/></svg>Run</button> <button class="tb run is-focus" style="outline-offset:2px"><svg class="i" aria-hidden="true"><use href="#i-play"/></svg>Run</button></div>
+    <div><span class="ctl-label">Secondary</span><button class="tb">Format</button> <button class="tb is-focus">Format</button></div>
+    <div><label class="field">Filter tables<input value="tasks"></label></div>
+    <div><label class="field">Filter tables, focused<input class="is-focus" value="tasks"></label></div>
+    <div><span class="ctl-label">List row</span><div class="row-demo"><span>Billing migration</span><span class="n">2</span></div></div>
+    <div><span class="ctl-label">List row, focused</span><div class="row-demo is-focus"><span>Billing migration</span><span class="n">2</span></div></div>
+  </div>
+</section>
+</body>
+</html>

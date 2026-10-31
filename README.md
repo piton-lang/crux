@@ -12,6 +12,7 @@ A Piton package that provides skills for working with Piton.
 | `crux-spec-coverage` | Systematically evaluates whether specifications cover their claimed capabilities, behaviors, scenarios, boundaries, failure conditions, and acceptance criteria, and prioritizes the gaps without inventing a completeness score. Read-only by default. |
 | `crux-spec-impact` | Analyzes the direct and downstream consequences of a proposed specification change across requirements, interfaces, dependencies, and contracts before it is applied, separating confirmed impact from possible impact. Read-only by default. |
 | `crux-ui-develop` | Interviews the user about which part of the UI to work on and how it should work, then runs mockup rounds: it asks how many variations to make, saves them numbered 1, 2, 3 next to the spec file in a `<Spec>.mockups/round-N/` folder with one gallery page to compare and dive into them, and records the picked number and what it settled in the specification, which references the mockup files. |
+| `crux-ui-styles` | Grows a library of very different visual styles for the whole application, such as clean dashboard, SaaS product or technical. Each run asks three questions (which directions, what to lean toward or avoid, which screen to show), saves one numbered self-contained sample page per style in a `<Anchor>.styles/` folder with one gallery for the whole library, and describes every style, the user's verdicts and the chosen direction in the specification so later work, including `crux-ui-develop`, follows it. |
 
 ## Analysis skill boundaries
 
@@ -118,11 +119,14 @@ by the consuming project's adapters into that tool's skill directory.
 | `spec/skills/index.pi` | Skills index. Re-exports each skill family's index. |
 | `spec/skills/spec/` | Specification skills (`crux-spec-*`), one per file, named after the skill anchor, with `index.pi` re-exporting them. `lib/ReadOnlyAnalysis.pi` is the read-only base shared by coverage and impact. |
 | `spec/skills/arch/` | Architecture skills (`crux-arch-*`), laid out the same way, with their shared base in `lib/CruxArchBase.pi`. Not exported yet. |
+| `spec/skills/ui/` | UI skills (`crux-ui-*`), with their shared base for saved pages, the gallery large view and page references in `lib/CruxUiBase.pi`. |
+| `spec/skills/ui/catalogue/` | The style catalogue the UI skills search for reference: one Piton anchor per style in `styles/`, named after the style, such as `styles/EditorialGuideStyle.pi`, gathered by `index.pi`. Imported from `evals/lookbook/` by `scripts/build-style-catalogue.py`; never hand-edit it. Installed with the package but deliberately not re-exported from the entry, so consumers never compile or emit it. |
+| `scripts/` | Maintenance scripts. Not installed. |
 | `spec/skills/impl/` | Implementation skills (`crux-impl-*`). Not exported yet. |
 | `spec/skills/lib/PitonSkillBase.pi` | Abstract base every skill extends. It is never compiled or emitted on its own; its shared properties are inherited by each concrete skill and serialized as sections after that skill's own prompt. |
 | `spec/skills/lib/Fluency.pi` | Abstract base holding the instruction for reading Piton fluency, inherited through `PitonSkillBase`. |
 | `spec/skills/lib/CruxSkills.pi` | The map of which skill owns which question. Emitted as one reference document that every skill links to. |
-| `evals/` | Conversational evaluation scenarios for the skills, run in a live agent session. Static checks do not substitute for them. |
+| `evals/` | Conversational evaluation scenarios for the skills, run in a live agent session. Static checks do not substitute for them. `evals/lookbook/` is the style library the catalogue is built from; its HTML pages are not installed. |
 
 Only the tree under the package `root` (`spec/`) is installed into
 `tethers/crux/`. The adapters in `piton.config.pi` only drive
@@ -140,3 +144,8 @@ piton reach
 Generated output (`.claude/`, `.codex/`, `.agents/`, `.opencode/`,
 `dist/`) is derived from the `.pi` source. Never hand-edit it; change
 the `.pi` files and rebuild.
+
+After changing the lookbook's `VisualStyles.pi`, regenerate the
+shipped catalogue with `python3 scripts/build-style-catalogue.py`. The
+catalogue is outside the entry's reach, so check it explicitly with
+`piton check spec/skills/ui/catalogue`.

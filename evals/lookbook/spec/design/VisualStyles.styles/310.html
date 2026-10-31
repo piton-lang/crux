@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 310 · Tube amp · Brightwork</title>
+<style>
+:root{color-scheme:dark;--tolex:#15100c;--plate:#2a2119;--plate2:#211a14;--ink:#f3e6c8;--mut:#cdbb98;--brass:#d6ae62;--line:#5a4a38;--amber:#ffbf5e;--sky:#9fd4ff;--red:#ff8a6a;--grn:#9be29a;--focus:#ffe7a8;--serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--sans:"Gill Sans","Gill Sans MT",Optima,"Trebuchet MS",system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font:15px/1.5 var(--sans);background-color:var(--tolex);background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.018) 0 2px,transparent 2px 5px),repeating-linear-gradient(-45deg,rgba(0,0,0,.25) 0 2px,transparent 2px 5px)}
+:focus-visible,.is-focus{outline:3px solid var(--focus);outline-offset:3px}
+.ic{width:16px;height:16px;flex:none}
+.eng{font-family:var(--serif);font-variant:small-caps;letter-spacing:.12em}
+main{max-width:1200px;margin:0 auto;padding:24px}
+.head{position:relative;background:linear-gradient(180deg,#33281e,#241c15);border:2px solid #4a3b2c;border-radius:16px;padding:20px 28px;box-shadow:0 18px 40px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,230,190,.12)}
+.head::before,.head::after{content:"";position:absolute;top:10px;width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#c9b089,#5c4a35);box-shadow:0 0 0 1px #1a130e}
+.head::before{left:10px}.head::after{right:10px}
+.topline{display:flex;flex-wrap:wrap;align-items:center;gap:8px 32px}
+.logo{font:italic 700 30px/1 var(--serif);color:var(--brass);letter-spacing:.02em}
+.logo small{display:block;font:400 13px var(--serif);font-style:normal;font-variant:small-caps;letter-spacing:.2em;color:var(--mut);margin-top:6px}
+nav ul{display:flex;flex-wrap:wrap;gap:16px;list-style:none;margin:0;padding:0}
+nav a{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--mut);text-decoration:none;font:15px var(--serif);font-variant:small-caps;letter-spacing:.12em}
+nav a::before{content:"";width:14px;height:14px;border-radius:50%;background:#1a130e;box-shadow:inset 0 0 0 3px #6b5a45}
+nav a[aria-current]{color:var(--ink)}
+nav a[aria-current]::before{background:radial-gradient(circle,#ffcf7a,#d07a1c);box-shadow:0 0 10px #ff9a2e,inset 0 0 0 2px #6b5a45}
+.pilot{margin-left:auto;display:flex;align-items:center;gap:10px;color:var(--mut)}
+.pilot i{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#ffe1a0,#e0701a 60%,#7a2e00);box-shadow:0 0 14px #ff8a2e}
+h1{font:400 14px var(--sans);color:var(--mut);margin:16px 0 0}
+.bay{margin-top:20px;background:var(--plate2);border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+.bay h2{margin:0 0 12px;font:400 16px var(--serif);font-variant:small-caps;letter-spacing:.16em;color:var(--brass);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.bay h2 span{color:var(--mut);font-size:13px}
+.tubes{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0}
+.tubes li{display:flex;flex-direction:column;align-items:center;text-align:center}
+.tube{width:80px;height:150px}
+.tag{width:100%;margin-top:8px;background:#1a140f;border:1px solid var(--line);border-radius:6px;padding:8px}
+.tag .nm{font:700 14px ui-monospace,Menlo,Consolas,monospace}
+.tag .s{display:flex;justify-content:center;align-items:center;gap:6px;font-weight:700;font-size:14px;margin:2px 0}
+.tag .d{font-size:13px;color:var(--mut)}
+.healthy{color:var(--grn)}.degraded{color:var(--amber)}.recovered{color:var(--sky)}.firing{color:var(--red)}.resolved{color:var(--grn)}.investigating{color:var(--amber)}
+.meters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.vu{margin:0}.vu svg{display:block;width:100%;height:auto}
+.vu figcaption{display:flex;flex-direction:column;align-items:center;margin-top:6px;text-align:center}
+.vu figcaption b{font:400 16px var(--serif);font-variant:small-caps;letter-spacing:.14em;color:var(--ink)}
+.vu figcaption span{font-size:13px;color:var(--mut)}
+.rec{background:#1a120b;border:1px solid var(--line);border-radius:8px;padding:12px;overflow:hidden}
+.rec svg{display:block;width:100%;height:auto}
+.rec .g line{stroke:#3a2c1e}
+.leg{display:flex;flex-wrap:wrap;gap:4px 20px;font-size:13px;color:var(--mut);margin:0 0 8px;list-style:none;padding:0}
+.leg i{display:inline-block;width:18px;height:0;border-top:2px solid;vertical-align:4px;margin-right:6px}
+.ax{display:flex;justify-content:space-between;font-size:12px;color:var(--mut)}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:20px}
+.lamp{display:flex;gap:16px;align-items:flex-start}
+.jewel{flex:none;width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#ffe0a0,#e08a1c 55%,#6a3a00);box-shadow:0 0 18px rgba(255,160,40,.7),0 0 0 4px #4a3b2c}
+.lamp .id{font:700 20px var(--serif);color:var(--amber)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:8px 0 0;font-size:14px}.kv dt{color:var(--mut);font-family:var(--serif);font-variant:small-caps;letter-spacing:.1em}.kv dd{margin:0}
+ul.plate{list-style:none;margin:0;padding:0}
+ul.plate li{padding:8px 0;border-top:1px dashed var(--line);display:grid;grid-template-columns:auto 1fr;gap:2px 12px}
+ul.plate li:first-child{border-top:0}
+ul.plate .t{font:14px var(--serif);color:var(--brass);grid-row:span 2;font-variant-numeric:tabular-nums;min-width:56px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:13px}
+.sheet{max-width:1200px;margin:32px auto 0;padding:32px 24px 64px;background:#1d1611;border-top:2px solid #4a3b2c}
+.sheet h2{font:italic 700 26px var(--serif);color:var(--brass);margin:0}
+.sheet h3{font:400 16px var(--serif);font-variant:small-caps;letter-spacing:.16em;color:var(--brass);margin:28px 0 10px}
+.idea{max-width:760px}
+.swatches{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.sw{display:flex;gap:10px;align-items:center;padding:8px;background:var(--plate);border:1px solid var(--line);border-radius:8px}
+.sw i{width:36px;height:36px;border-radius:50%;flex:none;border:2px solid #6b5a45}
+.sw b{display:block}.sw code,.sw span{display:block;font-size:12px;color:var(--mut)}
+.stack code{color:var(--mut);font-size:13px}
+.type-row{display:flex;flex-wrap:wrap;gap:4px 24px;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--line)}
+.type-row code{width:170px;font-size:12px;color:var(--mut)}
+.facts{display:grid;grid-template-columns:130px 1fr;gap:6px 16px;margin:0}.facts dt{color:var(--brass);font-family:var(--serif);font-variant:small-caps;letter-spacing:.1em}.facts dd{margin:0}
+.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 24px}
+.ctl-label,.field span{display:block;font:14px var(--serif);font-variant:small-caps;letter-spacing:.12em;color:var(--mut);margin-bottom:6px}
+.btn{font:700 14px var(--sans);padding:9px 18px;border-radius:999px;cursor:pointer;margin:0 8px 8px 0}
+.btn.primary{background:linear-gradient(#e6c27a,#c0954a);color:#24180a;border:1px solid #f0d699}
+.btn.secondary{background:#2a2119;color:var(--ink);border:1px solid #8a7356}
+.field input{width:100%;background:#1a140f;border:1px solid #8a7356;border-radius:6px;color:var(--ink);font:15px var(--sans);padding:8px 10px}
+.row-demo{display:flex;justify-content:space-between;align-items:center;background:#1a140f;border:1px solid var(--line);border-radius:6px;padding:8px 12px;color:var(--ink);text-decoration:none}
+.st{display:inline-flex;gap:6px;align-items:center;color:var(--amber);font-weight:700;font-size:13px}
+@media (max-width:980px){.tubes{grid-template-columns:repeat(3,minmax(0,1fr))}.meters,.split{grid-template-columns:minmax(0,1fr)}.vu{max-width:360px;margin:0 auto;width:100%}.pilot{margin-left:0}}
+@media (max-width:560px){main{padding:16px}.head{padding:20px 16px}.bay{padding:12px}.tubes{grid-template-columns:repeat(2,minmax(0,1fr))}.controls,.facts{grid-template-columns:minmax(0,1fr)}.sheet{padding:24px 16px 48px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="s-healthy" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-degraded" viewBox="0 0 24 24"><path d="M12 3L22 20H2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9.5v5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17.3" r="1.2" fill="currentColor"/></symbol>
+<symbol id="s-down" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+<symbol id="s-recovered" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18.5 2.8v4.6h-4.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-firing" viewBox="0 0 24 24"><path d="M13.5 2L5 13.5h6L10 22l9-12h-6.2z" fill="currentColor"/></symbol>
+<symbol id="s-resolved" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-investigating" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15 15l5.5 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+<symbol id="s-deploy" viewBox="0 0 24 24"><path d="M12 3v12M7 8l5-5 5 5M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="s-bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15zM10 20.5h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+</defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><radialGradient id="vuglow" cx="50%" cy="80%" r="80%"><stop offset="0" stop-color="#5a3a12"/><stop offset="1" stop-color="#2a1b0c"/></radialGradient></defs></svg>
+<main>
+  <header class="head">
+    <div class="topline">
+      <div class="logo">Brightwork<small>Ops · production · 24 hours</small></div>
+      <nav aria-label="Suite"><ul><li><a href="#">Projects</a></li><li><a href="#">Canvas</a></li><li><a href="#">Drive</a></li><li><a href="#">Code</a></li><li><a href="#" aria-current="page">Ops</a></li></ul></nav>
+      <div class="pilot eng"><i aria-hidden="true"></i>Power on</div>
+    </div>
+    <h1>Brightwork Ops, the suite's service monitor, showing production for the last 24 hours.</h1>
+  </header>
+  <section class="bay" aria-labelledby="b1"><h2 id="b1">Service tubes <span>a warm tube is a healthy service</span></h2>
+    <ul class="tubes"><li><svg viewBox="0 0 80 150" aria-hidden="true" class="tube">
+  <defs><radialGradient id="tg0" cx="50%" cy="55%" r="50%"><stop offset="0" stop-color="#ffb347" stop-opacity="1"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></radialGradient></defs>
+  <ellipse cx="40" cy="78" rx="40" ry="60" fill="url(#tg0)"/>
+  <path d="M18 128V40a22 22 0 0 1 44 0v88z" fill="rgba(255,240,220,.05)" stroke="#8a7a66" stroke-width="1.5"/>
+  <path d="M34 18q6-8 12 0" fill="none" stroke="#8a7a66" stroke-width="1.5"/>
+  <rect x="27" y="50" width="26" height="54" rx="3" fill="#1c1510" stroke="#6b5c4a"/>
+  <path d="M33 100V62q7-10 14 0v38" fill="none" stroke="#ffb347" stroke-opacity="1" stroke-width="2.5"/>
+  
+  <rect x="14" y="128" width="52" height="16" rx="3" fill="#2b2420" stroke="#5a4c3e"/>
+  </svg><div class="tag"><div class="nm">api</div><div class="s healthy"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg>Healthy</div><div class="d">99.98% uptime<br>p95 latency 182 ms</div></div></li><li><svg viewBox="0 0 80 150" aria-hidden="true" class="tube">
+  <defs><radialGradient id="tg1" cx="50%" cy="55%" r="50%"><stop offset="0" stop-color="#ffb347" stop-opacity="1"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></radialGradient></defs>
+  <ellipse cx="40" cy="78" rx="40" ry="60" fill="url(#tg1)"/>
+  <path d="M18 128V40a22 22 0 0 1 44 0v88z" fill="rgba(255,240,220,.05)" stroke="#8a7a66" stroke-width="1.5"/>
+  <path d="M34 18q6-8 12 0" fill="none" stroke="#8a7a66" stroke-width="1.5"/>
+  <rect x="27" y="50" width="26" height="54" rx="3" fill="#1c1510" stroke="#6b5c4a"/>
+  <path d="M33 100V62q7-10 14 0v38" fill="none" stroke="#ffb347" stroke-opacity="1" stroke-width="2.5"/>
+  
+  <rect x="14" y="128" width="52" height="16" rx="3" fill="#2b2420" stroke="#5a4c3e"/>
+  </svg><div class="tag"><div class="nm">web</div><div class="s healthy"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg>Healthy</div><div class="d">99.99% uptime<br>p95 latency 96 ms</div></div></li><li><svg viewBox="0 0 80 150" aria-hidden="true" class="tube">
+  <defs><radialGradient id="tg2" cx="50%" cy="55%" r="50%"><stop offset="0" stop-color="#ff9a2e" stop-opacity="0.45"/><stop offset="1" stop-color="#ff9a2e" stop-opacity="0"/></radialGradient></defs>
+  <ellipse cx="40" cy="78" rx="40" ry="60" fill="url(#tg2)"/>
+  <path d="M18 128V40a22 22 0 0 1 44 0v88z" fill="rgba(255,240,220,.05)" stroke="#8a7a66" stroke-width="1.5"/>
+  <path d="M34 18q6-8 12 0" fill="none" stroke="#8a7a66" stroke-width="1.5"/>
+  <rect x="27" y="50" width="26" height="54" rx="3" fill="#1c1510" stroke="#6b5c4a"/>
+  <path d="M33 100V62q7-10 14 0v38" fill="none" stroke="#ff9a2e" stroke-opacity="0.75" stroke-width="2.5"/>
+  <path d="M30 46l4 4M50 46l-4 4M40 42v5" stroke="#ff9a2e" stroke-width="1.5"/>
+  <rect x="14" y="128" width="52" height="16" rx="3" fill="#2b2420" stroke="#5a4c3e"/>
+  </svg><div class="tag"><div class="nm">sync-worker</div><div class="s degraded"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-degraded"/></svg>Degraded</div><div class="d">99.41% uptime<br>Queue depth 4,812</div></div></li><li><svg viewBox="0 0 80 150" aria-hidden="true" class="tube">
+  <defs><radialGradient id="tg3" cx="50%" cy="55%" r="50%"><stop offset="0" stop-color="#ffb347" stop-opacity="1"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></radialGradient></defs>
+  <ellipse cx="40" cy="78" rx="40" ry="60" fill="url(#tg3)"/>
+  <path d="M18 128V40a22 22 0 0 1 44 0v88z" fill="rgba(255,240,220,.05)" stroke="#8a7a66" stroke-width="1.5"/>
+  <path d="M34 18q6-8 12 0" fill="none" stroke="#8a7a66" stroke-width="1.5"/>
+  <rect x="27" y="50" width="26" height="54" rx="3" fill="#1c1510" stroke="#6b5c4a"/>
+  <path d="M33 100V62q7-10 14 0v38" fill="none" stroke="#ffb347" stroke-opacity="1" stroke-width="2.5"/>
+  
+  <rect x="14" y="128" width="52" height="16" rx="3" fill="#2b2420" stroke="#5a4c3e"/>
+  </svg><div class="tag"><div class="nm">notifications</div><div class="s healthy"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-healthy"/></svg>Healthy</div><div class="d">99.95% uptime</div></div></li><li><svg viewBox="0 0 80 150" aria-hidden="true" class="tube">
+  <defs><radialGradient id="tg4" cx="50%" cy="55%" r="50%"><stop offset="0" stop-color="#ffb347" stop-opacity="0.8"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></radialGradient></defs>
+  <ellipse cx="40" cy="78" rx="40" ry="60" fill="url(#tg4)"/>
+  <path d="M18 128V40a22 22 0 0 1 44 0v88z" fill="rgba(255,240,220,.05)" stroke="#8a7a66" stroke-width="1.5"/>
+  <path d="M34 18q6-8 12 0" fill="none" stroke="#8a7a66" stroke-width="1.5"/>
+  <rect x="27" y="50" width="26" height="54" rx="3" fill="#1c1510" stroke="#6b5c4a"/>
+  <path d="M33 100V62q7-10 14 0v38" fill="none" stroke="#ffb347" stroke-opacity="1" stroke-width="2.5"/>
+  
+  <rect x="14" y="128" width="52" height="16" rx="3" fill="#2b2420" stroke="#5a4c3e"/>
+  </svg><div class="tag"><div class="nm">billing</div><div class="s recovered"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-recovered"/></svg>Recovered</div><div class="d">Down 6 min<br>Recovered at 07:54</div></div></li></ul>
+  </section>
+  <section class="bay" aria-labelledby="b2"><h2 id="b2">Meters <span>needle now, gold mark is the 24 hour peak</span></h2>
+    <div class="meters">
+      <figure class="vu"><svg viewBox="0 0 200 128" role="img" aria-labelledby="vu1"><rect x="2" y="2" width="196" height="124" rx="10" fill="#2a1b0c" stroke="#7a5a2c" stroke-width="2"/><rect x="10" y="10" width="180" height="108" rx="6" fill="url(#vuglow)"/>
+  <path d="M35.7 56.0 A84 84 0 0 1 154.0 45.7" fill="none" stroke="#f3e6c8" stroke-width="2"/><path d="M154.0 45.7 A84 84 0 0 1 164.3 56.0" fill="none" stroke="#ff8a6a" stroke-width="5"/>
+  <g stroke="#f3e6c8" stroke-width="1.5" fill="#f3e6c8" font-size="10" font-family="Georgia,serif"><line x1="40.2" y1="59.9" x2="32.6" y2="53.4"/><text x="51.0" y="68.9" text-anchor="middle" stroke="none">0</text><line x1="67.0" y1="39.3" x2="62.8" y2="30.2"/><text x="73.0" y="52.0" text-anchor="middle" stroke="none">2.5k</text><line x1="100.0" y1="32.0" x2="100.0" y2="22.0"/><text x="100.0" y="46.0" text-anchor="middle" stroke="none">5k</text><line x1="133.0" y1="39.3" x2="137.2" y2="30.2"/><text x="127.0" y="52.0" text-anchor="middle" stroke="none">7.5k</text><line x1="159.8" y1="59.9" x2="167.4" y2="53.4"/><text x="149.0" y="68.9" text-anchor="middle" stroke="none">10k</text></g>
+  <path d="M166.7 40.9 l-4 -8 h8z" fill="#ffd27a" transform="rotate(0)"/>
+  <line x1="100" y1="110" x2="138.9" y2="26.6" stroke="#fff4dc" stroke-width="2.5" stroke-linecap="round"/><circle cx="100" cy="110" r="7" fill="#7a5a2c"/></svg>
+  <figcaption id="vu1"><b>Requests per minute</b><span>Peak 9,400 at 14:00, about 1,200 at night</span></figcaption></figure>
+      <figure class="vu"><svg viewBox="0 0 200 128" role="img" aria-labelledby="vu2"><rect x="2" y="2" width="196" height="124" rx="10" fill="#2a1b0c" stroke="#7a5a2c" stroke-width="2"/><rect x="10" y="10" width="180" height="108" rx="6" fill="url(#vuglow)"/>
+  <path d="M35.7 56.0 A84 84 0 0 1 142.0 37.3" fill="none" stroke="#f3e6c8" stroke-width="2"/><path d="M142.0 37.3 A84 84 0 0 1 164.3 56.0" fill="none" stroke="#ff8a6a" stroke-width="5"/>
+  <g stroke="#f3e6c8" stroke-width="1.5" fill="#f3e6c8" font-size="10" font-family="Georgia,serif"><line x1="40.2" y1="59.9" x2="32.6" y2="53.4"/><text x="51.0" y="68.9" text-anchor="middle" stroke="none">0</text><line x1="61.0" y1="42.5" x2="56.0" y2="33.8"/><text x="68.0" y="54.6" text-anchor="middle" stroke="none">0.5</text><line x1="86.5" y1="33.2" x2="84.7" y2="23.3"/><text x="88.9" y="47.0" text-anchor="middle" stroke="none">1</text><line x1="113.5" y1="33.2" x2="115.3" y2="23.3"/><text x="111.1" y="47.0" text-anchor="middle" stroke="none">1.5</text><line x1="139.0" y1="42.5" x2="144.0" y2="33.8"/><text x="132.0" y="54.6" text-anchor="middle" stroke="none">2</text><line x1="159.8" y1="59.9" x2="167.4" y2="53.4"/><text x="149.0" y="68.9" text-anchor="middle" stroke="none">2.5</text></g>
+  <path d="M164.2 38.7 l-4 -8 h8z" fill="#ffd27a" transform="rotate(0)"/>
+  <line x1="100" y1="110" x2="33.8" y2="46.1" stroke="#fff4dc" stroke-width="2.5" stroke-linecap="round"/><circle cx="100" cy="110" r="7" fill="#7a5a2c"/></svg>
+  <figcaption id="vu2"><b>Error rate</b><span>Near 0.1%, peak 2.3% at 07:48</span></figcaption></figure>
+      <figure class="vu"><svg viewBox="0 0 200 128" role="img" aria-labelledby="vu3"><rect x="2" y="2" width="196" height="124" rx="10" fill="#2a1b0c" stroke="#7a5a2c" stroke-width="2"/><rect x="10" y="10" width="180" height="108" rx="6" fill="url(#vuglow)"/>
+  <path d="M35.7 56.0 A84 84 0 0 1 142.0 37.3" fill="none" stroke="#f3e6c8" stroke-width="2"/><path d="M142.0 37.3 A84 84 0 0 1 164.3 56.0" fill="none" stroke="#ff8a6a" stroke-width="5"/>
+  <g stroke="#f3e6c8" stroke-width="1.5" fill="#f3e6c8" font-size="10" font-family="Georgia,serif"><line x1="40.2" y1="59.9" x2="32.6" y2="53.4"/><text x="51.0" y="68.9" text-anchor="middle" stroke="none">0</text><line x1="61.0" y1="42.5" x2="56.0" y2="33.8"/><text x="68.0" y="54.6" text-anchor="middle" stroke="none">50</text><line x1="86.5" y1="33.2" x2="84.7" y2="23.3"/><text x="88.9" y="47.0" text-anchor="middle" stroke="none">100</text><line x1="113.5" y1="33.2" x2="115.3" y2="23.3"/><text x="111.1" y="47.0" text-anchor="middle" stroke="none">150</text><line x1="139.0" y1="42.5" x2="144.0" y2="33.8"/><text x="132.0" y="54.6" text-anchor="middle" stroke="none">200</text><line x1="159.8" y1="59.9" x2="167.4" y2="53.4"/><text x="149.0" y="68.9" text-anchor="middle" stroke="none">250</text></g>
+  <path d="M162.2 36.9 l-4 -8 h8z" fill="#ffd27a" transform="rotate(0)"/>
+  <line x1="100" y1="110" x2="134.5" y2="24.7" stroke="#fff4dc" stroke-width="2.5" stroke-linecap="round"/><circle cx="100" cy="110" r="7" fill="#7a5a2c"/></svg>
+  <figcaption id="vu3"><b>Latency p95</b><span>p95 138 to 226 ms, p50 55 to 84 ms</span></figcaption></figure>
+    </div>
+  </section>
+  <section class="bay" aria-labelledby="b3"><h2 id="b3">Chart recorder <span>24 hours, 10:00 to 10:00</span></h2>
+    <div class="rec">
+      <ul class="leg"><li><i style="color:#ffbf5e"></i>Requests</li><li><i style="color:#ff8a6a"></i>Error rate</li><li><i style="color:#f3e6c8"></i>p95</li><li><i style="color:#9fd4ff;border-top-style:dashed"></i>p50</li></ul>
+      <svg viewBox="0 0 900 124" role="img" aria-label="Chart recorder of three signals over 24 hours. Requests per minute from about 1,200 at night to a peak of 9,400 at 14:00. Error rate near 0.1 percent with a spike to 2.3 percent at 07:48. Latency p50 between 55 and 84 ms and p95 between 138 and 226 ms."><g class="g"><line x1="0" x2="900" y1="0" y2="0"/><line x1="0" x2="900" y1="30" y2="30"/><line x1="0" x2="900" y1="60" y2="60"/><line x1="0" x2="900" y1="90" y2="90"/><line x1="0" x2="900" y1="120" y2="120"/><line y1="0" y2="120" x1="0" x2="0"/><line y1="0" y2="120" x1="37.5" x2="37.5"/><line y1="0" y2="120" x1="75" x2="75"/><line y1="0" y2="120" x1="112.5" x2="112.5"/><line y1="0" y2="120" x1="150" x2="150"/><line y1="0" y2="120" x1="187.5" x2="187.5"/><line y1="0" y2="120" x1="225" x2="225"/><line y1="0" y2="120" x1="262.5" x2="262.5"/><line y1="0" y2="120" x1="300" x2="300"/><line y1="0" y2="120" x1="337.5" x2="337.5"/><line y1="0" y2="120" x1="375" x2="375"/><line y1="0" y2="120" x1="412.5" x2="412.5"/><line y1="0" y2="120" x1="450" x2="450"/><line y1="0" y2="120" x1="487.5" x2="487.5"/><line y1="0" y2="120" x1="525" x2="525"/><line y1="0" y2="120" x1="562.5" x2="562.5"/><line y1="0" y2="120" x1="600" x2="600"/><line y1="0" y2="120" x1="637.5" x2="637.5"/><line y1="0" y2="120" x1="675" x2="675"/><line y1="0" y2="120" x1="712.5" x2="712.5"/><line y1="0" y2="120" x1="750" x2="750"/><line y1="0" y2="120" x1="787.5" x2="787.5"/><line y1="0" y2="120" x1="825" x2="825"/><line y1="0" y2="120" x1="862.5" x2="862.5"/><line y1="0" y2="120" x1="900" x2="900"/></g>
+      <path d="M0 28.8 L37.5 20.4 L75 14.4 L112.5 10.8 L150 7.2 L187.5 12 L225 18 L262.5 27.6 L300 40.8 L337.5 54 L375 67.2 L412.5 79.2 L450 90 L487.5 97.2 L525 102 L562.5 104.4 L600 105.6 L637.5 105.6 L675 105 L712.5 100.8 L750 88.8 L787.5 69.6 L825 49.2 L862.5 36 L900 30" fill="none" stroke="#ffbf5e" stroke-width="2.5"/><path d="M0 115.2 L37.5 115.7 L75 114.7 L112.5 115.2 L150 114.2 L187.5 115.2 L225 115.7 L262.5 115.2 L300 114.7 L337.5 115.2 L375 115.7 L412.5 115.2 L450 115.2 L487.5 116.2 L525 115.7 L562.5 115.2 L600 115.7 L637.5 115.2 L675 115.2 L712.5 114.7 L750 115.2 L787.5 114.7 L810 113.8 L817.5 9.6 L821.3 76.8 L828.8 112.3 L862.5 114.7 L900 115.2" fill="none" stroke="#ff8a6a" stroke-width="2"/><path d="M0 38.4 L37.5 35.5 L75 31.7 L112.5 28.8 L150 25 L187.5 27.8 L225 30.7 L262.5 34.6 L300 39.4 L337.5 43.2 L375 47 L412.5 49 L450 50.4 L487.5 51.8 L525 52.8 L562.5 53.3 L600 53.8 L637.5 53.8 L675 52.8 L712.5 49.9 L750 44.2 L787.5 37.4 L825 11.5 L862.5 32.6 L900 33.6" fill="none" stroke="#f3e6c8" stroke-width="1.8"/><path d="M0 85.4 L37.5 84 L75 82.6 L112.5 81.6 L150 79.7 L187.5 81.1 L225 82.6 L262.5 84.5 L300 86.4 L337.5 88.3 L375 90.2 L412.5 91.2 L450 92.2 L487.5 92.6 L525 93.1 L562.5 93.1 L600 93.6 L637.5 93.6 L675 93.1 L712.5 92.2 L750 89.8 L787.5 87.4 L825 80.6 L862.5 85.4 L900 85.9" fill="none" stroke="#9fd4ff" stroke-width="1.8" stroke-dasharray="6 4"/></svg>
+      <div class="ax" aria-hidden="true"><span>10:00</span><span>16:00</span><span>22:00</span><span>04:00</span><span>10:00</span></div>
+    </div>
+  </section>
+  <div class="split">
+    <section class="bay" aria-labelledby="b4"><h2 id="b4">Warning lamp</h2>
+      <div class="lamp"><span class="jewel" aria-hidden="true"></span><div><div class="id">INC-0427</div><div>sync-worker queue backlog</div>
+      <dl class="kv"><dt>Status</dt><dd><span class="chip investigating"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-investigating"/></svg>Investigating</span></dd><dt>Severity</dt><dd>2</dd><dt>Opened</dt><dd>06:58</dd><dt>Owner</dt><dd>Jonas Weber</dd></dl></div></div>
+    </section>
+    <section class="bay" aria-labelledby="b5"><h2 id="b5">Alerts</h2>
+      <ul class="plate"><li><span class="t">07:48</span><span>billing 5xx rate above 2 percent</span><span class="chip resolved"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-resolved"/></svg>Resolved</span></li><li><span class="t">06:58</span><span>sync-worker queue depth above 3,000</span><span class="chip firing"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-firing"/></svg>Firing</span></li><li><span class="t">Yesterday 22:10</span><span>api disk 80 percent</span><span class="chip resolved"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-resolved"/></svg>Resolved</span></li></ul>
+    </section>
+    <section class="bay" aria-labelledby="b6"><h2 id="b6">Deploys</h2>
+      <ul class="plate"><li><span class="t">09:12</span><span>web v3.18.2</span><span style="color:var(--mut);font-size:14px">by Priya Nair</span></li><li><span class="t">08:30</span><span>api v5.4.0</span><span style="color:var(--mut);font-size:14px">by Jonas Weber</span></li><li><span class="t">06:40</span><span>sync-worker v1.9.1</span><span style="color:var(--mut);font-size:14px">by Sam Ortiz</span></li></ul>
+    </section>
+  </div>
+</main>
+<section class="sheet" aria-labelledby="sheet-h">
+  <h2 id="sheet-h">Style 310 · Tube amp</h2>
+  <p class="idea">A vintage amplifier faceplate on dark tolex: a row of glowing tubes for the services, analog VU meters for traffic, errors and latency, a jewel warning lamp for the incident and engraved small caps labels.</p>
+  <h3>Palette</h3>
+  <ul class="swatches">
+    <li class="sw"><i style="background:#15100c"></i><div><b>Tolex</b><code>#15100c</code><span>textured page behind the amp</span></div></li>
+    <li class="sw"><i style="background:#2a2119"></i><div><b>Faceplate</b><code>#2a2119</code><span>header plate, swatches, secondary button</span></div></li>
+    <li class="sw"><i style="background:#211a14"></i><div><b>Bay</b><code>#211a14</code><span>section bays</span></div></li>
+    <li class="sw"><i style="background:#1a140f"></i><div><b>Tag</b><code>#1a140f</code><span>tube tags, fields and the recorder</span></div></li>
+    <li class="sw"><i style="background:#f3e6c8"></i><div><b>Cream</b><code>#f3e6c8</code><span>engraved text, meter scales and p95</span></div></li>
+    <li class="sw"><i style="background:#cdbb98"></i><div><b>Muted</b><code>#cdbb98</code><span>secondary labels</span></div></li>
+    <li class="sw"><i style="background:#d6ae62"></i><div><b>Brass</b><code>#d6ae62</code><span>logo, bay titles, times and the primary button</span></div></li>
+    <li class="sw"><i style="background:#5a4a38"></i><div><b>Rule</b><code>#5a4a38</code><span>borders and dashed rules</span></div></li>
+    <li class="sw"><i style="background:#ffbf5e"></i><div><b>Amber</b><code>#ffbf5e</code><span>tube glow, requests, Degraded and the incident</span></div></li>
+    <li class="sw"><i style="background:#9be29a"></i><div><b>Mint</b><code>#9be29a</code><span>Healthy and Resolved</span></div></li>
+    <li class="sw"><i style="background:#9fd4ff"></i><div><b>Sky</b><code>#9fd4ff</code><span>Recovered and p50</span></div></li>
+    <li class="sw"><i style="background:#ff8a6a"></i><div><b>Coral</b><code>#ff8a6a</code><span>meter red zone, errors and Firing</span></div></li>
+    <li class="sw"><i style="background:#ffe7a8"></i><div><b>Focus</b><code>#ffe7a8</code><span>focus outline</span></div></li>
+  </ul>
+  <h3>Type</h3>
+  <p class="stack"><code>"Iowan Old Style", "Palatino Linotype", Palatino, Georgia for engraved small caps; "Gill Sans", Optima, "Trebuchet MS", system-ui for text</code></p>
+  <div class="type-row"><code>30 italic serif 700</code><span style="font:italic 700 30px var(--serif);color:var(--brass)">Brightwork</span></div>
+  <div class="type-row"><code>20 serif 700</code><span style="font:700 20px var(--serif);color:var(--amber)">INC-0427</span></div>
+  <div class="type-row"><code>16 serif small caps</code><span style="font:16px var(--serif);font-variant:small-caps;letter-spacing:.16em;color:var(--brass)">Service tubes</span></div>
+  <div class="type-row"><code>15 humanist sans</code><span style="">sync-worker queue backlog</span></div>
+  <div class="type-row"><code>14 mono 700</code><span style="font:700 14px ui-monospace,Menlo,monospace">notifications</span></div>
+  <h3>Spacing, density, corners and depth</h3>
+  <dl class="facts">
+    <dt>Spacing</dt><dd>8px unit, 20px bay padding and gaps, 16px between tubes</dd>
+    <dt>Density</dt><dd>Roomy. Tubes and meters take most of the space</dd>
+    <dt>Corners</dt><dd>16px faceplate, 12px bays, 6px tags, round knobs and buttons</dd>
+    <dt>Borders</dt><dd>2px dark brass on the plate, 1px #5a4a38 bays, dashed list rules</dd>
+    <dt>Shadows</dt><dd>A deep plate shadow, warm tube and lamp glows, brass screw heads</dd>
+    <dt>Icons</dt><dd>Status shapes on tube tags and lists; nav uses lit and unlit jacks</dd>
+    <dt>Tone</dt><dd>Warm hardware words such as Power on, Service tubes, Meters and Warning lamp</dd>
+  </dl>
+  <h3>Controls · normal and focus</h3>
+  <div class="controls">
+    <div class="ctl"><span class="ctl-label">Primary</span><button type="button" class="btn primary">Acknowledge</button> <button type="button" class="btn primary is-focus">Acknowledge</button></div>
+    <div class="ctl"><span class="ctl-label">Secondary</span><button type="button" class="btn secondary">Silence 1 h</button> <button type="button" class="btn secondary is-focus">Silence 1 h</button></div>
+    <div class="ctl"><label class="field"><span>Filter services</span><input value="sync-worker"></label></div>
+    <div class="ctl"><label class="field"><span>Filter services, focused</span><input class="is-focus" value="billing"></label></div>
+    <div class="ctl"><span class="ctl-label">List row</span><a href="#" class="row-demo"><span>sync-worker</span><span class="st degraded"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-degraded"/></svg>Degraded</span></a></div>
+    <div class="ctl"><span class="ctl-label">List row, focused</span><a href="#" class="row-demo is-focus"><span>sync-worker</span><span class="st degraded"><svg class="ic" aria-hidden="true" focusable="false"><use href="#s-degraded"/></svg>Degraded</span></a></div>
+  </div>
+</section>
+</body>
+</html>

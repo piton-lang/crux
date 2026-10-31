@@ -1,0 +1,30 @@
+export anchor OpsMonitor:
+    description:
+        Brightwork Ops, the suite's service monitor, showing production for the
+        last 24 hours.
+
+    services:
+        - api, healthy, 99.98 percent uptime, p95 latency 182 ms
+        - web, healthy, 99.99 percent uptime, p95 latency 96 ms
+        - sync-worker, degraded, 99.41 percent uptime, queue depth 4,812
+        - notifications, healthy, 99.95 percent uptime
+        - billing, down for 6 minutes, recovered at 07:54
+
+    charts:
+        Requests per minute over 24 hours, from about 1,200 at night to a peak
+        of 9,400 at 14:00. Error rate over 24 hours, near 0.1 percent with a
+        spike to 2.3 percent at 07:48. Latency p50 and p95 over 24 hours.
+
+    incident:
+        INC-0427, sync-worker queue backlog, severity 2, opened 06:58, owner
+        Jonas Weber, status Investigating.
+
+    alerts:
+        - 07:48 billing 5xx rate above 2 percent, resolved
+        - 06:58 sync-worker queue depth above 3,000, firing
+        - Yesterday 22:10 api disk 80 percent, resolved
+
+    deploys:
+        - web v3.18.2 at 09:12 by Priya Nair
+        - api v5.4.0 at 08:30 by Jonas Weber
+        - sync-worker v1.9.1 at 06:40 by Sam Ortiz

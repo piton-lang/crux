@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 109 · Garment labels · Brightwork</title>
+<style>
+:root {
+  --wall: #f0eeea;
+  --navy: #1f2a44;
+  --cream: #f4ecd8;
+  --red: #8e1f2b;
+  --satin: #fbfbf9;
+  --grey: #4f4f52;
+  --kraft: #d9c3a0;
+  --kraftInk: #2b2117;
+  --gold: #c9b98f;
+  --ok: #2e6a45;
+  --risk: #8a5200;
+  --cond: "Avenir Next Condensed", "Roboto Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif-condensed, sans-serif;
+  --sans: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--wall); color: var(--navy); font: 15px/1.5 var(--sans); }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, input:focus-visible, .is-focus { outline: 2px solid var(--navy); outline-offset: 3px; box-shadow: 0 0 0 6px var(--gold); }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+.cond { font-family: var(--cond); font-stretch: condensed; }
+/* Woven texture: tight horizontal weft lines */
+.woven { background-image: repeating-linear-gradient(0deg, rgba(255,255,255,.07) 0 1px, transparent 1px 2px), repeating-linear-gradient(90deg, rgba(0,0,0,.06) 0 1px, transparent 1px 3px); }
+.satin { background-image: repeating-linear-gradient(90deg, rgba(0,0,0,.025) 0 2px, transparent 2px 4px), linear-gradient(180deg, rgba(255,255,255,.7), rgba(0,0,0,.03)); }
+/* Small stitch marks at label ends */
+.sewn { position: relative; }
+.sewn::before, .sewn::after { content: ""; position: absolute; top: 0; bottom: 0; width: 6px; background: repeating-linear-gradient(180deg, currentColor 0 4px, transparent 4px 7px); opacity: .5; }
+.sewn::before { left: 8px; } .sewn::after { right: 8px; }
+
+/* Neck label header */
+.neck { background: var(--navy); color: var(--cream); padding: 0 24px; }
+.neck .wrap { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 14px 24px; max-width: 1240px; margin: 0 auto; }
+.brand { font: 700 26px/1 var(--cond); font-stretch: condensed; letter-spacing: .26em; text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 12px; padding: 8px 24px; border: 1.5px solid var(--gold); }
+.brand svg { width: 22px; height: 22px; }
+.search { flex: 1 1 240px; display: flex; align-items: center; gap: 8px; background: var(--cream); color: var(--navy); padding: 0 12px; }
+.search svg { width: 16px; height: 16px; flex: none; }
+.search input { border: 0; background: transparent; font: 15px var(--sans); padding: 10px 0; width: 100%; color: var(--navy); }
+.search input::placeholder { color: var(--grey); }
+.search:focus-within { outline: 2px solid var(--cream); outline-offset: 3px; box-shadow: 0 0 0 6px var(--gold); }
+.search input:focus-visible { outline: 0; box-shadow: none; }
+.btn { font: 700 15px/1 var(--cond); font-stretch: condensed; letter-spacing: .16em; text-transform: uppercase; padding: 13px 20px; border: 0; background: var(--red); color: var(--cream); cursor: pointer; }
+.btn.sec { background: var(--cream); color: var(--navy); box-shadow: inset 0 0 0 1.5px var(--navy); }
+.bell { position: relative; width: 42px; height: 42px; border: 1.5px solid var(--gold); background: transparent; color: var(--cream); cursor: pointer; }
+.bell svg { width: 20px; height: 20px; }
+.bell b { position: absolute; top: -8px; right: -8px; min-width: 20px; height: 20px; background: var(--red); color: var(--cream); font: 700 11px/20px var(--sans); }
+.me { display: flex; align-items: center; gap: 8px; font: 600 14px var(--cond); letter-spacing: .08em; text-transform: uppercase; }
+.me i { width: 38px; height: 38px; display: grid; place-items: center; background: var(--cream); color: var(--navy); font: 700 14px var(--cond); font-style: normal; }
+.navrow { background: var(--cream); border-bottom: 1.5px solid var(--navy); }
+.nav { list-style: none; margin: 0 auto; padding: 0 24px; max-width: 1240px; display: flex; flex-wrap: wrap; }
+.nav a { display: block; padding: 10px 16px; text-decoration: none; font: 700 14px/1.4 var(--cond); font-stretch: condensed; letter-spacing: .18em; text-transform: uppercase; border-right: 1px dashed rgba(31,42,68,.35); }
+.nav li:first-child a { border-left: 1px dashed rgba(31,42,68,.35); }
+.nav a[aria-current="page"] { background: var(--navy); color: var(--cream); }
+
+/* Hang tag greeting plus size tags */
+.top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 32px; margin-top: 40px; align-items: start; }
+.hangtag { position: relative; background: var(--kraft); color: var(--kraftInk); padding: 32px 32px 28px 72px; clip-path: polygon(40px 0, 100% 0, 100% 100%, 40px 100%, 0 calc(100% - 40px), 0 40px); }
+.hangtag::before { content: ""; position: absolute; left: 22px; top: 50%; width: 18px; height: 18px; margin-top: -9px; border-radius: 50%; background: var(--wall); box-shadow: inset 0 0 0 3px #b89c6e; }
+.hangtag .eyebrow { font: 700 12px var(--cond); letter-spacing: .24em; text-transform: uppercase; color: #5a4a35; margin: 0; }
+.hangtag h1 { font: 700 40px/1.05 var(--cond); font-stretch: condensed; margin: 6px 0; text-transform: uppercase; letter-spacing: .04em; }
+.hangtag p { margin: 0; }
+.care-note { margin-top: 14px !important; display: flex; align-items: center; gap: 8px; border-top: 1.5px dashed rgba(43,33,23,.5); padding-top: 12px; font-weight: 700; color: var(--red); }
+.care-note svg { width: 24px; height: 18px; flex: none; }
+
+.sizes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.size { color: var(--cream); background-color: var(--navy); padding: 18px 12px 14px; text-align: center; }
+.size.r { background-color: var(--red); }
+.size .num { display: block; margin: 0 auto; width: fit-content; min-width: 72px; padding: 6px 10px; border: 1.5px solid var(--gold); font: 700 44px/1 var(--cond); font-stretch: condensed; }
+.size .lab { display: block; margin-top: 10px; font: 700 12px/1.3 var(--cond); letter-spacing: .16em; text-transform: uppercase; }
+
+h2 { font: 700 15px/1.3 var(--cond); font-stretch: condensed; letter-spacing: .24em; text-transform: uppercase; margin: 0 0 16px; }
+
+/* The rail: project labels hang from it */
+.rack { margin-top: 48px; }
+.rail { height: 10px; border-radius: 5px; background: linear-gradient(#c7c3bb, #8f8a80); margin: 0 -8px; }
+.labels { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+.lbl { position: relative; margin-top: 18px; color: var(--cream); background-color: var(--navy); padding: 22px 16px 0; display: flex; flex-direction: column; }
+.lbl::before { content: ""; position: absolute; left: 50%; top: -18px; width: 28px; height: 22px; margin-left: -14px; border: 3px solid #8f8a80; border-bottom: 0; border-radius: 14px 14px 0 0; }
+.lbl.cream { background-color: var(--cream); color: var(--navy); }
+.lbl.red { background-color: var(--red); }
+.lbl .fold { position: absolute; left: 0; right: 0; top: 0; height: 8px; background: rgba(0,0,0,.18); }
+.lbl h3 { margin: 0; font: 700 18px/1.15 var(--cond); font-stretch: condensed; letter-spacing: .06em; text-transform: uppercase; text-align: center; }
+.lbl h3 a { text-decoration: none; }
+.lbl h3 a:hover { text-decoration: underline; }
+.lbl .dept { text-align: center; font: 600 11px var(--cond); letter-spacing: .22em; text-transform: uppercase; margin: 6px 0 12px; opacity: .9; }
+.lbl .pct { align-self: center; font: 700 32px/1 var(--cond); font-stretch: condensed; border: 1.5px solid currentColor; padding: 6px 10px; }
+.lbl .pct small { font-size: 14px; }
+.weft { height: 8px; margin: 12px 0 8px; border: 1px solid currentColor; position: relative; }
+.weft span { position: absolute; inset: 0 auto 0 0; width: var(--p); background: repeating-linear-gradient(90deg, currentColor 0 2px, transparent 2px 3px); }
+.lbl dl { display: grid; grid-template-columns: auto 1fr; gap: 0 8px; margin: 0 0 14px; font: 12px/1.6 var(--sans); }
+.lbl dt { font: 600 11px/1.75 var(--cond); letter-spacing: .14em; text-transform: uppercase; opacity: .85; }
+.lbl dd { margin: 0; text-align: right; }
+/* Care strip sewn at the bottom of each label: the status */
+.care { margin: auto -16px 0; background: var(--satin); color: var(--navy); padding: 8px 6px; display: flex; align-items: center; justify-content: center; gap: 6px; font: 700 12px var(--cond); letter-spacing: .12em; text-transform: uppercase; border-top: 2px dashed rgba(31,42,68,.3); }
+.care svg { width: 22px; height: 18px; flex: none; }
+.ok { color: var(--ok); } .risk { color: var(--risk); } .bad { color: var(--red); }
+
+.lower { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 32px; margin: 48px 0; }
+/* Jacquard chart label */
+.jacq { background-color: var(--cream); padding: 24px 32px; color: var(--navy); }
+.bars { display: flex; align-items: flex-end; gap: 6px; height: 180px; border-bottom: 2px solid var(--navy); }
+.bars div { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; font: 700 12px var(--cond); }
+.bars i { display: block; width: 100%; height: calc(var(--v) * 9px); margin-top: 3px; }
+.l i { background: repeating-linear-gradient(45deg, var(--navy) 0 2px, transparent 2px 5px), var(--cream); border: 1.5px solid var(--navy); }
+.t i { background: var(--navy); }
+.dl { display: flex; gap: 6px; font: 600 11px var(--cond); letter-spacing: .1em; padding-top: 4px; }
+.dl span { flex: 1; text-align: center; }
+.key { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 12px; font: 600 13px var(--cond); letter-spacing: .1em; text-transform: uppercase; }
+.key i { display: inline-block; width: 18px; height: 12px; margin-right: 6px; vertical-align: -1px; border: 1.5px solid var(--navy); }
+/* Long satin care label with the activity */
+.carelabel { background-color: var(--satin); color: var(--grey); padding: 24px 28px 28px; box-shadow: 0 1px 2px rgba(0,0,0,.08); position: relative; }
+.carelabel::after { content: ""; position: absolute; left: 0; right: 0; bottom: -10px; height: 10px; background: linear-gradient(135deg, var(--satin) 50%, transparent 50%) 0 0 / 10px 10px, linear-gradient(225deg, var(--satin) 50%, transparent 50%) 0 0 / 10px 10px; }
+.carelabel h2 { color: var(--navy); text-align: center; }
+.feed { list-style: none; margin: 0; padding: 0; }
+.feed li { padding: 8px 0; border-top: 1px solid #e3e1dc; font-size: 14px; text-align: center; }
+.feed time { display: block; font: 600 11px var(--cond); letter-spacing: .16em; text-transform: uppercase; }
+
+/* Style sheet */
+.sheet { background: var(--satin); padding: 40px; margin-bottom: 64px; border-top: 8px solid var(--navy); }
+.sheet h2.big { font: 700 34px/1.1 var(--cond); font-stretch: condensed; letter-spacing: .1em; margin: 0; }
+.idea { font-size: 17px; margin: 8px 0 0; color: var(--grey); }
+.sheet h3 { font: 700 13px var(--cond); letter-spacing: .24em; text-transform: uppercase; margin: 32px 0 14px; padding-bottom: 6px; border-bottom: 1.5px solid var(--navy); }
+.swatches { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 14px; }
+.sw { border: 1px solid #d6d3cc; background: #fff; font-size: 12px; }
+.sw i { display: block; height: 56px; }
+.sw div { padding: 8px 10px; }
+.sw b { display: block; font: 700 13px var(--cond); letter-spacing: .12em; text-transform: uppercase; }
+.sw small { display: block; color: var(--grey); }
+.trow { display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid #e3e1dc; }
+.trow code { flex: 0 0 240px; font: 12px ui-monospace, Menlo, Consolas, monospace; color: var(--grey); }
+.facts { display: grid; grid-template-columns: 120px 1fr; gap: 8px 20px; margin: 0; }
+.facts dt { font: 700 12px/1.9 var(--cond); letter-spacing: .18em; text-transform: uppercase; }
+.facts dd { margin: 0; }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 28px; }
+.controls h4 { margin: 0 0 12px; font: 700 12px var(--cond); letter-spacing: .16em; text-transform: uppercase; color: var(--grey); }
+.pair { display: flex; gap: 16px; flex-wrap: wrap; }
+.field { display: block; font: 700 12px var(--cond); letter-spacing: .16em; text-transform: uppercase; }
+.field input { display: block; width: 100%; margin-top: 6px; font: 15px var(--sans); letter-spacing: 0; padding: 10px 12px; border: 1.5px solid var(--navy); background: #fff; color: var(--navy); border-radius: 0; }
+.lrow { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 12px; background: var(--cream); margin-bottom: 16px; font-weight: 600; }
+.lrow .care { margin: 0; padding: 4px 8px; border: 0; }
+
+@media (max-width: 1100px) {
+  .labels { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .top { grid-template-columns: 1fr; }
+}
+@media (max-width: 800px) {
+  .lower { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .wrap, .neck .wrap { padding-left: 16px; padding-right: 16px; }
+  .neck { padding: 0; }
+  .nav { padding: 0 16px; }
+  .nav a { padding: 8px 10px; letter-spacing: .12em; }
+  .brand { font-size: 20px; padding: 6px 14px; letter-spacing: .2em; }
+  .search { order: 5; flex-basis: 100%; }
+  .me span { display: none; }
+  .hangtag { padding: 24px 20px 22px 56px; }
+  .hangtag::before { left: 16px; }
+  .hangtag h1 { font-size: 30px; }
+  .sizes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .labels { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .lbl { padding: 20px 12px 0; }
+  .care { margin: auto -12px 0; letter-spacing: .06em; }
+  .jacq, .carelabel { padding: 20px 14px; }
+  .bars, .dl { gap: 3px; }
+  .bars div { font-size: 10px; }
+  .dl span { font-size: 9px; }
+  .sheet { padding: 24px 16px; }
+  .trow code { flex-basis: 100%; }
+  .facts { grid-template-columns: 1fr; gap: 0; }
+  .facts dd { margin-bottom: 10px; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- care-symbol style status marks -->
+  <symbol id="c-ok" viewBox="0 0 24 18"><rect x="3" y="1" width="18" height="16" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="5" fill="currentColor"/></symbol>
+  <symbol id="c-risk" viewBox="0 0 24 18"><path d="M12 1 22 17H2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 6v5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="14" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="c-bad" viewBox="0 0 24 18"><path d="M2 3h20l-3 13H5z" fill="currentColor"/><path d="M12 5.5v7M9 9.5l3 3 3-3" stroke="#fbfbf9" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="c-over" viewBox="0 0 24 18"><path d="M3 15h19c0-6-3-10-9-10H7v3h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+</svg>
+
+<header>
+  <div class="neck woven">
+    <div class="wrap">
+      <a class="brand" href="#" aria-label="Brightwork home"><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M11 2l2.6 6.4L20 11l-6.4 2.6L11 20l-2.6-6.4L2 11l6.4-2.6z" fill="#c9b98f"/></svg>Brightwork</a>
+      <label class="search"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M11 11l4 4" stroke="currentColor" stroke-width="1.8"/></svg><input type="search" placeholder="Search projects and tasks" aria-label="Search projects and tasks"></label>
+      <button class="btn">New project</button>
+      <button class="bell" aria-label="Notifications, 3 unread"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 20.5h4" stroke="currentColor" stroke-width="1.8"/></svg><b aria-hidden="true">3</b></button>
+      <div class="me"><i aria-hidden="true">MO</i><span>Mara Okafor</span></div>
+    </div>
+  </div>
+  <nav class="navrow" aria-label="Main">
+    <ul class="nav">
+      <li><a href="#" aria-current="page">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Tasks</a></li>
+      <li><a href="#">Team</a></li>
+      <li><a href="#">Reports</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="wrap">
+  <div class="top">
+    <section class="hangtag" aria-labelledby="hi">
+      <p class="eyebrow">Saturday 31 October 2026</p>
+      <h1 id="hi">Hello, Mara</h1>
+      <p>Your collection this season, made by a team of six.</p>
+      <p class="care-note"><svg aria-hidden="true"><use href="#c-over"/></svg>Care note: 4 tasks are overdue</p>
+    </section>
+    <ul class="sizes" aria-label="This week in numbers">
+      <li class="size woven"><span class="num">6</span><span class="lab">Active projects</span></li>
+      <li class="size woven"><span class="num">23</span><span class="lab">Tasks due this week</span></li>
+      <li class="size woven r"><span class="num">4</span><span class="lab">Overdue tasks</span></li>
+      <li class="size woven"><span class="num">186</span><span class="lab">Hours logged this week</span></li>
+    </ul>
+  </div>
+
+  <section class="rack" aria-labelledby="ph">
+    <h2 id="ph">On the rail · 6 projects</h2>
+    <div class="rail" aria-hidden="true"></div>
+    <ul class="labels">
+      <li class="lbl woven"><span class="fold" aria-hidden="true"></span><h3><a href="#">Website redesign</a></h3><p class="dept">Design</p><span class="pct">72<small>%</small></span><div class="weft" aria-hidden="true"><span style="--p:72%"></span></div><dl><dt>Tasks</dt><dd>18 of 25</dd><dt>Due</dt><dd>14 Nov</dd></dl><div class="care ok"><svg aria-hidden="true"><use href="#c-ok"/></svg>On track</div></li>
+      <li class="lbl woven cream"><span class="fold" aria-hidden="true"></span><h3><a href="#">Mobile app 2.0</a></h3><p class="dept">Engineering</p><span class="pct">45<small>%</small></span><div class="weft" aria-hidden="true"><span style="--p:45%"></span></div><dl><dt>Tasks</dt><dd>27 of 60</dd><dt>Due</dt><dd>2 Dec</dd></dl><div class="care risk"><svg aria-hidden="true"><use href="#c-risk"/></svg>At risk</div></li>
+      <li class="lbl woven"><span class="fold" aria-hidden="true"></span><h3><a href="#">Q4 customer survey</a></h3><p class="dept">Research</p><span class="pct">90<small>%</small></span><div class="weft" aria-hidden="true"><span style="--p:90%"></span></div><dl><dt>Tasks</dt><dd>9 of 10</dd><dt>Due</dt><dd>7 Nov</dd></dl><div class="care ok"><svg aria-hidden="true"><use href="#c-ok"/></svg>On track</div></li>
+      <li class="lbl woven red"><span class="fold" aria-hidden="true"></span><h3><a href="#">Billing migration</a></h3><p class="dept">Engineering</p><span class="pct">30<small>%</small></span><div class="weft" aria-hidden="true"><span style="--p:30%"></span></div><dl><dt>Tasks</dt><dd>12 of 40</dd><dt>Due</dt><dd>20 Nov</dd></dl><div class="care bad"><svg aria-hidden="true"><use href="#c-bad"/></svg>Behind</div></li>
+      <li class="lbl woven cream"><span class="fold" aria-hidden="true"></span><h3><a href="#">Spring catalogue</a></h3><p class="dept">Marketing</p><span class="pct">15<small>%</small></span><div class="weft" aria-hidden="true"><span style="--p:15%"></span></div><dl><dt>Tasks</dt><dd>3 of 20</dd><dt>Due</dt><dd>15 Jan</dd></dl><div class="care ok"><svg aria-hidden="true"><use href="#c-ok"/></svg>On track</div></li>
+      <li class="lbl woven"><span class="fold" aria-hidden="true"></span><h3><a href="#">Onboarding emails</a></h3><p class="dept">Marketing</p><span class="pct">60<small>%</small></span><div class="weft" aria-hidden="true"><span style="--p:60%"></span></div><dl><dt>Tasks</dt><dd>9 of 15</dd><dt>Due</dt><dd>21 Nov</dd></dl><div class="care ok"><svg aria-hidden="true"><use href="#c-ok"/></svg>On track</div></li>
+    </ul>
+  </section>
+
+  <div class="lower">
+    <section class="jacq woven sewn" aria-labelledby="ch">
+      <h2 id="ch">Tasks completed · 14 days</h2>
+      <div role="img" aria-label="Tasks completed per day from Sunday 18 October to Saturday 31 October: 3, 12, 9, 14, 11, 8, 2, then 4, 15, 13, 17, 12, 10, 2. Last week 59, this week 73.">
+        <div class="bars" aria-hidden="true">
+          <div class="l">3<i style="--v:3"></i></div><div class="l">12<i style="--v:12"></i></div><div class="l">9<i style="--v:9"></i></div><div class="l">14<i style="--v:14"></i></div><div class="l">11<i style="--v:11"></i></div><div class="l">8<i style="--v:8"></i></div><div class="l">2<i style="--v:2"></i></div>
+          <div class="t">4<i style="--v:4"></i></div><div class="t">15<i style="--v:15"></i></div><div class="t">13<i style="--v:13"></i></div><div class="t">17<i style="--v:17"></i></div><div class="t">12<i style="--v:12"></i></div><div class="t">10<i style="--v:10"></i></div><div class="t">2<i style="--v:2"></i></div>
+        </div>
+        <div class="dl" aria-hidden="true"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+      </div>
+      <div class="key"><span><i style="background:repeating-linear-gradient(45deg,#1f2a44 0 2px,transparent 2px 5px)"></i>Last week 59</span><span><i style="background:#1f2a44"></i>This week 73</span></div>
+    </section>
+
+    <section class="carelabel satin" aria-labelledby="ah">
+      <h2 id="ah">Care and content · activity</h2>
+      <ul class="feed">
+        <li>Jonas Weber completed "Export invoices as CSV" in Billing migration<time>12 min ago</time></li>
+        <li>Priya Nair commented on "Hero image options" in Website redesign<time>40 min ago</time></li>
+        <li>Sam Ortiz moved "Push notifications" to Review in Mobile app 2.0<time>1 h ago</time></li>
+        <li>Lena Fischer added 3 tasks to Spring catalogue<time>2 h ago</time></li>
+        <li>Tomás Ruiz logged 6 h on Mobile app 2.0<time>3 h ago</time></li>
+        <li>Aiko Tanaka uploaded survey-results-v2.pdf to Q4 customer survey<time>yesterday</time></li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="sheet" aria-labelledby="sh">
+    <h2 class="big" id="sh">Style 109 · Garment labels</h2>
+    <p class="idea">Projects hang from a clothes rail as woven labels, numbers are size tags, the greeting is a kraft swing tag, and every status is a care symbol sewn on a satin strip.</p>
+
+    <h3>Palette</h3>
+    <ul class="swatches">
+      <li class="sw"><i style="background:#f0eeea"></i><div><b>Closet wall</b>#f0eeea<small>The page</small></div></li>
+      <li class="sw"><i style="background:#1f2a44"></i><div><b>Navy weave</b>#1f2a44<small>Neck label, labels, text, chart</small></div></li>
+      <li class="sw"><i style="background:#f4ecd8"></i><div><b>Cream weave</b>#f4ecd8<small>Nav, cream labels, chart label, label text on navy</small></div></li>
+      <li class="sw"><i style="background:#8e1f2b"></i><div><b>Red weave</b>#8e1f2b<small>Primary button, overdue tag, Behind label</small></div></li>
+      <li class="sw"><i style="background:#fbfbf9"></i><div><b>Satin</b>#fbfbf9<small>Care strips, activity label, sheet</small></div></li>
+      <li class="sw"><i style="background:#d9c3a0"></i><div><b>Kraft</b>#d9c3a0<small>The greeting swing tag, #2b2117 text</small></div></li>
+      <li class="sw"><i style="background:#c9b98f"></i><div><b>Gold thread</b>#c9b98f<small>Frames on navy and the focus halo</small></div></li>
+      <li class="sw"><i style="background:#2e6a45"></i><div><b>Green</b>#2e6a45<small>On track care mark</small></div></li>
+      <li class="sw"><i style="background:#8a5200"></i><div><b>Amber</b>#8a5200<small>At risk care mark</small></div></li>
+      <li class="sw"><i style="background:#4f4f52"></i><div><b>Grey print</b>#4f4f52<small>Satin label print, meta</small></div></li>
+    </ul>
+
+    <h3>Type</h3>
+    <div class="trow"><code>Tag title 40/1.05 condensed caps</code><span style="font:700 40px/1.05 var(--cond);font-stretch:condensed;text-transform:uppercase">Hello, Mara</span></div>
+    <div class="trow"><code>Size number 44 condensed bold</code><span style="font:700 44px/1 var(--cond);font-stretch:condensed">186</span></div>
+    <div class="trow"><code>Label title 18 condensed caps .06em</code><span style="font:700 18px var(--cond);font-stretch:condensed;letter-spacing:.06em;text-transform:uppercase">Billing migration</span></div>
+    <div class="trow"><code>Section 15 condensed caps .24em</code><span style="font:700 15px var(--cond);letter-spacing:.24em;text-transform:uppercase">On the rail</span></div>
+    <div class="trow"><code>Body 15/1.5 Helvetica</code><span>Priya Nair commented on "Hero image options"</span></div>
+    <p style="font-size:13px;color:var(--grey)">Condensed: Avenir Next Condensed, Roboto Condensed, Arial Narrow, Helvetica Neue, Arial, with font-stretch condensed. Text: Helvetica Neue, Helvetica, Arial, system-ui.</p>
+
+    <h3>System</h3>
+    <dl class="facts">
+      <dt>Spacing</dt><dd>An 8px unit. Labels pad 16 to 22px, 16px between labels on the rail.</dd>
+      <dt>Density</dt><dd>Medium. Six tall narrow labels in one row on wide screens.</dd>
+      <dt>Corners</dt><dd>Square cut fabric. The swing tag has clipped corners and a punched hole, hanger loops are round.</dd>
+      <dt>Borders</dt><dd>1.5px gold or cream frames around numbers, dashed seam lines where strips are sewn on.</dd>
+      <dt>Shadows</dt><dd>None, except a 1px lift on the satin label.</dd>
+      <dt>Icons</dt><dd>Laundry care style outlines. A square with a filled dot for On track, an outlined triangle for At risk, a filled tub with a down arrow for Behind, an iron for overdue.</dd>
+      <dt>Tone</dt><dd>Clothing label words, such as On the rail, Care note and Care and content.</dd>
+    </dl>
+
+    <h3>Controls</h3>
+    <div class="controls">
+      <div><h4>Primary button</h4><div class="pair"><button class="btn">New project</button><button class="btn is-focus">Focused</button></div></div>
+      <div><h4>Secondary button</h4><div class="pair"><button class="btn sec">Cancel</button><button class="btn sec is-focus">Focused</button></div></div>
+      <div><h4>Text field</h4><label class="field">Project name<input type="text" value="Spring catalogue"></label><label class="field" style="margin-top:18px">Focused<input class="is-focus" type="text" value="Spring cat"></label></div>
+      <div><h4>List row</h4><div class="lrow"><span>Website redesign</span><span class="care ok"><svg aria-hidden="true"><use href="#c-ok"/></svg>On track</span></div><div class="lrow is-focus"><span>Billing migration</span><span class="care bad"><svg aria-hidden="true"><use href="#c-bad"/></svg>Behind</span></div></div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

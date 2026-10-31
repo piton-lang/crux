@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 349 · Rugged radio · Brightwork</title>
+<style>
+:root{color-scheme:dark;--page:#111213;--rubber:#232528;--rubber2:#2e3135;--grip:#1a1c1e;--edge:#4a4e54;--screen:#0a0b0c;--ink:#eceae4;--muted:#a9adb3;--orange:#ff8a1f;--onOrange:#1f0e00;--amber:#ffb45c;--green:#7fe08a;--red:#ff7b6b;--cond:"Roboto Condensed","Arial Narrow","DejaVu Sans Condensed","Liberation Sans Narrow",system-ui,sans-serif;--mono:ui-monospace,"DejaVu Sans Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:15px/1.45 var(--cond);font-stretch:condensed}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+:focus-visible,.is-focus{outline:3px solid var(--orange);outline-offset:3px}
+.dev{max-width:1180px;margin:24px auto;padding:0 16px}
+.housing{position:relative;background:var(--rubber);border-radius:28px;border:2px solid var(--edge);box-shadow:inset 0 2px 0 #3a3d42,inset 0 -6px 0 #17181a,0 18px 40px #000;padding:28px}
+.housing::before,.housing::after{content:"";position:absolute;top:12px;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 40% 40%,#6b7078,#2a2c30);box-shadow:inset 0 0 0 1px #111}
+.housing::before{left:12px}.housing::after{right:12px}
+.topbar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:18px}
+.brand b{color:var(--orange)}
+.model{color:var(--muted);font:12px var(--mono)}
+.leds{margin-left:auto;display:flex;gap:14px;font:600 12px var(--mono);color:var(--muted);text-transform:uppercase}
+.leds span{display:flex;align-items:center;gap:6px}
+.led{width:10px;height:10px;border-radius:50%}
+.body{display:grid;grid-template-columns:300px minmax(0,1fr);gap:24px}
+.ctl{display:flex;flex-direction:column;gap:20px}
+.panel{background:var(--rubber2);border-radius:16px;padding:14px;border:1px solid var(--edge)}
+.panel h2{margin:0 0 10px;font:700 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+.dialrow{display:flex;align-items:center;gap:14px}
+.dial{width:96px;height:96px;flex:none}
+.dialrow p{margin:0;font-size:13px;color:var(--muted)}
+.dialrow strong{display:block;font-size:22px;color:var(--ink);letter-spacing:.04em}
+.chs{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.chs a{display:grid;grid-template-columns:46px 1fr auto;align-items:center;gap:10px;background:linear-gradient(#34373c,#2a2c30);border:1px solid var(--edge);border-radius:10px;padding:8px 10px;box-shadow:0 3px 0 #131415;text-transform:uppercase;letter-spacing:.04em;font-weight:700}
+.chs a .n{font:700 12px var(--mono);color:var(--muted)}
+.chs a[aria-current]{background:var(--orange);color:var(--onOrange);border-color:var(--orange);box-shadow:inset 0 3px 0 #c45f00}
+.chs a[aria-current] .n{color:var(--onOrange)}
+.tag{font:700 11px var(--mono);border-radius:4px;padding:2px 6px;display:inline-flex;gap:4px;align-items:center}
+.tag.msg{background:#13321a;color:var(--green);border:1px solid #2f6b3a}
+.tag.call{background:#3a1512;color:var(--red);border:1px solid #7a2e26}
+.tag.on{background:var(--onOrange);color:var(--amber)}
+.ppl{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ppl li{display:grid;grid-template-columns:22px 1fr auto;gap:8px;align-items:center;font-weight:700}
+.ppl small{font:600 11px var(--mono);color:var(--muted);text-transform:uppercase}
+.scr{background:var(--screen);border-radius:14px;border:2px solid #000;box-shadow:inset 0 0 0 2px #2b2e33,inset 0 8px 24px #000;padding:16px;display:flex;flex-direction:column;min-width:0}
+.scrhead{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;border-bottom:1px dashed var(--edge);padding-bottom:10px;margin-bottom:12px}
+.scrhead h1{margin:0;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:var(--orange)}
+.scrhead span{font:12px var(--mono);color:var(--muted)}
+.log{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.tx{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;border-left:4px solid var(--edge);padding:4px 0 4px 10px}
+.tx.mine{border-left-color:var(--orange)}
+.tx .meta{font:700 12px/1.3 var(--mono);color:var(--muted)}
+.tx .meta b{display:block;color:var(--amber);font-size:13px}
+.tx.mine .meta b{color:var(--orange)}
+.tx .who{font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:13px;color:var(--ink)}
+.tx p{margin:2px 0 0;font-size:16px}
+.att{display:flex;gap:10px;align-items:center;margin-top:6px;background:var(--rubber);border-radius:8px;padding:8px;border:1px solid var(--edge);flex-wrap:wrap}
+.att svg{width:120px;height:auto;border-radius:4px;flex:none}
+.att a{font:600 13px var(--mono);text-decoration:underline;text-underline-offset:3px}
+.extra{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.key{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(#3a3d42,#2c2f33);border:1px solid var(--edge);border-radius:8px;padding:4px 10px;font:700 12px var(--mono);box-shadow:0 2px 0 #131415;text-transform:uppercase}
+.key.hot{background:var(--orange);color:var(--onOrange);border-color:var(--orange)}
+.typing{margin:14px 0 0;font:600 12px var(--mono);color:var(--amber);text-transform:uppercase;display:flex;gap:8px;align-items:center}
+.pad{margin-top:20px;display:grid;grid-template-columns:auto auto minmax(0,1fr) 150px;gap:12px;align-items:stretch}
+.pad input{background:var(--screen);border:2px solid var(--edge);border-radius:12px;padding:12px 14px;min-width:0;font-size:16px}
+.pad input::placeholder{color:var(--muted)}
+.rk{background:linear-gradient(#3a3d42,#2a2c30);border:1px solid var(--edge);border-radius:12px;padding:8px 12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;box-shadow:0 4px 0 #131415;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:12px;cursor:pointer}
+.ptt{background:var(--orange);color:var(--onOrange);border:0;border-radius:16px;font-weight:900;font-size:18px;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 5px 0 #a54d00,inset 0 2px 0 #ffb060;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+/* sheet */
+.sheet{max-width:1180px;margin:0 auto;padding:32px 16px 72px}
+.sheet h2{font-size:32px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;margin:0 0 6px}
+.sheet h2 b{color:var(--orange)}
+.idea{color:var(--muted);max-width:68ch;margin:0;font-size:16px}
+.sheet h3{font:700 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin:36px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--edge)}
+.sw{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.sw li{background:var(--rubber);border:1px solid var(--edge);border-radius:12px;padding:10px;display:grid;grid-template-columns:36px 1fr;gap:2px 10px;font-size:14px}
+.sw i{grid-row:span 2;border-radius:8px;border:1px solid var(--edge)}
+.sw code{font:12px var(--mono);color:var(--muted);margin-left:6px}
+.sw span{color:var(--muted);font-size:13px}
+.ts div{display:grid;grid-template-columns:200px 1fr;gap:12px;align-items:baseline;margin-bottom:8px}
+.ts code,.facts dt{font:12px var(--mono);color:var(--muted)}
+.facts{display:grid;grid-template-columns:140px 1fr;gap:8px 16px;margin:0}
+.facts dd{margin:0}
+.ctrls{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.ctrls>div{background:var(--rubber);border:1px solid var(--edge);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.ctrls h4{margin:0;font:700 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+.ctrls .ptt{padding:10px 22px;font-size:15px}
+.fld{display:grid;gap:4px;font:600 12px var(--mono);color:var(--muted);text-transform:uppercase;width:100%}
+.fld input{background:var(--screen);border:2px solid var(--edge);border-radius:10px;padding:8px 10px;font:16px var(--cond);color:var(--ink);text-transform:none;width:100%;min-width:0}
+.ctrls .chs{width:100%}
+@media (max-width:860px){
+ .housing{padding:20px 14px;border-radius:22px}
+ .body{grid-template-columns:minmax(0,1fr)}
+ .leds{margin-left:0}
+ .pad{grid-template-columns:auto auto minmax(0,1fr)}
+ .pad .ptt{grid-column:1/-1;padding:12px}
+ .tx{grid-template-columns:minmax(0,1fr);gap:2px}
+ .tx .meta b{display:inline;margin-right:8px}
+ .sheet{padding:28px 16px 56px}
+ .ts div,.facts{grid-template-columns:1fr;gap:2px}.facts dd{margin-bottom:8px}
+}
+@media (max-width:400px){.dev{padding:0 8px}.pad{grid-template-columns:auto auto}.pad input{grid-column:1/-1;grid-row:1}}
+</style>
+</head>
+<body>
+<div class="dev">
+ <div class="housing">
+  <div class="topbar"><span class="brand"><b>BRIGHTWORK</b> CHAT</span><span class="model">HANDSET MO-1 · OP MARA OKAFOR</span>
+   <div class="leds"><span><i class="led" style="background:#7fe08a" aria-hidden="true"></i>Link up</span><span><i class="led" style="background:#ff8a1f" aria-hidden="true"></i>RX</span></div></div>
+  <div class="body">
+   <div class="ctl">
+    <section class="panel" aria-labelledby="cs"><h2 id="cs">Channel selector</h2>
+     <div class="dialrow">
+      <svg class="dial" viewBox="0 0 100 100" role="img" aria-label="Channel knob set to 2, design-crit"><circle cx="50" cy="50" r="46" fill="#1a1c1e" stroke="#4a4e54" stroke-width="2"/><g stroke="#a9adb3" stroke-width="3" stroke-linecap="round"><path d="M50 8v8"/><path d="M83 26l-6 4"/><path d="M90 60l-8-2"/><path d="M17 26l6 4"/><path d="M10 60l8-2"/></g><circle cx="50" cy="50" r="30" fill="#2e3135" stroke="#111" stroke-width="2"/><g fill="#3a3d42"><rect x="47" y="20" width="6" height="8" rx="2"/><rect x="47" y="72" width="6" height="8" rx="2"/><rect x="20" y="47" width="8" height="6" rx="2"/><rect x="72" y="47" width="8" height="6" rx="2"/></g><path d="M50 50L77 31" stroke="#ff8a1f" stroke-width="5" stroke-linecap="round"/><circle cx="50" cy="50" r="6" fill="#ff8a1f"/></svg>
+      <p>Tuned to<strong>CH 2</strong>design-crit</p></div></section>
+    <nav class="panel" aria-labelledby="ch"><h2 id="ch">Channels</h2>
+     <ul class="chs">
+      <li><a href="#"><span class="n">CH 1</span>general<span></span></a></li>
+      <li><a href="#" aria-current="page"><span class="n">CH 2</span>design-crit<span class="tag on">ON AIR</span></a></li>
+      <li><a href="#"><span class="n">CH 3</span>mobile-release<span class="tag msg">▲ 4 MSG</span></a></li>
+      <li><a href="#"><span class="n">CH 4</span>billing-war-room<span class="tag call">@ 1 CALL</span></a></li>
+      <li><a href="#"><span class="n">CH 5</span>random<span></span></a></li>
+     </ul></nav>
+    <section class="panel" aria-labelledby="dm"><h2 id="dm">Direct lines</h2>
+     <ul class="ppl">
+      <li><svg width="22" height="16" viewBox="0 0 22 16" aria-hidden="true"><rect x="1" y="10" width="4" height="6" fill="#7fe08a"/><rect x="7" y="6" width="4" height="10" fill="#7fe08a"/><rect x="13" y="2" width="4" height="14" fill="#7fe08a"/></svg>Priya Nair<small>In range</small></li>
+      <li><svg width="22" height="16" viewBox="0 0 22 16" aria-hidden="true"><rect x="1" y="10" width="4" height="6" fill="#ffb45c"/><rect x="7" y="6" width="4" height="10" fill="#ffb45c"/><rect x="13" y="2" width="4" height="14" fill="none" stroke="#6b7078"/></svg>Jonas Weber<small>Standby</small></li>
+      <li><svg width="22" height="16" viewBox="0 0 22 16" aria-hidden="true"><rect x="1" y="10" width="4" height="6" fill="none" stroke="#a9adb3"/><rect x="7" y="6" width="4" height="10" fill="none" stroke="#6b7078"/><path d="M13 3l8 10M21 3l-8 10" stroke="#a9adb3" stroke-width="2"/></svg>Aiko Tanaka<small>Out of range</small></li>
+     </ul></section>
+   </div>
+   <main class="scr">
+    <div class="scrhead"><h1>CH 2 · design-crit</h1><span>5 transmissions · today</span></div>
+    <ol class="log" aria-label="Messages in design-crit">
+     <li class="tx"><div class="meta"><b>RX</b>09:02</div><div><span class="who">Priya Nair</span><p>Three hero options are up in Canvas. Thoughts by Monday?</p></div></li>
+     <li class="tx"><div class="meta"><b>RX</b>09:05</div><div><span class="who">Aiko Tanaka</span><p>B reads best on phones. A feels busy.</p>
+      <div class="extra"><a class="key hot" href="#">Thread · 3 replies</a><span class="key"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M7 11v9H4v-9zM7 11l4-8c1.6 0 2.6 1.2 2.2 2.8L12.6 9H19a2 2 0 0 1 2 2.3l-1.2 6.8A2.3 2.3 0 0 1 17.6 20H7"/></svg>Thumbs up 3</span><span class="key"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><ellipse cx="7.5" cy="12" rx="4.5" ry="6"/><ellipse cx="16.5" cy="12" rx="4.5" ry="6"/></svg>Eyes 1</span></div></div></li>
+     <li class="tx mine"><div class="meta"><b>TX</b>09:11</div><div><span class="who">Mara Okafor · you</span><p>Agree on B. Can we try the button in brand green?</p></div></li>
+     <li class="tx"><div class="meta"><b>RX</b>09:12</div><div><span class="who">Priya Nair</span>
+      <div class="att"><svg viewBox="0 0 120 70" role="img" aria-label="Preview of homepage-hero-B.png, headline on the left and a button"><rect width="120" height="70" fill="#2e3135"/><rect x="10" y="14" width="56" height="8" fill="#eceae4"/><rect x="10" y="28" width="40" height="5" fill="#a9adb3"/><rect x="10" y="44" width="28" height="12" rx="3" fill="#7fe08a"/><rect x="80" y="10" width="30" height="50" rx="4" fill="#4a4e54"/></svg><span><span class="tag on">IMAGE</span> <a href="#">homepage-hero-B.png</a></span></div></div></li>
+     <li class="tx"><div class="meta"><b>RX</b>09:20</div><div><span class="who">Jonas Weber</span><p>Unrelated, billing deploy is at 11:00, heads up</p></div></li>
+    </ol>
+    <p class="typing"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12a7 7 0 0 1 14 0M8.5 12a3.5 3.5 0 0 1 7 0"/><circle cx="12" cy="13" r="1.5" fill="currentColor"/></svg>Priya is typing</p>
+   </main>
+  </div>
+  <form class="pad" action="#">
+   <button type="button" class="rk" aria-label="Attach a file"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M20 11.5l-8 8a5 5 0 0 1-7-7l8.5-8.5a3.3 3.3 0 0 1 4.7 4.7L9.7 17.2a1.7 1.7 0 0 1-2.4-2.4L15 7"/></svg>Attach</button>
+   <button type="button" class="rk" aria-label="Add emoji"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c1.8 2 5.2 2 7 0"/></svg>Emoji</button>
+   <input aria-label="Message #design-crit" placeholder="Message #design-crit">
+   <button type="submit" class="ptt">Send <span aria-hidden="true">▶</span></button>
+  </form>
+ </div>
+</div>
+
+<section class="sheet" aria-labelledby="sh">
+ <h2 id="sh">Style 349 · <b>Rugged radio</b></h2>
+ <p class="idea">The chat as a rugged field handset, with a rubber housing, a channel knob and chunky rocker keys around a black screen that logs every message as an RX or TX transmission, and one safety orange for the live channel and Send.</p>
+ <h3>Palette</h3>
+ <ul class="sw">
+  <li><i style="background:#111213"></i><b>page<code>#111213</code></b><span>Behind the handset, sheet</span></li>
+  <li><i style="background:#232528"></i><b>rubber<code>#232528</code></b><span>Housing and sheet cards</span></li>
+  <li><i style="background:#2e3135"></i><b>rubber2<code>#2e3135</code></b><span>Inset panels, key tops</span></li>
+  <li><i style="background:#4a4e54"></i><b>edge<code>#4a4e54</code></b><span>Moulded rims and key edges</span></li>
+  <li><i style="background:#0a0b0c"></i><b>screen<code>#0a0b0c</code></b><span>Message screen and fields</span></li>
+  <li><i style="background:#eceae4"></i><b>ink<code>#eceae4</code></b><span>Text</span></li>
+  <li><i style="background:#a9adb3"></i><b>muted<code>#a9adb3</code></b><span>Times, labels, channel numbers</span></li>
+  <li><i style="background:#ff8a1f"></i><b>orange<code>#ff8a1f</code></b><span>Live channel, Send, TX, focus</span></li>
+  <li><i style="background:#ffb45c"></i><b>amber<code>#ffb45c</code></b><span>Panel labels, RX, typing</span></li>
+  <li><i style="background:#7fe08a"></i><b>green<code>#7fe08a</code></b><span>MSG count, in range bars</span></li>
+  <li><i style="background:#ff7b6b"></i><b>red<code>#ff7b6b</code></b><span>CALL mention tag</span></li>
+ </ul>
+ <h3>Type · condensed sans with a mono for readouts</h3>
+ <div class="ts">
+  <div><code>cond 24 / 800 caps</code><span style="font-size:24px;font-weight:800;letter-spacing:.06em;color:var(--orange)">CH 2 · DESIGN-CRIT</span></div>
+  <div><code>cond 16 / 400</code><span style="font-size:16px">B reads best on phones. A feels busy.</span></div>
+  <div><code>cond 13 / 800 caps .06em</code><span style="font-size:13px;font-weight:800;letter-spacing:.06em">AIKO TANAKA</span></div>
+  <div><code>mono 12 / 700</code><span style="font:700 12px var(--mono);color:var(--amber)">RX 09:05</span></div>
+  <div><code>stacks</code><span style="font-size:13px;color:var(--muted)">Roboto Condensed, Arial Narrow, DejaVu Sans Condensed, Liberation Sans Narrow · ui-monospace, DejaVu Sans Mono, Menlo, Consolas</span></div>
+ </div>
+ <h3>Spacing, density and depth</h3>
+ <dl class="facts">
+  <dt>Spacing</dt><dd>8px unit. 28px housing padding, 20px between panels, 10px between transmissions.</dd>
+  <dt>Density</dt><dd>Medium. Large touch keys around a compact log.</dd>
+  <dt>Corners</dt><dd>28px housing, 16px panels and Send, 10px to 12px keys, round screws and LEDs.</dd>
+  <dt>Borders</dt><dd>2px moulded edge on the housing, 1px edges on keys, 4px left bar on each transmission.</dd>
+  <dt>Shadows</dt><dd>Hard 3px to 5px bottom ledges under keys, an inset well around the screen, a deep drop under the housing.</dd>
+  <dt>Icons</dt><dd>Thick 2.4 stroke line icons. Presence as signal bars, full, two of three, or crossed out, with words.</dd>
+  <dt>Focus</dt><dd>3px safety orange outline offset 3px.</dd>
+  <dt>Tone</dt><dd>Radio talk, such as ON AIR, 4 MSG, 1 CALL, In range, Standby and Out of range.</dd>
+ </dl>
+ <h3>Controls · normal and focus</h3>
+ <div class="ctrls">
+  <div><h4>Primary</h4><button class="ptt">Send ▶</button><button class="ptt is-focus">Send ▶</button></div>
+  <div><h4>Secondary</h4><button class="rk">Attach</button><button class="rk is-focus">Attach</button></div>
+  <div><h4>Text field</h4><label class="fld">Channel name<input value="design-crit"></label><label class="fld">Channel name<input class="is-focus" value="design-crit"></label></div>
+  <div><h4>List row</h4><ul class="chs"><li><a href="#"><span class="n">CH 1</span>general<span></span></a></li><li><a class="is-focus" href="#"><span class="n">CH 1</span>general<span></span></a></li></ul></div>
+ </div>
+</section>
+</body>
+</html>

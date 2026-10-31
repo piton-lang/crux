@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style 3 · Dense listing · Brightwork</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --panel: #f3f5f7;
+  --head: #e8ecf0;
+  --bar: #20262d;
+  --text: #11161b;
+  --muted: #4a5561;
+  --line: #cfd5dc;
+  --accent: #0b6b57;
+  --ok: #0b6b57;
+  --warn: #875200;
+  --bad: #b3261e;
+  --select: #fff4c2;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 13px/1.4 var(--sans); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible, input:focus-visible, .is-focus { outline: 2px solid #e0a800; outline-offset: 0; background-color: var(--select); }
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+svg.i { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: square; flex: none; }
+
+/* Menu bar */
+.menubar { background: var(--bar); color: #e9edf1; display: flex; align-items: center; height: 36px; padding: 0 8px; gap: 4px; }
+.brand { font: 700 12px/1 var(--mono); letter-spacing: 0.06em; padding: 0 12px 0 4px; border-right: 1px solid #3a434d; height: 20px; display: flex; align-items: center; }
+.tabs { display: flex; list-style: none; margin: 0; padding: 0; height: 100%; overflow-x: auto; }
+.tabs a { display: flex; align-items: center; height: 100%; padding: 0 12px; color: #c7cfd7; font-size: 12px; white-space: nowrap; }
+.tabs a[aria-current="page"] { color: #fff; box-shadow: inset 0 -2px 0 #f2c94c; font-weight: 600; }
+.tabs a:focus-visible { background: #3a434d; color: #fff; }
+.menubar .grow { flex: 1; }
+.qs { display: flex; align-items: center; gap: 6px; background: #2e363f; border: 1px solid #47515c; border-radius: 2px; padding: 0 6px; height: 24px; color: #aab4be; width: 240px; }
+.qs input { background: transparent; border: 0; outline: 0; color: #fff; font: 12px var(--sans); width: 100%; }
+.qs input::placeholder { color: #9aa5b1; }
+.qs kbd { font: 10px var(--mono); border: 1px solid #5b6672; border-radius: 2px; padding: 0 4px; }
+.qs:focus-within { border-color: #f2c94c; }
+.user { font: 11px var(--mono); color: #c7cfd7; padding: 0 8px; white-space: nowrap; }
+.user b { color: #fff; }
+
+/* Toolbar */
+.toolbar { display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-bottom: 1px solid var(--line); background: var(--panel); flex-wrap: wrap; }
+.crumbs { font-size: 12px; color: var(--muted); }
+.crumbs b { color: var(--text); }
+.toolbar .grow { flex: 1; }
+.meta { font: 11px var(--mono); color: var(--muted); }
+.btn { font: 600 12px/1 var(--sans); height: 24px; padding: 0 10px; border: 1px solid #9aa5b1; background: #fff; color: var(--text); border-radius: 2px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; }
+.btn-primary { background: var(--accent); border-color: #08513f; color: #fff; }
+.btn-primary:focus-visible, .btn-primary.is-focus { background: var(--accent); color: #fff; outline: 2px solid #e0a800; outline-offset: 1px; }
+h1 { font-size: 13px; margin: 0; font-weight: 700; }
+
+/* KPI strip */
+.strip { display: grid; grid-template-columns: repeat(5, 1fr); margin: 0; padding: 0; list-style: none; border-bottom: 1px solid var(--line); }
+.strip li { padding: 6px 12px; border-right: 1px solid var(--line); display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.strip li:last-child { border-right: 0; }
+.strip .k { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.strip .v { font: 600 18px/1.2 var(--mono); }
+.strip .d { font: 11px var(--mono); color: var(--muted); }
+.strip .alert .v { color: var(--bad); }
+
+/* Panes */
+.panes { display: grid; grid-template-columns: minmax(0, 1fr) 360px; }
+.pane { min-width: 0; }
+.pane + .pane { border-left: 1px solid var(--line); }
+.pane-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 4px 12px; background: var(--head); border-bottom: 1px solid var(--line); height: 28px; }
+.pane-head h2 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; margin: 0; }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; }
+th, td { padding: 0 8px; height: 28px; border-bottom: 1px solid #e3e7eb; text-align: left; white-space: nowrap; }
+th { font-size: 11px; font-weight: 600; color: var(--muted); background: #fafbfc; border-bottom: 1px solid var(--line); text-transform: uppercase; letter-spacing: 0.04em; }
+th.r, td.r { text-align: right; }
+tbody tr:nth-child(even) td { background: #fafbfc; }
+tbody tr.sel td { background: var(--select); }
+td.name a { color: var(--text); font-weight: 600; }
+.st { display: inline-flex; align-items: center; gap: 4px; font: 600 11px/1 var(--mono); border: 1px solid currentColor; border-radius: 2px; padding: 2px 4px; }
+.st.ok { color: var(--ok); } .st.warn { color: var(--warn); } .st.bad { color: var(--bad); }
+.mini { display: inline-block; width: 64px; height: 6px; background: #e3e7eb; vertical-align: middle; margin-right: 6px; }
+.mini span { display: block; height: 100%; background: var(--text); }
+.who { font: 11px var(--mono); color: var(--muted); }
+
+.chart { padding: 8px 12px; border-bottom: 1px solid var(--line); }
+.chart svg { width: 100%; height: auto; display: block; }
+.chart-legend { display: flex; justify-content: space-between; font: 11px var(--mono); color: var(--muted); margin-top: 4px; }
+.log td { font-size: 12px; white-space: normal; height: auto; padding: 5px 8px; vertical-align: top; }
+.log td.t { font: 11px var(--mono); color: var(--muted); white-space: nowrap; width: 1%; }
+.log td.u { font: 600 11px var(--mono); white-space: nowrap; width: 1%; }
+
+/* Style sheet */
+.sheet { border-top: 2px solid var(--bar); padding: 24px 12px 40px; background: var(--bg); }
+.sheet h2 { font-size: 16px; margin: 0; }
+.sheet h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 24px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--line); }
+.idea { color: var(--muted); margin: 4px 0 0; font-size: 13px; }
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 4px; list-style: none; margin: 0; padding: 0; }
+.sw { display: flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 2px; padding: 4px; font-size: 12px; }
+.sw i { width: 32px; height: 32px; border: 1px solid rgba(0,0,0,0.15); flex: none; }
+.sw b { display: block; }
+.sw code { font: 11px var(--mono); color: var(--muted); }
+.type-row { display: flex; gap: 12px; align-items: baseline; border-bottom: 1px solid #e3e7eb; padding: 4px 0; flex-wrap: wrap; }
+.type-row code { font: 11px var(--mono); color: var(--muted); min-width: 170px; }
+.facts td { white-space: normal; height: auto; padding: 4px 8px; }
+.facts td:first-child { font-weight: 600; width: 120px; color: var(--muted); }
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.ctl-label { display: block; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+.field { display: block; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.field input { display: block; width: 100%; margin-top: 4px; height: 24px; font: 13px var(--sans); color: var(--text); padding: 0 6px; border: 1px solid #9aa5b1; border-radius: 2px; background: #fff; text-transform: none; letter-spacing: 0; }
+.field input.is-focus { outline: 2px solid #e0a800; outline-offset: 0; background: var(--select); }
+.demo-table { border: 1px solid var(--line); }
+
+@media (max-width: 1000px) {
+  .panes { grid-template-columns: 1fr; }
+  .pane + .pane { border-left: 0; border-top: 1px solid var(--line); }
+  .strip { grid-template-columns: repeat(3, 1fr); }
+  .strip li:nth-child(3) { border-right: 0; }
+  .strip li:nth-child(n+4) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 640px) {
+  .qs, .user { display: none; }
+  .strip { grid-template-columns: repeat(2, 1fr); }
+  .strip li { border-right: 1px solid var(--line) !important; border-top: 1px solid var(--line); }
+  .strip li:nth-child(even) { border-right: 0 !important; }
+  .strip li:nth-child(-n+2) { border-top: 0; }
+  .strip li:last-child { grid-column: 1 / -1; }
+  .col-team, .col-owners, .col-tasks { display: none; }
+  .mini { width: 36px; }
+  .meta { display: none; }
+}
+/* Keeps the page within 375px: decorative shapes and the header row stay inside the screen. */
+.menubar nav { min-width: 0; flex: 0 1 auto; }
+.menubar > * { min-width: 0; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M15 15l6 6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v12M6 11l6 6 6-6M4 21h16"/></symbol>
+</svg>
+
+<header>
+  <div class="menubar">
+    <span class="brand">BRIGHTWORK</span>
+    <nav aria-label="Main">
+      <ul class="tabs">
+        <li><a href="#" aria-current="page">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Tasks</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </nav>
+    <span class="grow"></span>
+    <label class="qs"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><input type="search" placeholder="Search projects, tasks" aria-label="Search projects and tasks"><kbd>/</kbd></label>
+    <a href="#" class="user" style="color:#c7cfd7" aria-label="Notifications, 3 unread">[3]</a>
+    <span class="user"><b>m.okafor</b></span>
+  </div>
+  <div class="toolbar">
+    <h1>Dashboard</h1>
+    <span class="crumbs">· Sat 31 Oct 2026 · <b>4 overdue</b></span>
+    <span class="grow"></span>
+    <span class="meta">updated 08:42</span>
+    <button class="btn"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Export</button>
+    <button class="btn btn-primary"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>New project</button>
+  </div>
+</header>
+
+<main>
+  <ul class="strip" aria-label="Summary">
+    <li><span class="k">Active proj</span><span class="v">6</span><span class="d">+1 nxt wk</span></li>
+    <li><span class="k">Due 7d</span><span class="v">23</span><span class="d">5 proj</span></li>
+    <li class="alert"><span class="k">Overdue</span><span class="v">▲ 4</span><span class="d">2 billing</span></li>
+    <li><span class="k">Hrs/wk</span><span class="v">186</span><span class="d">+12</span></li>
+    <li><span class="k">Done/wk</span><span class="v">73</span><span class="d">prev 59</span></li>
+  </ul>
+
+  <div class="panes">
+    <section class="pane" aria-labelledby="proj-h">
+      <div class="pane-head"><h2 id="proj-h">Projects (6)</h2><a href="#" style="font-size:12px">Open full list →</a></div>
+      <div class="scroll">
+        <table>
+          <thead><tr><th class="r">#</th><th>Project</th><th class="col-team">Team</th><th>Status</th><th>Progress</th><th class="r col-tasks">Tasks</th><th>Due</th><th class="col-owners">Owners</th></tr></thead>
+          <tbody>
+            <tr><td class="r num">01</td><td class="name"><a href="#">Website redesign</a></td><td class="col-team">Design</td><td><span class="st ok">● OK</span></td><td class="num"><span class="mini" aria-hidden="true"><span style="width:72%"></span></span>72%</td><td class="r num col-tasks">18/25</td><td class="num">14 Nov</td><td class="who col-owners">pn mo at</td></tr>
+            <tr><td class="r num">02</td><td class="name"><a href="#">Mobile app 2.0</a></td><td class="col-team">Engineering</td><td><span class="st warn">▲ RISK</span></td><td class="num"><span class="mini" aria-hidden="true"><span style="width:45%"></span></span>45%</td><td class="r num col-tasks">27/60</td><td class="num">02 Dec</td><td class="who col-owners">so tr jw</td></tr>
+            <tr><td class="r num">03</td><td class="name"><a href="#">Q4 customer survey</a></td><td class="col-team">Research</td><td><span class="st ok">● OK</span></td><td class="num"><span class="mini" aria-hidden="true"><span style="width:90%"></span></span>90%</td><td class="r num col-tasks">9/10</td><td class="num">07 Nov</td><td class="who col-owners">at mo</td></tr>
+            <tr class="sel"><td class="r num">04</td><td class="name"><a href="#">Billing migration</a></td><td class="col-team">Engineering</td><td><span class="st bad">■ LATE</span></td><td class="num"><span class="mini" aria-hidden="true"><span style="width:30%"></span></span>30%</td><td class="r num col-tasks">12/40</td><td class="num">20 Nov</td><td class="who col-owners">jw so</td></tr>
+            <tr><td class="r num">05</td><td class="name"><a href="#">Spring catalogue</a></td><td class="col-team">Marketing</td><td><span class="st ok">● OK</span></td><td class="num"><span class="mini" aria-hidden="true"><span style="width:15%"></span></span>15%</td><td class="r num col-tasks">3/20</td><td class="num">15 Jan</td><td class="who col-owners">lf pn</td></tr>
+            <tr><td class="r num">06</td><td class="name"><a href="#">Onboarding emails</a></td><td class="col-team">Marketing</td><td><span class="st ok">● OK</span></td><td class="num"><span class="mini" aria-hidden="true"><span style="width:60%"></span></span>60%</td><td class="r num col-tasks">9/15</td><td class="num">21 Nov</td><td class="who col-owners">lf mo</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="meta" style="padding:6px 12px;margin:0">Status key: ● OK = on track · ▲ RISK = at risk · ■ LATE = behind</p>
+    </section>
+
+    <aside class="pane">
+      <section aria-labelledby="chart-h">
+        <div class="pane-head"><h2 id="chart-h">Done per day · 14d</h2><span class="meta">Σ 132</span></div>
+        <div class="chart">
+          <svg viewBox="0 0 280 80" role="img" aria-label="Tasks completed per day from 18 to 31 October: 3, 12, 9, 14, 11, 8, 2, then 4, 15, 13, 17, 12, 10, 2.">
+            <g stroke="#e3e7eb"><line x1="0" y1="10.5" x2="280" y2="10.5"/><line x1="0" y1="40.5" x2="280" y2="40.5"/></g>
+            <line x1="0" y1="70.5" x2="280" y2="70.5" stroke="#11161b"/>
+            <line x1="140.5" y1="4" x2="140.5" y2="76" stroke="#4a5561" stroke-dasharray="2 2"/>
+            <g fill="#8794a1"><rect x="2" y="58" width="16" height="12"/><rect x="22" y="22" width="16" height="48"/><rect x="42" y="34" width="16" height="36"/><rect x="62" y="14" width="16" height="56"/><rect x="82" y="26" width="16" height="44"/><rect x="102" y="38" width="16" height="32"/><rect x="122" y="62" width="16" height="8"/></g>
+            <g fill="#11161b"><rect x="142" y="54" width="16" height="16"/><rect x="162" y="10" width="16" height="60"/><rect x="182" y="18" width="16" height="52"/><rect x="202" y="2" width="16" height="68"/><rect x="222" y="22" width="16" height="48"/><rect x="242" y="30" width="16" height="40"/><rect x="262" y="62" width="16" height="8"/></g>
+          </svg>
+          <div class="chart-legend"><span>18–24 Oct: 59</span><span>max 17 (Wed 28)</span><span>25–31 Oct: 73</span></div>
+        </div>
+      </section>
+      <section aria-labelledby="log-h">
+        <div class="pane-head"><h2 id="log-h">Activity log</h2><a href="#" style="font-size:12px">All →</a></div>
+        <table class="log">
+          <tbody>
+            <tr><td class="t">08:30</td><td class="u">jw</td><td>Completed “Export invoices as CSV” · <a href="#">Billing migration</a></td></tr>
+            <tr><td class="t">08:02</td><td class="u">pn</td><td>Commented “Hero image options” · <a href="#">Website redesign</a></td></tr>
+            <tr><td class="t">07:42</td><td class="u">so</td><td>Moved “Push notifications” → Review · <a href="#">Mobile app 2.0</a></td></tr>
+            <tr><td class="t">06:42</td><td class="u">lf</td><td>Added 3 tasks · <a href="#">Spring catalogue</a></td></tr>
+            <tr><td class="t">05:42</td><td class="u">tr</td><td>Logged 6.0 h · <a href="#">Mobile app 2.0</a></td></tr>
+            <tr><td class="t">30 Oct</td><td class="u">at</td><td>Uploaded survey-results-v2.pdf · <a href="#">Q4 customer survey</a></td></tr>
+          </tbody>
+        </table>
+      </section>
+    </aside>
+  </div>
+</main>
+
+<section class="sheet" aria-labelledby="sheet-h">
+  <h2 id="sheet-h">Style 3 · Dense listing</h2>
+  <p class="idea">A compact work tool: tables, mono figures and terse labels that fit the whole picture on one screen without scrolling.</p>
+
+  <h3>Palette</h3>
+  <ul class="swatches">
+    <li class="sw"><i style="background:#ffffff"></i><div><b>Background</b><code>#ffffff · tables, page</code></div></li>
+    <li class="sw"><i style="background:#f3f5f7"></i><div><b>Panel</b><code>#f3f5f7 · toolbar</code></div></li>
+    <li class="sw"><i style="background:#e8ecf0"></i><div><b>Pane head</b><code>#e8ecf0 · section bars</code></div></li>
+    <li class="sw"><i style="background:#20262d"></i><div><b>Menu bar</b><code>#20262d · top bar</code></div></li>
+    <li class="sw"><i style="background:#11161b"></i><div><b>Text</b><code>#11161b · body, bars</code></div></li>
+    <li class="sw"><i style="background:#4a5561"></i><div><b>Muted</b><code>#4a5561 · headers, meta</code></div></li>
+    <li class="sw"><i style="background:#cfd5dc"></i><div><b>Line</b><code>#cfd5dc · grid lines</code></div></li>
+    <li class="sw"><i style="background:#0b6b57"></i><div><b>Accent / OK</b><code>#0b6b57 · links, primary, OK</code></div></li>
+    <li class="sw"><i style="background:#875200"></i><div><b>Risk</b><code>#875200 · ▲ RISK</code></div></li>
+    <li class="sw"><i style="background:#b3261e"></i><div><b>Late</b><code>#b3261e · ■ LATE, overdue</code></div></li>
+    <li class="sw"><i style="background:#fff4c2"></i><div><b>Select</b><code>#fff4c2 · selected row, focus fill</code></div></li>
+    <li class="sw"><i style="background:#e0a800"></i><div><b>Focus ring</b><code>#e0a800 · 2px outline</code></div></li>
+  </ul>
+
+  <h3>Type · system-ui for words · ui-monospace, Menlo, Consolas for figures</h3>
+  <div class="type-row"><code>mono 18 / 600</code><span class="num" style="font-size:18px;font-weight:600">186</span></div>
+  <div class="type-row"><code>sans 13 / 700</code><span style="font-weight:700">Dashboard</span></div>
+  <div class="type-row"><code>sans 13 / 600</code><span style="font-weight:600">Website redesign</span></div>
+  <div class="type-row"><code>sans 12 / 400</code><span style="font-size:12px">Moved “Push notifications” → Review</span></div>
+  <div class="type-row"><code>sans 11 / 600 caps</code><span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)">Progress</span></div>
+  <div class="type-row"><code>mono 11 / 600 badge</code><span class="st bad">■ LATE</span></div>
+
+  <h3>Spacing, corners and depth</h3>
+  <table class="facts demo-table"><tbody>
+    <tr><td>Spacing</td><td>4px unit · 8px cell padding · 12px pane padding</td></tr>
+    <tr><td>Density</td><td>High. 28px rows, about 20 rows visible on a laptop.</td></tr>
+    <tr><td>Corners</td><td>2px on controls and badges, square everywhere else</td></tr>
+    <tr><td>Borders</td><td>1px #cfd5dc grid lines between panes and under headers, #e3e7eb between rows</td></tr>
+    <tr><td>Shadows</td><td>None</td></tr>
+    <tr><td>Icons</td><td>12px square-cap line icons only in buttons. Status uses shape glyphs ● ▲ ■ with a code word.</td></tr>
+    <tr><td>Tone</td><td>Terse and technical: “Due 7d”, “Hrs/wk”, “Open full list →”</td></tr>
+  </tbody></table>
+
+  <h3>Controls · normal and focus</h3>
+  <div class="controls">
+    <div><span class="ctl-label">Buttons</span><button class="btn btn-primary">Save</button> <button class="btn btn-primary is-focus">Focused</button></div>
+    <div><span class="ctl-label">Secondary</span><button class="btn">Cancel</button> <button class="btn is-focus">Focused</button></div>
+    <div><label class="field">Project name<input value="Website redesign"></label></div>
+    <div><label class="field">Focused field<input class="is-focus" value="Mobile app 2.0"></label></div>
+    <div><span class="ctl-label">Table row</span><table class="demo-table"><tbody><tr><td class="name"><a href="#">Billing migration</a></td><td><span class="st bad">■ LATE</span></td><td class="num">30%</td></tr></tbody></table></div>
+    <div><span class="ctl-label">Table row, selected</span><table class="demo-table"><tbody><tr class="sel"><td class="name" style="background:var(--select)"><a href="#">Billing migration</a></td><td style="background:var(--select)"><span class="st bad">■ LATE</span></td><td class="num" style="background:var(--select)">30%</td></tr></tbody></table></div>
+  </div>
+</section>
+</body>
+</html>
