@@ -1,8 +1,8 @@
 use @piton/belay
 
-from ../lib/PitonSkillBase import PitonSkillBase
+from ../lib/BaseSpecSkill import BaseSpecSkill
 
-export skill CruxSpecDevelop extends PitonSkillBase:
+export skill CruxSpecDevelop extends BaseSpecSkill:
     description:
         Transforms a project idea, however vague, a feature request, a
         technical question, or a high-level requirement into a
@@ -160,8 +160,8 @@ export skill CruxSpecDevelop extends PitonSkillBase:
         budget is exhausted, stop asking and proceed to the research,
         decomposition, proposal, or authorized integration the
         request calls for, recording what remains unresolved as open
-        questions or recommending crux-spec-deep-dive when a deeper
-        interview is warranted. If the user asks for no questions,
+        questions or recommending a later, deeper interview when one is
+        warranted. If the user asks for no questions,
         work autonomously from the project and the evidence and keep
         every unsupported choice unresolved rather than guessed.
 
@@ -286,8 +286,8 @@ export skill CruxSpecDevelop extends PitonSkillBase:
         and the evidence already answer what matters. Having five
         questions available never obliges you to spend all five on
         low-value detail. Material uncertainties that outlast the
-        budget become open questions or a recommended
-        crux-spec-deep-dive, not extra questions asked past it.
+        budget become open questions or a recommended later interview,
+        not extra questions asked past it.
 
         When comparing technologies or architectures, evaluate the
         alternatives against criteria selected for this actual problem,
@@ -347,10 +347,7 @@ export skill CruxSpecDevelop extends PitonSkillBase:
         invariants, failure semantics, dependencies, acceptance criteria,
         explicit exclusions, and unresolved decisions, and never fabricate
         requirements to make it appear complete. Evaluate consequences
-        for existing specifications and architecture, using
-        crux-spec-impact when installed for substantial impact analysis
-        and consulting crux-arch-explore, crux-arch-tradeoffs, or
-        crux-arch-risks when appropriate, without requiring any of them.
+        for existing specifications and architecture.
 
         Present a concise, decision-oriented proposal explaining what the
         feature adds, why it belongs in this project, what it requires,
@@ -373,18 +370,9 @@ export skill CruxSpecDevelop extends PitonSkillBase:
         proposal.
 
     delegation:
-        The usual hand-offs while developing are crux-spec-review when a
-        feature or research reveals significant ambiguity,
-        contradictions, or missing contracts, crux-spec-deep-dive when
-        major design decisions need substantial interactive user input,
-        crux-spec-coverage to find missing behaviors and scenarios as a
-        specification is expanded, and crux-spec-impact before a
-        significant proposed change is integrated. crux-spec-refactor
-        fits where integrating a capability would benefit from
-        reorganizing existing specifications, and it remains a separate,
-        explicitly authorized operation. Research itself is a native
-        responsibility of this skill, so never depend on another
-        research skill for ordinary technical investigation.
+        Research is a native responsibility of this skill, so never
+        depend on another research skill for ordinary technical
+        investigation.
 
     authorityIntegrationAndOutput:
         Preserve user authority by distinguishing researching a feature,

@@ -1,9 +1,3 @@
-// Specification skills: develop, deepen, review, measure, refactor
-// and distil Piton specifications.
-from ./CruxSpecCoverage export *
-from ./CruxSpecDeepDive export *
+// Specification skills: develop Piton specifications.
+from ./CruxSpecDescribe export *
 from ./CruxSpecDevelop export *
-from ./CruxSpecDistill export *
-from ./CruxSpecImpact export *
-from ./CruxSpecRefactor export *
-from ./CruxSpecReview export *

@@ -1,5 +1,0 @@
-use @piton/config
-
-export piton-config LookbookProject:
-    root: ./spec
-    entry: ./spec/index.pi

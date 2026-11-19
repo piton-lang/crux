@@ -1,0 +1,12 @@
+export abstract anchor PitonFluency:
+    pitonFluency:
+        Before you do Piton work, run piton agent --print-fluency in the
+        project and read all of the output. Do this one time in each
+        context. If you already read it in this context, use that
+        reading.
+
+        The output is the correct reference for Piton syntax, project
+        structure, commands and conventions. Do not invent syntax,
+        commands or conventions. Use the compiler and its commands to
+        find how Piton works. Do not make your own interpretation of it.
+        If you cannot get the output, tell the user. Do not guess.
