@@ -1,0 +1,18 @@
+from ./WorkingWithPiton import WorkingWithPiton
+from ./spec/SpecInheritance import SpecInheritance
+from ./spec/SpecOrganization import SpecOrganization
+
+export abstract anchor SpecWriting:
+    workingWithPiton:
+        {WorkingWithPiton.base}
+
+    specProse:
+        Write the prose of a specification in ASD-STE100 Simplified Technical
+        English. Keep the structure that the specification needs. Put prose in
+        string blocks, and put structure in keys and lists.
+
+    specOrganization:
+        {SpecOrganization.base}
+
+    specInheritance:
+        {SpecInheritance}

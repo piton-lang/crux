@@ -1,0 +1,8 @@
+export anchor SpecInheritance:
+    base:
+        - Use inheritance when two or more anchors share properties.
+        - Put the shared properties in an abstract base. Put shared bases in a
+            lib folder.
+        - Do not make a base for only one anchor.
+        - Give an abstract base a keyword when many anchors implement it.
+        - Keep each inheritance chain short.

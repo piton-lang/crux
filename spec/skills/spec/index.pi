@@ -1,3 +1,2 @@
-// Specification skills: develop Piton specifications.
 from ./CruxSpecDescribe export *
 from ./CruxSpecDevelop export *

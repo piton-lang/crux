@@ -1,0 +1,21 @@
+export anchor AsdSte100:
+    base:
+        Write in ASD-STE100 Simplified Technical English.
+
+        This rule applies while this skill is in use. It does not stop when the
+        topic changes.
+
+        - Use approved words. Use one word for one meaning.
+        - Write technical names, commands and code as they are.
+        - Write 20 words or fewer in an instruction and 25 words or fewer in a
+            description.
+        - Write one topic in each sentence and in each paragraph.
+        - Use the active voice and the simple present, past or future tense.
+        - Use the imperative for instructions.
+        - Do not use -ing forms, contractions or phrasal verbs.
+        - Use articles. Write noun clusters of 3 words or fewer.
+        - Write literally. Do not use idioms or figures of speech.
+        - Use a vertical list for steps and for facts that have the same shape.
+
+        The instructions of the skill decide what a reply must contain. Keep all
+        of it, and write it in ASD-STE100.

@@ -1,0 +1,13 @@
+export anchor SpecOrganization:
+    base:
+        - Put one exported anchor in each file. Give the file the name of the
+            anchor.
+        - Put related files in one folder. Give each folder an index.pi with
+            from ./X export * for each file.
+        - Make a new folder when a topic has more than one file, or when a
+            folder holds unrelated topics.
+        - Make sure that the entry reaches each new file through the index
+            files.
+        - Use the words of the user for names. Anchor names are UpperCamelCase.
+            Property names are lowerCamelCase.
+        - Use \ @{X} \ to refer to an anchor. Do not copy its content.

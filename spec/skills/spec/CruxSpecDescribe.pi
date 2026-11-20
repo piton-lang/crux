@@ -1,61 +1,57 @@
 use @piton/belay
 
-from ../lib/BaseSpecSkill import BaseSpecSkill
+from ../../lib/BaseSpecSkill import BaseSpecSkill
+from ../../lib/spec/SpecRefactoring import SpecRefactoring
 
 export skill CruxSpecDescribe extends BaseSpecSkill:
     description:
-        Writes a Piton specification from descriptions and statements
-        that the user gives one at a time. After each statement, it
-        keeps the specification clean, organized and simple.
+        Writes a Piton specification from descriptions and statements that the
+        user gives one at a time. After each statement, it keeps the
+        specification clean, organized and simple.
     useWhen:
-        the user wants to describe what to build, one statement at a
-        time, and wants each statement written into the specification
+        the user wants to describe what to build, one statement at a time, and
+        wants each statement written into the specification
     prompt:
-        The user gives descriptions and statements about what to build.
-        The user gives them one at a time. Write each statement into the
-        specification, then wait for the next statement. Continue until
-        the user stops.
+        The user gives descriptions and statements about what to build. The user
+        gives them one at a time. Write each statement into the specification,
+        then wait for the next statement. Continue until the user stops.
 
-        Each statement is a requirement from the user. Write only what
-        the user said. Do not add requirements that the user did not
-        give. Keep the specification clean, organized and simple after
-        each statement.
+        Each statement is a requirement from the user. Write only what the user
+        said. Do not add requirements that the user did not give. Keep the
+        specification clean, organized and simple after each statement.
 
     eachStatement:
         - Find the topic of the statement.
-        - Find the anchors that the statement changes. Use piton reach and piton slice.
+        - Find the anchors that the statement changes. Use piton reach and piton
+            slice.
         - Decide where the statement goes. Use the rules in Placement.
         - Write the change.
-        - Refactor if the change makes the specification less simple. Use the rules in Refactoring.
+        - Refactor if the change makes the specification less simple. Use the
+            rules in Refactoring.
         - Run piton format, piton check and piton build. Fix each problem.
         - Report the result, then ask for the next statement.
 
     placement:
-        - If an anchor already holds the topic, add the statement to that anchor.
+        - If an anchor already holds the topic, add the statement to that
+            anchor.
         - If the topic is new, make a new anchor in a new file.
-        - If the statement holds more than one requirement, write each requirement in the correct place.
-        - If the statement repeats a requirement, do not write it again. Tell the user where it is.
-        - If the statement is not clear, ask one short question before you write it.
+        - If the statement holds more than one requirement, write each
+            requirement in the correct place.
+        - If the statement repeats a requirement, do not write it again. Tell
+            the user where it is.
+        - If the statement is not clear, ask one short question before you write
+            it.
 
     conflicts:
-        If a statement does not agree with the specification, do not
-        change the specification. Show the user the statement and the
-        requirement that it does not agree with. Ask which one is
-        correct. Then write the answer.
+        If a statement does not agree with the specification, do not change the
+        specification. Show the user the statement and the requirement that it
+        does not agree with. Ask which one is correct. Then write the answer.
 
     refactoring:
-        After each change, examine the files that you changed and the
-        files near them. Refactor when you find one of these problems.
+        After each change, examine the files that you changed and the files near
+        them. Refactor when you find one of these problems.
 
-        - The same text or the same properties in two or more anchors.
-        - A file with more than one exported anchor.
-        - An anchor that holds more than one topic.
-        - A folder that holds unrelated topics, or too many files.
-        - A base or a folder that has no purpose now.
-
-        A refactor must not change the meaning of the specification. A
-        refactor that renames an export or moves more than 5 files needs
-        approval from the user first.
+        {SpecRefactoring.base}
 
     report:
         After each statement, give a short report.
@@ -66,5 +62,5 @@ export skill CruxSpecDescribe extends BaseSpecSkill:
         - End with one line that asks for the next statement.
 
     newProject:
-        If the project has no piton.config.pi, tell the user. Offer to
-        run piton init before the first statement.
+        If the project has no piton.config.pi, tell the user. Offer to run piton
+        init before the first statement.

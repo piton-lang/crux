@@ -1,0 +1,13 @@
+export anchor SpecRefactoring:
+    base:
+        Refactoring spec should be done when
+
+        - The same text or the same properties in two or more anchors.
+        - A file with more than one exported anchor.
+        - An anchor that holds more than one topic.
+        - A folder that holds unrelated topics, or too many files.
+        - A base or a folder that has no purpose now.
+
+        A refactor must not change the meaning of the specification. A refactor
+        that renames an export or moves more than 5 files needs approval from
+        the user first.

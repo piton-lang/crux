@@ -1,0 +1,21 @@
+export anchor WorkingWithPiton:
+    base:
+        Read piton.config.pi to find the source root, the entry, the output, the
+        plugins and the adapters. Then read the entry and its index files to the
+        anchors of the task. The compiled reference gives an overview. If it
+        does not agree with the source, the source is correct.
+
+        Read the related source before you change it. Do not edit generated
+        output. This includes generated guidance files, skill, command and agent
+        files, renderer output, and files in .piton/manifest.json. Make each
+        change in the .pi source, then build again.
+
+        Open a reference only when the work needs it. Use piton reach to find
+        what a change can affect. Use piton slice to read only the spec that one
+        anchor or property needs.
+
+        Make the smallest change that does the task. Use the conventions of the
+        files near it. Then run piton format and piton check, and fix each
+        problem in the source. Run piton build and read the diff of the
+        generated files. Report each compiler error and warning as it is, with
+        its file. Do not report success that the compiler did not show.
